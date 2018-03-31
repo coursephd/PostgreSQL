@@ -1,0 +1,49 @@
+Please find below details for accessing the database. You will have to install Postgress locally on your system and then connect to the database as per details below.
+
+ 
+
+Postgress DB details:
+
+Hostname: 54.244.12.255 
+port: 5432
+user: iaim_ro
+password: a1b2c3
+
+
+
+create table new as
+SELECT
+   relname AS objectname,
+   relkind AS objecttype,
+   reltuples AS "#entries", pg_size_pretty(relpages::bigint*8*1024) AS size
+   FROM pg_class
+   WHERE relpages >= 8 and relkind ='r'
+   ORDER BY relpages DESC;
+
+   pg_dump --table=new --data-only --column-inserts public > 'd:/hospital_data/data.sql';
+   pg_dump -U iaim_ro --data-only --column-inserts -t public.new > 'd:/hospital_data/ProgresSQL/new.sql';
+   
+   Working:    \copy new TO 'd:/hospital_data/ProgresSQL/new.csv' CSV DELIMITER ',';
+   
+
+   psql -U iaim_ro -d iaim -c "Copy (Select * From patient_details LIMIT 100) To STDOUT With CSV HEADER DELIMITER ',';" > 'd:/hospital_data/ProgresSQL/patient_details.csv';
+   
+pg_dump -h 54.255.12.255 -p 5432 -U iaim_ro -W a1b2c3 -t public.new --column-inserts -f 'd:/hospital_data/ProgresSQL/new2.sql';
+
+-s public -t new > '/d:/hospital_data/ProgresSQL/new2.sql';
+
+D:\\my-postgreSQL\\bin\\pg_dump.exe -U postgres public.new > '/d:/hospital_data/ProgresSQL/new2.sql';    
+   
+   
+   
+\dt[+] iaim.*;
+
+ selec * from iaim.city;
+ 
+ SELECT count(*) AS totalTables FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'public';
+ 
+	where table_schema = 'iaim';
+
+	
+	
+SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size, FROM pg_database;
