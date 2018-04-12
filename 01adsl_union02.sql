@@ -207,6 +207,12 @@ alter column frequency type varchar ;
 
 \copy iaim.services TO 'd:/hospital_data/ProgresSQL/data_chk/services.csv' CSV HEADER DELIMITER ',';
 
+create table med as
+select distinct medicine_name, medicine_id 
+from iaim.medicine_sales_view;
+
+\copy med TO 'd:/hospital_data/ProgresSQL/data_chk/med.csv' CSV HEADER DELIMITER ',';
+
 
 /* UNION tables base01_op, base01_ip, base01_ser */
 
