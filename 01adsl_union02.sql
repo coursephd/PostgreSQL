@@ -200,6 +200,14 @@ drop column ser_mrno,
 drop column ser_patient_id,
 alter column frequency type varchar ;
 
+
+\copy base01_ip TO 'd:/hospital_data/ProgresSQL/data_chk/base01_ip.csv' CSV HEADER DELIMITER ',';
+\copy base01_op TO 'd:/hospital_data/ProgresSQL/data_chk/base01_op.csv' CSV HEADER DELIMITER ',';
+\copy base01_ser TO 'd:/hospital_data/ProgresSQL/data_chk/base01_ser.csv' CSV HEADER DELIMITER ',';
+
+\copy iaim.services TO 'd:/hospital_data/ProgresSQL/data_chk/services.csv' CSV HEADER DELIMITER ',';
+
+
 /* UNION tables base01_op, base01_ip, base01_ser */
 
 create table base_all as
