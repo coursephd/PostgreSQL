@@ -1,0 +1,1864 @@
+option_id,field_id,display_order,option_value,status,value_code,phrase_category_id,pattern_id,old_option_id
+263,52,1,LMP,A,"",,,
+264,52,2,POG,A,"",,,
+265,52,3,EDD,A,"",,,
+266,52,4,G,A,"",,,
+267,52,5,P,A,"",,,
+268,52,6,A,A,"",,,
+269,52,7,L,A,"",,,
+270,52,8,D,A,"",,,
+367,52,9,Antenatal/Foetal History,A,0,,,
+423,109,1,Vegan,A,0,,,
+424,109,2,Lacto vegan,A,0,,,
+425,109,3,Ova Vegan,A,0,,,
+426,109,4,Mixed Diet,A,0,,,
+382,98,1,Rasa,A,0,,,
+71,9,0,Fever,A,,,,
+72,9,0,Chills,A,,,,
+73,9,0,Night Sweats,A,,,,
+74,9,0,Fatigue,A,,,,
+75,10,0,Blurred Vision,A,,,,
+76,10,0,Eye Pain,A,,,,
+77,10,0,Eye Discharge,A,,,,
+78,10,0,Dry Eyes,A,,,,
+79,10,0,Decreased Vision,A,,,,
+80,11,0,Sore Throat,A,,,,
+81,11,0,Nose Bleed,A,,,,
+82,11,0,Decreased Hearing,A,,,,
+83,11,0,Ear Pain,A,,,,
+84,11,0,Ear Discharge,A,,,,
+85,12,0,Chest Pain,A,,,,
+86,12,0,Palpitation,A,,,,
+87,12,0,Edema,A,,,,
+88,12,0,Vertigo,A,,,,
+89,13,0,Shortness of Breath,A,,,,
+90,13,0,Cough,A,,,,
+91,13,0,Wheezing,A,,,,
+92,14,0,Nausea,A,,,,
+93,14,0,Vomiting,A,,,,
+94,14,0,Excessive Thirst,A,,,,
+95,14,0,Diarrhea,A,,,,
+96,14,0,Vomiting Blood,A,,,,
+97,14,0,Blood in Stool,A,,,,
+98,14,0,Constipation,A,,,,
+99,14,0,Abdominal Pain,A,,,,
+100,15,0,Hematuria,A,,,,
+101,15,0,Dysuria,A,,,,
+102,15,0,Urinary Frequency,A,,,,
+103,16,0,Joint Pain,A,,,,
+104,16,0,Muscle Pain,A,,,,
+105,16,0,Muscle Weakness,A,,,,
+106,16,0,Joint Swelling,A,,,,
+107,17,0,Rash,A,,,,
+108,17,0,Dryness,A,,,,
+109,17,0,Itching,A,,,,
+110,17,0,Sores,A,,,,
+111,17,0,Nail Discoloration,A,,,,
+112,17,0,Abscess,A,,,,
+113,18,0,Headache,A,,,,
+114,18,0,Numbness,A,,,,
+115,18,0,Lack of Coordination,A,,,,
+116,18,0,Tremor,A,,,,
+117,18,0,Vertigo,A,,,,
+118,19,0,Depression,A,,,,
+119,19,0,Anxiety,A,,,,
+120,19,0,Alcohol Abuse,A,,,,
+121,19,0,Drug Abuse,A,,,,
+122,19,0,Sleeplessness,A,,,,
+123,20,0,Excessive Thirst,A,,,,
+124,20,0,Cold Intolerance,A,,,,
+125,20,0,Heat Intolerance,A,,,,
+126,21,0,Swollen Glands,A,,,,
+127,21,0,Easy Bruising,A,,,,
+128,21,0,Blood Clots,A,,,,
+129,22,0,Allergic Rhinitis,A,,,,
+130,22,0,Asthma,A,,,,
+131,22,0,Hives,A,,,,
+132,23,0,Fever,A,,,,
+133,23,0,Chills,A,,,,
+134,23,0,Tremor,A,,,,
+135,23,0,Weakness,A,,,,
+136,24,0,Eye Pain,A,,,,
+137,24,0,Eye Discharge,A,,,,
+138,24,0,Eye Dryness,A,,,,
+139,24,0,Eye Redness,A,,,,
+140,24,0,Myopia,A,,,,
+141,24,0,Hypermetropia,A,,,,
+142,24,0,Cataract,A,,,,
+143,24,0,Diplopia,A,,,,
+144,24,0,Photophobia,A,,,,
+145,25,0,Otalgia,A,,,,
+146,25,0,Otorrhea,A,,,,
+147,25,0,Dizziness,A,,,,
+148,25,0,Tinnitus,A,,,,
+149,25,0,Deafness,A,,,,
+150,25,0,Cold,A,,,,
+151,25,0,Epistaxis,A,,,,
+28,2,0,Sharp,A,"",,,
+29,2,0,Throbbing,A,"",,,
+30,2,0,Burning,A,"",,,
+31,2,0,Radiating,A,"",,,
+32,2,0,Others,A,"",,,
+33,3,0,Yesterday,A,"",,,
+34,3,0,2 Days ago,A,"",,,
+35,3,0,4 Days ago,A,"",,,
+36,3,0,6 Days ago,A,"",,,
+37,3,0,1 Week ago,A,"",,,
+38,3,0,2 Weeks ago,A,"",,,
+39,3,0,3 Weeks ago,A,"",,,
+40,3,0,4 Weeks ago,A,"",,,
+41,3,0,2 Months ago,A,"",,,
+42,3,0,3 Months ago,A,"",,,
+43,3,0,4 Months ago,A,"",,,
+44,3,0,6 Months ago,A,"",,,
+45,4,0,Constant,A,"",,,
+46,4,0,Frequent,A,"",,,
+47,4,0,Intermittent,A,"",,,
+48,5,0,Fall,A,"",,,
+49,5,0,Lifting Heavy Object,A,"",,,
+50,6,0,Better when heat is applied,A,"",,,
+51,6,0,Better when ice pack is applied,A,"",,,
+52,6,0,Better when lying down,A,"",,,
+53,7,0,Mild,A,"",,,
+54,7,0,Moderate,A,"",,,
+55,7,0,Severe,A,"",,,
+56,7,0,Pain scale 2/10,A,"",,,
+57,7,0,Pain scale 4/10,A,"",,,
+58,7,0,Pain scale 6/10,A,"",,,
+59,7,0,Pain scale 8/10,A,"",,,
+60,7,0,Pain scale 10/10,A,"",,,
+61,8,0,Numbness,A,"",,,
+62,8,0,Weakness,A,"",,,
+63,8,0,Dizziness,A,"",,,
+64,8,0,Vomiting,A,"",,,
+65,8,0,Nausea,A,"",,,
+66,8,0,Fever,A,"",,,
+67,8,0,Cough,A,"",,,
+68,8,0,Headache,A,"",,,
+69,8,0,Myalgia,A,"",,,
+70,8,0,Abdominal Pain,A,"",,,
+383,98,2,Rakta,A,0,,,
+384,98,3,Mamsa,A,0,,,
+385,98,4,Meda,A,0,,,
+482,129,7,Posture,A,0,,,
+483,129,8,Mental State,A,0,,,
+484,129,9,Facies,A,0,,,
+152,25,0,Nasal Congestion,A,,,,
+153,25,0,Sneezing,A,,,,
+154,25,0,Rhinorrhea,A,,,,
+155,25,0,Sinusitis,A,,,,
+156,25,0,Disphagia,A,,,,
+157,25,0,Sore Throat,A,,,,
+158,26,0,Chest Pain,A,,,,
+159,26,0,Ankle Swelling,A,,,,
+160,26,0,Palpitation,A,,,,
+161,26,0,Tachycardia,A,,,,
+162,26,0,Bradychardia,A,,,,
+163,26,0,Dyspnea,A,,,,
+164,26,0,Vertigo,A,,,,
+165,26,0,Cardiac Murmur,A,,,,
+166,26,0,Hypertension,A,,,,
+167,26,0,Hypotension,A,,,,
+168,27,0,Shortness of Breath,A,,,,
+169,27,0,Wheezing,A,,,,
+170,27,0,Dyspnea,A,,,,
+171,27,0,Cough,A,,,,
+172,27,0,Apnea,A,,,,
+173,27,0,Asthma,A,,,,
+174,28,0,Nausea,A,,,,
+175,28,0,Vomiting,A,,,,
+176,28,0,Diarrhea,A,,,,
+177,28,0,Melena,A,,,,
+178,28,0,Abdominal Cramping,A,,,,
+179,28,0,Belching,A,,,,
+180,28,0,Constipation,A,,,,
+181,28,0,Appetite,A,,,,
+182,28,0,Abdominal Pain,A,,,,
+183,29,0,Amenorrhea,A,,,,
+184,29,0,Leukorrhea,A,,,,
+185,29,0,Dysmenorrhea,A,,,,
+186,29,0,Mastodynia,A,,,,
+187,29,0,Testicular Pain,A,,,,
+188,29,0,Penile Discharge,A,,,,
+189,29,0,Hematuria,A,,,,
+190,29,0,Urinary Incontinence,A,,,,
+191,29,0,Urinary Frequency,A,,,,
+192,29,0,Renal Colic,A,,,,
+193,29,0,Nocturia,A,,,,
+194,30,0,Lumbago,A,,,,
+195,30,0,Cervicalgia,A,,,,
+196,30,0,Arthralgia,A,,,,
+197,30,0,Stiffness,A,,,,
+198,30,0,Swelling,A,,,,
+199,30,0,Myalgia,A,,,,
+200,30,0,Pain in the Limb,A,,,,
+201,30,0,Edema,A,,,,
+202,31,0,Rash,A,,,,
+203,31,0,Sunburn,A,,,,
+204,31,0,Urticaria,A,,,,
+205,31,0,Discoloration,A,,,,
+206,31,0,Hair Loss,A,,,,
+207,31,0,Itching,A,,,,
+208,31,0,Warts,A,,,,
+209,31,0,Pallor,A,,,,
+210,32,0,Headache,A,,,,
+211,32,0,Numbness,A,,,,
+212,32,0,Lack of Coordination,A,,,,
+213,32,0,Tremor,A,,,,
+214,32,0,Vertigo,A,,,,
+215,33,0,Anxiety,A,,,,
+216,33,0,Depression,A,,,,
+217,33,0,Mood Disorders,A,,,,
+218,33,0,Insomnia,A,,,,
+219,34,0,Excessive Thirst,A,,,,
+220,34,0,Cold Intolerance,A,,,,
+221,34,0,Heat Intolerance,A,,,,
+222,35,0,Enalrgement of Lymph Nodes,A,,,,
+223,35,0,Anemia,A,,,,
+224,35,0,Bruising,A,,,,
+225,35,0,Allergy,A,,,,
+226,36,0,Allergic Rhinitis,A,,,,
+227,36,0,Asthma,A,,,,
+228,36,0,Hives,A,,,,
+229,42,1,Menarche (yrs),A,0,,,
+230,42,2,Menopause (yrs),A,0,,,
+231,42,3,LMP,I,0,,,
+232,42,4,Menstrual Cycle (Days),I,0,,,
+233,44,1,Thick,A,0,,,
+234,44,2,Thin,A,0,,,
+235,45,1,Scanty,A,0,,,
+236,45,2,Moderate,A,0,,,
+237,45,3,Heavy,A,0,,,
+238,46,1,Present,A,0,,,
+239,46,2,Absent,A,0,,,
+240,47,1,Present,A,0,,,
+241,47,2,Absent,A,0,,,
+242,48,1,MH,A,"",,,
+243,48,2,LMP,A,"",,,
+244,48,3,PMH,A,"",,,
+245,49,1,Colour,A,"",,,
+246,49,2,Consistency,A,"",,,
+247,49,3,Flow,A,"",,,
+248,49,4,Clots,A,"",,,
+249,49,5,Smell,A,"",,,
+250,49,6,Discharge,A,"",,,
+251,49,7,Pre Menstrual Symptoms,A,"",,,
+252,49,8,Menopausal Symptoms,A,"",,,
+253,50,1,Married,A,"",,,
+254,50,2,Single,A,"",,,
+255,50,3,Widow,A,"",,,
+256,50,4,Widower,A,"",,,
+257,50,5,Separated,A,"",,,
+258,51,1,FTND,A,"",,,
+259,51,2,PTND,A,"",,,
+260,51,3,LSCS,A,"",,,
+261,51,4,Instrumental,A,"",,,
+262,51,5,Complications,A,"",,,
+368,96,1,Vataja,A,0,,,
+369,96,2,Pittaja,A,0,,,
+370,96,3,Kaphaja,A,0,,,
+371,96,4,Vata Pittaja,A,0,,,
+372,96,5,Vata Kaphaja,A,0,,,
+373,96,6,Pitta Kaphaja,A,0,,,
+271,53,1,Consanginous,A,"",,,
+272,53,2,Non Consanginous,A,"",,,
+273,54,1,Vata,A,"",,,
+274,54,2,Pitta,A,"",,,
+275,54,3,Kapha,A,"",,,
+276,54,4,Vata Pitta,A,"",,,
+277,54,5,Vata Kapha,A,"",,,
+278,54,6,Pitta Vata,A,"",,,
+279,54,7,Pitta Kapha,A,"",,,
+280,54,8,Kapha Vata,A,"",,,
+281,54,9,Kapha Pitta,A,"",,,
+282,54,10,Sannipataja,A,"",,,
+283,55,1,Rasa,A,"",,,
+284,55,2,Rakta,A,"",,,
+285,55,3,Mamsa,A,"",,,
+286,55,4,Meda,A,"",,,
+287,55,5,Asthi,A,"",,,
+288,55,6,Majja,A,"",,,
+289,55,7,Shukra,A,"",,,
+290,55,8,Mala,A,"",,,
+291,55,9,Mutra,A,"",,,
+292,55,10,Sweda,A,"",,,
+293,55,11,Stanya,A,"",,,
+294,55,12,Artava,A,"",,,
+295,55,13,Kandara,A,"",,,
+296,55,14,Sira,A,"",,,
+297,55,14,Twacha,A,"",,,
+298,55,15,Vasa,A,"",,,
+299,55,16,Snayu,A,"",,,
+300,55,17,Ojas,A,"",,,
+301,55,18,Danta,A,"",,,
+302,56,1,Pranavaha,A,"",,,
+303,56,2,Udakavaha,A,"",,,
+304,56,3,Annavaha,A,"",,,
+305,56,4,Rasavaha,A,"",,,
+306,56,5,Raktavaha,A,"",,,
+307,56,6,Mamsavaha,A,"",,,
+308,56,7,Medovaha,A,"",,,
+309,56,8,Asthivaha,A,"",,,
+310,56,9,Majjavaha,A,"",,,
+311,56,10,Sukravaha,A,"",,,
+312,56,11,Artavavaha,A,"",,,
+313,56,12,Pureeshavaha,A,"",,,
+314,56,13,Mutravaha,A,"",,,
+315,56,14,Swedavaha,A,"",,,
+316,56,15,Manovaha,A,"",,,
+317,56,16,Viddalaxana,A,"",,,
+318,57,1,Ati pravrutti,A,"",,,
+319,57,2,Sangha,A,"",,,
+320,57,3,Vimarga gamana,A,"",,,
+321,57,4,Sira granthi,A,"",,,
+322,58,1,Bahya,A,"",,,
+323,58,2,Madhyama,A,"",,,
+324,58,3,Abhyantara,A,"",,,
+325,59,1,Sadhya,A,"",,,
+326,59,2,Kashta sadhya,A,"",,,
+327,59,3,Yapya,A,"",,,
+328,59,4,Asadhya,A,"",,,
+329,60,1,Pravara,A,"",,,
+330,60,2,Madhyama,A,"",,,
+331,60,3,Avara,A,"",,,
+348,71,1,Ahara,A,"",,,
+349,71,2,Vihara,A,"",,,
+350,71,3,Nidra,A,"",,,
+351,71,4,Vyayama,A,"",,,
+352,71,5,Vyavaya,A,"",,,
+353,71,6,Mala,A,"",,,
+354,71,7,Mutra,A,"",,,
+355,71,8,Madakari Dravya Abhyasa,A,"",,,
+422,108,1,Jeerna (> 60yrs),A,0,,,
+359,75,1,Upashaya,A,"",,,
+360,75,2,Anupashaya,A,"",,,
+1,1,0,Scalp,A,"",,,
+2,1,0,Face,A,"",,,
+3,1,0,Neck,A,"",,,
+4,1,0,Throat,A,"",,,
+5,1,0,Eyes,A,"",,,
+6,1,0,Ears,A,"",,,
+7,1,0,Nose,A,"",,,
+8,1,0,Teeth,A,"",,,
+9,1,0,Teeth,A,"",,,
+10,1,0,Tongue,A,"",,,
+11,1,0,Lips,A,"",,,
+12,1,0,Head,A,"",,,
+13,1,0,Chest,A,"",,,
+14,1,0,Abdomen,A,"",,,
+15,1,0,Uterus,A,"",,,
+16,1,0,Cervical Spine,A,"",,,
+17,1,0,Lubosacral Spine,A,"",,,
+18,1,0,Shoulders,A,"",,,
+19,1,0,Hand,A,"",,,
+20,1,0,Wrist,A,"",,,
+21,1,0,Fingers,A,"",,,
+22,1,0,Pelvis,A,"",,,
+23,1,0,Legs,A,"",,,
+24,1,0,Knee,A,"",,,
+25,1,0,Foot,A,"",,,
+26,1,0,Ankle,A,"",,,
+27,1,0,Toes,A,"",,,
+332,67,1,Neurological,A,"",,,
+333,67,2,Ophthalmic,A,"",,,
+334,67,3,ENT,A,"",,,
+335,67,4,Cardiovascular,A,"",,,
+336,67,5,Respiratory,A,"",,,
+337,67,6,Gastrointestinal,A,"",,,
+338,67,7,Urinary,A,"",,,
+339,67,8,Genital,A,"",,,
+340,67,9,Musculoskeletal,A,"",,,
+341,67,10,Integumentary,A,"",,,
+342,67,11,Endocrine,A,"",,,
+343,67,12,Psychiatric,A,"",,,
+344,67,13,Hemotological/Lymphatic,A,"",,,
+345,67,14,Allergic/Immunologic,A,"",,,
+346,67,15,Local Examination,I,"",,,
+347,67,16,All other systems,A,"",,,
+374,96,7,Pitta Vataja,A,0,,,
+375,96,8,Pitta Kapahaja,A,0,,,
+376,96,9,Kapha Pittaja,A,0,,,
+377,96,10,Kapha Vataja,A,0,,,
+378,96,11,Sannipataja,A,0,,,
+379,97,1,Pravara,A,0,,,
+380,97,2,Madhyama,A,0,,,
+381,97,3,Avara,A,0,,,
+386,98,5,Asthi,A,0,,,
+387,98,6,Majja,A,0,,,
+388,98,7,Shukra,A,0,,,
+389,98,8,Satva,A,0,,,
+390,99,1,Pravara,A,0,,,
+391,99,2,Madhyama,A,0,,,
+392,99,3,Avara,A,0,,,
+393,100,1,Pravara,A,0,,,
+394,100,2,Madhyama,A,0,,,
+395,100,3,Avara,A,0,,,
+396,101,1,Sarvarasa,A,0,,,
+397,101,2,Mishrarasa,A,0,,,
+398,101,3,Ekarasa,A,0,,,
+405,104,1,Pravara,A,0,,,
+406,104,2,Madhyama,A,0,,,
+407,104,3,Avara,A,0,,,
+408,105,1,Baalyavastha,A,0,,,
+409,105,2,Madhyamavastha,A,0,,,
+410,105,3,Vrudhhavastha,A,0,,,
+411,106,1,Ksheerannada (upto 2 yrs),A,0,,,
+412,106,2,Annada (3-10),A,0,,,
+413,106,3,Kumari (10-12),A,0,,,
+414,106,4,Rajomati (12-16),A,0,,,
+415,106,5,Kumara (10-16),A,0,,,
+416,106,0,Annada (upto 1 yr),A,0,,,
+417,107,1,Vriddhi(16 - 20),A,0,,,
+402,103,1,Pravara,A,0,,,
+418,107,2,Yauvana(20 - 30),A,0,,,
+476,129,1,Appearance,A,0,,,
+356,73,1,Diabetes,A,"",,,
+436,114,1,Yes,A,0,,,
+437,114,2,No,A,0,,,
+434,113,1,Yes,A,0,,,
+435,113,2,No,A,0,,,
+403,103,2,Madhayama,A,0,,,
+443,117,1,Yes,A,0,,,
+444,117,2,No,A,0,,,
+440,116,1,Junk Foods,A,0,,,
+441,116,2,Untimely Food,A,0,,,
+404,103,3,Avara,A,0,,,
+357,73,2,Hypertension,A,"",,,
+477,129,2,Pallor,A,0,,,
+478,129,3,Jaundice,A,0,,,
+431,112,1,Lipta,A,0,,,
+432,112,2,Alpalipta,A,0,,,
+433,112,3,Alipta,A,0,,,
+438,115,1,Yes,A,0,,,
+439,115,2,No,A,0,,,
+479,129,4,Odema,A,0,,,
+399,102,1,Pravara,A,0,,,
+400,102,2,Madhyama,A,0,,,
+401,102,3,Avara,A,0,,,
+480,129,5,Lymphadenopathy,A,0,,,
+481,129,6,Nourishment,A,0,,,
+419,107,3,Sampoorna (30 - 40 ),A,0,,,
+420,107,4,Praudhavasta(40 - 50),A,0,,,
+421,107,5,Parihani ( 50 - 60),A,0,,,
+358,73,3,Allergy,A,"",,,
+458,73,4,Renal Diseases,A,"",,,
+459,73,5,Liver Diseases,A,"",,,
+460,73,6,Food Allergy,A,"",,,
+461,73,7,Food Intolerance,A,"",,,
+475,128,4,Orientation,A,0,,,
+427,110,1,Normal,A,0,,,
+428,110,2,> 50 %,A,0,,,
+429,110,3,<50 %,A,0,,,
+430,110,4,Poor,A,0,,,
+445,118,1,Yes,A,0,,,
+446,118,2,No,A,0,,,
+447,118,1,Trial,I,1,,,
+448,119,1,Yes,A,0,,,
+449,119,2,No,A,0,,,
+472,128,1,Appearance,A,0,,,
+473,128,2,Body Built,A,0,,,
+474,128,3,Body Strength,A,0,,,
+485,128,5,Conciousness,A,0,,,
+452,123,1,Yes,A,0,,,
+453,123,2,No,A,0,,,
+486,130,1,Hand-stretch breathing ,A,0,,,
+487,130,2,Hands in & out breathing,A,0,,,
+488,130,3,Ankle stretch breathing ,A,0,,,
+454,124,1,Daily,A,0,,,
+455,124,2,Alt day,A,0,,,
+456,124,3,Weekly,A,0,,,
+457,124,4,None,A,0,,,
+450,120,1,Yes,A,0,,,
+451,120,2,No,A,0,,,
+442,116,3,Excessive Food,A,0,,,
+462,127,1,1,A,0,,,
+463,127,2,2,A,0,,,
+464,127,3,3,A,0,,,
+465,127,4,4,A,0,,,
+466,127,5,5,A,0,,,
+467,127,6,6,A,0,,,
+468,127,7,7,A,0,,,
+469,127,8,8,A,0,,,
+470,127,9,9,A,0,,,
+471,127,10,10,A,0,,,
+489,131,1,Rabbit breathing,A,0,,,
+490,131,2,Dog breathing,A,0,,,
+491,131,3,Tiger breathing ,A,0,,,
+492,131,4,Shashankasana breathing,A,0,,,
+493,132,1,Bhujangasana breathing,A,0,,,
+494,132,2,Shalabhasana breathing,A,0,,,
+495,132,3,Dhanurasana breathing,A,0,,,
+496,132,4,Navasana breathing,A,0,,,
+497,133,1,Side leg raising,A,0,,,
+498,133,2,Straight leg raising,A,0,,,
+499,133,3,Naukasana breathing,A,0,,,
+500,133,4,Jathara-parivartanasana breathing,A,0,,,
+501,134,1,Neck movement â Forward/backward bending,A,0,,,
+502,134,2,Neck movement â side bending,A,0,,,
+503,134,3,Neck movement â Twisting,A,0,,,
+504,134,4,Neck movement â Rotation,A,0,,,
+505,134,5,Shoulder rotation,A,0,,,
+506,134,6,Shoulder blade touching,A,0,,,
+507,134,7,Elbow movements/Rotation,A,0,,,
+508,134,8,Wrist movements/rotation,A,0,,,
+509,134,9,Finger joint loosening,A,0,,,
+510,134,10,Waist rotation,A,0,,,
+511,134,11,Forward/backward bending,A,0,,,
+512,134,12,Side bending,A,0,,,
+513,134,13,Trikonasana stretch,A,0,,,
+514,134,14,Twisting,A,0,,,
+515,134,15,Alternate toe touching,A,0,,,
+516,134,16,Alternate heel touching,A,0,,,
+517,134,17,Back swing-forward,A,0,,,
+518,134,18,Back swing-sideways,A,0,,,
+519,134,19,Padasanchalana,A,0,,,
+520,134,20,Drill walking,A,0,,,
+521,134,21,Utkatasana stretch,A,0,,,
+522,134,22,Simple walking ,A,0,,,
+523,134,23,Hip stretch,A,0,,,
+524,134,24,Thigh stretch ,A,0,,,
+525,134,25,Knee rotation ,A,0,,,
+526,134,26,Knee bending ,A,0,,,
+527,134,27,Ankle movement/rotation  ,A,0,,,
+528,134,28,Toe bending ,A,0,,,
+529,134,29,Tadasana stretch ,A,0,,,
+530,134,30,Sit-ups,A,0,,,
+531,134,31,"Jogging âforward, backward, sideways, jumping",A,0,,,
+532,134,32,Vayu nishkasana,A,0,,,
+533,134,33,Kauva chalasana,A,0,,,
+534,134,34,Udarakarshanasana,A,0,,,
+535,134,35,Bandha hastotthanasana,A,0,,,
+536,134,37,Akarna dhanurasana,A,0,,,
+537,134,38,Tiryak kati chakrasana,A,0,,,
+538,134,39,Utthanasana,A,0,,,
+539,134,40,Utthita-lolasana,A,0,,,
+540,134,41,Dolasana,A,0,,,
+541,134,42,Kashtha takshanasana,A,0,,,
+659,140,1,Bhujangasana,A,0,,,
+660,140,2,Shalabhasana,A,0,,,
+661,140,3,Dhanurasana,A,0,,,
+662,140,4,Navasana,A,0,,,
+663,140,5,Parvatasana,A,0,,,
+664,140,6,Ashwa-sanchalanasana,A,0,,,
+665,140,7,Santolasana,A,0,,,
+666,140,8,Bhumipadamastakasana,A,0,,,
+667,140,9,Sarpasana,A,0,,,
+668,140,10,Makarasana,A,0,,,
+669,140,11,Matsyakridasana,A,0,,,
+670,140,12,Jyesticasana,A,0,,,
+542,135,1,Knee cap tightening,A,"",,,
+543,135,2,Knee cap rotation  ,A,0,,,
+544,135,3,Patella movement ,A,0,,,
+545,135,4,Knee stretch ,A,0,,,
+671,140,13,Advasana,A,0,,,
+683,142,1,Jala neti,A,0,,,
+684,142,2,Sutraneti,A,0,,,
+685,142,3,Vamana dhouti,A,0,,,
+686,142,4,Laghu-shankha prakshalana,A,0,,,
+687,142,5,Purna-shankha prakshalana,A,0,,,
+688,142,6,Agnisara,A,0,,,
+689,142,7,Kapalabhati,A,0,,,
+546,135,5,Knee rotation ,A,0,,,
+547,135,6,Janushirsasana breathing,A,0,,,
+548,135,7,Bhunaman,A,0,,,
+549,135,8,Chakki chalan,A,0,,,
+550,135,9,Chapati making ,A,0,,,
+551,135,10,Rowing the boat,A,0,,,
+552,135,11,Paschimottanaresana stretch,A,0,,,
+553,135,12,Tiger stretch,A,0,,,
+554,135,13,Padmasana swing,A,0,,,
+555,135,14,Side bending in padmasana  ,A,0,,,
+556,135,15,Nauka-sanchalasana,A,0,,,
+557,135,16,Back stretch (Ashwasanchalanasan),A,0,,,
+558,135,17,Ardha chandrasana,A,0,,,
+559,135,18,Baby walk,A,0,,,
+560,135,19,Crow walk,A,0,,,
+561,135,20,Frog jump,A,0,,,
+562,135,21,Shashanka-bhujangasa,A,0,,,
+563,135,22,Vyaghrasana,A,0,,,
+564,135,23,Balancing practices,A,0,,,
+565,135,25,Gatyatmaka meru vakrasana,A,0,,,
+566,135,26,Rajju karshanasana,A,0,,,
+567,135,27,Half butterfly,A,0,,,
+568,135,28,Full butterfly,A,0,,,
+569,135,29,Baby swing,A,0,,,
+570,135,30,Baddhakonasana bending,A,0,,,
+571,136,1,Dhanurasana swing,A,0,,,
+572,136,2,Dhanurasana stretch â up & down/ sideways  ,A,0,,,
+573,136,3,Push-ups,A,0,,,
+574,136,4,Alternate bhujangasana-parvatasana,A,0,,,
+575,136,5,Serpant stretch â with single/both legs,A,0,,,
+576,136,6,Tiryak bhujangasana,A,0,,,
+577,136,7,Utthana pristhasana,A,0,,,
+578,136,8,Ardha shalabhasana (Alternate leg & arm),A,0,,,
+579,136,9,Sarpasana stretch,A,0,,,
+580,137,1,Cycling ,A,0,,,
+581,137,2,Setubandasana,A,o,,,
+582,137,3,Dorsal stretch,A,0,,,
+583,137,4,Pavanamuktasana kriya,A,0,,,
+584,137,5,Pavanamuktasana stretch,A,0,,,
+585,137,6,Rocking & rolling ,A,0,,,
+586,137,7,Folded leg lumbar stretch,A,0,,,
+587,137,8,Cross leg lumbar stretch,A,0,,,
+588,137,9,Alternate halasana-paschimottanasana,A,0,,,
+589,137,10,Shava udarakarshanasana,A,0,,,
+590,137,11,Supta padasanchalana,A,0,,,
+591,137,12,Pada chakrasana,A,0,,,
+592,137,13,Gatyatmaka paschimottanasana,A,0,,,
+593,137,14,Full-body rolling,A,0,,,
+594,137,15,Alternate dandasana & lambasana,A,0,,,
+616,139,1,Vajrasana,A,0,,,
+617,139,2,Siddhasana,A,0,,,
+618,139,3,Sukhasana,A,0,,,
+619,139,4,Padadhirasana,A,0,,,
+620,139,5,Bhadrasana,A,0,,,
+621,139,6,Simhasana,A,0,,,
+622,139,7,Virasana,A,0,,,
+595,138,1,Utkatasana,A,0,,,
+596,138,2,Ardhakati-chakrasana,A,0,,,
+597,138,3,Ardha-chakrasana,A,0,,,
+598,138,4,Vrikshasana,A,0,,,
+599,138,5,Garudasana,A,0,,,
+600,138,6,Trikonasana,A,0,,,
+601,138,7,Dwikonasana,A,0,,,
+602,138,8,Parshva-konasana,A,0,,,
+603,138,9,Tadasana,A,0,,,
+604,138,10,Tiryak-tadasan,A,0,,,
+605,138,11,Uttanasana,A,0,,,
+606,138,12,Pada-hastasana,A,0,,,
+607,138,13,Natavarasana,A,0,,,
+608,138,14,Eka-padasana,A,0,,,
+609,138,15,Hastapadangushtahasana,A,0,,,
+610,138,16,Vatayanasana,A,0,,,
+611,138,17,Shirsha-angushtha yogasana,A,0,,,
+612,138,18,Bakasana,A,0,,,
+613,138,19,Utthita-hastapadangushthasana,A,0,,,
+614,138,20,Gorakshasana,A,0,,,
+615,138,21,Viparita dandasana,A,0,,,
+623,139,8,Paschimottanasana,A,0,,,
+624,139,9,Prasaritapada-paschimottanasana,A,0,,,
+625,139,10,Janu-shirshasana,A,0,,,
+626,139,11,Padmasana,A,0,,,
+627,139,12,Yogamudrsana,A,0,,,
+628,139,13,Baddhapadmasana,A,0,,,
+629,139,14,Baddhakonasana,A,0,,,
+630,139,15,Gomukhasana,A,0,,,
+631,139,16,Vakrasana,A,0,,,
+632,139,17,Ardha-matsyendrasana,A,0,,,
+633,139,18,Purna-matsyendrasana,A,0,,,
+634,139,19,Shashankasana,A,0,,,
+635,139,20,Ushtrasana,A,0,,,
+636,139,21,Sputa-vajrasana (2 variations),A,0,,,
+637,139,22,Matsyasana,A,0,,,
+638,139,23,Malasana,A,0,,,
+639,139,24,Hamsasana,A,0,,,
+640,139,25,Dwipada-sirsasana,A,0,,,
+641,139,26,Ekapada-sirsasana,A,0,,,
+642,139,27,Moolabandhasana,A,0,,,
+643,139,29,Akarnadhanurasana,A,0,,,
+644,139,30,Koormasana,A,0,,,
+645,139,31,Dwi-hastabhujasana,A,0,,,
+646,139,32,Ardha-shirshasana,A,0,,,
+672,141,1,Lambasana,A,0,,,
+673,141,2,Setubandhasana,A,0,,,
+674,141,3,Naukasana,A,0,,,
+675,141,4,Viparitakarani asana,A,0,,,
+676,141,5,Sarvangasana,A,0,,,
+677,141,6,Padma-sarvangasana,A,0,,,
+678,141,7,Halasana,A,0,,,
+679,141,8,Garbhapindasana,A,0,,,
+680,141,9,Jathara-parivartanasana,A,0,,,
+681,141,10,Hasta-padangushthasana,A,0,,,
+682,141,11,Shavasana,A,0,,,
+728,146,1,IRT-Instant Relaxation Technique,A,0,,,
+729,146,2,QRT-Quick Relaxation Technique,A,0,,,
+730,146,3,DRT-Deep Relaxation Technique,A,0,,,
+647,139,33,Shirshasana,A,0,,,
+648,139,34,Parivritta-janushirshasana,A,0,,,
+649,139,35,Meru-vakrasana,A,0,,,
+650,139,36,Saithalyasana,A,0,,,
+651,139,37,Namana-pranamanasana,A,0,,,
+652,139,38,Gupta-padmasana,A,0,,,
+653,139,39,Marichyasana,A,0,,,
+654,139,40,Upavishta-konasana,A,0,,,
+655,139,41,Supta-swastikasana,A,0,,,
+656,139,42,Triang mukhaikapada in paschimottanasana,A,0,,,
+657,139,43,Ardha-baddha-padma in paschimottanasana,A,0,,,
+658,139,44,Parshva upavishta konasana ,A,0,,,
+690,142,8,Trataka,A,0,,,
+691,142,9,Moola shodhana,A,0,,,
+692,143,1,Natural breathing,A,0,,,
+693,143,2,Yogic breathing,A,0,,,
+694,143,3,Suryaanuloma,A,0,,,
+695,143,4,chandraanuloma,A,0,,,
+696,143,5,Nadishodhana,A,0,,,
+697,143,6,Nadishodhana with Antar-kumbhaka,A,0,,,
+698,143,7,Nadishodhana with Bahir kumbhaka,A,0,,,
+699,143,8,Nadishodhana with Antar & Bahir kumbhaka,A,0,,,
+700,143,9,Bhramari,A,0,,,
+701,143,10,Bhramari with Antar-kumbhaka,A,0,,,
+702,143,11,Bhastrika with alternate nostrills,A,0,,,
+703,143,12,Bhastrika with both nostrills,A,0,,,
+704,143,13,Ujjayi,A,0,,,
+705,143,14,Ujjayi with Antar-kumbhaka,A,0,,,
+706,143,15,Sadanta,A,0,,,
+707,143,16,Sheetali,A,0,,,
+708,143,17,Sheetkari,A,0,,,
+709,144,1,Jnana mudra,A,0,,,
+710,144,2,Chinmudra,A,0,,,
+711,144,3,Yoni mudra,A,0,,,
+712,144,4,Bhairava mudra,A,0,,,
+713,144,5,Bhairavi mudra,A,0,,,
+714,144,6,Hrudaya mudra,A,0,,,
+715,144,7,Shambhavi mudra,A,0,,,
+716,144,8,Nasikagra drishti,A,0,,,
+717,144,9,Khechari mudra,A,0,,,
+718,144,10,Kaki mudra,A,0,,,
+719,144,11,Bhuchari mudra,A,0,,,
+720,144,12,Shanmukhi mudra,A,0,,,
+721,144,13,Pashini mudra,A,0,,,
+722,144,14,Tadagi mudra,A,0,,,
+723,144,15,Ashwini mudra,A,0,,,
+724,145,1,Jalandhara bandha,A,0,,,
+725,145,2,Uddiyana bandha,A,0,,,
+726,145,3,Mula bandha,A,0,,,
+727,145,4,Maha bandha,A,0,,,
+731,147,1,Nadanusandhana,A,0,,,
+732,147,2,CM-Cyclic Meditation,A,0,,,
+733,147,3,PET-Pranic Energization Technique,A,0,,,
+734,147,4,MSRT-Mind Sound Resonance Technique,A,0,,,
+739,159,1,OD,A,0,,,
+740,159,2,OS,A,0,,,
+802,199,1,Normal,A,0,,,
+803,199,2,More than Normal,A,0,,,
+745,163,1,OD,A,0,,,
+746,163,2,OS,A,0,,,
+747,164,1,Right,A,0,,,
+748,164,2,Left,A,0,,,
+749,165,1,Right,A,0,,,
+750,165,2,Left,A,0,,,
+751,166,1,Right,A,0,,,
+752,166,2,Left,A,0,,,
+753,167,1,Right,A,0,,,
+754,167,2,Left,A,0,,,
+755,168,1,Right,A,0,,,
+756,168,2,Left,A,0,,,
+735,152,1,Bowel,A,0,,,
+736,152,2,Appetite,A,0,,,
+737,152,3,Micturation,A,0,,,
+738,152,4,Sleep,A,0,,,
+743,161,1,OD,A,0,,,
+744,161,2,OS,A,0,,,
+741,160,1,OD,A,0,,,
+742,160,2,OS,A,0,,,
+757,184,1,Vegetarian,A,0,,,
+758,184,2,Mixed,A,0,,,
+759,185,1,Potatoes,A,0,,,
+760,185,2,Tomatoes,A,0,,,
+761,185,3,Spinach,A,0,,,
+762,186,1,Rice,A,0,,,
+763,186,2,Barley,A,0,,,
+764,186,3,Wheat,A,0,,,
+765,186,4,Ragi,A,0,,,
+766,187,1,Green Gram,A,0,,,
+767,187,2,Black Gram,A,0,,,
+768,187,3,Horse Gram,A,0,,,
+769,187,4,Chanaka Gram,A,0,,,
+770,187,5,tila,A,0,,,
+771,187,6,Aprouted,A,0,,,
+772,188,1,FastFoods,A,0,,,
+773,188,2,Chats,A,0,,,
+774,188,3,Pizza,A,0,,,
+775,189,1,Biscuits,A,0,,,
+776,189,1,Cake/Pasteries,A,0,,,
+777,189,3,Sweets,A,0,,,
+778,190,1,Milk,A,0,,,
+779,190,2,Curds,A,0,,,
+780,190,3,Butter Milk,A,0,,,
+781,190,4,Ghee,A,0,,,
+782,190,5,Milk and Curd,A,0,,,
+783,190,6,Milk & Salt,A,0,,,
+784,190,7,Paneer,A,0,,,
+785,191,1,Soft drinks,A,0,,,
+786,191,2,Hot Drinks,A,0,,,
+787,191,3,Milk Shakes,A,0,,,
+788,192,1,Pickles,A,0,,,
+789,192,2,Chutneys,A,0,,,
+790,192,3,Chillies,A,0,,,
+791,192,4,Garlic,A,0,,,
+792,192,5,Ginger,A,0,,,
+793,193,1,Refined Oil,A,0,,,
+794,193,2,Non Refined Oil,A,0,,,
+795,194,1,Cucumber,A,0,,,
+796,194,2,Fruit Salads,A,0,,,
+797,194,3,Carrot,A,0,,,
+798,194,4,Onion,A,0,,,
+799,194,5,Raddish,A,0,,,
+800,198,1,Thirsty,A,0,,,
+801,198,2,Not Thirsty,A,0,,,
+806,202,1,Egg,A,0,,,
+807,202,2,Chicken,A,0,,,
+808,202,3,Meat,A,0,,,
+809,203,1,Goat,A,0,,,
+810,203,2,Sheep,A,0,,,
+811,203,3,Beef,A,0,,,
+812,203,4,Pork,A,0,,,
+804,201,1,Regular,A,0,,,
+805,201,2,Irregular,A,0,,,
+813,204,1,Regular,A,0,,,
+814,204,2,Irregular,A,0,,,
+815,205,1,Breakfast,A,0,,,
+816,205,2,Lunch,A,0,,,
+817,205,3,Dinner,A,0,,,
+818,206,1,While Hungry,A,0,,,
+819,206,2,Without Hunger,A,0,,,
+820,207,1,Present,A,0,,,
+821,207,2,Absent,A,0,,,
+822,208,1,BeforeFood,A,0,,,
+823,208,2,After Food,A,0,,,
+824,211,1,Wake UpTime,A,0,,,
+825,211,2,Sleeping Time,A,0,,,
+826,212,1,Heena,A,0,,,
+827,212,2,Madhyama,A,0,,,
+828,212,3,Uttama,A,0,,,
+829,213,1,Smell,A,0,,,
+830,213,2,Consistency(Well formed/hard/Liquid),A,0,,,
+831,214,1,Frequency,A,0,,,
+832,214,2,Colour,A,0,,,
+833,214,3,Smell,A,0,,,
+834,214,4,Any Complaints,A,0,,,
+835,215,1,Smoking,A,0,,,
+836,215,2,Alcohol,A,0,,,
+837,215,3,Tea,A,0,,,
+838,215,4,Coffee,A,0,,,
+839,215,5,Pan,A,0,,,
+840,215,6,Others,A,0,,,
+858,223,1,Weight:,A,0,,,
+859,223,2,Height,A,0,,,
+860,223,3,BMI,A,0,,,
+861,223,4,Head circumference,A,0,,,
+862,223,5,Relation of Head size with Chest circumference,A,0,,,
+863,223,6,Mid arm circumference,A,0,,,
+864,223,7,Span measurement,A,0,,,
+901,227,1,Social smile (smiles after being talked to)(2 Mts),A,0,,,
+902,227,2,Recognizes mother (3 Mts),A,0,,,
+903,227,3,Recognizes strangers (6 Mts),A,0,,,
+904,227,4,Waves  bye bye (9 Mts),A,0,,,
+905,227,5,"Comes when called, plays simple ball game (12 Mts)",A,0,,,
+906,227,6,Jargon (unintelligent talks)(15 Mts),A,0,,,
+907,227,7,"Copies parents activity (sweeping, etc) (18 Mts)",A,0,,,
+908,227,8,"Asks for food / drink / toilet, pulls people to show toys (2 yrs)",A,0,,,
+909,227,9,"Shares toys, knows full name & gender (3 Yrs)",A,0,,,
+910,227,10,"Plays cooperatively in a group, goes to toilet alone (4 Yrs)",A,0,,,
+919,232,1,Stocky(Compact) / Broad   ,A,0,,,
+920,232,2,Average built,A,0,,,
+921,232,3,Thin /Boney,A,0,,,
+922,233,1,"Heavy, Difficulties in losing weight",A,0,,,
+923,233,2,"Moderate, No difficulties in gaining or losing weight",A,0,,,
+924,233,3,"Low, Difficulties in gaining weight",A,0,,,
+925,234,1,Wellformed,A,0,,,
+926,234,2,Moderately formed,A,0,,,
+927,234,3,Weak,A,0,,,
+928,235,1,large & wellformed,A,0,,,
+929,235,2,Medium & moderately formed,A,0,,,
+930,235,3,Small & poorley formed,A,0,,,
+931,236,1,Broad & wellformed,A,0,,,
+932,236,2,Normal size,A,0,,,
+933,236,3,small,A,0,,,
+934,237,1,Not prominent,A,0,,,
+935,237,2,Less prominent,A,0,,,
+936,237,3,Prominent,A,0,,,
+937,238,1,"Thick and moist/greasy, cold",A,0,,,
+938,238,2,"Smooth and warm, oily T-zone",A,0,,,
+939,238,3,"Thin and dry, cool to touch, rough",A,0,,,
+940,239,1,"Thick , wavy,  dark black ",A,0,,,
+941,239,2,"Soft, straight fine, brown",A,0,,,
+942,239,3,"Thin, dry & Brittle dullblack/grey",A,0,,,
+943,240,1,"Dark pink,large and hard nails",A,0,,,
+944,240,2,pink and soft nails,A,0,,,
+945,240,3,"Delicate, small and chipped nails",A,0,,,
+946,241,1,Broad,A,0,,,
+947,241,2,Medium,A,0,,,
+948,241,3,Narrow/ small ,A,0,,,
+949,242,1,"Dark pink,Full and smooth ",A,0,,,
+950,242,2,Pink and soft,A,0,,,
+951,242,3,"Pale,thin ,dry,crack easily",A,0,,,
+952,243,1,large and moist,A,0,,,
+953,243,2,Moderate size,A,0,,,
+954,243,3,"Small and dry, blink a lot",A,0,,,
+955,244,1,pink & wellformed,A,0,,,
+956,244,2,pink & moderately formed,A,0,,,
+957,244,3,Pale & not wellformed,A,0,,,
+958,245,1,"wellformed,strong",A,0,,,
+959,245,2,moderatly formed,A,0,,,
+960,245,3,"crooked, decay",A,0,,,
+961,246,1,"pleasant, harmonious, low pitch",A,0,,,
+877,225,1,"Hands predominantly closed,  Grasp reflex (1Mt)",A,0,,,
+878,225,2,"Hands frequently open, slight grasp reflex (2 Mts)",A,0,,,
+879,225,3,unfisting (3 Mts),A,0,,,
+880,225,4,Bi-dextrous reach (4 Mts),A,0,,,
+881,225,5,"Uni-dextrous reach, transfers object (6 Mts)",A,0,,,
+882,225,6,"Immature pincer grasp, probes with fore finger (9 Mts)",A,0,,,
+883,225,7,"Mature pincer grasp, voluntarily release (12 Mts)",A,0,,,
+884,225,8,"Imitates scribbling , can make towers of 2 blocks (15 Mts)",A,0,,,
+885,225,9,"Scribbles, can make towers of 2 blocks (18 Mts)",A,0,,,
+912,228,1,Social smile (2 Mts),A,0,,,
+913,228,2,Head control (4 Mts),A,0,,,
+914,228,3,Inability to recognise mother (6 Mts),A,0,,,
+915,228,4,Inability to sit (6 Mts),A,0,,,
+916,228,5,Inability to to creep (9 Mts),A,0,,,
+890,226,1,Alert to sound (1 Mt),A,0,,,
+891,226,2,Coos (3 Mts),A,0,,,
+892,226,3,Laughs loud (4 Mts),A,0,,,
+893,226,4,"mono syllables (ba, da, pa) (6 Mts)",A,0,,,
+894,226,5,"Bi syllables (mama, baba, dada) (9 Mts)",A,0,,,
+895,226,6,1-2 word with meaning (12 Mts),A,0,,,
+896,226,7,8-10 words vocabulary (18 Mts),A,0,,,
+897,226,8,"2-3 words sentences, uses pronouns  (I, me, you) (2 Yrs)",A,0,,,
+898,226,9,"Asks questions, knows full name & gender (3 Yrs)",A,0,,,
+899,226,10,"Says song / poem, tells stories (4 Yrs)",A,0,,,
+900,226,11,Asks meaning of words (5 Yrs),A,0,,,
+917,228,6,Inability to stand (12 Mts),A,0,,,
+918,228,7,Inability to walk (18 Mts),A,0,,,
+841,216,1,Cycle,A,0,,,
+842,216,2,Interval,A,0,,,
+843,216,3,Duration Of Flow,A,0,,,
+844,216,4,Pain during menstruation,A,0,,,
+845,218,1,Appearance,A,0,,,
+846,218,2,Body Weight,A,0,,,
+847,218,3,Pulse (Nadi),A,0,,,
+848,218,4,Blood Pressure,A,0,,,
+962,246,2,Loud and sharp,A,0,,,
+963,246,3,"low volume, hoarse and cracking",A,0,,,
+970,249,1,likes sweet but accustemed to all taste,A,0,,,
+971,249,2,"likes sour ,salt",A,0,,,
+972,249,3,does not have likings for food,A,0,,,
+973,250,1,"long and sound sleeper, has difficulties awakening ",A,0,,,
+974,250,2,sleeps deep and wakes up easily,A,0,,,
+975,250,3,"Light sleeper, disturbed pattern",A,0,,,
+976,251,1,Very good   Excellent long-term memory,A,0,,,
+1026,255,5,Sweet potato,A,0,,,
+977,251,2,"moderate, remembers details clearly and forgets slowly",A,0,,,
+978,251,3,"poor short attention span, forgets things easily",A,0,,,
+979,252,1,Jowar,A,0,,,
+980,252,2,Ragi,A,0,,,
+981,252,3,Red rice,A,0,,,
+982,252,4,Wheat,A,0,,,
+983,252,5,Bajra,A,0,,,
+984,252,6,Indian millet,A,0,,,
+985,252,7,Maize,A,0,,,
+986,252,8,Barley,A,0,,,
+987,253,1,Black gram,A,0,,,
+988,253,2,Horse gram,A,0,,,
+989,253,3,Green gram,A,0,,,
+990,253,4,Tuvar Dal,A,0,,,
+991,253,5,Bengal gram,A,0,,,
+992,253,6,Pigeon pea,A,0,,,
+993,253,7,Cow pea,A,0,,,
+994,253,8,Kidney bean,A,0,,,
+995,253,9,Lentil,A,0,,,
+996,253,10,Avarae kalu,A,0,,,
+1074,261,1,Radish (tender),A,0,,,
+1075,261,2,Onion,A,0,,,
+1076,261,3,Garlic,A,0,,,
+1077,261,4,Carrot,A,0,,,
+1078,261,5,Sweet Potato,A,0,,,
+1079,261,6,Yam,A,0,,,
+1080,262,1,Egg,A,0,,,
+1081,262,2,Mutton,A,0,,,
+1082,262,3,Beef,A,0,,,
+1083,262,4,Pork,A,0,,,
+1084,262,5,Chicken,A,0,,,
+1085,262,6,Fish,A,0,,,
+865,224,1,Neck holding(3 Mts),A,0,,,
+866,224,2,Rollover (5 Mts),A,0,,,
+867,224,3,Sitting with support (6 Mts),A,0,,,
+868,224,4,Sitting without support (8Mts),A,0,,,
+869,224,5,Standing with support (9 Mts),A,0,,,
+870,224,6,"Standing without support (12Mts), walks but falls, creeps well",A,0,,,
+871,224,7,Walks alone Creeps upstairs (15 Mts),A,0,,,
+872,224,8,"Runs, explore drawers (18 Mts)",A,0,,,
+873,224,9,"Walks up & down stairs, jumps (2 Yrs)",A,0,,,
+874,224,10,"Writs tricycle, alternate feet going upstairs (3 Yrs)",A,0,,,
+875,224,11,"Hops on one foot, alternate feet moving downstairs (4Yrs)",A,0,,,
+876,224,12,Skips (5 Yrs),A,0,,,
+886,225,10,"Can make towers of 6 blocks, vertical and circular stroke (2 Yrs)",A,0,,,
+887,225,11,"Can make towers of 9 blocks, copies  circle (3 Yrs)",A,0,,,
+888,225,12,Copies cross bridge with blocks (4 Yrs),A,0,,,
+889,225,13,Copies triangle (5 Yrs),A,0,,,
+911,227,11,"Helps in household tasks, dress & undress (5 Yrs)",A,0,,,
+964,247,1,constant but can skip meals easily and tolerate hunger,A,0,,,
+965,247,2,"Strong, cannot skip meals and will have to eat again",A,0,,,
+966,247,3,"unpredictable, irregular",A,0,,,
+967,248,1,regular wellformed stools,A,0,,,
+968,248,2,"loosestools ,irreegular",A,0,,,
+854,221,1,Appearance,A,0,,,
+855,221,2,Body weight in kgs,A,0,,,
+856,221,3,Pulse (Nadi),A,0,,,
+857,221,4,Blood Pressure,A,0,,,
+849,220,1,Daily,A,0,,,
+850,220,2,Once in a week,A,0,,,
+851,220,3,Once in a fortnight,A,0,,,
+852,220,4,Once in a Month,A,0,,,
+853,220,5,Rare,A,0,,,
+969,248,3,"hard,constipated",A,0,,,
+997,254,1,Ash Gourd,A,0,,,
+998,254,2,Cucumber,A,0,,,
+999,254,3,Snake Gourd,A,0,,,
+1000,254,4,pumpkin,A,0,,,
+1001,254,5,Brinjal,A,0,,,
+1002,254,6,Bimbi (Todaekai),A,0,,,
+1003,254,7,Sponge gourd,A,0,,,
+1004,254,8,Bottle gourd,A,0,,,
+1005,254,9,Ridge gourd,A,0,,,
+1006,254,10,Bitter gourd,A,0,,,
+1007,254,11,lady's finger,A,0,,,
+1008,254,12,Leafy vegetables,A,0,,,
+1009,254,13,Centella leaves,A,0,,,
+1010,254,14,Drumstick leaves,A,0,,,
+1011,254,15,Drumstick flowers,A,0,,,
+1012,254,16,purslane,A,0,,,
+1013,254,17,Methi leaves,A,0,,,
+1014,254,18,Radish leaves,A,0,,,
+1015,254,19,Dill Leaves,A,0,,,
+1016,254,20,Onion leaves,A,0,,,
+1017,254,21,Banana stem,A,0,,,
+1018,254,22,Banana flowers,A,0,,,
+1019,254,23,Potato,A,0,,,
+1020,254,24,Spinach,A,0,,,
+1021,254,25,mushroom,A,0,,,
+1030,256,1,Dates,A,0,,,
+1031,256,2,Badara,A,0,,,
+1032,256,3,Grapes-ripe,A,0,,,
+1033,256,4,Gooseberry,A,0,,,
+1034,256,5,Grapes Ripe,A,0,,,
+1035,256,6,Jackfruit ripe,A,0,,,
+1036,256,7,mango ripe,A,0,,,
+1037,256,8,Pomegranate,A,0,,,
+1038,256,9,Water melon,A,0,,,
+1039,256,10,cherry plum-ripe,A,0,,,
+1040,256,11,custard apple,A,0,,,
+1041,256,12,bael,A,0,,,
+1042,256,13,Cocum,A,0,,,
+1043,256,14,Butter fruit,A,0,,,
+1044,256,15,Almond,A,0,,,
+1045,256,16,Fig,A,0,,,
+1046,256,17,Walnut,A,0,,,
+1047,256,18,Wood Apple,A,0,,,
+1048,256,19,Papaya,A,0,,,
+1049,256,20,Orange,A,0,,,
+1050,256,21,Pineapple,A,0,,,
+1051,256,22,Cashewnut,A,0,,,
+1052,257,1,Cowâs milk/ curd/ ghee,A,0,,,
+1053,257,2,Goats milk/ curd/ghee,A,0,,,
+1054,257,3,Butter milk Lassi,A,0,,,
+1055,257,4,Butter,A,0,,,
+1063,259,1,Groundnut ,A,0,,,
+1064,259,2,Coconut,A,0,,,
+1065,259,3,Musturd,A,0,,,
+1066,259,4,Sunflower,A,0,,,
+1067,259,5,Olive,A,0,,,
+1068,259,6,Sesame,A,0,,,
+1069,259,7,Palm,A,0,,,
+1070,259,8,Castor,A,0,,,
+1071,259,9,Cottonseed ,A,0,,,
+1072,260,1,Hot,A,0,,,
+1073,260,2,Cold,A,0,,,
+1022,255,1,Radish (tender),A,0,,,
+1023,255,2,Onion,A,0,,,
+1024,255,3,Garlic,A,0,,,
+1025,255,4,Carrot,A,0,,,
+1027,255,6,yam,A,0,,,
+1028,255,7,radish -ripe,A,0,,,
+1029,255,8,Potato,A,0,,,
+1056,258,1,Sheep,A,0,,,
+1057,258,2,chicken,A,0,,,
+1058,258,3,cow,A,0,,,
+1059,258,4,Goat,A,0,,,
+1060,258,5,Fish,A,0,,,
+1061,258,6,egg,A,0,,,
+1062,258,7,Pig,A,0,,,
+1113,309,0,Sharp,A,"",,,28
+1114,309,0,Throbbing,A,"",,,29
+1115,309,0,Burning,A,"",,,30
+1116,309,0,Radiating,A,"",,,31
+1117,309,0,Others,A,"",,,32
+1118,310,0,Yesterday,A,"",,,33
+1119,310,0,2 Days ago,A,"",,,34
+1120,310,0,4 Days ago,A,"",,,35
+1121,310,0,6 Days ago,A,"",,,36
+1122,310,0,1 Week ago,A,"",,,37
+1123,310,0,2 Weeks ago,A,"",,,38
+1124,310,0,3 Weeks ago,A,"",,,39
+1125,310,0,4 Weeks ago,A,"",,,40
+1126,310,0,2 Months ago,A,"",,,41
+1127,310,0,3 Months ago,A,"",,,42
+1128,310,0,4 Months ago,A,"",,,43
+1129,310,0,6 Months ago,A,"",,,44
+1130,311,0,Constant,A,"",,,45
+1131,311,0,Frequent,A,"",,,46
+1132,311,0,Intermittent,A,"",,,47
+1133,312,0,Fall,A,"",,,48
+1134,312,0,Lifting Heavy Object,A,"",,,49
+1135,313,0,Better when heat is applied,A,"",,,50
+1136,313,0,Better when ice pack is applied,A,"",,,51
+1137,313,0,Better when lying down,A,"",,,52
+1138,314,0,Mild,A,"",,,53
+1139,314,0,Moderate,A,"",,,54
+1140,314,0,Severe,A,"",,,55
+1141,314,0,Pain scale 2/10,A,"",,,56
+1142,314,0,Pain scale 4/10,A,"",,,57
+1143,314,0,Pain scale 6/10,A,"",,,58
+1144,314,0,Pain scale 8/10,A,"",,,59
+1145,314,0,Pain scale 10/10,A,"",,,60
+1146,315,0,Numbness,A,"",,,61
+1147,315,0,Weakness,A,"",,,62
+1148,315,0,Dizziness,A,"",,,63
+1149,315,0,Vomiting,A,"",,,64
+1150,315,0,Nausea,A,"",,,65
+1151,315,0,Fever,A,"",,,66
+1152,315,0,Cough,A,"",,,67
+1153,315,0,Headache,A,"",,,68
+1154,315,0,Myalgia,A,"",,,69
+1155,315,0,Abdominal Pain,A,"",,,70
+1749,445,1,ahara,A,"",,,
+1158,308,0,Scalp,A,"",,,1
+1159,308,0,Face,A,"",,,2
+1160,308,0,Neck,A,"",,,3
+1161,308,0,Throat,A,"",,,4
+1162,308,0,Eyes,A,"",,,5
+1163,308,0,Ears,A,"",,,6
+1164,308,0,Nose,A,"",,,7
+1165,308,0,Teeth,A,"",,,8
+1166,308,0,Teeth,A,"",,,9
+1167,308,0,Tongue,A,"",,,10
+1168,308,0,Lips,A,"",,,11
+1169,308,0,Head,A,"",,,12
+1170,308,0,Chest,A,"",,,13
+1171,308,0,Abdomen,A,"",,,14
+1172,308,0,Uterus,A,"",,,15
+1173,308,0,Cervical Spine,A,"",,,16
+1174,308,0,Lubosacral Spine,A,"",,,17
+1175,308,0,Shoulders,A,"",,,18
+1176,308,0,Hand,A,"",,,19
+1177,308,0,Wrist,A,"",,,20
+1178,308,0,Fingers,A,"",,,21
+1179,308,0,Pelvis,A,"",,,22
+1180,308,0,Legs,A,"",,,23
+1181,308,0,Knee,A,"",,,24
+1182,308,0,Foot,A,"",,,25
+1183,308,0,Ankle,A,"",,,26
+1184,308,0,Toes,A,"",,,27
+1185,317,1,Diabetes,A,"",,,356
+1186,317,2,Hypertension,A,"",,,357
+1187,317,3,Allergy,A,"",,,358
+1188,317,4,Renal Diseases,A,"",,,458
+1189,317,5,Liver Diseases,A,"",,,459
+1190,317,6,Food Allergy,A,"",,,460
+1191,317,7,Food Intolerance,A,"",,,461
+1192,318,1,Menarche (yrs),A,0,,,229
+1193,318,2,Menopause (yrs),A,0,,,230
+1194,318,3,LMP,I,0,,,231
+1195,318,4,Menstrual Cycle (Days),I,0,,,232
+1196,320,1,Thick,A,0,,,233
+1197,320,2,Thin,A,0,,,234
+1198,321,1,Scanty,A,0,,,235
+1199,321,2,Moderate,A,0,,,236
+1200,321,3,Heavy,A,0,,,237
+1201,322,1,Present,A,0,,,238
+1202,322,2,Absent,A,0,,,239
+1203,323,1,Present,A,0,,,240
+1204,323,2,Absent,A,0,,,241
+1205,324,1,MH,A,"",,,242
+1206,324,2,LMP,A,"",,,243
+1207,324,3,PMH,A,"",,,244
+1208,325,1,Colour,A,"",,,245
+1209,325,2,Consistency,A,"",,,246
+1210,325,3,Flow,A,"",,,247
+1211,325,4,Clots,A,"",,,248
+1212,325,5,Smell,A,"",,,249
+1213,325,6,Discharge,A,"",,,250
+1214,325,7,Pre Menstrual Symptoms,A,"",,,251
+1215,325,8,Menopausal Symptoms,A,"",,,252
+1216,326,1,Vata,A,"",,,273
+1217,326,2,Pitta,A,"",,,274
+1218,326,3,Kapha,A,"",,,275
+1219,326,4,Vata Pitta,A,"",,,276
+1220,326,5,Vata Kapha,A,"",,,277
+1221,326,6,Pitta Vata,A,"",,,278
+1222,326,7,Pitta Kapha,A,"",,,279
+1223,326,8,Kapha Vata,A,"",,,280
+1224,326,9,Kapha Pitta,A,"",,,281
+1225,326,10,Sannipataja,A,"",,,282
+1226,327,1,Rasa,A,"",,,283
+1227,327,2,Rakta,A,"",,,284
+1228,327,3,Mamsa,A,"",,,285
+1229,327,4,Meda,A,"",,,286
+1230,327,5,Asthi,A,"",,,287
+1231,327,6,Majja,A,"",,,288
+1232,327,7,Shukra,A,"",,,289
+1233,327,8,Mala,A,"",,,290
+1234,327,9,Mutra,A,"",,,291
+1235,327,10,Sweda,A,"",,,292
+1236,327,11,Stanya,A,"",,,293
+1237,327,12,Artava,A,"",,,294
+1238,327,13,Kandara,A,"",,,295
+1239,327,14,Sira,A,"",,,296
+1240,327,14,Twacha,A,"",,,297
+1241,327,15,Vasa,A,"",,,298
+1242,327,16,Snayu,A,"",,,299
+1243,327,17,Ojas,A,"",,,300
+1244,327,18,Danta,A,"",,,301
+1245,328,1,Pranavaha,A,"",,,302
+1246,328,2,Udakavaha,A,"",,,303
+1247,328,3,Annavaha,A,"",,,304
+1248,328,4,Rasavaha,A,"",,,305
+1249,328,5,Raktavaha,A,"",,,306
+1250,328,6,Mamsavaha,A,"",,,307
+1251,328,7,Medovaha,A,"",,,308
+1252,328,8,Asthivaha,A,"",,,309
+1253,328,9,Majjavaha,A,"",,,310
+1254,328,10,Sukravaha,A,"",,,311
+1255,328,11,Artavavaha,A,"",,,312
+1256,328,12,Pureeshavaha,A,"",,,313
+1257,328,13,Mutravaha,A,"",,,314
+1258,328,14,Swedavaha,A,"",,,315
+1259,328,15,Manovaha,A,"",,,316
+1260,328,16,Viddalaxana,A,"",,,317
+1261,329,1,Ati pravrutti,A,"",,,318
+1262,329,2,Sangha,A,"",,,319
+1263,329,3,Vimarga gamana,A,"",,,320
+1264,329,4,Sira granthi,A,"",,,321
+1265,330,1,Bahya,A,"",,,322
+1266,330,2,Madhyama,A,"",,,323
+1267,330,3,Abhyantara,A,"",,,324
+1268,331,1,Sadhya,A,"",,,325
+1269,331,2,Kashta sadhya,A,"",,,326
+1270,331,3,Yapya,A,"",,,327
+1271,331,4,Asadhya,A,"",,,328
+1272,332,1,Pravara,A,"",,,329
+1273,332,2,Madhyama,A,"",,,330
+1274,332,3,Avara,A,"",,,331
+1275,340,1,Neurological,A,"",,,332
+1276,340,2,Ophthalmic,A,"",,,333
+1277,340,3,ENT,A,"",,,334
+1278,340,4,Cardiovascular,A,"",,,335
+1279,340,5,Respiratory,A,"",,,336
+1280,340,6,Gastrointestinal,A,"",,,337
+1281,340,7,Urinary,A,"",,,338
+1282,340,8,Genital,A,"",,,339
+1283,340,9,Musculoskeletal,A,"",,,340
+1284,340,10,Integumentary,A,"",,,341
+1285,340,11,Endocrine,A,"",,,342
+1286,340,12,Psychiatric,A,"",,,343
+1287,340,13,Hemotological/Lymphatic,A,"",,,344
+1288,340,14,Allergic/Immunologic,A,"",,,345
+1289,340,15,Local Examination,I,"",,,346
+1290,340,16,All other systems,A,"",,,347
+1291,348,1,Rasa,A,0,,,382
+1292,348,2,Rakta,A,0,,,383
+1293,348,3,Mamsa,A,0,,,384
+1294,348,4,Meda,A,0,,,385
+1295,346,1,Vataja,A,0,,,368
+1296,346,2,Pittaja,A,0,,,369
+1297,346,3,Kaphaja,A,0,,,370
+1298,346,4,Vata Pittaja,A,0,,,371
+1299,346,5,Vata Kaphaja,A,0,,,372
+1300,346,6,Pitta Kaphaja,A,0,,,373
+1301,358,1,Jeerna (> 60yrs),A,0,,,422
+1302,346,7,Pitta Vataja,A,0,,,374
+1303,346,8,Pitta Kapahaja,A,0,,,375
+1304,346,9,Kapha Pittaja,A,0,,,376
+1305,346,10,Kapha Vataja,A,0,,,377
+1306,346,11,Sannipataja,A,0,,,378
+1307,347,1,Pravara,A,0,,,379
+1308,347,2,Madhyama,A,0,,,380
+1309,347,3,Avara,A,0,,,381
+1310,348,5,Asthi,A,0,,,386
+1311,348,6,Majja,A,0,,,387
+1312,348,7,Shukra,A,0,,,388
+1313,348,8,Satva,A,0,,,389
+1314,349,1,Pravara,A,0,,,390
+1315,349,2,Madhyama,A,0,,,391
+1316,349,3,Avara,A,0,,,392
+1317,350,1,Pravara,A,0,,,393
+1318,350,2,Madhyama,A,0,,,394
+1319,350,3,Avara,A,0,,,395
+1320,351,1,Sarvarasa,A,0,,,396
+1321,351,2,Mishrarasa,A,0,,,397
+1322,351,3,Ekarasa,A,0,,,398
+1323,354,1,Pravara,A,0,,,405
+1324,354,2,Madhyama,A,0,,,406
+1325,354,3,Avara,A,0,,,407
+1326,355,1,Baalyavastha,A,0,,,408
+1327,355,2,Madhyamavastha,A,0,,,409
+1328,355,3,Vrudhhavastha,A,0,,,410
+1329,356,1,Ksheerannada (upto 2 yrs),A,0,,,411
+1330,356,2,Annada (3-10),A,0,,,412
+1331,356,3,Kumari (10-12),A,0,,,413
+1332,356,4,Rajomati (12-16),A,0,,,414
+1333,356,5,Kumara (10-16),A,0,,,415
+1334,356,0,Annada (upto 1 yr),A,0,,,416
+1335,357,1,Vriddhi(16 - 20),A,0,,,417
+1336,352,1,Pravara,A,0,,,402
+1337,357,2,Yauvana(20 - 30),A,0,,,418
+1338,352,2,Madhayama,A,0,,,403
+1339,352,3,Avara,A,0,,,404
+1340,353,1,Pravara,A,0,,,399
+1341,353,2,Madhyama,A,0,,,400
+1342,353,3,Avara,A,0,,,401
+1343,357,3,Sampoorna (30 - 40 ),A,0,,,419
+1344,357,4,Praudhavasta(40 - 50),A,0,,,420
+1345,357,5,Parihani ( 50 - 60),A,0,,,421
+1346,370,1,Vegan,A,0,,,423
+1347,370,2,Lacto vegan,A,0,,,424
+1348,370,3,Ova Vegan,A,0,,,425
+1349,370,4,Mixed Diet,A,0,,,426
+1350,374,1,Yes,A,0,,,436
+1351,374,2,No,A,0,,,437
+1352,371,1,Yes,A,0,,,434
+1353,371,2,No,A,0,,,435
+1354,360,1,Yes,A,0,,,443
+1355,360,2,No,A,0,,,444
+1356,376,1,Junk Foods,A,0,,,440
+1357,376,2,Untimely Food,A,0,,,441
+1358,372,1,Lipta,A,0,,,431
+1359,372,2,Alpalipta,A,0,,,432
+1360,372,3,Alipta,A,0,,,433
+1361,359,1,Yes,A,0,,,438
+1362,359,2,No,A,0,,,439
+1363,373,1,Normal,A,0,,,427
+1364,373,2,> 50 %,A,0,,,428
+1365,373,3,<50 %,A,0,,,429
+1366,373,4,Poor,A,0,,,430
+1367,361,1,Yes,A,0,,,445
+1368,361,2,No,A,0,,,446
+1369,361,1,Trial,I,1,,,447
+1370,362,1,Yes,A,0,,,448
+1371,362,2,No,A,0,,,449
+1372,364,1,Yes,A,0,,,452
+1373,364,2,No,A,0,,,453
+1374,365,1,Daily,A,0,,,454
+1375,365,2,Alt day,A,0,,,455
+1376,365,3,Weekly,A,0,,,456
+1377,365,4,None,A,0,,,457
+1378,366,1,Yes,A,0,,,450
+1379,366,2,No,A,0,,,451
+1380,376,3,Excessive Food,A,0,,,442
+1381,369,1,1,A,0,,,462
+1382,369,2,2,A,0,,,463
+1383,369,3,3,A,0,,,464
+1384,369,4,4,A,0,,,465
+1385,369,5,5,A,0,,,466
+1386,369,6,6,A,0,,,467
+1387,369,7,7,A,0,,,468
+1388,369,8,8,A,0,,,469
+1389,369,9,9,A,0,,,470
+1390,369,10,10,A,0,,,471
+1750,446,1,Ahara,A,"",,,
+1751,446,2,Vihara,A,"",,,
+1752,446,3, Vyasana,A,"",,,
+1753,446,4,Manasika,A,"",,,
+1754,446,5,Abhighata,A,"",,,
+1755,447,1,Sandhi Pareeksha,A,"",,,
+1761,448,1,VAS,A,"",,,
+1762,448,2,Tenderness,A,"",,,
+1763,448,3,Crepitation's,A,"",,,
+1400,379,4,Orientation,A,0,,,475
+1401,379,1,Appearance,A,0,,,472
+1402,379,2,Body Built,A,0,,,473
+1403,379,3,Body Strength,A,0,,,474
+1404,379,5,Conciousness,A,0,,,485
+1405,380,1,Hand-stretch breathing ,A,0,,,486
+1406,380,2,Hands in & out breathing,A,0,,,487
+1407,380,3,Ankle stretch breathing ,A,0,,,488
+1408,381,1,Rabbit breathing,A,0,,,489
+1409,381,2,Dog breathing,A,0,,,490
+1410,381,3,Tiger breathing ,A,0,,,491
+1411,381,4,Shashankasana breathing,A,0,,,492
+1412,382,1,Bhujangasana breathing,A,0,,,493
+1413,382,2,Shalabhasana breathing,A,0,,,494
+1414,382,3,Dhanurasana breathing,A,0,,,495
+1415,382,4,Navasana breathing,A,0,,,496
+1416,383,1,Side leg raising,A,0,,,497
+1417,383,2,Straight leg raising,A,0,,,498
+1418,383,3,Naukasana breathing,A,0,,,499
+1419,383,4,Jathara-parivartanasana breathing,A,0,,,500
+1420,386,1,Neck movement â Forward/backward bending,A,0,,,501
+1421,386,2,Neck movement â side bending,A,0,,,502
+1422,386,3,Neck movement â Twisting,A,0,,,503
+1423,386,4,Neck movement â Rotation,A,0,,,504
+1424,386,5,Shoulder rotation,A,0,,,505
+1425,386,6,Shoulder blade touching,A,0,,,506
+1426,386,7,Elbow movements/Rotation,A,0,,,507
+1427,386,8,Wrist movements/rotation,A,0,,,508
+1428,386,9,Finger joint loosening,A,0,,,509
+1429,386,10,Waist rotation,A,0,,,510
+1430,386,11,Forward/backward bending,A,0,,,511
+1431,386,12,Side bending,A,0,,,512
+1432,386,13,Trikonasana stretch,A,0,,,513
+1433,386,14,Twisting,A,0,,,514
+1434,386,15,Alternate toe touching,A,0,,,515
+1435,386,16,Alternate heel touching,A,0,,,516
+1436,386,17,Back swing-forward,A,0,,,517
+1437,386,18,Back swing-sideways,A,0,,,518
+1438,386,19,Padasanchalana,A,0,,,519
+1439,386,20,Drill walking,A,0,,,520
+1440,386,21,Utkatasana stretch,A,0,,,521
+1441,386,22,Simple walking ,A,0,,,522
+1442,386,23,Hip stretch,A,0,,,523
+1443,386,24,Thigh stretch ,A,0,,,524
+1444,386,25,Knee rotation ,A,0,,,525
+1445,386,26,Knee bending ,A,0,,,526
+1446,386,27,Ankle movement/rotation  ,A,0,,,527
+1447,386,28,Toe bending ,A,0,,,528
+1448,386,29,Tadasana stretch ,A,0,,,529
+1449,386,30,Sit-ups,A,0,,,530
+1450,386,31,"Jogging âforward, backward, sideways, jumping",A,0,,,531
+1451,386,32,Vayu nishkasana,A,0,,,532
+1452,386,33,Kauva chalasana,A,0,,,533
+1764,448,4,Measurement of the knee,A,"",,,
+1453,386,34,Udarakarshanasana,A,0,,,534
+1454,386,35,Bandha hastotthanasana,A,0,,,535
+1455,386,37,Akarna dhanurasana,A,0,,,536
+1456,386,38,Tiryak kati chakrasana,A,0,,,537
+1457,386,39,Utthanasana,A,0,,,538
+1458,386,40,Utthita-lolasana,A,0,,,539
+1459,386,41,Dolasana,A,0,,,540
+1460,386,42,Kashtha takshanasana,A,0,,,541
+1461,387,1,Knee cap tightening,A,"",,,542
+1462,387,2,Knee cap rotation  ,A,0,,,543
+1463,387,3,Patella movement ,A,0,,,544
+1464,387,4,Knee stretch ,A,0,,,545
+1465,387,5,Knee rotation ,A,0,,,546
+1466,387,6,Janushirsasana breathing,A,0,,,547
+1467,387,7,Bhunaman,A,0,,,548
+1468,387,8,Chakki chalan,A,0,,,549
+1469,387,9,Chapati making ,A,0,,,550
+1470,387,10,Rowing the boat,A,0,,,551
+1471,387,11,Paschimottanaresana stretch,A,0,,,552
+1472,387,12,Tiger stretch,A,0,,,553
+1473,387,13,Padmasana swing,A,0,,,554
+1474,387,14,Side bending in padmasana  ,A,0,,,555
+1475,387,15,Nauka-sanchalasana,A,0,,,556
+1476,387,16,Back stretch (Ashwasanchalanasan),A,0,,,557
+1477,387,17,Ardha chandrasana,A,0,,,558
+1478,387,18,Baby walk,A,0,,,559
+1479,387,19,Crow walk,A,0,,,560
+1480,387,20,Frog jump,A,0,,,561
+1481,387,21,Shashanka-bhujangasa,A,0,,,562
+1482,387,22,Vyaghrasana,A,0,,,563
+1483,387,23,Balancing practices,A,0,,,564
+1484,387,25,Gatyatmaka meru vakrasana,A,0,,,565
+1485,387,26,Rajju karshanasana,A,0,,,566
+1486,387,27,Half butterfly,A,0,,,567
+1487,387,28,Full butterfly,A,0,,,568
+1488,387,29,Baby swing,A,0,,,569
+1489,387,30,Baddhakonasana bending,A,0,,,570
+1490,384,1,Dhanurasana swing,A,0,,,571
+1491,384,2,Dhanurasana stretch â up & down/ sideways  ,A,0,,,572
+1492,384,3,Push-ups,A,0,,,573
+1493,384,4,Alternate bhujangasana-parvatasana,A,0,,,574
+1494,384,5,Serpant stretch â with single/both legs,A,0,,,575
+1495,384,6,Tiryak bhujangasana,A,0,,,576
+1496,384,7,Utthana pristhasana,A,0,,,577
+1497,384,8,Ardha shalabhasana (Alternate leg & arm),A,0,,,578
+1498,384,9,Sarpasana stretch,A,0,,,579
+1499,385,1,Cycling ,A,0,,,580
+1500,385,2,Setubandasana,A,o,,,581
+1501,385,3,Dorsal stretch,A,0,,,582
+1502,385,4,Pavanamuktasana kriya,A,0,,,583
+1503,385,5,Pavanamuktasana stretch,A,0,,,584
+1504,385,6,Rocking & rolling ,A,0,,,585
+1505,385,7,Folded leg lumbar stretch,A,0,,,586
+1506,385,8,Cross leg lumbar stretch,A,0,,,587
+1507,385,9,Alternate halasana-paschimottanasana,A,0,,,588
+1508,385,10,Shava udarakarshanasana,A,0,,,589
+1509,385,11,Supta padasanchalana,A,0,,,590
+1510,385,12,Pada chakrasana,A,0,,,591
+1511,385,13,Gatyatmaka paschimottanasana,A,0,,,592
+1512,385,14,Full-body rolling,A,0,,,593
+1513,385,15,Alternate dandasana & lambasana,A,0,,,594
+1514,388,1,Bhujangasana,A,0,,,659
+1515,388,2,Shalabhasana,A,0,,,660
+1516,388,3,Dhanurasana,A,0,,,661
+1517,388,4,Navasana,A,0,,,662
+1518,388,5,Parvatasana,A,0,,,663
+1519,388,6,Ashwa-sanchalanasana,A,0,,,664
+1520,388,7,Santolasana,A,0,,,665
+1521,388,8,Bhumipadamastakasana,A,0,,,666
+1522,388,9,Sarpasana,A,0,,,667
+1523,388,10,Makarasana,A,0,,,668
+1524,388,11,Matsyakridasana,A,0,,,669
+1525,388,12,Jyesticasana,A,0,,,670
+1526,388,13,Advasana,A,0,,,671
+1527,391,1,Vajrasana,A,0,,,616
+1528,391,2,Siddhasana,A,0,,,617
+1529,391,3,Sukhasana,A,0,,,618
+1530,391,4,Padadhirasana,A,0,,,619
+1531,391,5,Bhadrasana,A,0,,,620
+1532,391,6,Simhasana,A,0,,,621
+1533,391,7,Virasana,A,0,,,622
+1534,390,1,Utkatasana,A,0,,,595
+1535,390,2,Ardhakati-chakrasana,A,0,,,596
+1536,390,3,Ardha-chakrasana,A,0,,,597
+1537,390,4,Vrikshasana,A,0,,,598
+1538,390,5,Garudasana,A,0,,,599
+1539,390,6,Trikonasana,A,0,,,600
+1540,390,7,Dwikonasana,A,0,,,601
+1541,390,8,Parshva-konasana,A,0,,,602
+1542,390,9,Tadasana,A,0,,,603
+1543,390,10,Tiryak-tadasan,A,0,,,604
+1544,390,11,Uttanasana,A,0,,,605
+1545,390,12,Pada-hastasana,A,0,,,606
+1546,390,13,Natavarasana,A,0,,,607
+1547,390,14,Eka-padasana,A,0,,,608
+1548,390,15,Hastapadangushtahasana,A,0,,,609
+1549,390,16,Vatayanasana,A,0,,,610
+1550,390,17,Shirsha-angushtha yogasana,A,0,,,611
+1551,390,18,Bakasana,A,0,,,612
+1552,390,19,Utthita-hastapadangushthasana,A,0,,,613
+1553,390,20,Gorakshasana,A,0,,,614
+1554,390,21,Viparita dandasana,A,0,,,615
+1555,391,8,Paschimottanasana,A,0,,,623
+1556,391,9,Prasaritapada-paschimottanasana,A,0,,,624
+1557,391,10,Janu-shirshasana,A,0,,,625
+1558,391,11,Padmasana,A,0,,,626
+1559,391,12,Yogamudrsana,A,0,,,627
+1560,391,13,Baddhapadmasana,A,0,,,628
+1561,391,14,Baddhakonasana,A,0,,,629
+1562,391,15,Gomukhasana,A,0,,,630
+1563,391,16,Vakrasana,A,0,,,631
+1564,391,17,Ardha-matsyendrasana,A,0,,,632
+1565,391,18,Purna-matsyendrasana,A,0,,,633
+1566,391,19,Shashankasana,A,0,,,634
+1567,391,20,Ushtrasana,A,0,,,635
+1568,391,21,Sputa-vajrasana (2 variations),A,0,,,636
+1569,391,22,Matsyasana,A,0,,,637
+1570,391,23,Malasana,A,0,,,638
+1571,391,24,Hamsasana,A,0,,,639
+1572,391,25,Dwipada-sirsasana,A,0,,,640
+1573,391,26,Ekapada-sirsasana,A,0,,,641
+1574,391,27,Moolabandhasana,A,0,,,642
+1575,391,29,Akarnadhanurasana,A,0,,,643
+1576,391,30,Koormasana,A,0,,,644
+1577,391,31,Dwi-hastabhujasana,A,0,,,645
+1578,391,32,Ardha-shirshasana,A,0,,,646
+1579,389,1,Lambasana,A,0,,,672
+1580,389,2,Setubandhasana,A,0,,,673
+1581,389,3,Naukasana,A,0,,,674
+1582,389,4,Viparitakarani asana,A,0,,,675
+1583,389,5,Sarvangasana,A,0,,,676
+1584,389,6,Padma-sarvangasana,A,0,,,677
+1585,389,7,Halasana,A,0,,,678
+1586,389,8,Garbhapindasana,A,0,,,679
+1587,389,9,Jathara-parivartanasana,A,0,,,680
+1588,389,10,Hasta-padangushthasana,A,0,,,681
+1589,389,11,Shavasana,A,0,,,682
+1590,391,33,Shirshasana,A,0,,,647
+1591,391,34,Parivritta-janushirshasana,A,0,,,648
+1592,391,35,Meru-vakrasana,A,0,,,649
+1593,391,36,Saithalyasana,A,0,,,650
+1594,391,37,Namana-pranamanasana,A,0,,,651
+1595,391,38,Gupta-padmasana,A,0,,,652
+1596,391,39,Marichyasana,A,0,,,653
+1597,391,40,Upavishta-konasana,A,0,,,654
+1598,391,41,Supta-swastikasana,A,0,,,655
+1599,391,42,Triang mukhaikapada in paschimottanasana,A,0,,,656
+1600,391,43,Ardha-baddha-padma in paschimottanasana,A,0,,,657
+1601,391,44,Parshva upavishta konasana ,A,0,,,658
+1602,392,1,Jala neti,A,0,,,683
+1603,392,2,Sutraneti,A,0,,,684
+1604,392,3,Vamana dhouti,A,0,,,685
+1605,392,4,Laghu-shankha prakshalana,A,0,,,686
+1606,392,5,Purna-shankha prakshalana,A,0,,,687
+1607,392,6,Agnisara,A,0,,,688
+1608,392,7,Kapalabhati,A,0,,,689
+1609,392,8,Trataka,A,0,,,690
+1610,392,9,Moola shodhana,A,0,,,691
+1611,393,1,Natural breathing,A,0,,,692
+1612,393,2,Yogic breathing,A,0,,,693
+1613,393,3,Suryaanuloma,A,0,,,694
+1614,393,4,chandraanuloma,A,0,,,695
+1615,393,5,Nadishodhana,A,0,,,696
+1616,393,6,Nadishodhana with Antar-kumbhaka,A,0,,,697
+1617,393,7,Nadishodhana with Bahir kumbhaka,A,0,,,698
+1618,393,8,Nadishodhana with Antar & Bahir kumbhaka,A,0,,,699
+1619,393,9,Bhramari,A,0,,,700
+1620,393,10,Bhramari with Antar-kumbhaka,A,0,,,701
+1621,393,11,Bhastrika with alternate nostrills,A,0,,,702
+1622,393,12,Bhastrika with both nostrills,A,0,,,703
+1623,393,13,Ujjayi,A,0,,,704
+1624,393,14,Ujjayi with Antar-kumbhaka,A,0,,,705
+1625,393,15,Sadanta,A,0,,,706
+1626,393,16,Sheetali,A,0,,,707
+1627,393,17,Sheetkari,A,0,,,708
+1628,394,1,Jnana mudra,A,0,,,709
+1629,394,2,Chinmudra,A,0,,,710
+1630,394,3,Yoni mudra,A,0,,,711
+1631,394,4,Bhairava mudra,A,0,,,712
+1632,394,5,Bhairavi mudra,A,0,,,713
+1633,394,6,Hrudaya mudra,A,0,,,714
+1634,394,7,Shambhavi mudra,A,0,,,715
+1635,394,8,Nasikagra drishti,A,0,,,716
+1636,394,9,Khechari mudra,A,0,,,717
+1637,394,10,Kaki mudra,A,0,,,718
+1638,394,11,Bhuchari mudra,A,0,,,719
+1639,394,12,Shanmukhi mudra,A,0,,,720
+1640,394,13,Pashini mudra,A,0,,,721
+1641,394,14,Tadagi mudra,A,0,,,722
+1642,394,15,Ashwini mudra,A,0,,,723
+1643,395,1,Jalandhara bandha,A,0,,,724
+1644,395,2,Uddiyana bandha,A,0,,,725
+1645,395,3,Mula bandha,A,0,,,726
+1646,395,4,Maha bandha,A,0,,,727
+1647,396,1,IRT-Instant Relaxation Technique,A,0,,,728
+1648,396,2,QRT-Quick Relaxation Technique,A,0,,,729
+1649,396,3,DRT-Deep Relaxation Technique,A,0,,,730
+1650,397,1,Nadanusandhana,A,0,,,731
+1651,397,2,CM-Cyclic Meditation,A,0,,,732
+1652,397,3,PET-Pranic Energization Technique,A,0,,,733
+1653,397,4,MSRT-Mind Sound Resonance Technique,A,0,,,734
+1654,415,1,Alasya (Lazy),A,"",,,
+1655,415,2,Dorbalya(weakness),A,"",,,
+1656,415,3,Mala baddhata (Constipation),A,"",,,
+1657,415,4,Jwara (Fever),A,"",,,
+1658,415,5,Sadana (Tiredness),A,"",,,
+1659,415,6,Bahu Mootrata (Increased urination),A,"",,,
+1660,415,7,Chardi (Vomiting),A,"",,,
+1661,415,8,Angamarda (Body pain),A,"",,,
+1662,415,9,Aruchi (Anorexia),A,"",,,
+1663,415,10,Gourava (Heaviness),A,"",,,
+1664,415,11,Pain,A,"",,,
+1665,415,12,Stiffness,A,"",,,
+1666,415,13,Swelling,A,"",,,
+1667,415,14,Brama (Giddiness),A,"",,,
+1668,415,15,Kukshishoola (Pain Abdomen),A,"",,,
+1669,415,16,Hrutgraha (Chest Discomfort),A,"",,,
+1670,415,17,Anaha (Flatulence),A,"",,,
+1671,415,18,Praseka (Increased Salivation),A,"",,,
+1672,415,19,Trushna (Thirst),A,"",,,
+1673,415,20,Hasta-pada daha ( Hand-Foot burning),A,"",,,
+1674,415,21,Kandu (Itching),A,"",,,
+1675,415,22,Moorcha(Vertigo),A,"",,,
+1676,415,23,Apakaa (Indigestion),A,"",,,
+1677,415,24,Redness,A,"",,,
+1678,415,25,Warmth,A,"",,,
+1679,415,26,Tenderness,A,"",,,
+1680,416,1,HTN,A,"",,,
+1681,416,2,DM,A,"",,,
+1682,416,3,Hypo/Hyper thyroid,A,"",,,
+1683,416,4,Psoriasis,A,"",,,
+1684,416,5,Any others ,A,"",,,
+1685,420,1,HB%,A,"",,,
+1686,420,2,TC,A,"",,,
+1687,420,3,DC,A,"",,,
+1688,420,4,ESR,A,"",,,
+1689,420,5,RA,A,"",,,
+1690,420,6,CRP,A,"",,,
+1691,420,7,ANA,A,"",,,
+1692,420,8,ASO,A,"",,,
+1693,422,1,Factors Gravida,A,"",,,
+1694,422,2,Gravida,A,"",,,
+1695,422,3,Parity,A,"",,,
+1696,422,4,Abortions,A,"",,,
+1697,422,6,Living,A,"",,,
+1698,422,7,Dead,A,"",,,
+1699,423,1,Type,A,"",,,
+1700,423,2,Quantity,A,"",,,
+1701,423,3,Dominant Rasa,A,"",,,
+1702,423,4,Quality,A,"",,,
+1703,423,5,Dietic Habit,A,"",,,
+1704,424,1,Nature of work,A,"",,,
+1705,424,2,Rest ,A,"",,,
+1706,424,3,Exercise ,A,"",,,
+1707,424,4,Sleep,A,"",,,
+1708,424,5,Urine ,A,"",,,
+1709,424,6,Stools ,A,"",,,
+1710,425,1,Present,A,"",,,
+1711,425,2,Absent,A,"",,,
+1712,426,1,Pitting,A,"",,,
+1713,426,2,Non Pitting,A,"",,,
+1714,427,1,Present,A,"",,,
+1715,427,2,Absent,A,"",,,
+1716,428,1,Present,A,"",,,
+1717,428,2,Absent,A,"",,,
+1718,429,1,Present,A,"",,,
+1719,429,2,Absent,A,"",,,
+1720,430,1,Palpable,A,"",,,
+1721,430,2,Non Palpable,A,"",,,
+1156,306,1,Upashaya,A,"",,,359
+1157,306,2,Anupashaya,A,"",,,360
+1391,378,7,Posture,A,0,,,482
+1392,378,8,Mental State,A,0,,,483
+1393,378,9,Facies,A,0,,,484
+1394,378,1,Appearance,A,0,,,476
+1395,378,2,Pallor,A,0,,,477
+1396,378,3,Icterus,A,0,,,478
+1722,431,1,Nadi,A,"",,,
+1723,431,2,Jihwa,A,"",,,
+1724,431,3,Mala,A,"",,,
+1725,431,4,Mutra,A,"",,,
+1726,431,5,Shabda,A,"",,,
+1727,431,6,Sparsha,A,"",,,
+1728,431,7,Drik,A,"",,,
+1729,431,8,Akruthi,A,"",,,
+1730,432,1,Prakriti,A,"",,,
+1731,432,2,Sara,A,"",,,
+1732,432,3,Samhanana,A,"",,,
+1733,432,4,Pramana,A,"",,,
+1734,432,5,Ahara shakti,A,"",,,
+1735,432,6,Vyayama Shakti,A,"",,,
+1736,432,7,Satmya ,A,"",,,
+1737,432,8,Satwa,A,"",,,
+1738,432,8,Vaya,A,"",,,
+1739,436,1,Swedana ,A,"",,,
+1740,436,2,Curna Pottali,A,"",,,
+1741,436,3,Jambira pottali,A,"",,,
+1742,436,4,Valuka,A,"",,,
+1743,436,5,Patra,A,"",,,
+1744,436,6,Lavana,A,"",,,
+1745,436,7,Tusha,A,"",,,
+1746,436,8,Dhara,A,"",,,
+1747,436,8,Lepa,A,"",,,
+1748,436,9,Upanaha,A,"",,,
+1397,378,4,Odema,A,0,,,479
+1398,378,5,Lymphadenopathy,A,0,,,480
+1399,378,6,Nourishment,A,0,,,481
+1756,447,2,VAS,A,"",,,
+1757,447,3,Tenderness,A,"",,,
+1758,447,4,Crepitation's,A,"",,,
+1759,447,5,Measurement of the knee,A,"",,,
+1760,447,6,Goniometric assessment ,A,"",,,
+1765,448,5,Goniometric assessment ,A,"",,,
+1766,454,1,"Tire Easily,Weakness",A,"",,,
+1767,454,2,Marked Weight Change,A,"",,,
+1768,454,3,Night Sweat,A,"",,,
+1769,454,4,Persistent Fever,A,"",,,
+1770,455,1,Rheumatic Fever,A,"",,,
+1771,455,2,Chest Pain /Discomfort,A,"",,,
+1772,455,3,Heart Attack/Trouble,A,"",,,
+1773,455,4,Shortness Of Breath & High BP,A,"",,,
+1774,455,5,Congenital Heart Disease,A,"",,,
+1775,455,6,Artificial Heart Valve,A,"",,,
+1776,455,7,Pacemaker,A,"",,,
+1777,455,8,Heart Surgery,A,"",,,
+1778,455,10,Others,A,"",,,
+1779,456,1,Stroke,A,"",,,
+1780,456,2,Headache,A,"",,,
+1781,456,3,Convulsion/Epilepsy,A,"",,,
+1782,456,5,Numbless/Tingling,A,"",,,
+1783,456,5,Dizziness/Fainting,A,"",,,
+1784,456,6,Psychiatric Treatment,A,"",,,
+1785,456,8,Others,A,"",,,
+1786,457,1,Tuberculosis,A,"",,,
+1787,457,2,Asthma/Hay Fever,A,"",,,
+1788,457,3,Persistent Cough,A,"",,,
+1789,457,4,Sputum Production,A,"",,,
+1790,457,5,Cough up Bloody Sputum,A,"",,,
+1791,457,7,Others,A,"",,,
+1792,458,1,Arthrities/Rheumatism,A,"",,,
+1793,458,2,Others,A,"",,,
+1794,459,1,Hepatities,A,"",,,
+1795,459,1,Jaundice,A,"",,,
+1796,459,3,Ulcers,A,"",,,
+1797,459,4,Hyper Acidity,A,"",,,
+1798,459,5,"Black,Bloody Or Pale Stools",A,"",,,
+1799,459,6,Others,A,"",,,
+1800,460,1,Diabetes,A,"",,,
+1801,460,2,Family HIstory Of Diabetes,A,"",,,
+1802,460,3,Thyroid  Condition/Goiter,A,"",,,
+1803,460,4,Others,A,"",,,
+1821,467,1,Date,A,"",,,
+1822,467,2,Purpose,A,"",,,
+1823,468,1,Yes,A,"",,,
+1824,468,2,No,A,"",,,
+1837,473,1,Bruxism,A,"",,,
+1838,473,2,Mouth Breathing,A,"",,,
+1839,473,3,Thumb Sucking,A,"",,,
+1840,473,3,Tounge Thrusting,A,"",,,
+1841,473,5,Others,A,"",,,
+1855,479,1,Grade I,A,"",,,
+1856,479,2,Grade II,A,"",,,
+1857,479,3,Grade III,A,"",,,
+1867,484,1,Present,A,"",,,
+1868,484,2,Absent,A,"",,,
+1869,485,1,Hard Palate,A,"",,,
+1870,485,2,Soft Palate,A,"",,,
+1881,489,1,IOPAR,A,"",,,
+1882,489,2,OPG,A,"",,,
+1883,489,3,Bitewing,A,"",,,
+1884,489,4,Lateral Ceph,A,"",,,
+1885,489,5,Occlusal,A,"",,,
+1886,489,6,Others,A,"",,,
+1804,461,1,Kidney Disease,A,"",,,
+1805,461,2,venereal Disease,A,"",,,
+1806,461,3,Others,A,"",,,
+1807,462,1,Bruise Easily,A,"",,,
+1808,462,2,Anemia,A,"",,,
+1809,462,3,Blood Transfusion,A,"",,,
+1810,462,3,Are you on Herbal Medication,A,"",,,
+1811,462,5,Others,A,"",,,
+1812,463,1,Pregnancy Month,A,"",,,
+1813,463,2,Others,A,"",,,
+1814,464,1,Hisptory of Drug Allergy,A,"",,,
+1815,464,2,Are you on any Medication,A,"",,,
+1816,464,3,Others,A,"",,,
+1817,466,1,No,A,"",,,
+1818,466,2,Slightly,A,"",,,
+1819,466,3,Moderately,A,"",,,
+1820,466,4,Extremely,A,"",,,
+1865,483,1,Present,A,"",,,
+1866,483,2,Absent,A,"",,,
+1877,486,1,Mucosal Lesion,A,"",,,
+1878,486,2,Ulcer,A,"",,,
+1879,486,3,Swelling,A,"",,,
+1880,486,4,Others,A,"",,,
+1842,474,1,Joint Tenderness,A,"",,,
+1843,474,2,Muscle Tenderness,A,"",,,
+1844,474,3,Restriction/Deviation of Movement,A,"",,,
+1845,474,3,Clicking/Crepitation,A,"",,,
+1832,472,1,Smoking,A,"",,,
+1833,472,2,Alcohol Consumption,A,"",,,
+1834,472,3,Tobacco Chewing,A,"",,,
+1835,472,3,Betal Quid Chewing,A,"",,,
+1836,472,5,Others,A,"",,,
+1846,475,1,Stains,A,"",,,
+1847,475,2,Calculus,A,"",,,
+1848,476,1,Present,A,"",,,
+1849,476,2,Absent,A,"",,,
+1850,477,1,Present,A,"",,,
+1851,477,2,Absent,A,"",,,
+1852,478,1,Attrition,A,"",,,
+1853,478,2,Abrasion,A,"",,,
+1854,478,3,Erosion,A,"",,,
+1858,480,1,Class I,A,"",,,
+1859,480,2,Class II,A,"",,,
+1860,480,3,Class III,A,"",,,
+1861,481,1,Present,A,"",,,
+1862,481,2,Absent,A,"",,,
+1863,482,1,Present,A,"",,,
+1864,482,2,Absent,A,"",,,
+1871,485,4,Pharynx,A,"",,,
+1872,485,3,Tongue,A,"",,,
+1873,485,5,Floor Of Mouth,A,"",,,
+1874,485,6,Attached Gingiva,A,"",,,
+1875,485,7,Lips,A,"",,,
+1876,485,8,Vestibule,A,"",,,
+1887,498,1,Oral Medicine And Radiology,A,"",,,
+1888,498,2,Oral And Maxillofacial surgery,A,"",,,
+1889,498,3,Peridontology,A,"",,,
+1890,498,4,Conservative Dentistry,A,"",,,
+1891,498,5,Prosthodontics & Crown & Bridge,A,"",,,
+1892,498,6,Orthodontics & Dentofacial Orthopedics,A,"",,,
+1893,498,7,Pedodontics & PreventiveDentistry,A,"",,,
+1894,498,8,Community Dentistry,A,"",,,
+1895,498,9,Oral Pathology And Microbiology,A,"",,,
+1896,498,10,General Medicine & General Surgery,A,"",,,
+1825,469,1,Medical Problems(Familia/Genetic),A,"",,,
+1826,469,1,Dental Problems,A,"",,,
+1827,471,1,Cleaning Teeth with home made dintifrice,A,"",,,
+1828,471,2,Brushing,A,"",,,
+1829,471,3,Flossing  ,A,"",,,
+1830,471,4,Mouth Wash,A,"",,,
+1831,471,5,Frequency,A,"",,,
