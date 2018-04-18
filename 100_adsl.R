@@ -1,0 +1,113 @@
+
+######################################################
+# Create calculations using base01_ip and base01_op
+######################################################
+
+library(data.table)
+library(dplyr)
+library(anytime)
+
+# Get all the data IP, OP and Service
+
+base01_ip <- fread("D:/Hospital_data/ProgresSQL/source/base01_ip.csv")
+base01_op <- fread("D:/Hospital_data/ProgresSQL/source/base01_op.csv")
+base01_ser <- fread("D:/Hospital_data/ProgresSQL/data_chk/temp100ser.csv")
+
+# Get the disease category list for MCSD and Metabolic
+discat <- data.table( fread ("D:/Hospital_data/ProgresSQL/analysis/discategory.csv") )
+
+# Get the medication and service list
+med <- data.table( fread ("D:/Hospital_data/ProgresSQL/source/med.csv") )
+ser <- data.table( fread ("D:/Hospital_data/ProgresSQL/source/services.csv") )
+
+setnames(ser, "service_id", "medicine_id")
+setnames(ser, "service_name", "medicine_name")
+
+medall <- rbind(med, ser)
+
+l = list(ip = base01_ip, op = base01_op)
+base01_all <- rbindlist(l, idcol = "Type", use.names = TRUE, fill = TRUE)
+
+base01_all <- base01_all [, `:=` ( newdt = anydate(prescdate) )] [order(mr_no, newdt, patient_id)]
+
+#################################################
+# create visit numbers and total number of visits
+# Individual visits: merge the data on base01_all
+# IP visits
+# OP visits
+# Total number of visits IP + OP
+#################################################
+vis <- unique(base01_all[, c("mr_no", "patient_id", "newdt"), with =FALSE])
+vis <- vis [, Type := substr(patient_id, 1, 2)] [order (mr_no, newdt, patient_id)]
+vis <- vis [, `:=` (vis =1:.N, 
+                    all_vis = max( seq_len(.N) ) ), by = .(mr_no)]
+vis02 <- vis [, .(vistype =.N), by = .(mr_no, Type, all_vis)]
+vis02t <- dcast(data = vis02, 
+                mr_no +all_vis ~ paste("all_", tolower(Type), sep =""),
+                value.var =c("vistype"),
+                fill="")
+vis03 <- merge (vis, vis02t, by = "mr_no")
+
+base01_all <- merge (vis, vis02t, by = "mr_no")
+
+#############################################
+# Start and end date for each type OP and IP
+# Start and end date for overall visit dates
+#############################################
+base01_all01 <- base01_all[, .(stdt = min(newdt), 
+                               endt = max(newdt), 
+                               dur = max(newdt) - min(newdt) + 1), by = .(mr_no, Type)]
+
+base01_all01t <- dcast(data = base01_all01,
+                       mr_no ~ Type,
+                       value.var = c("stdt", "endt", "dur"),
+                       fill = "")
+
+#############################
+# Start for the overall study
+#############################
+base01_all020 <- base01_all[, .(cstdt = min(newdt), 
+                               cendt = max(newdt), 
+                               cdur = max(newdt) - min(newdt) + 1), by = .(mr_no)]
+
+########################################################
+# Work on the services data
+# get the date converted to numeric date
+# get the minimum and maximum date for each visit
+# get the frequency count for each type of service
+########################################################
+base01_all01 <- merge (x = base01_all,
+                       y = medall,
+                       by.x = "cat_id",
+                       by.y = "medicine_id",
+                       all.x = TRUE)
+
+
+########################################################
+# Work on the services data
+# get the date converted to numeric date
+# get the minimum and maximum date for each visit
+# get the frequency count for each type of service
+########################################################
+
+base01_ser <- base01_ser [, `:=` ( newdt = anydate(prescdate),
+                                   serdt = anydate(sercond_date) )] [order(ser_mrno, newdt, ser_patient_id)]
+
+base01_ser01 <- base01_ser[, .(serstdt = min(newdt), 
+                               serendt = max(newdt),
+                               freq = .N), by = .(ser_mrno, ser_patient_id, cat_id, conducted)]
+
+base01_ser01t <- dcast(data = base01_ser01,
+                       ser_mrno + ser_patient_id + cat_id + serstdt + serendt ~ conducted,
+                       value.var = c("freq"),
+                       fill = "")
+
+base01_ser01t <- merge (x = base01_ser01t,
+                        y = medall,
+                        by.x = "cat_id",
+                        by.y = "medicine_id",
+                        all.x = TRUE)
+
+base01_ser01t <- base01_ser01t [order(ser_mrno, serstdt, ser_patient_id)]
+
+rm (base01_ip, base01_op, base01_ser)
