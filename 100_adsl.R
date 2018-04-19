@@ -12,7 +12,8 @@ library(anytime)
 base01_ip <- fread("D:/Hospital_data/ProgresSQL/source/base01_ip.csv")
 base01_op <- fread("D:/Hospital_data/ProgresSQL/source/base01_op.csv")
 base01_ser <- fread("D:/Hospital_data/ProgresSQL/source/base01_ser.csv")
-pat_info <- fread("D:/Hospital_data/ProgresSQL/source/pat_info.csv")
+#pat_info <- fread("D:/Hospital_data/ProgresSQL/source/pat_info.csv")
+pat_diag_vis <- fread("D:/Hospital_data/ProgresSQL/source/pat_diag_vis.csv")
 
 setnames(pat_info, "mrno", "mr_no")
 
@@ -24,6 +25,7 @@ med <- data.table( fread ("D:/Hospital_data/ProgresSQL/source/med.csv") )
 ser <- data.table( fread ("D:/Hospital_data/ProgresSQL/source/services.csv") )
 
 medall <- rbind(med, ser, fill = TRUE)
+rm(med, ser)
 
 ########################################################
 # Work on the services data
@@ -132,7 +134,6 @@ base01_all011 <- merge (x = base01_all01,
                        by = c("mr_no", "patient_id", "newdt" ),
                        all.x = TRUE)
 
-
 #################################################
 # This should be moved after the VIS calculations
 # Add the patient_info
@@ -143,8 +144,10 @@ base01_ser02t <- merge (x = base01_ser01t,
                         all.x = TRUE)
 
 base01_ser02t <- merge (x = base01_ser02t,
-                        y = pat_info,
-                        by = c("mr_no", "patient_id", "newdt" ),
+                        y = pat_diag_vis,
+                        by = c("mr_no", "patient_id"),
                         all.x = TRUE)
+
+all <- rbind(base01_all011, base01_ser02t, fill =TRUE, use.names = TRUE)
 
 rm (base01_ip, base01_op, base01_ser)

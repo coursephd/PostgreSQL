@@ -139,6 +139,7 @@ select distinct medicine_name, medicine_id
 from iaim.medicine_sales_view;
 
 \copy temp0pat_demog TO 'd:/hospital_data/ProgresSQL/source/pat_info.csv' CSV HEADER DELIMITER ',';
+\copy temp30_5 TO 'd:/hospital_data/ProgresSQL/source/pat_diag_vis.csv' CSV HEADER DELIMITER ',';
 \copy base01_ip TO 'd:/hospital_data/ProgresSQL/source/base01_ip.csv' CSV HEADER DELIMITER ',';
 \copy base01_op TO 'd:/hospital_data/ProgresSQL/source/base01_op.csv' CSV HEADER DELIMITER ',';
 \copy base01_ser TO 'd:/hospital_data/ProgresSQL/source/base01_ser.csv' CSV HEADER DELIMITER ',';
