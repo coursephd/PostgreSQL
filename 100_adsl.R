@@ -12,6 +12,9 @@ library(anytime)
 base01_ip <- fread("D:/Hospital_data/ProgresSQL/source/base01_ip.csv")
 base01_op <- fread("D:/Hospital_data/ProgresSQL/source/base01_op.csv")
 base01_ser <- fread("D:/Hospital_data/ProgresSQL/source/base01_ser.csv")
+pat_info <- fread("D:/Hospital_data/ProgresSQL/source/pat_info.csv")
+
+setnames(pat_info, "mrno", "mr_no")
 
 # Get the disease category list for MCSD and Metabolic
 discat <- data.table( fread ("D:/Hospital_data/ProgresSQL/analysis/discategory.csv") )
@@ -97,12 +100,27 @@ base01_all020 <- vis[, .(cstdt = min(newdt),
                                cendt = max(newdt), 
                                cdur = max(newdt) - min(newdt) + 1), by = .(mr_no)]
 
-########################################################
-# Work on the services data
-# get the date converted to numeric date
-# get the minimum and maximum date for each visit
-# get the frequency count for each type of service
-########################################################
+#############################################
+# Create one large dataset with all the dates
+#############################################
+dates_dur <- merge (x = base01_all020,
+                    y = base01_all01t,
+                    by = c("mr_no"),
+                    all.x = TRUE)
+
+vis03dates_dur <- merge (x = dates_dur,
+                     y = vis03,
+                     by = c("mr_no"),
+                     all.x = TRUE)
+
+vis03dates_dur <- vis03dates_dur [, studyday := newdt - cstdt + 1]
+
+##################################################
+# Merge the Medication information
+# Merge the visit information and day calculations
+# Merge this information on SERVICEs data as well
+##################################################
+
 base01_all01 <- merge (x = base01_all,
                        y = medall,
                        by.x = "cat_id",
@@ -110,9 +128,23 @@ base01_all01 <- merge (x = base01_all,
                        all.x = TRUE)
 
 base01_all011 <- merge (x = base01_all01,
-                       y = vis03 [, -c("Type")],
+                       y = vis03dates_dur [, -c("Type")],
                        by = c("mr_no", "patient_id", "newdt" ),
                        all.x = TRUE)
 
+
+#################################################
+# This should be moved after the VIS calculations
+# Add the patient_info
+#################################################
+base01_ser02t <- merge (x = base01_ser01t,
+                        y = vis03dates_dur [, -c("Type")],
+                        by = c("mr_no", "patient_id", "newdt" ),
+                        all.x = TRUE)
+
+base01_ser02t <- merge (x = base01_ser02t,
+                        y = pat_info,
+                        by = c("mr_no", "patient_id", "newdt" ),
+                        all.x = TRUE)
 
 rm (base01_ip, base01_op, base01_ser)
