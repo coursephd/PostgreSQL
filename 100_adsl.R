@@ -12,10 +12,7 @@ library(anytime)
 base01_ip <- fread("D:/Hospital_data/ProgresSQL/source/base01_ip.csv")
 base01_op <- fread("D:/Hospital_data/ProgresSQL/source/base01_op.csv")
 base01_ser <- fread("D:/Hospital_data/ProgresSQL/source/base01_ser.csv")
-#pat_info <- fread("D:/Hospital_data/ProgresSQL/source/pat_info.csv")
 pat_diag_vis <- fread("D:/Hospital_data/ProgresSQL/source/pat_diag_vis.csv")
-
-setnames(pat_info, "mrno", "mr_no")
 
 # Get the disease category list for MCSD and Metabolic
 discat <- data.table( fread ("D:/Hospital_data/ProgresSQL/analysis/discategory.csv") )
@@ -56,7 +53,7 @@ base01_ser01t <- merge (x = base01_ser01t,
 base01_ser01t <- base01_ser01t [order(mr_no, serstdt, patient_id)]
 base01_ser01t <- base01_ser01t [, newdt := serstdt]
 
-l = list(ip = base01_ip, op = base01_op)
+l = list(IP = base01_ip, OP = base01_op)
 base01_all <- rbindlist(l, idcol = "Type", use.names = TRUE, fill = TRUE)
 
 base01_all <- base01_all [, `:=` ( newdt = anydate(prescdate) )] [order(mr_no, newdt, patient_id)]
@@ -139,7 +136,7 @@ base01_all011 <- merge (x = base01_all01,
 # Add the patient_info
 #################################################
 base01_ser02t <- merge (x = base01_ser01t,
-                        y = vis03dates_dur [, -c("Type")],
+                        y = vis03dates_dur,
                         by = c("mr_no", "patient_id", "newdt" ),
                         all.x = TRUE)
 
@@ -149,5 +146,10 @@ base01_ser02t <- merge (x = base01_ser02t,
                         all.x = TRUE)
 
 all <- rbind(base01_all011, base01_ser02t, fill =TRUE, use.names = TRUE)
+all02 <- all [, -c("ippatient_id", "consult_id", "consultation_id" ,"patient_presc_id", 
+                 "med_form_id", "op_medicine_pres_id", "doctor_id", "diagdate", 
+                 "prescdate")] [order(mr_no, studyday, patient_id, newdt, vis, cat_id)]
 
-rm (base01_ip, base01_op, base01_ser)
+rm (base01_ip, base01_op, base01_ser, l)
+
+fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")

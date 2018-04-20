@@ -12,10 +12,27 @@ temp0pat_demog, temp1pat_reg, temp1doc_cons, temp2reg_cons, temp2diag, temp3pat_
 temp20, temp30, temp30_1, temp30_5, temp100ip, temp350, temp100ser, temp100ser2, temp360,
 base01_op0, base01_op, base01_ip, base01_ser, base_all ;
 
+/* Country and state names */
+create temp table state as
+select city.city_id, city.city_name, city.state_id, 
+state.state_name, state.country_id
+from iaim.city as city, iaim.state_master as state
+where city.state_id = state.state_id;
+
+create temp table cou as
+select state.*, country.country_name
+from state, iaim.country_master as country
+where state.country_id = country.country_id;
+
 /* Create demog table */
-create temp table temp0pat_demog as
+create temp table temp0pat_demog0 as
 select distinct mr_no as mrno, patient_gender, patient_city, patient_state, dateofbirth, country, /*oldmrno, remarks,*/ death_date
 from iaim.patient_details;
+
+create temp table temp0pat_demog as
+select cou.city_name, cou.state_name, cou.country_name, temp0pat_demog0.*
+from cou, temp0pat_demog0
+where cou.city_id = temp0pat_demog0.patient_city and cou.state_id = temp0pat_demog0.patient_state and cou.country_id = temp0pat_demog0.country;
 
 create temp table temp1pat_reg as
 select mr_no, patient_id, visit_type, reg_date, bed_type, dept_name, admitted_dept, main_visit_id
@@ -66,7 +83,7 @@ full join temp3pat_presc on
 temp30.consult_id = temp3pat_presc.consultation_id;
 
 create temp table temp30_5 as
-select mr_no, patient_id, patient_gender, patient_city, patient_state, dateofbirth, country, death_date, 
+select mr_no, patient_id, patient_gender, city_name, state_name, dateofbirth, country_name, death_date, 
 consult_id, description, icd_code, diag_type, diagdate, patient_presc_id
 from temp30_1;
 
@@ -138,7 +155,6 @@ create temp table med as
 select distinct medicine_name, medicine_id 
 from iaim.medicine_sales_view;
 
-\copy temp0pat_demog TO 'd:/hospital_data/ProgresSQL/source/pat_info.csv' CSV HEADER DELIMITER ',';
 \copy temp30_5 TO 'd:/hospital_data/ProgresSQL/source/pat_diag_vis.csv' CSV HEADER DELIMITER ',';
 \copy base01_ip TO 'd:/hospital_data/ProgresSQL/source/base01_ip.csv' CSV HEADER DELIMITER ',';
 \copy base01_op TO 'd:/hospital_data/ProgresSQL/source/base01_op.csv' CSV HEADER DELIMITER ',';
