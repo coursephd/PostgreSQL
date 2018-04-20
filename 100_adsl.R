@@ -152,7 +152,7 @@ all02 <- all [, -c("ippatient_id", "consult_id", "consultation_id" ,"patient_pre
 
 #######################################################
 # Calculations for
-# Get the disease category list for MCSD and Metabolic
+# Get the disease category list for RMSD and Metabolic
 #######################################################
 tmpall <- merge (x = discat[, -c("Description"), with =FALSE],
                  y = all02,
@@ -192,6 +192,14 @@ all_met_rmsd <- merge (x = discat[, -c("Description" , "date"), with =FALSE],
 
 all_met_rmsd$distype[is.na(all_met_rmsd$distype)] <- "OTHER"
 all_met_rmsd <- all_met_rmsd [order(mr_no, studyday, patient_id, newdt, vis, cat_id)]
+
+# Calculation of first RMSD or Metabolic disease date
+minday <- all_met_rmsd[ distype != "OTHER", 
+                        .(minday = min(studyday)), by =.(mr_no, distype)]
+mindayt <- dcast (data = minday,
+                  mr_no ~ paste("minday", distype, sep=""),
+                  value.var="minday")
+all_met_rmsd <- merge (all_met_rmsd, mindayt, by = "mr_no")
 
 rm (base01_ip, base01_op, base01_ser, l)
 
