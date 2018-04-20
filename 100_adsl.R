@@ -150,6 +150,50 @@ all02 <- all [, -c("ippatient_id", "consult_id", "consultation_id" ,"patient_pre
                  "med_form_id", "op_medicine_pres_id", "doctor_id", "diagdate", 
                  "prescdate")] [order(mr_no, studyday, patient_id, newdt, vis, cat_id)]
 
+#######################################################
+# Calculations for
+# Get the disease category list for MCSD and Metabolic
+#######################################################
+tmpall <- merge (x = discat[, -c("Description"), with =FALSE],
+                 y = all02,
+                 by.x = "Code",
+                 by.y = "icd_code")
+
+# create a dummy variable
+tmpall <- tmpall[ ,val:=1]
+
+subset2 <- tmpall [, c("mr_no", "distype", "val"), with =FALSE]
+subset2 <- unique(subset2)
+
+subset3 <- dcast (data = subset2,
+                  fill =0,
+                  mr_no ~ distype,
+                  value.var="val")
+
+# Create an indicator variable to determine
+# Both Metabolic and RMSD = 99
+# Only Metabolic = 1
+# Only RMSD = 2
+
+subset3 <- subset3 [Metabolic == 1 & RMSD == 1, combine := "Metabolic and RMSD"]
+subset3 <- subset3 [Metabolic == 1 & RMSD == 0, combine := "Metabolic"]
+subset3 <- subset3 [Metabolic == 0 & RMSD == 1, combine := "RMSD"]
+
+all_met_rmsd <- merge (x = subset3,
+                        y = all02,
+                        by = "mr_no",
+                        all.x = TRUE)
+
+all_met_rmsd <- merge (x = discat[, -c("Description" , "date"), with =FALSE],
+                  y = all_met_rmsd,
+                  all = TRUE,
+                  by.x = "Code",
+                  by.y = "icd_code")
+
+all_met_rmsd$distype[is.na(all_met_rmsd$distype)] <- "OTHER"
+all_met_rmsd <- all_met_rmsd [order(mr_no, studyday, patient_id, newdt, vis, cat_id)]
+
 rm (base01_ip, base01_op, base01_ser, l)
 
 fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
+fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.csv")
