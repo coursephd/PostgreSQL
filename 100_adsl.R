@@ -205,3 +205,4 @@ rm (base01_ip, base01_op, base01_ser, l)
 
 fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
 fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.csv")
+saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")

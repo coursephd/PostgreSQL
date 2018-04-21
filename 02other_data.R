@@ -98,7 +98,9 @@ base01_other044 <- unique ( base01_other044 [, c("mr_no", "patient_id", "section
 
 # Sort the data by patient and visits
 base01_other044 <- base01_other044 [ order(mr_no, patient_id, section_id, field_id, display_order)]
+setnames(base01_other044, "field_name", "option_value")
 
+base01_all <- rbind(base01_other022, base01_other044, fill =TRUE)
 
 ########################################################
 # Need to consolidate variable names and combine 
@@ -108,7 +110,50 @@ base01_other044 <- base01_other044 [ order(mr_no, patient_id, section_id, field_
 ########################################################
 
 # Create a counter variable for transpose
-base01_other030 <- base01_other03 [, subvis := 1:.N, by = .(mr_no, patient_id, section_id, field_id, field_name)]
+base01_other030 <- base01_all [, subvis := 1:.N, by = .(mr_no, patient_id, section_id, field_id, option_value)]
+
+fwrite(base01_other030, "D:/Hospital_data/ProgresSQL/analysis/complete_other_data.csv")
+
+
+##################################
+# Subset for Metabolic RMSD data
+##################################
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine")])
+
+base01_met_rmsd <- merge (x = base01_other030,
+                          y = subpat,
+                          by = c("mr_no"), 
+                          all.y = TRUE)
+
+sub <- unique( base01_met_rmsd [, c("section_id", "section_title", 
+                                    "field_id", "display_order", "option_value")] ) [order(section_id, field_id, display_order, option_value)]
+sub <- sub [, varnum:=seq_len(.N), by =.(section_id)]
+sub <- sub [, trnvar := paste("sec", str_pad(section_id, 3, side = "left", pad = 0), 
+                              "_var", str_pad(varnum, 3, side = "left", pad = 0),
+                              "_", option_value, sep="" )]
+
+base01_met_rmsd <- merge (x = base01_met_rmsd,
+                          y = sub,
+                          by = c("section_id", "section_title", 
+                                 "field_id", "display_order", "option_value"), 
+                          all.x = TRUE)
+
+# Transpose the data as per CRF pages
+base01_met_rmsd_trn <- dcast(data = base01_met_rmsd,
+                             mr_no + patient_id + Metabolic + RMSD + combine + subvis ~ trnvar,
+                             value.var = c("option_remarks"))
+, 
+subset = . (section_id == 4))
+
+
+ff <- base01_met_rmsd_trn[, c("mr_no", "patient_id", "Metabolic", 
+                              "RMSD", "combine", "subvis",
+                              grepl ("sec001", names(base01_met_rmsd_trn)), with =FALSE )]
+
+
+
 
 # Transpose the data as per CRF pages
 base01_other030t <- dcast(data = base01_other030,
@@ -118,9 +163,14 @@ base01_other030t <- dcast(data = base01_other030,
                           subset = . (section_id == 85))
 
 
-chk <- base01_other02 [, .(cnt = .N, 
-                           unqpat = uniqueN(mr_no)), by = .(section_id)]
+chk <- base01_all [, .(cnt = .N, 
+                           unqpat = uniqueN(mr_no)), by = .(section_id, section_title)]
 
+patid <- unique( base01_other030 [subvis > 1, c("mr_no"), with =FALSE] )
+
+##############################################################################################
+  
+sub <- base01_other030 [mr_no == "MR004897"]
 
 # Read the data
 base01orig_other <- fread("D:/Hospital_data/ProgresSQL/data_chk/base10_other11_orig.csv")
@@ -168,6 +218,5 @@ section_field_options02 <- section_field_options[, c("option_id", "field_id", "o
 
 section_field_options03 <- section_field_options02 [ field_id == 67]
   
-sub <- base01_other030 [patient_id == "IP002102"]
 
 counts <- base01_other02 [, cnt :=.N, by =.(mr_no, patient_id, section_id, field_id, option_id)]
