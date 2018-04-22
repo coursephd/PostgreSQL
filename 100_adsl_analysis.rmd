@@ -1,0 +1,141 @@
+---
+title: "Met RMSD analysis"
+author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  word_document:
+    keep_md: yes
+    toc: yes
+  pdf_document:
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(anytime)
+library(knitr)
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+tbl0001 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine)]
+tbl0002 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine, patient_gender)]
+
+tbl0002t <- dcast(data = tbl0002, 
+                  combine ~ patient_gender, 
+                  subset = .(patient_gender != ""),
+                  value.var = "NoofPat")
+
+
+tbl0003 <- all_met_rmsd [ Metabolic == 1, .(Metabolic = uniqueN(mr_no))]
+tbl0004 <- all_met_rmsd [ RMSD == 1, .(RMSD = uniqueN(mr_no))]
+
+```
+
+```{r, include=FALSE}
+
+# Create unique patient records for metabolic patients
+met_unq <- unique(all_met_rmsd [ Metabolic ==1 , c("mr_no", "patient_gender", "cdur", "all_ip", "all_op", "all_vis")])
+met_unq0 <- melt(data =met_unq, 
+                 id.vars = c("mr_no", "patient_gender"),
+                 measure.vars = c("cdur", "all_ip", "all_op", "all_vis")) 
+met_unq_0=copy(met_unq0)
+
+met_unq1 <- met_unq_0 [, patient_gender := "-Total",]
+met_all <- rbind(met_unq0, met_unq1)
+
+
+# Create unique patient records for RMSD patients
+rmsd_unq <- unique(all_met_rmsd [ RMSD ==1 , c("mr_no", "patient_gender", "cdur", "all_ip", "all_op", "all_vis")])
+rmsd_unq0 <- melt(rmsd_unq, 
+                 id.vars = c("mr_no", "patient_gender"),
+                 measure.vars = c("cdur", "all_ip", "all_op", "all_vis")) 
+
+rmsd_unq_0 <- copy(rmsd_unq0)
+rmsd_unq1 <- rmsd_unq_0 [, patient_gender := "-Total",]
+rmsd_all <- rbind(rmsd_unq0, rmsd_unq1)
+
+summ_stat <- function (datain, xsub, by, by1, dataout ="D8")
+{
+  stats_data <- datain [, .(n=uniqueN(mr_no), 
+                            mean = round( mean(get(xsub), na.rm = TRUE), digits =1),
+                            median= round( median(get(xsub), na.rm = TRUE), digits =2),
+                            SD = round( sd(get(xsub), na.rm = TRUE), digits =2),
+                            min = round( min(get(xsub), na.rm = TRUE), digits =0),
+                            max = round( max(get(xsub), na.rm = TRUE), digits =0)), 
+                        by = .(get(by), get(by1))]
+  
+  assign(dataout, stats_data, envir=.GlobalEnv)
+}
+
+summ_stat (datain =met_all, xsub = 'value', by =c('variable'), by1 =c("patient_gender"), dataout ="met_stat_gender00")
+
+summ_stat (datain =rmsd_all, xsub = 'value', by =c('variable'), by1 =c("patient_gender"), dataout ="rmsd_stat_gender00")
+
+tbl0001 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine)]
+tbl0002 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine, patient_gender)]
+
+tbl0002t <- dcast(data = tbl0002, 
+                  combine ~ patient_gender, 
+                  subset = .(patient_gender != ""),
+                  value.var = "NoofPat")
+
+
+tbl0003 <- all_met_rmsd [ Metabolic == 1, .(Metabolic = uniqueN(mr_no))]
+tbl0004 <- all_met_rmsd [ RMSD == 1, .(RMSD = uniqueN(mr_no))]
+
+
+# Analysis for the disease duration
+dis_data <- unique(all_met_rmsd [, .(disstt = min(anydate( newdt) ), 
+                                     disend = max( anydate(newdt)),
+                                     disdur = as.numeric(max(anydate(newdt)) - min(anydate(newdt)) + 1)), 
+                                 by = .(distype, mr_no, patient_gender, all_vis, all_ip, all_op,  Code, description)] )
+dis_data02 <- dis_data[Code !=""]
+
+dis_data02_0 <- copy(dis_data02)
+dis_data03 <- dis_data02_0 [, patient_gender := "-Total",]
+dis_all <- rbind(dis_data02, dis_data03)
+dis_all <- dis_all [, catvar := paste(distype, " ", Code, " ", description), ]
+
+summ_stat (datain =dis_all, xsub = 'disdur', by =c('patient_gender'), by1 =c("catvar"), dataout ="dis_stat_gender00")
+
+```
+
+## R Markdown
+
+Frequency counts for patients and summary statistics
+<http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, echo= FALSE}
+
+kable(tbl0001, col.names = c("Disease category", "Number of patients")) 
+kable(tbl0002t, col.names = c("Disease category", "Females", "Males")) 
+kable(tbl0003, caption = "All Metabolic patients") 
+kable(tbl0004, caption = "All RMSD patients") 
+
+kable(met_stat_gender00 [order(get, get.1)], caption = "Metabolic: Summary statistics in days and visits") 
+kable(rmsd_stat_gender00 [order(get, get.1)], caption = "RMSD: Summary statistics in days and visits") 
+
+kable(dis_stat_gender00 [order(get.1, get)], caption = "Diseases: Summary statistics in days, by gender") 
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
