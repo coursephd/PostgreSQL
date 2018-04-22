@@ -118,15 +118,18 @@ base01_other030 <- base01_all [, subvis := 1:.N, by = .(mr_no, patient_id, secti
 ##################################
 # Subset for Metabolic RMSD data
 ##################################
-
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
-subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine")])
-vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "vis", "all_vis",
+
+subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine", "all_vis",
+                                   "city_name", "state_name", "dateofbirth", "country_name",
+                                   "death_date")])
+
+vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "vis", "Type", "Code", "distype", "description",
                                    "all_ip", "all_op")])
 
-
+# Only keep Metabolic and RMSD patients
 base01_met_rmsd <- merge (x = base01_other030,
-                          y = subpat,
+                          y = subpat [,c("mr_no")],
                           by = c("mr_no"), 
                           all.y = TRUE)
 
@@ -145,22 +148,51 @@ base01_met_rmsd <- merge (x = base01_met_rmsd,
 
 # Transpose the data as per CRF pages
 base01_met_rmsd_trn <- dcast(data = base01_met_rmsd,
-                             mr_no + patient_id + Metabolic + RMSD + combine + subvis ~ trnvar,
+                             mr_no + patient_id + subvis ~ trnvar,
                              value.var = c("option_remarks"))
 
-# Add visit information:
+# Add visit information and disease information:
 base01_met_rmsd_trn <- merge (x = base01_met_rmsd_trn,
                           y = vispat,
                           by = c("mr_no", "patient_id"), 
                           all.x = TRUE)
 
+# Add patient demog + visit + duration information
+base01_met_rmsd_trn <- merge (x = base01_met_rmsd_trn,
+                                y = subpat,
+                                by = c("mr_no"), 
+                                all.x = TRUE)
+
 # Keep variables by section
 
 df = base01_met_rmsd_trn[,(names(base01_met_rmsd_trn) %in% 
                              c("mr_no", "patient_id", "Metabolic", "RMSD", "combine", "subvis",
+                               "city_name", "state_name", "dateofbirth", "country_name",
+                               "death_date", "Type", "Code", "distype", "description",
                                "studyday", "patient_id", "newdt", "vis", "all_vis", "all_ip", "all_op")
                            | grepl("^sec004",names(base01_met_rmsd_trn)) ), with =FALSE]
 
+sections <- unique(sub$section_id)
+for (ii in sections){
+  
+  jj <- str_pad(ii, 3, side = "left", pad = 0)
+  kk <- paste0("^sec", jj, sep="")
+  print(jj)
+  print(kk)
+  
+  fwrite(file = paste0("D:/Hospital_data/ProgresSQL/analysis/sec", 
+                       jj, ".csv"),
+         x = base01_met_rmsd_trn [,(names(base01_met_rmsd_trn) %in% 
+                                      c("mr_no", "patient_id", "Metabolic", "RMSD", "combine", "subvis","city_name", 
+                                        "state_name", "dateofbirth", "country_name", "death_date", "Type", "Code", 
+                                        "distype", "description", "studyday", "patient_id", "newdt", "vis", "all_vis", 
+                                        "all_ip", "all_op")  | 
+                                      grepl(kk,names(base01_met_rmsd_trn)) ), with =FALSE]
+  )
+}
+
+
+# dtable <- df[, fwrite(.SD, paste0("./output/"), Name, ".csv"), by = Name]
 ########################################################################################
 # End of program
 ########################################################################################
