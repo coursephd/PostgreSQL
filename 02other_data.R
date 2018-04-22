@@ -112,7 +112,7 @@ base01_all <- rbind(base01_other022, base01_other044, fill =TRUE)
 # Create a counter variable for transpose
 base01_other030 <- base01_all [, subvis := 1:.N, by = .(mr_no, patient_id, section_id, field_id, option_value)]
 
-fwrite(base01_other030, "D:/Hospital_data/ProgresSQL/analysis/complete_other_data.csv")
+#fwrite(base01_other030, "D:/Hospital_data/ProgresSQL/analysis/complete_other_data.csv")
 
 
 ##################################
@@ -144,6 +144,16 @@ base01_met_rmsd <- merge (x = base01_met_rmsd,
 base01_met_rmsd_trn <- dcast(data = base01_met_rmsd,
                              mr_no + patient_id + Metabolic + RMSD + combine + subvis ~ trnvar,
                              value.var = c("option_remarks"))
+
+# Keep variables by section
+
+df = base01_met_rmsd_trn[,(names(base01_met_rmsd_trn) %in% c("mr_no", "patient_id", "Metabolic", "RMSD", "combine", "subvis")
+                           | grepl("^sec004",names(base01_met_rmsd_trn)) ), with =FALSE]
+
+########################################################################################
+# End of program
+########################################################################################
+
 , 
 subset = . (section_id == 4))
 
