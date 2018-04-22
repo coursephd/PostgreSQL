@@ -121,6 +121,9 @@ base01_other030 <- base01_all [, subvis := 1:.N, by = .(mr_no, patient_id, secti
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine")])
+vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "vis", "all_vis",
+                                   "all_ip", "all_op")])
+
 
 base01_met_rmsd <- merge (x = base01_other030,
                           y = subpat,
@@ -145,88 +148,19 @@ base01_met_rmsd_trn <- dcast(data = base01_met_rmsd,
                              mr_no + patient_id + Metabolic + RMSD + combine + subvis ~ trnvar,
                              value.var = c("option_remarks"))
 
+# Add visit information:
+base01_met_rmsd_trn <- merge (x = base01_met_rmsd_trn,
+                          y = vispat,
+                          by = c("mr_no", "patient_id"), 
+                          all.x = TRUE)
+
 # Keep variables by section
 
-df = base01_met_rmsd_trn[,(names(base01_met_rmsd_trn) %in% c("mr_no", "patient_id", "Metabolic", "RMSD", "combine", "subvis")
+df = base01_met_rmsd_trn[,(names(base01_met_rmsd_trn) %in% 
+                             c("mr_no", "patient_id", "Metabolic", "RMSD", "combine", "subvis",
+                               "studyday", "patient_id", "newdt", "vis", "all_vis", "all_ip", "all_op")
                            | grepl("^sec004",names(base01_met_rmsd_trn)) ), with =FALSE]
 
 ########################################################################################
 # End of program
 ########################################################################################
-
-, 
-subset = . (section_id == 4))
-
-
-ff <- base01_met_rmsd_trn[, c("mr_no", "patient_id", "Metabolic", 
-                              "RMSD", "combine", "subvis",
-                              grepl ("sec001", names(base01_met_rmsd_trn)), with =FALSE )]
-
-
-
-
-# Transpose the data as per CRF pages
-base01_other030t <- dcast(data = base01_other030,
-                          mr_no + patient_id + subvis + section_id + section_title ~ 
-                            paste("var", str_pad(field_id, 3, side = "left", pad = 0), sep=""),
-                          value.var = c("option_remarks"), 
-                          subset = . (section_id == 85))
-
-
-chk <- base01_all [, .(cnt = .N, 
-                           unqpat = uniqueN(mr_no)), by = .(section_id, section_title)]
-
-patid <- unique( base01_other030 [subvis > 1, c("mr_no"), with =FALSE] )
-
-##############################################################################################
-  
-sub <- base01_other030 [mr_no == "MR004897"]
-
-# Read the data
-base01orig_other <- fread("D:/Hospital_data/ProgresSQL/data_chk/base10_other11_orig.csv")
-base01orig_other02 <- base01orig_other [nchar(option_remarks)> 0]
-
-base01orig_other02 <- merge (x = base01orig_other02,
-                         y = section_master,
-                         by = "section_id",
-                         all.x = TRUE)
-
-base01orig_other02 <- merge (x = base01orig_other02,
-                         y = section_field_options,
-                         by = c("section_id", "field_id"), # by = c("option_id", "field_id")
-                         all.x = TRUE)
-
-chk_orig <- base01orig_other02 [, .(cnt = .N, unqpat = uniqueN(mr_no)), by = .(section_id)]
-
-base01_all <- dplyr::bind_rows(list(base01_other02, base01orig_other02), .id = 'source')
-
-chk_all0 <- base01_all [, .(cnt = .N, unqpat = uniqueN(mr_no)), by = .(section_id)]
-chk_all <- base01_all [, .(cnt = .N, unqpat = uniqueN(mr_no)), by = .(source, section_id)]
-chk_all2 <- dcast (data = chk_all, 
-                   section_id ~ source, 
-                   value.var = c("cnt", "unqpat"))
-chk_all3 <- merge (x = chk_all0, y = chk_all2, by = c("section_id"))
-
-fwrite(chk_all3, "D:/Hospital_data/ProgresSQL/analysis/all_other_data_comparison.csv")
-fwrite(base01_other02, "D:/Hospital_data/ProgresSQL/analysis/all_other_data.csv")
-fwrite(section_master, "D:/Hospital_data/ProgresSQL/analysis/section_master.csv")
-
-
-fwrite(base01_other02, "D:/Hospital_data/ProgresSQL/analysis/all_other_data_Using_section_field_options.csv")
-
-base01_all01 <- unique ( base01_all [, c("mr_no", "section_id", "source"), with =FALSE])
-base01_all01 <- base01_all01 [, val:=1]
-base01_all01t <- dcast(data =base01_all01,
-                       mr_no + section_id ~ source, 
-                       value.var = "val", 
-                       fill =0)
-
-section_field_desc <- fread("D:/Hospital_data/ProgresSQL/data_chk/section_field_desc.csv")
-patient_consultation_field_values <- fread("D:/Hospital_data/ProgresSQL/data_chk/patient_consultation_field_values.csv")
-section_field_options02 <- section_field_options[, c("option_id", "field_id", "old_option_id", 
-                                                     "display_order", "option_value"), with = FALSE]
-
-section_field_options03 <- section_field_options02 [ field_id == 67]
-  
-
-counts <- base01_other02 [, cnt :=.N, by =.(mr_no, patient_id, section_id, field_id, option_id)]
