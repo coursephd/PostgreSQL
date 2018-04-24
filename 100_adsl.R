@@ -201,8 +201,38 @@ mindayt <- dcast (data = minday,
                   value.var="minday")
 all_met_rmsd <- merge (all_met_rmsd, mindayt, by = "mr_no")
 
+# Calculate the age variable for non-missing dates
+all_met_rmsd <- all_met_rmsd [, `:=`( age = ifelse ( !is.na( anydate(dateofbirth)) , 
+                                                     round( (anydate(newdt) - anydate(dateofbirth) + 1)/365.25, digits = 0 ), NA),
+                                      newdt0 = anydate(newdt)), ]
+
+# Add Indian rutus as new variables
+# https://www.drikpanchang.com/seasons/season-tropical-timings.html?geoname-id=1277333&year=2010
+
+rutus <- fread("D:/Hospital_data/ProgresSQL/analysis/rutus.csv")
+rutus <- rutus [, `:=`(startdt = as.POSIXct( startdate, format="%d-%m-%Y"), 
+                       enddt = as.POSIXct( enddate, format="%d-%m-%Y")) ]
+
+rutus02 <- rutus[ , list(season = season, year = year,
+                         newdt0 = anydate( seq(startdt, enddt, by = "day") )), by = 1:nrow(rutus)]
+
+all_met_rmsd <- merge (x = all_met_rmsd,
+                       y = rutus02 [, c("newdt0", "year", "season")],
+                       by = c("newdt0"),
+                       all.x = TRUE)
+
 rm (base01_ip, base01_op, base01_ser, l)
 
 fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
 fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.csv")
 saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+dis_rutu <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(season, Code, description)] [order(season, -cnt, Code)]
+dis_rutu_yr <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(year, season, Code, description)][order(year, season, -cnt, Code)]
+dis_rutu_yr02 <- dcast(dis_rutu_yr,
+                       season + Code + description ~ paste("yr", year, sep=""),
+                       value.var = c("cnt"),
+                       fill=" ")
+
+fwrite(dis_rutu, "D:/Hospital_data/ProgresSQL/analysis/dis_rutu.csv")
+fwrite(dis_rutu_yr02, "D:/Hospital_data/ProgresSQL/analysis/dis_rutu_yr.csv")
