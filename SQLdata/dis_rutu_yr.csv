@@ -1,0 +1,2315 @@
+season,Code,description,yr2010,yr2011,yr2012,yr2013,yr2014,yr2015,yr2016,yr2017
+01 Vasant Rutu,A1.0,Aamadosha,,,,1,5,2,1,2
+01 Vasant Rutu,A11.0,Arshas,,,,6,7,6,4,4
+01 Vasant Rutu,A11.10,Arsha - Raktaja Arsha,,,,,1,1,,
+01 Vasant Rutu,A12.0,Artava Vyapad,,,,5,9,4,16,1
+01 Vasant Rutu,A12.1,Artava Vyapad - Anartava,,,,1,,,1,
+01 Vasant Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,,4
+01 Vasant Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,,7
+01 Vasant Rutu,A12.4,Artava Vyapad - Ksheenartava,,,,,,,1,
+01 Vasant Rutu,A12.9,Artava Vyapad - Vataja,,,,1,,,,
+01 Vasant Rutu,A13.0,Ashmaree,,,,2,3,3,5,2
+01 Vasant Rutu,A13.2,Ashmaree - Pittaja,,,,1,,2,,1
+01 Vasant Rutu,A16.0,Atisaara,,,,3,2,2,2,
+01 Vasant Rutu,A2.0,Aamavaata,,,1,46,65,67,80,76
+01 Vasant Rutu,A2.1,Aamavaata - Kaphaja,,,,,,1,,1
+01 Vasant Rutu,A2.2,Aamavaata - Pittaja,,,,1,,,,
+01 Vasant Rutu,A2.3,Aamavaata - Vaataja,,,,3,1,,,1
+01 Vasant Rutu,A3.0,Abhighataja Shoola,,,1,14,17,20,35,40
+01 Vasant Rutu,A4.0,Agnimaandya,,,,,,1,2,2
+01 Vasant Rutu,A5.0,Ajeerna,,,,4,5,4,4,2
+01 Vasant Rutu,A5.1,Ajeerna- vidagdhajeerna,,,,,,1,,
+01 Vasant Rutu,A5.2,Ajeerna-Amajeerna,,,,1,,,,
+01 Vasant Rutu,A5.3,Ajeerna-vishtabdhajeerna,,,,1,,,,
+01 Vasant Rutu,A6.0,Amlapitta,,,,12,32,29,35,41
+01 Vasant Rutu,A6.1,Amlapitta-Adhoga,,,,,,,1,
+01 Vasant Rutu,A6.2,Amlapitta-Urdhwaga,,,,,4,2,1,4
+01 Vasant Rutu,A7.0,Anaha,,,,2,1,1,,
+01 Vasant Rutu,A7A.0,Anidra,,,,2,2,2,5,3
+01 Vasant Rutu,A8.0,Apasmaara,,,,,,3,2,
+01 Vasant Rutu,A8.7,Apasmaara - Vaataja,,,,,1,,,
+01 Vasant Rutu,A9.0,Arbuda,,,,4,2,3,2,2
+01 Vasant Rutu,A9.1,Arbuda - Kaphaja,,,,,,,,1
+01 Vasant Rutu,A9.2,Arbuda - Maamsaja,,,,,,,2,2
+01 Vasant Rutu,Anidra,A7A.0,,,,,2,,1,1
+01 Vasant Rutu,B1.0,Baala Roga,,,,,2,1,,
+01 Vasant Rutu,B1.32,Baala Roga – Hridroga,,,,,,,1,
+01 Vasant Rutu,B1.34,Baala Roga - Krimi Roga,,,,,1,,,
+01 Vasant Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,,,1,,1,1
+01 Vasant Rutu,B2.0,Bhagandara,,,,1,,2,1,1
+01 Vasant Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,,,,,,1
+01 Vasant Rutu,B3.0,Bhagna,,,,3,5,9,9,2
+01 Vasant Rutu,B3.2.0,Bhagna - Sandhimukta Bhagna,,,,,,,,1
+01 Vasant Rutu,B5,Bhrama,,,,2,3,5,8,9
+01 Vasant Rutu,C1.0,Chhardi,,,,1,,,,
+01 Vasant Rutu,D0.0,Daaha,,,,,2,2,1,
+01 Vasant Rutu,D1.0,Dourbalya,,,,4,1,2,3,5
+01 Vasant Rutu,G1.6,Garbhapoorva Paricharya,,,,,,,,1
+01 Vasant Rutu,G10.0,Guda Roga,,,,,,,,1
+01 Vasant Rutu,G13.0,Gulma,,,,1,2,1,,
+01 Vasant Rutu,G6.0,Garbhini,,,,2,2,,6,2
+01 Vasant Rutu,G8.0,Grahanee,,,,,3,4,6,2
+01 Vasant Rutu,G8.2,Grahanee-pittaj,,,,,,1,,
+01 Vasant Rutu,G9.0,Granthi,,,,2,2,2,3,2
+01 Vasant Rutu,G9.1,Granthi - Asthi Granthi,,,,,,1,,
+01 Vasant Rutu,G9.10,Granthi (Garbhashaya),,,,,,,1,
+01 Vasant Rutu,G9.11,GRANTHI - BEEJAKOSHA,,,,,,,,3
+01 Vasant Rutu,G9.2,Granthi - Kaphaja Granthi,,,,,,1,,1
+01 Vasant Rutu,G9.3,Granthi - Maamsaja Granthi,,,,,,2,2,
+01 Vasant Rutu,G9.4,Granthi - Medoja Granthi,,,,1,1,1,3,2
+01 Vasant Rutu,G9.6,Granthi - Raktaja Granthi,,,,,1,,1,
+01 Vasant Rutu,G9.7,Granthi - Siraa Granthi,,,,7,14,18,17,16
+01 Vasant Rutu,H2.0,Hridroga,,,,2,6,10,10,7
+01 Vasant Rutu,H2.4,Hridroga - Saannipaatika Hridroga,,,,1,,,,
+01 Vasant Rutu,H2.5,Hridroga - Vaataja Hridroga,,,,1,,,,
+01 Vasant Rutu,J1.0,Jwara,,,,4,7,5,2,3
+01 Vasant Rutu,J1.2,Jvara- pitta,,,,,1,,,
+01 Vasant Rutu,J1.6,Jvara-vishama,,,,,1,,,1
+01 Vasant Rutu,K1.0,Kaamalaa,,,,2,1,,,
+01 Vasant Rutu,K10.10,Kshudra Roga - Charmakeela,,,,1,,,,1
+01 Vasant Rutu,K10.15,Kshudra Roga - Indralupta,,,,,,1,,
+01 Vasant Rutu,K10.23,Kshudra Roga - Kadara,,,,3,2,1,1,
+01 Vasant Rutu,K10.28,Kshudra Roga - Kunakha,,,,,,,1,
+01 Vasant Rutu,K10.29,Kshudra Roga - Khalitya,,,,3,2,2,3,2
+01 Vasant Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,,,,1,,3
+01 Vasant Rutu,K10.36,Kshudra Roga - Paadadaarikaa,,,,,,,1,
+01 Vasant Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,,3,6,2,6,4
+01 Vasant Rutu,K10.52.0,Kshudra Roga - Vyanga,,,,,,,2,1
+01 Vasant Rutu,K10.52.5,Kshudra Roga - Yavaprakhyaa,,,,1,,,,
+01 Vasant Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,1,,3,2,3
+01 Vasant Rutu,K10.8,Kshudra Roga - Arumshikaa,,,,,,1,1,
+01 Vasant Rutu,K2.0,Kaasa,,,1,6,18,28,23,14
+01 Vasant Rutu,K2.1,Kaasa- kapha,,,,,1,2,,1
+01 Vasant Rutu,K2.5,Kaasa- vata,,,1,1,1,1,1,1
+01 Vasant Rutu,K3.0,Kandoo,,,,1,4,6,3,3
+01 Vasant Rutu,K3.1,Kandoo - Guda Kandoo,,,,,1,,,
+01 Vasant Rutu,K4.0,Karna Roga,,,,1,2,1,2,2
+01 Vasant Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,,,3
+01 Vasant Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,,1,,1
+01 Vasant Rutu,K4.13,Karna Roga - Karnakandoo,,,,,,,,2
+01 Vasant Rutu,K4.18,Karna Roga - Karnapratinaaha,,,,,,,,1
+01 Vasant Rutu,K4.19,Karna Roga - Karnashoola,,,,,,1,1,4
+01 Vasant Rutu,K4.20,Karna Roga - Karnashopha,,,,,,,1,
+01 Vasant Rutu,K4.21,Karna Roga - Karnasraava,,,,,1,,,
+01 Vasant Rutu,K4.25,Karna Roga - Uchcha Shruti,,,,,,,,1
+01 Vasant Rutu,K4.3,Karna Roga - Karna  Supti,,,,,,,,1
+01 Vasant Rutu,K4.9,Karna Roga - Karnabaadhirya,,,,1,1,,1,
+01 Vasant Rutu,K6.0,Klaibya,,,,,1,2,2,1
+01 Vasant Rutu,K6.2,Klaibya - Beejopaghaataja,,,,,,1,,
+01 Vasant Rutu,K7.0,Klama,,,,,,,1,
+01 Vasant Rutu,K7a.0,Kotha,,,,,,,1,
+01 Vasant Rutu,K9.0,Kshudra Roga,,,,3,2,2,13,10
+01 Vasant Rutu,K9.4,Kshudra Roga - Alajee,,,,,,1,,
+01 Vasant Rutu,M1,Madaatyaya,,,,,1,,,
+01 Vasant Rutu,M1.0,Madaatyaya - Paramada,,,,,,,1,
+01 Vasant Rutu,M10.0,Medoroga,,,,2,20,5,4,1
+01 Vasant Rutu,M10.1,Medoroga - Sthula medho roga,,,,42,27,43,24,13
+01 Vasant Rutu,M10.2,Medoroga - Sukshma medho roga,,,,3,1,20,11,11
+01 Vasant Rutu,M13.0,Mootra Roga,,,,3,3,7,5,2
+01 Vasant Rutu,M14.0,Mootra Roga - Mootraaghaata,,,,,1,,,
+01 Vasant Rutu,M14.13,Mootra Roga - Mootraaghaata - Raktagranthi,,,,,,,,1
+01 Vasant Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,,2,2,1,4,1
+01 Vasant Rutu,M16.9,Mootra Roga - Mootrakrichchhra - Vaataja Mootrakrichchhra,,,,,,1,,
+01 Vasant Rutu,M18.0,Mukha Roga  - Mukha Shosha,,,,,,1,1,
+01 Vasant Rutu,M18.10.10,Mukha Roga - Dantamoolagata Roga - Sheetaada,,,,,,,,2
+01 Vasant Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,,,3,2,4,2
+01 Vasant Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,,1,,3,6,2
+01 Vasant Rutu,M18.11.4,Mukha Roga - Galagata Roga - Galapaaka,,,,,,,,2
+01 Vasant Rutu,M18.11.9,Mukha Roga - Galagata Roga - Tundikeree,,,,,1,,,
+01 Vasant Rutu,M18.12.0,Mukha Roga - Gandagata Roga,,,,,1,,,
+01 Vasant Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,1,,2,,
+01 Vasant Rutu,M18.16.8,Mukha Roga - Oshthagata Roga - Oshthakopa,,,,,,,,1
+01 Vasant Rutu,M18.3,Mukha Roga  - Mukhadaaha,,,,,,,1,
+01 Vasant Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,,,,,,8
+01 Vasant Rutu,M18.9.1,Mukha Roga - Dantagata Roga  - Danta Daurbalya,,,,,,,,3
+01 Vasant Rutu,M18.9.14,Mukha Roga - Dantagata Roga - Dantabheda,,,,,,,,1
+01 Vasant Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,,,,,1,2
+01 Vasant Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,1,,1,,1
+01 Vasant Rutu,M18.9.4,Mukha Roga - Dantagata Roga  - Danta Maamsa Shoola,,,,,1,,,
+01 Vasant Rutu,M18.9.8,Mukha Roga - Dantagata Roga  - Dantagata Raktasraava,,,,,,,,1
+01 Vasant Rutu,M2.0,Madhumeha,,,1,12,27,113,159,191
+01 Vasant Rutu,M5.0,Maanasa Roga,,,,3,1,5,2,6
+01 Vasant Rutu,M5.1,Maanasa Roga - Vishada,,,,,2,2,5,4
+01 Vasant Rutu,M5.3,Smriti Bhrmsha,,,,,2,3,3,
+01 Vasant Rutu,M6.0,Marma Viddha,,,,,1,2,3,
+01 Vasant Rutu,M6.25,Marma Viddha - Kukundara Viddha,,,,,,,,1
+01 Vasant Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,,2,1,,
+01 Vasant Rutu,M6.3,Marma Viddha - Amsa Viddha,,,,,1,1,,
+01 Vasant Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,,1,1,,1
+01 Vasant Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,,3,2,3,1,3
+01 Vasant Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,,1,,,
+01 Vasant Rutu,M8.0,Masoorikaa,,,,,,,1,
+01 Vasant Rutu,M9.0,Medhra Roga,,,,,,,1,
+01 Vasant Rutu,MS G1.0,Greeva Graha,,,,19,33,22,33,62
+01 Vasant Rutu,MS M1.0,Mutrashteela,,,,3,1,5,6,5
+01 Vasant Rutu,MS R1,Raktachapa,,,,6,4,8,9,10
+01 Vasant Rutu,MS T1.0,Twak Vivarnya,,,,2,1,4,2,1
+01 Vasant Rutu,N1.0,Naadee Vrana,,,,1,,1,,
+01 Vasant Rutu,N2.0,Naasaa Roga,,,,,,,1,1
+01 Vasant Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,,,,,2,
+01 Vasant Rutu,N2.18,Naasaa Roga - Peenasa,,,,5,9,13,10,8
+01 Vasant Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,,4,9,12,5,2
+01 Vasant Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,,1,1,1,2,2
+01 Vasant Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,,1,,,,
+01 Vasant Rutu,N2.21.3,Naasaa Roga - Pratishyaaya - Pittaja Pratishyaaya,,,,,,,1,1
+01 Vasant Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,,1,,2,1
+01 Vasant Rutu,N2.9,Naasaa Roga - Kshavathu,,,,,,1,2,
+01 Vasant Rutu,N4.0,Netra Roga,,,,12,31,13,42,18
+01 Vasant Rutu,N4.1,Netra Roga - Abhishyanda,,,,,,,2,
+01 Vasant Rutu,N4.12,Netra Roga - Kandoo,,,,,,,1,1
+01 Vasant Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,,,3
+01 Vasant Rutu,N4.14,Netra Roga - Upanaaha,,,,,,,1,
+01 Vasant Rutu,N4.20,Netra Roga - Netra Gaurava,,,,,,1,,
+01 Vasant Rutu,N4.22,Netra Roga - Netra Paaka,,,,,,,1,
+01 Vasant Rutu,N4.27,Netra Roga - Paichchhilya,,,,,,,,1
+01 Vasant Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,,,9
+01 Vasant Rutu,N4.4,Netra Roga  - Alpashopha Akshipaaka,,,,,,,1,
+01 Vasant Rutu,N4.40.0,Netra Roga - Drishtigata,,,,,,,1,
+01 Vasant Rutu,N4.40.16.0,Netra Roga - Drishtigata - Linganaasha,,,,,,,,1
+01 Vasant Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,,,,,2,
+01 Vasant Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,,,2,
+01 Vasant Rutu,N4.40.9,Netra Roga - Drishtigata - Kaacha Roga - Kaphaja,,,,,,,2,
+01 Vasant Rutu,N4.42.0,Netra Roga - Krishnagata,,,,,,,,1
+01 Vasant Rutu,N4.46.2.1,Netra Roga - Shuklagata - Arma - Adhimaamsa Arma,,,,,,,,1
+01 Vasant Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,,,1
+01 Vasant Rutu,N4.49.0,Netra Roga - Sandhigata,,,,,2,,,
+01 Vasant Rutu,N4.50.0,Netra Roga - Sarvagata,,,,,,1,,
+01 Vasant Rutu,N4.50.1.5,Netra Roga - Sarvagata - Abhishyanda - Vaataja Abhishyanda,,,,,,,,1
+01 Vasant Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,1,,1,2
+01 Vasant Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,,,8
+01 Vasant Rutu,N4.54.15,Netra Roga - Vartmagata - Nimesha,,,,,,1,,
+01 Vasant Rutu,N4.54.26,Netra Roga - Vartmagata - Shushkaarsha,,,,,,,,1
+01 Vasant Rutu,N4.55.31,Netra Roga - Vartmagata - Vaatahata,,,,,,,,2
+01 Vasant Rutu,N5.0,Nidra Viparyaya / Nidra Bhanga,,,,,,,,2
+01 Vasant Rutu,O1.0,Ojavikriti,,,,,,1,,1
+01 Vasant Rutu,O1.2,Ojavikriti - Ojakshaya,,,1,,,1,,
+01 Vasant Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,,,2,2,2
+01 Vasant Rutu,P2.0,Pandu,,,,,3,1,5,3
+01 Vasant Rutu,P3.0,Pidaka,,,,,,,1,
+01 Vasant Rutu,P5.0,Prameha,,,2,43,87,112,89,80
+01 Vasant Rutu,P5.1,Prameha - Krusha,,,,1,,,,
+01 Vasant Rutu,P5.2,Prameha - Pidaka,,,,1,,1,,2
+01 Vasant Rutu,P5.3,Prameha - Sthula,,,,9,1,,,
+01 Vasant Rutu,P5.4,Prameha - Upadrava,,,,11,2,4,6,7
+01 Vasant Rutu,P5.5,Pramehajanya - Netraroga,,,,,,,,7
+01 Vasant Rutu,R2.0,Raktapitta,,,,,,,,2
+01 Vasant Rutu,S0.0,Saamavata,,,,,,4,7,8
+01 Vasant Rutu,S1.0,Sheetapitta,,,,1,4,1,6,2
+01 Vasant Rutu,S10.1,Stambha - Baahu Stambha,,,,2,,,1,
+01 Vasant Rutu,S10.14,Stambha - Uru Stambha,,,,,,1,,
+01 Vasant Rutu,S10.4,Stambha - Greevaa Stambha,,,,,,,2,4
+01 Vasant Rutu,S12.0,Stanya dushti Sootika Roga,,,,,,,1,
+01 Vasant Rutu,S13.0,Sthaanabhedena Graha,,,,1,,,,
+01 Vasant Rutu,S13.1,Sthaanabhedena Graha - Anga Graha,,,,,1,,,
+01 Vasant Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,,,20,50,48,41,41
+01 Vasant Rutu,S13.18,Sthaanabhedena Graha - Paarshva Graha,,,,,,1,,
+01 Vasant Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,,1,5,9,7,8
+01 Vasant Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,,1,4,1
+01 Vasant Rutu,S13.3,Sthaanabhedena Graha - Gala Graha,,,,,,,,1
+01 Vasant Rutu,S13.7,Sthaanabhedena Graha - Jaanugraha,,,,,1,,,
+01 Vasant Rutu,S14.0,Sthaanabhedena Shoola,,,,10,16,11,28,51
+01 Vasant Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,,1,1,1,1,2
+01 Vasant Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,,,,2,1,6
+01 Vasant Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,,,,1,1,
+01 Vasant Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,,,10,11,2,3,3
+01 Vasant Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,,,,,,4
+01 Vasant Rutu,S14.2,Sthaanabhedena Shoola - Aantra Shoola,,,,1,,,1,
+01 Vasant Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,,1,37,41,56,61,76
+01 Vasant Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,,2,1,,,2
+01 Vasant Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,,,1,,2,1
+01 Vasant Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,,4,,1,2,2
+01 Vasant Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,,4,4,4,4,2
+01 Vasant Rutu,S14.5,Sthaanabhedena Shoola - Anguli Shoola,,,,1,,,,
+01 Vasant Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,,1,2,5,1,
+01 Vasant Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,,,,3,5,7,15,12
+01 Vasant Rutu,S15.28,Sthaanabhedena Shoola - Nakha Shoola,,,,,,,1,
+01 Vasant Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,,1,,2,8,9
+01 Vasant Rutu,S15.32,Sthaanabhedena Shoola - Paarshni Shoola,,,,,,2,,1
+01 Vasant Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,,7,2,4,3,
+01 Vasant Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,,,4,1,2,
+01 Vasant Rutu,S15.41,Sthaanabhedena Shoola - Sakthi Shoola,,,,1,,1,1,
+01 Vasant Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,,2,3,,1,1
+01 Vasant Rutu,S15.47,Sthaanabhedena Shoola - Trika Shoola,,,,,,1,,1
+01 Vasant Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,,1,,,,1
+01 Vasant Rutu,S15.50.0,Sthaanabhedena Shoola - Vrishana Shoola,,,,,,,1,
+01 Vasant Rutu,S16.0,Sthaulya,,,,8,33,34,57,40
+01 Vasant Rutu,S16.1,Stree Roga,,,,2,10,4,6,2
+01 Vasant Rutu,S16.10,Stree Roga - Shvetapradara,,,,2,2,2,3,1
+01 Vasant Rutu,S16.12,Stree Roga - Yonigata Sraava,,,,,2,,,
+01 Vasant Rutu,S16.20.0,Stree Roga - Raktapradara,,,,,,,1,4
+01 Vasant Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,,2
+01 Vasant Rutu,S16.21.0,Stree Roga - Sootikaa Roga,,,,,1,,,
+01 Vasant Rutu,S16.21.2,Stree Roga - Sootikaa Roga - Koshtha Shodhanaartha,,,,,,1,,
+01 Vasant Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,,1
+01 Vasant Rutu,S16.22,Stree Roga - Stana Roga,,,,,2,,1,1
+01 Vasant Rutu,S16.27,Stree Roga - Stana Roga - Vaataja,,,,,,,,1
+01 Vasant Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,,,2,,,
+01 Vasant Rutu,S16.30.12,Stree Roga - Yonivyaapad - Mahaayoni,,,,,1,,,1
+01 Vasant Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,,,,,,1
+01 Vasant Rutu,S16.30.15,Stree Roga - Yonivyaapad - Pittalaa,,,,,,,,1
+01 Vasant Rutu,S16.30.23,Stree Roga - Yonivyaapad - Udaavartaa,,,,,,,1,1
+01 Vasant Rutu,S16.30.9,Stree Roga - Yonivyaapad - Kaphajaa,,,,,,,,1
+01 Vasant Rutu,S16.7,Stree Roga - Krichchhraartava,,,,1,,,1,
+01 Vasant Rutu,S16.9,Stree Roga - Raja Kshaya,,,,1,,,,
+01 Vasant Rutu,S17.0,Supti,,,,,,,6,9
+01 Vasant Rutu,S17.1,Supti - Paada Supti,,,,,1,1,1,1
+01 Vasant Rutu,S18.0,Swastha,,,,,7,5,8,11
+01 Vasant Rutu,S18.1,Swaasthya Pareeksha,,,,,1,3,1,
+01 Vasant Rutu,S1A.0,Shoola,,,,,1,1,1,
+01 Vasant Rutu,S1A.2,Shoola - Annadrava Shoola,,,,1,,,,
+01 Vasant Rutu,S1A.4,Shoola - Parinaama Shoola,,,,,,1,,
+01 Vasant Rutu,S2.0,Shiroroga,,,,,,,,1
+01 Vasant Rutu,S2.10,Shiroroga - Shirahshoola,,,,8,4,6,8,5
+01 Vasant Rutu,S2.13,Shiroroga - Anantavaata,,,,,1,1,,
+01 Vasant Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,,1,,2,1,5
+01 Vasant Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,,1,,2,,
+01 Vasant Rutu,S2.15.5,Shirorog - Kapaalagata Shiroroga - Paalitya,,,,1,,,,
+01 Vasant Rutu,S2.16.1,Shiroroga - Kaphaja Shiroroga - Shirahshoola,,,,,,,,2
+01 Vasant Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,,,,,1,2
+01 Vasant Rutu,S2.23,Shiroroga - Shirah Kampa,,,,,,,,1
+01 Vasant Rutu,S2.25.2,Shiroroga - Vaataja Shiroroga - Shirahshoola,,,,,,,1,
+01 Vasant Rutu,S3.0,Shotha,,,,4,10,8,7,5
+01 Vasant Rutu,S3.1,Shotha - Vaatapittaja,,,,,1,,,
+01 Vasant Rutu,S3.3,Shrama,,,,,,2,6,4
+01 Vasant Rutu,S4.0,Shvaasa,,,,6,14,13,18,10
+01 Vasant Rutu,S4.4,Shvaasa-tamaka shvasa,,,,1,,,,
+01 Vasant Rutu,S5.0,Shvitra,,,,1,3,,3,3
+01 Vasant Rutu,U1.0,Udaavarta,,,,1,1,1,,1
+01 Vasant Rutu,U2.0,Udara,,,,,1,,1,
+01 Vasant Rutu,U2.3,Udara- vata,,,,,,1,,
+01 Vasant Rutu,U2.4,Udara- yakrut-pleeha,,,,,2,3,,1
+01 Vasant Rutu,U2.6,Udara-jalodara,,,,,,1,1,
+01 Vasant Rutu,U3.0,Udarda,,,,1,1,,2,2
+01 Vasant Rutu,U4.0,Unmaada,,,,1,3,2,1,4
+01 Vasant Rutu,U4.7,Unmaada - Manokhedaja,,,,,,,1,1
+01 Vasant Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,,1
+01 Vasant Rutu,V1.0,Vaatarakta,,,,21,10,21,23,35
+01 Vasant Rutu,V1.1,Vaatarakta - Dvandvaja,,,,,,1,,
+01 Vasant Rutu,V1.2,Vaatarakta - Gambheera,,,,2,,1,1,
+01 Vasant Rutu,V1.3,Vaatarakta - Kapha Vaataja,,,,1,1,1,,
+01 Vasant Rutu,V1.4,Vaatarakta - Kaphaadhika Vaatarakta,,,,,,,1,
+01 Vasant Rutu,V1.5,Vaatarakta - Pittaadhika Vaatarakta,,,,,,,1,
+01 Vasant Rutu,V11.6,Vatavyadhi - Gatatva  - Raktagata Vata,,,,,,,,1
+01 Vasant Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,,3
+01 Vasant Rutu,V11.8,Vatavyadhi - Gatatva  - Sarvangagata Vata,,,,,,,,1
+01 Vasant Rutu,V13.0,Vrana,,,,1,5,3,,2
+01 Vasant Rutu,V13.1.2,Vrana - Aagantuja (Sadyo) Vrana - Chhinna Aagantuja Vrana,,,,,,,1,
+01 Vasant Rutu,V13.3,Vrana - Dushta Vrana,,,,,,3,1,6
+01 Vasant Rutu,V13.8,Vrana - Kaphavaataraktaja Vrana,,,,,,,1,
+01 Vasant Rutu,V15.1,Vriddhi - Aantraja,,,,1,,1,,1
+01 Vasant Rutu,V16.0,Vrikka Roga,,,,1,8,8,11,8
+01 Vasant Rutu,V2.0,Vaatavyaadhi,,,2,171,218,136,87,116
+01 Vasant Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,,,22,39,80,98,95
+01 Vasant Rutu,V2.13,Vaatavyaadhi - Avasthaa - Supti,,,,1,,,,
+01 Vasant Rutu,V2.14,Vaatavyaadhi - Avasthaa - Toda,,,,1,1,,,1
+01 Vasant Rutu,V2.15,Vaatavyaadhi - Baadhirya,,,,,1,,,
+01 Vasant Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,,2,,,1,
+01 Vasant Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,,2,7,11,13,9
+01 Vasant Rutu,V2.21,Vaatavyaadhi - Ekaangavaata,,,,,,,1,
+01 Vasant Rutu,V2.23,Vaatavyaadhi - Gridhrasee,,,2,75,104,141,218,197
+01 Vasant Rutu,V2.25,Vaatavyaadhi - Hanugraha,,,,,,,2,
+01 Vasant Rutu,V2.28,Vaatavyaadhi - Hridayastha Vaata,,,,1,,,,
+01 Vasant Rutu,V2.3.0,Vaatavyaadhi - Aakshepaka,,,,,,1,,
+01 Vasant Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,1,2,13,3,,
+01 Vasant Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,,3,4,9,10,17
+01 Vasant Rutu,V2.35,Vaatavyaadhi - Karnashoola,,,,,,,1,
+01 Vasant Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,,3,22,18,4,4,43
+01 Vasant Rutu,V2.38,Vaatavyaadhi - Khanja,,,,,,1,,
+01 Vasant Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,,,,,3
+01 Vasant Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,,3,4,3,1,
+01 Vasant Rutu,V2.43,Vaatavyaadhi - Maamsamedogata Vaata,,,,,,1,,
+01 Vasant Rutu,V2.44,Vaatavyaadhi - Majjaagata Vaata,,,,,,,3,
+01 Vasant Rutu,V2.45,Vaatavyaadhi - Majjaasthigata Vaata,,,,,,2,1,
+01 Vasant Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,,,,2,,,
+01 Vasant Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,,,,2,2,1
+01 Vasant Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,,,,,1,1
+01 Vasant Rutu,V2.56,Vaatavyaadhi - Pakvaashayasthita Vaata,,,,,,1,1,
+01 Vasant Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,1,4,14,15,21,18
+01 Vasant Rutu,V2.57,Vaatavyaadhi - Pangutva,,,,1,,,1,1
+01 Vasant Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,,3,,1,1
+01 Vasant Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,,,2,137,180,250,273,254
+01 Vasant Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,,,2,1,1,,1
+01 Vasant Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,,2,2,,2,1
+01 Vasant Rutu,V2.7,Vaatavyaadhi - Ardita,,,,1,,1,2,1
+01 Vasant Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,,,1,,2,2
+01 Vasant Rutu,V2.73,Vaatavyaadhi - Tvaggata Vaata,,,,,1,,,
+01 Vasant Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,,,4,4,12,6
+01 Vasant Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,,1,,,3,7
+01 Vasant Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,,1,1,,2,
+01 Vasant Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,,12,10,15,6,6
+01 Vasant Rutu,V3.0,Vandhyatava,,,,,4,,,1
+01 Vasant Rutu,V3.1,Vandhyatava - Kaka Vandya,,,,,,,1,2
+01 Vasant Rutu,V3.2,Vandhyatava - Vandya,,,,,,,1,
+01 Vasant Rutu,V5.0,Vibandha,,,,,2,2,5,4
+01 Vasant Rutu,V5.1,Vibandha - Mala Vibandha,,,,2,1,7,8,4
+01 Vasant Rutu,V6.0,Vidradhi,,,,1,,1,2,2
+01 Vasant Rutu,V6.21,Vidradhi - Vrikkagata,,,,,,,,1
+01 Vasant Rutu,V9.0,Visarpa,,,,2,2,2,1,
+01 Vasant Rutu,Y1,Yakrit Dosha,,,1,4,6,5,5,5
+01 Vasant Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,1,
+01 Vasant Rutu,k12.0,Kushtha,,,,14,20,21,17,10
+01 Vasant Rutu,k12.10,Kushtha-mandala,,,,,,,,1
+01 Vasant Rutu,k12.15,Kushtha-sidhma,,,,,1,,,
+01 Vasant Rutu,k12.16,Kushtha-vicharchika,,,1,1,2,,2,
+01 Vasant Rutu,k12.17,Kushtha-vipadika,,,,2,,,4,1
+01 Vasant Rutu,k12.3,Kushtha-charmadala,,,,1,,,,
+01 Vasant Rutu,k12.5,Kushtha-dadru,,,,,,1,,
+01 Vasant Rutu,k12.6,Kushtha-ekakushta,,,,,,,,1
+01 Vasant Rutu,k12.9,Kushtha-kitibha,,,,7,3,1,5,2
+01 Vasant Rutu,k8.0,Kshaya,,,,,1,,,
+02 Grishma Rutu,A1.0,Aamadosha,,,,2,1,2,3,1
+02 Grishma Rutu,A11.0,Arshas,,,8,5,5,8,2,5
+02 Grishma Rutu,A11.1,Arsha - Charmakeela,,,,,,,1,
+02 Grishma Rutu,A11.18,Arsha - Yonija Arsha,,,1,,,,,
+02 Grishma Rutu,A11.2,Arsha - Kapha Pittaja Arsha,,,,,,,,1
+02 Grishma Rutu,A11.4,Ashmaree - Sharkaraa,,,1,,,,,
+02 Grishma Rutu,A12.0,Artava Vyapad,,,2,4,5,6,11,2
+02 Grishma Rutu,A12.1,Artava Vyapad - Anartava,,,,1,2,1,1,
+02 Grishma Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,,5
+02 Grishma Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,,3
+02 Grishma Rutu,A12.4,Artava Vyapad - Ksheenartava,,,,,,,1,1
+02 Grishma Rutu,A13.0,Ashmaree,,,3,,3,2,3,4
+02 Grishma Rutu,A13.2,Ashmaree - Pittaja,,,,1,,2,,3
+02 Grishma Rutu,A14.0,Asragdhara,,,,,1,,,
+02 Grishma Rutu,A16.0,Atisaara,,,1,3,2,3,2,
+02 Grishma Rutu,A17.0,Aatopa,,,,,,,,1
+02 Grishma Rutu,A2.0,Aamavaata,,,29,35,61,65,82,80
+02 Grishma Rutu,A2.1,Aamavaata - Kaphaja,,,,,,1,,
+02 Grishma Rutu,A2.2,Aamavaata - Pittaja,,,1,1,,1,,
+02 Grishma Rutu,A2.3,Aamavaata - Vaataja,,,4,2,1,,,2
+02 Grishma Rutu,A3.0,Abhighataja Shoola,,,42,27,17,17,42,35
+02 Grishma Rutu,A4.0,Agnimaandya,,,,1,,,4,
+02 Grishma Rutu,A5.0,Ajeerna,,,1,6,5,,2,5
+02 Grishma Rutu,A5.1,Ajeerna- vidagdhajeerna,,,,,,1,1,
+02 Grishma Rutu,A5.3,Ajeerna-vishtabdhajeerna,,,1,2,1,,1,
+02 Grishma Rutu,A6.0,Amlapitta,,,14,7,35,42,42,37
+02 Grishma Rutu,A6.2,Amlapitta-Urdhwaga,,,2,2,1,2,2,2
+02 Grishma Rutu,A7.0,Anaha,,,1,1,1,3,2,1
+02 Grishma Rutu,A7A.0,Anidra,,,,,3,1,3,
+02 Grishma Rutu,A8.0,Apasmaara,,,,1,1,3,3,2
+02 Grishma Rutu,A9.0,Arbuda,,,1,,1,,2,4
+02 Grishma Rutu,A9.1,Arbuda - Kaphaja,,,,,,,,1
+02 Grishma Rutu,A9.2,Arbuda - Maamsaja,,,,,,1,,2
+02 Grishma Rutu,Anidra,A7A.0,,,,,,,1,
+02 Grishma Rutu,B1.0,Baala Roga,,,,,,1,1,
+02 Grishma Rutu,B1.14,Baala Roga - Baala Shosha,,,,,1,,,
+02 Grishma Rutu,B1.2,Baala Roga -  Buddhi Mandya – Manamandata,,,,,,,1,
+02 Grishma Rutu,B1.3,Baala Roga -  Galashundika,,,,1,,,,
+02 Grishma Rutu,B1.34,Baala Roga - Krimi Roga,,,1,,,,,
+02 Grishma Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,1,1,,1,4,
+02 Grishma Rutu,B2.0,Bhagandara,,,,1,,3,2,2
+02 Grishma Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,1,,,,,1
+02 Grishma Rutu,B3.0,Bhagna,,,6,1,6,3,7,3
+02 Grishma Rutu,B3.1.2,Bhagna - Kaanda Bhagna - Asthichhallaka Kaanda Bhagna,,,,,1,,,
+02 Grishma Rutu,B3.2.0,Bhagna - Sandhimukta Bhagna,,,,,1,,,
+02 Grishma Rutu,B5,Bhrama,,,1,2,1,5,3,7
+02 Grishma Rutu,C1.0,Chhardi,,,,1,,,,
+02 Grishma Rutu,D0.0,Daaha,,,1,,1,,,
+02 Grishma Rutu,D0.8,Daaha - Sthaanabhedena - Paada Daaha,,,,,1,,2,
+02 Grishma Rutu,D1.0,Dourbalya,,,,6,1,2,5,1
+02 Grishma Rutu,G10.0,Guda Roga,,,2,,,,,
+02 Grishma Rutu,G13.0,Gulma,,,1,,1,1,2,1
+02 Grishma Rutu,G4.0,Garbhasrava,,,,,,1,,
+02 Grishma Rutu,G5.0,Garbhavrudhi,,,,,,1,,
+02 Grishma Rutu,G6.0,Garbhini,,,,,,3,7,
+02 Grishma Rutu,G6.2,Garbhini - jwara,,,,,,,1,
+02 Grishma Rutu,G6.4,Garbhini - pandu,,,,1,,,,
+02 Grishma Rutu,G8.0,Grahanee,,,3,1,9,5,5,1
+02 Grishma Rutu,G8.2,Grahanee-pittaj,,,,,,,1,
+02 Grishma Rutu,G8.5,Grahanee-Vataj,,,,,,,1,1
+02 Grishma Rutu,G9.0,Granthi,,,,1,1,4,4,1
+02 Grishma Rutu,G9.1,Granthi - Asthi Granthi,,,,,,1,1,
+02 Grishma Rutu,G9.10,Granthi (Garbhashaya),,,,,1,,,
+02 Grishma Rutu,G9.11,GRANTHI - BEEJAKOSHA,,,,,,,,1
+02 Grishma Rutu,G9.3,Granthi - Maamsaja Granthi,,,,,,5,1,
+02 Grishma Rutu,G9.4,Granthi - Medoja Granthi,,,,,,1,1,
+02 Grishma Rutu,G9.6,Granthi - Raktaja Granthi,,,,,1,,,
+02 Grishma Rutu,G9.7,Granthi - Siraa Granthi,,,1,10,14,19,20,11
+02 Grishma Rutu,G9.9,Granthi - Vranaja Granthi,,,,,,,,1
+02 Grishma Rutu,H2.0,Hridroga,,,,4,4,9,10,6
+02 Grishma Rutu,H2.5,Hridroga - Vaataja Hridroga,,,,,,,,1
+02 Grishma Rutu,J1.0,Jwara,,,2,5,3,2,1,2
+02 Grishma Rutu,J1.6,Jvara-vishama,,,1,,,,,
+02 Grishma Rutu,K1.0,Kaamalaa,,,2,1,,,,1
+02 Grishma Rutu,K10.10,Kshudra Roga - Charmakeela,,,,,,,,1
+02 Grishma Rutu,K10.23,Kshudra Roga - Kadara,,,,2,2,1,1,
+02 Grishma Rutu,K10.28,Kshudra Roga - Kunakha,,,,,1,2,1,1
+02 Grishma Rutu,K10.29,Kshudra Roga - Khalitya,,,2,2,1,,2,5
+02 Grishma Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,,,,1,,
+02 Grishma Rutu,K10.37.3,Kshudra Roga - Padminikantaka,,,,,1,,,
+02 Grishma Rutu,K10.38,Kshudra Roga - Parivartikaa,,,1,,,,,
+02 Grishma Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,,2,1,7,4,6
+02 Grishma Rutu,K10.38B,Kshudra Roga - Parivartikaa,,,,,,,1,
+02 Grishma Rutu,K10.43,Kshudra Roga - Sanniruddha Guda,,,,1,,,,
+02 Grishma Rutu,K10.52.0,Kshudra Roga - Vyanga,,,1,,,,,
+02 Grishma Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,1,,,3,1
+02 Grishma Rutu,K2.0,Kaasa,,,7,6,5,14,10,13
+02 Grishma Rutu,K2.1,Kaasa- kapha,,,1,1,1,1,,
+02 Grishma Rutu,K2.5,Kaasa- vata,,,,,1,3,1,1
+02 Grishma Rutu,K3.0,Kandoo,,,3,1,1,3,8,1
+02 Grishma Rutu,K3.1,Kandoo - Guda Kandoo,,,,,1,,,
+02 Grishma Rutu,K4.0,Karna Roga,,,1,1,3,1,,
+02 Grishma Rutu,K4.1,Karna Roga - Karna   Pooyasraava,,,2,,,,,
+02 Grishma Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,,,2
+02 Grishma Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,,2,,
+02 Grishma Rutu,K4.13,Karna Roga - Karnakandoo,,,,,,,1,1
+02 Grishma Rutu,K4.14,Karna Roga - Karnakshveda,,,1,,,1,1,2
+02 Grishma Rutu,K4.19,Karna Roga - Karnashoola,,,,,,2,,
+02 Grishma Rutu,K4.21,Karna Roga - Karnasraava,,,,,1,,,2
+02 Grishma Rutu,K4.6,Karna Roga - Karna Vidradhi,,,,,,,,1
+02 Grishma Rutu,K4.9,Karna Roga - Karnabaadhirya,,,2,,3,,2,
+02 Grishma Rutu,K5.0,Khalitya,,,1,,,,,
+02 Grishma Rutu,K6.0,Klaibya,,,,,1,,,
+02 Grishma Rutu,K6.2,Klaibya - Beejopaghaataja,,,,,,1,,
+02 Grishma Rutu,K6.4,Klaibya - Dvajabhangaja,,,,,,,,1
+02 Grishma Rutu,K7.0,Klama,,,,,3,,1,
+02 Grishma Rutu,K7a.0,Kotha,,,,1,,,,1
+02 Grishma Rutu,K9.0,Kshudra Roga,,,,3,4,6,8,6
+02 Grishma Rutu,K9.4,Kshudra Roga - Alajee,,,,,1,1,1,
+02 Grishma Rutu,M1.1,Madaatyaya - Pittaja,,,,,,1,,
+02 Grishma Rutu,M10.0,Medoroga,,,4,6,12,3,3,3
+02 Grishma Rutu,M10.1,Medoroga - Sthula medho roga,,,9,28,36,43,22,14
+02 Grishma Rutu,M10.2,Medoroga - Sukshma medho roga,,,2,4,9,10,13,14
+02 Grishma Rutu,M12.0,Mootra Dosha,,,,,1,1,1,1
+02 Grishma Rutu,M13.0,Mootra Roga,,,2,1,2,9,2,6
+02 Grishma Rutu,M14.0,Mootra Roga - Mootraaghaata,,,,,1,,,
+02 Grishma Rutu,M14.14,Mootra Roga - Mootraaghaata - Ushnavaata,,,,,,,1,
+02 Grishma Rutu,M14.15,Mootra Roga - Mootraaghaata - Vaataashthilaa,,,2,,,,,
+02 Grishma Rutu,M14.5,Mootra Roga - Mootraaghaata - Mootragranthi,,,,,,,1,
+02 Grishma Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,2,1,3,,4,3
+02 Grishma Rutu,M16.9,Mootra Roga - Mootrakrichchhra - Vaataja Mootrakrichchhra,,,,,1,1,,
+02 Grishma Rutu,M18.0,Mukha Roga  - Mukha Shosha,,,,,,1,,
+02 Grishma Rutu,M18.10.10,Mukha Roga - Dantamoolagata Roga - Sheetaada,,,,,,1,,1
+02 Grishma Rutu,M18.10.12,Mukha Roga - Dantamoolagata Roga - Upakusha,,,,,,1,,
+02 Grishma Rutu,M18.10.8,Mukha Roga - Dantamoolagata Roga - Mahaasushira,,,,,,1,,
+02 Grishma Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,,1,2,2,4,4
+02 Grishma Rutu,M18.11.10,Mukha Roga - Galagata Roga - Gandamaalaa,,,,,,,,2
+02 Grishma Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,2,2,2,3,9,4
+02 Grishma Rutu,M18.11.4,Mukha Roga - Galagata Roga - Galapaaka,,,,,,1,,1
+02 Grishma Rutu,M18.11.9,Mukha Roga - Galagata Roga - Tundikeree,,,,,,1,1,
+02 Grishma Rutu,M18.12.0,Mukha Roga - Gandagata Roga,,,,,1,,,
+02 Grishma Rutu,M18.13.2,Mukha Roga - Jihvaagata Roga  - Jihvaa Paaka,,,,,,,1,
+02 Grishma Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,,,1,1,
+02 Grishma Rutu,M18.14.17,Mukha Roga - Kanthagata Roga - Svaraghna,,,,,,,,1
+02 Grishma Rutu,M18.19.4,Mukha Roga - Sarvagata - Mukhapaaka,,,,2,,,,
+02 Grishma Rutu,M18.3,Mukha Roga  - Mukhadaaha,,,1,,1,,,
+02 Grishma Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,,,1,1,,3
+02 Grishma Rutu,M18.9.1,Mukha Roga - Dantagata Roga  - Danta Daurbalya,,,,,,,,5
+02 Grishma Rutu,M18.9.11,Mukha Roga - Dantagata Roga - Bhanjanaka,,,,1,,,,
+02 Grishma Rutu,M18.9.15,Mukha Roga - Dantagata Roga - Dantaharsha,,,,,,,,1
+02 Grishma Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,,,,,,5
+02 Grishma Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,,,,1,4
+02 Grishma Rutu,M18.9.4,Mukha Roga - Dantagata Roga  - Danta Maamsa Shoola,,,,,,,,1
+02 Grishma Rutu,M2.0,Madhumeha,,,28,10,21,102,193,170
+02 Grishma Rutu,M5.0,Maanasa Roga,,,2,1,2,2,3,2
+02 Grishma Rutu,M5.1,Maanasa Roga - Vishada,,,,2,3,,3,1
+02 Grishma Rutu,M5.3,Smriti Bhrmsha,,,1,1,,3,3,1
+02 Grishma Rutu,M6.0,Marma Viddha,,,,,2,3,,
+02 Grishma Rutu,M6.16,Marma Viddha - Jaanu Viddha,,,,1,,1,,
+02 Grishma Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,,1,2,1,
+02 Grishma Rutu,M6.3,Marma Viddha - Amsa Viddha,,,,,,1,,
+02 Grishma Rutu,M6.33,Marma Viddha - Nitamba Viddha,,,,1,,,,
+02 Grishma Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,,,1,,2
+02 Grishma Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,,2,2,2,6,5
+02 Grishma Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,,3,1,,
+02 Grishma Rutu,M7.3,Masanumasika Dviteeya,,,,1,,,,
+02 Grishma Rutu,M9.0,Medhra Roga,,,,,,,,1
+02 Grishma Rutu,MS G1.0,Greeva Graha,,,6,28,33,23,31,53
+02 Grishma Rutu,MS M1.0,Mutrashteela,,,1,1,,4,7,3
+02 Grishma Rutu,MS R1,Raktachapa,,,,8,9,8,8,8
+02 Grishma Rutu,MS T1.0,Twak Vivarnya,,,1,1,,3,6,
+02 Grishma Rutu,N1.0,Naadee Vrana,,,,,1,,,
+02 Grishma Rutu,N1.1,Naadee Vrana - Kaphaja,,,,,1,,,
+02 Grishma Rutu,N1.4,Naadee Vrana - Shalyaja,,,,,,,,1
+02 Grishma Rutu,N2.0,Naasaa Roga,,,1,,,,,1
+02 Grishma Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,,,,,1,
+02 Grishma Rutu,N2.11,Naasaa Roga - Naasaa Sraava,,,,,,,,1
+02 Grishma Rutu,N2.18,Naasaa Roga - Peenasa,,,2,1,3,9,11,5
+02 Grishma Rutu,N2.2,Naasaa Roga - Apeenasa,,,,,,1,,
+02 Grishma Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,9,2,8,4,4,4
+02 Grishma Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,,,1,1,,2
+02 Grishma Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,,,,,1,
+02 Grishma Rutu,N2.21.3,Naasaa Roga - Pratishyaaya - Pittaja Pratishyaaya,,,,1,,,1,
+02 Grishma Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,,,2,,
+02 Grishma Rutu,N2.9,Naasaa Roga - Kshavathu,,,,,,1,1,
+02 Grishma Rutu,N3.13,Napumsakatva - Shandha,,,,1,,,,
+02 Grishma Rutu,N4.0,Netra Roga,,,,7,29,12,33,15
+02 Grishma Rutu,N4.1,Netra Roga - Abhishyanda,,,,,,,1,
+02 Grishma Rutu,N4.10,Netra Roga - Gharsha,,,,,,,,1
+02 Grishma Rutu,N4.12,Netra Roga - Kandoo,,,,,,,2,
+02 Grishma Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,,2,
+02 Grishma Rutu,N4.17,Netra Roga - Masoorikaa,,,,,,,1,
+02 Grishma Rutu,N4.19,Netra Roga - Netra Daaha,,,,,,,1,
+02 Grishma Rutu,N4.23,Netra Roga - Netra Raajee,,,,,,1,,1
+02 Grishma Rutu,N4.25,Netra Roga - Netra Sraava,,,,,,,2,2
+02 Grishma Rutu,N4.27,Netra Roga - Paichchhilya,,,,,,,,1
+02 Grishma Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,,1,7
+02 Grishma Rutu,N4.4,Netra Roga  - Alpashopha Akshipaaka,,,,,,,1,2
+02 Grishma Rutu,N4.40.10,Netra Roga - Drishtigata - Kaacha Roga - Pittaja,,,,,,,1,
+02 Grishma Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,,,,2,1,
+02 Grishma Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,,,1,
+02 Grishma Rutu,N4.40.20.3,Netra Roga - Drishtigata - Timira - Raktaja Timira,,,,,,1,,
+02 Grishma Rutu,N4.40.5,Netra Roga - Drishtigata - Doshaandhya,,,,,,,,1
+02 Grishma Rutu,N4.40.9,Netra Roga - Drishtigata - Kaacha Roga - Kaphaja,,,,,,,1,
+02 Grishma Rutu,N4.45,Netra Roga - Raktaja,,,,,,1,,
+02 Grishma Rutu,N4.46.2.0,Netra Roga - Shuklagata - Arma,,,,,2,,,
+02 Grishma Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,2,,
+02 Grishma Rutu,N4.49.0,Netra Roga - Sandhigata,,,,,1,,,
+02 Grishma Rutu,N4.50.1.5,Netra Roga - Sarvagata - Abhishyanda - Vaataja Abhishyanda,,,,,,,,1
+02 Grishma Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,,,2,2
+02 Grishma Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,,,3
+02 Grishma Rutu,N4.53.11,Netra Roga - Vartmagata - Krichchhronmeelana,,,,,,,1,
+02 Grishma Rutu,N4.53.13.1,Netra Roga - Vartmagata - Kumbheekaa - Atilikhita Vartma,,,,,1,,,
+02 Grishma Rutu,N4.54.14,Netra Roga - Vartmagata - Lagana,,,,,,,1,
+02 Grishma Rutu,N4.54.15,Netra Roga - Vartmagata - Nimesha,,,,,,1,,
+02 Grishma Rutu,N4.55.31,Netra Roga - Vartmagata - Vaatahata,,,,,,,,2
+02 Grishma Rutu,N4.6,Netra Roga - Ashrusraava,,,,,,,1,
+02 Grishma Rutu,N5.0,Nidra Viparyaya / Nidra Bhanga,,,,,,,,1
+02 Grishma Rutu,O1.0,Ojavikriti,,,,1,,1,,
+02 Grishma Rutu,O1.2,Ojavikriti - Ojakshaya,,,2,,,1,,
+02 Grishma Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,,3,,2,1
+02 Grishma Rutu,P2.0,Pandu,,,3,2,3,,4,1
+02 Grishma Rutu,P3.0,Pidaka,,,,1,,,1,
+02 Grishma Rutu,P5.0,Prameha,,,43,58,115,109,123,57
+02 Grishma Rutu,P5.2,Prameha - Pidaka,,,3,,1,2,1,
+02 Grishma Rutu,P5.3,Prameha - Sthula,,,1,7,2,,,
+02 Grishma Rutu,P5.4,Prameha - Upadrava,,,4,14,10,5,6,2
+02 Grishma Rutu,P5.5,Pramehajanya - Netraroga,,,,,,1,,6
+02 Grishma Rutu,R2.0,Raktapitta,,,,1,,2,1,1
+02 Grishma Rutu,S0.0,Saamavata,,,,,,3,7,6
+02 Grishma Rutu,S1.0,Sheetapitta,,,1,4,2,1,2,5
+02 Grishma Rutu,S10.1,Stambha - Baahu Stambha,,,,1,,,,
+02 Grishma Rutu,S10.4,Stambha - Greevaa Stambha,,,,2,1,1,2,5
+02 Grishma Rutu,S10.5,Stambha - Hanu Stambha,,,,,,,1,2
+02 Grishma Rutu,S11.0,stanya roga,,,,1,,,,
+02 Grishma Rutu,S13.0,Sthaanabhedena Graha,,,1,,,,1,
+02 Grishma Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,,11,18,33,54,62,48
+02 Grishma Rutu,S13.13,Sthaanabhedena Graha - Manyaa Graha,,,17,,,,,
+02 Grishma Rutu,S13.14,Sthaanabhedena Graha - Marma Graha,,,,,,1,,
+02 Grishma Rutu,S13.17,Sthaanabhedena Graha - Paada Graha,,,,,1,,,
+02 Grishma Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,,1,8,9,6,6
+02 Grishma Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,1,2,4,
+02 Grishma Rutu,S13.3,Sthaanabhedena Graha - Gala Graha,,,1,,,,,1
+02 Grishma Rutu,S13.6,Sthaanabhedena Graha - Hrid Graha,,,,1,,,,
+02 Grishma Rutu,S13.7,Sthaanabhedena Graha - Jaanugraha,,,,1,,1,,
+02 Grishma Rutu,S14.0,Sthaanabhedena Shoola,,,30,17,15,7,22,44
+02 Grishma Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,,1,1,,5,1
+02 Grishma Rutu,S14.11,Sthaanabhedena Shoola - Guda Shoola,,,1,,,,,
+02 Grishma Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,1,,,1,7,3
+02 Grishma Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,,,1,,1,1
+02 Grishma Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,,3,17,8,13,2,6
+02 Grishma Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,1,2,,,1,2
+02 Grishma Rutu,S14.2,Sthaanabhedena Shoola - Aantra Shoola,,,,,,1,1,1
+02 Grishma Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,,30,39,63,45,40,94
+02 Grishma Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,,2,,1,,5
+02 Grishma Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,6,,,,1,2
+02 Grishma Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,,6,12,1,1,2
+02 Grishma Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,,1,6,,2,
+02 Grishma Rutu,S14.5,Sthaanabhedena Shoola - Anguli Shoola,,,,3,,,,
+02 Grishma Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,,1,3,,2,
+02 Grishma Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,,,15,8,5,8,23,5
+02 Grishma Rutu,S15.28,Sthaanabhedena Shoola - Nakha Shoola,,,,,1,,,
+02 Grishma Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,,2,2,2,6,4
+02 Grishma Rutu,S15.33,Sthaanabhedena Shoola - Pakvaashaya Shoola,,,,1,,,,
+02 Grishma Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,6,2,3,2,2,1
+02 Grishma Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,1,1,3,,,1
+02 Grishma Rutu,S15.41,Sthaanabhedena Shoola - Sakthi Shoola,,,1,,,2,,
+02 Grishma Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,4,4,1,,2,3
+02 Grishma Rutu,S15.44,Sthaanabhedena Shoola - Snaayu Shoola,,,,,1,,,
+02 Grishma Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,1,,,,,1
+02 Grishma Rutu,S16.0,Sthaulya,,1,53,6,33,41,74,46
+02 Grishma Rutu,S16.1,Stree Roga,,,,1,4,4,5,2
+02 Grishma Rutu,S16.10,Stree Roga - Shvetapradara,,,,1,3,1,2,2
+02 Grishma Rutu,S16.12,Stree Roga - Yonigata Sraava,,,1,,,,,
+02 Grishma Rutu,S16.19.0,Stree Roga - Rajo Dushti,,,1,,,,3,
+02 Grishma Rutu,S16.20.0,Stree Roga - Raktapradara,,,1,,4,1,3,4
+02 Grishma Rutu,S16.20.7,STREEROGA - RAJONIVRITHI,,,,,,,,1
+02 Grishma Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,,4
+02 Grishma Rutu,S16.21.0,Stree Roga - Sootikaa Roga,,,1,,,,2,
+02 Grishma Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,,1
+02 Grishma Rutu,S16.22,Stree Roga - Stana Roga,,,1,,,,1,1
+02 Grishma Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,,,1,,2,
+02 Grishma Rutu,S16.30.0,Stree Roga - Yonivyaapad,,,1,,,1,,
+02 Grishma Rutu,S16.30.10,Stree Roga - Yonivyaapad - Karninee,,,2,,,,,
+02 Grishma Rutu,S16.30.12,Stree Roga - Yonivyaapad - Mahaayoni,,,,,,,,2
+02 Grishma Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,1,,,,1,2
+02 Grishma Rutu,S16.30.14,Stree Roga - Yonivyaapad - Phalinee / Andalee,,,,1,,,,
+02 Grishma Rutu,S16.30.22,Stree Roga - Yonivyaapad - Sramsinee,,,,,,,1,1
+02 Grishma Rutu,S16.30.26,Stree Roga - Yonivyaapad - Vaatalaa,,,,1,,,,1
+02 Grishma Rutu,S16.30.9,Stree Roga - Yonivyaapad - Kaphajaa,,,,,,,,3
+02 Grishma Rutu,S16.9,Stree Roga - Raja Kshaya,,,,1,,,,
+02 Grishma Rutu,S17.0,Supti,,,3,,2,,5,6
+02 Grishma Rutu,S17.1,Supti - Paada Supti,,,1,,3,1,1,
+02 Grishma Rutu,S18.0,Swastha,,,,,8,5,13,3
+02 Grishma Rutu,S18.1,Swaasthya Pareeksha,,,,,1,3,2,5
+02 Grishma Rutu,S1A.0,Shoola,,,,1,2,1,1,1
+02 Grishma Rutu,S2.0,Shiroroga,,,2,,,,,1
+02 Grishma Rutu,S2.10,Shiroroga - Shirahshoola,,,6,6,4,7,20,3
+02 Grishma Rutu,S2.13,Shiroroga - Anantavaata,,,,,1,1,,
+02 Grishma Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,,,1,1,2,3
+02 Grishma Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,2,,1,3,1,
+02 Grishma Rutu,S2.16.1,Shiroroga - Kaphaja Shiroroga - Shirahshoola,,,,,,1,,1
+02 Grishma Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,,,,,1,
+02 Grishma Rutu,S2.25.2,Shiroroga - Vaataja Shiroroga - Shirahshoola,,,,,,1,,1
+02 Grishma Rutu,S2.5,Shiroroga - Shira Abhihata,,,,,1,,,
+02 Grishma Rutu,S3.0,Shotha,,,3,7,5,7,12,10
+02 Grishma Rutu,S3.3,Shrama,,,2,,2,3,12,3
+02 Grishma Rutu,S3A.0,Shrama,,,,,,,,1
+02 Grishma Rutu,S4.0,Shvaasa,,,2,3,16,14,9,11
+02 Grishma Rutu,S4.2,Shvaasa-kshudra shvasa,,,,,,,,1
+02 Grishma Rutu,S4.4,Shvaasa-tamaka shvasa,,,1,1,,,,
+02 Grishma Rutu,S5.0,Shvitra,,,,2,1,,1,
+02 Grishma Rutu,U1.0,Udaavarta,,,,1,1,1,,
+02 Grishma Rutu,U2.0,Udara,,,,,1,,,
+02 Grishma Rutu,U2.4,Udara- yakrut-pleeha,,,,,,1,2,
+02 Grishma Rutu,U2.6,Udara-jalodara,,,,,,1,1,
+02 Grishma Rutu,U3.0,Udarda,,,,2,,,,
+02 Grishma Rutu,U4.0,Unmaada,,,,3,2,1,,1
+02 Grishma Rutu,U4.7,Unmaada - Manokhedaja,,,,,,,,1
+02 Grishma Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,,1
+02 Grishma Rutu,V1.0,Vaatarakta,,,22,12,21,32,32,38
+02 Grishma Rutu,V1.2,Vaatarakta - Gambheera,,,,,1,,,
+02 Grishma Rutu,V1.4,Vaatarakta - Kaphaadhika Vaatarakta,,,,,,,1,
+02 Grishma Rutu,V1.5,Vaatarakta - Pittaadhika Vaatarakta,,,,,,,1,
+02 Grishma Rutu,V1.7,Vaatarakta - Uttaana,,,,,,2,,
+02 Grishma Rutu,V1.8,Vaatarakta - Vaata Kaphaja,,,,,1,,,
+02 Grishma Rutu,V10.11,Vatavyadhi - Avrita Vata - Mamsavrita Vata,,,,,,,,1
+02 Grishma Rutu,V10.20,Vatavyadhi - Avrita Vata - Prana avrita Samana,,,,,,,,1
+02 Grishma Rutu,V10.24,Vatavyadhi - Avrita Vata - Raktavrita Vata,,,,,,,,1
+02 Grishma Rutu,V11.10,Vatavyadhi - Gatatva  - Siragata Vata,,,,,,,,1
+02 Grishma Rutu,V11.4,Vatavyadhi - Gatatva  - Mamsamedogata Vata,,,,,,,,1
+02 Grishma Rutu,V11.6,Vatavyadhi - Gatatva  - Raktagata Vata,,,,,,,,1
+02 Grishma Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,,1
+02 Grishma Rutu,V12.0,Visphota,,,1,,,,,
+02 Grishma Rutu,V13.0,Vrana,,,,3,,3,2,1
+02 Grishma Rutu,V13.1.0,Vrana - Aagantuja (Sadyo) Vrana,,,,,1,1,,
+02 Grishma Rutu,V13.1.4,Vrana - Aagantuja (Sadyo) Vrana - Ghrishta Aagantuja Vrana,,,1,,,,,
+02 Grishma Rutu,V13.11,Vrana - Pitta Vaataja Vrana,,,1,,,,,
+02 Grishma Rutu,V13.3,Vrana - Dushta Vrana,,,1,,1,2,1,4
+02 Grishma Rutu,V13.4,Vrana - Jeerna Vrana,,,,,1,,,
+02 Grishma Rutu,V15.0,Vriddhi,,,,,,1,,
+02 Grishma Rutu,V15.1,Vriddhi - Aantraja,,,1,,,,1,1
+02 Grishma Rutu,V16.0,Vrikka Roga,,,,1,3,9,14,7
+02 Grishma Rutu,V2.0,Vaatavyaadhi,,,100,205,183,132,84,99
+02 Grishma Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,,19,10,50,74,116,58
+02 Grishma Rutu,V2.13,Vaatavyaadhi - Avasthaa - Supti,,,1,,1,,,
+02 Grishma Rutu,V2.15,Vaatavyaadhi - Baadhirya,,,1,,,,,
+02 Grishma Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,,1,,,1,1
+02 Grishma Rutu,V2.19,Vaatavyaadhi - Dandaapataanaka,,,,,,,,1
+02 Grishma Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,2,1,9,7,13,4
+02 Grishma Rutu,V2.21,Vaatavyaadhi - Ekaangavaata,,,2,,3,,1,
+02 Grishma Rutu,V2.23,Vaatavyaadhi - Gridhrasee,,,77,63,117,170,239,183
+02 Grishma Rutu,V2.25,Vaatavyaadhi - Hanugraha,,,,,,,1,
+02 Grishma Rutu,V2.3.0,Vaatavyaadhi - Aakshepaka,,,,,,1,,1
+02 Grishma Rutu,V2.3.1,Vaatavyaadhi - Aakshepaka - Abhighaataja,,,1,,,,,
+02 Grishma Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,22,1,8,,1,1
+02 Grishma Rutu,V2.31,Vaatavyaadhi - Janghaagata Vaata,,,,,2,,,
+02 Grishma Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,1,4,5,8,13,16
+02 Grishma Rutu,V2.34.1,Vaatavyaadhi - Kampa - Baahu Kampa,,,,,,,,1
+02 Grishma Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,,50,19,12,8,5,20
+02 Grishma Rutu,V2.38,Vaatavyaadhi - Khanja,,,1,,1,,,2
+02 Grishma Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,,,,,1
+02 Grishma Rutu,V2.4.2,Vaatavyaadhi - Aavritavaata - Pittaavrita Vaata,,,1,,,,,
+02 Grishma Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,,1,2,2,2,1
+02 Grishma Rutu,V2.44,Vaatavyaadhi - Majjaagata Vaata,,,,,,1,4,
+02 Grishma Rutu,V2.45,Vaatavyaadhi - Majjaasthigata Vaata,,,,,,1,1,
+02 Grishma Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,,2,,,,,
+02 Grishma Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,6,,,1,1,2
+02 Grishma Rutu,V2.48,Vaatavyaadhi - Medogata Vaata,,,,,,1,,
+02 Grishma Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,,1,,,2,
+02 Grishma Rutu,V2.55,Vaatavyaadhi - Paarshvagata Vaata,,,1,,,,,
+02 Grishma Rutu,V2.56,Vaatavyaadhi - Pakvaashayasthita Vaata,,,,,,,1,
+02 Grishma Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,5,5,15,19,19,16
+02 Grishma Rutu,V2.57,Vaatavyaadhi - Pangutva,,,1,1,,1,2,2
+02 Grishma Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,1,1,,,
+02 Grishma Rutu,V2.62,Vaatavyaadhi - Raktagata Vaata,,,1,,,,,
+02 Grishma Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,,,175,121,219,222,299,286
+02 Grishma Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,,13,2,1,,,1
+02 Grishma Rutu,V2.65,Vaatavyaadhi - Shaakhaagata Vaata,,,2,,,,1,
+02 Grishma Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,1,4,1,1,1,
+02 Grishma Rutu,V2.7,Vaatavyaadhi - Ardita,,,,2,2,2,2,
+02 Grishma Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,,,1,,1,1
+02 Grishma Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,5,4,4,1,12,14
+02 Grishma Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,5,,1,,2,4
+02 Grishma Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,1,2,5,1,,
+02 Grishma Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,4,3,14,10,4,6
+02 Grishma Rutu,V3.0,Vandhyatava,,,1,1,3,,1,
+02 Grishma Rutu,V3.1,Vandhyatava - Kaka Vandya,,,,,,,2,
+02 Grishma Rutu,V5.0,Vibandha,,,3,1,2,3,7,1
+02 Grishma Rutu,V5.1,Vibandha - Mala Vibandha,,,1,1,5,4,11,1
+02 Grishma Rutu,V5.2,Vibandha - Mootra Vibandha,,,,,1,,,
+02 Grishma Rutu,V6.0,Vidradhi,,,1,,3,1,,4
+02 Grishma Rutu,V6.21,Vidradhi - Vrikkagata,,,,,,,,1
+02 Grishma Rutu,V9.0,Visarpa,,,,,,2,,1
+02 Grishma Rutu,Y1,Yakrit Dosha,,,3,2,4,2,3,1
+02 Grishma Rutu,Y2,Yoni Kandu,,,,,1,,,
+02 Grishma Rutu,Y8.0,Yonivyaapad,,,1,,,,,
+02 Grishma Rutu,Y8.10,Yonivyaapad - Karninee,,,,,1,,,
+02 Grishma Rutu,Y8.12,Yonivyaapad - Mahaayoni,,,,,1,,,
+02 Grishma Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,2,1
+02 Grishma Rutu,Y8.23,Yonivyaapad - Udaavartaa,,,1,,,,,
+02 Grishma Rutu,k12.0,Kushtha,,,5,16,20,12,16,6
+02 Grishma Rutu,k12.10,Kushtha-mandala,,,,1,,,,
+02 Grishma Rutu,k12.16,Kushtha-vicharchika,,,4,2,,,3,
+02 Grishma Rutu,k12.17,Kushtha-vipadika,,,,1,,1,2,2
+02 Grishma Rutu,k12.18,Kushtha-visphotaka,,,,,,,,1
+02 Grishma Rutu,k12.3,Kushtha-charmadala,,,1,1,,,,
+02 Grishma Rutu,k12.5,Kushtha-dadru,,,1,,,,1,1
+02 Grishma Rutu,k12.6,Kushtha-ekakushta,,,,,1,,1,1
+02 Grishma Rutu,k12.9,Kushtha-kitibha,,,1,3,3,4,4,1
+02 Grishma Rutu,k8.0,Kshaya,,,,1,,,1,
+03 Varsha Rutu,A1.0,Aamadosha,,,,,,2,,
+03 Varsha Rutu,A11.0,Arshas,,,1,6,4,6,5,8
+03 Varsha Rutu,A11.1,Arsha - Charmakeela,,,1,,,,2,
+03 Varsha Rutu,A11.10,Arsha - Raktaja Arsha,,,2,,,,,
+03 Varsha Rutu,A11.18,Arsha - Yonija Arsha,,,1,,,,,
+03 Varsha Rutu,A11.3,Arsha - Kaphaja Arsha,,,,,,,1,
+03 Varsha Rutu,A11.8,Arsha - Pitta Raktaja Arsha,,,1,,,,,
+03 Varsha Rutu,A12.0,Artava Vyapad,,,3,1,,9,11,1
+03 Varsha Rutu,A12.1,Artava Vyapad - Anartava,,,1,,1,,,
+03 Varsha Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,,3
+03 Varsha Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,3,3
+03 Varsha Rutu,A12.3,Artava Vyapad - Kaphaja,,,1,,,,,
+03 Varsha Rutu,A12.5,Artava Vyapad - Kunapagandhi,,,,1,,,,
+03 Varsha Rutu,A13.0,Ashmaree,,,2,1,5,3,2,3
+03 Varsha Rutu,A13.2,Ashmaree - Pittaja,,,,,3,2,,2
+03 Varsha Rutu,A16.0,Atisaara,,,2,2,4,3,1,4
+03 Varsha Rutu,A16.1,Atisaara- kapha,,,,1,,,,
+03 Varsha Rutu,A16.2,Atisaara- pitta,,,,1,,,,
+03 Varsha Rutu,A17.0,Aatopa,,,,,,1,,
+03 Varsha Rutu,A2.0,Aamavaata,,,18,41,61,62,74,81
+03 Varsha Rutu,A2.1,Aamavaata - Kaphaja,,,3,,,1,,2
+03 Varsha Rutu,A2.3,Aamavaata - Vaataja,,,8,3,,1,,
+03 Varsha Rutu,A3.0,Abhighataja Shoola,,,5,8,19,33,36,63
+03 Varsha Rutu,A4.0,Agnimaandya,,,,1,,1,5,2
+03 Varsha Rutu,A5.0,Ajeerna,,,,1,4,,3,1
+03 Varsha Rutu,A5.1,Ajeerna- vidagdhajeerna,,,,,,,2,1
+03 Varsha Rutu,A5.2,Ajeerna-Amajeerna,,,1,,,,,
+03 Varsha Rutu,A5.3,Ajeerna-vishtabdhajeerna,,,,,,,1,
+03 Varsha Rutu,A6.0,Amlapitta,,,11,19,34,36,39,34
+03 Varsha Rutu,A6.1,Amlapitta-Adhoga,,,1,,,,1,
+03 Varsha Rutu,A6.2,Amlapitta-Urdhwaga,,,4,2,2,1,4,6
+03 Varsha Rutu,A7.0,Anaha,,,2,2,,3,3,1
+03 Varsha Rutu,A7A.0,Anidra,,,,,1,1,1,3
+03 Varsha Rutu,A8.0,Apasmaara,,,,,2,4,,3
+03 Varsha Rutu,A8.4,Apasmaara - Kaphaja,,,,1,,,,
+03 Varsha Rutu,A9.0,Arbuda,,,,2,1,5,1,3
+03 Varsha Rutu,A9.1,Arbuda - Kaphaja,,,,,,,,1
+03 Varsha Rutu,A9.2,Arbuda - Maamsaja,,,,,,,1,1
+03 Varsha Rutu,A9.4,Arbuda - Medoja Arbuda - Shuddha Vrana,,,,,,,,1
+03 Varsha Rutu,Anidra,A7A.0,,,,,1,1,2,2
+03 Varsha Rutu,B1.0,Baala Roga,,,,,1,1,,
+03 Varsha Rutu,B1.14,Baala Roga - Baala Shosha,,,,,1,,,
+03 Varsha Rutu,B1.34,Baala Roga - Krimi Roga,,,,1,,,,2
+03 Varsha Rutu,B1.38,Baala Roga – sahaja Vikara,,,1,,,,,
+03 Varsha Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,1,,,1,3,
+03 Varsha Rutu,B2.0,Bhagandara,,,,1,1,3,,
+03 Varsha Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,1,1,,,,
+03 Varsha Rutu,B3.0,Bhagna,,,2,3,6,5,6,12
+03 Varsha Rutu,B3.1.2,Bhagna - Kaanda Bhagna - Asthichhallaka Kaanda Bhagna,,,,,2,,,
+03 Varsha Rutu,B5,Bhrama,,,1,,1,6,5,7
+03 Varsha Rutu,C1.0,Chhardi,,,,,,,,1
+03 Varsha Rutu,D0.0,Daaha,,,,,1,,,
+03 Varsha Rutu,D0.1,Daaha - Sthaanabhedena,,,,,,,1,1
+03 Varsha Rutu,D0.8,Daaha - Sthaanabhedena - Paada Daaha,,,,,,,3,
+03 Varsha Rutu,D1.0,Dourbalya,,,,2,2,3,4,6
+03 Varsha Rutu,G1.6,Garbhapoorva Paricharya,,,,,,,1,
+03 Varsha Rutu,G13.0,Gulma,,,1,,1,,1,
+03 Varsha Rutu,G3.0,Garbhapata,,,,,,1,,
+03 Varsha Rutu,G5.0,Garbhavrudhi,,,,,1,,,
+03 Varsha Rutu,G6.0,Garbhini,,,1,1,,3,5,1
+03 Varsha Rutu,G6.1,Garbhini - chardi,,,,,1,,,
+03 Varsha Rutu,G8.0,Grahanee,,,,2,6,6,2,
+03 Varsha Rutu,G8.1,Grahanee-kaphaj,,,,,,,1,
+03 Varsha Rutu,G8.5,Grahanee-Vataj,,,,1,,1,1,1
+03 Varsha Rutu,G9.0,Granthi,,,1,,3,7,2,2
+03 Varsha Rutu,G9.1,Granthi - Asthi Granthi,,,,,1,2,2,
+03 Varsha Rutu,G9.10,Granthi (Garbhashaya),,,,,1,,1,
+03 Varsha Rutu,G9.11,GRANTHI - BEEJAKOSHA,,,,,,,,1
+03 Varsha Rutu,G9.2,Granthi - Kaphaja Granthi,,,,,,,1,
+03 Varsha Rutu,G9.3,Granthi - Maamsaja Granthi,,,1,,2,2,,
+03 Varsha Rutu,G9.4,Granthi - Medoja Granthi,,,,,1,1,1,1
+03 Varsha Rutu,G9.7,Granthi - Siraa Granthi,,,1,8,18,20,14,12
+03 Varsha Rutu,G9.8,Granthi - Vaataja Granthi,,,,,,,,1
+03 Varsha Rutu,G9.9,Granthi - Vranaja Granthi,,,,,,,,1
+03 Varsha Rutu,H1.0,Hikkaa,,,,,,1,,
+03 Varsha Rutu,H2.0,Hridroga,,,11,3,9,8,13,2
+03 Varsha Rutu,H2.1,Hridroga - Kaphaja Hridroga,,,1,,,,,
+03 Varsha Rutu,H2.3,Hridroga - Pittaja Hridroga,,,1,,,,,
+03 Varsha Rutu,H2.4,Hridroga - Saannipaatika Hridroga,,,1,,,,,
+03 Varsha Rutu,H2.5,Hridroga - Vaataja Hridroga,,,1,,,,,
+03 Varsha Rutu,J1.0,Jwara,,,2,1,2,10,2,7
+03 Varsha Rutu,J1.1,Jvara- kapha,,,,1,,,,
+03 Varsha Rutu,J1.2,Jvara- pitta,,,,1,,,,
+03 Varsha Rutu,J1.5,Jvara-vata,,,,,1,,,
+03 Varsha Rutu,J1.6,Jvara-vishama,,,1,1,2,1,1,
+03 Varsha Rutu,K1.0,Kaamalaa,,,,2,1,1,,1
+03 Varsha Rutu,K10.11,Kshudra Roga - Chippa,,,,,1,,,
+03 Varsha Rutu,K10.15,Kshudra Roga - Indralupta,,,,,1,,,
+03 Varsha Rutu,K10.23,Kshudra Roga - Kadara,,,,,1,2,1,
+03 Varsha Rutu,K10.28,Kshudra Roga - Kunakha,,,,,,1,2,2
+03 Varsha Rutu,K10.29,Kshudra Roga - Khalitya,,,1,1,1,,3,4
+03 Varsha Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,1,1,,,,1
+03 Varsha Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,,2,2,4,3,7
+03 Varsha Rutu,K10.38B,Kshudra Roga - Parivartikaa,,,,,,,1,
+03 Varsha Rutu,K10.52.0,Kshudra Roga - Vyanga,,,1,,,1,1,
+03 Varsha Rutu,K10.52.5,Kshudra Roga - Yavaprakhyaa,,,,,1,,,
+03 Varsha Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,,1,1,1,4
+03 Varsha Rutu,K2.0,Kaasa,,,2,13,11,21,10,14
+03 Varsha Rutu,K2.1,Kaasa- kapha,,,1,2,1,1,4,3
+03 Varsha Rutu,K2.2,Kaasa- kshataja,,,,,,1,,
+03 Varsha Rutu,K2.5,Kaasa- vata,,,1,1,2,,1,
+03 Varsha Rutu,K3.0,Kandoo,,,,,4,4,5,1
+03 Varsha Rutu,K3.1,Kandoo - Guda Kandoo,,,,,,,,1
+03 Varsha Rutu,K4.0,Karna Roga,,,1,,2,1,1,1
+03 Varsha Rutu,K4.1,Karna Roga - Karna   Pooyasraava,,,,,1,,1,
+03 Varsha Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,2,1,
+03 Varsha Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,1,,,3
+03 Varsha Rutu,K4.12,Karna Roga - Karnagoothaka,,,,,,1,,
+03 Varsha Rutu,K4.13,Karna Roga - Karnakandoo,,,,1,,,,1
+03 Varsha Rutu,K4.14,Karna Roga - Karnakshveda,,,,,,,,2
+03 Varsha Rutu,K4.16,Karna Roga - Karnapaaka,,,,,,,1,
+03 Varsha Rutu,K4.19,Karna Roga - Karnashoola,,,1,,,,,
+03 Varsha Rutu,K4.2,Karna Roga - Karna  Kleda,,,,1,,,,
+03 Varsha Rutu,K4.20,Karna Roga - Karnashopha,,,,,,1,,
+03 Varsha Rutu,K4.21,Karna Roga - Karnasraava,,,,,,1,,3
+03 Varsha Rutu,K4.9,Karna Roga - Karnabaadhirya,,,,,1,,,
+03 Varsha Rutu,K6.0,Klaibya,,,,,,1,2,
+03 Varsha Rutu,K6.4,Klaibya - Dvajabhangaja,,,,,1,1,,
+03 Varsha Rutu,K7.0,Klama,,,,,3,,,1
+03 Varsha Rutu,K9.0,Kshudra Roga,,,4,10,8,12,9,6
+03 Varsha Rutu,K9.4,Kshudra Roga - Alajee,,,,,,2,1,1
+03 Varsha Rutu,M1,Madaatyaya,,,,,2,,1,
+03 Varsha Rutu,M1.0,Madaatyaya - Paramada,,,,1,3,1,2,
+03 Varsha Rutu,M1.4,Madaatyaya - Vaataja,,,1,,,,,
+03 Varsha Rutu,M10.0,Medoroga,,,1,8,19,2,5,5
+03 Varsha Rutu,M10.1,Medoroga - Sthula medho roga,,,39,46,21,20,21,16
+03 Varsha Rutu,M10.2,Medoroga - Sukshma medho roga,,,1,,8,15,13,13
+03 Varsha Rutu,M12.0,Mootra Dosha,,,1,2,,,1,
+03 Varsha Rutu,M13.0,Mootra Roga,,,1,1,4,5,2,4
+03 Varsha Rutu,M14.14,Mootra Roga - Mootraaghaata - Ushnavaata,,,,,1,,,1
+03 Varsha Rutu,M14.15,Mootra Roga - Mootraaghaata - Vaataashthilaa,,,1,,,,,
+03 Varsha Rutu,M14.5,Mootra Roga - Mootraaghaata - Mootragranthi,,,,,,,1,
+03 Varsha Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,,,,1,5,6
+03 Varsha Rutu,M16.2,Mootra Roga - Mootrakrichchhra - Kaphaja,,,,,,,,1
+03 Varsha Rutu,M16.9,Mootra Roga - Mootrakrichchhra - Vaataja Mootrakrichchhra,,,,,1,1,,
+03 Varsha Rutu,M18.10.10,Mukha Roga - Dantamoolagata Roga - Sheetaada,,,,,,,1,
+03 Varsha Rutu,M18.10.12,Mukha Roga - Dantamoolagata Roga - Upakusha,,,,,,,1,
+03 Varsha Rutu,M18.10.3,Mukha Roga - Dantamoolagata Roga - Dantapupputa,,,,,,,,1
+03 Varsha Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,2,,1,1,3,5
+03 Varsha Rutu,M18.11.10,Mukha Roga - Galagata Roga - Gandamaalaa,,,,,,,,1
+03 Varsha Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,1,1,2,6,14,5
+03 Varsha Rutu,M18.11.4,Mukha Roga - Galagata Roga - Galapaaka,,,,,,,,2
+03 Varsha Rutu,M18.12.0,Mukha Roga - Gandagata Roga,,,,,1,,1,
+03 Varsha Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,1,2,,,
+03 Varsha Rutu,M18.14.17,Mukha Roga - Kanthagata Roga - Svaraghna,,,,,,1,,
+03 Varsha Rutu,M18.19.4,Mukha Roga - Sarvagata - Mukhapaaka,,,,,,1,2,1
+03 Varsha Rutu,M18.3,Mukha Roga  - Mukhadaaha,,,,,1,,,
+03 Varsha Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,,1,,,,8
+03 Varsha Rutu,M18.9.1,Mukha Roga - Dantagata Roga  - Danta Daurbalya,,,,,,,,4
+03 Varsha Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,,,,,1,21
+03 Varsha Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,,,,,2
+03 Varsha Rutu,M18.9.4,Mukha Roga - Dantagata Roga  - Danta Maamsa Shoola,,,,,,,,1
+03 Varsha Rutu,M2.0,Madhumeha,,,15,14,28,135,206,185
+03 Varsha Rutu,M5.0,Maanasa Roga,,,,,1,4,2,2
+03 Varsha Rutu,M5.1,Maanasa Roga - Vishada,,,,,5,,3,
+03 Varsha Rutu,M5.2,Maanasa Roga - Glaani,,,,,,,1,
+03 Varsha Rutu,M5.3,Smriti Bhrmsha,,,,,5,1,1,1
+03 Varsha Rutu,M6.0,Marma Viddha,,,,,4,4,,
+03 Varsha Rutu,M6.16,Marma Viddha - Jaanu Viddha,,,,,1,1,1,
+03 Varsha Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,,2,1,2,
+03 Varsha Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,,3,,,
+03 Varsha Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,1,,3,2,1,3
+03 Varsha Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,1,,,1,
+03 Varsha Rutu,M7.3,Masanumasika Dviteeya,,,,1,,,,
+03 Varsha Rutu,M7.5,Masanumasika Panchama,,,1,,,,,
+03 Varsha Rutu,M7.7,Masanumasika Saptama,,,1,,,,,
+03 Varsha Rutu,MS G1.0,Greeva Graha,,,8,38,22,27,44,63
+03 Varsha Rutu,MS M1.0,Mutrashteela,,,,2,1,5,14,4
+03 Varsha Rutu,MS R1,Raktachapa,,,,2,6,8,8,12
+03 Varsha Rutu,MS S1.0,Shukra Dushti,,,,,1,,,
+03 Varsha Rutu,MS T1.0,Twak Vivarnya,,,3,1,2,3,4,
+03 Varsha Rutu,N1.0,Naadee Vrana,,,,,,,,1
+03 Varsha Rutu,N1.4,Naadee Vrana - Shalyaja,,,,,,,,1
+03 Varsha Rutu,N2.0,Naasaa Roga,,,,,,,,1
+03 Varsha Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,,,,,4,1
+03 Varsha Rutu,N2.12,Naasaa Roga - Naasaanaaha,,,,,,4,,
+03 Varsha Rutu,N2.16,Naasaa Roga - Naasaashosha,,,,,,,,1
+03 Varsha Rutu,N2.18,Naasaa Roga - Peenasa,,,2,10,8,12,11,8
+03 Varsha Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,3,5,8,3,10,8
+03 Varsha Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,1,1,2,2,,2
+03 Varsha Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,2,,,1,1,1
+03 Varsha Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,1,,1,,
+03 Varsha Rutu,N2.9,Naasaa Roga - Kshavathu,,,,,1,,1,
+03 Varsha Rutu,N4.0,Netra Roga,,,,6,25,16,44,19
+03 Varsha Rutu,N4.10,Netra Roga - Gharsha,,,,,,,,1
+03 Varsha Rutu,N4.12,Netra Roga - Kandoo,,,,,,,,1
+03 Varsha Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,1,1,1
+03 Varsha Rutu,N4.19,Netra Roga - Netra Daaha,,,,,1,,,
+03 Varsha Rutu,N4.27,Netra Roga - Paichchhilya,,,,,,,,1
+03 Varsha Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,3,2,10
+03 Varsha Rutu,N4.4,Netra Roga  - Alpashopha Akshipaaka,,,,,,,1,1
+03 Varsha Rutu,N4.40.0,Netra Roga - Drishtigata,,,,,,1,,
+03 Varsha Rutu,N4.40.15,Netra Roga - Drishtigata - Kaphavidagdha Drishti,,,,,,1,,
+03 Varsha Rutu,N4.40.16.0,Netra Roga - Drishtigata - Linganaasha,,,,,,,1,
+03 Varsha Rutu,N4.40.16.3,Netra Roga - Drishtigata - Linganaasha - Kaphaja,,,,,,,1,
+03 Varsha Rutu,N4.40.19,Netra Roga - Drishtigata - Pittavidagdha Drishti,,,1,,,2,,
+03 Varsha Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,1,,,1,,
+03 Varsha Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,,5,2,1
+03 Varsha Rutu,N4.40.5,Netra Roga - Drishtigata - Doshaandhya,,,,,,1,,
+03 Varsha Rutu,N4.40.8,Netra Roga - Drishtigata - Kaacha Roga,,,1,,,,,
+03 Varsha Rutu,N4.40.9,Netra Roga - Drishtigata - Kaacha Roga - Kaphaja,,,,,,3,,
+03 Varsha Rutu,N4.42.0,Netra Roga - Krishnagata,,,,,,1,,
+03 Varsha Rutu,N4.42.2.1,Netra Roga - Krishnagata - Shukra Netra Roga - Avrana Shukra,,,,,,,,1
+03 Varsha Rutu,N4.45,Netra Roga - Raktaja,,,,,,1,,
+03 Varsha Rutu,N4.46.2.0,Netra Roga - Shuklagata - Arma,,,,,1,,,
+03 Varsha Rutu,N4.46.2.1,Netra Roga - Shuklagata - Arma - Adhimaamsa Arma,,,,,,1,,1
+03 Varsha Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,1,1,
+03 Varsha Rutu,N4.46.2.5,Netra Roga - Shuklagata - Arma - Snaavyaarma,,,,,,,,1
+03 Varsha Rutu,N4.47.6,Netra Roga - Shuklagata - Siraaharsha,,,,,,1,,
+03 Varsha Rutu,N4.50.1.0,Netra Roga - Sarvagata - Abhishyanda,,,,,,,1,
+03 Varsha Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,,,1,2
+03 Varsha Rutu,N4.50.2.1,Netra Roga - Sarvagata - Adhimantha - Kaphaja Adhimantha,,,,,,,1,1
+03 Varsha Rutu,N4.50.2.4,Netra Roga - Sarvagata - Adhimantha - Vaataja Adhimantha,,,,,,,1,
+03 Varsha Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,1,,1
+03 Varsha Rutu,N4.51.0,Netra Roga - Vaataja,,,,,,,,1
+03 Varsha Rutu,N4.55.30,Netra Roga - Vartmagata - Utsanga,,,,,1,,1,
+03 Varsha Rutu,N5.0,Nidra Viparyaya / Nidra Bhanga,,,,,,,,2
+03 Varsha Rutu,O1.0,Ojavikriti,,,,1,,,,
+03 Varsha Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,,3,2,3,2
+03 Varsha Rutu,P2.0,Pandu,,,2,1,1,3,4,2
+03 Varsha Rutu,P2.2,Pandu- pitta,,,4,,,,,
+03 Varsha Rutu,P3.0,Pidaka,,,2,1,,,,1
+03 Varsha Rutu,P5.0,Prameha,,,40,61,159,92,110,74
+03 Varsha Rutu,P5.1,Prameha - Krusha,,,,3,,1,,
+03 Varsha Rutu,P5.2,Prameha - Pidaka,,,1,1,1,,,
+03 Varsha Rutu,P5.3,Prameha - Sthula,,,2,6,1,,,
+03 Varsha Rutu,P5.4,Prameha - Upadrava,,,3,15,11,13,6,1
+03 Varsha Rutu,P5.5,Pramehajanya - Netraroga,,,,2,1,,,5
+03 Varsha Rutu,S0.0,Saamavata,,,,,2,6,4,8
+03 Varsha Rutu,S1.0,Sheetapitta,,,,3,4,1,1,7
+03 Varsha Rutu,S10.0,Stambha,,,,,,,2,
+03 Varsha Rutu,S10.1,Stambha - Baahu Stambha,,,1,,,,1,1
+03 Varsha Rutu,S10.10,Stambha - Prishtha Stambha,,,,,2,,,
+03 Varsha Rutu,S10.13,Stambha - Siraa Stambha,,,,1,,,,
+03 Varsha Rutu,S10.4,Stambha - Greevaa Stambha,,,1,1,,,4,1
+03 Varsha Rutu,S10.5,Stambha - Hanu Stambha,,,,,,,1,1
+03 Varsha Rutu,S13.0,Sthaanabhedena Graha,,,,,1,,,1
+03 Varsha Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,,20,29,35,62,71,55
+03 Varsha Rutu,S13.13,Sthaanabhedena Graha - Manyaa Graha,,,2,,1,,,
+03 Varsha Rutu,S13.14,Sthaanabhedena Graha - Marma Graha,,,,,,1,,
+03 Varsha Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,,,8,14,8,7
+03 Varsha Rutu,S13.20,Sthaanabhedena Graha - Shiro Graha,,,,1,,,,
+03 Varsha Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,2,2,3,
+03 Varsha Rutu,S13.3,Sthaanabhedena Graha - Gala Graha,,,1,,,,,
+03 Varsha Rutu,S13.7,Sthaanabhedena Graha - Jaanugraha,,,,1,,,,
+03 Varsha Rutu,S13.8,Sthaanabhedena Graha - Janghaa Graha,,,,,,,,1
+03 Varsha Rutu,S14.0,Sthaanabhedena Shoola,,,2,14,14,19,13,33
+03 Varsha Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,1,,,,4,1
+03 Varsha Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,3,,,1,6,3
+03 Varsha Rutu,S14.14,Sthaanabhedena Shoola - Hanu Shoola,,,,1,,,,
+03 Varsha Rutu,S14.15,Sthaanabhedena Shoola - Hasta Shoola,,,,,,1,4,
+03 Varsha Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,,1,,,,
+03 Varsha Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,,,16,10,12,1,9
+03 Varsha Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,,1,1,1,3,5
+03 Varsha Rutu,S14.2,Sthaanabhedena Shoola - Aantra Shoola,,,1,,1,,,
+03 Varsha Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,,18,54,62,52,54,116
+03 Varsha Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,,2,,2,1,1
+03 Varsha Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,,2,,3,,2
+03 Varsha Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,1,4,4,1,3,2
+03 Varsha Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,2,1,1,12,4,4
+03 Varsha Rutu,S14.5,Sthaanabhedena Shoola - Anguli Shoola,,,,1,,,,
+03 Varsha Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,2,3,2,,,
+03 Varsha Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,,,3,2,8,20,14,6
+03 Varsha Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,2,2,5,5,7,3
+03 Varsha Rutu,S15.32,Sthaanabhedena Shoola - Paarshni Shoola,,,,1,,,,
+03 Varsha Rutu,S15.33,Sthaanabhedena Shoola - Pakvaashaya Shoola,,,,,1,,,
+03 Varsha Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,,8,3,4,3,1
+03 Varsha Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,,5,8,1,,2
+03 Varsha Rutu,S15.41,Sthaanabhedena Shoola - Sakthi Shoola,,,,,,2,,
+03 Varsha Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,1,6,2,2,,2
+03 Varsha Rutu,S15.43,Sthaanabhedena Shoola - Skandha Shoola,,,1,1,,,,
+03 Varsha Rutu,S15.47,Sthaanabhedena Shoola - Trika Shoola,,,,2,,,,
+03 Varsha Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,,,,,,2
+03 Varsha Rutu,S16.0,Sthaulya,,,8,1,52,72,56,50
+03 Varsha Rutu,S16.1,Stree Roga,,,4,1,6,7,5,3
+03 Varsha Rutu,S16.10,Stree Roga - Shvetapradara,,,,1,1,2,4,3
+03 Varsha Rutu,S16.19.0,Stree Roga - Rajo Dushti,,,,,,,1,
+03 Varsha Rutu,S16.2,Stree Roga - Aartavanaasha,,,,,,,,1
+03 Varsha Rutu,S16.20.0,Stree Roga - Raktapradara,,,,1,,,1,6
+03 Varsha Rutu,S16.20.7,STREEROGA - RAJONIVRITHI,,,,,,,1,
+03 Varsha Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,,6
+03 Varsha Rutu,S16.21.0,Stree Roga - Sootikaa Roga,,,,1,,,1,
+03 Varsha Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,1,1
+03 Varsha Rutu,S16.22,Stree Roga - Stana Roga,,,1,2,,,1,
+03 Varsha Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,,1,,,3,
+03 Varsha Rutu,S16.3,Stree Roga - Anaartava,,,,1,,,,
+03 Varsha Rutu,S16.30.0,Stree Roga - Yonivyaapad,,,3,,1,,,
+03 Varsha Rutu,S16.30.10,Stree Roga - Yonivyaapad - Karninee,,,5,,,,,
+03 Varsha Rutu,S16.30.12,Stree Roga - Yonivyaapad - Mahaayoni,,,,,,,1,1
+03 Varsha Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,,,,,,3
+03 Varsha Rutu,S16.30.15,Stree Roga - Yonivyaapad - Pittalaa,,,,,,1,,
+03 Varsha Rutu,S16.30.23,Stree Roga - Yonivyaapad - Udaavartaa,,,,,,,,2
+03 Varsha Rutu,S16.30.9,Stree Roga - Yonivyaapad - Kaphajaa,,,,,,,,2
+03 Varsha Rutu,S16.9,Stree Roga - Raja Kshaya,,,,2,,,,
+03 Varsha Rutu,S17.0,Supti,,,1,,,2,4,5
+03 Varsha Rutu,S17.1,Supti - Paada Supti,,,,,3,1,3,1
+03 Varsha Rutu,S18.0,Swastha,,,,,1,6,10,10
+03 Varsha Rutu,S18.1,Swaasthya Pareeksha,,,,,15,1,3,6
+03 Varsha Rutu,S1A.0,Shoola,,,,1,,3,1,1
+03 Varsha Rutu,S1A.4,Shoola - Parinaama Shoola,,,,1,,,,2
+03 Varsha Rutu,S2.0,Shiroroga,,,3,,1,1,,
+03 Varsha Rutu,S2.10,Shiroroga - Shirahshoola,,,5,8,6,6,14,3
+03 Varsha Rutu,S2.13,Shiroroga - Anantavaata,,,,,1,1,,
+03 Varsha Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,1,1,2,,2,5
+03 Varsha Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,1,,,1,1,1
+03 Varsha Rutu,S2.15.4,Shiroroga - Kapaalagata Shiroroga - Khaalitya,,,,,,,,1
+03 Varsha Rutu,S2.15.5,Shirorog - Kapaalagata Shiroroga - Paalitya,,,1,,1,,,
+03 Varsha Rutu,S2.16.1,Shiroroga - Kaphaja Shiroroga - Shirahshoola,,,,,,1,1,1
+03 Varsha Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,,,,,1,2
+03 Varsha Rutu,S2.23,Shiroroga - Shirah Kampa,,,,1,,,,
+03 Varsha Rutu,S2.25.2,Shiroroga - Vaataja Shiroroga - Shirahshoola,,,,,,1,,
+03 Varsha Rutu,S2.4,Shiroroga - Shankha Shoola,,,,,1,,,
+03 Varsha Rutu,S2.7,Shiroroga - Shira Supti,,,,,,,,1
+03 Varsha Rutu,S2.9,Shiroroga - Shirah Pradeshastha Paaka,,,,1,,,,
+03 Varsha Rutu,S3.0,Shotha,,,3,2,5,7,10,4
+03 Varsha Rutu,S3.3,Shrama,,,,,3,3,3,5
+03 Varsha Rutu,S3A.0,Shrama,,,,,,,,1
+03 Varsha Rutu,S4.0,Shvaasa,,,1,7,13,21,21,14
+03 Varsha Rutu,S4.4,Shvaasa-tamaka shvasa,,,1,2,3,,,
+03 Varsha Rutu,S5.0,Shvitra,,,,1,2,3,3,
+03 Varsha Rutu,U1.0,Udaavarta,,,3,,2,1,,
+03 Varsha Rutu,U2.0,Udara,,,,,1,,,
+03 Varsha Rutu,U2.4,Udara- yakrut-pleeha,,,1,,,4,1,1
+03 Varsha Rutu,U2.6,Udara-jalodara,,,,,1,,1,1
+03 Varsha Rutu,U3.0,Udarda,,,,,,,1,
+03 Varsha Rutu,U4.0,Unmaada,,,,2,1,,1,
+03 Varsha Rutu,U4.7,Unmaada - Manokhedaja,,,,,,,,1
+03 Varsha Rutu,U5.0,Urahkshata,,,1,,,,,
+03 Varsha Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,,2
+03 Varsha Rutu,V1.0,Vaatarakta,,,20,16,23,37,36,42
+03 Varsha Rutu,V1.2,Vaatarakta - Gambheera,,,1,,,1,1,
+03 Varsha Rutu,V1.4,Vaatarakta - Kaphaadhika Vaatarakta,,,,,,,1,
+03 Varsha Rutu,V1.5,Vaatarakta - Pittaadhika Vaatarakta,,,,,,,1,3
+03 Varsha Rutu,V1.8,Vaatarakta - Vaata Kaphaja,,,1,,,1,,
+03 Varsha Rutu,V1.9,Vaatarakta - Vaataadhika Vaatarakta,,,,,,,1,
+03 Varsha Rutu,V10.11,Vatavyadhi - Avrita Vata - Mamsavrita Vata,,,,,,,,1
+03 Varsha Rutu,V10.20,Vatavyadhi - Avrita Vata - Prana avrita Samana,,,,,,,,1
+03 Varsha Rutu,V11.1,Vatavyadhi - Gatatva  - Amashayagata Vata,,,,,,,,1
+03 Varsha Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,,1
+03 Varsha Rutu,V13.0,Vrana,,,,2,2,4,3,
+03 Varsha Rutu,V13.1.3,Vrana - Aagantuja (Sadyo) Vrana - Dagdha Vrana,,,1,,,,,
+03 Varsha Rutu,V13.3,Vrana - Dushta Vrana,,,1,,2,1,3,3
+03 Varsha Rutu,V13.8,Vrana - Kaphavaataraktaja Vrana,,,,1,,,,
+03 Varsha Rutu,V15.0,Vriddhi,,,,1,,,,
+03 Varsha Rutu,V16.0,Vrikka Roga,,,,2,7,6,16,7
+03 Varsha Rutu,V2.0,Vaatavyaadhi,,,90,267,274,100,60,104
+03 Varsha Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,,12,11,62,78,98,58
+03 Varsha Rutu,V2.12,Vaatavyaadhi - Stabdhagaatra,,,,,1,,,
+03 Varsha Rutu,V2.13,Vaatavyaadhi - Avasthaa - Supti,,,1,,2,,,
+03 Varsha Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,1,1,3,,1,
+03 Varsha Rutu,V2.19,Vaatavyaadhi - Dandaapataanaka,,,,,,,,1
+03 Varsha Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,2,1,10,11,11,3
+03 Varsha Rutu,V2.21,Vaatavyaadhi - Ekaangavaata,,,2,1,1,,1,
+03 Varsha Rutu,V2.23,Vaatavyaadhi - Gridhrasee,,,43,69,129,182,232,228
+03 Varsha Rutu,V2.3.0,Vaatavyaadhi - Aakshepaka,,,1,,,,,
+03 Varsha Rutu,V2.3.1,Vaatavyaadhi - Aakshepaka - Abhighaataja,,,,1,,,,
+03 Varsha Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,8,,5,,1,1
+03 Varsha Rutu,V2.31,Vaatavyaadhi - Janghaagata Vaata,,,,1,2,,,
+03 Varsha Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,2,7,9,15,12,14
+03 Varsha Rutu,V2.34.1,Vaatavyaadhi - Kampa - Baahu Kampa,,,,,1,,,1
+03 Varsha Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,1,51,24,20,4,6,18
+03 Varsha Rutu,V2.38,Vaatavyaadhi - Khanja,,,,,2,1,,
+03 Varsha Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,1,,,,2
+03 Varsha Rutu,V2.4.2,Vaatavyaadhi - Aavritavaata - Pittaavrita Vaata,,,,,,,,1
+03 Varsha Rutu,V2.40,Vaatavyaadhi - Kroshtukasheersha,,,,,,1,1,
+03 Varsha Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,7,3,1,2,2,
+03 Varsha Rutu,V2.43,Vaatavyaadhi - Maamsamedogata Vaata,,,,,,,1,
+03 Varsha Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,,6,,,1,1,
+03 Varsha Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,,,1,4,,3
+03 Varsha Rutu,V2.49,Vaatavyaadhi - Minmin,,,1,,,,,
+03 Varsha Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,,,1,,2,
+03 Varsha Rutu,V2.56,Vaatavyaadhi - Pakvaashayasthita Vaata,,,,2,,,,
+03 Varsha Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,4,10,16,12,12,10
+03 Varsha Rutu,V2.56.2,Vaatavyaadhi - Pakshavadha - Pittaja,,,1,,,,,
+03 Varsha Rutu,V2.57,Vaatavyaadhi - Pangutva,,,,,2,,2,1
+03 Varsha Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,1,1,,,1
+03 Varsha Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,,,170,87,234,280,275,262
+03 Varsha Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,,10,,2,,2,1
+03 Varsha Rutu,V2.65,Vaatavyaadhi - Shaakhaagata Vaata,,,2,,,1,,
+03 Varsha Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,2,2,2,1,3,3
+03 Varsha Rutu,V2.7,Vaatavyaadhi - Ardita,,,1,1,1,1,1,2
+03 Varsha Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,1,,1,1,,3
+03 Varsha Rutu,V2.72,Vaatavyaadhi - Trikgata Vaata,,,,1,,,,
+03 Varsha Rutu,V2.73,Vaatavyaadhi - Tvaggata Vaata,,,,,1,,,
+03 Varsha Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,6,1,6,10,13,22
+03 Varsha Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,5,3,,2,2,6
+03 Varsha Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,,,3,,,
+03 Varsha Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,12,2,12,8,4,3
+03 Varsha Rutu,V3.0,Vandhyatava,,,,1,,,1,2
+03 Varsha Rutu,V3.2,Vandhyatava - Vandya,,,1,,,,1,
+03 Varsha Rutu,V3.3,VANDHYATWA - ANAPATYA,,,,,,,,2
+03 Varsha Rutu,V5.0,Vibandha,,,3,,1,1,7,2
+03 Varsha Rutu,V5.1,Vibandha - Mala Vibandha,,,,2,9,6,6,4
+03 Varsha Rutu,V6.0,Vidradhi,,,,,1,1,2,2
+03 Varsha Rutu,V6.11,Vidradhi - Majjajaata,,,,,,,,1
+03 Varsha Rutu,V6.17,Vidradhi - Stanagata,,,1,,,,,
+03 Varsha Rutu,V6.2,Vidradhi - Asthigata,,,1,,,,,
+03 Varsha Rutu,V6.3,Vidradhi - Baahya,,,1,1,,,,
+03 Varsha Rutu,V9.0,Visarpa,,,,1,3,1,,1
+03 Varsha Rutu,Y1,Yakrit Dosha,,,2,4,5,4,1,4
+03 Varsha Rutu,Y8.0,Yonivyaapad,,,,,1,,1,
+03 Varsha Rutu,Y8.10,Yonivyaapad - Karninee,,,1,,,,,
+03 Varsha Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,2,
+03 Varsha Rutu,Y8.22,Yonivyaapad - Sramsinee,,,,,,,1,3
+03 Varsha Rutu,Y8.23,Yonivyaapad - Udaavartaa,,,,1,,,,
+03 Varsha Rutu,k11.0,Kukshi Roga,,,1,,,,,
+03 Varsha Rutu,k12.0,Kushtha,,,6,10,28,10,14,9
+03 Varsha Rutu,k12.15,Kushtha-sidhma,,,1,,,,,
+03 Varsha Rutu,k12.16,Kushtha-vicharchika,,,2,3,1,2,2,1
+03 Varsha Rutu,k12.17,Kushtha-vipadika,,,,,,2,,3
+03 Varsha Rutu,k12.18,Kushtha-visphotaka,,,,,,,,1
+03 Varsha Rutu,k12.3,Kushtha-charmadala,,,,,,1,,1
+03 Varsha Rutu,k12.5,Kushtha-dadru,,,2,,,1,2,
+03 Varsha Rutu,k12.6,Kushtha-ekakushta,,,,,,,,1
+03 Varsha Rutu,k12.9,Kushtha-kitibha,,,1,5,2,4,6,1
+03 Varsha Rutu,k8.0,Kshaya,,,,,,,1,
+04 Sharad Rutu,A1.0,Aamadosha,,,,,,4,,
+04 Sharad Rutu,A10.0,Arochaka,,,,,,,,1
+04 Sharad Rutu,A11.0,Arshas,,,5,3,5,12,7,4
+04 Sharad Rutu,A11.1,Arsha - Charmakeela,,,,,,,1,
+04 Sharad Rutu,A11.10,Arsha - Raktaja Arsha,,,2,,,1,,1
+04 Sharad Rutu,A12.0,Artava Vyapad,,,2,4,1,10,5,3
+04 Sharad Rutu,A12.1,Artava Vyapad - Anartava,,,2,,,,2,
+04 Sharad Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,4,4
+04 Sharad Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,5,2
+04 Sharad Rutu,A12.2,Artava Vyapad - Granthibhuta,,,,,,1,,
+04 Sharad Rutu,A12.6,Artava Vyapad - Mutra Pureesha gandhi,,,,,,,1,
+04 Sharad Rutu,A13.0,Ashmaree,,,,2,7,4,5,2
+04 Sharad Rutu,A13.2,Ashmaree - Pittaja,,,,,1,1,,3
+04 Sharad Rutu,A13.3,Ashmaree - Pittaja - Shoola,,,,1,,,,
+04 Sharad Rutu,A14.0,Asragdhara,,,,,1,,,
+04 Sharad Rutu,A16.0,Atisaara,,,1,,4,,,
+04 Sharad Rutu,A16.2,Atisaara- pitta,,,1,,,,,
+04 Sharad Rutu,A16.6,Atisaara-Vata,,,,1,,,,
+04 Sharad Rutu,A2.0,Aamavaata,,,31,52,68,68,82,58
+04 Sharad Rutu,A2.1,Aamavaata - Kaphaja,,,2,,,,,1
+04 Sharad Rutu,A2.2,Aamavaata - Pittaja,,,1,,,1,,
+04 Sharad Rutu,A2.3,Aamavaata - Vaataja,,,2,1,,2,1,
+04 Sharad Rutu,A3.0,Abhighataja Shoola,,2,14,10,18,28,48,44
+04 Sharad Rutu,A4.0,Agnimaandya,,,1,2,,3,5,
+04 Sharad Rutu,A5.0,Ajeerna,,,2,2,5,3,3,1
+04 Sharad Rutu,A5.1,Ajeerna- vidagdhajeerna,,,,,,,1,
+04 Sharad Rutu,A5.2,Ajeerna-Amajeerna,,,1,,,,1,
+04 Sharad Rutu,A6.0,Amlapitta,,2,15,19,31,39,49,25
+04 Sharad Rutu,A6.1,Amlapitta-Adhoga,,,,2,,1,,2
+04 Sharad Rutu,A6.2,Amlapitta-Urdhwaga,,,2,6,4,3,,6
+04 Sharad Rutu,A7.0,Anaha,,,4,,,,2,1
+04 Sharad Rutu,A7A.0,Anidra,,,,1,,2,2,4
+04 Sharad Rutu,A8.0,Apasmaara,,,1,,,2,2,4
+04 Sharad Rutu,A9.0,Arbuda,,,1,3,2,4,,2
+04 Sharad Rutu,A9.1,Arbuda - Kaphaja,,,1,,,,,
+04 Sharad Rutu,A9.2,Arbuda - Maamsaja,,,1,,,,2,2
+04 Sharad Rutu,A9.3,Arbuda - Medoja Arbuda,,,,,1,,1,
+04 Sharad Rutu,A9.4,Arbuda - Medoja Arbuda - Shuddha Vrana,,,,,,,,1
+04 Sharad Rutu,Anidra,A7A.0,,,,1,,2,3,1
+04 Sharad Rutu,B1.0,Baala Roga,,,,2,2,,,
+04 Sharad Rutu,B1.34,Baala Roga - Krimi Roga,,,,,1,,,
+04 Sharad Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,3,1,1,2,3,
+04 Sharad Rutu,B2.0,Bhagandara,,,,,,2,1,1
+04 Sharad Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,,,1,,,
+04 Sharad Rutu,B3.0,Bhagna,,,2,3,4,5,10,9
+04 Sharad Rutu,B5,Bhrama,,,1,1,1,4,6,10
+04 Sharad Rutu,D0.0,Daaha,,,,,1,,1,
+04 Sharad Rutu,D0.1,Daaha - Sthaanabhedena,,,1,1,,1,,1
+04 Sharad Rutu,D0.8,Daaha - Sthaanabhedena - Paada Daaha,,,,,,1,2,
+04 Sharad Rutu,D1.0,Dourbalya,,,1,1,3,1,6,1
+04 Sharad Rutu,G10.0,Guda Roga,,,1,2,,5,,
+04 Sharad Rutu,G13.0,Gulma,,,,1,2,2,2,
+04 Sharad Rutu,G6.0,Garbhini,,,,,,2,2,1
+04 Sharad Rutu,G8.0,Grahanee,,,,2,2,7,2,3
+04 Sharad Rutu,G9.0,Granthi,,,,3,,7,3,1
+04 Sharad Rutu,G9.1,Granthi - Asthi Granthi,,,,,,,1,2
+04 Sharad Rutu,G9.10,Granthi (Garbhashaya),,,2,,,,,
+04 Sharad Rutu,G9.11,GRANTHI - BEEJAKOSHA,,,,,,,2,
+04 Sharad Rutu,G9.3,Granthi - Maamsaja Granthi,,,,,1,1,,
+04 Sharad Rutu,G9.4,Granthi - Medoja Granthi,,,1,,2,,,1
+04 Sharad Rutu,G9.6,Granthi - Raktaja Granthi,,,,1,,,,
+04 Sharad Rutu,G9.7,Granthi - Siraa Granthi,,,2,5,14,18,22,12
+04 Sharad Rutu,G9.9,Granthi - Vranaja Granthi,,,,,,1,,
+04 Sharad Rutu,H2.0,Hridroga,,,4,1,11,6,10,2
+04 Sharad Rutu,H2.3,Hridroga - Pittaja Hridroga,,,2,,,,,
+04 Sharad Rutu,H2.4,Hridroga - Saannipaatika Hridroga,,,2,,,,,
+04 Sharad Rutu,H2.5,Hridroga - Vaataja Hridroga,,,3,,,,,
+04 Sharad Rutu,J1.0,Jwara,,,4,4,3,6,8,6
+04 Sharad Rutu,J1.1,Jvara- kapha,,,,1,,,,
+04 Sharad Rutu,J1.2,Jvara- pitta,,,,1,,,,
+04 Sharad Rutu,J1.4,Jvara-sannipata,,,,1,,,,
+04 Sharad Rutu,J1.6,Jvara-vishama,,,1,,1,1,,
+04 Sharad Rutu,K1.0,Kaamalaa,,,1,1,,,1,1
+04 Sharad Rutu,K10.23,Kshudra Roga - Kadara,,,1,1,,,,1
+04 Sharad Rutu,K10.27,Kshudra Roga - Kotha,,,1,,,,,
+04 Sharad Rutu,K10.28,Kshudra Roga - Kunakha,,,,,1,1,2,
+04 Sharad Rutu,K10.29,Kshudra Roga - Khalitya,,,2,1,3,1,5,
+04 Sharad Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,1,,1,,,1
+04 Sharad Rutu,K10.38,Kshudra Roga - Parivartikaa,,,2,,,,,
+04 Sharad Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,,3,3,8,6,2
+04 Sharad Rutu,K10.51,Kshudra Roga - Vrishana Kachchhoo,,,,,,1,,
+04 Sharad Rutu,K10.52.0,Kshudra Roga - Vyanga,,,,,,1,,2
+04 Sharad Rutu,K10.52.5,Kshudra Roga - Yavaprakhyaa,,,,,2,,,
+04 Sharad Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,,1,5,1,4
+04 Sharad Rutu,K2.0,Kaasa,,,4,16,14,23,18,11
+04 Sharad Rutu,K2.1,Kaasa- kapha,,,1,3,,,1,1
+04 Sharad Rutu,K2.2,Kaasa- kshataja,,,,,,1,,
+04 Sharad Rutu,K2.3,Kaasa- kshayaja,,,,,,1,,
+04 Sharad Rutu,K2.5,Kaasa- vata,,,1,,,,1,
+04 Sharad Rutu,K3.0,Kandoo,,,1,2,3,3,6,1
+04 Sharad Rutu,K4.0,Karna Roga,,,,,,1,1,4
+04 Sharad Rutu,K4.1,Karna Roga - Karna   Pooyasraava,,,,,,,1,
+04 Sharad Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,,1,2
+04 Sharad Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,,,,2
+04 Sharad Rutu,K4.13,Karna Roga - Karnakandoo,,,,1,,,,2
+04 Sharad Rutu,K4.14,Karna Roga - Karnakshveda,,,,,,,3,4
+04 Sharad Rutu,K4.19,Karna Roga - Karnashoola,,,,,,1,1,1
+04 Sharad Rutu,K4.21,Karna Roga - Karnasraava,,,,,,1,1,
+04 Sharad Rutu,K4.24,Karna Roga - Pootikarnaka,,,,1,,,,
+04 Sharad Rutu,K4.9,Karna Roga - Karnabaadhirya,,,1,,,,1,
+04 Sharad Rutu,K6.0,Klaibya,,,,,,1,1,
+04 Sharad Rutu,K6.14,Klaibya - Shukrakshayaja,,,,,,,,1
+04 Sharad Rutu,K6.3,Klaibya - Dhaatukshayaja,,,,1,,,,
+04 Sharad Rutu,K7.0,Klama,,,,1,2,1,2,1
+04 Sharad Rutu,K9.0,Kshudra Roga,,,1,6,6,12,8,5
+04 Sharad Rutu,K9.4,Kshudra Roga - Alajee,,,,,,1,1,
+04 Sharad Rutu,M1,Madaatyaya,,,,,1,,,
+04 Sharad Rutu,M1.0,Madaatyaya - Paramada,,,,,2,2,1,
+04 Sharad Rutu,M1.1,Madaatyaya - Pittaja,,,1,,1,,,
+04 Sharad Rutu,M1.4,Madaatyaya - Vaataja,,,1,,,,,
+04 Sharad Rutu,M10.0,Medoroga,,,4,9,5,5,5,2
+04 Sharad Rutu,M10.1,Medoroga - Sthula medho roga,,,27,49,15,22,19,13
+04 Sharad Rutu,M10.2,Medoroga - Sukshma medho roga,,,1,7,15,14,7,8
+04 Sharad Rutu,M12.0,Mootra Dosha,,,,1,,,,
+04 Sharad Rutu,M13.0,Mootra Roga,,,1,4,6,2,1,2
+04 Sharad Rutu,M14.0,Mootra Roga - Mootraaghaata,,,1,,,,,
+04 Sharad Rutu,M14.14,Mootra Roga - Mootraaghaata - Ushnavaata,,,,,,,,1
+04 Sharad Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,1,,,1,4,5
+04 Sharad Rutu,M16.9,Mootra Roga - Mootrakrichchhra - Vaataja Mootrakrichchhra,,,,1,,1,,
+04 Sharad Rutu,M18.0,Mukha Roga  - Mukha Shosha,,,,,,,1,
+04 Sharad Rutu,M18.10.0,Mukha Roga - Dantamoolagata Roga,,,,,,1,,
+04 Sharad Rutu,M18.10.10,Mukha Roga - Dantamoolagata Roga - Sheetaada,,,,,,,1,1
+04 Sharad Rutu,M18.10.12,Mukha Roga - Dantamoolagata Roga - Upakusha,,,,,,,1,
+04 Sharad Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,1,2,2,5,1,2
+04 Sharad Rutu,M18.11.10,Mukha Roga - Galagata Roga - Gandamaalaa,,,1,,,,,
+04 Sharad Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,,,1,6,7,3
+04 Sharad Rutu,M18.11.4,Mukha Roga - Galagata Roga - Galapaaka,,,,,,,2,
+04 Sharad Rutu,M18.11.6,Mukha Roga - Galagata Roga - Galashundika,,,,,,,,1
+04 Sharad Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,1,2,,,1
+04 Sharad Rutu,M18.14.18,Mukha Roga - Kanthagata Roga - Tundeekeree,,,,1,,,,
+04 Sharad Rutu,M18.19.4,Mukha Roga - Sarvagata - Mukhapaaka,,,,,,,1,
+04 Sharad Rutu,M18.2,Mukha Roga  - Mukha Vairasya,,,1,,,,,
+04 Sharad Rutu,M18.3,Mukha Roga  - Mukhadaaha,,,,1,,,,
+04 Sharad Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,,,,,,5
+04 Sharad Rutu,M18.9.1,Mukha Roga - Dantagata Roga  - Danta Daurbalya,,,,,,,,8
+04 Sharad Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,,,,,,10
+04 Sharad Rutu,M18.9.21,Mukha Roga - Dantagata Roga - Krimidanta,,,,,,,1,
+04 Sharad Rutu,M18.9.25,Mukha Roga - Dantagata Roga - Sheetadanta,,,,,,,1,
+04 Sharad Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,,,,1,
+04 Sharad Rutu,M18.9.4,Mukha Roga - Dantagata Roga  - Danta Maamsa Shoola,,,,,,,,1
+04 Sharad Rutu,M18.9.6,Mukha Roga - Dantagata Roga  - Danta Shoola,,,,,,,1,
+04 Sharad Rutu,M18.9.8,Mukha Roga - Dantagata Roga  - Dantagata Raktasraava,,,,1,,,,
+04 Sharad Rutu,M2.0,Madhumeha,,,13,24,77,139,200,158
+04 Sharad Rutu,M5.0,Maanasa Roga,,,1,2,2,3,3,1
+04 Sharad Rutu,M5.1,Maanasa Roga - Vishada,,,1,1,1,3,2,1
+04 Sharad Rutu,M5.2,Maanasa Roga - Glaani,,,,,1,,1,
+04 Sharad Rutu,M5.3,Smriti Bhrmsha,,,1,,1,2,2,1
+04 Sharad Rutu,M6.0,Marma Viddha,,,,1,,3,,
+04 Sharad Rutu,M6.13,Marma Viddha - Gulpha Viddha,,,,,,,1,
+04 Sharad Rutu,M6.16,Marma Viddha - Jaanu Viddha,,,,,1,,2,1
+04 Sharad Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,1,4,1,2,2
+04 Sharad Rutu,M6.29,Marma Viddha - Manibandha Viddha,,,,,,,,1
+04 Sharad Rutu,M6.3,Marma Viddha - Amsa Viddha,,,1,,1,,1,
+04 Sharad Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,1,1,1,1,
+04 Sharad Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,3,1,5,4,2,2
+04 Sharad Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,,,,2,1
+04 Sharad Rutu,MS G1.0,Greeva Graha,,,19,34,18,30,51,34
+04 Sharad Rutu,MS M1.0,Mutrashteela,,,2,,1,6,8,5
+04 Sharad Rutu,MS R1,Raktachapa,,,1,6,11,12,10,10
+04 Sharad Rutu,MS T1.0,Twak Vivarnya,,,3,2,1,2,4,2
+04 Sharad Rutu,N1.0,Naadee Vrana,,,,,,,,1
+04 Sharad Rutu,N1.5,Naadee Vrana - Vaataja,,,1,,,,,
+04 Sharad Rutu,N2.0,Naasaa Roga,,,,1,,,,1
+04 Sharad Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,,,,,3,
+04 Sharad Rutu,N2.18,Naasaa Roga - Peenasa,,,5,11,9,7,11,6
+04 Sharad Rutu,N2.2,Naasaa Roga - Apeenasa,,,,,,,1,
+04 Sharad Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,3,7,13,8,7,10
+04 Sharad Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,4,,6,,4,
+04 Sharad Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,2,,,,,
+04 Sharad Rutu,N2.21.3,Naasaa Roga - Pratishyaaya - Pittaja Pratishyaaya,,,1,,,,1,
+04 Sharad Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,1,,3,2,2
+04 Sharad Rutu,N3.13,Napumsakatva - Shandha,,,1,,,,,
+04 Sharad Rutu,N4.0,Netra Roga,,,4,19,16,29,31,17
+04 Sharad Rutu,N4.1,Netra Roga - Abhishyanda,,,,1,,,1,
+04 Sharad Rutu,N4.12,Netra Roga - Kandoo,,,,1,,,1,
+04 Sharad Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,1,3,
+04 Sharad Rutu,N4.19,Netra Roga - Netra Daaha,,,,1,1,,1,
+04 Sharad Rutu,N4.24,Netra Roga - Netra Shoola,,,,1,,,,
+04 Sharad Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,,3,8
+04 Sharad Rutu,N4.38,Netra Roga - Vaataja Abhishyanda + Shoola,,,,,,,1,
+04 Sharad Rutu,N4.40.16.0,Netra Roga - Drishtigata - Linganaasha,,,,,,,1,
+04 Sharad Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,,,,2,2,
+04 Sharad Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,,6,4,1
+04 Sharad Rutu,N4.40.20.6,Netra Roga - Drishtigata - Timira - Vaataja Timira,,,,,,1,2,
+04 Sharad Rutu,N4.42.0,Netra Roga - Krishnagata,,,,,,1,,
+04 Sharad Rutu,N4.46.0,Netra Roga - Shuklagata,,,,,,1,,
+04 Sharad Rutu,N4.46.2.1,Netra Roga - Shuklagata - Arma - Adhimaamsa Arma,,,,,,,1,
+04 Sharad Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,2,,
+04 Sharad Rutu,N4.47.7,Netra Roga - Shuklagata - Siraaja Pidakaa,,,,,,,1,
+04 Sharad Rutu,N4.49.0,Netra Roga - Sandhigata,,,,,,,1,
+04 Sharad Rutu,N4.49.5,Netra Roga - Sandhigata - Pooyaalasa,,,,,,,1,
+04 Sharad Rutu,N4.50.1.5,Netra Roga - Sarvagata - Abhishyanda - Vaataja Abhishyanda,,,,,,,1,
+04 Sharad Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,,,,1
+04 Sharad Rutu,N4.50.2.1,Netra Roga - Sarvagata - Adhimantha - Kaphaja Adhimantha,,,,,,,1,
+04 Sharad Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,,,4
+04 Sharad Rutu,N4.52.3,Netra Roga - Vartmagata - Anjananaamikaa,,,,1,,,,
+04 Sharad Rutu,N4.53.11,Netra Roga - Vartmagata - Krichchhronmeelana,,,,,,,1,
+04 Sharad Rutu,N4.53.13.0,Netra Roga - Vartmagata - Kumbheekaa,,,,,,,1,
+04 Sharad Rutu,N4.54.15,Netra Roga - Vartmagata - Nimesha,,,,,,,1,
+04 Sharad Rutu,N4.6,Netra Roga - Ashrusraava,,,,,,,2,
+04 Sharad Rutu,O1.0,Ojavikriti,,,,,,,,1
+04 Sharad Rutu,O1.2,Ojavikriti - Ojakshaya,,1,1,,,,,
+04 Sharad Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,1,6,1,2,3
+04 Sharad Rutu,P2.0,Pandu,,,2,1,2,1,1,4
+04 Sharad Rutu,P2.2,Pandu- pitta,,,1,,,,,
+04 Sharad Rutu,P3.0,Pidaka,,,1,1,1,1,2,
+04 Sharad Rutu,P5.0,Prameha,,,48,65,134,77,87,42
+04 Sharad Rutu,P5.1,Prameha - Krusha,,,1,1,,,,
+04 Sharad Rutu,P5.2,Prameha - Pidaka,,,,,1,,1,
+04 Sharad Rutu,P5.3,Prameha - Sthula,,,3,3,2,1,1,
+04 Sharad Rutu,P5.4,Prameha - Upadrava,,,2,10,5,7,7,
+04 Sharad Rutu,P5.5,Pramehajanya - Netraroga,,,1,5,,,4,3
+04 Sharad Rutu,S0.0,Saamavata,,,,,4,8,5,11
+04 Sharad Rutu,S1.0,Sheetapitta,,,1,2,1,3,1,1
+04 Sharad Rutu,S10.12,Stambha - Sandhi Stambha,,,,2,1,,,
+04 Sharad Rutu,S10.4,Stambha - Greevaa Stambha,,,2,2,1,,6,1
+04 Sharad Rutu,S13.0,Sthaanabhedena Graha,,,,6,1,,,
+04 Sharad Rutu,S13.1,Sthaanabhedena Graha - Anga Graha,,,,1,,,,
+04 Sharad Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,,26,36,45,51,62,23
+04 Sharad Rutu,S13.13,Sthaanabhedena Graha - Manyaa Graha,,,,,,1,,
+04 Sharad Rutu,S13.17,Sthaanabhedena Graha - Paada Graha,,,1,,,,,
+04 Sharad Rutu,S13.18,Sthaanabhedena Graha - Paarshva Graha,,,,,,,1,
+04 Sharad Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,,1,6,6,5,4
+04 Sharad Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,2,1,4,
+04 Sharad Rutu,S13.7,Sthaanabhedena Graha - Jaanugraha,,,,,1,,,
+04 Sharad Rutu,S13.8,Sthaanabhedena Graha - Janghaa Graha,,,1,,,,,
+04 Sharad Rutu,S14.0,Sthaanabhedena Shoola,,,,34,12,18,24,32
+04 Sharad Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,1,2,3,1,2,
+04 Sharad Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,2,1,,2,3,1
+04 Sharad Rutu,S14.15,Sthaanabhedena Shoola - Hasta Shoola,,,,,1,,1,
+04 Sharad Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,1,1,,1,,
+04 Sharad Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,,2,22,10,13,,9
+04 Sharad Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,1,,,,6,1
+04 Sharad Rutu,S14.19,Sthaanabhedena Shoola - Kantha Shoola,,,,1,,,,
+04 Sharad Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,2,19,51,52,44,74,96
+04 Sharad Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,,,,,1,2
+04 Sharad Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,,7,1,2,,1
+04 Sharad Rutu,S14.25.0,Sthaanabhedena Shoola - Medhra Shoola,,,1,,,,,
+04 Sharad Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,1,8,6,,,2
+04 Sharad Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,,2,3,4,2,2
+04 Sharad Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,2,1,1,,,
+04 Sharad Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,,,2,5,4,20,23,10
+04 Sharad Rutu,S15.30,Sthaanabhedena Shoola - Ooru Shoola,,,,,,,1,
+04 Sharad Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,1,2,7,7,9,3
+04 Sharad Rutu,S15.34,Sthaanabhedena Shoola - Parva Shoola,,,,1,,,,
+04 Sharad Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,,7,2,3,2,2
+04 Sharad Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,,1,1,,,
+04 Sharad Rutu,S15.41,Sthaanabhedena Shoola - Sakthi Shoola,,,,,,1,,
+04 Sharad Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,2,2,2,4,3,1
+04 Sharad Rutu,S15.45,Sthaanabhedena Shoola - Sphik Shoola,,,,1,,,,
+04 Sharad Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,,1,1,,,
+04 Sharad Rutu,S16.0,Sthaulya,,,14,23,55,53,72,44
+04 Sharad Rutu,S16.1,Stree Roga,,,,2,4,5,4,1
+04 Sharad Rutu,S16.10,Stree Roga - Shvetapradara,,,,2,1,1,4,2
+04 Sharad Rutu,S16.2,Stree Roga - Aartavanaasha,,,,,,,,1
+04 Sharad Rutu,S16.20.0,Stree Roga - Raktapradara,,,,,,1,3,6
+04 Sharad Rutu,S16.20.7,STREEROGA - RAJONIVRITHI,,,,,,,1,
+04 Sharad Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,2,7
+04 Sharad Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,1,1
+04 Sharad Rutu,S16.29.0,Stree Roga - Stanyanaasha,,,,,,1,,
+04 Sharad Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,1,,,,1,1
+04 Sharad Rutu,S16.3,Stree Roga - Anaartava,,,,,1,,1,
+04 Sharad Rutu,S16.30.0,Stree Roga - Yonivyaapad,,,,,1,,2,
+04 Sharad Rutu,S16.30.10,Stree Roga - Yonivyaapad - Karninee,,,2,,,,,
+04 Sharad Rutu,S16.30.12,Stree Roga - Yonivyaapad - Mahaayoni,,,,,,,1,
+04 Sharad Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,,,,,2,3
+04 Sharad Rutu,S16.30.15,Stree Roga - Yonivyaapad - Pittalaa,,,,,,,1,
+04 Sharad Rutu,S16.30.22,Stree Roga - Yonivyaapad - Sramsinee,,,,,,,2,
+04 Sharad Rutu,S16.30.23,Stree Roga - Yonivyaapad - Udaavartaa,,,,,,,,2
+04 Sharad Rutu,S16.30.26,Stree Roga - Yonivyaapad - Vaatalaa,,,,,,,1,1
+04 Sharad Rutu,S16.30.27,Stree Roga - Yonivyaapad - Vandhyaa,,,,,,,1,
+04 Sharad Rutu,S16.30.9,Stree Roga - Yonivyaapad - Kaphajaa,,,,1,,,2,
+04 Sharad Rutu,S16.9,Stree Roga - Raja Kshaya,,,,1,2,,,
+04 Sharad Rutu,S17.0,Supti,,,,2,4,3,4,2
+04 Sharad Rutu,S17.1,Supti - Paada Supti,,,,,,,1,3
+04 Sharad Rutu,S18.0,Swastha,,,,3,8,11,7,4
+04 Sharad Rutu,S18.1,Swaasthya Pareeksha,,,,1,4,,4,3
+04 Sharad Rutu,S1A.0,Shoola,,,,3,,1,,
+04 Sharad Rutu,S1A.2,Shoola - Annadrava Shoola,,,1,,,,,1
+04 Sharad Rutu,S1A.4,Shoola - Parinaama Shoola,,,,,,,,1
+04 Sharad Rutu,S2.0,Shiroroga,,,2,,,1,,
+04 Sharad Rutu,S2.10,Shiroroga - Shirahshoola,,,4,7,14,4,6,4
+04 Sharad Rutu,S2.11,Shiroroga - Shirogaurava,,,2,,,,,
+04 Sharad Rutu,S2.13,Shiroroga - Anantavaata,,,,,1,1,,
+04 Sharad Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,,2,2,2,6,1
+04 Sharad Rutu,S2.15.0,Shiroroga - Kapaalagata Shiroroga,,,1,,,,,
+04 Sharad Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,,,,4,2,1
+04 Sharad Rutu,S2.15.5,Shirorog - Kapaalagata Shiroroga - Paalitya,,,,1,,,,
+04 Sharad Rutu,S2.16.1,Shiroroga - Kaphaja Shiroroga - Shirahshoola,,,,,,1,1,
+04 Sharad Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,1,,,1,2,1
+04 Sharad Rutu,S2.23,Shiroroga - Shirah Kampa,,,,,,1,,
+04 Sharad Rutu,S2.24,Shiroroga - Sooryaavarta Shiroroga,,,1,,,,,
+04 Sharad Rutu,S2.25.2,Shiroroga - Vaataja Shiroroga - Shirahshoola,,,,,,1,,
+04 Sharad Rutu,S2.4,Shiroroga - Shankha Shoola,,,,,1,,,
+04 Sharad Rutu,S2.5,Shiroroga - Shira Abhihata,,,,,,,,1
+04 Sharad Rutu,S3.0,Shotha,,,5,3,4,5,7,5
+04 Sharad Rutu,S3.3,Shrama,,,3,,3,5,6,3
+04 Sharad Rutu,S4.0,Shvaasa,,,2,6,13,22,25,10
+04 Sharad Rutu,S4.4,Shvaasa-tamaka shvasa,,,1,2,1,,,
+04 Sharad Rutu,S5.0,Shvitra,,,,1,2,2,5,1
+04 Sharad Rutu,S8.0,Snaayuka,,,1,,,,,
+04 Sharad Rutu,U1.0,Udaavarta,,1,2,,1,,2,1
+04 Sharad Rutu,U2.0,Udara,,,,1,1,,,
+04 Sharad Rutu,U2.3,Udara- vata,,,,,,,,1
+04 Sharad Rutu,U2.4,Udara- yakrut-pleeha,,,,,,2,1,
+04 Sharad Rutu,U2.6,Udara-jalodara,,,,,,,1,1
+04 Sharad Rutu,U3.0,Udarda,,,1,,,,1,2
+04 Sharad Rutu,U4.0,Unmaada,,,,3,1,,,1
+04 Sharad Rutu,U4.7,Unmaada - Manokhedaja,,,1,,,,,1
+04 Sharad Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,,1
+04 Sharad Rutu,V1.0,Vaatarakta,,1,6,13,20,49,36,30
+04 Sharad Rutu,V1.2,Vaatarakta - Gambheera,,,,1,,1,,1
+04 Sharad Rutu,V1.3,Vaatarakta - Kapha Vaataja,,,,,1,,,
+04 Sharad Rutu,V1.5,Vaatarakta - Pittaadhika Vaatarakta,,,,,,,1,
+04 Sharad Rutu,V1.7,Vaatarakta - Uttaana,,,,,1,,,
+04 Sharad Rutu,V1.8,Vaatarakta - Vaata Kaphaja,,,,,1,,,
+04 Sharad Rutu,V1.9,Vaatarakta - Vaataadhika Vaatarakta,,,,,,,,1
+04 Sharad Rutu,V10.11,Vatavyadhi - Avrita Vata - Mamsavrita Vata,,,,,,,,1
+04 Sharad Rutu,V10.24,Vatavyadhi - Avrita Vata - Raktavrita Vata,,,,,,,,1
+04 Sharad Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,1,2
+04 Sharad Rutu,V13.0,Vrana,,,2,1,2,4,,
+04 Sharad Rutu,V13.1.0,Vrana - Aagantuja (Sadyo) Vrana,,,1,,,,,
+04 Sharad Rutu,V13.1.3,Vrana - Aagantuja (Sadyo) Vrana - Dagdha Vrana,,,,,1,,,
+04 Sharad Rutu,V13.3,Vrana - Dushta Vrana,,,2,1,3,1,3,6
+04 Sharad Rutu,V15.1,Vriddhi - Aantraja,,,1,,,,1,1
+04 Sharad Rutu,V16.0,Vrikka Roga,,,1,1,7,7,17,4
+04 Sharad Rutu,V2.0,Vaatavyaadhi,,1,91,166,202,119,52,78
+04 Sharad Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,2,18,26,54,67,83,44
+04 Sharad Rutu,V2.15,Vaatavyaadhi - Baadhirya,,,1,,,1,,
+04 Sharad Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,,1,,1,,
+04 Sharad Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,,6,7,4,9,3
+04 Sharad Rutu,V2.23,Vaatavyaadhi - Gridhrasee,1,1,47,89,145,182,199,177
+04 Sharad Rutu,V2.24,Vaatavyaadhi - Gudasthita Vaata,,,1,,,1,,
+04 Sharad Rutu,V2.3.1,Vaatavyaadhi - Aakshepaka - Abhighaataja,,,,1,,,,
+04 Sharad Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,6,1,10,,,
+04 Sharad Rutu,V2.31,Vaatavyaadhi - Janghaagata Vaata,,,2,,2,,,
+04 Sharad Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,,4,6,16,12,12
+04 Sharad Rutu,V2.34.1,Vaatavyaadhi - Kampa - Baahu Kampa,,,1,,,,,
+04 Sharad Rutu,V2.34.2,Vaatavyaadhi - Kampa - Greevaa Kampa,,,,,1,,,
+04 Sharad Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,1,34,10,12,6,3,5
+04 Sharad Rutu,V2.38,Vaatavyaadhi - Khanja,,,,,3,,,2
+04 Sharad Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,,,,,3
+04 Sharad Rutu,V2.40,Vaatavyaadhi - Kroshtukasheersha,,,,,,1,,
+04 Sharad Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,6,4,,2,1,
+04 Sharad Rutu,V2.43,Vaatavyaadhi - Maamsamedogata Vaata,,,1,,,,,
+04 Sharad Rutu,V2.44,Vaatavyaadhi - Majjaagata Vaata,,,,,,1,1,
+04 Sharad Rutu,V2.45,Vaatavyaadhi - Majjaasthigata Vaata,,,,,,,1,
+04 Sharad Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,,,,,,1,
+04 Sharad Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,1,,1,4,1,
+04 Sharad Rutu,V2.49,Vaatavyaadhi - Minmin,,,1,,,,,
+04 Sharad Rutu,V2.51,Vaatavyaadhi - Naanaatmaja,,,1,,,,,
+04 Sharad Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,,,,,2,1
+04 Sharad Rutu,V2.56,Vaatavyaadhi - Pakvaashayasthita Vaata,,,,,,1,1,
+04 Sharad Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,10,7,17,11,13,7
+04 Sharad Rutu,V2.57,Vaatavyaadhi - Pangutva,,,1,,1,,1,
+04 Sharad Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,1,1,,,
+04 Sharad Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,1,5,147,69,226,243,270,230
+04 Sharad Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,,2,,3,1,1,
+04 Sharad Rutu,V2.65,Vaatavyaadhi - Shaakhaagata Vaata,,,,,1,,,
+04 Sharad Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,7,1,1,1,1,2
+04 Sharad Rutu,V2.7,Vaatavyaadhi - Ardita,,,1,,1,2,,
+04 Sharad Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,1,,1,,3,1
+04 Sharad Rutu,V2.71,Vaatavyaadhi - Toonee,,,,,,1,,
+04 Sharad Rutu,V2.72,Vaatavyaadhi - Trikgata Vaata,,,,,,,1,
+04 Sharad Rutu,V2.74,Vaatavyaadhi - Urugata Vaata,,,,,,1,,
+04 Sharad Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,5,2,5,2,12,12
+04 Sharad Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,3,,2,2,7,5
+04 Sharad Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,,,2,1,,
+04 Sharad Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,9,29,8,6,4,1
+04 Sharad Rutu,V3.0,Vandhyatava,,,,,,,,2
+04 Sharad Rutu,V3.1,Vandhyatava - Kaka Vandya,,,,,,,2,
+04 Sharad Rutu,V3.2,Vandhyatava - Vandya,,,1,,,,1,
+04 Sharad Rutu,V3.3,VANDHYATWA - ANAPATYA,,,,,,,1,3
+04 Sharad Rutu,V5.0,Vibandha,,,,,,,7,3
+04 Sharad Rutu,V5.1,Vibandha - Mala Vibandha,,,3,2,4,8,4,4
+04 Sharad Rutu,V6.0,Vidradhi,,,1,,,,,2
+04 Sharad Rutu,V6.11,Vidradhi - Majjajaata,,,,,,,,1
+04 Sharad Rutu,V6.3,Vidradhi - Baahya,,,1,,,,,
+04 Sharad Rutu,V9.0,Visarpa,,,,1,3,,1,
+04 Sharad Rutu,Y1,Yakrit Dosha,,,3,3,5,5,1,4
+04 Sharad Rutu,Y8.10,Yonivyaapad - Karninee,,,2,,,,,
+04 Sharad Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,3,
+04 Sharad Rutu,Y8.22,Yonivyaapad - Sramsinee,,,,,,,1,1
+04 Sharad Rutu,k12.0,Kushtha,,,5,14,18,14,14,5
+04 Sharad Rutu,k12.10,Kushtha-mandala,,,,,,,,1
+04 Sharad Rutu,k12.12,Kushtha-pundarika,,,1,,,,,
+04 Sharad Rutu,k12.15,Kushtha-sidhma,,,,,,,1,
+04 Sharad Rutu,k12.16,Kushtha-vicharchika,,,3,,,1,,1
+04 Sharad Rutu,k12.17,Kushtha-vipadika,,,2,,,1,,2
+04 Sharad Rutu,k12.18,Kushtha-visphotaka,,,,,,,,1
+04 Sharad Rutu,k12.2,Kushtha-Audumbara,,,,,1,,,
+04 Sharad Rutu,k12.5,Kushtha-dadru,,,,,,7,1,
+04 Sharad Rutu,k12.6,Kushtha-ekakushta,,,,,,,1,1
+04 Sharad Rutu,k12.9,Kushtha-kitibha,,,3,1,1,4,3,2
+04 Sharad Rutu,k8.0,Kshaya,,,1,,2,,1,
+04 Sharad Rutu,sandhigata vaa,,,,,,,,,1
+05 Hemant Rutu,A1.0,Aamadosha,,,1,2,,1,,
+05 Hemant Rutu,A11.0,Arshas,,,2,7,6,8,5,
+05 Hemant Rutu,A11.1,Arsha - Charmakeela,,,,,,,1,
+05 Hemant Rutu,A11.10,Arsha - Raktaja Arsha,,,,,,1,,
+05 Hemant Rutu,A11.16,Arsha - Vaataja Arsha,,,,,,1,,
+05 Hemant Rutu,A11.17,Arsha - Vaatapittaja Arsha,,,,1,,,,
+05 Hemant Rutu,A12.0,Artava Vyapad,,,2,1,1,10,3,
+05 Hemant Rutu,A12.1,Artava Vyapad - Anartava,,,1,4,,1,2,
+05 Hemant Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,9,
+05 Hemant Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,6,
+05 Hemant Rutu,A12.4,Artava Vyapad - Ksheenartava,,,1,,,,,
+05 Hemant Rutu,A12.7,Artava Vyapad - Pittaja,,,1,,,,,
+05 Hemant Rutu,A12.9,Artava Vyapad - Vataja,,,,,1,,,
+05 Hemant Rutu,A13.0,Ashmaree,,,,4,3,4,3,
+05 Hemant Rutu,A13.2,Ashmaree - Pittaja,,,,,1,3,,
+05 Hemant Rutu,A13.3,Ashmaree - Pittaja - Shoola,,,,,,1,,
+05 Hemant Rutu,A14.0,Asragdhara,,,,,1,,,
+05 Hemant Rutu,A16.0,Atisaara,,,1,3,2,1,2,
+05 Hemant Rutu,A16.6,Atisaara-Vata,,,,1,,,,
+05 Hemant Rutu,A17.0,Aatopa,,,,1,,,,
+05 Hemant Rutu,A2.0,Aamavaata,,,21,54,59,69,63,
+05 Hemant Rutu,A2.1,Aamavaata - Kaphaja,,,2,,1,2,2,
+05 Hemant Rutu,A2.2,Aamavaata - Pittaja,,,1,1,,1,,
+05 Hemant Rutu,A2.3,Aamavaata - Vaataja,,1,,,,,,
+05 Hemant Rutu,A3.0,Abhighataja Shoola,,,15,13,32,27,40,
+05 Hemant Rutu,A4.0,Agnimaandya,,,1,,2,1,1,
+05 Hemant Rutu,A5.0,Ajeerna,,,2,3,1,3,5,
+05 Hemant Rutu,A5.1,Ajeerna- vidagdhajeerna,,,,1,,1,,
+05 Hemant Rutu,A6.0,Amlapitta,,,15,26,27,27,36,
+05 Hemant Rutu,A6.2,Amlapitta-Urdhwaga,,,4,4,4,6,7,
+05 Hemant Rutu,A7.0,Anaha,,,2,,2,2,,
+05 Hemant Rutu,A7A.0,Anidra,,,,,2,1,3,
+05 Hemant Rutu,A8.0,Apasmaara,,,1,3,,4,2,
+05 Hemant Rutu,A9.0,Arbuda,,,1,3,,2,3,
+05 Hemant Rutu,A9.2,Arbuda - Maamsaja,,,,,2,,,
+05 Hemant Rutu,A9.3,Arbuda - Medoja Arbuda,,,,,1,,,
+05 Hemant Rutu,Anidra,A7A.0,,,,1,,1,2,
+05 Hemant Rutu,B1.0,Baala Roga,,,,1,1,,,
+05 Hemant Rutu,B1.3,Baala Roga -  Galashundika,,,,1,,,,
+05 Hemant Rutu,B1.34,Baala Roga - Krimi Roga,,,,,,1,,
+05 Hemant Rutu,B1.40,Baala Roga - Udarashoola,,,1,,,,,
+05 Hemant Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,2,1,,1,2,
+05 Hemant Rutu,B2.0,Bhagandara,,,,1,,2,3,
+05 Hemant Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,,,,1,,
+05 Hemant Rutu,B2.3,Bhagandara - Parisraavee,,,,,,1,,
+05 Hemant Rutu,B3.0,Bhagna,,1,2,2,8,3,11,
+05 Hemant Rutu,B3.2.0,Bhagna - Sandhimukta Bhagna,,,1,,,,,
+05 Hemant Rutu,B5,Bhrama,,,3,2,3,4,6,
+05 Hemant Rutu,C1.0,Chhardi,,,,,,,1,
+05 Hemant Rutu,D0.0,Daaha,,,,1,1,,,
+05 Hemant Rutu,D0.11,Daaha - Sthaanabhedena - Tvak Daaha,,,,,1,,,
+05 Hemant Rutu,D0.8,Daaha - Sthaanabhedena - Paada Daaha,,,,,,,1,
+05 Hemant Rutu,D1.0,Dourbalya,1,,1,3,3,6,3,
+05 Hemant Rutu,G1.6,Garbhapoorva Paricharya,,,,,,,1,
+05 Hemant Rutu,G10.0,Guda Roga,,1,1,,,1,,
+05 Hemant Rutu,G13.0,Gulma,,,1,2,2,1,1,
+05 Hemant Rutu,G3.0,Garbhapata,,,,,,1,,
+05 Hemant Rutu,G6.0,Garbhini,,,,1,1,3,1,
+05 Hemant Rutu,G8.0,Grahanee,,,2,3,2,4,1,
+05 Hemant Rutu,G9.0,Granthi,,,,,,3,1,
+05 Hemant Rutu,G9.1,Granthi - Asthi Granthi,,,,,,1,,
+05 Hemant Rutu,G9.10,Granthi (Garbhashaya),,,2,,,,,
+05 Hemant Rutu,G9.3,Granthi - Maamsaja Granthi,,,,,1,,,
+05 Hemant Rutu,G9.4,Granthi - Medoja Granthi,,,,1,2,1,1,
+05 Hemant Rutu,G9.6,Granthi - Raktaja Granthi,,,,1,,,,
+05 Hemant Rutu,G9.7,Granthi - Siraa Granthi,,,2,6,13,12,13,
+05 Hemant Rutu,G9.9,Granthi - Vranaja Granthi,,,,1,1,,,
+05 Hemant Rutu,H1.0,Hikkaa,,,,,1,,,
+05 Hemant Rutu,H2.0,Hridroga,,,2,7,4,9,4,
+05 Hemant Rutu,H2.3,Hridroga - Pittaja Hridroga,,,,1,,,,
+05 Hemant Rutu,J1.0,Jwara,,,4,2,1,8,7,
+05 Hemant Rutu,J1.1,Jvara- kapha,,,,1,,1,,
+05 Hemant Rutu,J1.2,Jvara- pitta,,,,1,,,,
+05 Hemant Rutu,J1.5,Jvara-vata,,,,1,,,,
+05 Hemant Rutu,J1.6,Jvara-vishama,,,,1,,1,,
+05 Hemant Rutu,K1.0,Kaamalaa,,,1,3,,2,1,
+05 Hemant Rutu,K10.10,Kshudra Roga - Charmakeela,,,1,,1,,,
+05 Hemant Rutu,K10.15,Kshudra Roga - Indralupta,,,,,1,,,
+05 Hemant Rutu,K10.23,Kshudra Roga - Kadara,,,1,,,,,
+05 Hemant Rutu,K10.27,Kshudra Roga - Kotha,,,1,,,,,
+05 Hemant Rutu,K10.28,Kshudra Roga - Kunakha,,,3,1,,1,,
+05 Hemant Rutu,K10.29,Kshudra Roga - Khalitya,,,2,2,3,3,3,
+05 Hemant Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,,,1,,,
+05 Hemant Rutu,K10.38,Kshudra Roga - Parivartikaa,,,1,,,,,
+05 Hemant Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,,3,8,7,4,
+05 Hemant Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,,2,3,2,
+05 Hemant Rutu,K2.0,Kaasa,,,7,9,28,23,13,
+05 Hemant Rutu,K2.1,Kaasa- kapha,,,1,1,,,2,
+05 Hemant Rutu,K2.2,Kaasa- kshataja,,,,,,1,,
+05 Hemant Rutu,K2.5,Kaasa- vata,,,1,,2,1,1,
+05 Hemant Rutu,K3.0,Kandoo,,,1,,3,1,5,
+05 Hemant Rutu,K3.1,Kandoo - Guda Kandoo,1,,,1,,,,
+05 Hemant Rutu,K4.0,Karna Roga,,,,2,4,1,2,
+05 Hemant Rutu,K4.1,Karna Roga - Karna   Pooyasraava,,,,1,,,1,
+05 Hemant Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,1,2,
+05 Hemant Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,,1,,
+05 Hemant Rutu,K4.12,Karna Roga - Karnagoothaka,,,,1,,2,1,
+05 Hemant Rutu,K4.13,Karna Roga - Karnakandoo,,,,,,1,,
+05 Hemant Rutu,K4.14,Karna Roga - Karnakshveda,,,,1,1,1,1,
+05 Hemant Rutu,K4.19,Karna Roga - Karnashoola,,,,,,,1,
+05 Hemant Rutu,K4.20,Karna Roga - Karnashopha,,,,,,,1,
+05 Hemant Rutu,K4.24,Karna Roga - Pootikarnaka,,,,1,,,,
+05 Hemant Rutu,K4.9,Karna Roga - Karnabaadhirya,,,1,3,1,,,
+05 Hemant Rutu,K6.0,Klaibya,,,,1,,,,
+05 Hemant Rutu,K7.0,Klama,,,,,1,2,2,
+05 Hemant Rutu,K9.0,Kshudra Roga,,,9,5,7,18,4,
+05 Hemant Rutu,K9.1,Kshudra Roga - Agnirohinee,,,,,,1,,
+05 Hemant Rutu,K9.4,Kshudra Roga - Alajee,,,,,,1,,
+05 Hemant Rutu,K9.5,Kshudra Roga - Alasa,,,1,,,,,
+05 Hemant Rutu,M1.0,Madaatyaya - Paramada,,,,,,2,,
+05 Hemant Rutu,M10.0,Medoroga,,,2,17,1,6,4,
+05 Hemant Rutu,M10.1,Medoroga - Sthula medho roga,,,27,53,16,21,17,
+05 Hemant Rutu,M10.2,Medoroga - Sukshma medho roga,,,1,1,19,11,9,
+05 Hemant Rutu,M12.0,Mootra Dosha,,,1,1,1,,1,
+05 Hemant Rutu,M13.0,Mootra Roga,,,2,2,4,4,5,
+05 Hemant Rutu,M14.14,Mootra Roga - Mootraaghaata - Ushnavaata,,,,,1,,,
+05 Hemant Rutu,M14.5,Mootra Roga - Mootraaghaata - Mootragranthi,,,,,,1,,
+05 Hemant Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,,3,,4,3,
+05 Hemant Rutu,M16.2,Mootra Roga - Mootrakrichchhra - Kaphaja,,,,,1,,,
+05 Hemant Rutu,M16.9,Mootra Roga - Mootrakrichchhra - Vaataja Mootrakrichchhra,,,,,,1,,
+05 Hemant Rutu,M18.0,Mukha Roga  - Mukha Shosha,,,,1,,1,,
+05 Hemant Rutu,M18.10.3,Mukha Roga - Dantamoolagata Roga - Dantapupputa,,,,,,1,,
+05 Hemant Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,,1,1,3,1,
+05 Hemant Rutu,M18.11.10,Mukha Roga - Galagata Roga - Gandamaalaa,,,,1,,,,
+05 Hemant Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,,2,3,5,9,
+05 Hemant Rutu,M18.11.4,Mukha Roga - Galagata Roga - Galapaaka,,,,,,1,,
+05 Hemant Rutu,M18.11.8,Mukha Roga - Galagata Roga - Shaalooka,,,,1,,,,
+05 Hemant Rutu,M18.11.9,Mukha Roga - Galagata Roga - Tundikeree,,,1,,,1,,
+05 Hemant Rutu,M18.13.2,Mukha Roga - Jihvaagata Roga  - Jihvaa Paaka,,,,,,1,,
+05 Hemant Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,,4,1,1,
+05 Hemant Rutu,M18.15.0,Mukha Roga - Kaphaja,,,,,1,,,
+05 Hemant Rutu,M18.3,Mukha Roga  - Mukhadaaha,,,,1,,,,
+05 Hemant Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,1,1,,,,
+05 Hemant Rutu,M18.9.15,Mukha Roga - Dantagata Roga - Dantaharsha,,,,,,,1,
+05 Hemant Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,,,,1,,
+05 Hemant Rutu,M18.9.21,Mukha Roga - Dantagata Roga - Krimidanta,,,,1,,,,
+05 Hemant Rutu,M18.9.25,Mukha Roga - Dantagata Roga - Sheetadanta,,,,,,,2,
+05 Hemant Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,,2,,,
+05 Hemant Rutu,M18.9.5,Mukha Roga - Dantagata Roga  - Danta Maamsa Sraava,,,,1,,,,
+05 Hemant Rutu,M2.0,Madhumeha,,,7,17,98,151,172,
+05 Hemant Rutu,M5.0,Maanasa Roga,,,,,2,2,3,
+05 Hemant Rutu,M5.1,Maanasa Roga - Vishada,,,1,1,1,4,,
+05 Hemant Rutu,M5.2,Maanasa Roga - Glaani,,,,,1,,,
+05 Hemant Rutu,M5.3,Smriti Bhrmsha,,,,,,2,,
+05 Hemant Rutu,M6.0,Marma Viddha,,,,2,1,2,2,
+05 Hemant Rutu,M6.1,Marma Viddha - Aani Viddha,,,,,1,,,
+05 Hemant Rutu,M6.13,Marma Viddha - Gulpha Viddha,,,,,,,1,
+05 Hemant Rutu,M6.16,Marma Viddha - Jaanu Viddha,,,,1,,,1,
+05 Hemant Rutu,M6.25,Marma Viddha - Kukundara Viddha,,,,,,,1,
+05 Hemant Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,,3,,1,
+05 Hemant Rutu,M6.29,Marma Viddha - Manibandha Viddha,,,,,,1,,
+05 Hemant Rutu,M6.3,Marma Viddha - Amsa Viddha,,,,,1,,,
+05 Hemant Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,1,1,1,1,
+05 Hemant Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,,2,6,2,,
+05 Hemant Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,,1,,2,
+05 Hemant Rutu,M7.1,Masanumasika Ashtama,,,,1,,,,
+05 Hemant Rutu,M7.3,Masanumasika Dviteeya,,,,2,,,,
+05 Hemant Rutu,M9.0,Medhra Roga,,,,1,,,,
+05 Hemant Rutu,MS G1.0,Greeva Graha,,,17,30,27,36,42,
+05 Hemant Rutu,MS M1.0,Mutrashteela,,,1,,1,4,6,
+05 Hemant Rutu,MS R1,Raktachapa,,,3,4,9,10,12,
+05 Hemant Rutu,MS T1.0,Twak Vivarnya,,,1,2,3,3,1,
+05 Hemant Rutu,N1.0,Naadee Vrana,,,,1,,1,,
+05 Hemant Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,,1,,,1,
+05 Hemant Rutu,N2.12,Naasaa Roga - Naasaanaaha,,,,,,1,,
+05 Hemant Rutu,N2.18,Naasaa Roga - Peenasa,,,2,9,9,7,9,
+05 Hemant Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,4,7,6,6,3,
+05 Hemant Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,1,1,3,1,,
+05 Hemant Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,1,,,1,1,
+05 Hemant Rutu,N2.21.3,Naasaa Roga - Pratishyaaya - Pittaja Pratishyaaya,,,1,,,,,
+05 Hemant Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,1,,2,,
+05 Hemant Rutu,N2.6,Naasaa Roga - Deepta,,,,,1,,,
+05 Hemant Rutu,N4.0,Netra Roga,,,4,16,4,18,21,
+05 Hemant Rutu,N4.10,Netra Roga - Gharsha,,,,,,,1,
+05 Hemant Rutu,N4.12,Netra Roga - Kandoo,,,,,1,,2,
+05 Hemant Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,1,,
+05 Hemant Rutu,N4.19,Netra Roga - Netra Daaha,,,,,,1,,
+05 Hemant Rutu,N4.25,Netra Roga - Netra Sraava,,,,,,,1,
+05 Hemant Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,,7,
+05 Hemant Rutu,N4.38,Netra Roga - Vaataja Abhishyanda + Shoola,,,,,,1,,
+05 Hemant Rutu,N4.40.0,Netra Roga - Drishtigata,,,,,,2,,
+05 Hemant Rutu,N4.40.16.0,Netra Roga - Drishtigata - Linganaasha,,,,,1,,1,
+05 Hemant Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,,,,5,,
+05 Hemant Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,1,2,2,
+05 Hemant Rutu,N4.40.6,Netra Roga - Drishtigata - Gambheera Drishti,,,,,,1,,
+05 Hemant Rutu,N4.40.8,Netra Roga - Drishtigata - Kaacha Roga,,,,,1,,,
+05 Hemant Rutu,N4.40.9,Netra Roga - Drishtigata - Kaacha Roga - Kaphaja,,,,,,1,,
+05 Hemant Rutu,N4.42.0,Netra Roga - Krishnagata,,,,,,1,,
+05 Hemant Rutu,N4.42.2.1,Netra Roga - Krishnagata - Shukra Netra Roga - Avrana Shukra,,,,,,1,,
+05 Hemant Rutu,N4.44,Netra Roga - Pittaja,,,,,1,,,
+05 Hemant Rutu,N4.46.2.0,Netra Roga - Shuklagata - Arma,,,,2,,,,
+05 Hemant Rutu,N4.46.2.2,Netra Roga - Shuklagata - Arma - Lohitaarma,,,,,,1,,
+05 Hemant Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,1,1,
+05 Hemant Rutu,N4.47.7,Netra Roga - Shuklagata - Siraaja Pidakaa,,,,,,,1,
+05 Hemant Rutu,N4.49.2,Netra Roga - Sandhigata - Krimigranthi,,,,,,1,,
+05 Hemant Rutu,N4.50.1.5,Netra Roga - Sarvagata - Abhishyanda - Vaataja Abhishyanda,,,,,,,3,
+05 Hemant Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,1,,1,
+05 Hemant Rutu,N4.50.2.1,Netra Roga - Sarvagata - Adhimantha - Kaphaja Adhimantha,,,,,1,,,
+05 Hemant Rutu,N4.50.2.4,Netra Roga - Sarvagata - Adhimantha - Vaataja Adhimantha,,,,,1,,,
+05 Hemant Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,,1,
+05 Hemant Rutu,N4.55.31,Netra Roga - Vartmagata - Vaatahata,,,,,,,1,
+05 Hemant Rutu,O1.0,Ojavikriti,,,,1,,,,
+05 Hemant Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,1,2,2,2,
+05 Hemant Rutu,P2.0,Pandu,,,2,1,3,5,1,
+05 Hemant Rutu,P3.0,Pidaka,,,,,1,1,,
+05 Hemant Rutu,P5.0,Prameha,,,37,91,108,70,66,
+05 Hemant Rutu,P5.1,Prameha - Krusha,,,2,,,,,
+05 Hemant Rutu,P5.2,Prameha - Pidaka,,,2,,,,,
+05 Hemant Rutu,P5.3,Prameha - Sthula,,,7,3,2,,,
+05 Hemant Rutu,P5.4,Prameha - Upadrava,,,4,9,7,2,4,
+05 Hemant Rutu,P5.5,Pramehajanya - Netraroga,,,2,,1,,,
+05 Hemant Rutu,P6.0,Pravaahika,,,,,1,,,
+05 Hemant Rutu,R2.0,Raktapitta,,,,,,1,,
+05 Hemant Rutu,S0.0,Saamavata,,,,1,2,9,7,
+05 Hemant Rutu,S1.0,Sheetapitta,,,1,4,4,4,,
+05 Hemant Rutu,S10.14,Stambha - Uru Stambha,,,,,,1,,
+05 Hemant Rutu,S10.4,Stambha - Greevaa Stambha,,,,2,1,1,1,
+05 Hemant Rutu,S13.0,Sthaanabhedena Graha,,,,1,1,,,
+05 Hemant Rutu,S13.1,Sthaanabhedena Graha - Anga Graha,,,,1,,,,
+05 Hemant Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,1,38,47,57,45,44,
+05 Hemant Rutu,S13.13,Sthaanabhedena Graha - Manyaa Graha,,,1,1,,,,
+05 Hemant Rutu,S13.14,Sthaanabhedena Graha - Marma Graha,,,,,1,,,
+05 Hemant Rutu,S13.18,Sthaanabhedena Graha - Paarshva Graha,,,,,,,1,
+05 Hemant Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,,7,6,9,4,
+05 Hemant Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,1,4,2,
+05 Hemant Rutu,S14.0,Sthaanabhedena Shoola,,,2,32,15,26,23,
+05 Hemant Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,,,1,2,1,
+05 Hemant Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,1,,,2,5,
+05 Hemant Rutu,S14.15,Sthaanabhedena Shoola - Hasta Shoola,,,,1,1,,1,
+05 Hemant Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,,1,,,,
+05 Hemant Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,1,6,12,9,6,3,
+05 Hemant Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,,,,1,3,
+05 Hemant Rutu,S14.2,Sthaanabhedena Shoola - Aantra Shoola,,,1,1,2,1,,
+05 Hemant Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,3,39,50,43,44,58,
+05 Hemant Rutu,S14.22,Sthaanabhedena Shoola - Koshtha Shoola,,,,,,,1,
+05 Hemant Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,3,,1,1,2,
+05 Hemant Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,1,1,,,,
+05 Hemant Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,4,3,4,1,1,
+05 Hemant Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,4,2,5,8,2,
+05 Hemant Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,4,3,2,1,,
+05 Hemant Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,1,,2,12,3,8,16,
+05 Hemant Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,2,3,7,4,5,
+05 Hemant Rutu,S15.34,Sthaanabhedena Shoola - Parva Shoola,,,,,,1,,
+05 Hemant Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,,9,1,3,2,
+05 Hemant Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,,2,7,1,,
+05 Hemant Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,2,4,,9,3,
+05 Hemant Rutu,S15.44,Sthaanabhedena Shoola - Snaayu Shoola,,,,,,2,,
+05 Hemant Rutu,S15.46,Sthaanabhedena Shoola - Stanaanta Shoola,,,,1,,,,
+05 Hemant Rutu,S15.47,Sthaanabhedena Shoola - Trika Shoola,,,,1,,1,,
+05 Hemant Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,,1,,,,
+05 Hemant Rutu,S15.50.0,Sthaanabhedena Shoola - Vrishana Shoola,,,,,,1,,
+05 Hemant Rutu,S16.0,Sthaulya,,,13,23,57,51,54,
+05 Hemant Rutu,S16.1,Stree Roga,,,2,7,5,7,3,
+05 Hemant Rutu,S16.10,Stree Roga - Shvetapradara,,,,1,,1,,
+05 Hemant Rutu,S16.12,Stree Roga - Yonigata Sraava,,,,3,,,,
+05 Hemant Rutu,S16.20.0,Stree Roga - Raktapradara,1,,,1,,1,4,
+05 Hemant Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,1,
+05 Hemant Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,1,
+05 Hemant Rutu,S16.22,Stree Roga - Stana Roga,,,,1,,,,
+05 Hemant Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,,,,1,,
+05 Hemant Rutu,S16.3,Stree Roga - Anaartava,,,,,,1,,
+05 Hemant Rutu,S16.30.0,Stree Roga - Yonivyaapad,,,,1,,,,
+05 Hemant Rutu,S16.30.10,Stree Roga - Yonivyaapad - Karninee,,,3,,,,,
+05 Hemant Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,,,,,4,
+05 Hemant Rutu,S16.30.15,Stree Roga - Yonivyaapad - Pittalaa,,,,,,,2,
+05 Hemant Rutu,S16.30.26,Stree Roga - Yonivyaapad - Vaatalaa,,,,,,,2,
+05 Hemant Rutu,S16.30.9,Stree Roga - Yonivyaapad - Kaphajaa,,,,,,,3,
+05 Hemant Rutu,S16.9,Stree Roga - Raja Kshaya,,,,,1,,,
+05 Hemant Rutu,S17.0,Supti,,,1,2,5,3,11,
+05 Hemant Rutu,S17.1,Supti - Paada Supti,,,1,1,,1,1,
+05 Hemant Rutu,S18.0,Swastha,,,,4,6,8,13,
+05 Hemant Rutu,S18.1,Swaasthya Pareeksha,,,,1,4,4,2,
+05 Hemant Rutu,S1A.0,Shoola,,,,3,,1,1,
+05 Hemant Rutu,S1A.2,Shoola - Annadrava Shoola,,,,1,,,,
+05 Hemant Rutu,S1A.4,Shoola - Parinaama Shoola,,,,,1,,,
+05 Hemant Rutu,S2.0,Shiroroga,,,1,,,,,
+05 Hemant Rutu,S2.10,Shiroroga - Shirahshoola,,,7,6,4,11,7,
+05 Hemant Rutu,S2.13,Shiroroga - Anantavaata,,,,,1,,,
+05 Hemant Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,1,,1,2,3,
+05 Hemant Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,1,1,2,,1,
+05 Hemant Rutu,S2.15.5,Shirorog - Kapaalagata Shiroroga - Paalitya,,,1,,,,,
+05 Hemant Rutu,S2.16.1,Shiroroga - Kaphaja Shiroroga - Shirahshoola,,,1,,,2,,
+05 Hemant Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,,,,,2,
+05 Hemant Rutu,S2.3,Shiroroga – Sahaja,,,,,1,,,
+05 Hemant Rutu,S2.4,Shiroroga - Shankha Shoola,,,,,1,,,
+05 Hemant Rutu,S2.5,Shiroroga - Shira Abhihata,,,,1,,,,
+05 Hemant Rutu,S3.0,Shotha,,,4,7,3,1,5,
+05 Hemant Rutu,S3.3,Shrama,,,1,1,1,11,3,
+05 Hemant Rutu,S4.0,Shvaasa,,,3,5,10,22,7,
+05 Hemant Rutu,S4.4,Shvaasa-tamaka shvasa,,,,1,,,,
+05 Hemant Rutu,S5.0,Shvitra,,,,1,2,1,3,
+05 Hemant Rutu,U1.0,Udaavarta,,,,,4,1,5,
+05 Hemant Rutu,U2.0,Udara,,,,2,1,,,
+05 Hemant Rutu,U2.4,Udara- yakrut-pleeha,,,,,2,2,,
+05 Hemant Rutu,U2.6,Udara-jalodara,,,,,,,1,
+05 Hemant Rutu,U2.8,Udara-sannipataja,,,1,,,,,
+05 Hemant Rutu,U3.0,Udarda,,,,1,,1,,
+05 Hemant Rutu,U4.0,Unmaada,,,1,3,1,,,
+05 Hemant Rutu,U4.5,Unmaada - Kaphaja,,,1,,,,,
+05 Hemant Rutu,U4.7,Unmaada - Manokhedaja,,,1,,,,1,
+05 Hemant Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,3,
+05 Hemant Rutu,V1.0,Vaatarakta,,,11,13,26,39,41,
+05 Hemant Rutu,V1.2,Vaatarakta - Gambheera,,,1,1,,1,,
+05 Hemant Rutu,V1.5,Vaatarakta - Pittaadhika Vaatarakta,,,,,,2,,
+05 Hemant Rutu,V1.7,Vaatarakta - Uttaana,,,1,,1,,,
+05 Hemant Rutu,V1.9,Vaatarakta - Vaataadhika Vaatarakta,,,,,,1,,
+05 Hemant Rutu,V10.11,Vatavyadhi - Avrita Vata - Mamsavrita Vata,,,,,,,1,
+05 Hemant Rutu,V10.29,Vatavyadhi - Avrita Vata - Udana avrita Prana,,,,,,,1,
+05 Hemant Rutu,V10.8,Vatavyadhi - Avrita Vata - Kapha avrita Vata,,,,,,,1,
+05 Hemant Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,3,
+05 Hemant Rutu,V11.8,Vatavyadhi - Gatatva  - Sarvangagata Vata,,,,,,,2,
+05 Hemant Rutu,V13.0,Vrana,,,,1,3,3,,
+05 Hemant Rutu,V13.1.0,Vrana - Aagantuja (Sadyo) Vrana,,,,,,1,,
+05 Hemant Rutu,V13.1.3,Vrana - Aagantuja (Sadyo) Vrana - Dagdha Vrana,,,,,2,,,
+05 Hemant Rutu,V13.1.5,Vrana - Aagantuja (Sadyo) Vrana - Kshata Aagantuja Vrana,,,1,,,,,
+05 Hemant Rutu,V13.3,Vrana - Dushta Vrana,,,,,1,2,1,
+05 Hemant Rutu,V13.4,Vrana - Jeerna Vrana,,,,1,,,,
+05 Hemant Rutu,V15.1,Vriddhi - Aantraja,,,,,,1,,
+05 Hemant Rutu,V15.4,Vriddhi - Mootraja,,,1,,,,,
+05 Hemant Rutu,V16.0,Vrikka Roga,,,,4,8,8,5,
+05 Hemant Rutu,V2.0,Vaatavyaadhi,,2,109,146,145,97,60,
+05 Hemant Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,,10,35,64,82,77,
+05 Hemant Rutu,V2.13,Vaatavyaadhi - Avasthaa - Supti,,,,1,1,,,
+05 Hemant Rutu,V2.15,Vaatavyaadhi - Baadhirya,,,1,,,,,
+05 Hemant Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,,3,,,,
+05 Hemant Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,,7,13,9,6,
+05 Hemant Rutu,V2.21,Vaatavyaadhi - Ekaangavaata,,,,1,,,1,
+05 Hemant Rutu,V2.23,Vaatavyaadhi - Gridhrasee,1,5,49,103,155,175,188,
+05 Hemant Rutu,V2.24,Vaatavyaadhi - Gudasthita Vaata,,,,,,1,,
+05 Hemant Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,3,2,2,1,,
+05 Hemant Rutu,V2.31,Vaatavyaadhi - Janghaagata Vaata,,,,,2,,,
+05 Hemant Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,2,5,9,17,11,
+05 Hemant Rutu,V2.34.1,Vaatavyaadhi - Kampa - Baahu Kampa,,,1,,,,,
+05 Hemant Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,2,15,16,4,2,6,
+05 Hemant Rutu,V2.38,Vaatavyaadhi - Khanja,,,,,1,,,
+05 Hemant Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,,,,1,
+05 Hemant Rutu,V2.40,Vaatavyaadhi - Kroshtukasheersha,,,,,,1,,
+05 Hemant Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,5,1,,3,,
+05 Hemant Rutu,V2.44,Vaatavyaadhi - Majjaagata Vaata,,,,,,2,,
+05 Hemant Rutu,V2.45,Vaatavyaadhi - Majjaasthigata Vaata,,,,,,1,,
+05 Hemant Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,1,,,,,,
+05 Hemant Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,,,3,2,1,
+05 Hemant Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,1,,1,,,
+05 Hemant Rutu,V2.54,Vaatavyaadhi - Paadaharsha,,,,,,1,,
+05 Hemant Rutu,V2.56,Vaatavyaadhi - Pakvaashayasthita Vaata,,,,,,1,,
+05 Hemant Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,5,8,13,13,13,
+05 Hemant Rutu,V2.57,Vaatavyaadhi - Pangutva,,,1,1,2,,,
+05 Hemant Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,4,1,,,
+05 Hemant Rutu,V2.62,Vaatavyaadhi - Raktagata Vaata,,,1,,,,,
+05 Hemant Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,,1,123,154,215,241,224,
+05 Hemant Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,1,,1,1,,2,
+05 Hemant Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,6,2,1,3,1,
+05 Hemant Rutu,V2.69,Vaatavyaadhi - Siraagraha,,,,1,,,,
+05 Hemant Rutu,V2.7,Vaatavyaadhi - Ardita,,,,,1,2,,
+05 Hemant Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,2,,,,1,
+05 Hemant Rutu,V2.71,Vaatavyaadhi - Toonee,,,,,,1,,
+05 Hemant Rutu,V2.73,Vaatavyaadhi - Tvaggata Vaata,,,,3,1,,,
+05 Hemant Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,1,3,5,5,13,
+05 Hemant Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,,,,2,4,
+05 Hemant Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,2,,4,,,
+05 Hemant Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,14,32,2,7,1,
+05 Hemant Rutu,V3.0,Vandhyatava,,,1,,1,1,,
+05 Hemant Rutu,V3.1,Vandhyatava - Kaka Vandya,,,1,,,,1,
+05 Hemant Rutu,V3.3,VANDHYATWA - ANAPATYA,,,,,,,1,
+05 Hemant Rutu,V5.0,Vibandha,,,,1,1,3,2,
+05 Hemant Rutu,V5.1,Vibandha - Mala Vibandha,,1,2,3,5,9,5,
+05 Hemant Rutu,V5.2,Vibandha - Mootra Vibandha,,,,,1,,,
+05 Hemant Rutu,V6.0,Vidradhi,,,,1,,,,
+05 Hemant Rutu,V6.18,Vidradhi - Udaragata,,,,,,1,,
+05 Hemant Rutu,V9.0,Visarpa,,,,1,1,1,2,
+05 Hemant Rutu,Y1,Yakrit Dosha,,,2,5,4,6,1,
+05 Hemant Rutu,Y2,Yoni Kandu,,,,1,,,,
+05 Hemant Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,4,
+05 Hemant Rutu,Y8.15,Yonivyaapad - Pittalaa,,,,,1,,1,
+05 Hemant Rutu,Y8.22,Yonivyaapad - Sramsinee,,,,,,,1,
+05 Hemant Rutu,Y9.0,Yuvana pidika,,,,2,,1,,
+05 Hemant Rutu,k12.0,Kushtha,1,,11,13,15,14,14,
+05 Hemant Rutu,k12.16,Kushtha-vicharchika,,,4,2,2,3,1,
+05 Hemant Rutu,k12.17,Kushtha-vipadika,,,,,,2,2,
+05 Hemant Rutu,k12.2,Kushtha-Audumbara,,,,,1,,,
+05 Hemant Rutu,k12.5,Kushtha-dadru,,,,2,,2,2,
+05 Hemant Rutu,k12.6,Kushtha-ekakushta,,,,,,,1,
+05 Hemant Rutu,k12.9,Kushtha-kitibha,,,1,5,1,6,3,
+06 Shishir Rutu,A1.0,Aamadosha,,,,4,,1,2,
+06 Shishir Rutu,A11.0,Arshas,,2,2,2,3,5,4,
+06 Shishir Rutu,A11.1,Arsha - Charmakeela,,,,,,1,,
+06 Shishir Rutu,A11.10,Arsha - Raktaja Arsha,,,,,1,,,
+06 Shishir Rutu,A11.18,Arsha - Yonija Arsha,,2,,,,,1,
+06 Shishir Rutu,A11.9,Arsha - Pittaja Arsha,,,,,,,1,
+06 Shishir Rutu,A12.0,Artava Vyapad,,,,2,2,11,6,
+06 Shishir Rutu,A12.1,Artava Vyapad - Anartava,,,2,1,1,1,1,
+06 Shishir Rutu,A12.10,Artava Vyapad - Artava Kshaya,,,,,,,2,
+06 Shishir Rutu,A12.11,ARTAVA VYAPAD - Pushpaghni Jataharini,,,,,,,5,
+06 Shishir Rutu,A12.3,Artava Vyapad - Kaphaja,,,1,,,,,
+06 Shishir Rutu,A12.4,Artava Vyapad - Ksheenartava,,,,,,,1,
+06 Shishir Rutu,A13.0,Ashmaree,,,2,4,2,4,4,
+06 Shishir Rutu,A13.2,Ashmaree - Pittaja,,,,,3,1,1,
+06 Shishir Rutu,A13.3,Ashmaree - Pittaja - Shoola,,,1,,,1,,
+06 Shishir Rutu,A15.0,Atatvaabhinivesha,,,,1,,,2,
+06 Shishir Rutu,A16.0,Atisaara,,,1,1,3,,1,
+06 Shishir Rutu,A16.2,Atisaara- pitta,,,,,1,,,
+06 Shishir Rutu,A2.0,Aamavaata,,1,27,55,57,66,72,
+06 Shishir Rutu,A2.1,Aamavaata - Kaphaja,,,,,2,,2,
+06 Shishir Rutu,A2.2,Aamavaata - Pittaja,,,1,,,,,
+06 Shishir Rutu,A2.3,Aamavaata - Vaataja,,,2,3,,1,,
+06 Shishir Rutu,A3.0,Abhighataja Shoola,,2,10,14,21,30,43,
+06 Shishir Rutu,A4.0,Agnimaandya,,,,,,1,,
+06 Shishir Rutu,A5.0,Ajeerna,,,1,7,3,4,3,
+06 Shishir Rutu,A5.2,Ajeerna-Amajeerna,,,,,,1,,
+06 Shishir Rutu,A6.0,Amlapitta,,,10,28,25,23,60,
+06 Shishir Rutu,A6.1,Amlapitta-Adhoga,,,,,,1,,
+06 Shishir Rutu,A6.2,Amlapitta-Urdhwaga,,,,5,5,2,9,
+06 Shishir Rutu,A7.0,Anaha,,,2,1,3,2,,
+06 Shishir Rutu,A7A.0,Anidra,,,2,2,2,3,2,
+06 Shishir Rutu,A8.0,Apasmaara,,,1,2,1,4,1,
+06 Shishir Rutu,A9.0,Arbuda,,,,2,2,1,5,
+06 Shishir Rutu,A9.2,Arbuda - Maamsaja,,,,,,,1,
+06 Shishir Rutu,Anidra,A7A.0,,,,,1,1,2,
+06 Shishir Rutu,B1.0,Baala Roga,,,,2,1,,,
+06 Shishir Rutu,B1.34,Baala Roga - Krimi Roga,,,,,2,,,
+06 Shishir Rutu,B1.9,Baala Roga -  Samvardana Vikara,,,1,,1,1,1,
+06 Shishir Rutu,B2.0,Bhagandara,,,1,,,4,3,
+06 Shishir Rutu,B2.1,Bhagandara - Arsho Bhagandara,,,,,,1,,
+06 Shishir Rutu,B3.0,Bhagna,,,2,7,9,5,6,
+06 Shishir Rutu,B3.2.0,Bhagna - Sandhimukta Bhagna,,,1,1,,,,
+06 Shishir Rutu,B4,Bhasmaka,,,,1,,,,
+06 Shishir Rutu,B5,Bhrama,,,,3,5,1,2,
+06 Shishir Rutu,D0.0,Daaha,,,1,,1,,,
+06 Shishir Rutu,D0.10,Daaha - Sthaanabhedena - Sarvaanga Daaha,,,,,1,,,
+06 Shishir Rutu,D0.8,Daaha - Sthaanabhedena - Paada Daaha,,,,,,,1,
+06 Shishir Rutu,D1.0,Dourbalya,,,3,2,2,5,2,
+06 Shishir Rutu,G13.0,Gulma,,,1,4,1,2,,
+06 Shishir Rutu,G3.0,Garbhapata,,,,,,1,,
+06 Shishir Rutu,G6.0,Garbhini,,,,2,,3,2,
+06 Shishir Rutu,G8.0,Grahanee,,,1,5,3,2,3,
+06 Shishir Rutu,G8.2,Grahanee-pittaj,,,,,,1,,
+06 Shishir Rutu,G8.5,Grahanee-Vataj,,,,,,,1,
+06 Shishir Rutu,G9.0,Granthi,,,2,2,1,2,1,
+06 Shishir Rutu,G9.10,Granthi (Garbhashaya),,,,,,,1,
+06 Shishir Rutu,G9.11,GRANTHI - BEEJAKOSHA,,,,,,,3,
+06 Shishir Rutu,G9.3,Granthi - Maamsaja Granthi,,,,,1,1,,
+06 Shishir Rutu,G9.4,Granthi - Medoja Granthi,,,,1,,1,2,
+06 Shishir Rutu,G9.6,Granthi - Raktaja Granthi,,,,1,,,,
+06 Shishir Rutu,G9.7,Granthi - Siraa Granthi,,,4,8,8,13,14,
+06 Shishir Rutu,H2.0,Hridroga,,1,5,5,7,8,7,
+06 Shishir Rutu,J1.0,Jwara,,,3,5,4,5,6,
+06 Shishir Rutu,K1.0,Kaamalaa,,,1,2,,,1,
+06 Shishir Rutu,K10.10,Kshudra Roga - Charmakeela,,,,,1,1,,
+06 Shishir Rutu,K10.11,Kshudra Roga - Chippa,,,,,,,1,
+06 Shishir Rutu,K10.15,Kshudra Roga - Indralupta,,,,1,1,,,
+06 Shishir Rutu,K10.23,Kshudra Roga - Kadara,,,,1,,,,
+06 Shishir Rutu,K10.28,Kshudra Roga - Kunakha,,,1,,1,,1,
+06 Shishir Rutu,K10.29,Kshudra Roga - Khalitya,,,3,3,1,2,2,
+06 Shishir Rutu,K10.32,Kshudra Roga - Mukhadooshikaa,,,,,2,1,1,
+06 Shishir Rutu,K10.34,Kshudra Roga - Niruddhaprakasha,,,,,,,1,
+06 Shishir Rutu,K10.36,Kshudra Roga - Paadadaarikaa,,,1,,,,,
+06 Shishir Rutu,K10.38A,Kshudra Roga - Parikartikaa,,,3,5,5,7,9,
+06 Shishir Rutu,K10.46.0,Kshudra Roga - Valmeeka,,,,,,,1,
+06 Shishir Rutu,K10.52.8,Kshudra Roga - Vaatakantaka,,,,,1,2,1,
+06 Shishir Rutu,K10.8,Kshudra Roga - Arumshikaa,,,,,,1,,
+06 Shishir Rutu,K2.0,Kaasa,,,6,14,19,25,19,
+06 Shishir Rutu,K2.1,Kaasa- kapha,,,1,,,1,1,
+06 Shishir Rutu,K2.2,Kaasa- kshataja,,,,,,1,,
+06 Shishir Rutu,K2.4,Kaasa- pitta,,,1,,,,,
+06 Shishir Rutu,K2.5,Kaasa- vata,,,2,2,,1,1,
+06 Shishir Rutu,K3.0,Kandoo,,,1,1,2,4,6,
+06 Shishir Rutu,K3.1,Kandoo - Guda Kandoo,,,,1,,,,
+06 Shishir Rutu,K4.0,Karna Roga,,,,3,,,3,
+06 Shishir Rutu,K4.10,Karna Roga - Karnabaadhirya - Kaphaanubandha,,,,,,,2,
+06 Shishir Rutu,K4.11,Karna Roga - Karnabaadhirya - Shuddha Vaataja,,,,,1,1,1,
+06 Shishir Rutu,K4.12,Karna Roga - Karnagoothaka,,,,,1,,2,
+06 Shishir Rutu,K4.14,Karna Roga - Karnakshveda,,,1,2,,1,,
+06 Shishir Rutu,K4.19,Karna Roga - Karnashoola,,,,,1,1,1,
+06 Shishir Rutu,K4.20,Karna Roga - Karnashopha,,,,1,,,,
+06 Shishir Rutu,K4.21,Karna Roga - Karnasraava,,,,,,,1,
+06 Shishir Rutu,K4.9,Karna Roga - Karnabaadhirya,,,,2,1,1,,
+06 Shishir Rutu,K6.2,Klaibya - Beejopaghaataja,,,,,,1,,
+06 Shishir Rutu,K6.4,Klaibya - Dvajabhangaja,,,,1,,,,
+06 Shishir Rutu,K7a.0,Kotha,,,,,1,,,
+06 Shishir Rutu,K9.0,Kshudra Roga,,,2,10,4,14,11,
+06 Shishir Rutu,K9.4,Kshudra Roga - Alajee,,,,,2,1,2,
+06 Shishir Rutu,K9.5,Kshudra Roga - Alasa,,,1,,,,,
+06 Shishir Rutu,M1.0,Madaatyaya - Paramada,,,,,,1,,
+06 Shishir Rutu,M1.1,Madaatyaya - Pittaja,,,1,1,,,,
+06 Shishir Rutu,M1.6,Madaatyaya - Vikshaya,,,1,,,,,
+06 Shishir Rutu,M10.0,Medoroga,,,3,21,1,5,3,
+06 Shishir Rutu,M10.1,Medoroga - Sthula medho roga,,,32,30,17,24,18,
+06 Shishir Rutu,M10.2,Medoroga - Sukshma medho roga,,,2,,15,9,7,
+06 Shishir Rutu,M12.0,Mootra Dosha,,,,1,,,,
+06 Shishir Rutu,M13.0,Mootra Roga,,,,3,1,3,3,
+06 Shishir Rutu,M14.16,Mootra Roga - Mootraaghaata - Vaatabasti,,,,,1,,,
+06 Shishir Rutu,M16.0,Mootra Roga - Mootrakrichchhra,,,,,3,3,2,
+06 Shishir Rutu,M18.0,Mukha Roga  - Mukha Shosha,,,,1,,,,
+06 Shishir Rutu,M18.10.0,Mukha Roga - Dantamoolagata Roga,,,,,1,,,
+06 Shishir Rutu,M18.10.3,Mukha Roga - Dantamoolagata Roga - Dantapupputa,,,,,,1,,
+06 Shishir Rutu,M18.11.0,Mukha Roga - Galagata Roga,,,1,,1,3,3,
+06 Shishir Rutu,M18.11.2,Mukha Roga - Galagata Roga - Galaganda,,,3,,2,4,7,
+06 Shishir Rutu,M18.11.9,Mukha Roga - Galagata Roga - Tundikeree,,,,,,1,,
+06 Shishir Rutu,M18.12.0,Mukha Roga - Gandagata Roga,,,,1,,1,,
+06 Shishir Rutu,M18.14.0,Mukha Roga - Kanthagata Roga,,,,1,1,,2,
+06 Shishir Rutu,M18.14.11,Mukha Roga - Kanthagata Roga - Galavidradhi,,,,,,,1,
+06 Shishir Rutu,M18.15.0,Mukha Roga - Kaphaja,,,,,,,1,
+06 Shishir Rutu,M18.19.4,Mukha Roga - Sarvagata - Mukhapaaka,,,1,,,1,,
+06 Shishir Rutu,M18.9.0,Mukha Roga - Dantagata Roga,,,,1,,,,
+06 Shishir Rutu,M18.9.2,Mukha Roga - Dantagata Roga  - Danta Maamsa Kandoo,,,1,,,,,
+06 Shishir Rutu,M18.9.3,Mukha Roga - Dantagata Roga  - Danta Maamsa Paaka,,,,,1,,,
+06 Shishir Rutu,M18.9.5,Mukha Roga - Dantagata Roga  - Danta Maamsa Sraava,,,1,,,,,
+06 Shishir Rutu,M18.9.6,Mukha Roga - Dantagata Roga  - Danta Shoola,,,1,,,,,
+06 Shishir Rutu,M2.0,Madhumeha,,2,9,16,107,140,177,
+06 Shishir Rutu,M5.0,Maanasa Roga,,,2,,3,,1,
+06 Shishir Rutu,M5.1,Maanasa Roga - Vishada,,,1,,,5,3,
+06 Shishir Rutu,M5.2,Maanasa Roga - Glaani,,,,,1,,,
+06 Shishir Rutu,M5.3,Smriti Bhrmsha,,,,,1,3,1,
+06 Shishir Rutu,M6.0,Marma Viddha,,,,2,,3,1,
+06 Shishir Rutu,M6.13,Marma Viddha - Gulpha Viddha,,,1,1,,,,
+06 Shishir Rutu,M6.16,Marma Viddha - Jaanu Viddha,,,,1,1,,,
+06 Shishir Rutu,M6.25,Marma Viddha - Kukundara Viddha,,,,,,,1,
+06 Shishir Rutu,M6.27,Marma Viddha - Maamsa Viddha,,,,3,2,,,
+06 Shishir Rutu,M6.3,Marma Viddha - Amsa Viddha,,,,2,,,,
+06 Shishir Rutu,M6.38,Marma Viddha - Sandhi Viddha,,,,1,,,,
+06 Shishir Rutu,M6.43,Marma Viddha - Snaayu Viddha,,,,3,4,1,3,
+06 Shishir Rutu,M6.8,Marma Viddha - Asthimarma Viddha,,,,1,,,1,
+06 Shishir Rutu,M9.0,Medhra Roga,,,,,,1,,
+06 Shishir Rutu,MS G1.0,Greeva Graha,,,17,29,22,28,58,
+06 Shishir Rutu,MS M1.0,Mutrashteela,,,,1,1,5,5,
+06 Shishir Rutu,MS R1,Raktachapa,,,,6,4,9,7,
+06 Shishir Rutu,MS T1.0,Twak Vivarnya,,,2,1,2,3,1,
+06 Shishir Rutu,N1.0,Naadee Vrana,,,,1,1,,1,
+06 Shishir Rutu,N2.0,Naasaa Roga,,,,2,1,1,1,
+06 Shishir Rutu,N2.1,Naasaa Roga -  Naasaavarodha,,,1,2,,2,1,
+06 Shishir Rutu,N2.12,Naasaa Roga - Naasaanaaha,,,,,,,3,
+06 Shishir Rutu,N2.18,Naasaa Roga - Peenasa,,,4,12,10,13,15,
+06 Shishir Rutu,N2.21.0,Naasaa Roga - Pratishyaaya,,,2,11,6,9,9,
+06 Shishir Rutu,N2.21.1,Naasaa Roga - Pratishyaaya - Dushta Pratishyaaya,,,3,1,,1,4,
+06 Shishir Rutu,N2.21.2,Naasaa Roga - Pratishyaaya - Kaphaja Pratishyaaya,,,1,,,1,2,
+06 Shishir Rutu,N2.21.7,Naasaa Roga - Pratishyaaya - Vaataja Pratishyaaya,,,,,,3,1,
+06 Shishir Rutu,N2.9,Naasaa Roga - Kshavathu,,,,,1,1,,
+06 Shishir Rutu,N4.0,Netra Roga,,,8,15,1,27,21,
+06 Shishir Rutu,N4.11,Netra Roga - Jaadya,,,,,,1,,
+06 Shishir Rutu,N4.12,Netra Roga - Kandoo,,,,,1,1,,
+06 Shishir Rutu,N4.13,Netra Roga - Kaphaja Linganaasha Shastrakarma Pashchaat,,,,,,,2,
+06 Shishir Rutu,N4.19,Netra Roga - Netra Daaha,,,,,1,,1,
+06 Shishir Rutu,N4.25,Netra Roga - Netra Sraava,,,,,,,4,
+06 Shishir Rutu,N4.27,Netra Roga - Paichchhilya,,,,,,,1,
+06 Shishir Rutu,N4.30,Netra Roga - Sashopha Akshipaaka,,,,,,1,,
+06 Shishir Rutu,N4.35,Netra Roga - Triteeya Patalagata Timira,,,,,,2,15,
+06 Shishir Rutu,N4.40.0,Netra Roga - Drishtigata,,,,,,5,,
+06 Shishir Rutu,N4.40.14,Netra Roga - Drishtigata - Kaacha Roga - Vaataja,,,,,1,,,
+06 Shishir Rutu,N4.40.20.0,Netra Roga - Drishtigata - Timira,,,,,3,5,,
+06 Shishir Rutu,N4.40.20.1,Netra Roga - Drishtigata - Timira - Kaphaja Timira,,,,,,2,,
+06 Shishir Rutu,N4.40.20.6,Netra Roga - Drishtigata - Timira - Vaataja Timira,,,,,1,1,,
+06 Shishir Rutu,N4.40.9,Netra Roga - Drishtigata - Kaacha Roga - Kaphaja,,,,,,1,,
+06 Shishir Rutu,N4.46.2.0,Netra Roga - Shuklagata - Arma,,,2,,,,,
+06 Shishir Rutu,N4.46.2.1,Netra Roga - Shuklagata - Arma - Adhimaamsa Arma,,,,,,1,,
+06 Shishir Rutu,N4.46.2.3,Netra Roga - Shuklagata - Arma - Prastaari Arma,,,,,,,2,
+06 Shishir Rutu,N4.46.2.4,Netra Roga - Shuklagata - Arma - Shuklaarma,,,,,,1,,
+06 Shishir Rutu,N4.47.6,Netra Roga - Shuklagata - Siraaharsha,,,,,1,,,
+06 Shishir Rutu,N4.47.7,Netra Roga - Shuklagata - Siraaja Pidakaa,,,,,,,1,
+06 Shishir Rutu,N4.49.2,Netra Roga - Sandhigata - Krimigranthi,,,1,,,,1,
+06 Shishir Rutu,N4.50.0,Netra Roga - Sarvagata,,,,,1,,,
+06 Shishir Rutu,N4.50.10,Netra Roga - Sarvagata - Sashopha Akshipaaka,,,,,,,1,
+06 Shishir Rutu,N4.50.2.0,Netra Roga - Sarvagata - Adhimantha,,,,,1,,3,
+06 Shishir Rutu,N4.50.2.1,Netra Roga - Sarvagata - Adhimantha - Kaphaja Adhimantha,,,,,1,1,2,
+06 Shishir Rutu,N4.50.8,Netra Roga - Sarvagata - Hataadhimantha,,,,,,,1,
+06 Shishir Rutu,N4.50.9,Netra Roga - Sarvagata - Shushkaakshi Paaka,,,,,,,6,
+06 Shishir Rutu,N4.51.0,Netra Roga - Vaataja,,,,,1,,,
+06 Shishir Rutu,N4.54.15,Netra Roga - Vartmagata - Nimesha,,,,,1,,,
+06 Shishir Rutu,N4.6,Netra Roga - Ashrusraava,,,,,,,2,
+06 Shishir Rutu,N5.0,Nidra Viparyaya / Nidra Bhanga,,,,,,,1,
+06 Shishir Rutu,O1.0,Ojavikriti,,,,1,,,,
+06 Shishir Rutu,O1.3,Ojavikriti - Ojaksheenataa,,,,,,,1,
+06 Shishir Rutu,O1.4,Ojavikriti - Ojovisramsa,,,,,,4,5,
+06 Shishir Rutu,P2.0,Pandu,,,2,3,2,5,5,
+06 Shishir Rutu,P3.0,Pidaka,,,1,,1,2,2,
+06 Shishir Rutu,P5.0,Prameha,,2,47,108,89,74,80,
+06 Shishir Rutu,P5.2,Prameha - Pidaka,,,,,,1,1,
+06 Shishir Rutu,P5.3,Prameha - Sthula,,,4,1,1,,,
+06 Shishir Rutu,P5.4,Prameha - Upadrava,,1,5,4,10,6,4,
+06 Shishir Rutu,P5.5,Pramehajanya - Netraroga,,,,,1,,2,
+06 Shishir Rutu,P6.0,Pravaahika,,,,,1,,,
+06 Shishir Rutu,R2.0,Raktapitta,,,,,,1,,
+06 Shishir Rutu,S0.0,Saamavata,,,,,2,7,10,
+06 Shishir Rutu,S1.0,Sheetapitta,,,2,2,4,7,4,
+06 Shishir Rutu,S10.14,Stambha - Uru Stambha,,,,1,,,,
+06 Shishir Rutu,S10.4,Stambha - Greevaa Stambha,,,2,,1,,5,
+06 Shishir Rutu,S10.6,Stambha - Hridaya Stambha,,,,1,,,,
+06 Shishir Rutu,S13.0,Sthaanabhedena Graha,,,1,1,,,1,
+06 Shishir Rutu,S13.1,Sthaanabhedena Graha - Anga Graha,,,1,1,,,,
+06 Shishir Rutu,S13.11,Sthaanabhedena Graha - Katee Graha,,,36,45,46,40,57,
+06 Shishir Rutu,S13.17,Sthaanabhedena Graha - Paada Graha,,,1,,,,,
+06 Shishir Rutu,S13.19,Sthaanabhedena Graha - Prishtha Graha,,,1,4,10,6,8,
+06 Shishir Rutu,S13.22,Sthaanabhedena Graha - Uro Graha,,,1,,,,,
+06 Shishir Rutu,S13.23,Sthaanabhedena Graha - Vaak Graha,,,,,1,2,2,
+06 Shishir Rutu,S13.5,Sthaanabhedena Graha - Hanu Graha,,,,,,1,,
+06 Shishir Rutu,S14.0,Sthaanabhedena Shoola,,,10,16,6,25,61,
+06 Shishir Rutu,S14.1,Sthaanabhedena Shoola - Aamaashaya Shoola,,,3,1,2,,2,
+06 Shishir Rutu,S14.13,Sthaanabhedena Shoola - Gulpha Shoola,,,1,1,3,1,1,
+06 Shishir Rutu,S14.15,Sthaanabhedena Shoola - Hasta Shoola,,,,1,,,,
+06 Shishir Rutu,S14.16,Sthaanabhedena Shoola - Hrid Shoola,,,,2,1,1,1,
+06 Shishir Rutu,S14.17,Sthaanabhedena Shoola - Jaanu Shoola,,,2,10,1,2,3,
+06 Shishir Rutu,S14.18,Sthaanabhedena Shoola - Janghaa Shoola,,,,1,2,1,1,
+06 Shishir Rutu,S14.19,Sthaanabhedena Shoola - Kantha Shoola,,,,,1,,,
+06 Shishir Rutu,S14.2,Sthaanabhedena Shoola - Aantra Shoola,,,,,1,2,,
+06 Shishir Rutu,S14.21,Sthaanabhedena Shoola - Katee Shoola,,,36,47,50,61,66,
+06 Shishir Rutu,S14.22,Sthaanabhedena Shoola - Koshtha Shoola,,,,,,,1,
+06 Shishir Rutu,S14.23,Sthaanabhedena Shoola - Kukshi Shoola,,,2,,1,,1,
+06 Shishir Rutu,S14.24,Sthaanabhedena Shoola - Manyaa Shoola,,,1,1,,,,
+06 Shishir Rutu,S14.3,Sthaanabhedena Shoola - Amsa Shoola,,,1,7,4,4,1,
+06 Shishir Rutu,S14.4,Sthaanabhedena Shoola - Anga Shoola,,,4,5,3,5,2,
+06 Shishir Rutu,S14.5,Sthaanabhedena Shoola - Anguli Shoola,,,1,1,,,,
+06 Shishir Rutu,S14.6,Sthaanabhedena Shoola - Asthi Shoola,,,2,3,1,,1,
+06 Shishir Rutu,S14.7,Sthaanabhedena Shoola - Baahu Shoola,,,4,6,5,15,19,
+06 Shishir Rutu,S15.31,Sthaanabhedena Shoola - Paada Shoola,,,1,1,3,1,8,
+06 Shishir Rutu,S15.36,Sthaanabhedena Shoola - Prishtha Shoola,,,2,2,3,3,3,
+06 Shishir Rutu,S15.38,Sthaanabhedena Shoola - Shirah Shoola,,,,3,5,2,1,
+06 Shishir Rutu,S15.41,Sthaanabhedena Shoola - Sakthi Shoola,,,,,1,,,
+06 Shishir Rutu,S15.42,Sthaanabhedena Shoola - Sandhi Shoola,,,6,2,1,1,6,
+06 Shishir Rutu,S15.44,Sthaanabhedena Shoola - Snaayu Shoola,,,,1,,,,
+06 Shishir Rutu,S15.46,Sthaanabhedena Shoola - Stanaanta Shoola,,,,,,1,,
+06 Shishir Rutu,S15.48,Sthaanabhedena Shoola - Urah Shoola,,,,1,1,,,
+06 Shishir Rutu,S15.50.0,Sthaanabhedena Shoola - Vrishana Shoola,,,,,,1,,
+06 Shishir Rutu,S16.0,Sthaulya,1,,6,15,41,57,74,
+06 Shishir Rutu,S16.1,Stree Roga,,,1,7,6,7,3,
+06 Shishir Rutu,S16.10,Stree Roga - Shvetapradara,,,,2,2,3,1,
+06 Shishir Rutu,S16.12,Stree Roga - Yonigata Sraava,,,1,1,,,,
+06 Shishir Rutu,S16.19.0,Stree Roga - Rajo Dushti,,,,,,1,,
+06 Shishir Rutu,S16.2,Stree Roga - Aartavanaasha,,,,,,,1,
+06 Shishir Rutu,S16.20.0,Stree Roga - Raktapradara,,,,2,1,1,4,
+06 Shishir Rutu,S16.20.8,STREEROGA - RAJONIVRITHI VIKARA,,,,,,,2,
+06 Shishir Rutu,S16.21.4,STREEROGA - SOOTIKAA PARICHARYA,,,,,,,1,
+06 Shishir Rutu,S16.22,Stree Roga - Stana Roga,,,,1,,,,
+06 Shishir Rutu,S16.29.1,Stree Roga - Yoni Kandoo,,,,1,,,,
+06 Shishir Rutu,S16.3,Stree Roga - Anaartava,,,1,,,1,,
+06 Shishir Rutu,S16.30.10,Stree Roga - Yonivyaapad - Karninee,,,,1,,,,
+06 Shishir Rutu,S16.30.13,Stree Roga - Yonivyaapad - Pariplutaa,,,1,,,,1,
+06 Shishir Rutu,S16.30.15,Stree Roga - Yonivyaapad - Pittalaa,,,,,,1,,
+06 Shishir Rutu,S17.0,Supti,,,1,1,2,5,11,
+06 Shishir Rutu,S17.1,Supti - Paada Supti,,,1,1,,1,,
+06 Shishir Rutu,S18.0,Swastha,,,,1,6,13,10,
+06 Shishir Rutu,S18.1,Swaasthya Pareeksha,,,,2,2,,2,
+06 Shishir Rutu,S1A.0,Shoola,,,,2,,2,,
+06 Shishir Rutu,S2.0,Shiroroga,,,1,1,,,,
+06 Shishir Rutu,S2.10,Shiroroga - Shirahshoola,,,6,3,3,7,5,
+06 Shishir Rutu,S2.13,Shiroroga - Anantavaata,,,,1,,,,
+06 Shishir Rutu,S2.14,Shiroroga - Ardhaavabhedaka,,,,1,1,3,4,
+06 Shishir Rutu,S2.15.2,Shiroroga - Kapaalagata Shiroroga - Daarunaka,,,,,1,,,
+06 Shishir Rutu,S2.15.5,Shirorog - Kapaalagata Shiroroga - Paalitya,,,1,1,,,,
+06 Shishir Rutu,S2.19.1,Shiroroga - Pittaja Shiroroga - Shirahshoola,,,,,,,3,
+06 Shishir Rutu,S2.4,Shiroroga - Shankha Shoola,,,2,,,,,
+06 Shishir Rutu,S2.5,Shiroroga - Shira Abhihata,,,1,,,,,
+06 Shishir Rutu,S2.7,Shiroroga - Shira Supti,,,,,,1,,
+06 Shishir Rutu,S3.0,Shotha,,,8,4,1,5,6,
+06 Shishir Rutu,S3.1,Shotha - Vaatapittaja,,1,,,,,,
+06 Shishir Rutu,S3.3,Shrama,,,,,3,11,3,
+06 Shishir Rutu,S4.0,Shvaasa,,,4,14,8,21,10,
+06 Shishir Rutu,S4.2,Shvaasa-kshudra shvasa,,,,,,1,,
+06 Shishir Rutu,S4.4,Shvaasa-tamaka shvasa,,,1,2,1,,,
+06 Shishir Rutu,S5.0,Shvitra,,,,,,3,2,
+06 Shishir Rutu,S9.0,Somaroga,,,,,1,,,
+06 Shishir Rutu,U1.0,Udaavarta,,,1,,,,3,
+06 Shishir Rutu,U2.0,Udara,,,1,,,1,,
+06 Shishir Rutu,U2.4,Udara- yakrut-pleeha,,,,2,1,2,1,
+06 Shishir Rutu,U2.6,Udara-jalodara,,,,,,1,1,
+06 Shishir Rutu,U3.0,Udarda,,,2,,,,,
+06 Shishir Rutu,U4.0,Unmaada,,,,3,,,2,
+06 Shishir Rutu,U4.7,Unmaada - Manokhedaja,,,,,,1,1,
+06 Shishir Rutu,V.10,Vatavyadhi - Avrita Vata,,,,,,,1,
+06 Shishir Rutu,V1.0,Vaatarakta,,,10,10,23,30,28,
+06 Shishir Rutu,V1.2,Vaatarakta - Gambheera,,,4,,,1,,
+06 Shishir Rutu,V1.3,Vaatarakta - Kapha Vaataja,,,,,2,,,
+06 Shishir Rutu,V1.4,Vaatarakta - Kaphaadhika Vaatarakta,,,,1,,,,
+06 Shishir Rutu,V1.9,Vaatarakta - Vaataadhika Vaatarakta,,,1,,,,,
+06 Shishir Rutu,V10.11,Vatavyadhi - Avrita Vata - Mamsavrita Vata,,,,,,,2,
+06 Shishir Rutu,V10.8,Vatavyadhi - Avrita Vata - Kapha avrita Vata,,,,,,,1,
+06 Shishir Rutu,V11.7,Vatavyadhi - Gatatva  - Sandhigata Vata,,,,,,,5,
+06 Shishir Rutu,V11.8,Vatavyadhi - Gatatva  - Sarvangagata Vata,,,,,,,1,
+06 Shishir Rutu,V13.0,Vrana,,,,2,1,1,,
+06 Shishir Rutu,V13.1.0,Vrana - Aagantuja (Sadyo) Vrana,,,,,,,1,
+06 Shishir Rutu,V13.1.3,Vrana - Aagantuja (Sadyo) Vrana - Dagdha Vrana,,,,,1,,,
+06 Shishir Rutu,V13.3,Vrana - Dushta Vrana,,,1,,1,2,4,
+06 Shishir Rutu,V13.4,Vrana - Jeerna Vrana,,,,1,,,,
+06 Shishir Rutu,V15.0,Vriddhi,,,1,1,,,,
+06 Shishir Rutu,V15.1,Vriddhi - Aantraja,,,,,,,1,
+06 Shishir Rutu,V16.0,Vrikka Roga,,1,,,7,7,6,
+06 Shishir Rutu,V2.0,Vaatavyaadhi,,9,123,208,142,99,108,
+06 Shishir Rutu,V2.10,Vaatavyaadhi - Avabaahuka,,1,13,46,59,90,97,
+06 Shishir Rutu,V2.16,Vaatavyaadhi - Baahugata Vaata,,,4,2,,,1,
+06 Shishir Rutu,V2.2,Vaatavyaadhi - Aadhmaana,,,4,9,8,9,8,
+06 Shishir Rutu,V2.21,Vaatavyaadhi - Ekaangavaata,,,,,,,1,
+06 Shishir Rutu,V2.23,Vaatavyaadhi - Gridhrasee,,4,69,105,117,155,207,
+06 Shishir Rutu,V2.3.0,Vaatavyaadhi - Aakshepaka,,,,,1,,,
+06 Shishir Rutu,V2.3.1,Vaatavyaadhi - Aakshepaka - Abhighaataja,,,1,,,,,
+06 Shishir Rutu,V2.30,Vaatavyaadhi - Jaanugata Vaata,,,2,8,1,,,
+06 Shishir Rutu,V2.31,Vaatavyaadhi - Janghaagata Vaata,,,,,2,,,
+06 Shishir Rutu,V2.34.0,Vaatavyaadhi - Kampa,,,1,6,10,20,13,
+06 Shishir Rutu,V2.34.1,Vaatavyaadhi - Kampa - Baahu Kampa,,,1,,,,,
+06 Shishir Rutu,V2.36,Vaatavyaadhi - Kateegata Vaata,,2,17,18,4,2,25,
+06 Shishir Rutu,V2.38,Vaatavyaadhi - Khanja,,,,1,1,,,
+06 Shishir Rutu,V2.4.1,Vaatavyaadhi - Aavritavaata - Kaphaavrita Vaata,,,,,,,1,
+06 Shishir Rutu,V2.40,Vaatavyaadhi - Kroshtukasheersha,,,1,,,1,,
+06 Shishir Rutu,V2.42,Vaatavyaadhi - Maamsagata Vaata,,,8,3,5,4,,
+06 Shishir Rutu,V2.43,Vaatavyaadhi - Maamsamedogata Vaata,,,,,1,,,
+06 Shishir Rutu,V2.44,Vaatavyaadhi - Majjaagata Vaata,,,,,,1,,
+06 Shishir Rutu,V2.46,Vaatavyaadhi - Manyaagata Vaata,,,,2,,,,
+06 Shishir Rutu,V2.47,Vaatavyaadhi - Manyaastambha,,,,,2,3,2,
+06 Shishir Rutu,V2.53,Vaatavyaadhi - Paadadaaha,,,1,,1,1,,
+06 Shishir Rutu,V2.56.0,Vaatavyaadhi - Pakshavadha,,,6,10,11,19,13,
+06 Shishir Rutu,V2.57,Vaatavyaadhi - Pangutva,,,,,,,1,
+06 Shishir Rutu,V2.61,Vaatavyaadhi - Prishthagata Vaata,,,,3,1,,,
+06 Shishir Rutu,V2.62,Vaatavyaadhi - Raktagata Vaata,,,,,1,,,
+06 Shishir Rutu,V2.63,Vaatavyaadhi - Sandhigata Vaata,,2,90,166,194,240,220,
+06 Shishir Rutu,V2.64,Vaatavyaadhi - Sarvaangagata Vaata,,,4,,1,1,1,
+06 Shishir Rutu,V2.68,Vaatavyaadhi - Siraagata Vaata,,,2,,2,2,1,
+06 Shishir Rutu,V2.7,Vaatavyaadhi - Ardita,,,,,1,2,,
+06 Shishir Rutu,V2.70,Vaatavyaadhi - Snaayugata Vaata,,,1,,,1,1,
+06 Shishir Rutu,V2.75,Vaatavyaadhi - Vaatakantaka,,,3,1,3,7,12,
+06 Shishir Rutu,V2.77,Vaatavyaadhi - Vishvaachee,,,2,,1,1,7,
+06 Shishir Rutu,V2.8,Vaatavyaadhi - Ashtheelaa,,,1,,2,,,
+06 Shishir Rutu,V2.9,Vaatavyaadhi - Asthigata Vaata,,,11,8,1,6,3,
+06 Shishir Rutu,V3.0,Vandhyatava,,,,5,,4,1,
+06 Shishir Rutu,V3.1,Vandhyatava - Kaka Vandya,,,2,,,,1,
+06 Shishir Rutu,V3.3,VANDHYATWA - ANAPATYA,,,,,,,1,
+06 Shishir Rutu,V5.0,Vibandha,,,,6,1,3,6,
+06 Shishir Rutu,V5.1,Vibandha - Mala Vibandha,,,1,3,5,7,4,
+06 Shishir Rutu,V6.0,Vidradhi,,,1,1,1,1,,
+06 Shishir Rutu,V6.3,Vidradhi - Baahya,,,1,,,,,
+06 Shishir Rutu,V9.0,Visarpa,,,1,4,,,1,
+06 Shishir Rutu,Y1,Yakrit Dosha,,,1,6,2,3,3,
+06 Shishir Rutu,Y8.10,Yonivyaapad - Karninee,,,,2,,,,
+06 Shishir Rutu,Y8.13,Yonivyaapad - Pariplutaa,,,,,,,1,
+06 Shishir Rutu,Y8.14,Yonivyaapad - Phalinee / Andalee,,,,,,,1,
+06 Shishir Rutu,Y8.28,Yonivyaapad - Viplutaa,,,,,,,1,
+06 Shishir Rutu,Y9.0,Yuvana pidika,,,,,,1,,
+06 Shishir Rutu,k12.0,Kushtha,,,6,13,15,19,15,
+06 Shishir Rutu,k12.1,Kushtha-alasaka,,,,1,,,,
+06 Shishir Rutu,k12.16,Kushtha-vicharchika,,,,1,,1,,
+06 Shishir Rutu,k12.17,Kushtha-vipadika,,,1,,,3,1,
+06 Shishir Rutu,k12.3,Kushtha-charmadala,,,,,,,1,
+06 Shishir Rutu,k12.4,Kushtha-charmakhya,,,1,,,,,
+06 Shishir Rutu,k12.5,Kushtha-dadru,,,2,1,,1,,
+06 Shishir Rutu,k12.6,Kushtha-ekakushta,,,,1,,,1,
+06 Shishir Rutu,k12.9,Kushtha-kitibha,,,3,1,2,5,4,
+06 Shishir Rutu,k8.0,Kshaya,,,2,,,,,
