@@ -36,6 +36,48 @@ analysis <- analysis [, noofdis := .N -1, by =.(primarycode)]
 
 analysis02 <- unique( analysis[, c("primarycode", "noofdis"), with =FALSE])
 
+library(statnet)
+library(igraph)
+
+analysis <- prim_diag [, .(cnt =uniqueN(mr_no)), by =.(primarycode, primarydesc, Code2, description)] [order(primarycode, primarydesc, -cnt)]
+analysis <- analysis [, noofdis := .N -1, by =.(primarycode)]
+ana <- copy(analysis)
+
+combs <- unique( prim_diag[, c("primarycode", "primarydesc", "Code2", "description")] ) [order(primarycode, Code2)]
+combs2 <- combs[, .(discomb = paste("'", trimws(Code2), "'", collapse=",", sep="") ),
+                by = .(primarycode)]
+
+subanalysis <- prim_diag [primarycode %in% c('A1.0','A16.0','A2.0','A2.1','A5.0','A6.0','A7.0','A7A.0','J1.0','J1.2','K2.0','K2.5','K7.0','K9.0','M10.1','M2.0','MS R1','MS T1.0','N2.18','N2.21.0','N2.21.1','N4.19','O1.2','P5.0','S14.0','S14.18','S15.42','S16.0','S16.2','S18.0','S2.0','S3.0','V2.0','V2.10','V2.23','V2.36','V2.63','V2.75','V9.0','Y1'), 
+                          .(cnt =uniqueN(mr_no)), 
+                          by =.(primarycode, primarydesc, Code2, description)] 
+[order(primarycode, primarydesc, -cnt)]
+
+analysis_t <-  dcast(subanalysis, 
+                     primarycode ~ Code2,
+                     value.var = c("cnt"),
+                     subset = .(Code2 %in% c('A1.0','A2.0','V2.0','V2.63','J1.0','K2.0','V2.23','S16.0','A7.0','A6.0','N2.21.0','S14.0','A7A.0','K2.5','O1.2','S3.0','S15.42','A16.0','K7.0','N4.19','Y1','N2.21.1','S18.0','S2.0','N2.18','A5.0','M10.1','J1.2','P5.0','V9.0','MS T1.0','S14.18','A2.1','K9.0','M2.0','MS R1','V2.36','S16.2','V2.75','V2.10') | primarycode == "A1.0"),
+                     fill =0  ) [, -c("primarycode")]
+
+analysis_t02 <- data.matrix(analysis_t)
+
+net <- as.network(x = analysis_t02, # the network object
+                  directed = TRUE, # specify whether the network is directed
+                  loops = FALSE, # do we allow self ties (should not allow them)
+                  matrix.type = "adjacency" # the type of input
+)
+
+pdf("D:/Hospital_data/ProgresSQL/analysis/Network_Plot_1.pdf", # name of pdf (need to include .pdf)
+    width = 10, # width of resulting pdf in inches
+    height = 10 # height of resulting pdf in inches
+) 
+
+inet <- graph_from_adjacency_matrix(analysis_t02)
+inet <- simplify(inet, remove.multiple = F, remove.loops = T)
+plot(inet, 
+     edge.arrow.size=.4, 
+     edge.curved=.1)
+dev.off() # finishes plotting and finalizes pdf
+
 ################################################
 # Do similar calculations for the medicines
 ################################################
