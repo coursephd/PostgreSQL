@@ -47,7 +47,7 @@ subanalysis <- prim_diag [,
                           by =.(primarycode, primarydesc, Code2, description, patient_gender, primarygender)] 
 
 
-unqdis  <- unique(subanalysis$primarycode) [1:10]
+unqdis  <- unique(subanalysis$primarycode)
 
 for (disease in unqdis ) {
 
@@ -81,11 +81,15 @@ for (disease in unqdis ) {
   inet <- graph_from_adjacency_matrix(analysis_t02)
   inet <- simplify(inet, remove.multiple = F, remove.loops = T)
   
+  # Count the number of degree for each node:
+  deg=degree(inet, mode="all")
+  
+  
   plot(inet, 
        edge.arrow.size=.4, 
        edge.curved=.1, 
        layout = layout.graphopt, 
-       
+       vertex.size=deg * 0.1,
        main = paste("Disease:", tmp$primarycode, "Description:", tmp$primarydesc, "Gender:", tmp$patient_gender))
   
 }
