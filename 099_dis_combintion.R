@@ -6,6 +6,7 @@ library(stringr)
 library(openxlsx)
 library(anytime)
 library(collapsibleTree)
+library(quantmod)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -71,6 +72,7 @@ cnt3unq_gndrt <- dcast(cnt3unq_gndr,
 # Order the diseases by study day and get the uniue combintions
 # This is other cumultive view of disease progression tree
 ###############################################################
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 cnt<- unique( all_met_rmsd [patient_gender != "" & Code != "", 
                             c("mr_no", "studyday","Code", "description","distype", "patient_gender"), ])
 cnt <- cnt [, `:=` (mnth = round( studyday /30.25, digits = 0), 
@@ -87,36 +89,39 @@ cnt2 <- unique(cnt [, c("mr_no", "Code", "description", "patient_gender", "disty
 cnt3 <- cnt2[, `:=` (discomb = sapply(seq_len(.N), function(x) paste(Code[seq_len(x)], collapse = " ")),
                      descomb = sapply(seq_len(.N), function(x) paste(description[seq_len(x)], collapse = " ")),
                      numcomb = seq_len(.N),
-                     grpcomb = seq_len(.N)),
+                     grpcomb = paste("'", trimws(Code), "'", collapse = " ", sep=)),
              by = .(mr_no, patient_gender)]
 
-cnt3disprgs <- cnt3 [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb, numcomb)]
+cnt3disprgs <- cnt3 [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb, numcomb, grpcomb)]
 cnt3disprgs <- cnt3disprgs [, sttdis := str_replace_all(word (discomb), "'", ""), ]
-
-
-cnt3disprgs <- cnt3disprgs [order(sttdis, numcomb, discomb)]
-cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, numcomb)]
+cnt3disprgs <- cnt3disprgs [order(sttdis, numcomb, discomb, grpcomb)]
+cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, grpcomb)]
 
 cnt3disprgs02 <- dcast(cnt3disprgs,
-                       sttdis + node ~ paste("node", str_pad(numcomb, width=3, pad="0", side= c("left")), sep=""),
+                       sttdis + grpcomb ~ paste("node", str_pad(numcomb, width=3, pad="0", side= c("left")), sep=""),
                        value.var = c("discomb") )
                        
 
-tmp <- cnt3disprgs[sttdis %in% c("A11.0")] [order(sttdis, discomb, numcomb)]
+tmp <- cnt3disprgs02[sttdis %in% c("A11.0", "A1.0")] [order(sttdis, discomb, numcomb, grpcomb)]
 
 collapsibleTree(
   tmp,
   root = deparse(substitute(tmp)),
-  hierarchy = c("sttdis", "descomb", "node1", "node2"),
+  hierarchy = c("sttdis", 
+                "node001", "node002", "node003", "node004", "node005", "node006", "node007", "node008",
+                "node009", "node010", "node011", "node012", "node013", "node014", "node015", "node016",
+                "node017", "node018", "node019", "node020", "node021", "node022", "node023", "node024",
+                "node025", "node026", "node027"),
   width = 800
 )
 
-
-cnt3unq <- cnt3 [, .(unqdiscomb = .N), by =.(discomb, descomb, cntdis)]
-cnt3unq <- cnt3unq [order (-unqdiscomb, -cntdis, discomb, descomb)]
-
-cnt3unq_gndr <- cnt3 [, .(unqdiscomb = .N), by =.(discomb, descomb, cntdis, patient_gender)]
-cnt3unq_gndrt <- dcast(cnt3unq_gndr,
-                       discomb + descomb + cntdis ~ patient_gender,
-                       value.var = c("unqdiscomb"),
-                       fill = 0)
+collapsibleTreeSummary(
+tmp,
+root = deparse(substitute(tmp)),
+hierarchy = c("sttdis", 
+              "node001", "node002", "node003", "node004", "node005", "node006", "node007", "node008",
+              "node009", "node010", "node011", "node012", "node013", "node014", "node015", "node016",
+              "node017", "node018", "node019", "node020", "node021", "node022", "node023", "node024",
+              "node025", "node026", "node027"),
+width = 800
+)
