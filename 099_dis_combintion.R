@@ -5,6 +5,7 @@ library(stringi)
 library(stringr)
 library(openxlsx)
 library(anytime)
+library(collapsibleTree)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -84,10 +85,32 @@ cnt2 <- unique(cnt [, c("mr_no", "Code", "description", "patient_gender", "disty
 # Combintions for each patient
 
 cnt3 <- cnt2[, `:=` (discomb = sapply(seq_len(.N), function(x) paste(Code[seq_len(x)], collapse = " ")),
-                     descomb = sapply(seq_len(.N), function(x) paste(description[seq_len(x)], collapse = " ")) ),
+                     descomb = sapply(seq_len(.N), function(x) paste(description[seq_len(x)], collapse = " ")),
+                     numcomb = seq_len(.N),
+                     grpcomb = seq_len(.N)),
              by = .(mr_no, patient_gender)]
 
-cnt3disprgs <- cnt3 [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb)]
+cnt3disprgs <- cnt3 [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb, numcomb)]
+cnt3disprgs <- cnt3disprgs [, sttdis := str_replace_all(word (discomb), "'", ""), ]
+
+
+cnt3disprgs <- cnt3disprgs [order(sttdis, numcomb, discomb)]
+cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, numcomb)]
+
+cnt3disprgs02 <- dcast(cnt3disprgs,
+                       sttdis + node ~ paste("node", str_pad(numcomb, width=3, pad="0", side= c("left")), sep=""),
+                       value.var = c("discomb") )
+                       
+
+tmp <- cnt3disprgs[sttdis %in% c("A11.0")] [order(sttdis, discomb, numcomb)]
+
+collapsibleTree(
+  tmp,
+  root = deparse(substitute(tmp)),
+  hierarchy = c("sttdis", "descomb", "node1", "node2"),
+  width = 800
+)
+
 
 cnt3unq <- cnt3 [, .(unqdiscomb = .N), by =.(discomb, descomb, cntdis)]
 cnt3unq <- cnt3unq [order (-unqdiscomb, -cntdis, discomb, descomb)]
