@@ -3,10 +3,10 @@ library(data.table)
 library(zoo)
 library(stringi)
 library(stringr)
-library(openxlsx)
+#library(openxlsx)
 library(anytime)
 library(collapsibleTree)
-library(quantmod)
+#library(quantmod)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -99,10 +99,14 @@ cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, grpcomb)]
 
 cnt3disprgs02 <- dcast(cnt3disprgs,
                        sttdis + grpcomb ~ paste("node", str_pad(numcomb, width=3, pad="0", side= c("left")), sep=""),
-                       value.var = c("discomb") )
+                       value.var = c("discomb"),
+                       fill = " ")
                        
+fwrite(cnt3disprgs, "D:\\Hospital_data\\ProgresSQL\\analysis\\node_verti.csv")
+fwrite(cnt3disprgs02, "D:\\Hospital_data\\ProgresSQL\\analysis\\node_horiz.csv")
 
-tmp <- cnt3disprgs02[sttdis %in% c("A11.0", "A1.0")] [order(sttdis, discomb, numcomb, grpcomb)]
+tmp <- cnt3disprgs02 [sttdis %in% c("V2.63")] #[sttdis %in% c("A11.0", "A1.0")] 
+#[order(sttdis, discomb, numcomb, grpcomb)]
 
 collapsibleTree(
   tmp,
@@ -112,8 +116,11 @@ collapsibleTree(
                 "node009", "node010", "node011", "node012", "node013", "node014", "node015", "node016",
                 "node017", "node018", "node019", "node020", "node021", "node022", "node023", "node024",
                 "node025", "node026", "node027"),
-  width = 800
-)
+  width = 800,
+  tooltip = TRUE,
+  nodeSize = "leafCount",
+  linkLength = 200
+  )
 
 collapsibleTreeSummary(
 tmp,
