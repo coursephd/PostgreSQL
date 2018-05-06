@@ -7,6 +7,58 @@ library(stringr)
 library(anytime)
 library(collapsibleTree)
 #library(quantmod)
+library(htmltools)
+library(networkD3)
+library(jsonlite)
+library(tidyr)
+
+#####################################################
+# The verson of data which is working with d3_csv file
+# Use the file created by the following code in the following folder
+# D:\\Hospital_data\\ProgresSQL\\misc\\jsfolder\\03dis_csv\\
+# Then execute the D3js program to generate the tree
+# This tree is not collapsible at this point
+#####################################################
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+all_met_rmsd <- all_met_rmsd [, Code := str_replace_all(Code, "\\.", "_")]
+cnt<- unique( all_met_rmsd [patient_gender != "" & Code != "", 
+                            c("mr_no", "studyday","Code", "description","distype", "patient_gender"), ])
+cnt <- cnt [, `:=` (mnth = round( studyday /30.25, digits = 0), 
+                    description = paste("'", trimws(distype), ": ", trimws(description), sep = ""),
+                    Code =  paste("[", trimws(Code), "]", sep="")) ]
+
+cntrow <- cnt [, .(permnth = uniqueN(Code) ), by =.(mr_no, mnth)]
+
+cnt <- cnt [order(mr_no, studyday, Code, description, patient_gender)]
+cnt2 <- unique(cnt [, c("mr_no", "Code", "description", "patient_gender", "distype"), ])
+
+# Combintions for each patient
+
+cnt3 <- cnt2[, `:=` (discomb = sapply(seq_len(.N), function(x) paste(Code[seq_len(x)], collapse = ".")),
+                     descomb = sapply(seq_len(.N), function(x) paste(description[seq_len(x)], collapse = " ")),
+                     numcomb = seq_len(.N),
+                     grpcomb = paste(trimws(Code), collapse = " ", sep=)),
+             by = .(mr_no, patient_gender)]
+
+cnt3disprgs <- cnt3 [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb, numcomb, grpcomb)]
+cnt3disprgs <- cnt3disprgs [, sttdis := word (discomb, sep ="\\."), ]
+cnt3disprgs <- cnt3disprgs [order(sttdis, numcomb, discomb, grpcomb)]
+cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, grpcomb)]
+
+cnt3disprgs <- cnt3disprgs [, treecomb := paste(discomb, ",", sep="")]
+cnt3disprgs <- cnt3disprgs [order(sttdis, grpcomb, node)]
+
+fwrite(unique(cnt3disprgs [sttdis %in% "[A11_0]", c("treecomb")]), 
+       col.names = FALSE,
+       quote = FALSE,
+       "D:\\Hospital_data\\ProgresSQL\\misc\\jsfolder\\03dis_csv\\a11_0.csv")
+
+#####################################################################################
+
+
+devtools::install_github
+devtools::install_github("timelyportfolio/networkD3@feature/d3.chart.layout")
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -105,7 +157,7 @@ cnt3disprgs02 <- dcast(cnt3disprgs,
 fwrite(cnt3disprgs, "D:\\Hospital_data\\ProgresSQL\\analysis\\node_verti.csv")
 fwrite(cnt3disprgs02, "D:\\Hospital_data\\ProgresSQL\\analysis\\node_horiz.csv")
 
-tmp <- cnt3disprgs02 [sttdis %in% c("V2.63")] #[sttdis %in% c("A11.0", "A1.0")] 
+tmp <- cnt3disprgs02 [sttdis %in% c("M1.0")] #[sttdis %in% c("A11.0", "A1.0")] 
 #[order(sttdis, discomb, numcomb, grpcomb)]
 
 collapsibleTree(
@@ -116,7 +168,8 @@ collapsibleTree(
                 "node009", "node010", "node011", "node012", "node013", "node014", "node015", "node016",
                 "node017", "node018", "node019", "node020", "node021", "node022", "node023", "node024",
                 "node025", "node026", "node027"),
-  width = 800,
+  width = 1800,
+  height = 1800,
   tooltip = TRUE,
   nodeSize = "leafCount",
   linkLength = 200
@@ -130,5 +183,26 @@ hierarchy = c("sttdis",
               "node009", "node010", "node011", "node012", "node013", "node014", "node015", "node016",
               "node017", "node018", "node019", "node020", "node021", "node022", "node023", "node024",
               "node025", "node026", "node027"),
-width = 800
+width = 1800,
+height = 1800,
+tooltip = TRUE,
+nodeSize = "leafCount",
+linkLength = 200
 )
+
+
+tmp [1,1] <- NA
+
+collapsibleTreeNetwork(
+  tmp,
+  attribute = "Title",
+  fill = "Color",
+  nodeSize = "leafCount",
+  tooltipHtml = "tooltip",
+  collapsed = FALSE
+)
+
+
+# Create Json file from data.table
+
+jsondis <- toJSON(cnt3disprgs, pretty = TRUE)
