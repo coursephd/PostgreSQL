@@ -46,14 +46,16 @@ cnt3disprgs <- cnt3disprgs [, sttdis := word (discomb, sep ="\\."), ]
 cnt3disprgs <- cnt3disprgs [order(sttdis, numcomb, discomb, grpcomb)]
 cnt3disprgs <- cnt3disprgs [, node := 1:.N, by =.(sttdis, grpcomb)]
 
-cnt3disprgs <- cnt3disprgs [, treecomb := paste(discomb, ",", sep="")]
+cnt3disprgs <- cnt3disprgs [, treecomb := paste("Disease.", discomb, ",", sep="")]
 cnt3disprgs <- cnt3disprgs [order(sttdis, grpcomb, node)]
 
-fwrite(unique(cnt3disprgs [sttdis %in% "[A11_0]", c("treecomb")]), 
+fwrite(unique(cnt3disprgs [sttdis %in% c("[A11_0]", "[A1_0]"), c("treecomb")]), 
        col.names = FALSE,
        quote = FALSE,
        "D:\\Hospital_data\\ProgresSQL\\misc\\jsfolder\\03dis_csv\\a11_0.csv")
 
+#####################################################################################
+# End of program
 #####################################################################################
 
 
