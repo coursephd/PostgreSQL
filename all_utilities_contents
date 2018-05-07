@@ -10,28 +10,268 @@ C:\Users\dell\AppData\Roaming\npm
 
 R libraries:
 
-acepack      caTools            data.tree       extrafontdb  gsubfn         kernlab       MetabolAnalyze  openxlsx   questionr      rpart          splines         trust
-animation    cellranger         datasets        fastmatch    gtable         KernSmooth    methods         parallel   R6             RPostgreSQL    sqldf           TTR
-anytime      checkmate          DBI             flexmix      gtools         klaR          MetSizeR        pbkrtest   RApiDatetime   rprojroot      statnet         utf8
-ape          chron              ddalpha         forcats      gWidgets       knitr         mgcv            pdftools   RColorBrewer   RSpectra       statnet.common  utils
-assertthat   class              DEoptimR        foreach      gWidgetsRGtk2  labeling      mime            permute    Rcpp           RSQLite        stats           vegan
-backports    classInt           devtools        foreign      haven          labelled      miniUI          phangorn   RcppArmadillo  rstudioapi     stats4          viridis
-base         cli                DiagrammeR      formatR      hexbin         lattice       minqa           phytools   RcppEigen      Rttf2pt1       stopwords       viridisLite
-base64enc    cluster            dichromat       Formula      highr          latticeExtra  mnormt          pillar     RcppParallel   rvest          stringdist      visNetwork
-BH           clusterGeneration  digest          fpc          Hmisc          lava          ModelMetrics    pkgconfig  RcppRoll       RWeka          stringi         whisker
-bindr        coda               dimRed          fuzzyjoin    hms            lazyeval      msm             plogr      readr          RWekajars      stringr         withr
-bindrcpp     codetools          diptest         gdata        htmlTable      linkcomm      munsell         plotly     recipes        scales         survival        wordcloud
-binman       collapsibleTree    downloader      geosphere    htmltools      lme4          mvtnorm         plotrix    refinr         scatterplot3d  tcltk           XML
-bit          colorspace         dplyr           ggplot2      htmlwidgets    lpSolve       netassoc        plyr       reshape2       selectr        tergm           xml2
-bit64        combinat           DRR             ggrepel      httr           lubridate     network         prodlim    reticulate     sfsmisc        tibble          xtable
-bitops       compiler           dynamicTreeCut  glue         huge           magrittr      networkD3       proto      rgexf          shiny          tidyr           xts
-blob         cooccur            e1071           gmp          igraph         maps          networkDynamic  psych      RGtk2          slam           tidyselect      yaml
-boot         corpcor            ellipse         gower        influenceR     markdown      nlme            purrr      rJava          sna            timeDate        zoo
-brew         crayon             ergm            gplots       infotheo       MASS          nloptr          pwr        rjson          SnowballC      tm
-broom        crosstalk          ergm.count      graphics     ipred          Matrix        NLP             quadprog   rlang          sp             tools
-cairoDevice  curl               evaluate        grDevices    ISOcodes       MatrixModels  nnet            quanteda   rmarkdown      spacyr         TraMineR
-car          CVST               expm            grid         jsonlite       mclust        numDeriv        quantmod   robustbase     SparseM        TraMineRextras
-caret        data.table         extrafont       gridExtra    kableExtra     memoise       openssl         quantreg   Rook           spatial        translations
+dell@DESKTOP-65T7583 /cygdrive/c/My-R/R-3.4.2/library
+$ ls -1|cat -n
+     1  acepack
+     2  animation
+     3  anytime
+     4  ape
+     5  assertthat
+     6  backports
+     7  base
+     8  base64enc
+     9  BH
+    10  bindr
+    11  bindrcpp
+    12  binman
+    13  bit
+    14  bit64
+    15  bitops
+    16  blob
+    17  boot
+    18  brew
+    19  broom
+    20  cairoDevice
+    21  car
+    22  caret
+    23  caTools
+    24  cellranger
+    25  checkmate
+    26  chron
+    27  class
+    28  classInt
+    29  cli
+    30  cluster
+    31  clusterGeneration
+    32  coda
+    33  codetools
+    34  collapsibleTree
+    35  colorspace
+    36  combinat
+    37  compiler
+    38  cooccur
+    39  corpcor
+    40  crayon
+    41  crosstalk
+    42  curl
+    43  CVST
+    44  data.table
+    45  data.tree
+    46  datasets
+    47  DBI
+    48  ddalpha
+    49  DEoptimR
+    50  devtools
+    51  DiagrammeR
+    52  dichromat
+    53  digest
+    54  dimRed
+    55  diptest
+    56  downloader
+    57  dplyr
+    58  DRR
+    59  dynamicTreeCut
+    60  e1071
+    61  ellipse
+    62  ergm
+    63  ergm.count
+    64  evaluate
+    65  expm
+    66  extrafont
+    67  extrafontdb
+    68  fastmatch
+    69  flexmix
+    70  forcats
+    71  foreach
+    72  foreign
+    73  formatR
+    74  Formula
+    75  fpc
+    76  fuzzyjoin
+    77  gdata
+    78  geosphere
+    79  ggplot2
+    80  ggrepel
+    81  glue
+    82  gmp
+    83  gower
+    84  gplots
+    85  graphics
+    86  grDevices
+    87  grid
+    88  gridExtra
+    89  gsubfn
+    90  gtable
+    91  gtools
+    92  gWidgets
+    93  gWidgetsRGtk2
+    94  haven
+    95  hexbin
+    96  highr
+    97  Hmisc
+    98  hms
+    99  htmlTable
+   100  htmltools
+   101  htmlwidgets
+   102  httr
+   103  huge
+   104  igraph
+   105  influenceR
+   106  infotheo
+   107  ipred
+   108  ISOcodes
+   109  jsonlite
+   110  kableExtra
+   111  kernlab
+   112  KernSmooth
+   113  klaR
+   114  knitr
+   115  labeling
+   116  labelled
+   117  lattice
+   118  latticeExtra
+   119  lava
+   120  lazyeval
+   121  linkcomm
+   122  lme4
+   123  lpSolve
+   124  lubridate
+   125  magrittr
+   126  maps
+   127  markdown
+   128  MASS
+   129  Matrix
+   130  MatrixModels
+   131  mclust
+   132  memoise
+   133  MetabolAnalyze
+   134  methods
+   135  MetSizeR
+   136  mgcv
+   137  mime
+   138  miniUI
+   139  minqa
+   140  mnormt
+   141  ModelMetrics
+   142  msm
+   143  munsell
+   144  mvtnorm
+   145  netassoc
+   146  network
+   147  networkD3
+   148  networkDynamic
+   149  nlme
+   150  nloptr
+   151  NLP
+   152  nnet
+   153  numDeriv
+   154  openssl
+   155  openxlsx
+   156  parallel
+   157  pbkrtest
+   158  pdftools
+   159  permute
+   160  phangorn
+   161  phytools
+   162  pillar
+   163  pkgconfig
+   164  plogr
+   165  plotly
+   166  plotrix
+   167  plyr
+   168  prodlim
+   169  proto
+   170  psych
+   171  purrr
+   172  pwr
+   173  quadprog
+   174  quanteda
+   175  quantmod
+   176  quantreg
+   177  questionr
+   178  R6
+   179  RApiDatetime
+   180  RColorBrewer
+   181  Rcpp
+   182  RcppArmadillo
+   183  RcppEigen
+   184  RcppParallel
+   185  RcppRoll
+   186  readr
+   187  recipes
+   188  refinr
+   189  reshape2
+   190  reticulate
+   191  rgexf
+   192  RGtk2
+   193  rJava
+   194  rjson
+   195  rlang
+   196  rmarkdown
+   197  robustbase
+   198  Rook
+   199  rpart
+   200  RPostgreSQL
+   201  rprojroot
+   202  RSpectra
+   203  RSQLite
+   204  rstudioapi
+   205  Rttf2pt1
+   206  rvest
+   207  RWeka
+   208  RWekajars
+   209  scales
+   210  scatterplot3d
+   211  selectr
+   212  sfsmisc
+   213  shiny
+   214  slam
+   215  sna
+   216  SnowballC
+   217  sp
+   218  spacyr
+   219  SparseM
+   220  spatial
+   221  splines
+   222  sqldf
+   223  statnet
+   224  statnet.common
+   225  stats
+   226  stats4
+   227  stopwords
+   228  stringdist
+   229  stringi
+   230  stringr
+   231  survival
+   232  tcltk
+   233  tergm
+   234  tibble
+   235  tidyr
+   236  tidyselect
+   237  timeDate
+   238  tm
+   239  tools
+   240  TraMineR
+   241  TraMineRextras
+   242  translations
+   243  trust
+   244  TTR
+   245  utf8
+   246  utils
+   247  vegan
+   248  viridis
+   249  viridisLite
+   250  visNetwork
+   251  whisker
+   252  withr
+   253  wordcloud
+   254  XML
+   255  xml2
+   256  xtable
+   257  xts
+   258  yaml
+   259  zoo
+
 
 My R studio
 My R Tools
