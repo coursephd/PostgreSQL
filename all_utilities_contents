@@ -1,0 +1,513 @@
+R libraries:
+
+acepack      caTools            data.tree       extrafontdb  gsubfn         kernlab       MetabolAnalyze  openxlsx   questionr      rpart          splines         trust
+animation    cellranger         datasets        fastmatch    gtable         KernSmooth    methods         parallel   R6             RPostgreSQL    sqldf           TTR
+anytime      checkmate          DBI             flexmix      gtools         klaR          MetSizeR        pbkrtest   RApiDatetime   rprojroot      statnet         utf8
+ape          chron              ddalpha         forcats      gWidgets       knitr         mgcv            pdftools   RColorBrewer   RSpectra       statnet.common  utils
+assertthat   class              DEoptimR        foreach      gWidgetsRGtk2  labeling      mime            permute    Rcpp           RSQLite        stats           vegan
+backports    classInt           devtools        foreign      haven          labelled      miniUI          phangorn   RcppArmadillo  rstudioapi     stats4          viridis
+base         cli                DiagrammeR      formatR      hexbin         lattice       minqa           phytools   RcppEigen      Rttf2pt1       stopwords       viridisLite
+base64enc    cluster            dichromat       Formula      highr          latticeExtra  mnormt          pillar     RcppParallel   rvest          stringdist      visNetwork
+BH           clusterGeneration  digest          fpc          Hmisc          lava          ModelMetrics    pkgconfig  RcppRoll       RWeka          stringi         whisker
+bindr        coda               dimRed          fuzzyjoin    hms            lazyeval      msm             plogr      readr          RWekajars      stringr         withr
+bindrcpp     codetools          diptest         gdata        htmlTable      linkcomm      munsell         plotly     recipes        scales         survival        wordcloud
+binman       collapsibleTree    downloader      geosphere    htmltools      lme4          mvtnorm         plotrix    refinr         scatterplot3d  tcltk           XML
+bit          colorspace         dplyr           ggplot2      htmlwidgets    lpSolve       netassoc        plyr       reshape2       selectr        tergm           xml2
+bit64        combinat           DRR             ggrepel      httr           lubridate     network         prodlim    reticulate     sfsmisc        tibble          xtable
+bitops       compiler           dynamicTreeCut  glue         huge           magrittr      networkD3       proto      rgexf          shiny          tidyr           xts
+blob         cooccur            e1071           gmp          igraph         maps          networkDynamic  psych      RGtk2          slam           tidyselect      yaml
+boot         corpcor            ellipse         gower        influenceR     markdown      nlme            purrr      rJava          sna            timeDate        zoo
+brew         crayon             ergm            gplots       infotheo       MASS          nloptr          pwr        rjson          SnowballC      tm
+broom        crosstalk          ergm.count      graphics     ipred          Matrix        NLP             quadprog   rlang          sp             tools
+cairoDevice  curl               evaluate        grDevices    ISOcodes       MatrixModels  nnet            quanteda   rmarkdown      spacyr         TraMineR
+car          CVST               expm            grid         jsonlite       mclust        numDeriv        quantmod   robustbase     SparseM        TraMineRextras
+caret        data.table         extrafont       gridExtra    kableExtra     memoise       openssl         quantreg   Rook           spatial        translations
+
+My R studio
+My R Tools
+
+node.js
+npm
+Tableau
+Java
+
+Cygwin
+
+dell@DESKTOP-65T7583 /cygdrive/d/Hospital_data
+$ cygcheck -c
+Cygwin Package Information
+Package                   Version             Status
+_autorebase               001007-1            OK
+alternatives              1.3.30c-10          OK
+base-cygwin               3.8-1               OK
+base-files                4.2-4               OK
+bash                      4.4.12-3            OK
+bzip2                     1.0.6-3             OK
+ca-certificates           2.22-1              OK
+coreutils                 8.26-2              OK
+crypt                     2.1-1               OK
+curl                      7.59.0-1            OK
+cygutils                  1.4.16-2            OK
+cygwin                    2.10.0-1            OK
+cygwin-debuginfo          2.10.0-1            OK
+dash                      0.5.9.1-1           OK
+dejavu-fonts              2.37-1              OK
+desktop-file-utils        0.23-1              OK
+diffutils                 3.5-2               OK
+dos2unix                  7.4.0-1             OK
+dos2unix-debuginfo        7.4.0-1             OK
+dri-drivers               18.0.1-1            OK
+editrights                1.03-1              OK
+file                      5.32-1              OK
+findutils                 4.6.0-1             OK
+gamin                     0.1.10-15           OK
+gawk                      4.2.1-1             OK
+getent                    2.18.90-4           OK
+grep                      3.0-2               OK
+groff                     1.22.3-1            OK
+gsettings-desktop-schemas 3.24.1-1            OK
+gzip                      1.8-1               OK
+hostname                  3.13-1              OK
+info                      6.5-2               OK
+ipc-utils                 1.0-2               OK
+less                      530-1               OK
+libargp                   20110921-3          OK
+libattr1                  2.4.46-1            OK
+libblkid1                 2.25.2-2            OK
+libbz2_1                  1.0.6-3             OK
+libcairo2                 1.14.12-1           OK
+libcom_err2               1.42.12-2           OK
+libcrypt0                 2.1-1               OK
+libcurl4                  7.59.0-1            OK
+libdb5.3                  5.3.28-2            OK
+libedit0                  20130712-1          OK
+libEGL1                   18.0.1-1            OK
+libexpat1                 2.2.3-1             OK
+libfam0                   0.1.10-15           OK
+libffi6                   3.2.1-2             OK
+libfontconfig-common      2.12.6-1            OK
+libfontconfig1            2.12.6-1            OK
+libfreetype6              2.8.1-1             OK
+libgcc1                   6.4.0-5             OK
+libgdbm4                  1.12-1              OK
+libGL1                    18.0.1-1            OK
+libglapi0                 18.0.1-1            OK
+libglib2.0_0              2.54.3-1            OK
+libgmp10                  6.1.2-1             OK
+libgssapi_krb5_2          1.15.2-2            OK
+libiconv                  1.14-3              OK
+libiconv2                 1.14-3              OK
+libidn2_0                 2.0.4-1             OK
+libintl8                  0.19.8.1-2          OK
+libiodbc2                 3.52.8-2            OK
+libjbig2                  2.0-14              OK
+libjpeg8                  1.5.3-1             OK
+libk5crypto3              1.15.2-2            OK
+libkrb5_3                 1.15.2-2            OK
+libkrb5support0           1.15.2-2            OK
+liblcms2_2                2.9-1               OK
+libllvm4.0                4.0.1-1             OK
+libllvm5.0                5.0.1-1             OK
+libltdl7                  2.4.6-5             OK
+liblzma5                  5.2.3-1             OK
+liblzo2_2                 2.10-1              OK
+libmetalink3              0.1.2-1             OK
+libmpfr4                  3.1.6-1p1           OK
+libmpfr6                  4.0.1-2             OK
+libncursesw10             6.0-12.20171125     OK
+libnghttp2_14             1.31.0-1            OK
+libnspr4                  4.14-1              OK
+libnss3                   3.30.2-1            OK
+libopenjp2_7              2.3.0-1             OK
+libopenjpeg1              1.5.2-3             OK
+libopenldap2_4_2          2.4.42-1            OK
+libopenssl100             1.0.2o-1            OK
+libp11-kit0               0.23.10-1           OK
+libpcre1                  8.40-3              OK
+libpipeline1              1.4.0-1             OK
+libpixman1_0              0.34.0-1            OK
+libpng16                  1.6.34-1            OK
+libpoppler62              0.45.0-2            OK
+libpoppler66              0.52.0-2            OK
+libpoppler68              0.57.0-1            OK
+libpoppler73              0.62.0-1            OK
+libpopt-common            1.16-2              OK
+libpopt0                  1.16-2              OK
+libpq5                    10.3-1              OK
+libpsl5                   0.18.0-1            OK
+libreadline7              7.0.3-3             OK
+libsasl2_3                2.1.26-11           OK
+libsigsegv2               2.10-2              OK
+libsmartcols1             2.25.2-2            OK
+libsqlite3_0              3.21.0-1            OK
+libssh2_1                 1.7.0-1             OK
+libssp0                   6.4.0-4             OK
+libstdc++6                6.4.0-5             OK
+libtasn1_6                4.13-1              OK
+libtiff6                  4.0.9-1             OK
+libunistring2             0.9.8-1             OK
+libuuid1                  2.25.2-2            OK
+libX11-xcb1               1.6.5-1             OK
+libX11_6                  1.6.5-1             OK
+libXau6                   1.0.8-1             OK
+libxcb-dri2_0             1.12-2              OK
+libxcb-glx0               1.12-2              OK
+libxcb-render0            1.12-2              OK
+libxcb-shm0               1.12-2              OK
+libxcb-xfixes0            1.12-2              OK
+libxcb1                   1.12-2              OK
+libXdmcp6                 1.1.2-1             OK
+libXext6                  1.3.3-1             OK
+libxml2                   2.9.4-2             OK
+libXrender1               0.9.9-1             OK
+login                     1.11-1              OK
+man-db                    2.7.6.1-1           OK
+mintty                    2.8.5-0             OK
+ncurses                   6.0-12.20171125     OK
+odbc-psql                 09.02.0100-1        OK
+odbc-psql-debuginfo       09.02.0100-1        OK
+openssl                   1.0.2o-1            OK
+p11-kit                   0.23.10-1           OK
+p11-kit-trust             0.23.10-1           OK
+perl                      5.26.2-1            OK
+perl-CGI                  4.38-1              OK
+perl-HTML-Parser          3.72-2              OK
+perl-HTML-Tagset          3.20-6              OK
+perl_autorebase           5.26.2-1            OK
+perl_base                 5.26.2-1            OK
+pkg-config                0.29.1-1            OK
+poppler                   0.62.0-1            OK
+poppler-data              0.4.8-1             OK
+poppler-data-devel        0.4.8-1             OK
+postgresql-client         10.3-1              OK
+postgresql-doc            10.3-1              OK
+publicsuffix-list-dafsa   20180328-1          OK
+rebase                    4.4.4-1             OK
+run                       1.3.4-2             OK
+sed                       4.4-1               OK
+sed-debuginfo             4.4-1               OK
+shared-mime-info          1.8-1               OK
+tar                       1.29-1              OK
+terminfo                  6.0-12.20171125     OK
+tzcode                    2018c-1             OK
+tzdata                    2018c-1             OK
+util-linux                2.25.2-2            OK
+vim-minimal               8.0.1567-1          OK
+which                     2.20-2              OK
+xz                        5.2.3-1             OK
+zlib0                     1.2.11-1            OK
+
+
+
+Free seuence minging softwre
+
+http://www.philippe-fournier-viger.com/spmf/
+
+
+D3 exmaple with the most comprehensive options
+https://bl.ocks.org/adamfeuer/042bfa0dde0059e2b288
+
+
+broser-sync in npm
+https://medium.com/@svinkle/start-a-local-live-reload-web-server-with-one-command-72f99bc6e855
+
+id,value
+Disease,
+Disease.M,
+Disease.F,
+
+
+Disease.[A11.0],
+Disease.[A1.0],
+
+
+SELECT table_name, column_name 
+FROM information_schema.columns
+WHERE table_schema = 'iaim' and column_name LIKE '%charge%';
+
+ OR column_name LIKE '%section%');
+
+ 
+ 
+create temp table state as
+select city.city_id, city.city_name, city.state_id, 
+state.state_name, state.country_id
+from iaim.city as city, iaim.state_master as state
+where city.state_id = state.state_id;
+
+create temp table cou as
+select state.*, country.country_name
+from state, iaim.country_master as country
+where state.country_id = country.country_id;
+
+  
+\copy temp40 TO 'd:/hospital_data/ProgresSQL/data_chk/01adsl.csv' CSV HEADER DELIMITER ',';
+
+\copy temp100ser TO 'd:/hospital_data/ProgresSQL/data_chk/temp100ser.csv' CSV HEADER DELIMITER ',';
+	
+
+Merge iaim.services dataset
+manf_master
+
+
+patient_section_forms [section_detail_id, form_id, form_type, display_order]
+patient_section_values [section_detail_id, field_id, option_id, option_remarks]
+patient_section_details [section_detail_id, section_item_id, mr_no, patient_id, item_type, section_id]
+section_field_desc [field_id, section_id, display_order, field_name, field_type]
+section_field_options [option_id, field_id, display_order, option_value]
+section_master [section_id, section_title, linked_to, section_mandatory]
+
+create table temp3pat_presc as
+select patient_presc_id, consultation_id, presc_type, status, date(prescribed_date) as dateonly
+from iaim.patient_prescription
+/*where presc_type in ('Medicine') */
+order by patient_presc_id, consultation_id;
+
+create table temp100ip as
+select prescription_id, patient_id as ippatient_id, doctor_id as ipdoctorid, 
+prescription_date::timestamptz::date as ipprescdate,
+presc_type as ippresc_type, item_id, item_name, med_dosage, med_route, med_form_id, 
+generic_code, remarks as ipremarks, recurrence_daily_id
+from iaim.ip_prescription
+order by ippatient_id;
+
+create table temp100ser as
+select mr_no as ser_mrno, patient_id as ser_patient_id, service_id, doctor_id as serdoctorid, 
+presc_date::timestamptz::date as serprescdate, conducted, conductedby, 
+conducteddate::timestamptz::date as sercond_date, prescription_id as serprescription_id
+from iaim.services_prescribed;
+
+
+iaim=> \d+ iaim.ip_prescription
+                                                                    Table "iaim.ip_prescription"
+        Column         |            Type             | Collation | Nullable |                    Default                    | Storage  | Stats target | Description
+-----------------------+-----------------------------+-----------+----------+-----------------------------------------------+----------+--------------+-------------
+ prescription_id       | integer                     |           | not null |                                               | plain    |              |
+ patient_id            | character varying(15)       |           |          |                                               | extended |              |
+ doctor_id             | character varying(15)       |           | not null |                                               | extended |              |
+ prescription_date     | timestamp without time zone |           | not null | ('now'::text)::timestamp(0) without time zone | plain    |              |
+ presc_type            | character(1)                |           |          |                                               | extended |              |
+ entered_by            | character varying(30)       |           |          |                                               | extended |              |
+ entered_datetime      | timestamp without time zone |           |          | ('now'::text)::timestamp(0) without time zone | plain    |              |
+ mod_time              | timestamp without time zone |           |          |                                               | plain    |              |
+ username              | character varying(30)       |           |          |                                               | extended |              |
+ item_id               | character varying(15)       |           |          |                                               | extended |              |
+ item_name             | character varying(100)      |           |          |                                               | extended |              |
+ med_dosage            | character varying(100)      |           |          |                                               | extended |              |
+ med_route             | integer                     |           |          |                                               | plain    |              |
+ med_form_id           | integer                     |           |          |                                               | plain    |              |
+ med_strength          | character varying(50)       |           |          |                                               | extended |              |
+ generic_code          | character varying(10)       |           |          |                                               | extended |              |
+ prior_med             | character(1)                |           |          | 'N'::bpchar                                   | extended |              |
+ remarks               | character varying(2000)     |           |          |                                               | extended |              |
+ freq_type             | character(1)                |           |          |                                               | extended |              |
+ recurrence_daily_id   | integer                     |           |          |                                               | plain    |              |
+ repeat_interval       | integer                     |           |          |                                               | plain    |              |
+ start_datetime        | timestamp without time zone |           |          |                                               | plain    |              |
+ end_datetime          | timestamp without time zone |           |          |                                               | plain    |              |
+ no_of_occurrences     | integer                     |           |          |                                               | plain    |              |
+ end_on_discontinue    | character(1)                |           |          | 'N'::bpchar                                   | extended |              |
+ discontinued          | character(1)                |           |          | 'N'::bpchar                                   | extended |              |
+ repeat_interval_units | character(1)                |           |          | 'M'::bpchar                                   | extended |              |
+ med_strength_units    | integer                     |           |          |                                               | plain    |              |
+ adm_request_id        | integer                     |           |          |                                               | plain    |              |
+ admin_strength        | character varying(100)      |           |          |                                               | extended |              |
+
+ 
+ 
+ Union:
+ 
+ OP
+ IP
+ SERVICE
+ 
+ Join:
+ 
+ DEMOG
+ DIAG
+ 
+ Join:
+ 
+ OVERALL VISITS
+ 
+ 
+ iaim.item_form_master: different types of Medicines 1 to 15
+ iaim.form_components: form types [15 records]
+ 
+select * from patient_section_details
+where section_detail_id in (1327956, 1327957, 1328793, 1328817, 1328996, 1328997, 1329201, 1329200, 1329439, 1329440);
+
+
+chk <- met_unq [, .(n=uniqueN(mr_no), 
+                            mean = round( mean(all_vis, na.rm = TRUE), digits =1),
+                            median= round( median(all_vis, na.rm = TRUE), digits =2),
+                            SD = round( sd(all_vis, na.rm = TRUE), digits =2),
+                            min = round( min(all_vis, na.rm = TRUE), digits =0),
+                            max = round( max(all_vis, na.rm = TRUE), digits =0)), 
+                        by = .(patient_gender)]
+  
+  
+select mr_no, patient_id, visit_type, reg_date, bed_type, dept_name, admitted_dept, main_visit_id
+from iaim.patient_registration
+where mr_no = 'MR000031'
+order by mr_no, patient_id;
+
+Year 
+
+
+SELECT * FROM iaim.mrd_codes_master ORDER BY id DESC LIMIT 100
+
+
+
+id,value
+Disease,
+Disease.[A11_0],
+Disease.[A11_0].F,
+Disease.[A11_0].F.[A16_0],
+Disease.[A11_0].F.[A16_0].[V2_63],
+Disease.[A11_0].F.[A2_0],
+Disease.[A11_0].F.[A2_0].[G10_0],
+Disease.[A11_0].F.[A2_0].[G10_0].[N2_21_0],
+Disease.[A11_0].F.[A6_0],
+Disease.[A11_0].F.[A6_0].[MS G1_0],
+Disease.[A11_0].F.[A6_0].[MS G1_0].[V2_23],
+Disease.[A11_0].F.[A6_0].[MS G1_0].[V2_23].[V2_36],
+Disease.[A11_0].F.[B2_1],
+Disease.[A11_0].F.[B2_1].[B2_0],
+Disease.[A11_0].F.[B2_1].[B2_0].[S16_0],
+Disease.[A11_0].F.[B2_1].[B2_0].[S16_0].[M18_11_2],
+Disease.[A11_0].F.[K10_38A],
+Disease.[A11_0].F.[K10_38A].[K4_13],
+Disease.[A11_0].F.[K10_38A].[K4_13].[M10_0],
+Disease.[A11_0].F.[K10_38A].[S14_17],
+Disease.[A11_0].F.[K10_38A].[S14_21],
+Disease.[A11_0].F.[K10_38A].[S14_7],
+Disease.[A11_0].F.[K10_38A].[S14_7].[M2_0],
+Disease.[A11_0].F.[K10_38A].[V2_23],
+Disease.[A11_0].F.[K10_38A].[V2_23].[V2_10],
+Disease.[A11_0].F.[M10_1],
+Disease.[A11_0].F.[M10_1].[S16_1],
+Disease.[A11_0].F.[M2_0],
+Disease.[A11_0].F.[M6_43],
+Disease.[A11_0].F.[M6_43].[V2_63],
+Disease.[A11_0].F.[N4_0],
+Disease.[A11_0].F.[N4_0].[S16_0],
+Disease.[A11_0].F.[N4_0].[S16_0].[A12_0],
+Disease.[A11_0].F.[N4_0].[S16_0].[A12_0].[K10_38A],
+Disease.[A11_0].F.[N4_0].[S16_0].[A12_0].[K10_38A].[M2_0],
+Disease.[A11_0].F.[N4_0].[V2_0],
+Disease.[A11_0].F.[N4_0].[V2_0].[S14_21],
+Disease.[A11_0].F.[N4_0].[V2_0].[S14_21].[V2_10],
+Disease.[A11_0].F.[N4_0].[V2_0].[S14_21].[V2_10].[MS G1_0],
+Disease.[A11_0].F.[S13_11],
+Disease.[A11_0].F.[S13_11].[V2_63],
+Disease.[A11_0].F.[S14_21],
+Disease.[A11_0].F.[V2_0],
+Disease.[A11_0].F.[V2_10],
+Disease.[A11_0].F.[V2_10].[V2_63],
+Disease.[A11_0].F.[V2_23],
+Disease.[A11_0].F.[V5_1],
+Disease.[A11_0].F.[V5_1].[K3_1],
+Disease.[A11_0].F.[V5_1].[K3_1].[V2_63],
+Disease.[A11_0].F.[V5_1].[K3_1].[V2_63].[V2_0],
+Disease.[A11_0].F.[V5_1].[K3_1].[V2_63].[V2_0].[N4_35],
+Disease.[A11_0].M,
+Disease.[A11_0].M.[A2_0],
+Disease.[A11_0].M.[A6_0],
+Disease.[A11_0].M.[A6_0].[K10_38],
+Disease.[A11_0].M.[A6_0].[K10_38].[K10_38A],
+Disease.[A11_0].M.[A6_0].[K10_38].[K10_38A].[G8_0],
+Disease.[A11_0].M.[A6_0].[K10_38].[K10_38A].[G8_0].[V2_23],
+Disease.[A11_0].M.[A6_0].[S13_11],
+Disease.[A11_0].M.[A6_0].[S13_11].[S4_0],
+Disease.[A11_0].M.[A6_0].[S13_11].[S4_0].[V2_63],
+Disease.[A11_0].M.[A6_0].[V2_0],
+Disease.[A11_0].M.[B2_0],
+Disease.[A11_0].M.[B2_0].[V2_63],
+Disease.[A11_0].M.[G9_7],
+Disease.[A11_0].M.[G9_7].[S18_0],
+Disease.[A11_0].M.[G9_7].[S18_0].[V2_63],
+Disease.[A11_0].M.[H2_0],
+Disease.[A11_0].M.[H2_0].[V2_63],
+Disease.[A11_0].M.[K10_38A],
+Disease.[A11_0].M.[K10_38A].[S14_0],
+Disease.[A11_0].M.[K10_38A].[S14_0].[B2_0],
+Disease.[A11_0].M.[K10_38A].[S14_0].[B2_0].[G10_0],
+Disease.[A11_0].M.[K10_38A].[S16_0],
+Disease.[A11_0].M.[K10_38A].[V2_0],
+Disease.[A11_0].M.[K10_38A].[V2_0].[A6_0],
+Disease.[A11_0].M.[K10_38A].[V2_63],
+Disease.[A11_0].M.[K3_0],
+Disease.[A11_0].M.[K3_0].[M2_0],
+Disease.[A11_0].M.[M2_0],
+Disease.[A11_0].M.[M2_0].[N4_0],
+Disease.[A11_0].M.[M2_0].[N4_0].[K2_1],
+Disease.[A11_0].M.[M2_0].[V5_0],
+Disease.[A11_0].M.[N2_18],
+Disease.[A11_0].M.[N2_18].[S14_1],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0].[V2_63],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0].[V2_63].[V2_2],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0].[V2_63].[V2_2].[K2_0],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0].[V2_63].[V2_2].[K2_0].[V1_0],
+Disease.[A11_0].M.[N2_18].[S14_1].[V2_0].[MS G1_0].[V2_63].[V2_2].[K2_0].[V1_0].[A6_0],
+Disease.[A11_0].M.[P5_0],
+Disease.[A11_0].M.[P5_0].[V2_63],
+Disease.[A11_0].M.[P5_0].[V2_63].[V2_56_0],
+Disease.[A11_0].M.[S14_0],
+Disease.[A11_0].M.[S14_0].[K2_0],
+Disease.[A11_0].M.[S14_0].[K2_0].[S13_11],
+Disease.[A11_0].M.[S15_42],
+Disease.[A11_0].M.[S16_0],
+Disease.[A11_0].M.[S4_0],
+Disease.[A11_0].M.[S4_0].[V5_0],
+Disease.[A11_0].M.[S4_0].[V5_0].[S16_0],
+Disease.[A11_0].M.[S4_0].[V5_0].[S16_0].[V16_0],
+Disease.[A11_0].M.[V1_0],
+Disease.[A11_0].M.[V2_0],
+Disease.[A11_0].M.[V2_10],
+Disease.[A11_0].M.[V2_10].[V2_9],
+Disease.[A11_0].M.[V2_23],
+Disease.[A11_0].M.[V2_23].[V2_0],
+Disease.[A11_0].M.[V2_23].[V2_0].[A6_0],
+Disease.[A11_0].M.[V2_23].[V2_0].[A6_0].[M2_0],
+Disease.[A11_0].M.[V2_23].[V2_0].[A6_0].[M2_0].[P5_0],
+Disease.[A11_0].M.[V2_36],
+Disease.[A11_0].M.[V2_36].[N2_21_1],
+Disease.[A11_0].M.[V2_36].[N2_21_1].[V2_10],
+Disease.[A11_0].M.[V2_36].[N2_21_1].[V2_10].[S14_21],
+Disease.[A11_0].M.[V2_36].[N2_21_1].[V2_10].[S14_21].[V2_63],
+Disease.[A11_0].M.[V2_63],
+Disease.[A11_0].M.[V2_63].[K10_38],
+Disease.[A11_0].M.[k12_9],
+Disease.[A11_0].M.[k12_9].[M10_2],
+Disease.[A11_10],
+Disease.[A11_10].F,
+Disease.[A11_10].F.[A12_1],
+Disease.[A11_10].F.[A12_1].[V2_0],
+Disease.[A11_10].F.[A12_1].[V2_0].[A11_0],
+Disease.[A11_10].F.[A12_1].[V2_0].[A11_0].[V2_36],
+Disease.[A11_10].F.[A12_1].[V2_0].[A11_0].[V2_36].[P5_0],
+Disease.[A11_10].F.[A12_1].[V2_0].[A11_0].[V2_36].[P5_0].[k12_0],
+Disease.[A11_10].F.[S13_11],
+Disease.[A11_10].F.[S13_11].[S2_10],
+Disease.[A11_10].M,
+Disease.[A11_10].M.[V2_2],
+Disease.[A11_10].M.[V2_2].[A5_0],
+Disease.[A11_10].M.[V2_2].[A5_0].[S13_11],
+Disease.[A11_10].M.[V2_2].[A5_0].[S13_11].[S4_0],
+Disease.[A11_10].M.[V2_36],
+Disease.[A11_18],
+Disease.[A11_18].F,
+Disease.[A11_18].F.[M2_0],
+Disease.[A11_18].F.[V2_63],
+Disease.[A11_18].F.[V2_63].[S16_30_0],
+Disease.[A11_1],
+Disease.[A11_1].M,
+Disease.[A11_1].M.[N2_18],
+Disease.[A11_1].M.[N2_18].[V2_23],
+Disease.[A11_1].M.[N2_18].[V2_23].[S14_21],
+Disease.[A11_1].M.[S14_3],
+Disease.[A11_1].M.[S14_3].[MS G1_0],
+Disease.[A11_1].M.[S14_3].[MS G1_0].[V2_23],
