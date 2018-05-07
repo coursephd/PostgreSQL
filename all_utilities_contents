@@ -1,3 +1,13 @@
+npm files:
+
+C:\Users\dell>npm list -g --depth=0
+C:\Users\dell\AppData\Roaming\npm
++-- browser-sync@2.24.4
++-- http-server@0.11.1
++-- http-server-js@1.0.0
++-- light-server@2.5.0
+`-- node-static@0.7.10
+
 R libraries:
 
 acepack      caTools            data.tree       extrafontdb  gsubfn         kernlab       MetabolAnalyze  openxlsx   questionr      rpart          splines         trust
