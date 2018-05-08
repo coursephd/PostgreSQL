@@ -1,6 +1,7 @@
 Please find below details for accessing the database. You will have to install Postgress locally on your system and then connect to the database as per details below.
 
- 
+Login using the Cygwin terminal (the following command will prompt for password): 
+psql -h 54.244.12.255 -p 5432 -d iaim -U iaim_ro
 
 Postgress DB details:
 
