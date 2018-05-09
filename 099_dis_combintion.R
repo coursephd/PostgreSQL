@@ -13,6 +13,58 @@ library(jsonlite)
 library(tidyr)
 
 #####################
+# This version for 05, not working so far
+#####################
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+all_met_rmsd <- all_met_rmsd [, Code := str_replace_all(Code, "\\.", "_")]
+cnt<- unique( all_met_rmsd [patient_gender != "" & Code != "", 
+                            c("mr_no", "studyday","Code", "description","distype", "patient_gender"), ])
+
+cnt <- cnt [order(mr_no, studyday, Code, description, patient_gender)]
+cnt2 <- unique(cnt [, c("mr_no", "Code", "description", "patient_gender", "distype"), ])
+
+# Combinations for each patient
+# Do these calculations for first rows
+cnt3 <- cnt2[, `:=` (numcomb = seq_len(.N),
+                     descomb = description,
+                     discomb = Code,
+                     grpcomb = paste(trimws(Code), collapse = " ", sep=)),
+             by = .(mr_no, patient_gender)]
+
+# Starting disease sttdis
+stt <- cnt3 [ numcomb == 1, .(sttdis = discomb), by =.(mr_no, patient_gender, Code)]
+cnt3disprgs <- merge(cnt3, stt [, c("mr_no", "sttdis", "patient_gender"), ], by = c("mr_no", "patient_gender"))
+
+cnt3disprgs02 <- cnt3disprgs [, .(npt = uniqueN(mr_no)), by = .(discomb, descomb, numcomb, grpcomb, sttdis, patient_gender)]
+
+cnt3disprgs03 <- dcast(data = cnt3disprgs02, 
+                       npt + sttdis + grpcomb + patient_gender ~ paste("node", str_pad(numcomb, width=3, pad="0", side= c("left")), sep=""),
+                       value.var = c("discomb"),
+                       fill=" ")
+tmp <- cnt3disprgs03[sttdis == "A11_0", -c("grpcomb")]
+
+
+
+cnt3disprgs03 <- dcast(data = cnt3disprgs02, 
+                       sttdis + grpcomb + patient_gender 
+                       ~ paste("fieldA.children.", numcomb, ".name", sep=""),
+                       value.var = c("discomb"),
+                       fill=" ")
+
+setnames(cnt3disprgs03, "sttdis", "fieldA.name")
+setnames(cnt3disprgs03, "patient_gender", "fieldA.children.0.name")
+
+tmp <- cnt3disprgs03[fieldA.name == "A11_0", -c("grpcomb")]
+fwrite(tmp, "D:\\Hospital_data\\ProgresSQL\\misc\\jsfolder\\05gender_json\\sub.csv")
+
+user@DESKTOP-13IUJT2 /cygdrive/d/Hospital_data/ProgresSQL/misc/jsfolder/05gender_json
+$ csvtojson --ignoreEmpty=TRUE sub.csv > sub.json
+
+
+
+
+#####################
 # This version is for m / f
 # Use 04dis_gender_csv folder
 #####################
