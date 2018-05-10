@@ -1,3 +1,18 @@
+Partially working json file:
+{
+	"name": "flare",
+	"children":
+
+[
+{"name": "1", "children":[{"name":"F"},{"name":"A11_10"},{"name":"A12_1"},{"name":"V2_0"},{"name":"A11_0"},{"name":"V2_36"},{"name":"P5_0"},{"name":"k12_0"}]},
+{"name": "2", "children":[{"name":"F"},{"name":"A11_10"},{"name":"S13_11"},{"name":"S2_10"}]},
+{"name": "3", "children":[{"name":"M"},{"name":"A11_10"},{"name":"V2_2"},{"name":"A5_0"},{"name":"S13_11"},{"name":"S4_0"}]},
+{"name": "4", "children":[{"name":"M"},{"name":"A11_10"},{"name":"V2_36"}]}
+]
+
+}
+
+
 How to use Slopegraphs (Edward Tufte's ideas)
 
 tojson: https://www.npmjs.com/package/tojson
