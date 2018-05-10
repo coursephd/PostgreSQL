@@ -1,3 +1,5 @@
+How to use Slopegraphs (Edward Tufte's ideas)
+
 tojson: https://www.npmjs.com/package/tojson
 
 D3 simple dndTree.js -- all programs stored in one file, should be tried with a CSV file in place of Json file
