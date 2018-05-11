@@ -1,3 +1,7 @@
+May be a simple solution to get CSV to json file:
+https://github.com/albertchang/CSV-to-flare.json-D3-parser
+
+
 Partially working json file:
 {
 	"name": "flare",
