@@ -1,7 +1,10 @@
 
-# Survival analysis
+## Survival analysis
 Time to first hospitalization by gender for any disease  
 Time to first Metabolic disease by gender  
 Time to first RMSD disease by gender  
 
+Same could be gender and season
+
 Average time between 2 visits by gender -- t-test
+
