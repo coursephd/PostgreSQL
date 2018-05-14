@@ -4,7 +4,29 @@ Time to first hospitalization by gender for any disease
 Time to first Metabolic disease by gender  
 Time to first RMSD disease by gender  
 
-Same could be gender and season
+Same could be done for gender and season
 
 Average time between 2 visits by gender -- t-test
+Same analysis by each disease if it makes sense?
+
+TraMineR:
+
+Sequence index plot
+Mean time spent in each state
+Transition rate
+State distribution plot
+Shannon Entropy index: transversal entropies [0 (in the same state all through), 1 (Many changes in one's state)], pick up the modal state to modal state sequence
+
+Longitudinal parameters:
+Distinct Successive States and duration of each state (duration may not be possible for our data)
+Longitudinal entropy [total of time spent at each state]
+
+Complexity index
+
+Dissimilarity measures
+
+
+
+
+
 
