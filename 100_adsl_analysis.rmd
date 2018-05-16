@@ -3,13 +3,13 @@ title: "Met RMSD analysis"
 author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  word_document:
-    keep_md: yes
+  html_document:
+    df_print: paged
     toc: yes
   pdf_document:
     toc: yes
-  html_document:
-    df_print: paged
+  word_document:
+    keep_md: yes
     toc: yes
 ---
 
@@ -25,6 +25,10 @@ library(anytime)
 library(knitr)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+
+age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "combine", "RMSD", "Metabolic", "patient_gender")] )
 
 tbl0001 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine)]
 tbl0002 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine, patient_gender)]
@@ -107,6 +111,11 @@ dis_all <- dis_all [, catvar := paste(distype, " ", Code, " ", description), ]
 
 summ_stat (datain =dis_all, xsub = 'disdur', by =c('patient_gender'), by1 =c("catvar"), dataout ="dis_stat_gender00")
 
+
+summ_stat (datain =age01 [ Metabolic ==1 & baseage > 0], xsub = 'baseage', by =c('Metabolic'), by1 =c("patient_gender"), dataout ="age02met")
+
+summ_stat (datain =age01 [ RMSD ==1 & patient_gender != "" & baseage > 0], xsub = 'baseage', by =c('RMSD'), by1 =c("patient_gender"), dataout ="age02rmsd")
+
 ```
 
 ## R Markdown
@@ -122,6 +131,10 @@ kable(tbl0001, col.names = c("Disease category", "Number of patients"))
 kable(tbl0002t, col.names = c("Disease category", "Females", "Males")) 
 kable(tbl0003, caption = "All Metabolic patients") 
 kable(tbl0004, caption = "All RMSD patients") 
+
+kable(age02met [order(get, get.1)], caption = "Metabolic: Summary statistics of baseline age in years") 
+
+kable(age02rmsd [order(get, get.1)], caption = "RMSD: Summary statistics of baseline age in years") 
 
 kable(met_stat_gender00 [order(get, get.1)], caption = "Metabolic: Summary statistics in days and visits") 
 kable(rmsd_stat_gender00 [order(get, get.1)], caption = "RMSD: Summary statistics in days and visits") 
