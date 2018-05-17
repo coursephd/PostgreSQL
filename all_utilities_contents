@@ -1,3 +1,7 @@
+Good looking R reports
+https://www.r-bloggers.com/elegant-regression-results-tables-and-plots-in-r-the-finalfit-package/
+
+-----------------------------------------------------------------------------------------
 May be a simple solution to get CSV to json file:
 https://github.com/albertchang/CSV-to-flare.json-D3-parser
 
@@ -5,7 +9,7 @@ SimpleJar=Hospital_data/ProgresSQL/misc/jsfolder/999temp
 java -classpath `cygpath -wp /cygdrive/d/${SimpleJar}:./json-simple-1.1.1.jar` D3Taxonomy decode_gender.csv ">"
 
 https://www.reddit.com/r/javahelp/comments/4pilqh/i_dont_know_anything_about_java_but_i_need_to_run/
-
+-----------------------------------------------------------------------------------------
 
 Partially working json file:
 {
