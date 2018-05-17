@@ -27,8 +27,15 @@ library(knitr)
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
 
+
+
+# Baseline age
 age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "combine", "RMSD", "Metabolic", "patient_gender")] )
+
+# Age by visits
+age011 <- unique( all_met_rmsd [, c("mr_no", "age", "combine", "RMSD", "Metabolic", "patient_gender", "vis")] )
 
 tbl0001 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine)]
 tbl0002 <- all_met_rmsd [, .(NoofPat = uniqueN(mr_no)), by = .(combine, patient_gender)]
@@ -116,6 +123,10 @@ summ_stat (datain =age01 [ Metabolic ==1 & baseage > 0], xsub = 'baseage', by =c
 
 summ_stat (datain =age01 [ RMSD ==1 & patient_gender != "" & baseage > 0], xsub = 'baseage', by =c('RMSD'), by1 =c("patient_gender"), dataout ="age02rmsd")
 
+summ_stat (datain =age011 [ Metabolic ==1 & age > 0], xsub = 'age', by =c('vis'), by1 =c("patient_gender"), dataout ="age02vismet")
+
+summ_stat (datain =age011 [ RMSD ==1 & patient_gender != "" & age > 0], xsub = 'age', by =c('vis'), by1 =c("patient_gender"), dataout ="age02visrmsd")
+
 ```
 
 ## R Markdown
@@ -127,16 +138,24 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r, echo= FALSE}
 
-kable(tbl0001, col.names = c("Disease category", "Number of patients")) 
-kable(tbl0002t, col.names = c("Disease category", "Females", "Males")) 
+kable(tbl0001, col.names = c("Disease category", "Number of patients"), caption= "--") 
+
+kable(tbl0002t, col.names = c("Disease category", "Females", "Males"), caption= "--") 
+
 kable(tbl0003, caption = "All Metabolic patients") 
+
 kable(tbl0004, caption = "All RMSD patients") 
 
 kable(age02met [order(get, get.1)], caption = "Metabolic: Summary statistics of baseline age in years") 
 
 kable(age02rmsd [order(get, get.1)], caption = "RMSD: Summary statistics of baseline age in years") 
 
+kable(age02vismet [order(get, get.1)], caption = "Metabolic: Summary statistics of baseline age in years") 
+
+kable(age02visrmsd [order(get, get.1)], caption = "RMSD: Summary statistics of baseline age in years") 
+
 kable(met_stat_gender00 [order(get, get.1)], caption = "Metabolic: Summary statistics in days and visits") 
+
 kable(rmsd_stat_gender00 [order(get, get.1)], caption = "RMSD: Summary statistics in days and visits") 
 
 kable(dis_stat_gender00 [order(get.1, get)], caption = "Diseases: Summary statistics in days, by gender") 
