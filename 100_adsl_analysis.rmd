@@ -4,7 +4,8 @@ author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
-    df_print: paged
+    df_print: kable
+    number_sections: yes
     toc: yes
   pdf_document:
     toc: yes
@@ -23,6 +24,7 @@ library(ggplot2)
 library(dplyr)
 library(anytime)
 library(knitr)
+library(DT)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -129,45 +131,95 @@ summ_stat (datain =age011 [ RMSD ==1 & patient_gender != "" & age > 0], xsub = '
 
 ```
 
-## R Markdown
+## Analysis
 
-Frequency counts for patients and summary statistics
+Metabolic and RMSD patients
 <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
+## Disease Category
 ```{r, echo= FALSE}
-
 kable(tbl0001, col.names = c("Disease category", "Number of patients"), caption= "--") 
+```
 
-kable(tbl0002t, col.names = c("Disease category", "Females", "Males"), caption= "--") 
+## Disease category by gender 
+```{r, echo= FALSE}
+#kable(tbl0002t, col.names = c("Disease category", "Females", "Males"), caption= "--") 
+datatable(tbl0002t)
+```
 
+## Number of Metabolic patients
+```{r, echo= FALSE}
 kable(tbl0003, caption = "All Metabolic patients") 
 
+```
+
+## Number of RMSD patients
+```{r, echo= FALSE}
 kable(tbl0004, caption = "All RMSD patients") 
 
-kable(age02met [order(get, get.1)], caption = "Metabolic: Summary statistics of baseline age in years") 
+```
 
-kable(age02rmsd [order(get, get.1)], caption = "RMSD: Summary statistics of baseline age in years") 
-
-kable(age02vismet [order(get, get.1)], caption = "Metabolic: Summary statistics of baseline age in years") 
-
-kable(age02visrmsd [order(get, get.1)], caption = "RMSD: Summary statistics of baseline age in years") 
-
-kable(met_stat_gender00 [order(get, get.1)], caption = "Metabolic: Summary statistics in days and visits") 
-
-kable(rmsd_stat_gender00 [order(get, get.1)], caption = "RMSD: Summary statistics in days and visits") 
-
-kable(dis_stat_gender00 [order(get.1, get)], caption = "Diseases: Summary statistics in days, by gender") 
+## Metabolic: Summary statistics of baseline age in years
+```{r, echo= FALSE}
+kable(age02met [order(get, get.1)], caption = "--") 
 
 ```
 
-## Including Plots
+## RMSD: Summary statistics of baseline age in years
+```{r, echo= FALSE}
+kable(age02rmsd [order(get, get.1)], caption = "--") 
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Metabolic: Summary statistics of baseline age in years, by visit
+```{r, echo= FALSE}
+#kable(age02vismet [order(get, get.1)], caption = "--") 
+
+datatable(age02vismet)
+```
+
+## RMSD: Summary statistics of baseline age in years, by visit
+```{r, echo= FALSE}
+#kable(age02visrmsd [order(get, get.1)], caption = "--") 
+
+datatable(age02visrmsd)
+```
+
+## Metabolic: Summary statistics in days and visits
+```{r, echo= FALSE}
+kable(met_stat_gender00 [order(get, get.1)], caption = "--") 
+
+```
+
+## RMSD: Summary statistics in days and visits
+```{r, echo= FALSE}
+kable(rmsd_stat_gender00 [order(get, get.1)], caption = "") 
+
+```
+
+## Diseases: Summary statistics in days, by gender
+```{r, echo= FALSE}
+#kable(dis_stat_gender00 [order(get.1, get)], caption = "--") 
+
+datatable(dis_stat_gender00)
+```
+
+## Cumulative display of patients by duration
+```{r, echo= FALSE, message= FALSE}
+
+source("D:/Hospital_data/ProgresSQL/prgm/07_cumulative_duration.R")
+
+kable(diag100all, caption="--")
+
+```
+
+## Cumulative display of patients by Code and duration
+```{r, echo= FALSE, message= FALSE}
+
+source("D:/Hospital_data/ProgresSQL/prgm/07_cumulative_dur_byCode.R")
+
+#kable(diag100all [, -c("durlwr")], caption="--")
+
+datatable( diag100all [, -c("durlwr")] )
+```
+
