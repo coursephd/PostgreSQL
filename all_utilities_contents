@@ -1,6 +1,7 @@
 Good looking R reports
 https://www.r-bloggers.com/elegant-regression-results-tables-and-plots-in-r-the-finalfit-package/
 http://www.ggplot2-exts.org/gallery/
+https://sachsmc.github.io/knit-git-markr-guide/knitr/knit.html - stargazer package to arrange different models neatly
 
 -----------------------------------------------------------------------------------------
 May be a simple solution to get CSV to json file:
