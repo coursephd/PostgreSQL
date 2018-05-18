@@ -12,6 +12,55 @@ java -classpath `cygpath -wp /cygdrive/d/${SimpleJar}:./json-simple-1.1.1.jar` D
 https://www.reddit.com/r/javahelp/comments/4pilqh/i_dont_know_anything_about_java_but_i_need_to_run/
 -----------------------------------------------------------------------------------------
 
+Boxplots using ggplot2:
+
+```{r}
+mydata2 <- melt(data = mydata, 
+                id.vars =c("SINO", "MRNO", "Prakriti", "Age", "Gender", "PKRT", "Patsts"))
+
+mydata3 = mydata2 [, varnum := .GRP , by = variable]
+
+
+p1 <- ggplot(data = mydata3 [variable != "PC" & varnum <=12 ], 
+             aes ( x= PKRT, y = value)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_wrap(~ variable, scales =  "free_y", shrink =FALSE, nrow=4)
+
+p2 <- ggplot(data = mydata3 [variable != "PC" & varnum %in% (13:24) ], 
+             aes ( x= PKRT, y = value)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_wrap(~ variable, scales =  "free_y", shrink =FALSE, nrow=4)
+
+p3 <- ggplot(data = mydata3 [variable != "PC" & varnum %in% (25:36) ], 
+             aes ( x= PKRT, y = value)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_wrap(~ variable, scales =  "free_y", shrink =FALSE, nrow=4)
+
+p4 <- ggplot(data = mydata3 [variable != "PC" & varnum %in% (37:48) ], 
+             aes ( x= PKRT, y = value)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_wrap(~ variable, scales =  "free_y", shrink =FALSE, nrow=4)
+
+p5 <- ggplot(data = mydata3 [variable != "PC" & varnum %in% (49:60) ], 
+             aes ( x= PKRT, y = value)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_wrap(~ variable, scales =  "free_y", shrink =FALSE, nrow=4)
+
+p1
+p2
+p3
+p4
+p5
+
+```
+
+
+
 Partially working json file:
 {
 	"name": "flare",
