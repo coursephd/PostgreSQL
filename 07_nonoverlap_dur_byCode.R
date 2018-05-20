@@ -10,7 +10,8 @@ all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0),
                                       imon = round( studyday/30.4375, digits = 0),
                                       cdur = as.numeric(cdur),
-                                      studyday =as.numeric(studyday)), ]
+                                      studyday =as.numeric(studyday), 
+                                      Code = paste(distype, ":", Code, description, sep= " ")), ]
 
 ind_dis <- unique(all_met_rmsd [, c("mr_no", "distype", "Code", "Metabolic", "cdur", "description",
                                     "RMSD", "combine", "baseage", "age", "season", "imon",
@@ -28,13 +29,13 @@ setkey(diag8, mr_no)
 
 dur    <- c("1 day", "2nd day to 1st month", "2nd month", "3rd month", "4th to 6th month", 
             "6th Month to 1 year", "> 1 year and <= 2 years", "> 2 years and <= 3 years", 
-            "> 3 years and <= 4 years", ">4 years and <= 5 years", ">5 years")
+            "> 3 years and <= 4 years", ">4 years and <= 5 years", ">5 years", "Within 1st year")
 
 durlwr <- c(1,           2,            31,            61,             91,           
-            181,       366,           732,            1098,           1464, 1830)
+            181,       366,           732,            1098,           1464, 1830, 1)
 
 durupr <- c(1,         30,          60,          90,           180, 
-            365,       731,         1097,          1463,       1839,     9999)
+            365,       731,         1097,          1463,       1839,     9999, 365)
 
 ref <- data.table ( cbind.data.frame (durlwr, durupr, dur ) )
 setkey(ref, durlwr, durupr) ## Set the key for patient IDs ("y" table)
@@ -94,9 +95,9 @@ diag800rpt <- rbindlist(list(
   diag800[!.(diag800rpt[, unique(mr_no)])] ## policies with no claims
 ), fill=T)
 
-diag900rpt <- diag800rpt [, unqvisit := uniqueN(dur), by = .(mr_no)] [order(mr_no, durlwr)]
-diag1000rpt <- diag900rpt [, .(nopat = uniqueN(mr_no)), by = .(unqvisit)] [order(unqvisit)]
-
+diag800rpt <- diag800rpt [order(mr_no, studyday, durlwr, Code)]
+diag900rpt <- diag800rpt [, unqvisit := 1:.GRP, by = .(mr_no, durlwr)] 
+diag900rpt <- diag900rpt [, unqdisvis := 1:.GRP, by = .(mr_no, durlwr, Code)] 
 
 diag10000rpt <- diag900rpt [, .(N = uniqueN(mr_no)), by = .(durlwr, dur)]
 diag10000rmsd <- diag900rpt [RMSD == 1, .(Nrmsd = uniqueN(mr_no)), by = .(durlwr, dur)]
@@ -119,14 +120,26 @@ summ_stat <- function (datain, xsub, by, by1, dataout ="D8")
                             SD = round( sd(get(xsub), na.rm = TRUE), digits =2),
                             min = round( min(get(xsub), na.rm = TRUE), digits =0),
                             max = round( max(get(xsub), na.rm = TRUE), digits =0)), 
-                        by = .(get(by), get(by1))]
+                        by = .(durupr, get(by), get(by1))]
   
   assign(dataout, stats_data, envir=.GlobalEnv)
 }
 
+# Dataset for complete duration across
+# non overlapping time periods
 summ_stat (datain =diag900rpt, 
-           xsub = 'cdur', by =c("dur"), by1 =c("patient_gender"), dataout ="nonovr01")
+           xsub = 'cdur', 
+           by =c("dur"), 
+           by1 =c("patient_gender"), 
+           dataout ="nonovr01")
 
+# Dataset for unique visits across
+# non overlapping time periods
+summ_stat (datain =diag900rpt, 
+           xsub = 'unqvisit', 
+           by =c("dur"), 
+           by1 =c("patient_gender"), 
+           dataout ="nonovr011")
 
 
 summ_stat03 <- function (datain, xsub, by, by1, by2, dataout ="D8")
@@ -137,14 +150,49 @@ summ_stat03 <- function (datain, xsub, by, by1, by2, dataout ="D8")
                             SD = round( sd(get(xsub), na.rm = TRUE), digits =2),
                             min = round( min(get(xsub), na.rm = TRUE), digits =0),
                             max = round( max(get(xsub), na.rm = TRUE), digits =0)), 
-                        by = .(get(by), get(by1), get(by2))]
+                        by = .(durupr, get(by), get(by1), get(by2))]
   
   assign(dataout, stats_data, envir=.GlobalEnv)
 }
 
+# Dataset with duration for each disease across
+# non overlapping time periods
 summ_stat03 (datain =diag9rpt, 
            xsub = 'idur', 
            by =c("dur"), 
            by1 =c("patient_gender"), 
            by2 =c("Code"),
            dataout ="nonovr02")
+
+# Dataset with number of visits per disease across 
+# different non overlapping time periods
+summ_stat03 (datain =diag900rpt, 
+             xsub = 'unqdisvis', 
+             by =c("dur"), 
+             by1 =c("patient_gender"), 
+             by2 =c("Code"),
+             dataout ="nonovr03")
+
+
+# Dataset for complete duration across
+# non overlapping time periods, by distype
+summ_stat03 (datain =diag900rpt, 
+           xsub = 'cdur', 
+           by =c("dur"), 
+           by1 =c("patient_gender"), 
+           by2 =c("distype"),
+           dataout ="nonovr01dis")
+
+# Dataset for unique visits across
+# non overlapping time periods, by distype
+summ_stat03 (datain =diag900rpt, 
+           xsub = 'unqvisit', 
+           by =c("dur"), 
+           by1 =c("patient_gender"),
+           by2 =c("distype"),
+           dataout ="nonovr011dis")
+
+setnames(nonovr011dis, "get.2", "distype")
+setnames(nonovr011dis, "get.1", "patient_gender")
+setnames(nonovr011dis, "get", "duration")
+nonovr011dis <- nonovr011dis [order(distype, patient_gender, durupr, duration ) ]
