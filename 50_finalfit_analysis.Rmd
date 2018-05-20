@@ -1,0 +1,66 @@
+---
+title: "Met RMSD analysis"
+author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(anytime)
+library(knitr)
+library(DT)
+library(finalfit)
+library(rstan)
+library(boot)
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
+
+rep1 <- all_met_rmsd [age> 0 & patient_gender !="", sex :=as.factor(patient_gender)]
+
+```
+
+```{r, echo = FALSE}
+
+explanatory = c("age", "cdur", "vismon")
+dependent = "sex" # Bowel perforation
+rep1 %>%
+  summary_factorlist(dependent, explanatory, p=TRUE, add_dependent_label=TRUE) %>%
+  kable()
+
+```
+
+
+```{r}
+
+data(colon_s)
+explanatory = c("age", "age.factor", "sex.factor", "obstruct.factor")
+dependent = "perfor.factor" # Bowel perforation
+colon_s %>%
+	summary_factorlist(dependent, explanatory, p=TRUE, add_dependent_label=TRUE) %>%
+  kable()
+
+
+explanatory = c("age.factor", "sex.factor", 
+  "obstruct.factor", "perfor.factor")
+explanatory_multi = c("age.factor", 
+  "obstruct.factor")
+dependent = 'mort_5yr'
+colon_s %>%
+  finalfit(dependent, explanatory, explanatory_multi) %>%
+  kable()
+```

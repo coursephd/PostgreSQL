@@ -3,20 +3,15 @@ library(data.table)
 library(zoo)
 library(stringi)
 library(stringr)
-#library(openxlsx)
 library(anytime)
-library(collapsibleTree)
-#library(quantmod)
 library(htmltools)
-#library(networkD3)
-#library(jsonlite)
 library(tidyr)
 
 # Cumulative duration
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
-all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
+all_met_rmsd <- all_met_rmsd [, `:=` (vismon = as.numeric( round( cdur/30.4375, digits = 0)) )]
 
 # Create a lookup table to get the cumulative view of the patients
 # Merge this onto individual datasets to create multiple records for patients
@@ -72,6 +67,11 @@ diag100met <- diag9rpt [Metabolic == 1, .(Metabolic = uniqueN(mr_no)), by = .(du
 
 diag100all <- cbind(diag100met, diag100rmsd, diag100rpt)
 
+diag100rpt_g <- diag9rpt [, .(all = uniqueN(mr_no)), by = .(patient_gender, durlwr, dur)]
+diag100rmsd_g <- diag9rpt [RMSD == 1, .(rmsd = uniqueN(mr_no)), by = .(patient_gender, durlwr, dur)]
+diag100met_g <- diag9rpt [Metabolic == 1, .(Metabolic = uniqueN(mr_no)), by = .(patient_gender, durlwr, dur)]
 
+diag100all_g <- Reduce(function(...) merge(..., all.y = TRUE, by = c("patient_gender", "durlwr","dur") ),
+                     list(diag100met_g, diag100rmsd_g, diag100rpt_g))
 
 

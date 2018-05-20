@@ -1,0 +1,187 @@
+---
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  word_document:
+    toc: yes
+    toc_depth: '2'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = "asis")
+
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(sparkline)
+library(htmlwidgets)
+library(htmltools)
+library(formattable)
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+all_met_rmsd <- all_met_rmsd [, `:=` (vismon = as.numeric( round( cdur/30.4375, digits = 0)) )]
+
+# Age by visits
+age011 <- unique( all_met_rmsd [, c("mr_no", "age", "combine", "RMSD", "Metabolic", "patient_gender", "vis")] )
+
+age011 <- age011 [ age > 0]
+
+js <- "function(data, type, full){ return '<span class=spark>' + data + '</span>' }"
+colDefs1 <- list(list(targets = c(1:12), render = JS(js)))
+colDefs2 <- list(list(targets = c(1:200), render = JS(js)))
+
+r <- range(filter(age011 [age > 0])$age)
+
+bar_string <- "type: 'bar', barColor: 'orange', negBarColor: 'purple', highlightColor: 'black'"
+cb_bar <- JS(paste0("function (oSettings, json) { $('.spark:not(:has(canvas))').sparkline('html', { ", 
+                    bar_string, " }); }"), collapse = "")
+
+x <- "function (oSettings, json) { $('.spark:not(:has(canvas))').sparkline('html', { "
+line_string <- "type: 'line', lineColor: 'black', fillColor: '#ccc', highlightLineColor: 'orange', highlightSpotColor: 'orange'"
+cb_line <- JS(paste0(x, line_string, ", chartRangeMin: ", r[1], ", chartRangeMax: ", 
+                     r[2], " }); }"), collapse = "")
+
+box_string <- "type: 'box', lineColor: 'black', whiskerColor: 'black', outlierFillColor: 'black', outlierLineColor: 'black', medianColor: 'black', boxFillColor: 'orange', boxLineColor: 'black'"
+cb_box1 <- JS(paste0(x, box_string, " }); }"), collapse = "")
+cb_box2 <- JS(paste0(x, box_string, ", chartRangeMin: ", r[1], ", chartRangeMax: ", 
+                     r[2], " }); }"), collapse = "")
+
+
+dat_t <- filter(age011)%>% group_by(vis) %>% summarise(Temperature = paste(age, collapse = ","))
+
+dat_t1 <- spread(dat_t, vis, Temperature)
+
+d1 <- datatable(dat_t1, rownames = FALSE, options = list(columnDefs = colDefs1, 
+                                                         fnDrawCallback = cb_line))
+d1$dependencies <- append(d1$dependencies, htmlwidgets:::getDependency("sparkline"))
+
+#dat_t2 <- spread(dat_t, Decade, Temperature)
+
+d3 <- datatable(dat_t1, rownames = FALSE, options = list(columnDefs = colDefs2, 
+                                                         fnDrawCallback = cb_box1))
+d3$dependencies <- append(d3$dependencies, htmlwidgets:::getDependency("sparkline"))
+
+```
+
+```{r}
+
+d1
+d3
+
+```
+
+```{r, results = 'asis'}
+
+
+age012 <- age011 [ age > 0 & patient_gender != ""]
+
+age012 %>%
+  group_by(vis, patient_gender) %>%
+  summarise(
+    age = spk_chr(
+      age, type="box",
+      chartRangeMin=0, chartRangeMax=max(age012$age)
+    ),
+    ageline = spk_chr(
+      age, type="line",
+      chartRangeMin=0, chartRangeMax=max(age012$age)
+    )
+  ) %>%
+  formattable() %>%
+  formattable::as.htmlwidget() %>%
+  spk_add_deps()
+
+```
+
+```{r }
+library(dplyr)
+library(formattable)
+library(sparkline)
+
+formattableWithSL <- function(TableDF,rawDF,key,SLfield){
+  ## Add sparkline field to TableDF
+  TableDF$sparkline <- TableDF[[key]]
+  
+  ## Now basically call formattable, but pass in the vars
+  formattable(TableDF,list(
+    "sparkline"=function(z){
+      sapply(z,function(zz){knitr::knit(text = sprintf(
+              '`r sparkline(c(%s), type="box")`',
+              paste0(
+                rawDF[which(rawDF[,key] == zz),SLfield],
+                collapse=","
+              )),
+            quiet = TRUE
+          )})}  ))
+}
+
+
+res <- 
+  iris %>% 
+  group_by(Species) %>% 
+  summarise(N=n(),
+            SL_Mean=round(mean(Sepal.Length),3),
+            SL_SD=round(sd(Sepal.Length),3),
+            SW_Mean=round(mean(Sepal.Width),3),
+            SW_SD=round(sd(Sepal.Width),3))
+
+formattableWithSL(TableDF=res,rawDF=iris,key="Species", SLfield = "Petal.Width")
+
+```
+
+```{r, results= 'asis'}
+
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    hp = as.character(
+      as.tags(
+        sparkline(hp, type="box", chartRangeMin=0, chartRangeMax=400)
+      )
+    ),
+    mpg = as.character(
+      as.tags(
+        sparkline(mpg, type="box", chartRangeMin=0, chartRangeMax=50)
+      )
+    )
+  ) %>%
+  formattable() %>%
+  formattable::as.htmlwidget() %>%
+  modifyList(
+    list(dependencies = c(
+      htmlwidgets:::getDependency("sparkline")
+    ))
+  )
+
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    hp = as.character(
+      as.tags(
+        sparkline(hp, type="box", chartRangeMin=0, chartRangeMax=400)
+      )
+    ),
+    mpg = as.character(
+      as.tags(
+        sparkline(
+          round(density(mpg,from=0,to=tail(pretty(mtcars$mpg),1))$y,2),
+          type="line"
+        )
+      )
+    )
+  ) %>%
+  formattable() %>%
+  formattable::as.htmlwidget() %>%
+  modifyList(
+    list(dependencies = c(
+      htmlwidgets:::getDependency("sparkline")
+    ))
+  )
+
+```

@@ -2,22 +2,17 @@
 title: "Met RMSD analysis"
 author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-output:
+output: 
   html_document:
-    df_print: kable
     number_sections: yes
     toc: yes
-  pdf_document:
-    toc: yes
-  word_document:
-    keep_md: yes
-    toc: yes
+    toc_depth: 2
+    toc_float: yes
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 
 library(data.table)
 library(ggplot2)
@@ -30,8 +25,6 @@ all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rd
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
-
-
 
 # Baseline age
 age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "combine", "RMSD", "Metabolic", "patient_gender")] )
@@ -171,14 +164,14 @@ kable(age02rmsd [order(get, get.1)], caption = "--")
 
 ```
 
-## Metabolic: Summary statistics of baseline age in years, by visit
+## Metabolic: Summary statistics of age in years, by visit
 ```{r, echo= FALSE}
 #kable(age02vismet [order(get, get.1)], caption = "--") 
 
 datatable(age02vismet)
 ```
 
-## RMSD: Summary statistics of baseline age in years, by visit
+## RMSD: Summary statistics of age in years, by visit
 ```{r, echo= FALSE}
 #kable(age02visrmsd [order(get, get.1)], caption = "--") 
 
@@ -186,12 +179,16 @@ datatable(age02visrmsd)
 ```
 
 ## Metabolic: Summary statistics in days and visits
+cdur: Total duration of hospital visits,  
+all_ip: All IP visits, all_op: All OP visits, all_vis: All IP + OP visits
 ```{r, echo= FALSE}
 kable(met_stat_gender00 [order(get, get.1)], caption = "--") 
 
 ```
 
 ## RMSD: Summary statistics in days and visits
+cdur: Total duration of hospital visits,  
+all_ip: All IP visits, all_op: All OP visits, all_vis: All IP + OP visits
 ```{r, echo= FALSE}
 kable(rmsd_stat_gender00 [order(get, get.1)], caption = "") 
 
@@ -213,6 +210,24 @@ kable(diag100all, caption="--")
 
 ```
 
+## Cumulative display of patients by duration and gender
+```{r, echo= FALSE, message= FALSE}
+
+datatable(diag100all_g [patient_gender !=""], caption="--")
+
+```
+
+## Non-overlapping display of patients by disease duration
+```{r, echo= FALSE, message= FALSE}
+
+source("D:/Hospital_data/ProgresSQL/prgm/07_nonoverlap_dur_byCode.R")
+
+datatable(diag10001all[, -c("durlwr")], caption="--", 
+          filter= 'top', rownames = FALSE)
+
+```
+
+
 ## Cumulative display of patients by Code and duration
 ```{r, echo= FALSE, message= FALSE}
 
@@ -221,5 +236,24 @@ source("D:/Hospital_data/ProgresSQL/prgm/07_cumulative_dur_byCode.R")
 #kable(diag100all [, -c("durlwr")], caption="--")
 
 datatable( diag100all [, -c("durlwr")] )
+```
+
+```{r}
+library(ggridges)
+
+age012 <- age011 [age > 0 & vis > 0 & patient_gender != ""]
+
+ggplot(data = age012 [vis <= 5], 
+       aes(x = age, y = patient_gender ) ) +
+       geom_density_ridges( aes(fill = patient_gender) ) +
+  facet_wrap( c("vis"))
+
+
+ggplot(data = age012 [vis <=5], 
+       aes(x = age, y = combine ) ) +
+  geom_density_ridges( aes(fill = patient_gender) ) +
+  facet_grid( .~  vis)
+
+
 ```
 
