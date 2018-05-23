@@ -1,0 +1,56 @@
+---
+title: "Met RMSD Survival analysis"
+author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    df_print: default
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(survival)
+library(survminer)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(anytime)
+library(knitr)
+library(DT)
+
+source("D:/Hospital_data/ProgresSQL/prgm/08_nonoverlap.R")
+
+```
+
+```{r}
+
+  tmp <- disease [patient_gender != "" & Code %in% c("Metabolic : M10.0 Medoroga", "Metabolic : P5.0 Prameha", "Metabolic : M2.0 Madhumeha", "Metabolic : S16.0 Sthaulya" )]
+  tmp <- tmp [, status:=1]
+  km_fit <- do.call(survfit, 
+                    list(formula = Surv(idurmonth, status ==1) ~ patient_gender, data= tmp))
+  
+ggsurv.list <- ggsurvplot_group_by(km_fit, tmp, group.by = "Code")
+
+#names(ggsurv.list)
+
+ggsurv.list
+
+
+ggsurvplot_group_by(km_fit, 
+           data =tmp,
+           group.by = "Code",
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = FALSE,        # Add risk table
+           risk.table.height = 0.3, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE
+)
+```
