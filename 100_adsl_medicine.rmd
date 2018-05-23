@@ -1,0 +1,96 @@
+---
+title: "Met RMSD Medicine analysis"
+author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  word_document: 
+    toc: yes
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo= FALSE, message= FALSE}
+
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(anytime)
+library(knitr)
+library(DT)
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+all_met_rmsd <- all_met_rmsd [patient_gender != "" & medicine_name != ""]
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+overall <- all_met_rmsd [, `:=` (vismon = as.numeric(round( cdur/30.4375, digits = 0)),
+                                 imon = as.numeric(round( studyday/30.4375, digits = 0)),
+                                 cdur = as.numeric(cdur),
+                                 studyday =as.numeric(studyday)), ]
+
+diag8 <- unique(all_met_rmsd [, c("mr_no", "studyday", "cdur", "vismon", "imon", 
+                                 "medicine_name", "patient_gender", "baseage", 
+                                 "combine", "RMSD", "Metabolic"), ])
+
+
+## The foverlaps function requires both tables to have a start and end range,
+# and the "y" table to be keyed
+diag8[, tempmon := imon]  ## Add a redundant day column to use as the end range
+setkey(diag8, mr_no)
+
+dur    <- c(">=1 day", ">=1 month", ">=2 months", ">=3 months", ">=6 months", 
+            ">=1 year", ">=2 years", ">=3 years", ">=4 years", ">=5 years")
+
+durlwr <- c(0,           1,            2,            3,             6,           
+            12,          24,           36,            48,             60)
+
+durupr <- c(999,         999,          999,          999,           999, 
+            999,         999,           999,          999,           999)
+
+ref <- data.table ( cbind.data.frame (durlwr, durupr, dur ) )
+
+setkey(ref, durlwr, durupr) ## Set the key for patient IDs ("y" table)
+
+## Find the overlaps, remove the redundant lossDate2 column, and add the inPolicy column:
+diag8rpt <- foverlaps(diag8,
+                      ref,
+                      by.x=c("imon", "tempmon"))[, `:=`(inPolicy=T, tempmon=NULL)]
+
+## Update rows where the claim was out of policy:
+diag8rpt[is.na(durlwr), inPolicy:=F]
+
+## Remove duplicates (such as policyNumber==123 & claimNumber==3),
+##  and add policies with no claims (policyNumber==125):
+setkey(diag8rpt, mr_no, imon, durlwr) ## order the results
+setkey(diag8rpt, mr_no, dur) ## set the key to identify unique values
+
+diag9rpt <- rbindlist(list(
+  diag8rpt, ## select only the unique values
+  diag8[!.(diag8rpt[, unique(mr_no)])] ## policies with no claims
+), fill=T)
+
+
+diag100rpt_g <- diag9rpt [, .(all = uniqueN(mr_no)), by = .(medicine_name, patient_gender, durlwr, dur)]
+diag100rmsd_g <- diag9rpt [RMSD == 1, .(rmsd = uniqueN(mr_no)), by = .(medicine_name, patient_gender, durlwr, dur)]
+diag100met_g <- diag9rpt [Metabolic == 1, .(Metabolic = uniqueN(mr_no)), by = .(medicine_name, patient_gender, durlwr, dur)]
+
+diag100all_g <- Reduce(function(...) merge(..., all.y = TRUE, by = c("medicine_name", "patient_gender", "durlwr","dur") ),
+                       list(diag100met_g, diag100rmsd_g, diag100rpt_g))
+
+```
+
+# Analysis of treatments
+Listing treatments and services given at different times. The treatment and service are listed more than once if they are administered at each timepoint
+```{r, warning=FALSE, echo=FALSE}
+
+datatable(diag100all_g, 
+          rownames = FALSE,
+          options = list(pageLength = 50) )
+
+```
