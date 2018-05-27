@@ -124,10 +124,9 @@ summ_stat (datain =age011 [ RMSD ==1 & patient_gender != "" & age > 0], xsub = '
 
 ```
 
-## Analysis
+# Analysis
 
-Metabolic and RMSD patients
-<http://rmarkdown.rstudio.com>.
+Metabolic and RMSD patients, this document contains different analysis
 
 ## Disease Category
 ```{r, echo= FALSE}
@@ -151,6 +150,9 @@ kable(tbl0003, caption = "All Metabolic patients")
 kable(tbl0004, caption = "All RMSD patients") 
 
 ```
+
+# Summary statistics of age at baseline and subsequent visits
+This section covers age related analysis  
 
 ## Metabolic: Summary statistics of baseline age in years
 ```{r, echo= FALSE}
@@ -178,9 +180,10 @@ datatable(age02vismet)
 datatable(age02visrmsd)
 ```
 
+# Analysis related to number of visits and duration 
 ## Metabolic: Summary statistics in days and visits
 cdur: Total duration of hospital visits,  
-all_ip: All IP visits, all_op: All OP visits, all_vis: All IP + OP visits
+all_ip: All IP visits, all_op: All OP visits, all_vis: All IP + OP visits  
 ```{r, echo= FALSE}
 kable(met_stat_gender00 [order(get, get.1)], caption = "--") 
 
@@ -201,6 +204,9 @@ kable(rmsd_stat_gender00 [order(get, get.1)], caption = "")
 datatable(dis_stat_gender00)
 ```
 
+# Cumulative analysis:
+In this analysis patients are counted multiple times as per available data for each time period  
+
 ## Cumulative display of patients by duration
 ```{r, echo= FALSE, message= FALSE}
 
@@ -217,17 +223,6 @@ datatable(diag100all_g [patient_gender !=""], caption="--")
 
 ```
 
-## Non-overlapping display of patients by disease duration
-```{r, echo= FALSE, message= FALSE}
-
-source("D:/Hospital_data/ProgresSQL/prgm/07_nonoverlap_dur_byCode.R")
-
-datatable(diag10001all[, -c("durlwr")], caption="--", 
-          filter= 'top', rownames = FALSE)
-
-```
-
-
 ## Cumulative display of patients by Code and duration
 ```{r, echo= FALSE, message= FALSE}
 
@@ -238,22 +233,100 @@ source("D:/Hospital_data/ProgresSQL/prgm/07_cumulative_dur_byCode.R")
 datatable( diag100all [, -c("durlwr")] )
 ```
 
-```{r}
-library(ggridges)
 
-age012 <- age011 [age > 0 & vis > 0 & patient_gender != ""]
+# Non-overlapping analysis
 
-ggplot(data = age012 [vis <= 5], 
-       aes(x = age, y = patient_gender ) ) +
-       geom_density_ridges( aes(fill = patient_gender) ) +
-  facet_wrap( c("vis"))
-
-
-ggplot(data = age012 [vis <=5], 
-       aes(x = age, y = combine ) ) +
-  geom_density_ridges( aes(fill = patient_gender) ) +
-  facet_grid( .~  vis)
-
+```{r, echo= FALSE, message= FALSE}
+source("D:/Hospital_data/ProgresSQL/prgm/07_cumulative_dur_byCode_Part02.R")
 
 ```
 
+## Total patients present across different time points 
+```{r, echo =FALSE, message=FALSE}
+
+datatable(diag10000all)
+
+```
+
+## Summary statistics of total duration across different time points
+```{r, echo =FALSE, message=FALSE}
+
+datatable(nonovr01)
+
+```
+
+## Summary statistics of total visits across different time points
+```{r, echo =FALSE, message=FALSE}
+
+datatable(nonovr011)
+
+```
+
+## Summary statistics of total visits across different time points for each disease
+```{r, echo =FALSE, message=FALSE}
+
+datatable(nonovr03)
+
+```
+
+```{r, echo= FALSE, message= FALSE}
+source("D:/Hospital_data/ProgresSQL/prgm/08_nonoverlap.R")
+
+```
+
+## Total duration across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01)
+```
+
+## Metabolic: total duration by gender across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01met)
+```
+
+## RMSD: total duration across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01rmsd)
+```
+
+## Metabolic: total duration for by gender across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01ovr_met)
+```
+
+## Metabolic: total duration for each disease across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01dis_met)
+```
+
+## RMSD: total duration for overall by gender non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01ovr_rmsd)
+```
+
+## RMSD: total duration for each disease across non overlapping time periods
+```{r, echo =FALSE, message=FALSE}
+
+datatable (nonovr01dis_rmsd)
+```
+
+# No-overlapping time period, frequency counts
+
+## Frequency counts for Total number of patients with treatment and diseases
+```{r, echo =FALSE, message=FALSE}
+
+datatable (dis_freq01all)
+```
+
+# Diseases present in each non-overlapping duration
+If a disease is present at least in a time period once then denote it by Yes 
+```{r, echo =FALSE, message=FALSE}
+datatable(diag950rpt_t)
+
+```
