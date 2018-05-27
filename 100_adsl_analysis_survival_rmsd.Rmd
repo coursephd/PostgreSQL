@@ -1,0 +1,1189 @@
+---
+title: "Met RMSD Survival analysis"
+author: "Girish Tillu, Ashwini Mathur, Vinay Mahajan"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    df_print: default
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(survival)
+library(survminer)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+library(anytime)
+library(knitr)
+library(DT)
+
+#source("D:/Hospital_data/ProgresSQL/prgm/090_adsl_analysis_survival_macrocall_creation.R")
+
+source("D:/Hospital_data/ProgresSQL/prgm/08_nonoverlap.R")
+
+```
+
+```{r, include=FALSE}
+
+mcall <- data.table (unique(disease [grepl (paste("^RMSD", sep=""), Code), c("Code"), ])) [order(Code)]
+mcall0 <- mcall [, z:=1]
+
+unqpat <- data.table( unique( all_met_rmsd [RMSD == 1, c("mr_no", "patient_gender", "vismon", "Metabolic", "RMSD"), ]))
+unqpat <- unqpat [, z:=1]
+unqpat02 <- merge(unqpat, mcall0 [, c("z", "Code"),], allow.cartesian = TRUE, by = c("z"))
+
+disease0 <- merge (x = disease [, c("mr_no", "Code", "idurmonth"), ], 
+                   y = unqpat02,
+                   by = c("mr_no", "Code"),
+                   all.y = TRUE,
+                   all.x = TRUE)
+disease0 <- disease0 [, disdur := ifelse(is.na(idurmonth), vismon, idurmonth), ]
+disease0 <- disease0 [, status := ifelse(is.na(idurmonth), 0, 1 )]
+
+```
+
+# RMSD : A2.0 Aamavaata
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : A2.0 Aamavaata'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : A2.0 Aamavaata");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : A2.1 Aamavaata - Kaphaja
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : A2.1 Aamavaata - Kaphaja'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : A2.1 Aamavaata - Kaphaja");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : A2.2 Aamavaata - Pittaja
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : A2.2 Aamavaata - Pittaja'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : A2.2 Aamavaata - Pittaja");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : A2.3 Aamavaata - Vaataja
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : A2.3 Aamavaata - Vaataja'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : A2.3 Aamavaata - Vaataja");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : A3.0 Abhighataja Shoola
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : A3.0 Abhighataja Shoola'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : A3.0 Abhighataja Shoola");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.0 Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.0 Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.0 Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.1 Stambha - Baahu Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.1 Stambha - Baahu Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.1 Stambha - Baahu Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.10 Stambha - Prishtha Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.10 Stambha - Prishtha Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.10 Stambha - Prishtha Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.12 Stambha - Sandhi Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.12 Stambha - Sandhi Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.12 Stambha - Sandhi Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.13 Stambha - Siraa Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.13 Stambha - Siraa Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.13 Stambha - Siraa Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.14 Stambha - Uru Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.14 Stambha - Uru Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.14 Stambha - Uru Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.4 Stambha - Greevaa Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.4 Stambha - Greevaa Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.4 Stambha - Greevaa Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.5 Stambha - Hanu Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.5 Stambha - Hanu Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.5 Stambha - Hanu Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S10.6 Stambha - Hridaya Stambha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S10.6 Stambha - Hridaya Stambha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S10.6 Stambha - Hridaya Stambha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.0 Sthaanabhedena Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.0 Sthaanabhedena Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.0 Sthaanabhedena Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.1 Sthaanabhedena Graha - Anga Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.1 Sthaanabhedena Graha - Anga Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.1 Sthaanabhedena Graha - Anga Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.11 Sthaanabhedena Graha - Katee Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.11 Sthaanabhedena Graha - Katee Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.11 Sthaanabhedena Graha - Katee Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.13 Sthaanabhedena Graha - Manyaa Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.13 Sthaanabhedena Graha - Manyaa Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.13 Sthaanabhedena Graha - Manyaa Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.14 Sthaanabhedena Graha - Marma Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.14 Sthaanabhedena Graha - Marma Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.14 Sthaanabhedena Graha - Marma Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.17 Sthaanabhedena Graha - Paada Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.17 Sthaanabhedena Graha - Paada Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.17 Sthaanabhedena Graha - Paada Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.18 Sthaanabhedena Graha - Paarshva Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.18 Sthaanabhedena Graha - Paarshva Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.18 Sthaanabhedena Graha - Paarshva Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.19 Sthaanabhedena Graha - Prishtha Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.19 Sthaanabhedena Graha - Prishtha Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.19 Sthaanabhedena Graha - Prishtha Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.20 Sthaanabhedena Graha - Shiro Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.20 Sthaanabhedena Graha - Shiro Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.20 Sthaanabhedena Graha - Shiro Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.22 Sthaanabhedena Graha - Uro Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.22 Sthaanabhedena Graha - Uro Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.22 Sthaanabhedena Graha - Uro Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.23 Sthaanabhedena Graha - Vaak Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.23 Sthaanabhedena Graha - Vaak Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.23 Sthaanabhedena Graha - Vaak Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.3 Sthaanabhedena Graha - Gala Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.3 Sthaanabhedena Graha - Gala Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.3 Sthaanabhedena Graha - Gala Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.5 Sthaanabhedena Graha - Hanu Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.5 Sthaanabhedena Graha - Hanu Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.5 Sthaanabhedena Graha - Hanu Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.6 Sthaanabhedena Graha - Hrid Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.6 Sthaanabhedena Graha - Hrid Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.6 Sthaanabhedena Graha - Hrid Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.7 Sthaanabhedena Graha - Jaanugraha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.7 Sthaanabhedena Graha - Jaanugraha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.7 Sthaanabhedena Graha - Jaanugraha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
+
+# RMSD : S13.8 Sthaanabhedena Graha - Janghaa Graha
+```{r, echo = FALSE}
+tmp <- disease0 [RMSD== 1 & patient_gender != '' & Code =='RMSD : S13.8 Sthaanabhedena Graha - Janghaa Graha'];
+km_fit <- survfit(Surv(disdur, status) ~ patient_gender, data= tmp);
+p <- ggsurvplot(km_fit, 
+           data =tmp, 
+           conf.int = TRUE,          # Add confidence interval
+           pval = TRUE,              # Add p-value
+           pval.method = TRUE,
+           risk.table = TRUE,        # Add risk table
+           risk.table.height = 0.25, # Useful to change when you have multiple groups
+           surv.median.line = "hv",  # add the median survival pointer.
+           cumevents = TRUE, 
+           add.all = TRUE, 
+           title ="RMSD : S13.8 Sthaanabhedena Graha - Janghaa Graha");
+
+rescox <- coxph(Surv(disdur, status) ~ patient_gender, data= tmp)
+
+```
+
+## Kaplan Meier table
+```{r, echo = FALSE}
+summary(km_fit, times = durlwr)
+
+```
+
+## Survival plot
+```{r, echo = FALSE}
+p
+
+```
+
+## Hazard ratio plot
+```{r, echo = FALSE}
+rescox;ggforest(rescox, data=tmp)
+
+```
