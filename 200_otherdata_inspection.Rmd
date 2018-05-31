@@ -609,3 +609,50 @@ secNA <- readRDS("D:/Hospital_data/ProgresSQL/analysis/secNA.rds")
 (distinct(secNA,`secNA_var001_NA`))
 
 ```
+
+
+library(data.table)
+
+
+sec001 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec001.rds")
+sec001_1 <- sec001 [, (names(sec001) %in% c("mr_no", "patient_id", "subvis") | 
+                         grepl("^sec", names(sec001)) ), with =FALSE]
+
+sec001_1t <- melt (data = sec001_1, 
+                   id.vars = c("mr_no", "patient_id", "subvis"), 
+                   measure.vars = grep("^sec", names(sec001), value = TRUE) )
+sec001_1t <- sec001_1t [, value := toupper(value)] [order(variable, value)]
+sec001_1t <- unique (sec001_1t [, -c("mr_no", "patient_id", "subvis")])
+
+sec001_1t <- sec001_1t [, nrow :=1:.N, by = .(variable)]
+
+max001 <- sec001_1t [, .(max = max(nrow)), by =.(variable)]
+sec001_1t2 <- dcast(sec001_1t, 
+                    nrow ~ variable, 
+                    value.var = c("value"))
+
+lookup <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup.csv", sep=",")
+
+sec001_1 <- sec001_1 [, `:=` (temp01diab = ifelse (toupper(sec001_var008_Diabetes) %in% lookup$sec001_var008_Diabetes, 0, 1), 
+                              temp01htn = ifelse (toupper(sec001_var009_Hypertension) %in% lookup$sec001_var009_Hypertension, 0, 1),
+                              temp01renal = ifelse(toupper(`sec001_var011_Renal Diseases`) %in% lookup$`sec001_var011_Renal Diseases`, 0, 1) ), ]
+           
+
+
+
+sec002 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec002.rds")
+sec002_1 <- sec002 [, (names(sec002) %in% c("mr_no", "patient_id", "subvis") | 
+                         grepl("^sec", names(sec002)) ), with =FALSE]
+
+sec002_1t <- melt (data = sec002_1, 
+                   id.vars = c("mr_no", "patient_id", "subvis"), 
+                   measure.vars = grep("^sec", names(sec002), value = TRUE) )
+sec002_1t <- sec002_1t [, value := toupper(value)] [order(variable, value)]
+sec002_1t <- unique (sec002_1t [, -c("mr_no", "patient_id", "subvis")])
+
+sec002_1t <- sec002_1t [, nrow :=1:.N, by = .(variable)]
+
+max002 <- sec002_1t [, .(max = max(nrow)), by =.(variable)]
+sec002_1t2 <- dcast(sec002_1t, 
+                    nrow ~ variable, 
+                    value.var = c("value"))
