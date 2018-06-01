@@ -1,3 +1,18 @@
+Working code for partial matching:
+sec001 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec001.rds")
+sec001_1 <- sec001 [, (names(sec001) %in% c("mr_no", "patient_id", "subvis") | 
+                         grepl("^sec", names(sec001)) ), with =FALSE]
+
+lookup <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup.csv", sep=",")
+ll <- paste("\\b", lookup [sec001_var015_diab != "", c(sec001_var015_diab)], "\\b", collapse = "|", sep="")
+
+sec_ll <- sec001_1 [, `:=` ( temp01diab = ifelse (toupper(sec001_var008_Diabetes) %in% lookup$sec001_var008_Diabetes, 0, 1), 
+                            temp01htn = ifelse (toupper(sec001_var009_Hypertension) %in% lookup$sec001_var009_Hypertension, 0, 1),
+                            temp01renal = ifelse(toupper(`sec001_var011_Renal Diseases`) %in% lookup$`sec001_var011_Renal Diseases`, 0, 1),
+                            dd = str_detect(`sec001_var015_Chief Complaint with Onset & Duration`, ll) ), ]
+
+=============================================================================================================
+
 Partial matching for the indicator variable creation: use of grepl with collpasing the records into a single row
 ex02 <- ex01 [, dd:= ifelse(grepl( paste(lookp, collapse = "|"), taste), 1, 0), ] 
 
