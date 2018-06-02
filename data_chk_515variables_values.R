@@ -1072,3 +1072,6 @@ rm(list= ls (pattern = "sec*"))
 
 fwrite(t2all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515variables.csv")
 fwrite(t22all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515dist_values.csv")
+
+saveRDS (t2all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515variables.rds")
+saveRDS (t22all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515dist_values.rds")
