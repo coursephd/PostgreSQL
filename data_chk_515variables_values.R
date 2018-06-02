@@ -1075,3 +1075,94 @@ fwrite(t22all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515dist_values.csv")
 
 saveRDS (t2all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515variables.rds")
 saveRDS (t22all, "D:/Hospital_data/ProgresSQL/data_chk/_unq515dist_values.rds")
+
+
+chkpat <- function (dname, dataout = "secpat") {
+  sec001 <- readRDS( paste("D:/Hospital_data/ProgresSQL/analysis/", noquote(dname) , ".rds", sep="") )
+  sec001_1 <- sec001 [, (names(sec001) %in% c("mr_no", "patient_id", "subvis") | 
+                           grepl("^sec", names( sec001 ) )), with =FALSE]
+  
+  sec001_1t <- melt (data = sec001_1, 
+                     id.vars = c("mr_no", "patient_id", "subvis"), 
+                     measure.vars = grep("^sec", names( sec001 ), value = TRUE) )
+  sec001_1t <- sec001_1t [, value := toupper(value)] [order(variable, value)]
+  sec001_1t <- na.omit(sec001_1t)
+  
+  secpat <- sec001_1t [, .(npat = uniqueN(mr_no)), by = .(variable)]
+  
+  assign(dataout, secpat, envir=.GlobalEnv)
+  
+}
+
+#user@DESKTOP-13IUJT2 /cygdrive/d/Hospital_data/ProgresSQL/analysis
+#$ ls -1 sec*csv|awk -F. '{print "chkpat(dname = \"" $1 "\", dataout = \"pat" $1 "\")"}'
+
+chkpat(dname = "sec001", dataout = "patsec001")
+chkpat(dname = "sec002", dataout = "patsec002")
+chkpat(dname = "sec003", dataout = "patsec003")
+chkpat(dname = "sec004", dataout = "patsec004")
+chkpat(dname = "sec006", dataout = "patsec006")
+chkpat(dname = "sec007", dataout = "patsec007")
+chkpat(dname = "sec008", dataout = "patsec008")
+chkpat(dname = "sec009", dataout = "patsec009")
+chkpat(dname = "sec010", dataout = "patsec010")
+chkpat(dname = "sec011", dataout = "patsec011")
+chkpat(dname = "sec012", dataout = "patsec012")
+chkpat(dname = "sec013", dataout = "patsec013")
+chkpat(dname = "sec014", dataout = "patsec014")
+chkpat(dname = "sec017", dataout = "patsec017")
+chkpat(dname = "sec019", dataout = "patsec019")
+chkpat(dname = "sec020", dataout = "patsec020")
+chkpat(dname = "sec021", dataout = "patsec021")
+chkpat(dname = "sec022", dataout = "patsec022")
+chkpat(dname = "sec023", dataout = "patsec023")
+chkpat(dname = "sec024", dataout = "patsec024")
+chkpat(dname = "sec026", dataout = "patsec026")
+chkpat(dname = "sec027", dataout = "patsec027")
+chkpat(dname = "sec030", dataout = "patsec030")
+chkpat(dname = "sec031", dataout = "patsec031")
+chkpat(dname = "sec032", dataout = "patsec032")
+chkpat(dname = "sec033", dataout = "patsec033")
+chkpat(dname = "sec034", dataout = "patsec034")
+chkpat(dname = "sec035", dataout = "patsec035")
+chkpat(dname = "sec036", dataout = "patsec036")
+chkpat(dname = "sec037", dataout = "patsec037")
+chkpat(dname = "sec038", dataout = "patsec038")
+chkpat(dname = "sec044", dataout = "patsec044")
+chkpat(dname = "sec077", dataout = "patsec077")
+chkpat(dname = "sec078", dataout = "patsec078")
+chkpat(dname = "sec079", dataout = "patsec079")
+chkpat(dname = "sec080", dataout = "patsec080")
+chkpat(dname = "sec081", dataout = "patsec081")
+chkpat(dname = "sec082", dataout = "patsec082")
+chkpat(dname = "sec083", dataout = "patsec083")
+chkpat(dname = "sec084", dataout = "patsec084")
+chkpat(dname = "sec085", dataout = "patsec085")
+chkpat(dname = "sec086", dataout = "patsec086")
+chkpat(dname = "sec088", dataout = "patsec088")
+chkpat(dname = "sec089", dataout = "patsec089")
+chkpat(dname = "sec099", dataout = "patsec099")
+chkpat(dname = "sec100", dataout = "patsec100")
+chkpat(dname = "sec101", dataout = "patsec101")
+chkpat(dname = "sec102", dataout = "patsec102")
+chkpat(dname = "sec103", dataout = "patsec103")
+chkpat(dname = "sec106", dataout = "patsec106")
+chkpat(dname = "sec111", dataout = "patsec111")
+chkpat(dname = "sec112", dataout = "patsec112")
+chkpat(dname = "sec114", dataout = "patsec114")
+chkpat(dname = "sec115", dataout = "patsec115")
+chkpat(dname = "sec116", dataout = "patsec116")
+chkpat(dname = "sec119", dataout = "patsec119")
+chkpat(dname = "sec120", dataout = "patsec120")
+chkpat(dname = "sec122", dataout = "patsec122")
+chkpat(dname = "sec123", dataout = "patsec123")
+chkpat(dname = "sec124", dataout = "patsec124")
+chkpat(dname = "sec126", dataout = "patsec126")
+chkpat(dname = "secNA", dataout = "patsecNA")
+
+# Get the unique variables and maximum number of unique values for 515 variables
+t2unqpat <- lapply(ls(pattern="patsec*"), get)
+t2all_unqpat <- data.table( rbindlist (t2unqpat))
+
+fwrite(t2all_unqpat, "D:/Hospital_data/ProgresSQL/data_chk/_unq_cnt_dist_pat.csv")
+saveRDS (t2all_unqpat, "D:/Hospital_data/ProgresSQL/data_chk/_unq_cnt_dist_pat.rds")
