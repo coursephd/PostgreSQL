@@ -8,14 +8,14 @@ The following files should be used in the following sequence:
 | Program name | Description |
 | --- | --- |
 | 100_adsl_sqlpart.sql | [SQL code to download the necessary data from the server] |
-| git diff | Show file differences that haven't been staged |
+| 100_adsl.R | [R code to create data for patient level information: Demog + Visit + diseases + treatments + services]  |
 
 Dataset creation files:  
 | Program name | Description |
 | --- | --- |  
 | 100_adsl_sqlpart.sql | [SQL code to download the necessary data from the server] |
-| 100_adsl.R           | [R code to create data for patient level information: Demog + Visit + diseases + treatments + services] |
-| 02other_data.R       | [SQL code is added at the top of the file and then followed by R code] |
+| 100_adsl.R | [R code to create data for patient level information: Demog + Visit + diseases + treatments + services] |
+| 02other_data.R | [SQL code is added at the top of the file and then followed by R code] |
 | 100_adsl_updt_BasedOn_otherData.R | [This program will create various background characteristics variables using other data, this program uses lookup.csv file and a few other files] |
 
 Analysis creation files:
