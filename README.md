@@ -17,11 +17,15 @@ Analysis creation files:
 
 | Program name | Description |
 | --- | --- |
+| Ongoing: | |
 | 100_adsl_analysis.rmd | R Knitr file to produce a word document / HTML file |  
 | 01adsl_primary_related_diseases.R | Primary and related disease/medication caretsian product creation program, use in Tableau |
-| Ongoing: | |
+| 01adsl_primary_related_diseases_subgroup.R | Primary and related disease/medication by gender, used in network graph type of analysis
+| 01adsl_primary_related_diseases_seasonGender_subgroup_Network.R | Primary and related disease/medication by gender and season, used in network graph type of analysis |
 | 20_cooccur.R | Co-occurence analysis for the diseases, may help in printing the network graph |
 | 101_age_sparkline.Rmd | Sparkline analysis to show many graphs at one go. |
+| 01_traxminer_disease.R | Event sequence analysis using R |
+| 05_slopegraph.R | Edward Tufte style slopegraph to understand the trends in the data |
 
 Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
