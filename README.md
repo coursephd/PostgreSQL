@@ -24,6 +24,8 @@ Documents created in RPubs based on the following programs [http://rpubs.com/mah
 
 D3 network program and the corresponding files are: [https://coursephd.github.io]
 
+Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]  
+
 Not fully done:
 20_cooccur.R           Co-occurence analysis for the diseases, may help in printing the network graph  
 101_age_sparkline.Rmd  Sparkline analysis to show many graphs at one go.  
