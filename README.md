@@ -7,11 +7,11 @@ The following files should be used in the following sequence:
 
 | Program name | Description |
 | --- | --- |
-| git status | List all new or modified files |
+| 100_adsl_sqlpart.sql | [SQL code to download the necessary data from the server] |
 | git diff | Show file differences that haven't been staged |
 
 Dataset creation files:  
-|Program name | Description |
+| Program name | Description |
 | --- | --- |  
 | 100_adsl_sqlpart.sql | [SQL code to download the necessary data from the server] |
 | 100_adsl.R           | [R code to create data for patient level information: Demog + Visit + diseases + treatments + services] |
