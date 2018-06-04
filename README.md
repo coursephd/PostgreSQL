@@ -3,7 +3,12 @@ Hospital data access
 
 Creation of programs using the PostgreSQL database and SQL codes
 
-The following files should be used in the following sequence:
+The following files should be used in the following sequence:  
+
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
 
 Dataset creation files:  
 |Program name         |Description|  
