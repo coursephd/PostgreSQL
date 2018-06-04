@@ -11,7 +11,7 @@ Dataset creation files:
 | 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
 | 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
-| 100_adsl_updt_BasedOn_otherData.R | This program creates various background characteristics variables using other data, this program uses lookup.csv file and a few other files |
+| 100_adsl_updt_BasedOn_otherData.R | Ongoing   -This program creates various background characteristics variables using other data, this program uses lookup.csv file and a few other files |
 
 Analysis creation files:
 
@@ -21,9 +21,13 @@ Analysis creation files:
 | 01adsl_primary_related_diseases.R | Primary and related disease/medication caretsian product creation program, use in Tableau |
 
 Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
-100_adsl_analysis.rmd  
-100_adsl_analysis_survival_rmsd.Rmd  
-100_adsl_analysis_survival_met.Rmd  
+
+| Program name | Description |
+| --- | --- |
+| 100_adsl_analysis.rmd | Metabolic and RMSD disease analysis | 
+| 100_adsl_analysis_survival_rmsd.Rmd | RMSD Survival analysis |
+| 100_adsl_analysis_survival_met.Rmd  | Metabolic Survival analysis |
+| 100_adsl_medicine.Rmd | Metabolic and RMSD Medicine analysis |
 
 D3 network program and the corresponding files are: [https://coursephd.github.io]
 
