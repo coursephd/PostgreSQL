@@ -15,16 +15,16 @@ Dataset creation files:
 Analysis creation files:
 
 100_adsl_analysis.rmd                  [R Knitr file to produce a word document]  
-01adsl_primary_related_diseases.R      [Primary and related disease/medication caretsian product creation program, use in Tableau]
+01adsl_primary_related_diseases.R      [Primary and related disease/medication caretsian product creation program, use in Tableau]  
 
-Documents created in RPubs based on the following programs:
-100_adsl_analysis.rmd
-100_adsl_analysis_survival_rmsd.Rmd
-100_adsl_analysis_survival_met.Rmd
+Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
+100_adsl_analysis.rmd  
+100_adsl_analysis_survival_rmsd.Rmd  
+100_adsl_analysis_survival_met.Rmd  
 
 D3 network program and the corresponding files are: [https://coursephd.github.io]
 
 Not fully done:
-20_cooccur.R           Co-occurence analysis for the diseases, may help in printing the network graph
-101_age_sparkline.Rmd  Sparkline analysis to show many graphs at one go.
+20_cooccur.R           Co-occurence analysis for the diseases, may help in printing the network graph  
+101_age_sparkline.Rmd  Sparkline analysis to show many graphs at one go.  
 
