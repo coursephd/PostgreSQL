@@ -8,16 +8,17 @@ Dataset creation files:
 
 | Program name | Description |
 | --- | --- |
-| 100_adsl_sqlpart.sql | [SQL code to download the necessary data from the server] |
-| 100_adsl.R | [R code to create data for patient level information: Demog + Visit + diseases + treatments + services] |
-| 02other_data.R | [SQL code is added at the top of the file and then followed by R code] |
-| 100_adsl_updt_BasedOn_otherData.R | [This program will create various background characteristics variables using other data, this program uses lookup.csv file and a few other files] |
+| 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
+| 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
+| 02other_data.R | SQL code is added at the top of the file and then followed by R code |
+| 100_adsl_updt_BasedOn_otherData.R | This program creates various background characteristics variables using other data, this program uses lookup.csv file and a few other files |
 
- 
 Analysis creation files:
 
-100_adsl_analysis.rmd                  [R Knitr file to produce a word document]  
-01adsl_primary_related_diseases.R      [Primary and related disease/medication caretsian product creation program, use in Tableau]  
+| Program name | Description |
+| --- | --- |
+| 100_adsl_analysis.rmd | R Knitr file to produce a word document / HTML file |  
+| 01adsl_primary_related_diseases.R | Primary and related disease/medication caretsian product creation program, use in Tableau |
 
 Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 100_adsl_analysis.rmd  
