@@ -1,0 +1,515 @@
+variable,npat
+sec001_var001_Location,6
+sec001_var002_Quality,1
+sec001_var003_Duration,2
+sec001_var004_Context,3
+sec001_var005_Modifying Factors,1
+sec001_var006_Associated Signs & Symptoms,2
+sec001_var007_Additional Complaint,8
+sec001_var008_Diabetes,4124
+sec001_var009_Hypertension,3895
+sec001_var010_Allergy,587
+sec001_var011_Renal Diseases,79
+sec001_var012_Liver Diseases,53
+sec001_var013_Food Allergy,102
+sec001_var014_Food Intolerance,45
+sec001_var015_Chief Complaint with Onset & Duration,11536
+sec001_var016_Upashaya,585
+sec001_var017_Anupashaya,588
+sec001_var018_Associated Complaint with Onset & Duration,4549
+sec002_var001_ENT,2
+sec002_var002_Respiratory,2
+sec002_var003_Abdominal Pain,2
+sec002_var004_Gastrointestinal,3
+sec002_var005_Urinary Frequency,1
+sec002_var006_Joint Pain,10
+sec002_var007_Joint Swelling,5
+sec002_var008_Muscle Pain,3
+sec002_var009_Musculoskeletal,14
+sec002_var010_Integumentary,5
+sec002_var011_Tremor,1
+sec002_var012_Neurological,1
+sec002_var013_Psychiatric,1
+sec003_var001_Eyes,1
+sec003_var002_Sinusitis,1
+sec003_var003_ENT,2
+sec003_var004_Respiratory,2
+sec003_var005_Abdominal Pain,2
+sec003_var006_Gastrointestinal,3
+sec003_var007_Arthralgia,8
+sec003_var008_Edema,1
+sec003_var009_Lumbago,3
+sec003_var010_Myalgia,1
+sec003_var011_Pain in the Limb,3
+sec003_var012_Stiffness,2
+sec003_var013_Swelling,4
+sec003_var014_Musculoskeletal,16
+sec003_var015_Integumentary,5
+sec003_var016_Tremor,1
+sec003_var017_Neurological,3
+sec003_var018_Psychiatric,1
+sec004_var001_Medical History,9472
+sec004_var002_Family History,3270
+sec004_var003_Diagnostic History,4247
+sec004_var004_Surgical History,4796
+sec004_var005_Psychological & Occupational History,2035
+sec004_var006_Ahara,8906
+sec004_var007_Vihara,2000
+sec004_var008_Nidra,8778
+sec004_var009_Vyayama,1718
+sec004_var010_Vyavaya,138
+sec004_var011_Mala,9121
+sec004_var012_Mutra,8302
+sec004_var013_Madakari Dravya Abhyasa,1532
+sec004_var014_Immunization History,533
+sec004_var015_Birth History,617
+sec004_var016_Growth and development History,613
+sec006_var001_Menarche (yrs),367
+sec006_var002_Menopause (yrs),801
+sec006_var003_MH,961
+sec006_var004_LMP,717
+sec006_var005_PMH,99
+sec006_var006_Colour,151
+sec006_var007_Consistency,83
+sec006_var008_Characteristics,105
+sec006_var009_Flow,429
+sec006_var010_Clots,200
+sec006_var011_Smell,84
+sec006_var012_Discharge,62
+sec006_var013_Pre Menstrual Symptoms,54
+sec006_var014_Menopausal Symptoms,7
+sec007_var001_Married,138
+sec007_var002_Single,1
+sec007_var003_Widow,1
+sec007_var004_FTND,764
+sec007_var005_Mode of Delivery,47
+sec007_var006_PTND,6
+sec007_var007_LSCS,333
+sec007_var008_Instrumental,21
+sec007_var009_Complications,8
+sec007_var010_LMP,78
+sec007_var011_POG,15
+sec007_var012_EDD,14
+sec007_var013_OH,128
+sec007_var014_G,1145
+sec007_var015_P,1075
+sec007_var016_A,956
+sec007_var017_L,1094
+sec007_var018_D,639
+sec007_var019_Antenatal/Foetal History,2
+sec008_var001_Rasa,3
+sec008_var002_Dooshya,11
+sec008_var003_Rakta,3
+sec008_var004_Mamsa,2
+sec008_var005_Asthi,3
+sec008_var006_Majja,8
+sec008_var007_Mala,1
+sec008_var008_Mutra,1
+sec008_var009_Stanya,1
+sec008_var010_Artava,1
+sec008_var011_Sira,3
+sec008_var012_Twacha,3
+sec008_var013_Snayu,1
+sec008_var014_Srotas,8
+sec008_var015_Raktavaha,3
+sec008_var016_Mamsavaha,1
+sec008_var017_Asthivaha,2
+sec008_var018_Majjavaha,5
+sec008_var019_Mutravaha,1
+sec008_var020_Manovaha,5
+sec008_var021_Ati pravrutti,2
+sec008_var022_Sangha,2
+sec008_var023_Vimarga gamana,3
+sec008_var024_Sira granthi,3
+sec009_var001_Nidana....,2648
+sec009_var002_Poorvaroopa,1045
+sec009_var003_Roopa,2693
+sec009_var004_Ahara,173
+sec009_var005_Vihara,150
+sec009_var006_Vyasana,17
+sec009_var007_Manasika,9
+sec009_var008_Abhighata,14
+sec010_var001_Session Start Time,16073
+sec010_var002_Session End Time,15950
+sec010_var003_Screening Doctor,15625
+sec011_var001_Allopathic Diagnosis,5880
+sec012_var001_Examination,111
+sec012_var002_Neurological,849
+sec012_var003_Ophthalmic,26
+sec012_var004_ENT,135
+sec012_var005_Cardiovascular,650
+sec012_var006_Respiratory,1035
+sec012_var007_Gastrointestinal,909
+sec012_var008_Urinary,34
+sec012_var009_Genital,54
+sec012_var010_Musculoskeletal,4843
+sec012_var011_Integumentary,253
+sec012_var012_Endocrine,15
+sec012_var013_Psychiatric,14
+sec012_var014_Hemotological/Lymphatic,138
+sec012_var015_Allergic/Immunologic,8
+sec012_var016_Local Examination,28
+sec012_var017_All other systems,25
+sec013_var001_Investigation Reports,4246
+sec014_var001_Complaint,16385
+sec014_var002_Doctor's Notes,3064
+sec014_var003_Source of History,6502
+"sec017_var001_Examinationm,,,,, ",3016
+sec017_var002_VAS,194
+sec017_var003_Tenderness,269
+sec017_var004_Crepitation's,255
+sec017_var005_Measurement of the knee,90
+sec017_var006_Goniometric assessment,132
+sec017_var007_Examination,728
+sec019_var001_Rasa,4
+sec019_var002_Rakta,4
+sec019_var003_Mamsa,4
+sec019_var004_Meda,4
+sec019_var005_Asthi,4
+sec019_var006_Majja,4
+sec019_var007_Shukra,2
+sec019_var008_Satva,1
+sec020_var001_Normal,4
+sec020_var002_Poor,1
+sec020_var003_Yes,6
+sec020_var004_No,1
+sec020_var005_Yes,5
+sec020_var006_No,1
+sec020_var007_Junk Foods,148
+sec020_var008_Untimely Food,156
+sec020_var009_Excessive Food,129
+sec020_var010_Yes,5
+sec020_var011_No,32
+sec020_var012_Yes,74
+sec020_var013_No,1
+sec020_var014_Yes,188
+sec020_var015_No,2
+sec020_var016_Yes,163
+sec020_var017_No,1
+sec020_var018_Consultant Dietic Restrictions,248
+sec020_var019_General Dietic restrictions,216
+sec021_var001_Appearance,1078
+sec021_var002_Body Built,1124
+sec021_var003_Body Strength,1094
+sec021_var004_Orientation,1118
+sec021_var005_Conciousness,1018
+sec021_var006_Appearance,796
+sec021_var007_Pallor,904
+sec021_var008_Jaundice,880
+sec021_var009_Odema,878
+sec021_var010_Lymphadenopathy,644
+sec021_var011_Nourishment,655
+sec021_var012_Posture,494
+sec021_var013_Mental State,553
+sec021_var014_Facies,303
+sec022_var001_Shashankasana breathing,1
+sec022_var002_Side leg raising,1
+sec022_var003_Straight leg raising,1
+sec022_var004_Naukasana breathing,1
+sec023_var001_Neck movement â Forward/backward bending,2
+sec023_var002_Neck movement â side bending,1
+sec023_var003_Neck movement â Twisting,1
+sec023_var004_Neck movement â Rotation,1
+sec023_var005_Shoulder rotation,1
+sec023_var006_Elbow movements/Rotation,1
+sec023_var007_Wrist movements/rotation,1
+sec023_var008_Finger joint loosening,1
+sec023_var009_Waist rotation,1
+sec023_var010_Forward/backward bending,1
+sec023_var011_Side bending,1
+sec023_var012_Twisting,1
+sec023_var013_Alternate toe touching,1
+sec023_var014_Drill walking,1
+sec023_var015_Knee bending,6
+sec023_var016_Ankle movement/rotation,1
+sec023_var017_Toe bending,1
+sec023_var018_Sit-ups,1
+sec024_var001_Utkatasana,1
+sec024_var002_Ardhakati-chakrasana,1
+sec024_var003_Ardha-chakrasana,1
+sec024_var004_Vrikshasana,1
+sec024_var005_Tadasana,1
+sec024_var006_Vajrasana,1
+sec024_var007_Paschimottanasana,1
+sec024_var008_Padmasana,1
+sec024_var009_Yogamudrsana,1
+sec024_var010_Vakrasana,2
+sec024_var011_Shashankasana,1
+sec024_var012_Bhujangasana,1
+sec024_var013_Shalabhasana,1
+sec024_var014_Naukasana,1
+sec024_var015_Shavasana,1
+sec026_var001_Yogic breathing,3
+sec026_var002_Suryaanuloma,1
+sec026_var003_Nadishodhana,3
+sec026_var004_Bhramari,2
+sec026_var005_Sadanta,2
+sec026_var006_Sheetali,1
+sec026_var007_Sheetkari,1
+sec027_var001_Jnana mudra,1
+sec030_var001_Nadanusandhana,2
+sec031_var001_Chief Complaint & Duration,819
+sec031_var002_History Of Present Illness,425
+sec031_var003_Surgical History,92
+sec031_var004_Bowel,129
+sec031_var005_Appetite,70
+sec031_var006_Micturation,55
+sec031_var007_Sleep,93
+sec031_var008_Past History,470
+sec031_var009_Family History,53
+sec032_var001_Height in Cms,28
+sec032_var002_Weight in Kgs,40
+sec032_var003_BP,38
+sec032_var004_Pulse,17
+sec032_var005_Built,21
+sec032_var006_Temperature,23
+sec033_var001_OD,790
+sec033_var002_OS,779
+sec033_var003_OD,16
+sec033_var004_OS,14
+sec033_var005_OD,336
+sec033_var006_OS,333
+sec033_var007_OD,582
+sec033_var008_OS,582
+sec034_var001_Right,77
+sec034_var002_Left,79
+sec034_var003_Right,72
+sec034_var004_Left,78
+sec034_var005_Right,72
+sec034_var006_Left,78
+sec034_var007_Right,55
+sec034_var008_Left,57
+sec035_var001_Retinoscopy,75
+sec035_var002_Acceptance,6
+sec035_var003_ST(SCHIOTZ TONOMETRY) OD,37
+sec035_var004_Findings,730
+sec035_var005_Final Diagnosis,791
+sec035_var006_Doctor's Signature,254
+sec036_var001_Main Complaints,63
+sec036_var002_Associated Symptoms,8
+sec036_var003_History Of Present Illness,14
+sec036_var004_History of Past illness (Upadrava),27
+sec036_var005_Family History,6
+sec037_var001_Potatoes,4
+sec037_var002_Tomatoes,5
+sec037_var003_Spinach,4
+sec037_var004_Rice,3
+sec037_var005_Wheat,3
+sec037_var006_Ragi,1
+sec037_var007_Green Gram,1
+sec037_var008_Black Gram,2
+sec037_var009_Chanaka Gram,2
+sec037_var010_Aprouted,1
+sec037_var011_FastFoods,1
+sec037_var012_Chats,2
+sec037_var013_Pizza,1
+sec037_var014_Biscuits,2
+sec037_var015_Cake/Pasteries,2
+sec037_var016_Sweets,4
+sec037_var017_Milk,3
+sec037_var018_Curds,4
+sec037_var019_Ghee,2
+sec037_var020_Paneer,2
+sec037_var021_Soft drinks,2
+sec037_var022_Hot Drinks,2
+sec037_var023_Milk Shakes,1
+sec037_var024_Pickles,3
+sec037_var025_Chutneys,2
+sec037_var026_Chillies,3
+sec037_var027_Garlic,3
+sec037_var028_Ginger,3
+sec037_var029_Refined Oil,2
+sec037_var030_Non Refined Oil,2
+sec037_var031_Cucumber,2
+sec037_var032_Fruit Salads,2
+sec037_var033_Carrot,3
+sec037_var034_Onion,3
+sec037_var035_Raddish,1
+sec037_var036_Stale food intake frequency,1
+sec037_var037_Water Intake frequency,5
+sec037_var038_Totla Quantity in Lts,10
+sec037_var039_Fasting Frequency,2
+sec038_var001_Breakfast,14
+sec038_var002_Lunch,14
+sec038_var003_Dinner,16
+sec038_var004_Timing Of work,2
+sec038_var005_Nature Of Work,3
+sec038_var006_Wake UpTime,18
+sec038_var007_Sleeping Time,11
+sec038_var008_Smell,4
+sec038_var009_Consistency(Well formed/hard/Liquid),6
+sec038_var010_Frequency,6
+sec038_var011_Colour,1
+sec038_var012_Smell,1
+sec038_var013_Any Complaints,1
+sec038_var014_Alcohol,1
+sec038_var015_Pan,1
+sec038_var016_Others,3
+sec038_var017_Cycle,1
+sec038_var018_Psychological,2
+sec038_var019_Appearance,1
+sec038_var020_Body Weight,1
+sec038_var021_Pulse (Nadi),3
+sec038_var022_Blood Pressure,1
+sec038_var023_Appearance,3
+sec038_var024_Body weight in kgs,23
+sec038_var025_Pulse (Nadi),2
+sec038_var026_Blood Pressure,20
+sec044_var001_Notes,1
+sec077_var001_Chief Complaint with Onset & Duration,1360
+sec077_var002_Upashaya,4
+sec077_var003_Anupashaya,5
+sec077_var004_Associated Complaint with Onset & Duration,325
+sec077_var005_Diabetes,230
+sec077_var006_Hypertension,225
+sec077_var007_Allergy,44
+sec077_var008_Renal Diseases,19
+sec077_var009_Liver Diseases,9
+sec077_var010_Food Allergy,6
+sec077_var011_Food Intolerance,1
+sec078_var001_Menarche (yrs),10
+sec078_var002_Menopause (yrs),26
+sec078_var003_MH,37
+sec078_var004_LMP,25
+sec078_var005_PMH,2
+sec078_var006_Colour,9
+sec078_var007_Consistency,4
+sec078_var008_Characteristics,6
+sec078_var009_Flow,16
+sec078_var010_Clots,6
+sec078_var011_Smell,6
+sec078_var012_Discharge,2
+sec078_var013_Pre Menstrual Symptoms,1
+sec078_var014_Menopausal Symptoms,1
+sec079_var001_Dooshya,7
+sec079_var002_Mala,1
+sec079_var003_Mutra,1
+sec079_var004_Srotas,4
+sec079_var005_Ati pravrutti,1
+sec080_var001_Nidana,888
+sec080_var002_Poorvaroopa,635
+sec080_var003_Roopa,921
+sec080_var004_Upashaya/Anupashaya,74
+sec081_var001_Screening Doctor,1466
+sec081_var002_Session End Time,1466
+sec081_var003_Session Start Time,1466
+sec082_var001_Allopathic Diagnosis,594
+sec083_var001_Examination,18
+sec083_var002_Neurological,230
+sec083_var003_Ophthalmic,25
+sec083_var004_ENT,29
+sec083_var005_Cardiovascular,423
+sec083_var006_Respiratory,447
+sec083_var007_Gastrointestinal,221
+sec083_var008_Urinary,11
+sec083_var009_Genital,4
+sec083_var010_Musculoskeletal,697
+sec083_var011_Integumentary,27
+sec083_var012_Endocrine,5
+sec083_var013_Psychiatric,5
+sec083_var014_Hemotological/Lymphatic,12
+sec083_var015_Allergic/Immunologic,3
+sec084_var001_Investigation Reports,333
+sec085_var001_Complaint,1427
+sec085_var002_Doctor's Notes,78
+sec085_var003_Source of History,636
+sec086_var001_Examination,588
+sec088_var001_Yes,10
+sec088_var002_Yes,5
+sec088_var003_No,9
+sec088_var004_Yes,57
+sec088_var005_Yes,179
+sec088_var006_No,1
+sec088_var007_General Dietic restrictions,321
+sec088_var008_Yes,120
+sec088_var009_Consultant Dietic Restrictions,305
+sec088_var010_Normal,2
+sec088_var011_<50 %,2
+sec088_var012_Yes,3
+sec088_var013_Junk Foods,11
+sec088_var014_Untimely Food,13
+sec088_var015_Excessive Food,12
+sec089_var001_Appearance,1190
+sec089_var002_Pallor,1238
+sec089_var003_Icterus,1236
+sec089_var004_Odema,1228
+sec089_var005_Lymphadenopathy,964
+sec089_var006_Nourishment,930
+sec089_var007_Posture,672
+sec089_var008_Mental State,723
+sec089_var009_Facies,490
+sec089_var010_Appearance,1320
+sec089_var011_Body Built,1339
+sec089_var012_Body Strength,1322
+sec089_var013_Orientation,1346
+sec089_var014_Conciousness,1237
+sec099_var001_Doctor Advice,1335
+sec100_var001_DANTA MOOLA,2
+sec100_var002_DANTA,3
+sec100_var003_JIHVA,1
+sec100_var004_EXAMINATIONATION,3
+sec100_var005_Talu,1
+sec100_var006_GALA,20
+sec100_var007_INVESTIGATIONS,1
+sec101_var001_EAM,41
+sec101_var002_TM,61
+sec101_var003_EXAMINATIONS,17
+sec102_var001_External Nose,1
+sec102_var002_Septum,24
+sec102_var003_Nasal Cavity,35
+sec102_var004_Investigations,1
+sec103_var001_Pain,1
+sec103_var002_HTN,1
+sec103_var003_Any others,1
+sec106_var001_Additional Data,1
+sec111_var001_Nadi,1
+sec111_var002_Jihwa,1
+sec111_var003_Mala,1
+sec111_var004_Mutra,1
+sec111_var005_Shabda,1
+sec111_var006_Sparsha,1
+sec111_var007_Drik,1
+sec111_var008_Akruthi,1
+sec112_var001_Prakriti,1
+sec112_var002_Sara,1
+sec112_var003_Samhanana,1
+sec112_var004_Pramana,1
+sec112_var005_Ahara shakti,1
+sec112_var006_Vyayama Shakti,1
+sec112_var007_Satmya,1
+sec112_var008_Satwa,1
+sec112_var009_Vaya,1
+sec114_var001_Treatment procedures,1
+sec115_var001_Final Diagnosis,1
+sec116_var001_Physiotherapy Treatment Plan,4
+sec119_var001_,13
+sec120_var001_Assesment,2
+sec122_var001_Allopathic Diagnosis,2617
+sec123_var001_Allopathic Diagnosis,410
+sec124_var001_Chief Complaints,108
+sec124_var002_History & presenting illness,45
+sec126_var001_Stains,37
+sec126_var002_Calculus,72
+sec126_var003_Attrition,6
+sec126_var004_Abrasion,7
+sec126_var005_Grade I,5
+sec126_var006_Grade II,7
+sec126_var007_Grade III,4
+sec126_var008_Class I,1
+sec126_var009_Present,8
+sec126_var010_Present,1
+sec126_var011_Present,23
+sec126_var012_Absent,1
+sec126_var013_Attached Gingiva,1
+sec126_var014_Mucosal Lesion,1
+sec126_var015_Ulcer,1
+sec126_var016_Swelling,1
+sec126_var017_Others,17
+sec126_var018_Provisional Diagnosis,105
+sec126_var019_Differential Diagnosis,2
+sec126_var020_IOPAR,23
+sec126_var021_OPG,2
+sec126_var022_Others,1
+sec126_var023_Final Diagnosis,102
+sec126_var024_Treatment Planned,100
+sec126_var025_Drugs Prescribed,1
