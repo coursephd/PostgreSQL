@@ -23,3 +23,27 @@ sec001_10 <- sec001_1 [, `:=` ( temp01diab = ifelse (toupper(sec001_var008_Diabe
 sec001_10 [t001_015_diab ==TRUE, .(cnt = uniqueN(mr_no))]
 sec001_10 [t001_015_htn ==TRUE, .(cnt = uniqueN(mr_no))]
 sec001_10 [t001_015_rmsd ==TRUE, .(cnt = uniqueN(mr_no))]
+
+
+sec004 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec004.rds")
+sec004 <- sec004 [, tmp_backchar004_003 := toupper(`sec004_var003_Diagnostic History`)]
+sec004 <- sec004 [, tmp_backchar004_005 := toupper(`sec004_var005_Psychological & Occupational History`)]
+lookup_backchar004_003 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_backchar004_003.txt", sep="|")
+lookup_backchar004_005 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_backchar004_005.txt", sep="|")
+
+
+sec004_1 <- merge(x = sec004,
+                  y = lookup_backchar004_003,
+                  all.x = TRUE,
+                  by.x = c("tmp_backchar004_003"),
+                  by.y = c("sec004_var003_Diagnostic History")  )
+
+sec004_2 <- merge(x = sec004_1,
+                  y = lookup_backchar004_005,
+                  all.x = TRUE,
+                  by.x = c("tmp_backchar004_005"),
+                  by.y = c("sec004_var005_Psychological & Occupational History")  )
+
+
+cnt <- sec004_2 [subchar004_003 != "", .(cnt004_003 = uniqueN(mr_no))]
+cnt02 <- sec004_2 [subchar004_005 != "", .(cnt004_003 = uniqueN(mr_no))]

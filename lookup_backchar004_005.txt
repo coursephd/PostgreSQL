@@ -1,0 +1,508 @@
+sec004_var005_Psychological & Occupational History|subchar004_005
+" STRESS & TENSION +
+HOME MAKER"|Home-based personal care workers
+ACCOUNTANT|Accountants
+ACCOUNTS - STRESSFUL OCUPATION|Accountants
+ADVOCATE|Lawyers
+AGGRABATTI MAKING, |Business professionals not elsewhere classified
+AGRICULTURE|Subsistence agricultural and fishery workers
+AGRICULTURIST|Subsistence agricultural and fishery workers
+AGRICULTURIST, |Subsistence agricultural and fishery workers
+"AGRICULTURIST, 
+"|Subsistence agricultural and fishery workers
+AGRICULURIST|Subsistence agricultural and fishery workers
+AGRICULURIST.|Subsistence agricultural and fishery workers
+ANXIETY. WORKS IN A TELECOM COMPANY.|Broadcasting and telecommunications equipment operators
+ARMY OFFICER|Armed forces
+ARMY OFFICER (KERNEL)- HAS WORKED IN COLD AND HIGH ALTITUDES, |Armed forces
+AS PATIENT IS RUNNING HAIR CUTTING SALOON H/O PROLONG STANDING FOR HOURS.|Hairdressers, barbers, beauticians and related workers
+AUDITOR - LOTS OF STRESS|Safety, health and quality inspectors
+BANK EMPLOYEE|Tellers and other counter clerks
+BANK MANAGER AT CATHOLIC SYRIAN BANK|Tellers and other counter clerks
+BANKER|Tellers and other counter clerks
+BANKING|Tellers and other counter clerks
+BMTC  DRIVER|Driver
+BMTC CONDUCTOR|Transport conductors
+BOXER- PROFESSIONAL|Athletes, sportspersons and related associate professionals
+BUILDING PAINTING|Painters and related workers
+BUISNESS MAN|General managers of business services
+BUSINESS|General managers of business services
+BUSINESS -|General managers of business services
+BUSINESS - STRESS|General managers of business services
+BUSINESS AND FARMING|General managers of business services
+BUSINESS DEVELOPMENT / STRESS|General managers of business services
+BUSINESS, MORE  ANXIETY|General managers of business services
+BUSINESSMAN|General managers of business services
+BUSINESSMAN SEDENTARY LIFESTYLE|General managers of business services
+BUSSINESS|General managers of business services
+CABLE OPERATOR|Business professionals not elsewhere classified
+CARPENTRY WORK|Carpenters and joiners
+CARRIER RELATED TENSION|Business professionals not elsewhere classified
+CHARTED ACCOUNTANT|Accountants
+CHIEF ENGINEER|Engineer
+CIVIL CONTRACTOR|Civil engineering technicians
+CIVIL ENGINEER|Engineer
+CLERK|Other office clerks
+CLERK JOB|Other office clerks
+CO- OPERATIVE,WELL, |
+COMPUTER OPERATOR|Computer assistants
+CONSTRUCTION MAINTENANCE|Building construction labourers
+CONSTRUCTION WORKER|Building construction labourers
+CONSULTANT|Business professionals not elsewhere classified
+CONSULTANT FOR HOSPITALITY|Business professionals not elsewhere classified
+CONTINOUS STANDING|Business professionals not elsewhere classified
+CONTINOUSLY TRAVELLING FOR70 KMS FOR THE  LAST 5 YRS|Business professionals not elsewhere classified
+CONTRACT PAINTER.|Carpenters and joiners
+CONTRACTOR|Business professionals not elsewhere classified
+"CONTRACTOR
+
+STRESS AND STRAIN "|Business professionals not elsewhere classified
+CRPF|Armed forces
+DANCER BY PROFESSION|Choreographers and dancers
+"DAY SHIFT- NIGHT SHIFT WORK, 
+"|Business professionals not elsewhere classified
+"DAY SHIFT- NIGHT SHIFT WORK, 
+NIDANA-
+AKALA NIDRA( SHIFT DUTY - WEEKLY, NIGHT DUTY)
+,ATI CHINTA.
+
+CHIKITSA-
+KAPHA VATA HARA 
+MEDHYA
+"|Business professionals not elsewhere classified
+DENTIST|Dentists
+DENTIST.|Dentists
+DESIGNER|Decorators and commercial designers
+DESKTOP PROFESSION FOR 5-6HRS/DAY|Business professionals not elsewhere classified
+"DOES HOUSE WORK, SWEEPING/CLEANING HOUSE 3 HRS PER DAY, 
+"|Domestic helpers and cleaners
+DRIVER|Driver
+DRIVER- 5 HR/DAY MINIMUM|Driver
+DRIVER.|Driver
+DRIVES 80KMS/DAY.|Driver
+"DRIVES A TRACTOR, 
+"|Driver
+DRIVING TWO WHEELER REGULARLY SINCE MANY YEARS|Business professionals not elsewhere classified
+"EARLIER BUS DRIVER, 
+"|Driver
+"EMOTIONAL COUNSELLOR
+
+STRESS ++ AS SHE LOST 3 OF HER FAMILY MEMBERS RECENTLY."|Social work professionals
+ENGINEER|Engineer
+EX ARMY|Armed forces
+EX ARMY , NOW INTO |Armed forces
+"EX ARMY, USED TO PLAY A LOT OF SPORTS, 
+CURRENTLY WALKS A LOT 8-10 KM'S PER DAY, "|Armed forces
+FARMER|Subsistence agricultural and fishery workers
+"FARMER, 
+HEAVY WORK, "|Subsistence agricultural and fishery workers
+FARMER, HOUSEWIFE|Subsistence agricultural and fishery workers
+GARDENER|Gardeners, horticultural and nursery growers
+GEN MANAGER /STRESS|General managers not elsewhere classified
+GOOD AT STUDIES|Student
+GOVT SERVICE|Senior government officials
+H W|Home-based personal care workers
+H/O INCREASED STRESS TO MEET DEADLINES AT WORK.|Business professionals not elsewhere classified
+HAS LOT OF ANXIETY, AND STRESS.  |Business professionals not elsewhere classified
+HE USED TO DRIVE BIKE FOR 40 KMS A DAY|Business professionals not elsewhere classified
+HIGH STRESS LEVEL|Business professionals not elsewhere classified
+HIGHLY STRESSED|Business professionals not elsewhere classified
+"HIGHLY STRESSED AFTER 30YRS OF HER AGE.
+WAS WORKING BEFORE AND NOW CONTINUE AS HOUSEWIFE."|Home-based personal care workers
+HIGHLY STRESSED, |Business professionals not elsewhere classified
+HIGHLY STRESSFUL|Business professionals not elsewhere classified
+"HINDI TEACHER FOR 10TH CLASS.
+STRESS + "|College, university and higher education teaching professionals
+HOME MAKER|Home-based personal care workers
+HOME -MAKER|Home-based personal care workers
+"HOME MAKER . 
+SHE WAS DOING SO MUCH WORKS BEFORE."|Home-based personal care workers
+HOME MAKER, HAS ASSISTANTS FOR ALL THE HOUSEHOLD WORK EXCEPT FOR COOKING. |Home-based personal care workers
+HOMEMAKER|Home-based personal care workers
+HOME-MAKER|Home-based personal care workers
+HOSPITALITY INDUSTRY|
+HOUSE MAID|Domestic helpers and cleaners
+HOUSE MAKER|Home-based personal care workers
+HOUSE WIFE|Home-based personal care workers
+"HOUSE WIFE- WORKS FROM EARLY MORNING 5AM TILL NIGHT,
+"|Home-based personal care workers
+"HOUSE WIFE
+MENTAL TENSIONS "|Home-based personal care workers
+"HOUSE WIFE, 
+"|Home-based personal care workers
+HOUSE WIFE, TAILORING AS HOBBY|Home-based personal care workers
+HOUSEMAKER|Home-based personal care workers
+HOUSEWIFE|Home-based personal care workers
+HOUSEWIFE , SEDENTARY LIFESTYLE, INTAKE OF CURDS, AND MILK REGULARLY|Home-based personal care workers
+"HOUSEWIFE , SEDENTARY LIFESTYLE, INTAKE OF CURDS, AND MILK REGULARLY.
+WAS ON NIGHT SHIFTS FOR 4 YEARS BEFORE MARRIAGE"|Home-based personal care workers
+HOUSEWIFE, FARMER, TAKES CARE OF COWS|Home-based personal care workers
+HR CONSULTANT|Personnel and industrial relations department managers
+HW|Home-based personal care workers
+HW, STRESS|Home-based personal care workers
+HW, STRESS AND DEPRESSION SOMETIMES|Home-based personal care workers
+HW/ TENSION AND STRESS.|Home-based personal care workers
+I T|Computing professionals not elsewhere classified
+IN GARMENT INDUSTRY|Textile, leather and related pattern-makers and cutters
+IN POLICE TRAINING.|Police officers
+INCREASED AT WORK.|Business professionals not elsewhere classified
+INCREASED STRESS|Business professionals not elsewhere classified
+INCREASED STRESS IN BOTH PERSONAL AND WORK PLACE.|Business professionals not elsewhere classified
+"INFOSYS - WORK PRESSURE, 
+IRREGULAR LIFESTYLE - LATENIGHT WORKS"|Computing professionals not elsewhere classified
+INSTRUCTOR|Athletes, sportspersons and related associate professionals
+INVOLVES IN MARATHONS, TREKKING|Athletes, sportspersons and related associate professionals
+IS A BARBER|Hairdressers, barbers, beauticians and related workers
+IS A TEACHER HAS TO KEEP STANDING FOR ;LONGER DURATION|College, university and higher education teaching professionals
+IT|Computing professionals not elsewhere classified
+"IT- DESK JOB, 
+"|Computing professionals not elsewhere classified
+IT IN CHARGE|Computing professionals not elsewhere classified
+IT PROFESSIONAL|Computing professionals not elsewhere classified
+IT SECTOR. MORE STRESSED JOB.|Computing professionals not elsewhere classified
+IT SECTOR. MORE STRESSFUL JOB.|Computing professionals not elsewhere classified
+"IT- SITTING FOR LONG TIME AND 
+ANXIETY , STRESS."|Computing professionals not elsewhere classified
+IT WORKING|Computing professionals not elsewhere classified
+IT, STRESS|Computing professionals not elsewhere classified
+IT., STRESSFUL|Computing professionals not elsewhere classified
+JR SCIENTIST|Research and development department managers
+LABORER|Domestic helpers and cleaners
+LAWYER|Lawyers
+LECTURER|College, university and higher education teaching professionals
+"LIBRARIAN
+STRESS + "|Librarians and related information professionals
+MACHINE SHOP|Electrical mechanics and fitters
+MACHINE WORKER|Electrical mechanics and fitters
+MAID|Domestic helpers and cleaners
+MANUAL LABOUR|Domestic helpers and cleaners
+MARKETING|Sales and marketing department managers
+MARKETING - UNTIMELY FOOD, OUTSIDE FOOD |Sales and marketing department managers
+MARKETING PROFESSIONAL - MORE OF OUTSIDE FOOD|Sales and marketing department managers
+MBBS DOCTOR|Medical doctors
+MECHANICAL ENGINEER|Engineer
+"MENTAL STRESS AND STRAIN PAST 6 MONTHS
+
+DISTRIBUTOR  "|Business professionals not elsewhere classified
+"MORE OF TRAVEELING AND SEDENTARY JOB AND LIFESTYLE 
+
+6 YRS WAS IN US - NOTICED GRADUAL WEIGHT GAIN , PAST 2 YRS SHIFTED TO INDIA"|Business professionals not elsewhere classified
+"MORE OF TRAVELING AND SEDENTARY JOB AND LIFESTYLE 
+
+6 YRS WAS IN US - NOTICED GRADUAL WEIGHT GAIN , PAST 2 YRS SHIFTED TO INDIA"|Business professionals not elsewhere classified
+MUSICIAN STARTED AT 12 YRS OF AGE. VERY DIFFICULT CHILDHOOD AND PERSONAL LIFE.|Composers, musicians and singers
+NAVY CAPTAIN|Armed forces
+NEEDS TO TRAVEL BY BIKE EVERYDAY 30KMS|Business professionals not elsewhere classified
+NGO WORKER|Business professionals not elsewhere classified
+NIGHT SHIFTS|Business professionals not elsewhere classified
+NIGHT SHIFTS - IRREGULAR SHIFTS|Business professionals not elsewhere classified
+NIGHT SHIFTS, DISTURBED BIOLOGICAL CLOCK AND IMPROPER FOOD HABITS |Business professionals not elsewhere classified
+NNS|Business professionals not elsewhere classified
+NOON TO MID NIGHT SHIFT - LATE DINNER - 3 MONTHS BACK|Business professionals not elsewhere classified
+NOT WORKING NOW( AT HOME)|Business professionals not elsewhere classified
+"NS 
+TEACHER "|College, university and higher education teaching professionals
+"NS
+AGRICULTURE"|Subsistence agricultural and fishery workers
+NS,HOUSE WIFE|Home-based personal care workers
+NURSE|Medical assistants
+OCCUPATION - HOME NURSE|Medical assistants
+OCCUPATIONAL STRESS|Business professionals not elsewhere classified
+OCCUPATIONAL STRESS.|Business professionals not elsewhere classified
+OFFICE JOB, JOB STRESS|Business professionals not elsewhere classified
+OFFICE WORK|Business professionals not elsewhere classified
+OT NURSE|Medical assistants
+PAINT CONTRACTER|Painters and related workers
+PATHOLOGIST|Pharmacologists, pathologists and related professionals
+PATIENT HAD BEEN A A SPORTS PERSON IN HER YOUNGER DAYS|Athletes, sportspersons and related associate professionals
+PATIENT IS A GARDEN SUPERVISOR AND EXPOSED TO MORE PHYSICAL WORK.|Gardeners, horticultural and nursery growers
+"PATIENT IS COOK,
+"|Cooks
+PATIENT IS ENGINEER BY PROFESSION AND MORE USED TO LONG TIME SITTING AND WORKING IN FRONT OF COMPUTER.|Engineer
+PATIENT WORKS AS CIVIL / CONSTRUCTION ENGINEER AND HAS MORE OF FIELD WORK|Engineer
+PHARMACEUTICAL COMPANY.|Pharmacologists, pathologists and related professionals
+PHARMACIST|Pharmacologists, pathologists and related professionals
+PHYSICAL ACTIVITY ++|Athletes, sportspersons and related associate professionals
+PHYSIOTHERAPY|Athletes, sportspersons and related associate professionals
+POLICE|Police officers
+"POLICE  CONSTABLE
+SITTING FOR LONG TIME"|Police officers
+POLICE OFFICER|Police officers
+POLICE TRAINING.|Police officers
+PRESENTLY A HOUSEWIFE|Home-based personal care workers
+"PREVIOUSLY LOTS OF PHYSICAL ACTIVITIES IN KITCHEN - WHOLE DAY
+
+PSYCHOLOGICAL STRESS AND STRAIN"|Home-based personal care workers
+"PREVIOUSLY LOTS OF PHYSICAL ACTIVITIES IN KITCHEN ,
+
+PSYCHOLOGICAL STRESS AND STRAIN"|Home-based personal care workers
+PRINCIPAL|College, university and higher education teaching professionals
+PRIVATE FIRM|Business professionals not elsewhere classified
+PROFESSIONAL STRESS|Business professionals not elsewhere classified
+PROFESSIONAL STRESS, MORE OF TRAVEL - |Business professionals not elsewhere classified
+PROFFESOR|College, university and higher education teaching professionals
+PROVISION STORE|Street vendors, non-food products
+PSYCHOLOGIST|Psychologists
+PT IS A BADMINTON PLAYER|Athletes, sportspersons and related associate professionals
+PT IS A FARMER AND IS USED TO DOING HARD PHYSICAL LABOUR|Subsistence agricultural and fishery workers
+PT IS A TAILOR|Tailors, dressmakers and hatters
+PT IS ATHLETIC , DOES YOGA , DANCE|Athletes, sportspersons and related associate professionals
+"PT WORKS IN A MOBILE SHOP.
+HAS BEEN GOING TO GYM SINCE 6YRS O AND OFF, HAS STOPPED GYM SINCE 1 WEEK."|Telegraph and telephone installers and servicers
+PUROHITH|Religious associate professionals
+REAL ESTATE|Estate agents
+RECEPTIONIST, STANDING FOR LONG HOURS, |Receptionists and information clerks
+RECEPTIONIST.|Receptionists and information clerks
+REGULAR , GOLF AND TENNIS PLAYER |Athletes, sportspersons and related associate professionals
+"REGULAR GYM 
+WORKS IN MUSCAT AS A LECTURER"|Athletes, sportspersons and related associate professionals
+"REGULAR TREKKING, 
+"|Athletes, sportspersons and related associate professionals
+REGULAR WALKING|Athletes, sportspersons and related associate professionals
+RESEARCH|Research and development department managers
+RETIRED|Business professionals not elsewhere classified
+RETIRED (BMTC )|Business professionals not elsewhere classified
+RETIRED ADVOCATE|Lawyers
+"RETIRED BANK EMPLOYEE 
+YOGA TEACHER ( FROM LAST 6 YRS ) "|Tellers and other counter clerks
+RETIRED EMPLOYEE|Business professionals not elsewhere classified
+RETIRED OFFICER|Business professionals not elsewhere classified
+RETIRED SCHOOL TEACHER|College, university and higher education teaching professionals
+RETIRED.|Business professionals not elsewhere classified
+RUNS HARDWARE SHOP|Business professionals not elsewhere classified
+SALES MAN|Technical and commercial sales representatives
+SALES MANAGER|General managers of business services
+SCIENTIST|Research and development department managers
+SEDENATRY - NO PHYSICAL ACITIVITIES|Business professionals not elsewhere classified
+SEDENATRY LIFESTYLE|Business professionals not elsewhere classified
+SEDENTARY LIFE STYLE|Business professionals not elsewhere classified
+SEDENTARY LIFE STYLE - DOCTOR|Medical doctors
+SEDENTARY LIFESTYLE|Business professionals not elsewhere classified
+"SEDENTARY LIFESTYLE - DESKTOP JOB, 
+WORK EXERTION AND STRESS"|Business professionals not elsewhere classified
+"SEDENTARY LIFESTYLE , 
+HIGH LEVEL OF STRESS "|Business professionals not elsewhere classified
+"SEDENTARY LIFESTYLE , 
+IRREGULAR DIET , "|Business professionals not elsewhere classified
+SEDENTARY, INVOVES CONTNOUS WORK ON LAPTOP, TRAVEL|Business professionals not elsewhere classified
+SELF EMPLOYED.|Business professionals not elsewhere classified
+SELF EMPLYOED|Business professionals not elsewhere classified
+SERVICING|Business professionals not elsewhere classified
+SHE WAS A TEACHER.|College, university and higher education teaching professionals
+"SHIFT DUTY WORKS FOR JET AIRWAYS
+MORE STRESS "|
+"SOCIAL WORK - POLITICAL 
+"|Senior officials of political-party organisations
+SOFTWARE DEVELOPER|Computing professionals not elsewhere classified
+SOFTWARE ENGINEER|Computing professionals not elsewhere classified
+SOFTWARE ENGINEER TRAVELS 8 KMS A DAY.|Computing professionals not elsewhere classified
+SOFTWARE ENGINEER.TRAVELS 8 KMS A DAY.|Computing professionals not elsewhere classified
+SOFTWARE IN US|Computing professionals not elsewhere classified
+SPORTSMAN|Athletes, sportspersons and related associate professionals
+STAFF NURSE|Medical assistants
+STESFULL|Business professionals not elsewhere classified
+STESS|Business professionals not elsewhere classified
+STRESFULL|Business professionals not elsewhere classified
+STRESS|Business professionals not elsewhere classified
+STRESS - MODERATE|Business professionals not elsewhere classified
+"STRESS & ANXIETY , CHINTHA 
+( H/O SON DEATH - 4 MONTHS BACK ) "|Business professionals not elsewhere classified
+STRESS & TENSION|Business professionals not elsewhere classified
+"STRESS & TENSION 
+DRIVER , CONTRACTOR"|Driver
+STRESS & TENSION +|Business professionals not elsewhere classified
+"STRESS & TENSION +
+HOME MAKER "|Home-based personal care workers
+STRESS & TENSION HOME MAKER|Home-based personal care workers
+STRESS & TENSION RELATED  HUSBAND HEALTH|Home-based personal care workers
+STRESS & TENSION RELATED TO FAMILY|Business professionals not elsewhere classified
+STRESS & TENSION RELATED TO HOME|Business professionals not elsewhere classified
+STRESS & TENSION RELATED TO WAORK|Business professionals not elsewhere classified
+STRESS & TENSION RELATED TO WORK|Business professionals not elsewhere classified
+STRESS & TENSION RELATED TO WORK & HOME|Business professionals not elsewhere classified
+STRESS , ANXIETY |Business professionals not elsewhere classified
+STRESS , ANXIOUS|Business professionals not elsewhere classified
+STRESS , ANXIOUS |Business professionals not elsewhere classified
+STRESS , DISTURBED SLEEP AND ANXIETY.SCREAMS DURING SLEEP SOMETIMES ?.H/O FAMILY PROBLEMS.|Business professionals not elsewhere classified
+STRESS , STRAIN - PROFESSIONAL |Business professionals not elsewhere classified
+"STRESS , STRAIN ?
+"|Business professionals not elsewhere classified
+STRESS , TENSION |Business professionals not elsewhere classified
+STRESS , TENSION & ANGER |Business professionals not elsewhere classified
+STRESS , TENSION , ANXIETY.|Business professionals not elsewhere classified
+STRESS , TENSION ALOT SINCE 1 WEEK|Business professionals not elsewhere classified
+STRESS , TRAVELING |Business professionals not elsewhere classified
+STRESS .|Business professionals not elsewhere classified
+STRESS / ANXIETY|Business professionals not elsewhere classified
+STRESS +|Business professionals not elsewhere classified
+STRESS ++|Business professionals not elsewhere classified
+"STRESS ++ AS SHE LOST HER MOTHER IN AUG 2016
+YOGA INSTRUCTOR
+WAS ACCOUNTANT PREVIOUSLY"|Athletes, sportspersons and related associate professionals
+"STRESS ++
+WORKS AS HOME MAID AS HAS NO REST ."|Domestic helpers and cleaners
+STRESS ALOT AT WORK|Business professionals not elsewhere classified
+STRESS AND ANXIETY|Business professionals not elsewhere classified
+STRESS AND STRAIN|Business professionals not elsewhere classified
+STRESS AND STRAIN - JOURNALIST|Business professionals not elsewhere classified
+STRESS AT WORK|Business professionals not elsewhere classified
+STRESS DUE TO DEMISES OF CLOSE FAMILY MEMBERS.|Business professionals not elsewhere classified
+STRESS FOR SMALL ISSUES|Business professionals not elsewhere classified
+"STRESS FOR SMALL ISSUES
+NCBS"|Business professionals not elsewhere classified
+STRESS FUL|Business professionals not elsewhere classified
+STRESS FULL JOB|Business professionals not elsewhere classified
+STRESS FULL WORK|Business professionals not elsewhere classified
+STRESS INDUCED|Business professionals not elsewhere classified
+STRESS LEVEL IS HIGH  AT WORK|Business professionals not elsewhere classified
+"STRESS PERSISTS, TRAVELLING LOT, 
+ACTIVE PERSON 
+"|Business professionals not elsewhere classified
+STRESS- PHARMA MARKETING - SOUTH INDIA|Pharmacologists, pathologists and related professionals
+STRESS REALTED TO FAMILY|Business professionals not elsewhere classified
+STRESS REDUCED|Business professionals not elsewhere classified
+STRESS RELATED NOT GETTING JOB|Business professionals not elsewhere classified
+STRESS RELATED TO BUISNESS|Business professionals not elsewhere classified
+STRESS RELATED TO FAMILY|Business professionals not elsewhere classified
+STRESS RELATED TO SON|Business professionals not elsewhere classified
+STRESS RELATED TO WORK|Business professionals not elsewhere classified
+"STRESS RELATED WORK .
+GETTING ANGRY SOON "|Business professionals not elsewhere classified
+STRESS TO REDUCED WEIGHT|Business professionals not elsewhere classified
+"STRESS
+IRREGULAR LIFESTYLE "|Business professionals not elsewhere classified
+STRESS,|Business professionals not elsewhere classified
+STRESS, |Business professionals not elsewhere classified
+STRESS, - BUSINESS|Business professionals not elsewhere classified
+STRESS, ANGRY|Business professionals not elsewhere classified
+STRESS, ANXIETY |Business professionals not elsewhere classified
+STRESS, ANXIETY AND DEPRESSED  SINCE 2002 , MOOD  SWING MOSTLY DEPRESSED , NOT UNDER ANY MEDICATION AT PRESENT |Business professionals not elsewhere classified
+STRESS, ANXIETY.|Business professionals not elsewhere classified
+STRESS, CAMERA MAN|Business professionals not elsewhere classified
+STRESS, DEPRESSION|Business professionals not elsewhere classified
+STRESS, MOOD SWING AND IRRITABLE|Business professionals not elsewhere classified
+STRESS, MOOD SWINGS,|Business professionals not elsewhere classified
+STRESS, TENSION|Business professionals not elsewhere classified
+STRESS, TENSION |Business professionals not elsewhere classified
+"STRESS, TENSION 
+IRREGULAR FOOD HABITS,
+DAY SLEEP "|Business professionals not elsewhere classified
+"STRESS,DEPRESSION,MOOD SWINGS.
+OCCUPATION :TEACHER"|College, university and higher education teaching professionals
+STRESS,HOUSEWIFE|Home-based personal care workers
+STRESS.|Business professionals not elsewhere classified
+"STRESS.
+RECENTLY STOPPED DOING WORK "|Business professionals not elsewhere classified
+STRESS+|Business professionals not elsewhere classified
+STRESS++|Business professionals not elsewhere classified
+STRESSED AT HOME|Business professionals not elsewhere classified
+STRESSED AT WORK|Business professionals not elsewhere classified
+STRESSED OUT 3 MONTHS BACK|Business professionals not elsewhere classified
+STRESSED SOME TIME.|Business professionals not elsewhere classified
+STRESSED, |Business professionals not elsewhere classified
+STRESSED, DEPRESSED|Business professionals not elsewhere classified
+STRESSED?|Business professionals not elsewhere classified
+STRESSFUL|Business professionals not elsewhere classified
+STRESSFUL - BUSINESS|Business professionals not elsewhere classified
+"STRESSFUL 
+RESEARCHER ON BUDDHISM AT MYSORE. "|Research and development department managers
+"STRESSFUL 
+SCIENTIST IN SINGAPORE"|Research and development department managers
+STRESSFUL , TENSION AT WORK SITE.& FAMILY|Business professionals not elsewhere classified
+"STRESSFUL ,
+PT FEELS DIGESTION IS HAMPERED/DELAYED WITH CHAPATI OR RAGI BALL, "|Business professionals not elsewhere classified
+STRESSFUL ,RETIRED HR HEAD|Business professionals not elsewhere classified
+STRESSFUL ++|Business professionals not elsewhere classified
+STRESSFUL AND SEDENTARY LIFESTYLE|Business professionals not elsewhere classified
+STRESSFUL AT WORK PLACE|Business professionals not elsewhere classified
+STRESSFUL JOB|Business professionals not elsewhere classified
+STRESSFUL JOB .|Business professionals not elsewhere classified
+"STRESSFUL JOB
+GOVT. EMPLOYEE"|Senior government officials
+STRESSFUL LIFE|Business professionals not elsewhere classified
+STRESSFUL LIFE - POLITICAL BACKGROUND|Senior officials of political-party organisations
+STRESSFUL LIFE THROUGHOUT LIFE|Business professionals not elsewhere classified
+STRESSFUL LIFE, PAST 2 YRS LOTS OF PERSONAL DISTURBANCES |Business professionals not elsewhere classified
+STRESSFUL PROFESSIONAL LIFE|Business professionals not elsewhere classified
+STRESSFUL WORK|Business professionals not elsewhere classified
+"STRESSFUL WORK - NIGHT SHIFTS, 
+
+DEPRIVED OF SLEEP - BABY -7 MONTHS"|Business professionals not elsewhere classified
+STRESSFUL WORK AND MENTAL PRESSURE DUE TO WORK.|Business professionals not elsewhere classified
+STRESSFUL WORK ENVIRONMENT ( WHEN ON SERVICE )|Business professionals not elsewhere classified
+"STRESSFUL
+SEDENTARY LIFESTYLE "|Business professionals not elsewhere classified
+STRESSFUL, DEPRESSED|Business professionals not elsewhere classified
+STRESSFULL AT WORK PLACE|Business professionals not elsewhere classified
+STUDENT|Student
+"STUDENT
+& A DEPRESSION PATIENT"|Student
+STUDENT.|Student
+STUDENT.  SEDENTARY LIFESTYLE|Student
+"STUDENT.  SEDENTARY LIFESTYLE 
+STRESS ++"|Student
+SUPERVISOR|General managers of business services
+SUPERVISOR IN FACTORY , USED TO STAND FOR LONG TIME AND WORK|General managers of business services
+TAILOR|Tailors, dressmakers and hatters
+"TAILOR
+STRESS ++"|Tailors, dressmakers and hatters
+TAILOR, |Tailors, dressmakers and hatters
+"TAILOR, HAS STOPPED, 
+"|Tailors, dressmakers and hatters
+TAKES STRESS VERY EASILY.|Business professionals not elsewhere classified
+TEACHER|College, university and higher education teaching professionals
+TEACHER (PROLONGED STANDING)|College, university and higher education teaching professionals
+TEACHER / STRESS|College, university and higher education teaching professionals
+TEACHER- 6 HOURS A DAY.|College, university and higher education teaching professionals
+TEACHER BY PROFESSION|College, university and higher education teaching professionals
+"TEACHER BY PROFESSION,
+PROLONGED STANDING"|College, university and higher education teaching professionals
+TEACHER- STANDING FOR 6 HOURS|College, university and higher education teaching professionals
+"TEACHER
+DEC 2016 - HUSBAND DEATH- EMOTIONALLY DISTURBED "|College, university and higher education teaching professionals
+TEACHING PROFESSION|College, university and higher education teaching professionals
+TECHNICIAN|Business professionals not elsewhere classified
+TENSION AND PRESSURE AT WORK.|Business professionals not elsewhere classified
+TENSION RELATED BUSINESS|Business professionals not elsewhere classified
+TENSION RELATED TO JOB|Business professionals not elsewhere classified
+TENSION WORK|Business professionals not elsewhere classified
+TENSION, STRESS AFTER BROTHER'S DEATH - AFTER THAT SUDDEN INCREASE IN SUGAR LEVEL|Business professionals not elsewhere classified
+TENSION, STRESS FULL|Business professionals not elsewhere classified
+TENSION, WORRISOME|Business professionals not elsewhere classified
+TRAINEE|Business professionals not elsewhere classified
+TRAINER|Student
+TRAINING MANAGER|Business professionals not elsewhere classified
+TRAVELLING|Business professionals not elsewhere classified
+TRAVELLING - SALES|Technical and commercial sales representatives
+TRAVELLING STRESS -|Business professionals not elsewhere classified
+TRAVELS 40KM EVERY DAY IN 2 WHEELER|Business professionals not elsewhere classified
+TRAVELS BY BIKE 35 KM ONE WAY, PAIN INCREASES ON USING THE BIKE|Business professionals not elsewhere classified
+TUTOR|College, university and higher education teaching professionals
+TWO WHEELER DRIVING , STRESSFUL |Business professionals not elsewhere classified
+TWO WHEELER RIDING|Business professionals not elsewhere classified
+VERY DEPRESSED|Business professionals not elsewhere classified
+VETERINARY DOCTOR|Veterinarians
+WAS WORKING AT A GARMENT SHOP.|Textile, leather and related pattern-makers and cutters
+WAS WORKING IN CEMENT FACTORY IN 1999|Cement and other mineral products machine operators
+WEAVING|Weavers, knitters and related workers
+WELDING SHOP|Welders and flamecutters
+WILDLIFE RESEARCHER|Research and development department managers
+WORK PRESSURE AND STRESS|Business professionals not elsewhere classified
+WORK STRESS|Business professionals not elsewhere classified
+"WORK STRESS SOMETIMES.
+BANK EMPLOYEE"|Tellers and other counter clerks
+WORK TENSION|Business professionals not elsewhere classified
+WORK TENSION AND STRESS ; NOT INTERESTED  IN SEXUAL ACTIVITIES DUE TO PAIN SINCE 1 YEAR.|Business professionals not elsewhere classified
+WORK: STRESS +|Business professionals not elsewhere classified
+WORKED AS A TAILOR FROM THE AGE OF 14|Tailors, dressmakers and hatters
+WORKING|Business professionals not elsewhere classified
+WORKING IN BESCOM|Business professionals not elsewhere classified
+WORKS IN AIRCRAFT, TOO MUCH PHYSICAL WORK|Aircraft pilots and related associate professionals
+WORKS IN BPO SITTING AND WORKING|Business professionals not elsewhere classified
+WORKS IN HOTEL  FOR 20 YRS|Helpers and cleaners in offices, hotels and other establishments
+"WORKS IN SCHOOL DESK JOB.
+IS INTO RUNNING ON WEEKENDS"|Business professionals not elsewhere classified
+WRITER|Authors, journalists and other writers
+"YES
+ASSISTENT GENERAL MANAGER"|General managers not elsewhere classified
+YOGA TEACHER|Athletes, sportspersons and related associate professionals
