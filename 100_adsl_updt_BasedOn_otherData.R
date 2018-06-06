@@ -31,7 +31,9 @@ sec004 <- sec004 [, tmp_backchar004_005 := toupper(`sec004_var005_Psychological 
 lookup_backchar004_003 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_backchar004_003.txt", sep="|")
 lookup_backchar004_005 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_backchar004_005.txt", sep="|")
 
-
+#############################################
+# Background characteristics, type of patient
+#############################################
 sec004_1 <- merge(x = sec004,
                   y = lookup_backchar004_003,
                   all.x = TRUE,
@@ -47,3 +49,11 @@ sec004_2 <- merge(x = sec004_1,
 
 cnt <- sec004_2 [subchar004_003 != "", .(cnt004_003 = uniqueN(mr_no))]
 cnt02 <- sec004_2 [subchar004_005 != "", .(cnt004_003 = uniqueN(mr_no))]
+
+mr <- unique(sec004_2 [subchar004_003 != "", c("mr_no")])
+mr02 <- unique(sec004_2 [subchar004_005 != "", c("mr_no")])
+
+###########################################################
+# 2768 unique patients have some type of occupation defined
+###########################################################
+mr_all <- unique(rbind(mr, mr02))
