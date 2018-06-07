@@ -11,7 +11,7 @@ Dataset creation files:
 | 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
 | 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
-| 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt |
+| 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
 
 Analysis creation files:
 
