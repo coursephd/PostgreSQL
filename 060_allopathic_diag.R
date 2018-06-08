@@ -8,26 +8,39 @@ library(quanteda)
 library(tm)
 library(tidyr)
 
-sec011 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec011.rds")
-sec082 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec082.rds")
-sec122 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec122.rds")
-sec123 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec123.rds")
 
+chkpat <- function (dname, var, dataout = "unqsec") {
+  sec <- readRDS( paste("D:/Hospital_data/ProgresSQL/analysis/", noquote(dname) , ".rds", sep="") )
+  
+  
+  sec011 <- sec [, `:=` (orig = get(var),
+                         all_diag = toupper( get( var))), ]
+  
+  ########################################################
+  # Replace multiple diseases in 1 row to multiple rows, 
+  # Seperate_rows allows: keeping all other rows as is
+  #########################################################
+  sec011_1 <- separate_rows(sec011, all_diag, sep =",|\r\n|\\?|\\bAND\\b|;" )
+  sec011_1 <- sec011_1 [, all_diag := trimws(all_diag),]
+  sec011_1 <- sec011_1 [, dname := paste(var, sep = ""), ]
+  
+  ####################################################################
+  # Create unique row per disease, this will be matched against ICD 10
+  ####################################################################
+  unqsec <- unique( sec011_1 [, c("all_diag", "dname"), ] )
+  
+  assign(dataout, unqsec, envir=.GlobalEnv)
+}
 
-sec011 <- sec011 [, `:=` (orig = `sec011_var001_Allopathic Diagnosis`,
-                          all_diag = toupper(`sec011_var001_Allopathic Diagnosis`)), ]
+chkpat(dname = "sec011", var= "sec011_var001_Allopathic Diagnosis", dataout = "unqsec011")
+chkpat(dname = "sec082", var= "sec082_var001_Allopathic Diagnosis", dataout = "unqsec082")
+chkpat(dname = "sec122", var= "sec122_var001_Allopathic Diagnosis", dataout = "unqsec122")
+chkpat(dname = "sec123", var= "sec123_var001_Allopathic Diagnosis", dataout = "unqsec123")
 
-########################################################
-# Replace multiple diseases in 1 row to multiple rows, 
-# Seperate_rows allows: keeping all other rows as is
-#########################################################
-sec011_1 <- separate_rows(sec011, all_diag, sep =",|\r\n|\\?|\\bWITH\\b|\\bAND\\b|;" )
-sec011_1 <- sec011_1 [, all_diag := trimws(all_diag),]
+secall <- lapply(ls(pattern="unqsec*"), get)
+t2all_unqdis <- data.table( rbindlist (secall))
 
-####################################################################
-# Create unique row per disease, this will be matched against ICD 10
-####################################################################
-unq <- unique( sec011_1 [, c("all_diag"), ] )
+fwrite(t2all_unqdis, "D:/Hospital_data/ProgresSQL/data_chk/_unq_cnt_allopathic_dist.csv")
 
 
 ##########################
