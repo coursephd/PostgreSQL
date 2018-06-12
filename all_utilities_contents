@@ -1,3 +1,7 @@
+
+The ICD 10 files related website [https://www.emedny.org/icd/index.aspx]
+The complete list of the 2018 ICD-10-CM valid codes and code titles are in the 2018-ICD-10-Code-Dedcriptions.zip 
+
 Working code for partial matching:
 sec001 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec001.rds")
 sec001_1 <- sec001 [, (names(sec001) %in% c("mr_no", "patient_id", "subvis") | 
