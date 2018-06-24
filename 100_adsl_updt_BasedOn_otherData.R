@@ -2,6 +2,7 @@ library(Hmisc)
 library(data.table)
 library(stringi)
 library(stringr)
+library(sqldf)
 
 sec001 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/sec001.rds")
 sec001_1 <- sec001 [, (names(sec001) %in% c("mr_no", "patient_id", "subvis") | 
@@ -62,6 +63,13 @@ mr_all <- unique(rbind(mr, mr02))
 ########################################################################
 # This section creates the allopathic diagnosis as per ICD 10 dictionary
 ########################################################################
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
+all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
+
+# Baseline age
+age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "patient_gender")] )
 
 lookup_allopathic_diag <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_allopathic_diag.txt", sep="|")
 
@@ -106,37 +114,57 @@ dis_all02 <- merge(x = dis_all,
                    allow.cartesian=TRUE,
                    by = c("all_diag", "dname")  )
 
-dis_pat <- dis_all02 [ nchar(code01) > 0 , 
-                      c("mr_no", "patient_id", 
-                                      "code01", "code02", "code03",
-                                      "text01", "text02", "text03",
-                                      "Code", "description")]
+dis_pat <- dis_all02 [ nchar(code01) > 0 ]
 dis_pat <- dis_pat[ code01 != c("** Can not be coded")]
 
-dsec011_1 <- merge(x = dsec011,
-                   y = lookup_allopathic_diag [dname == "sec011_var001_Allopathic Diagnosis"],
-                   all.x = TRUE,
-                   allow.cartesian=TRUE,
-                   by = c("all_diag", "dname")  )
+dis_pat02 <- merge (x = dis_pat,
+                    y = age01,
+                    by = c("mr_no"))
 
-chkpat(dname = "sec082", var= "sec082_var001_Allopathic Diagnosis", dataout = "dsec082")
-dsec082_1 <- merge(x = dsec082,
-                   y = lookup_allopathic_diag [dname == "sec082_var001_Allopathic Diagnosis"],
-                   all.x = TRUE,
-                   allow.cartesian=TRUE,
-                   by = c("all_diag", "dname") )
+unqpat <- dis_pat02 [, .(npat = uniqueN (mr_no)), by = .(combine)]
+unqpat_gender <- dis_pat02 [, .(npat = uniqueN (mr_no)), by = .(combine, patient_gender)]
 
 
-chkpat(dname = "sec122", var= "sec122_var001_Allopathic Diagnosis", dataout = "dsec122")
-dsec122_1 <- merge(x = dsec122,
-                   y = lookup_allopathic_diag [dname == "sec122_var001_Allopathic Diagnosis"],
-                   all.x = TRUE,
-                   allow.cartesian=TRUE,
-                   by = c("all_diag", "dname") )
+chk01 <- unique( dis_pat02 [, c("mr_no", "code01", "text01", "baseage", 
+                                "patient_gender", "combine", "Metabolic", "RMSD")])
 
-chkpat(dname = "sec123", var= "sec123_var001_Allopathic Diagnosis", dataout = "dsec123")
-dsec122_1 <- merge(x = dsec123,
-                   y = lookup_allopathic_diag [dname == "sec123_var001_Allopathic Diagnosis"],
-                   all.x = TRUE,
-                   allow.cartesian=TRUE,
-                   by = c("all_diag", "dname")  )
+chk01 <- chk01 [, high := substr(code01, 1, 3)]
+
+
+cats <- data.table( expand.grid( cat1 = LETTERS, 
+                                 cat2 = seq (0, 99) ) )
+cats <- cats [, high := paste( cat1, str_pad(cat2, 2, side = "left", pad = 0), sep=""), ]
+
+cats <- sqldf("select *, 
+              case 
+              When cat1 == 'A' OR cat1 == 'B' then 'Certain infectious and parasitic diseases'
+              When (cat1 == 'C' OR (cat1 == 'D' AND cat2 < 50)) then 'Neoplasms'
+              When (cat1 == 'D' AND cat2 >=50) then 'Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism'
+              When (cat1 == 'E') then 'Endocrine, nutritional and metabolic diseases'
+              When (cat1 == 'F') then 'Mental and behavioural disorders'
+              When (cat1 == 'G') then 'Diseases of the nervous system'
+              When (cat1 == 'H' and cat2 <= 59) then 'Diseases of the eye and adnexa'
+              When (cat1 == 'H' and cat2 > 59) then 'Diseases of the ear and mastoid process'
+              When (cat1 == 'I') then 'Diseases of the circulatory system'
+              When (cat1 == 'J') then 'Diseases of the respiratory system'
+              When (cat1 == 'K') then 'Diseases of the digestive system'
+              When (cat1 == 'L') then 'Diseases of the skin and subcutaneous tissue'
+              When (cat1 == 'M') then 'Diseases of the musculoskeletal system and connective tissue'
+              When (cat1 == 'N') then 'Diseases of the genitourinary system'
+              When (cat1 == 'O') then 'Pregnancy, childbirth and the puerperium'
+              When (cat1 == 'P') then 'Certain conditions originating in the perinatal period'
+              When (cat1 == 'Q') then 'Congenital malformations, deformations and chromosomal abnormalities'
+              When (cat1 == 'R') then 'Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified'
+              When (cat1 == 'S' OR cat1 == 'T') then 'Injury, poisoning and certain other consequences of external causes'
+              When (cat1 == 'V' OR cat1 == 'W' OR cat1 == 'X' OR cat1 == 'Y') then 'Injury, poisoning and certain other consequences of external causes'
+              When (cat1 == 'Z') then 'Factors influencing health status and contact with health services'
+              When (cat1 == 'U') then 'Codes for special purposes'
+              end as icd
+              from cats")
+
+chk02 <- merge (x = chk01,
+                y = cats,
+                all.x = TRUE,
+                by = c("high"))
+
+highcnt <- chk02 [, .(cntpat = uniqueN(mr_no)), by = .(icd)]
