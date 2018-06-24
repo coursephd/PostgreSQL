@@ -57,3 +57,86 @@ mr02 <- unique(sec004_2 [subchar004_005 != "", c("mr_no")])
 # 2768 unique patients have some type of occupation defined
 ###########################################################
 mr_all <- unique(rbind(mr, mr02))
+
+
+########################################################################
+# This section creates the allopathic diagnosis as per ICD 10 dictionary
+########################################################################
+
+lookup_allopathic_diag <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_allopathic_diag.txt", sep="|")
+
+chkpat <- function (dname, var, dataout = "unqsec") {
+  sec <- readRDS( paste("D:/Hospital_data/ProgresSQL/analysis/", noquote(dname) , ".rds", sep="") )
+  
+  
+  sec011 <- sec [, `:=` (orig = get(var),
+                         all_diag = toupper( get( var))), ]
+  
+  ########################################################
+  # Replace multiple diseases in 1 row to multiple rows, 
+  # Seperate_rows allows: keeping all other rows as is
+  #########################################################
+  sec011_1 <- separate_rows(sec011, all_diag, sep =",|\r\n|\\?|\\bAND\\b|;" )
+  #sec011_1 <- sec011_1 [, all_diag := trimws(all_diag), ]
+  #sec011_1 <- sec011_1 [, dname := paste(var, sep = ""), ]
+  
+  sec011_1 [, all_diag := trimws(all_diag)]
+  sec011_1 [, dname := paste(var, sep = "")]
+
+  ####################################################################
+  # Create unique row per disease, this will be matched against ICD 10
+  ####################################################################
+  #unqsec <- unique( sec011_1 [, c("all_diag", "dname"), ] )
+  tmp <- sec011_1
+  
+  assign(dataout, tmp, envir=.GlobalEnv)
+}
+
+chkpat(dname = "sec011", var= "sec011_var001_Allopathic Diagnosis", dataout = "dsec011")
+chkpat(dname = "sec082", var= "sec082_var001_Allopathic Diagnosis", dataout = "dsec082")
+chkpat(dname = "sec122", var= "sec122_var001_Allopathic Diagnosis", dataout = "dsec122")
+chkpat(dname = "sec123", var= "sec123_var001_Allopathic Diagnosis", dataout = "dsec123")
+
+dislist <- lapply(ls(pattern="dsec*"), get)
+dis_all <- data.table( rbindlist (dislist))
+
+dis_all02 <- merge(x = dis_all,
+                   y = lookup_allopathic_diag,
+                   all.x = TRUE,
+                   allow.cartesian=TRUE,
+                   by = c("all_diag", "dname")  )
+
+dis_pat <- dis_all02 [ nchar(code01) > 0 , 
+                      c("mr_no", "patient_id", 
+                                      "code01", "code02", "code03",
+                                      "text01", "text02", "text03",
+                                      "Code", "description")]
+dis_pat <- dis_pat[ code01 != c("** Can not be coded")]
+
+dsec011_1 <- merge(x = dsec011,
+                   y = lookup_allopathic_diag [dname == "sec011_var001_Allopathic Diagnosis"],
+                   all.x = TRUE,
+                   allow.cartesian=TRUE,
+                   by = c("all_diag", "dname")  )
+
+chkpat(dname = "sec082", var= "sec082_var001_Allopathic Diagnosis", dataout = "dsec082")
+dsec082_1 <- merge(x = dsec082,
+                   y = lookup_allopathic_diag [dname == "sec082_var001_Allopathic Diagnosis"],
+                   all.x = TRUE,
+                   allow.cartesian=TRUE,
+                   by = c("all_diag", "dname") )
+
+
+chkpat(dname = "sec122", var= "sec122_var001_Allopathic Diagnosis", dataout = "dsec122")
+dsec122_1 <- merge(x = dsec122,
+                   y = lookup_allopathic_diag [dname == "sec122_var001_Allopathic Diagnosis"],
+                   all.x = TRUE,
+                   allow.cartesian=TRUE,
+                   by = c("all_diag", "dname") )
+
+chkpat(dname = "sec123", var= "sec123_var001_Allopathic Diagnosis", dataout = "dsec123")
+dsec122_1 <- merge(x = dsec123,
+                   y = lookup_allopathic_diag [dname == "sec123_var001_Allopathic Diagnosis"],
+                   all.x = TRUE,
+                   allow.cartesian=TRUE,
+                   by = c("all_diag", "dname")  )
