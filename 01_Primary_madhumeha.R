@@ -20,16 +20,17 @@ madhumeha <- unique( all_met_rmsd [ Code %in% c("M2.0") & diag_type == "P", c("m
 all_sub <- all_met_rmsd [ mr_no %in% madhumeha$mr_no]
 
 # Analysis for the disease duration
-dis_data <- unique(all_sub [, .(disstt = min(newdt0 ), 
-                                     disend = max( newdt0),
-                                     disdur = as.numeric(max(newdt0) - min(newdt0) + 1)), 
-                                 by = .(distype, mr_no, patient_gender, all_vis, all_ip, all_op, cdur, cstdt,cendt, Code, description)] )
+# Analysis for the disease duration
+dis_data <- unique(all_sub [, .(disstt = min(newdt0 ), disend = max( newdt0),
+                                daystt = min(studyday ), dayend = max( studyday),
+                                disdur = as.numeric(max(newdt0) - min(newdt0) + 1)), 
+                            by = .(distype, mr_no, patient_gender, all_vis, all_ip, all_op, cdur, cstdt,cendt, Code, description)] )
 
 dis_data <- dis_data [, cat := "Disease"]
 
 # Analysis for the disease duration
-med_data <- unique(all_sub [, .(disstt = min(newdt0 ), 
-                                disend = max( newdt0),
+med_data <- unique(all_sub [, .(disstt = min(newdt0 ), disend = max( newdt0),
+                                daystt = min(studyday ), dayend = max( studyday),
                                 disdur = as.numeric(max(newdt0) - min(newdt0) + 1)), 
                             by = .(distype, mr_no, patient_gender, all_vis, all_ip, all_op, cdur, cstdt,cendt, medicine_name)] )
 
