@@ -17,12 +17,12 @@ Madhumeha specific analysis: This is an attempt to understand patients with prim
 
 | Program name | Description |
 | --- | --- |
-| 01_Primary_madhumeha.R | This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
-| 02_Primary_madhumeha_comb_medicine | This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
+| 01_Primary_madhumeha.R |- This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>- The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
+| 02_Primary_madhumeha_comb_medicine |- This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
 
 | Excel files | Description |
 | --- | --- |
-| _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>0. The background history is coded by using ISO standards dictionary,<br>0. The diseases are coded using ICD10 codelist|
+| _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>- The background history is coded by using ISO standards dictionary,<br>- The diseases are coded using ICD10 codelist|
 
 Analysis creation files:
 
@@ -54,6 +54,6 @@ Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]
 | Viz name | Description |
 | --- | --- |
 | Based on old data ||
-| 04_patient_analysis_tablaeu |Demographic information of patients:<br> 01NoOfPatients<br>02 Country<br>03 AgeBoxplotCountry<br>04 AgeBoxplotGroup<br>05 NoOfVisitsBox<br>05a NoOfDis_age<br>05b NoOfDis_agebox<br>06 NoOfDiseases<br>07 BloodGroup |
-| IndividualPatientCalendar | This visual has 3 sheets (ignore sheet 3):<br> IndividualPatientCal: Individual patient visit and recorded disease<br>MonthDiseases: This provides a frequency count of diseases by month and gender, the month and year view can be opened up and details for each day can be found|
-| Primary_disease_and_all_other_diseases | This provides a view of diseases and other diseases reported by patients. The dashboard contains comprehensive information about summary statistics of age by gender, boxplots and bubble plot<br>The bubble plot is shown for each disease and additional diseases experienced|
+| 04_patient_analysis_tablaeu |Demographic information of patients:<br>- 01NoOfPatients<br>- 02 Country<br>- 03 AgeBoxplotCountry<br>- 04 AgeBoxplotGroup<br>- 05 NoOfVisitsBox<br>- 05a NoOfDis_age<br>- 05b NoOfDis_agebox<br>- 06 NoOfDiseases<br>- 07 BloodGroup |
+| IndividualPatientCalendar | This visual has 3 sheets (ignore sheet 3):<br>- IndividualPatientCal: Individual patient visit and recorded disease<br>- MonthDiseases: This provides a frequency count of diseases by month and gender, the month and year view can be opened up and details for each day can be found|
+| Primary_disease_and_all_other_diseases |- This provides a view of diseases and other diseases reported by patients. The dashboard contains comprehensive information about summary statistics of age by gender, boxplots and bubble plot<br>- The bubble plot is shown for each disease and additional diseases experienced|
