@@ -13,13 +13,6 @@ Dataset creation files:
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
 | 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
 
-Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
-
-| Program name | Description |
-| --- | --- |
-| 01_Primary_madhumeha.R |- This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>- The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
-| 02_Primary_madhumeha_comb_medicine |- This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
-
 | Excel files | Description |
 | --- | --- |
 | _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>- The background history is coded by using ISO standards dictionary,<br>- The diseases are coded using ICD10 codelist|
@@ -48,6 +41,10 @@ Documents created in RPubs based on the following programs [http://rpubs.com/mah
 | 100_adsl_medicine.Rmd | Metabolic and RMSD Medicine analysis |
 
 D3 network program and the corresponding files are: [https://coursephd.github.io]
+-- This tree shows progression of diseases as experienced by patients in the database.  
+-- This tree shows approximately 12,500 lines of data in very short space.  
+-- Some diseases are experienced more by males or by females.  
+-- Some diseases have many more branches than a few others.
 
 Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
@@ -63,4 +60,18 @@ Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]
 | Viz name | Description |
 | --- | --- |
 | **Based on data from SQL database till Oct 2017**||
-| 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases reported by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases reported by each day, gender and different **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and each **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and each **Rutu**)<br>- __PatProf_season - Aamavaata__| 
+| 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases by each day, gender and **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and **Rutu**)<br>- PatProf_season - Aamavaata (Patient Profile 1 row per patient by **Rutus**)<br>- ~~Sheet 13~~ (**Do not use*)| 
+
+Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
+
+| Program name | Description |
+| --- | --- |
+| 01_Primary_madhumeha.R |- This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>- The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
+| 02_Primary_madhumeha_comb_medicine |- This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
+
+Madhumeha specific analysis:
+| Viz name | Description |
+| --- | --- |
+| **Based on data from SQL database till Oct 2017**||
+| 01_Primary_madhumeha| The diseases and corresponding treatments are displayed on calendar days as well as Study day view|
+| 02_Primary_madhumeha_comb_medicine|A cumulative view of diseases and corresponding treatments prescribed.<br>- There are 1026 combinations of diseases observed in the data|
