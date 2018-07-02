@@ -40,7 +40,7 @@ Documents created in RPubs based on the following programs [http://rpubs.com/mah
 | 100_adsl_analysis_survival_met.Rmd  | Metabolic Survival analysis |
 | 100_adsl_medicine.Rmd | Metabolic and RMSD Medicine analysis |
 
-D3 network program and the corresponding files are: [https://coursephd.github.io]
+D3 network program and the corresponding files are: [https://coursephd.github.io]  
 -- This tree shows progression of diseases as experienced by patients in the database.  
 -- This tree shows approximately 12,500 lines of data in very short space.  
 -- Some diseases are experienced more by males or by females.  
@@ -70,6 +70,7 @@ Madhumeha specific analysis: This is an attempt to understand patients with prim
 | 02_Primary_madhumeha_comb_medicine |- This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
 
 Madhumeha specific analysis:
+
 | Viz name | Description |
 | --- | --- |
 | **Based on data from SQL database till Oct 2017**||
