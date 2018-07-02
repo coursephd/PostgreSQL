@@ -4,7 +4,7 @@ Hospital data access
 Creation of programs using the PostgreSQL database and SQL codes
 
 The following files should be used in the following sequence:  
-Dataset creation files: 
+# Dataset creation files: 
 
 | Program name | Description |
 | --- | --- |
@@ -17,7 +17,7 @@ Dataset creation files:
 | --- | --- |
 | _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>- The background history is coded by using ISO standards dictionary,<br>- The diseases are coded using ICD10 codelist|
 
-Analysis creation files:
+# Analysis creation files:
 
 | Program name | Description |
 | --- | --- |
@@ -31,7 +31,7 @@ Analysis creation files:
 | 01_traxminer_disease.R | Event sequence analysis using R |
 | 05_slopegraph.R | Edward Tufte style slopegraph to understand the trends in the data |
 
-Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
+# Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
 | Program name | Description |
 | --- | --- |
@@ -40,13 +40,13 @@ Documents created in RPubs based on the following programs [http://rpubs.com/mah
 | 100_adsl_analysis_survival_met.Rmd  | Metabolic Survival analysis |
 | 100_adsl_medicine.Rmd | Metabolic and RMSD Medicine analysis |
 
-D3 network program and the corresponding files are: [https://coursephd.github.io]  
+# D3 network program and the corresponding files are: [https://coursephd.github.io]  
 -- This tree shows progression of diseases as experienced by patients in the database.  
 -- This tree shows approximately 12,500 lines of data in very short space.  
 -- Some diseases are experienced more by males or by females.  
 -- Some diseases have many more branches than a few others.
 
-Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
+# Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
 | Viz name | Description |
 | --- | --- |
@@ -62,14 +62,15 @@ Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]
 | **Based on data from SQL database till Oct 2017**||
 | 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases by each day, gender and **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and **Rutu**)<br>- PatProf_season - Aamavaata (Patient Profile 1 row per patient by **Rutus**)<br>- ~~Sheet 13~~ (**Do not use*)| 
 
-Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
+# Madhumeha
+## Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
 
 | Program name | Description |
 | --- | --- |
 | 01_Primary_madhumeha.R |- This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>- The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
 | 02_Primary_madhumeha_comb_medicine |- This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
 
-Madhumeha specific analysis:
+## Madhumeha specific analysis in Tableau:
 
 | Viz name | Description |
 | --- | --- |
