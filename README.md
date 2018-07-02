@@ -22,7 +22,7 @@ Madhumeha specific analysis: This is an attempt to understand patients with prim
 
 | Excel files | Description |
 | --- | --- |
-| _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>>* The background history is coded by using ISO standards dictionary,<br>>* The diseases are coded using ICD10 codelist|
+| _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>0. The background history is coded by using ISO standards dictionary,<br>0. The diseases are coded using ICD10 codelist|
 
 Analysis creation files:
 
