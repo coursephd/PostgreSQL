@@ -54,4 +54,6 @@ Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]
 | Viz name | Description |
 | --- | --- |
 | Based on old data ||
-| 04_patient_analysis_tablaeu | Summary of distinct number of patients<br>02 Country<br>03 AgeBoxplotCountry<br>04 AgeBoxplotGroup<br>05 NoOfVisitsBox<br>05a NoOfDis_age<br>05b NoOfDis_agebox<br>Number of diseases per person<br>07 BloodGroup |
+| 04_patient_analysis_tablaeu |Demographic information of patients:<br> 01NoOfPatients<br>02 Country<br>03 AgeBoxplotCountry<br>04 AgeBoxplotGroup<br>05 NoOfVisitsBox<br>05a NoOfDis_age<br>05b NoOfDis_agebox<br>06 NoOfDiseases<br>07 BloodGroup |
+| IndividualPatientCalendar | This visual has 3 sheets (ignore sheet 3):<br> IndividualPatientCal: Individual patient visit and recorded disease<br>MonthDiseases: This provides a frequency count of diseases by month and gender, the month and year view can be opened up and details for each day can be found|
+| Primary_disease_and_all_other_diseases | This provides a view of diseases and other diseases reported by patients. The dashboard contains comprehensive information about summary statistics of age by gender, boxplots and bubble plot<br>The bubble plot is shown for each disease and additional diseases experienced|
