@@ -12,7 +12,13 @@ Dataset creation files:
 | 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
 | 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
-| 01_Primary_madhumeha.R | This program creates dataset for Madhumeha patients M2.0 listed as Primary diagnosis,<br>This dataset is used in Tableau display.<br>The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
+
+Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
+
+| Program name | Description |
+| --- | --- |
+| 01_Primary_madhumeha.R | This program creates a dataset for Madhumeha patients M2.0 listed as Primary diagnosis. This dataset is used in Tableau display.<br>The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
+| 02_Primary_madhumeha_comb_medicine | This program creates a cumulative view of diseases and corresponding treatments prescribed. There are 1026 combinations of diseases observed in the data|
 
 | Excel files | Description |
 | --- | --- |
@@ -45,3 +51,7 @@ D3 network program and the corresponding files are: [https://coursephd.github.io
 
 Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
+| Viz name | Description |
+| --- | --- |
+| Based on old data ||
+| 04_patient_analysis_tablaeu | Summary of distinct number of patients<br>02 Country<br>03 AgeBoxplotCountry<br>04 AgeBoxplotGroup<br>05 NoOfVisitsBox<br>05a NoOfDis_age<br>05b NoOfDis_agebox<br>Number of diseases per person<br>07 BloodGroup |
