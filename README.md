@@ -12,10 +12,12 @@ Dataset creation files:
 | 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
 | 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
+| 01_Primary_madhumeha.R | This program creates dataset for Madhumeha patients M2.0 listed as Primary diagnosis,<br>This dataset is used in Tableau display.<br>The diseases and corresponding treatments are displayed on calendar days as well as Study day view in Tableau|
 
 | Excel files | Description |
 | --- | --- |
-| _unq_whichdata_touse.xlsx| this file contains information related to background characteristics and medical history|
+| _unq_whichdata_touse.xlsx| This file contains information related to background characteristics and medical history,<br>The background history is coded by using ISO standards dictionary,<br>The diseases are coded using ICD10 codelist|
+
 Analysis creation files:
 
 | Program name | Description |
