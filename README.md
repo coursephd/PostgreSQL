@@ -13,7 +13,9 @@ Dataset creation files:
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
 | 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
 
-| Excel file: _unq_whichdata_touse.xlsx| this file contains information related to background characteristics and medical history|
+| Excel files | Description |
+| --- | --- |
+| _unq_whichdata_touse.xlsx| this file contains information related to background characteristics and medical history|
 Analysis creation files:
 
 | Program name | Description |
