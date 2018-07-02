@@ -53,9 +53,14 @@ Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]
 
 | Viz name | Description |
 | --- | --- |
-| Based on old data ||
+| **Based on old data till July 2016**||
 | 04_patient_analysis_tablaeu |Demographic information of patients:<br>- 01NoOfPatients<br>- 02 Country<br>- 03 AgeBoxplotCountry<br>- 04 AgeBoxplotGroup<br>- 05 NoOfVisitsBox<br>- 05a NoOfDis_age<br>- 05b NoOfDis_agebox<br>- 06 NoOfDiseases<br>- 07 BloodGroup |
 | IndividualPatientCalendar | This visual has 3 sheets (ignore sheet 3):<br>- IndividualPatientCal: Individual patient visit and recorded disease<br>- MonthDiseases: This provides a frequency count of diseases by month and gender, the month and year view can be opened up and details for each day can be found|
 | Primary_disease_and_all_other_diseases |- This provides a view of diseases and other diseases reported by patients. The dashboard contains comprehensive information about summary statistics of age by gender, boxplots and bubble plot<br>- The bubble plot is shown for each disease and additional diseases experienced|
 | PrimDis_otherDis_ByMonth | - This display is similar to the **Primary_disease_and_all_other_diseases** display, the disease distribution over different months is displayed.<br>- This should provide a good idea about seasonal variations of diseases|
 | 01RMSD_MET |Detailed RMSD and Metabolic disease analysis<br>- 01TotalPatRMSD_Metabolic<br>- 02AgeGroupByDisease<br>- 03AgeDistByDisease<br>- 08CumDisplayByDuration<br>- 08UniqueVisWindow<br>- 08UnqBoxAgeGender<br>- 08CumDisplayAgeDist<br>- 08CumDispByDurDisease<br>- 09CumDisByDurVitals<br>- 09CumStatsByDurVitals<br>- 09PatProfile|
+
+| Viz name | Description |
+| --- | --- |
+| **Based on data from SQL database till Oct 2017**||
+| 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases reported by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases reported by each day, gender and different **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and each **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and each **Rutu**)<br>- __PatProf_season - Aamavaata__| 
