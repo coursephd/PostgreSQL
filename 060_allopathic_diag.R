@@ -18,7 +18,7 @@ all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 all_met_rmsd <- all_met_rmsd [, `:=` (vismon = round( cdur/30.4375, digits = 0))]
 
 # Baseline age
-age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "patient_gender")] )
+age01 <- unique( all_met_rmsd [, c("mr_no", "baseage", "patient_gender", "cdur")] )
 
 lookup_allopathic_diag <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_allopathic_diag.txt", sep="|")
 
@@ -78,7 +78,7 @@ unqpat_gender <- dis_pat02 [, .(npat = uniqueN (mr_no)), by = .(combine, patient
 
 
 chk01 <- unique( dis_pat02 [, c("mr_no", "code01", "text01", "baseage", 
-                                "patient_gender", "combine", "Metabolic", "RMSD")])
+                                "patient_gender", "combine", "Metabolic", "RMSD", "cdur", "all_vis")])
 
 chk01 <- chk01 [, high := substr(code01, 1, 3)]
 
@@ -135,6 +135,9 @@ chk02 <- merge (x = chk02,
                 all.x = TRUE,
                 by.x = c("high"),
                 by.y = c("V2"))
+
+fwrite(chk02, 
+       "D:/Hospital_data/ProgresSQL/analysis/060_allopathic_diag.csv")
 
 high01 <- chk02 [, .(highcnt = uniqueN(mr_no)), by = .(icd)]
 high02 <- chk02 [, .(cntpat = uniqueN(mr_no)), by = .(icd, V5)]
