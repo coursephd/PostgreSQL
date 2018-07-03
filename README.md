@@ -30,6 +30,7 @@ The following files should be used in the following sequence:
 | 101_age_sparkline.Rmd | Sparkline analysis to show many graphs at one go. |
 | 01_traxminer_disease.R | Event sequence analysis using R |
 | 05_slopegraph.R | Edward Tufte style slopegraph to understand the trends in the data |
+| 070_Diff_Visit_Studyday_analysis | Create file for differences in 2 consecutive visits Overall and by Disease, these 2 files are used in **Tableau** displays|
 
 # Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
@@ -61,6 +62,8 @@ The following files should be used in the following sequence:
 | --- | --- |
 | **Based on data from SQL database till Oct 2017**||
 | 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases by each day, gender and **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and **Rutu**)<br>- PatProf_season - Aamavaata (Patient Profile 1 row per patient by **Rutus**)<br>- ~~Sheet 13~~ (**Do not use*)| 
+| Diff_Visit_Studyday | Boxplots for difference between 2 consecutive visits<br>- The number of days between 2 consecutive visits is quite large in initial visits, the difference reduces as the visits increase|
+| Diff_Visit_Studyday_ByDisease | Boxplots for difference between 2 consecutive visits for individual disease<br>- This helps understand diseases reported more than once for individual patients.|
 
 # Madhumeha
 ## Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
