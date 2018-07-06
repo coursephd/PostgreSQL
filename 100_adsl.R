@@ -3,6 +3,12 @@
 # Create calculations using base01_ip and base01_op
 ######################################################
 
+#C- Cancelled
+#U - Condn. Unnecessary
+#Y -Conducted
+#N - Not Conducted
+#P - Partially Conducted
+
 library(data.table)
 library(dplyr)
 library(anytime)
@@ -222,6 +228,8 @@ all_met_rmsd <- merge (x = all_met_rmsd,
                        all.x = TRUE)
 
 rm (base01_ip, base01_op, base01_ser, l)
+
+all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 
 fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
 fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.csv")
