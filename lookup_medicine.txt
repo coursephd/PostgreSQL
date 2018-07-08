@@ -1,0 +1,3217 @@
+medicine_name|Coded_med|Company|Quantity|Unit|Type_med
+5 Graine Healthy cereals (400 gm) (F & B)|5 Graine Healthy cereals (400 gm) (F & B)||||Misc
+777 Oil 100ml (Dr JRK)|777|Dr JRK|100|ml|Oil
+777 Oil 200ml (Dr JRK)|777|Dr JRK|200|ml|Oil
+A Flu O Cil Tab (Dooth)|A Flu O Cil|Dooth|||Tablet / Gulika / Vati
+aa caps (anti-asthma) - Jammi|aa caps (anti-asthma) - Jammi||||Tablet / Gulika / Vati
+Abana Tab (Himalaya)|Abana|Himalaya|||Tablet / Gulika / Vati
+Abdominal Belt -L [ Vissco-0501 ]|Abdominal Belt -L [ Vissco-0501 ]||||Bandage / Belt / External
+Abdominal Corset ( Belt )|Abdominal Corset ( Belt )||||Bandage / Belt / External
+Abhaya Choornam|Abhaya||||Choornam / Powder
+Abhayarishtam|Abhayarishtam||||Aristham
+Abhayarishtam [avp]|Abhayarishtam|AVP|||Aristham
+Abhyarishtam 450 ml (AVP)|Abhayarishtam|AVP|450|ml|Aristham
+Abhyarishtam 450 ml SNA|Abhayarishtam|SNA|450|ml|Aristham
+Abhyarishtam 450 ml Vaidya|Abhayarishtam|Vaidya|450|ml|Aristham
+Abhra loha Tab (Dooth)|Abhraloha|Dooth|||Tablet / Gulika / Vati
+Abhraloha Tab|Abhraloha|Dooth|||Tablet / Gulika / Vati
+Abhrak bhasma (Dooth) 2gm|Abhraka|Dooth|2|gm|Bhasma
+Abhraka Bhasma 5g [101] (AVP)|Abhraka|AVP|5|gm|Bhasma
+Abhraka Bhasma AVP|Abhraka|AVP|||Bhasma
+Abhraka Bhasma Dooth-100Butas|Abhraka|Dooth-100Butas|||Bhasma
+Abhrakam bhasma|Abhraka||||Bhasma
+Abhraka Bhasma 1g (Sahasraputi) Dhoot|Abhraka|Dhoot|1|gm|Bhasma
+Abhyanga|Abhyanga||||Abhyanga
+Abhyanga ^|Abhyanga||||Abhyanga
+Abhyanga + Annalepanam - NETRA|Abhyanga + Annalepanam - NETRA||||Abhyanga
+Abhyanga + Dhoopanam + Pooranam - KARNA|Abhyanga + Dhoopanam + Pooranam - KARNA||||Abhyanga
+Abhyanga + Dhoopanam- KARNA|Abhyanga + Dhoopanam- KARNA||||Abhyanga
+Abhyanga + Pooranam - KARNA|Abhyanga + Pooranam - KARNA||||Abhyanga
+Abhyanga + Sweda-SSPS(Navara Kizhi) - NETRA|Abhyanga + Sweda-SSPS(Navara Kizhi) - NETRA||||Abhyanga
+Abhyanga**|Abhyanga||||Abhyanga
+Abhyanga-Ardhanga ^|Abhyanga-Ardhanga||||Abhyanga
+Abhyanga-Ekanga ^|Abhyanga-Ekanga||||Abhyanga
+Abhyanga-Karna ^|Abhyanga-Karna||||Abhyanga
+Abhyanga-Netra ^|Abhyanga-Netra||||Abhyanga
+Abhyanga-Shiro ^|Abhyanga-Shiro||||Abhyanga
+Abhyanga-Spl Marma Ardhanga^|Abhyanga-Spl Marma Ardhanga||||Abhyanga
+Abhyanga-Spl Marma Ekanga^|Abhyanga-Spl Marma Ekanga||||Abhyanga
+Abhyanga-Spl Marma Sarvanga^|Abhyanga-Spl Marma Sarvanga||||Abhyanga
+Absorbent Cotton 30gm|Absorbent Cotton||||Bandage / Belt / External
+Acidact tab|Acidact||||Tablet / Gulika / Vati
+Acido-Nil Tab 10T (Malabar)|Acido-Nil|Malabar|10|T|Tablet / Gulika / Vati
+Acido-nil|Acido-Nil||||Tablet / Gulika / Vati
+Acineutra Liquid (Vigro)|Acineutra Liquid|Virgo|||** Not yet coded
+Aclear Ointment (Atrimed)|Aclear|Atrimed|||** Not yet coded
+Acnovin Cap (Vasu)|Acnovin|Vasu|||Tablet / Gulika / Vati
+Acnovin Cream (Vasu)|Acnovin|Vasu|||Cream
+Acnovin Face Pack|Acnovin||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Acnovin Face Pack 50 g (Vasu)|Acnovin|Vasu|50|gm|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Acton Cap 40C (Ashtanga Ayurvedics)|Acton|Ashtanga Ayurvedics|40|C|Tablet / Gulika / Vati
+Acupuncture|Acupuncture||||Bandage / Belt / External
+Acupuncture Needles|Acupuncture||||Bandage / Belt / External
+Additional Yoga Consultation|Yoga||||Yoga
+Advanced Neuro Rehablitation|Advanced Neuro Rehablitation||||** Not yet coded
+Agaru_1|Agaru_1||||** Not yet coded
+Agasthya Rasayanam AVP|Agasthya|AVP|||Rasayanam
+Agasthya Rasayanam SNA|Agasthya|SNA|||Rasayanam
+Agasthya Rasayanam Vaidya|Agasthya|Vaidya|||Rasayanam
+Agasthyahareethaki [kumar]|Agasthyahareethaki|Kumar|||Rasayanam
+Agnikarma(Corn/Skin tags/Calcaneal spur))|Agnikarma(Corn/Skin tags/Calcaneal spur))||||** Not yet coded
+Agnikarma(Moxibustion)|Agnikarma(Moxibustion)||||** Not yet coded
+Agnitundi Bati 80T (Baidyanath)|Agnitundi|Baidyanath|80|T|Tablet / Gulika / Vati
+Agnitundi Vati 60T [ Amrita ]|Agnitundi|Amrita|60|T|Tablet / Gulika / Vati
+A J Cough Choornam|AJ Cough||||Choornam / Powder
+AJ Cough Choorna (Kumar)|AJ Cough|Kumar|||Choornam / Powder
+Ajamamsa Rasayanam (AVP)|Ajamamsa|AVP|||Rasayanam
+Ajamoda seeds|Ajamoda seeds||||Vegetable -- Celery
+Ajamodadi Choornam 100gm [ Amrita ]|Ajamodadi|Amrita|100|mg|Choornam / Powder
+Ajamodadi Chorna|Ajamodadi||||Choornam / Powder
+Akshabeejadi Cap (Sreedhareeyam)|Akshabeejadi|Sreedhareeyam|||Tablet / Gulika / Vati
+Akshabeejadi Cap 90C|Akshabeejadi||90|C|Tablet / Gulika / Vati
+Akshabeejadi Ks 450ml (Sreedhareeyam)|Akshabeejadi|Sreedhareeyam|450|ml|Kashayam
+Alargin Tab|Alargin||||Tablet / Gulika / Vati
+Alert Cap (Vasu)|Alert|Vasu|||Tablet / Gulika / Vati
+Allergin Granules 100gm (Nagarjuna)|Allergin|Nagarjuna|100|gm|Granules
+Allergin Granules 200gm (Nagarjuna)|Allergin|Nagarjuna|200|gm|Granules
+Allerkhand Tab|Allerkhand||||Tablet / Gulika / Vati
+Aloe & Cucumber Refreshing Body Lotion 100ml (Himalaya)|Aloe & Cucumber Refreshing Body Lotion|Himalaya|100|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Aloe Vera Face Wash 50ml|Aloe Vera Face Wash||50|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Aloes Compound Tab (Alarsin)|Aloes Compound|Alarsin|||Tablet / Gulika / Vati
+Amalaki|Amalaki||||Vegetable
+Amalaki Churna|Amalaki||||Choornam / Powder
+Amalakki choorna|Amalaki||||Choornam / Powder
+amalaki choorna|Amalaki||||Choornam / Powder
+Amalapitta Mishrana Syr 450 Ml|Amalapitta Mishrana||450|ml|Syrup
+Amalgam Restorations|Amalgam Restorations||||** Not yet coded
+Amari Kalpa  Gold 500gm|Amari Kalpa Gold ||500|gm|** Not yet coded
+Amavatari Ks (AVN)|Amavatari|AVN|||Kashayam
+Amavatari Ks Tab (AVN)|Amavatari|AVN|||Kashayam Tab
+Amla Juice 500ml (Rattan Organic)|Amla Juice|Rattan Organic|500|ml|Juice / Tea
+Amlant Tab (Maharish)|Amlant|Maharshi|||Tablet / Gulika / Vati
+Amlapitta Mishrana Syr 200ml (Dooth)|Amlapitta Mishrana|Dhoot|200|ml|Syrup
+Amodini Tab (Sadvaidya)|Amodini|Sadvaidya|||Tablet / Gulika / Vati
+Amorex Cap 9C (Ayuchem)|Amorex|Ayuchem|9|C|Tablet / Gulika / Vati
+Amrit  Kalash (Maharshi)|Amrit Kalash|Maharshi|||Rasayanam
+Amritabhumi Cap 30C (Univa)|Amritabhumi|Univa|30|C|Tablet / Gulika / Vati
+Amritha Satwa 100gm (Swedeshi Oushadha))|Amritha Satwa|Swadeshi Oushadha|100|gm|** Not yet coded
+Amritha Satwa 10gm (Swadesh Oushadha)|Amritha Satwa|Swadeshi Oushadha|10|gm|** Not yet coded
+Amritha Satwa 50gm|Amritha Satwa||50|gm|** Not yet coded
+Amrithaprasam Ghritham (AVP)|Amrithaprasam|AVP|||Ghritham
+Amrithaprasam Gritham SNA|Amrithaprasam|SNA|||Ghritham
+Amrutadi gulgulu|Amrutadi Guggulu||||Tablet / Gulika / Vati
+Amruth Choornam AVP|Amruth|AVP|||Choornam / Powder
+Amruth Churna|Amruth||||Choornam / Powder
+Amrutha Choornam|Amruth||||Choornam / Powder
+Amruthadi Churna|Amruth||||Choornam / Powder
+Amruthadi churna|Amruth||||Choornam / Powder
+Amruth Fresh|Amruth Fresh||||** Not yet coded
+Amruth guduchi (dry)|Amruth guduchi (dry)||||Tablet / Gulika / Vati
+Amruth Magazine single edition|Amruth Magazine single edition||||Misc
+AmruthaGulgulu [Malabar]|Amruthadi Guggulu|Malabar|||Tablet / Gulika / Vati
+AmruthaGulgulu DS TAB (AVN)|Amruthadi Guggulu DS|AVN|||Tablet / Gulika / Vati
+Amruthadi Guggulu Tab Dooth|Amruthadi Guggulu|Dhoot|||Tablet / Gulika / Vati
+Amruthadi Gulgulu TAB (Amrita)|Amruthadi Guggulu|Amrita|||Tablet / Gulika / Vati
+Amruthadi Oil (Big) 200 ml (AVP)|Amruthadi|AVP|200|ml|Oil
+Amruthaprasa Ghritham|Amruthaprasam||||Ghritham
+Amritaristam|Amrutharishtam||||Aristham
+Amrutharishta|Amrutharishtam||||Aristham
+Amrutharishtam 400ml|Amrutharishtam||400|ml|Aristham
+Amrutharishtam 450 Rajah|Amrutharishtam|Rajah|450|ml|Aristham
+Amrutharishtam 450 ml|Amrutharishtam||450|ml|Aristham
+Amrutharishtam 450 ml (AVP)|Amrutharishtam|AVP|450|ml|Aristham
+Amrutharishtam 450 ml KPL|Amrutharishtam|KPL|450|ml|Aristham
+Amrutharishtam 450 ml SNA|Amrutharishtam|SNA|450|ml|Aristham
+Amrutharishtam 450 ml Vaidya|Amrutharishtam|Vaidya|450|ml|Aristham
+Amruthotharam Kashayam (AVP)|Amrutharishtam|AVP|||Aristham
+Amruthotharam Kashayam (Vaidya)|Amrutharishtam|Vaidya|||Aristham
+Amruthotharam Ks AVN|Amruthotharam|AVN|||Kashayam
+Amruthotharam Ks Sookshma Choorna (Everest Pharma)|Amruthotharam Ks Sookshma|Everest Pharma|||Choornam / Powder
+Amruthotharam Ks Tab (AVN)|Amruthotharam|AVN|||Kashayam Tab
+Amycordial Syrup|Amycordial||||Syrup
+Anal Dilatation / Anal Infilteration / Dressing|Anal Dilatation / Anal Infilteration / Dressing||||Bandage / Belt / External
+Anandbhairav Ras Tab (Dooth)|Anandbhairav|Dhoot|||Rasayanam Tab
+Anjana Ghritham (Sreedhareeyam)|Anjana|Sreedhareeyam|||Ghritham
+Ankle Binder M ( Vissco- 0708 )|Ankle Binder M ( Vissco- 0708 )||||Bandage / Belt / External
+Annabhedi Sindooram (AVP)|Annabhedi Sindooram|AVP|||Choornam / Powder
+Annabhedi Sindooram Cap (Kottakkal)|Annabhedi Sindooram|Kottakkal|||Tablet / Gulika / Vati
+Annabhedi Sindooram Cap - 10|Annabhedi Sindooram||10|C|Tablet / Gulika / Vati
+Annabhedi Tab|Annabhedi||||Tablet / Gulika / Vati
+Annalepanam (ekanga)|Annalepanam (ekanga)||||Annalepanam
+Annalepanam (Njavara Teppu)|Annalepanam (Njavara Teppu)||||Annalepanam
+Annalepanam (Njavara Teppu) ^|Annalepanam (Njavara Teppu)||||Annalepanam
+Annalepanam (Njavara Teppu) Ardhanga ^|Annalepanam (Njavara Teppu) Ardhanga||||Annalepanam
+Annalepanam-Netra^|Annalepanam-Netra||||Annalepanam
+Annalepanam-Samamsa (Njavara Teppu )^|Annalepanam-Samamsa (Njavara Teppu)||||Annalepanam
+Annalepanam-Samamsa (Njavara Teppu)|Annalepanam-Samamsa (Njavara Teppu)||||Annalepanam
+Annalepanam-Samamsa Ardhanga (Njavara Teppu)|Annalepanam-Samamsa Ardhanga (Njavara Teppu)||||Annalepanam
+Anterior RCT|Anterior RCT||||** Not yet coded
+Anti Hair Loss Cream 100ml (Himalaya)|Anti Hair Loss|Himalaya|100|ml|Cream
+Anu Tailam|Anu||||Oil
+Anu Tailam Amruth|Anu|Amruth|||Oil
+Anu Thaila Vaidya|Anu|Vaidya|||Oil
+Anu Thailam (AVP)|Anu|AVP|||Oil
+Anu Thailam SNA|Anu|SNA|||Oil
+Anu Thailam Vaidya|Anu|Vaidya|||Oil
+anu tailam [avp]|Anu|avp|||Oil
+Anuloma Choornam (Sagar)|Anuloma|Sagar|||Choornam / Powder
+Anuloma DS tab (Sagar)|Anuloma DS|Sagar|||Tablet / Gulika / Vati
+Apamarga kshara Bhasma|Apamarga Kshara||||Bhasma
+Apasmaranthaka Gritham|Apasmaranthaka||||Ghritham
+Apsamarakam Gritham|Apsamarakam||||Ghritham
+Aragwada|Aragwada||||** Not yet coded
+Aragwadha|Aragwada||||** Not yet coded
+Aragwadasavam [vaidya]|Aragwadasavam|Vaidya|||Asavam
+Aragwadha Pathradi Choornam|Aragwadha Pathradi||||Choornam / Powder
+Aragwadhadi Ks AVP|Aragwadhadi|AVP|||Kashayam
+Aragwadhadi Ks [Kottakkal]|Aragwadhadi|Kottakkal|||Kashayam
+Aragwadhadi kashyam (AVN)|Aragwadhadi|AVN|||Kashayam
+Aragwadhadi kashyam [sna]|Aragwadhadi|SNA|||Kashayam
+Aragwadhadi Ks Tab (AVN)|Aragwadhadi|AVN|||Kashayam Tab
+Aragwadhadiasavam SNA|Aragwadasavam|SNA|||Asavam
+Aragwadharishtam  450 (AVP)|Aragwadharishtam|AVP|450|ml|Aristham
+Aragwadharishtam 450ml|Aragwadharishtam||450|ml|Aristham
+Aragwadharishtam [avp]|Aragwadharishtam|AVP|||Aristham
+Aravindasavam 450ml (AVP)|Aravindasavam|AVP|450|ml|Asavam
+Arborium Plus Syr 300ml|Arborium Plus||300|ml|Syrup
+Ardhavilwa Choornam  100gm|Ardhavilwa||100|gm|Choornam / Powder
+Ardrakasavam 450ml (AVP)|Ardrakasavam|AVP|450|ml|Asavam
+Ardrakasavam [avp]|Ardrakasavam|AVP|||Asavam
+Arimedadi Thailam 200ml (Kottakkal)|Arimedadi|Kottakkal|200|ml|Oil
+Arimedas Thailam (BiG) 200ml (AVP)|Arimedas|AVP|200|ml|Oil
+Arjuna Cap (Himalaya)|Arjuna|Himalaya|||Tablet / Gulika / Vati
+Arjuna churna|Arjuna||||Choornam / Powder
+Arjuna Tab-60' - Sri Sri|Arjuna|Sri Sri|60||Tablet / Gulika / Vati
+Arjunatwak|Arjuna Twak||||Twak
+Arjunatwak_1|Arjuna Twak||||Twak
+Arjuna Twak Choornam 100g|Arjuna Twak||100|gm|Choornam / Powder
+Arjunatwak  kashaya churna|Arjuna Twak kashaya||||Choornam / Powder
+Arnopen Cap (SGPHYTO)|Arnopen|SGPHYTO|||Tablet / Gulika / Vati
+Arnopen Lintment 100ml (SGPHYTO)|Arnopen|SGPHYTO|100|ml|Liniment
+Arnopen Lintment 60ml|Arnopen|SGPHYTO|60|ml|Liniment
+Arnopen Ointment|Arnopen|SGPHYTO|||Liniment
+Arogyavardhini Bati 100 tab|Arogyavardhini||100|Tab|Tablet / Gulika / Vati
+Arogyavardini Bati 50 tab Amrit|Arogyavardhini|Amrit|50|Tab|Tablet / Gulika / Vati
+Arogyavardini Bati 50Tab (Dooth)|Arogyavardhini|Dhoot|50|Tab|Tablet / Gulika / Vati
+Arogyavardini vati|Arogyavardhini||||Tablet / Gulika / Vati
+Arogyavardini vati 100 tab (Dooth)|Arogyavardhini|Dhoot|100|Tab|Tablet / Gulika / Vati
+Arogyavardini vati [dooth]|Arogyavardhini|Dhoot|||Tablet / Gulika / Vati
+Arshacare Casp (Sneha)|Arshacare|Sneha|||Tablet / Gulika / Vati
+Arsho-Med Plus 30C (Univa)|Arsho-Med Plus|Univa|30|C|Tablet / Gulika / Vati
+Arshopy Cap (Prakruti)|Arshopy|Prakruti|||Tablet / Gulika / Vati
+Arshopy Ointment 30gm (Prakruthi)|Arshopy|Prakruti|30|gm|Tablet / Gulika / Vati
+Arthocare Tab|Arthocare||||Tablet / Gulika / Vati
+Arthorub Oil 30 ml (AVN)|Arthorub|AVN|30|ml|Oil
+Arthotone DS Cap (Shree Ayurvedic)|Arthotone DS|Shree Ayurvedic|||Tablet / Gulika / Vati
+Arthotone DS Cap 60C (Shree Ayurvedic)|Arthotone DS|Shree Ayurvedic|60|C|Tablet / Gulika / Vati
+Arthowin Oil 60 ML (Ayur)|Arthowin|Ayur|60|ml|Oil
+Arthrojith cap (AVP)|Arthrojith|AVP|||Tablet / Gulika / Vati
+Arukaladi Oil AVP|Arukaladi|AVP|||Oil
+Asaaveena oil|Asaaveena||||Oil
+Asana|Asana||||Yoga
+Asana Choorna|Asana||||Choornam / Powder
+Asana Eladi  Co Oil 200ml (AVP)|Asana Eladi|AVP|200|ml|Oil
+Asana Eladi  Co Oil Vaidya|Asana Eladi|Vaidya|||Oil
+Asana Eladi Oil 100 ml SNA|Asana Eladi|SNA|100|ml|Oil
+Asana Eladi Oil 200 ml|Asana Eladi||200|ml|Oil
+Asana Eladi Oil 200ml|Asana Eladi||200|ml|Oil
+Asana Eladi Oil Vaidya|Asana Eladi|Vaidya|||Oil
+Asanadi Kashaya Choorna 250g (SDM)|Asanadi Kashaya|SDM|250|gm|Choornam / Powder
+Asanadi Kashaya Choorna 500g (SDM)|Asanadi Kashaya|SDM|500|gm|Choornam / Powder
+Asanadi Ks 200ml (SDM)|Asanadi|SDM|200|ml|Kashayam
+Asanadi Ks 450 ml (SDM)|Asanadi|SDM|450|ml|Kashayam
+Asanamanjishadi Oil 200 ml (AVP)|Asanamanjishadi|AVP|200|ml|Oil
+Asanamanjishadi Oil 200ml [Vaidya]|Asanamanjishadi|Vaidya|200|ml|Oil
+Asavenna 450 ml oil|Asavenna||450|ml|** Not yet coded
+Aschyotanam (Prakshalanam)-Netra ^|Aschyotanam (Prakshalanam)-Netra||||** Not yet coded
+Aschyotanam(Prakshalanam) + Bandhana - NETRA|Aschyotanam(Prakshalanam) + Bandhana - NETRA||||Bandage / Belt / External
+Ashotone Syrup 210ml - Solumiks|Ashotone|Solumiks|210|ml|Syrup
+Ashta Choornam|Ashta||||Choornam / Powder
+Ashta Choornam [AVP]|Ashta|AVP|||Choornam / Powder
+Ashta Choornam [Vaidya]|Ashta|Vaidya|||Choornam / Powder
+Ashtavargam ks|Ashtavargam||||Kashayam
+Ashtavargam ks AVP|Ashtavargam|AVP|||Kashayam
+Ashtavargam ks KPL|Ashtavargam|KPL|||Kashayam
+Ashtavargam ks SNA|Ashtavargam|SNA|||Kashayam
+Ashtavargam ks Vaidya|Ashtavargam|Vaidya|||Kashayam
+Ashtavargam Ks Tab (AVN)|Ashtavargam|AVN|||Kashayam Tab
+Ashtavargam Ks Tab AVP|Ashtavargam|AVP|||Kashayam Tab
+Ashtavargam Ks Tab Vaidya|Ashtavargam|Vaidya|||Kashayam Tab
+ashwaganda churna|Ashwagandha||||Choornam / Powder
+Ashwaganda Root|Ashwagandha||||Root
+Ashwagandh Tab|Ashwagandha||||Tablet / Gulika / Vati
+Ashwagandha Bala Laksha Oil|Ashwagandha Bala Laksha||||Oil
+Ashwagandha Cap  Baidya|Ashwagandha|Baidyanath|||Tablet / Gulika / Vati
+Ashwagandha Cap  Himalay|Ashwagandha|Himalaya|||Tablet / Gulika / Vati
+Ashwagandha Ghritham (SDM)|Ashwagandha|SDM|||Ghritham
+Ashwagandha Ghritham [Pentacare]|Ashwagandha|Pentacare|||Ghritham
+Ashwagandha Tab 60T [Himalaya]|Ashwagandha|Himalaya|60|Tab|Tablet / Gulika / Vati
+Ashwagandha Tab 60T [Sri Sri]|Ashwagandha|Sri Sri|60|Tab|Tablet / Gulika / Vati
+Ashwamed Cap (Bal Pharma)|Ashwamed|Bal Pharma|||Tablet / Gulika / Vati
+Ashwamed Cap 10C (Bal Pharm)|Ashwamed|Bal Pharma|10|C|Tablet / Gulika / Vati
+Asnavilwadi Oil (Kottakkal)|Asnavilwadi|Kottakkal|||Oil
+Asnavilwadi Oil 200 ML|Asnavilwadi||200|ml|Oil
+Asnavilwadi Oil [avp]|Asnavilwadi|AVP|||Oil
+Asnavilwadi oil SNA|Asnavilwadi|SNA|||Oil
+Asnavilwadi Oil Vaidya|Asnavilwadi|Vaidya|||Oil
+Asoka Ghritham (AVP)|Asoka|AVP|||Ghritham
+Asoka Gritham [Pentacare]|Asoka|Pentacare|||Ghritham
+Asoka Pushpa Thailam|Asoka Pushpa||||Oil
+asokapushpa tailam 500ml|Asoka Pushpa||500|ml|Oil
+Asokarishtam 450ml (AVP)|Asokarishtam|AVP|450|ml|Aristham
+Asokarishtam 450ml KPL|Asokarishtam|KPL|450|ml|Aristham
+Asokarishtam 450ml Vaidya|Asokarishtam|Vaidya|450|ml|Aristham
+Asoria Oil 100ml AVP|Asoria|AVP|100|ml|Oil
+Asthamel C Syr (JaffMan)|Asthamel C|JaffMan|||Syrup
+Asthiposhak Tab (Dooth)|Asthiposhak|Dhoot|||Tablet / Gulika / Vati
+Aswagadha churna|Ashwagandha||||Choornam / Powder
+Aswagandha Churna|Ashwagandha||||Choornam / Powder
+Aswagandarishtam 450ml (AVP)|Ashwagandarishtam|AVP|450|ml|Aristham
+Aswagandarishtam 450ml KPL|Ashwagandarishtam|KPL|450|ml|Aristham
+Aswagandarishtam 450ml SNA|Ashwagandarishtam|SNA|450|ml|Aristham
+Aswagandarishtam Vaidya|Ashwagandarishtam|Vaidya|||Aristham
+Aswagandha cap [himalya]|Ashwagandha|Himalaya|||Tablet / Gulika / Vati
+Aswagandha tab|Ashwagandha||||Tablet / Gulika / Vati
+Aswagandhadi Lehyam 200g (AVP)|Ashwagandhadi|AVP|200|gm|Lehyam
+Aswagandhadi Lehyam 400gm AVP|Ashwagandhadi|AVP|400|gm|Lehyam
+Aswagandhadi Lehyam 500 G Vaidya|Ashwagandhadi|Vaidya|500|gm|Lehyam
+Aswagandhadi Lehyam 500 SNA|Ashwagandhadi|SNA|500||Lehyam
+Aswajith|Ashwajith||||Tablet / Gulika / Vati
+aswajith|Ashwajith||||Tablet / Gulika / Vati
+Aswal Plus Cap (Gufic)|Aswal Plus|Gufic|||Tablet / Gulika / Vati
+Athreya Gulam 500g (Sreedhareeyam)|Athreya Gulam|Sreedhareeyam|500|gm|** Not yet coded
+Atrisor Cap (Atrimed)|Atrisor|Atrimed|||Tablet / Gulika / Vati
+Atrisor Ointment - Sorion (Atrimed)|Atrisor Ointment - Sorion|Atrimed|||** Not yet coded
+Avachurnam (Dusting) ^|Avachurnam (Dusting)||||** Not yet coded
+Avagaha Sarvanga|Avagaha Sarvanga||||Avagaha
+Avagaham|Avagaham||||Avagaha
+Avagaham Ekanga**|Avagaham Ekanga||||Avagaha
+Avagaham Sarvanga with kashaya ^|Avagaham Sarvanga with kashaya||||Avagaha
+Avagaham with Dhanyamla ^|Avagaham with Dhanyamla||||Avagaha
+Avagaham with special kashaya|Avagaham with special kashaya||||Avagaha
+Avagaham-Ano rectal^|Avagaham-Ano rectal||||Avagaha
+Avagaham-Ardhanga^|Avagaham-Ardhanga||||Avagaha
+Avagaham-Sarvanga^|Avagaham-Sarvanga||||Avagaha
+Avagaha-Pada*|Avagaha-Pada||||Avagaha
+Avagaha-Pada**|Avagaha-Pada||||Avagaha
+Avalgujabeejadi Choornam|Avalgujabeejadi||||Choornam / Powder
+Avipathi Choornam|Avipathi||||Choornam / Powder
+Avipathi Choornam (AVP)|Avipathi|AVP|||Choornam / Powder
+Avipathi Choornam [vaidya]|Avipathi|Vaidya|||Choornam / Powder
+Avipathikar Chorna|Avipathikar||||Choornam / Powder
+Ayaskrithy 450ml AVP|Ayaskrithy|AVP|450|ml|Juice / Tea / Buttermilk / Liquid
+Ayaskrithy 450ml KPL|Ayaskrithy|KPL|450|ml|Juice / Tea / Buttermilk / Liquid
+Ayaskrithy 450ml Vaidya|Ayaskrithy|Vaidya|||Juice / Tea / Buttermilk / Liquid
+Ayur Gyno Tonic|Ayur Gyno||||Tonic
+Ayurmarks Face Cream|Ayurmarks Face||||Cream
+Ayurslim Cap 60C (Himalaya)|Ayursulin|Himalaya|60|C|Tablet / Gulika / Vati
+Ayursulin Cap|Ayursulin||||Tablet / Gulika / Vati
+Ayursulin Cap 10C (Bal Pharm)|Ayursulin|Bal Pharma|10|C|Tablet / Gulika / Vati
+Baby Care|Baby Care||||Misc
+Bala Churna|Bala||||Choornam / Powder
+Bala churna|Bala||||Choornam / Powder
+Bala hatadi co oil [avp]|Balahatadi|AVP|||Oil
+Bala Thailam 100 ml|Bala||100|ml|Oil
+Bala Thailam 10ml (Vaidya)|Bala|Vaidya|10|ml|Oil
+Bala Thailam 25 ml (AVP)|Bala|AVP|25|ml|Oil
+Bala Thailam Rajah|Bala|Rajah|||Oil
+Bala Thailam Gel Cap (AVP)|Bala Thaila|AVP|||Tablet / Gulika / Vati
+Bala Thailam Gel Cap - Kottakkal|Bala Thaila|Kottakkal|||Tablet / Gulika / Vati
+Bala Root|Bala||||Root
+Bala root|Bala||||Root
+Bala Thaila caps Avp|Bala Thaila|AVP|||Tablet / Gulika / Vati
+Balaasairyakaadi Ks (SNA)|Balaasairyakaadi|SNA|||Kashayam
+Baladhatryadi Oil 200 ml|Baladhatryadi||200|ml|Oil
+Baladhatryadi Oil AVP|Baladhatryadi|AVP|||Oil
+Baladhatryadi oil 200 ml - Vaidya|Baladhatryadi|Vaidya|200|ml|Oil
+Balaguluchyadi Co Oil 200 ml (AVP)|Balaguluchyadi|AVP|200|ml|Oil
+Balaguluchyadi Co Oil 200 ml Vaidya|Balaguluchyadi|Vaidya|200|ml|Oil
+Balaguluchyadi Ks [ AVP]|Balaguluchyadi|AVP|||Kashayam
+Balaguluchyadi Ks [Kottakkal]|Balaguluchyadi|Kottakkal|||Kashayam
+Balaguluchyadi Thailam 200 ml (AVP)|Balaguluchyadi|AVP|200|ml|Oil
+Balaguluchyadi Thailam 200ml [Vaidya]|Balaguluchyadi|Vaidya|200|ml|Oil
+Balahatadi Co Oil 200 ml (AVP)|Balahatadi|AVP|200|ml|Oil
+Balahatadi Co Oil SNA|Balahatadi|SNA|||Oil
+Balahatadi Co Oil Vaidya|Balahatadi|Vaidya|||Oil
+Balahatadi Oil 200 ml|Balahatadi||200|ml|Oil
+Balahatadi Oil SNA|Balahatadi|SNA|||Oil
+Balahatadi Oil Vaidya|Balahatadi|Vaidya|||Oil
+Balahatadi Oil [AVP]|Balahatadi|AVP|||Oil
+Balajeerakadi KS (AVP)|Balajeerakadi|AVP|||Kashayam
+Balajeerakadi KS SNA|Balajeerakadi|SNA|||Kashayam
+Balajeerakadi KS [ KPL ]|Balajeerakadi|KPL|||Kashayam
+Balajeerakadi KS [AVP]|Balajeerakadi|AVP|||Kashayam
+Balajeerakadi Kashyam|Balajeerakadi||||Kashayam
+Balakulathaadi Ks [SNA]|Balajeerakadi|SNA|||Kashayam
+Balant Kadha No 1,2|Balant Kadha||||Juice / Tea / Buttermilk / Liquid
+Balant Kadha No 3|Balant Kadha||||Juice / Tea / Buttermilk / Liquid
+Balapunarnavadi Ks [AVP]|Balapunarnavadi|AVP|||Kashayam
+Balarishtam|Balarishtam||||Aristham
+Balarishtam 450 ML SNA|Balarishtam|SNA|450|ml|Aristham
+Balarishtam 450 ml|Balarishtam||450|ml|Aristham
+Balarishtam 450 ml KPL|Balarishtam|KPL|450|ml|Aristham
+Balarishtam 450 ml Vaidya|Balarishtam|Vaidya|450|ml|Aristham
+Balarishtam 450 ml [sna]|Balarishtam|SNA|||Aristham
+Balarishtam Rajah|Balarishtam|Rajah|||Aristham
+Balarishtam [  KPL ]|Balarishtam|KPL|||Aristham
+Balarishtam [AVP]|Balarishtam|AVP|||Aristham
+Balarishtam(Arya)|Balarishtam|Arya|||Aristham
+Balashwagandha 101 DS Cap (Swadeshi Ayurveda)|Balashwagandha 101 DS|Swadeshi Ayurveda|||Tablet / Gulika / Vati
+Balashwagandha 101 Plain Cap|Balashwagandha 101 Plain||||Tablet / Gulika / Vati
+Balashwagandha 101 Plus Cap 100T|Balashwagandha 101 Plus||100|T|Tablet / Gulika / Vati
+Balashwagandha 101 Plus Cap 60C (Saptagiri)|Balashwagandha 101 Plus|Saptagiri|60|C|Tablet / Gulika / Vati
+Balaswagandarishtam 450 ML|Balashwagandarishtam||450|ml|Aristham
+Balaswagandhadi kuzhambu AVP|Balashwagandhadi|AVP|||Kuzhambu
+Balaswagandhadi Oil 5 ltr|Balashwagandhadi||5|Ltr|Oil
+Balaswagandhadi Oil SNA|Balashwagandhadi|SNA|||Oil
+Balaswagandhadi Oil Vaidya|Balashwagandhadi|Vaidya|||Oil
+Balaswagandhadi Oil [avp]|Balashwagandhadi|AVP|||Oil
+Balaswagandhadi oil|Balashwagandhadi||||Oil
+Balaswagandhadi oil -Kottakkal|Balashwagandhadi|Kottakkal|||Oil
+Bandage Roll 10cm X10mtr|Bandhana||||Bandage / Belt / External
+Bandana (Bandage) **|Bandhana||||Bandage / Belt / External
+Bandhana (Big Wound)|Bandhana||||Bandage / Belt / External
+Bandhana (Medium Wound)|Bandhana||||Bandage / Belt / External
+Bandhana (Small Wound)|Bandhana||||Bandage / Belt / External
+Bandhana Large (more than 50 inches)5|Bandhana||||Bandage / Belt / External
+Bandhana Medium (upto 50 inches)|Bandhana||||Bandage / Belt / External
+Bandhana Small (upto 10 inches)|Bandhana||||Bandage / Belt / External
+Bangshil Tab (Alarsin)|Bangshil|Alarsin|||Tablet / Gulika / Vati
+BBefresh Mouthwash 200ml (Sagar)|Be Fresh||||Mouthwash / Paste
+Be Fresh Mouthwash|Be Fresh||||Mouthwash / Paste
+Befresh Mouthwash 100ml (Sagar)|Be Fresh|Sagar|100|ml|Mouthwash / Paste
+BGR-34 Tab (Aimil)|BGR-34|Aimil|||Tablet / Gulika / Vati
+Bhadradarvadi Ks Rajah|Bhadradarvadi|Rajah|||Kashayam
+Bhadradarvadi Ks Vaidya|Bhadradarvadi|Vaidya|||Kashayam
+Bhadradarvadi Ks [AVP]|Bhadradarvadi|AVP|||Kashayam
+Bharangi Root|Bharngyadi||||Root
+Bharngyadi Ks (200 ml) (Rajah)|Bharngyadi|Rajah|200|ml|Kashayam
+Bharngyadi Ks (AVP)|Bharngyadi|AVP|||Kashayam
+Bharngyadi Ks SNA|Bharngyadi|SNA|||Kashayam
+Bhaskar Lavana Choornam (Dooth)|Bhaskar Lavana|Dhoot|||Lavana
+Bhaskar Lavana Choornam Dabar|Bhaskar Lavana|Dabar|||Lavana
+Bhringarajasavam|Bhringarajasavam||||Asavam
+Bhunimbadi Ks [ Sandu]|Bhunimbadi|Sandu|||Kashayam
+Bilagyl Lehyam|Bilagyl||||Lehyam
+Bilwa Root|Bilwa||||Root
+Bindu Thailam Nasal Drops (Sreedhareeyam)|Bindu Oil|Sreedhareeyam|||Drops Nasal
+Biogest Tab (KAL)|Biogest|KAL|||Tablet / Gulika / Vati
+Bladder wash|Bladder wash||||** Not yet coded
+Bleminor  Cream (Himalaya)|Bleminor|Himalaya|||Cream
+Blood Transfusion|Blood Transfusion||||** Not yet coded
+Bocomo Cap (Gufic)|Bocomo|Gufic|||Tablet / Gulika / Vati
+Bocomo Forte Cap (Gufic)|Bocomo Forte|Gufic|||Tablet / Gulika / Vati
+Bolbadha Ras Tab (Dooth)|Bolbadha|Dhoot|||Rasayanam Tab
+Bonnisan Drops (Himalya)|Bonnisan|Himalaya|||Drops
+Bonnisan syr (Himalaya)|Bonnisan|Himalaya|||Syrup
+Bonton Granules (Vasu)|Bonton|Vasu|||Granules
+Bontone Cap|Bonton||||Tablet / Gulika / Vati
+Bontone Cap 30C (Vasu)|Bonton|Vasu|30|C|Tablet / Gulika / Vati
+Bontone Caps (Vasu)|Bonton|Vasu|||Tablet / Gulika / Vati
+BPMT Arthritic and Pain Care - General|BPMT Arthritic and Pain Care - General||||BPMT
+BPMT Arthritic -Specific|BPMT Arthritic -Specific||||BPMT
+BPMT Back Pain Therapy|BPMT Back Pain Therapy||||BPMT
+BPMT Backbone & Spinal Support - BBR|BPMT Backbone & Spinal Support - BBR||||BPMT
+BPMT Backbone & Spinal Support - General Therapies|BPMT Backbone & Spinal Support - General Therapies||||BPMT
+BPMT Backbone & Spinal Support - STC|BPMT Backbone & Spinal Support - STC||||BPMT
+BPMT BBR-2|BPMT BBR-2||||BPMT
+BPMT Blood Purification - Genral|BPMT Blood Purification - Genral||||BPMT
+BPMT BOS(Body orientation support)|BPMT BOS(Body orientation support)||||BPMT
+BPMT Gandhamadhana Kriya|BPMT Gandhamadhana Kriya||||BPMT
+BPMT Kayasoukhya|BPMT Kayasoukhya||||BPMT
+BPMT Medicated dhoomapan|BPMT Medicated dhoomapan||||BPMT
+BPMT NDC ( Neuro degeneration control)|BPMT NDC ( Neuro degeneration control)||||BPMT
+BPMT Neuro - G1|BPMT Neuro - G1||||BPMT
+BPMT NTC(Neuro Transmission Correction)|BPMT NTC(Neuro Transmission Correction)||||BPMT
+BPMT NTS(Neuro Transmission support)|BPMT NTS(Neuro Transmission support)||||BPMT
+BPMT Oordhwamoolaprakaranam|BPMT Oordhwamoolaprakaranam||||BPMT
+BPMT Oph - G2|BPMT Oph - G2||||BPMT
+BPMT Pain Care - General|BPMT Pain Care - General||||BPMT
+BPMT Sirosoukhya|BPMT Sirosoukhya||||BPMT
+BPMT Sirosoukhya(Vibration Therapy)|BPMT Sirosoukhya(Vibration Therapy)||||BPMT
+BPMT STC-1(Spinal Transmission correction)|BPMT STC-1(Spinal Transmission correction)||||BPMT
+BPMT Third Eye Threshold therapeutic|BPMT Third Eye Threshold therapeutic||||BPMT
+BPMT Third Eye Threshold(Refreshment)|BPMT Third Eye Threshold(Refreshment)||||BPMT
+BPMT Vibration Therapy|BPMT Vibration Therapy||||BPMT
+Brahma Rasayanam (AVP)|Brahma|AVP|||Rasayanam
+Brahmi Drakshadi Ks (Kottakal)|Brahmi Drakshadi|Kottakkal|||Kashayam
+Brahmi Gritham|Brahmi||||Ghritham
+Brahmi Gritham (AVP)|Brahmi|AVP|||Ghritham
+Brahmi Gritham Vaidya|Brahmi|Vaidya|||Ghritham
+Brahmi Granules|Brahmi||||Granules
+Brahmi Oil Amrita|Brahmi|Amrita|||Oil
+Brahmi Tailam (AVP)|Brahmi|AVP|||Oil
+Brahmi Thailam -200 ml - Kottakkal|Brahmi|Kottakkal|200|ml|Oil
+Brahmi oil|Brahmi||||Oil
+Brahmil Thaila SNA|Brahmi|SNA|||Oil
+Brahmi Power 200gm(Amrita)|Brahmi|Amrita|200|gm|Choornam / Powder
+Brahmi Saraswathi Lehya|Brahmi Saraswathi||||Lehyam
+Brahmi Tab|Brahmi||||Tablet / Gulika / Vati
+Brahmi Tab-60' - Sri Sri|Brahmi|Sri Sri|60|T|Tablet / Gulika / Vati
+Brhami tab|Brahmi||||Tablet / Gulika / Vati
+Brahmi Tab Dooth (Gold) 10T (Dooth)|Brahmi (Gold)|Dhoot|10|T|Tablet / Gulika / Vati
+Brahmi Tab Dooth (Gold) 30T (Dooth)|Brahmi (Gold)|Dhoot|30|T|Tablet / Gulika / Vati
+Brahmi Tab Doth Plain 60T (Dooth)|Brahmi Plain|Dhoot|60|T|Tablet / Gulika / Vati
+Brahmi vat Dooth 10 TAB|Brahmi Plain|Dhoot|10|T|Tablet / Gulika / Vati
+Bresol Syr (Himalaya)|Bresol|Himalaya|||Syrup
+Bresol Tab (Himalaya)|Bresol|Himalaya|||Tablet / Gulika / Vati
+Brihat Vat Chintamani Ras (10) gold (Dooth)|Brihat Vata Chintamani Gold|Dhoot|10|T|Rasayanam
+Brihat Vat Chintamani Ras (30) gold (Dooth)|Brihat Vata Chintamani Gold|Dhoot|10|T|Rasayanam
+Brihat Vat Chintamani Ras 30Gold[Baidyanath]|Brihat Vata Chintamani Gold|Baidyanath|30|T|Rasayanam
+Brihat Vata Chintamani Tab 10 plain (Swedeshi)|Brihat Vata Chintamani Plain|Swadeshi Ayurveda|10|T|Tablet / Gulika / Vati
+Brihat Vata Chintamani Tab 30 plain (Saptagiri)|Brihat Vata Chintamani Plain|Saptagiri|30|T|Tablet / Gulika / Vati
+Brihat Vata Chintamani Tab 30 plain (Swedeshi)|Brihat Vata Chintamani Plain|Swadeshi Ayurveda|30|T|Tablet / Gulika / Vati
+Brihat Vata Chintamani tab Plain|Brihat Vata Chintamani Plain||||Tablet / Gulika / Vati
+Brihath Saindhavadya Tailam 200ml (Malabar)|Brihath Saindhavadya|Malabar|200|ml|Oil
+Brihathvasakadi Ks [ Malabar ]|Brihathvasakadi|Malabar|||Kashayam
+Brihati Moola|Brihati||||Root
+Brihatyadi Choornam|Brihatyadi||||Choornam / Powder
+Brihatyadi Ks [AVP]|Brihatyadi|AVP|||Kashayam
+Brihthchagalyadi Ghritham (AVP)|Brihthchagalyadi|AVP|||Ghritham
+Brihthchagalyadi Ghritham (Kottakkal)|Brihthchagalyadi|Kottakkal|||Ghritham
+Bringamalakadi Co Oil SNA|Bringamalakadi|SNA|||Oil
+Bringamalakadi Oil 200ml [ Vaidya]|Bringamalakadi|Vaidya|200|ml|Oil
+Bringamalakadi Oil 200ml [AVP]|Bringamalakadi|AVP|200|ml|Oil
+Bringamalakadi Oil SNA|Bringamalakadi|SNA|||Oil
+Bruhat Saindhavadi Oil|Brihath Saindhavadya||||Oil
+Bruhath Haridra Khandam|Brihath Haridra Khandam||||Granules
+Bruhath Thriphala Choornam (Vaidya)|Brihath Thriphala|Vaidya|||Choornam / Powder
+Bukharin Tab|Bukharin||||Tablet / Gulika / Vati
+Calci 7 Tab|Calci 7||||Tablet / Gulika / Vati
+Cardimap Tab (Maharishi)|Cardimap|Maharishi|||Tablet / Gulika / Vati
+Cardiocalm Tab|Cardiocalm||||Tablet / Gulika / Vati
+Cardioma Tab (Malabar)|Cardioma|Malabar|||Tablet / Gulika / Vati
+Cardorium Plus Syr (Alakananda)|Cardorium Plus|Alakananda|||Syrup
+Cardospa Cap (Kairali Ayurvedic)|Cardospa|Kairali Ayurvedic|||Tablet / Gulika / Vati
+Cardostab Tab - 10's (Nagarjuna)|Cardostab|Nagarjuna|10|T|Tablet / Gulika / Vati
+Catheter/Ryle's tube clensing|Catheter/Ryle's tube clensing||||Bandage / Belt / External
+Cathetirization|Cathetirization||||Bandage / Belt / External
+Catramide Eye Drops (Kashmir)|Catramide|Kashmir|||Drops Eye
+Catropa Cap 10s - Sreedhareeyam|Catropa|Sreedhareeyam|10|C|Tablet / Gulika / Vati
+Cephagarine Drops (Charak)|Cephagarine|Charak|||Drops
+Cephagarine Tab (Charak)|Cephagarine|Charak|||Tablet / Gulika / Vati
+Ceramic Coverage(Per Unit)|Ceramic Coverage||||Bandage / Belt / External
+Cervilon Cap (AVN)|Cervilon|AVN|||Tablet / Gulika / Vati
+Chandana|Chandanadi||||Tablet / Gulika / Vati
+Chandanabalalakshadi Oil (Baidyanath)|Chandanabalalakshadi|Baidyanath|||Oil
+Chandanadi Anjanam Eye drops (Sreedhareeyam)|Chandanadi Anjanam|Sreedhareeyam|||Drops Eye
+Chandanadi Oil  50 ML (Ayushmart)|Chandanadi|Ayushmart|50|ml|Oil
+Chandanadi Oil Big SNA|Chandanadi|SNA|||Oil
+Chandanadi Oil Vaidya|Chandanadi|Vaidya|||Oil
+Chandanadi Thailam (Vaidya)|Chandanadi|Vaidya|||Oil
+chandanadi oil big|Chandanadi||||Oil
+Chandanadi Varthy tab|Chandanadi Varthy||||Tablet / Gulika / Vati
+Chandanamrutha Sindura 10 gm|Chandanamrutha Sindura||10|gm|** Not yet coded
+Chandanasavam 450ml (AVP)|Chandanasavam|AVP|450|ml|Asavam
+Chandanosiradi KS (Kottakkal)|Chandanosiradi|Kottakkal|||Kashayam
+Chandrakala Ras 500 cap|Chandrakala||500|C|Rasayanam
+Chandrakala Ras Tab (1000)|Chandrakala||1000|T|Rasayanam Tab
+Chandrakala Ras Tab (Dooth)|Chandrakala|Dhoot|||Rasayanam Tab
+Chandraprabha Gulika|Chandraprabha||||Tablet / Gulika / Vati
+Chandraprabha Gulika (AVP)|Chandraprabha|AVP|||Tablet / Gulika / Vati
+Chandraprabha Gulika 50T Dooth|Chandraprabha|Dhoot|50|T|Tablet / Gulika / Vati
+Chandraprabha Gulika Dooth|Chandraprabha|Dhoot|||Tablet / Gulika / Vati
+Chandraprabha Gulika Dooth 100 T|Chandraprabha|Dhoot|100|T|Tablet / Gulika / Vati
+Chandraprabha gulika Amrit|Chandraprabha|Amrit|||Tablet / Gulika / Vati
+Chandraprabha gulika [sna]|Chandraprabha|SNA|||Tablet / Gulika / Vati
+Chandraprabhavati Vaidya|Chandraprabha|Vaidya|||Tablet / Gulika / Vati
+Chandraprbha  DS TAB (AVN)|Chandraprabha DS|AVN|||Tablet / Gulika / Vati
+Changarayadi Ghritham 100ml (Nagarjuna)|Changarayadi|Nagarjuna|100|ml|Ghritham
+Charmaraksha Balm (AVP)|Charmaraksha Balm|AVP|||Balm
+charngeryadi ghritham|Changarayadi||||Ghritham
+C-Health (sugar free)|C-Health (sugar free)||||Granules
+Chemical cautery|Chemical cautery||||** Not yet coded
+Cheriyarasnadi Ks Choorna (Everest Pharma)|Cheriyarasnadi Ks|Everest Pharma|||Choornam / Powder
+Chest Physiotherapy|Chest Physiotherapy||||Bandage / Belt / External
+Chinchadi Oil SNA|Chinchadi|SNA|||Oil
+Chinchadi Oil Vaidya|Chinchadi|Vaidya|||Oil
+Chinchadi Oil [ Rajah ]|Chinchadi|Rajah|||Oil
+Chinchadi Tailam ( Big )200ml|Chinchadi||200|ml|Oil
+Chinchadi Thailam (Big) 200 ml (AVP)|Chinchadi|AVP|200|ml|Oil
+Chinchadi oil Avp|Chinchadi|Avp|||Oil
+Chinchadi oil [sna]|Chinchadi|SNA|||Oil
+Chinchadi tailam [sna]|Chinchadi|SNA|||Oil
+Chinchadi Oil (Valiya) - Kottakkal|Chinchadi|Kottakkal|||Oil
+Chindhadi Lehyam|Chinchadi||||Lehyam
+Chirivilwadi kashyam [avp]|Chirivilwadi|AVP|||Kashayam
+Chirivilwadi Ks 200ml [Vaidya]|Chirivilwadi|Vaidya|200|ml|Kashayam
+Chirivilwadi Ks Tab AVP|Chirivilwadi|AVP|||Kashayam Tab
+Chiropex  Cream 30G (Himalaya)|Chiropex|Himalaya|30|gm|Cream
+Chitraka Hareethaki Lehyam|Chitraka Hareethaki||||Lehyam
+Chitrakadi Bati 40T[ Baid]|Chitrakadi|Baid|40|T|Tablet / Gulika / Vati
+Chitrakadi Vati 40T(prakruti)|Chitrakadi|Prakruti|40|T|Tablet / Gulika / Vati
+Chitrakadi Vati 60T [ Amrita ]|Chitrakadi|Amrita|60|T|Tablet / Gulika / Vati
+Chitrakasavam 450ml (AVP)|Chitrakasavam|AVP|450|ml|Asavam
+Chousistapipli Powder (Dooth)|Chousistapipli|Dooth|||Choornam / Powder
+Chukkumthippalyadi Gulika (AVP)|Chukkumthippalyadi|AVP|||Tablet / Gulika / Vati
+Chyavanaprasam 250 g (AVP)|Chyavanaprasam|AVP|250|gm|Rasayanam
+Chyavanaprasam 250 g SNA|Chyavanaprasam|SNA|250|gm|Rasayanam
+Chyavanaprasam 450gm Dooth|Chyavanaprasam|Dooth|450|gm|Rasayanam
+Chyavanaprasam 500g Vaidya|Chyavanaprasam|Vaidya|500|gm|Rasayanam
+Chyavanaprasam 500g [avp]|Chyavanaprasam|AVP|500|gm|Rasayanam
+Chyavanaprasam 500g [sna]|Chyavanaprasam|SNA|500|gm|Rasayanam
+chyavanaprasam 500g [avp]|Chyavanaprasam|avp|500|gm|Rasayanam
+Clarina Cream (Himalaya)|Clarina|Himalaya|||Cream
+Clarina Face Wash (Himalaya)|Clarina|Himalaya|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Clarina Mask (Himalaya)|Clarina|Himalaya|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Clearvital Gel (Himalaya)|Clearvital Gel|Himalaya|||Gel
+Clombin Cap 40C (Ashtanga Ayurvedics)|Clombin|Ashtanga Ayurvedics|40|C|Tablet / Gulika / Vati
+Coconut Oil|Coconut||||Oil
+COF-15 Syrup 100ml (Prakruti)|COF-15|Prakruti|100|ml|Syrup
+Cognium Tab (Charak)|Cognium|Charak|||Tablet / Gulika / Vati
+Coligo Caps (Green Remedies)|Coligo|Green Remedies|||Tablet / Gulika / Vati
+Composite Restorations|Composite Restorations||||Bandage / Belt / External
+Copper-T Removal|Copper-T Removal||||Bandage / Belt / External
+Corina Syrup (Solar)|Corina|Solar|||Syrup
+Corn Excision - Large|Corn Excision||||Bandage / Belt / External
+Corn Excision - Medium|Corn Excision||||Bandage / Belt / External
+Corn Scraping|Corn Excision||||Bandage / Belt / External
+Countered Sacro Lumber Belt with ST - M|Countered Sacro Lumber Belt with ST - M||||Bandage / Belt / External
+Crepe Banadage 10CM|Bandhana||10|cm|Bandage / Belt / External
+Crepe Banadage 15CM X 4M Vissco|Bandhana|Vissco|||Bandage / Belt / External
+Crepe Banadage 8CM|Bandhana||8|cm|Bandage / Belt / External
+Crepe Bandage|Bandhana|Bandage|||Bandage / Belt / External
+Cruel Plus Cap (JAP)|Cruel Plus|JAP|||Tablet / Gulika / Vati
+Crux Syr (Ban Labs)|Crux|Ban Labs|||Syrup
+Cryo Therapy|Cryo Therapy||||** Not yet coded
+Curcumin Cap|Curcumin||||Tablet / Gulika / Vati
+Curfinal Cap (Prakruti)|Curfinal|Prakruti|||Tablet / Gulika / Vati
+Cutis Cream (Vasu)|Cutis Cream|Vasu|||Cream
+Cutis Dusting Powder (Vasu)|Cutis Dusting|Vasu|||Choornam / Powder
+Cutis Oil 50Ml (Vasu)|Cutis|Vasu|50|ml|Oil
+Cutisora Oil (Vasu)|Cutisora|Vasu|||Oil
+Cystone Tab (Himalaya)|Cystone|Himalaya|||Tablet / Gulika / Vati
+D Nil Cap (AVP)|D Nil|AVP|||Tablet / Gulika / Vati
+D2D Tab|D2D||||Tablet / Gulika / Vati
+Dadimadi Ghritham (AVP)|Dadimadi|AVP|||Ghritham
+Dadimadi Ghritham SNA|Dadimadi|SNA|||Ghritham
+Dadimadi Ghritham Vaidya|Dadimadi|Vaidya|||Ghritham
+Dadimashtaka Choornam (AVP)|Dadimashtaka|AVP|||Choornam / Powder
+Dadimashtaka Choornam (Vaidya)|Dadimashtaka|Vaidya|||Choornam / Powder
+Dadimavaleh Lehyam [Baidyanath]|Dadimavaleh|Baidyanath|||Lehyam
+Dadimavaleh Lehyam [Sandu]|Dadimavaleh|Sandu|||Lehyam
+Dadimavaleh lehyam|Dadimavaleh|lehyam|||Lehyam
+Dandronil Powder (Kumar)|Dandronil|Kumar|||Choornam / Powder
+Dand-X Lotion 200ml (Prakruthi)|Dand-X Lotion|Prakruthi|200|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Dantiarishtam 450ml|Dantiarishtam||450|ml|Aristham
+Darsana Eye Drops (Sreedhareeyam)|Darsana|Sreedhareeyam|||Drops Eye
+dasamolla raw|Dasamolla raw||||** Not yet coded
+Dasamoola choorna|Dasamoola||||Choornam / Powder
+Dasamoola KS Tab (AVN)|Dasamoola|AVN|||Kashayam Tab
+Dasamoola Panchakoladi Ks|Dasamoola Panchakoladi||||Kashayam
+Dasamoola Rasasyana 100g (Vaidya)|Dasamoola|Vaidya|100|gm|Rasayanam
+Dasamoola Rasasyana 250 Vaidya|Dasamoola|Vaidya|250|gm|Rasayanam
+Dasamoola Rasayanam 30g vaidya|Dasamoola|Vaidya|30|gm|Rasayanam
+Dasamoolahareetaki Lehyam 200gm (AVP)|Dasamoolahareetaki|AVP|200|gm|Lehyam
+Dasamoolahareetaki Lehyam SNA|Dasamoolahareetaki|SNA|||Lehyam
+Dasamoolajeerakadyarishtam (AVP)|Dasamoolajeerakadyarishtam|AVP|||Aristham
+Dasamoolakaduthrayam Ks Rajah|Dasamoolakaduthrayam|Rajah|||Kashayam
+Dasamoolakaduthryam ks (AVP)|Dasamoolakaduthrayam|AVP|||Kashayam
+Dasamoolakaduthryam ks SNA|Dasamoolakaduthrayam|SNA|||Kashayam
+Dasamoolakaduthryam ks [ KPL ]|Dasamoolakaduthrayam|KPL|||Kashayam
+Dasamoolakaduthryam ks [Vaidya]|Dasamoolakaduthrayam|Vaidya|||Kashayam
+Dasamoolakaduthryam ks vaidya|Dasamoolakaduthrayam|vaidya|||Kashayam
+Dasamoolakadutrayam Ks Tab (AVN)|Dasamoolakaduthrayam|AVN|||Kashayam Tab
+DASAMOOLAM [KSE] everest|Dasamoola|Everest Pharma|||Kashayam
+Dasamoolam Ks (AVP)|Dasamoola|AVP|||Kashayam
+Dasamoolam Ks Vaidya|Dasamoola|Vaidya|||Kashayam
+Dasamoolarasayanam 200gm AVP|Dasamoola|AVP|200|gm|Rasayanam
+Dasamoolarasayanam 50 g (AVP)|Dasamoola|AVP|50|gm|Rasayanam
+Dasamoolarasayanam [50g]|Dasamoola||50|gm|Rasayanam
+Dasamoolarishtam 450ml (AVP)|Dasamoolarishtam|AVP|450|ml|Aristham
+Dasamoolarishtam 450ml KPL|Dasamoolarishtam|KPL|450|ml|Aristham
+Dasamoolarishtam 450ml SNA|Dasamoolarishtam|SNA|450|ml|Aristham
+Dasamoolarishtam 450ml Vaidya|Dasamoolarishtam|Vaidya|450|ml|Aristham
+Dasamoolarishtam [avp]|Dasamoolarishtam|AVP|||Aristham
+Dasmoolarishtam|Dasamoolarishtam||||Aristham
+Dasanakanthi Choornam (AVP)|Dasanakanthi|AVP|||Choornam / Powder
+Dasanga Lepa|Dasanga||||Lepam
+Dasanga Lepa SDM|Dasanga|SDM|||Lepam
+Dasanga Lepa [prakruti]|Dasanga|Prakruti|||Lepam
+Dasangam Gulika (Vaidya)|Dasangam|Vaidya|||Tablet / Gulika / Vati
+Dashamoola|Dasamoola||||** Not yet coded
+Dashamoola-kashaya Choornam|Dasamoola Kashaya|Choornam|||Choornam / Powder
+Dashamoola Katuthraya Choorna|Dasamoola Katuthraya||||Choornam / Powder
+Dashamoola Taila 200ml (Swedeshi)|Dasamoola|Swedeshi|200|ml|Oil
+Dashamoola Yoga Syp (Swedeshi)|Dasamoola Yoga|Swedeshi|||Syrup
+Dasmoola|Dasamoola||||** Not yet coded
+Dazzle Cool Oint (Vasu)|Dazzle Cool Oint|Vasu|||** Not yet coded
+Dazzle Oil|Dazzle|Oil|||Oil
+Dazzle Oil 50ml|Dazzle||50|ml|Oil
+Dazzle Ointment (Vasu)|Dazzle|Vasu|||** Not yet coded
+Decazyme Syr|Decazyme|Syr|||Syrup
+Decrin Plus (SGPHYTO)|Decrin Plus|SGPHYTO|||** Not yet coded
+Deepani Tab|Deepani||||Tablet / Gulika / Vati
+Deepani Tabs|Deepani||||Tablet / Gulika / Vati
+Deepani Tabs Bipha|Deepani|Bipha|||Tablet / Gulika / Vati
+Dekofcyn Syr|Dekofcyn||||Syrup
+Dekofcyn Tab|Dekofcyn||||Tablet / Gulika / Vati
+Denz & Dark (Atimed)|Denz & Dark|Atimed|||** Not yet coded
+Devadaru Oil SNA|Devadaru|SNA|||Oil
+Dhanadanayanadi Ks Rakah|Dhanadanayanadi|Rakah|||Kashayam
+Dhanadanayanadi Ks SNA|Dhanadanayanadi|SNA|||Kashayam
+Dhanadanayanadi Ks [AVP]|Dhanadanayanadi|AVP|||Kashayam
+Dhanadanayanadi Ks [Vaidya]|Dhanadanayanadi|Vaidya|||Kashayam
+Dhanadanyanadi Ks AVN|Dhanadanayanadi|AVN|||Kashayam
+Dhanadanayanadi Ks Tab (AVN)|Dhanadanayanadi|AVN|||Kashayam Tab
+Dhanadarasnadi Cap (Sreedhareeyam)|Dhanadarasnadi|Sreedhareeyam|||Tablet / Gulika / Vati
+Dhanadarasnadi Kashayam (Sreedhareeyam)|Dhanadarasnadi|Sreedhareeyam|||Kashayam
+Dhanayaka|Dhanayaka|Dhanayaka|||** Not yet coded
+dhanwamtharm oil vaidya|Dhanwantaram|Vaidya|||Oil
+Dhanwanaristam|Dhanwanaristam|Dhanwanaristam|||Aristham
+Dhanwanaristam AVP|Dhanwanaristam|AVP|||Aristham
+Dhanwantaram (101)10ml|Dhanwantaram (101)||10|ml|** Not yet coded
+Dhanwantaram (101) Gel Cap (AVN)|Dhanwantaram (101) Gel|AVN|||Gel
+Dhanwantaram Ks AVN|Dhanwantaram|AVN|||Kashayam
+Dhanwantaram Ks KPL|Dhanwantaram|KPL|||Kashayam
+Dhanwantaram Ks SNA|Dhanwantaram|SNA|||Kashayam
+Dhanwantaram Ks Vaidya|Dhanwantaram|Vaidya|||Kashayam
+Dhanwantaram Ks [Avp]|Dhanwantaram|AVP|||Kashayam
+Dhanwantaram Ks Tab (AVN)|Dhanwantaram|AVN|||Kashayam Tab
+Dhanwantaram Ks Tab AVP|Dhanwantaram|AVP|||Kashayam Tab
+Dhanwantaram Kuzham 200ml|Dhanwantaram||200|ml|Kuzhambu
+Dhanwantaram Mezhupakam|Dhanwantaram||||Mezhupakam
+Dhanwantaram Mezhupakam vaidya|Dhanwantaram|Vaidya|||Mezhupakam
+Dhanwantaram mezhupakam|Dhanwantaram||||Mezhupakam
+Dhanwantatam (3) sna|Dhanwantaram|SNA|||** Not yet coded
+Dhanwantharam  21Vaidya|Dhanwantaram|Vaidya|||** Not yet coded
+Dhanwantharam (101 ) 10ml Vaidya|Dhanwantaram|Vaidya|10|ml|** Not yet coded
+Dhanwantharam (101 )10 ml KOT|Dhanwantaram|Kottakkal|10|ml|** Not yet coded
+Dhanwantharam (101) 10ml|Dhanwantaram||10|ml|** Not yet coded
+Dhanwantharam (101) 10ml (AVP)|Dhanwantaram|AVP|10|ml|** Not yet coded
+Dhanwantharam (101) 25 ml (AVP)|Dhanwantaram|AVP|25|ml|** Not yet coded
+Dhanwantharam 14 (Vaidya)|Dhanwantaram|Vaidya|||** Not yet coded
+Dhanwantharam (101) Cap Kot|Dhanwantaram (101)|Kottakkal|||Tablet / Gulika / Vati
+Dhanwantharam (101) Capsules (AVP)|Dhanwantaram (101)|AVP|||Tablet / Gulika / Vati
+Dhanwantharam 101 capsules|Dhanwantaram (101)||||Tablet / Gulika / Vati
+Dhanwantharam Gritham (AVP)|Dhanwantaram|AVP|||Ghritham
+Dhanwantharam Gritham Vaidya|Dhanwantaram|Vaidya|||Ghritham
+Dhanwantharam Gulika (AVP)|Dhanwantaram|AVP|||Tablet / Gulika / Vati
+Dhanwantharam Gulika 10|Dhanwantaram|Gulika|||Tablet / Gulika / Vati
+Dhanwantharam Gulika [ KPL ]|Dhanwantaram|KPL|||Tablet / Gulika / Vati
+Dhanwantharam Gulika vaidya|Dhanwantaram|Vaidya|||Tablet / Gulika / Vati
+Dhanwantharam kashyam avp|Dhanwantaram|AVP|||Kashayam
+Dhanwantharam Kuzham 200ml (AVP)|Dhanwantaram|AVP|200|ml|Kuzhambu
+Dhanwantharam Kuzham SNA|Dhanwantaram|SNA|||Kuzhambu
+Dhanwantharam Kuzham Vaidya|Dhanwantaram|Vaidya|||Kuzhambu
+Dhanwantharam Oil 5 Ltr|Dhanwantaram||5|Ltr|Oil
+Dhanwantharam Oil SNA|Dhanwantaram|SNA|||Oil
+Dhanwantharam Thailam 200ml - Rajah|Dhanwantaram|Rajah|200|ml|Oil
+Dhanwantharam Thailam 450 ml|Dhanwantaram||450|ml|Oil
+Dhanwantharam Thailam [AVP]|Dhanwantaram|AVP|||Oil
+Dhanwantharam Thailam [Vaidya]|Dhanwantaram|Vaidya|||Oil
+Dhanwantharam Thailam200 ml|Dhanwantaram||200|ml|Oil
+Dhanwantharam oil Vaidya|Dhanwantaram|Vaidya|||Oil
+Dhanwantharam tailam [avp]|Dhanwantaram|AVP|||Oil
+Dhanwantharam tailam [sna]|Dhanwantaram|SNA|||Oil
+Dhanwantharm oil 5 ltr|Dhanwantaram||5|Ltr|Oil
+Dhanwanthararishtam 450 ml (Vaidya)|Dhanwanthararishtam|Vaidya|450|ml|Aristham
+Dhanwanthararishtam 450ml (AVP)|Dhanwanthararishtam|AVP|450|ml|Aristham
+Dhanwanthararishtam Vaidya|Dhanwanthararishtam|Vaidya|||Aristham
+Dhanwanthararishtam [avp]|Dhanwanthararishtam|AVP|||Aristham
+Dhanwantharishtam 450ml KPL|Dhanwanthararishtam|KPL|450|ml|Aristham
+Dhanwantharm Tab SNA|Dhanwantaram|SNA|||Tablet / Gulika / Vati
+Dhanwatharam Gritham|Dhanwantaram|Gritham|||Ghritham
+Dhanyamla Pinda Sweda - Ardhanga|Dhanyamla Pinda Sweda - Ardhanga||||Sweda
+Dhanyamla Pinda Sweda - Ekanga|Dhanyamla Pinda Sweda - Ekanga||||Sweda
+Dhanyamla Pinda Sweda - Sarvanga|Dhanyamla Pinda Sweda - Sarvanga||||Sweda
+Dhanyamla Water|Dhanyamla Water||||** Not yet coded
+Dhara-Dhanyamala-Sarvanga|Dhara-Dhanyamala-Sarvanga||||Dhara
+Dhara-Dhanyamala-Sarvanga *|Dhara-Dhanyamala-Sarvanga||||Dhara
+Dhara-Dhanyamala-Sarvanga ^|Dhara-Dhanyamala-Sarvanga||||Dhara
+Dhara-Dhanyamla-Ardhanga|Dhara-Dhanyamla-Ardhanga||||Dhara
+Dhara-Dhanyamla-Ardhanga ^|Dhara-Dhanyamla-Ardhanga||||Dhara
+Dhara-Dhanyamla-Ekanga|Dhara-Dhanyamla-Ekanga||||Dhara
+Dhara-Dhanyamla-Ekanga ^|Dhara-Dhanyamla-Ekanga||||Dhara
+Dhara-Kashaya+ Aschyotanam(Prakshalanam) + Bandhana - NETRA|Dhara-Kashaya+ Aschyotanam(Prakshalanam) + Bandhana - NETRA||||Dhara
+Dhara-Kashaya-Ardhanga|Dhara-Kashaya-Ardhanga||||Dhara
+Dhara-Kashaya-Ardhanga **|Dhara-Kashaya-Ardhanga||||Dhara
+Dhara-Kashaya-Ardhanga ^|Dhara-Kashaya-Ardhanga||||Dhara
+Dhara-Kashaya-Ekanga|Dhara-Kashaya-Ekanga||||Dhara
+Dhara-Kashaya-Ekanga**|Dhara-Kashaya-Ekanga||||Dhara
+Dhara-Kashaya-Ekanga^|Dhara-Kashaya-Ekanga||||Dhara
+Dhara-Kashaya-Netra ^|Dhara-Kashaya-Netra||||Dhara
+Dhara-Kashaya-Sarvanga|Dhara-Kashaya-Sarvanga||||Dhara
+Dhara-Kashaya-Sarvanga **|Dhara-Kashaya-Sarvanga||||Dhara
+Dhara-Kashaya-Sarvanga ^|Dhara-Kashaya-Sarvanga||||Dhara
+Dhara-Kashaya-Shiro**|Dhara-Kashaya-Shiro||||Dhara
+Dhara-Kashaya-Shiro^|Dhara-Kashaya-Shiro||||Dhara
+Dhara-Ksheera -Sarvanga|Dhara-Ksheera -Sarvanga||||Dhara
+Dhara-Ksheera -Sarvanga**|Dhara-Ksheera -Sarvanga||||Dhara
+Dhara-Ksheera -Sarvanga^|Dhara-Ksheera -Sarvanga||||Dhara
+Dhara-Ksheera-Ardhanga|Dhara-Ksheera-Ardhanga||||Dhara
+Dhara-Ksheera-Ardhanga**|Dhara-Ksheera-Ardhanga||||Dhara
+Dhara-Ksheera-Ardhanga^|Dhara-Ksheera-Ardhanga||||Dhara
+Dhara-Ksheera-Ekanga|Dhara-Ksheera-Ekanga||||Dhara
+Dhara-Ksheera-Ekanga^|Dhara-Ksheera-Ekanga||||Dhara
+Dhara-Ksheera-Shiro|Dhara-Ksheera-Shiro||||Dhara
+Dhara-Ksheera-Shiro^|Dhara-Ksheera-Shiro||||Dhara
+Dhara-Taila-Ardhanga*|Dhara-Taila-Ardhanga||||Dhara
+Dhara-Taila-Ardhanga**|Dhara-Taila-Ardhanga||||Dhara
+Dhara-Taila-Ardhanga^|Dhara-Taila-Ardhanga||||Dhara
+Dhara-Taila-Ekanga*|Dhara-Taila-Ekanga||||Dhara
+Dhara-Taila-Ekanga**|Dhara-Taila-Ekanga||||Dhara
+Dhara-Taila-Ekanga^|Dhara-Taila-Ekanga||||Dhara
+Dhara-Taila-Sarvanga*|Dhara-Taila-Sarvanga||||Dhara
+Dhara-Taila-Sarvanga**|Dhara-Taila-Sarvanga||||Dhara
+Dhara-Taila-Sarvanga^|Dhara-Taila-Sarvanga||||Dhara
+Dhara-Taila-Shiro*|Dhara-Taila-Shiro||||Dhara
+Dhara-Taila-Shiro**|Dhara-Taila-Shiro||||Dhara
+Dhara-Taila-Shiro^|Dhara-Taila-Shiro||||Dhara
+Dhara-Takra-Ardhanga|Dhara-Takra-Ardhanga||||Dhara
+Dhara-Takra-Ardhanga ^|Dhara-Takra-Ardhanga||||Dhara
+Dhara-Takra-Ekanga ^|Dhara-Takra-Ekanga||||Dhara
+Dhara-Takra-Sarvanga**|Dhara-Takra-Sarvanga||||Dhara
+Dhara-Takra-Sarvanga^|Dhara-Takra-Sarvanga||||Dhara
+Dhara-Takra-Sarvanga++|Dhara-Takra-Sarvanga||||Dhara
+Dhara-Takra-Shiro|Dhara-Takra-Shiro||||Dhara
+Dhara-Takra-Shiro **|Dhara-Takra-Shiro||||Dhara
+Dhara-Takra-Shiro ^|Dhara-Takra-Shiro||||Dhara
+Dhatri Loha Tab (Baidyanath)|Dhatri Loha|Baidyanath|||Tablet / Gulika / Vati
+Dhatriaadi  Gritham|Dhatriaadi||||Ghritham
+Dhooma-Ksheera ^|Dhooma-Ksheera||||Dhooma
+Dhoomapanam **|Dhoomapanam||||Dhooma
+Dhoomapanam ^|Dhoomapanam||||Dhooma
+Dhoopana - Kesha|Dhoopana - Kesha||||Dhoopana
+Dhoopana - Sarvanga|Dhoopana - Sarvanga||||Dhoopana
+Dhoopanam Karna ^|Dhoopanam Karna||||Dhoopana
+Dhurdhoorapathradi Co Oil 200 ml (AVP)|Dhurdhoorapathradi|AVP|200|ml|Oil
+Dhurdhoorapathradi Co Oil 200ml (AVP)|Dhurdhoorapathradi|AVP|200|ml|Oil
+Dhurdhoorapathradi Co Oil [avp]|Dhurdhoorapathradi|AVP|||Oil
+Dhurdhoorapathradi Co Oil [avp] - 1.00|Dhurdhoorapathradi|avp|1||Oil
+Dhurdhoorapatradi Co Oil 200mlVaidya|Dhurdhoorapathradi|Vaidya|200|ml|Oil
+Dhurdhoorapatradi  Oil (AVP)|Dhurdhoorapathradi|AVP|||Oil
+Dia P cap|Dia P||||Tablet / Gulika / Vati
+Dia-P Cap (Prakruti)|Dia P|Prakruti|||Tablet / Gulika / Vati
+Diabecon DS Tab (Himalaya)|Diabecon DS|Himalaya|||Tablet / Gulika / Vati
+Diabecon Tab (Himalaya)|Diabecon|Himalaya|||Tablet / Gulika / Vati
+Diabetic Powder 100g (Sreedhareeyam)|Diabetic|Sreedhareeyam|100|gm|Choornam / Powder
+Diabiz Tea|Diabiz Tea||||Juice / Tea
+Diajith Powder|Diajith||||Choornam / Powder
+Diakof Syr|Diakof||||Syrup
+Diarid Tab - 10's (Nagarjuna)|Diarid|Nagarjuna|10||Tablet / Gulika / Vati
+Diet Chart|Diet Chart||||Diet related
+Diet therapy/Counselling|Diet therapy/Counselling||||Diet related
+Dietetics Rounds|Dietetics Rounds||||Diet related
+Dietic Menu|Dietic Menu||||Diet related
+Dine Well Syr - 200 ml|Dine Well|ml|200|ml|Syrup
+Dinesa Eladi Co Oil AVP|Dinesa Eladi|AVP|||Oil
+Dinesa Eladi Co Oil Rajah|Dinesa Eladi|Rajah|||Oil
+Dinesa eludi Co Oil 200 ml|Dinesa Eladi||200|ml|Oil
+Dinesavallaydi Co Oil 200 ml (Vaidya)|Dinesavallaydi|Vaidya|200|ml|Oil
+Dinesavallaydi Co Oil SNA|Dinesavallaydi|SNA|||Oil
+Dinesavallaydi Co Oil Vaidya|Dinesavallaydi|Vaidya|||Oil
+Dinesavallaydi Oil Vaidya|Dinesavallaydi|Vaidya|||Oil
+Dineshavaliaadi Oil SNA|Dinesavallaydi|SNA|||Oil
+Dispensing Cup 125 ml|Dispensing Cup||125|ml|Bandage / Belt / External
+Dispovan 10 ML|Dispovan||10|ml|** Not yet coded
+Diuraven DS Tab (AVN)|Diuraven DS|AVN|||Tablet / Gulika / Vati
+Dologran Tab (Ayurchem)|Dologran|Ayurchem|||Tablet / Gulika / Vati
+Dooravadi Co Oil 200ml (Vaidya)|Dooravadi|Vaidya|200|ml|Oil
+Doosheevishari Gulika (Vaidya)|Doosheevishari|Vaidya|||Tablet / Gulika / Vati
+Drakshadi Ks [AVP]|Drakshadi|AVP|||Kashayam
+Drakshadi Ks [Vaidya]|Drakshadi|Vaidya|||Kashayam
+Drakshadi Ks vaidya|Drakshadi|Vaidya|||Kashayam
+Drakshadi Ks Tab (AVN)|Drakshadi|AVN|||Kashayam Tab
+Drakshadi Ks Tab AVN|Drakshadi|AVN|||Kashayam Tab
+Drakshadi Lehyam|Drakshadi||||Lehyam
+Drakshadi Lehyam Vaidya|Drakshadi|Vaidya|||Lehyam
+Drakshamalakdi Lehya100GM|Drakshamalakdi||100|gm|Lehyam
+Drakshamalakdi lehya (Sadvaidya)|Drakshamalakdi|Sadvaidya|||Lehyam
+Draksharishtam 450ml AVP|Draksharishtam|AVP|450|ml|Aristham
+Draksharishtam 450ml SNA|Draksharishtam|SNA|450|ml|Aristham
+Draksharishtam Kottakkal|Draksharishtam|Kottakkal|||Aristham
+Draksharishtam Vaidya|Draksharishtam|Vaidya|||Aristham
+Drakshooin|Drakshovin||||** Not yet coded
+Drakshovin Syr (Dooth)|Drakshovin|Dooth|||Syrup
+dressing|Dressing||||Bandage / Belt / External
+D-Sora Lotion -200ml|D-Sora||200|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+D-Sora Lotion-100ml (Prakruthi)|D-Sora|Prakruthi|100|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+D-Sora Soap 75gm (Prakruti)|D-Sora|Prakruti|75|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Duralabharishtam 450 ml (Vaidya)|Duralabharishtam|Vaidya|450|ml|Aristham
+Duralabharishtam [avp]|Duralabharishtam|AVP|||Aristham
+Durdhoorapatradi oil|Durdhoorapatradi||||Oil
+Earwax Removal|Earwax Removal||||Bandage / Belt / External
+Easelax Plus|Easelax Plus||||** Not yet coded
+Effecto Cap (Vasu)|Effecto|Vasu|||Tablet / Gulika / Vati
+Efiplus Cap|Efiplus|Cap|||Tablet / Gulika / Vati
+Eggwhite Preperation|Eggwhite Preperation||||Misc
+Ekanga Dhara|Ekanga Dhara||||** Not yet coded
+Ekangaveera Rasa Tab  Amruth Drug|Ekangaveera|Amruth|||Rasayanam Tab
+Ekangaveera Rasa Tab - Dooth|Ekangaveera|Dooth|||Rasayanam Tab
+Ekangaveera Rasa Tab Baidyanath|Ekangaveera|Baidyanath|||Rasayanam Tab
+Eladi Choornam|Eladi||||Choornam / Powder
+Eladi Choornam Vaidya|Eladi|Vaidya|||Choornam / Powder
+Eladi Choornam [AVP]|Eladi|AVP|||Choornam / Powder
+Eladi Co Oil  200 ml (AVP)|Eladi|AVP|200|ml|Oil
+Eladi Co Oil 200ml|Eladi||200|ml|Oil
+Eladi Co Oil SNA|Eladi|SNA|||Oil
+Eladi Co Oil Vaidya|Eladi|Vaidya|||Oil
+Eladi co oil [avp]|Eladi|AVP|||Oil
+Eladi-co Oil|Eladi||||Oil
+Eladi Cream 25g - Kottakkal|Eladi|Kottakkal|25|gm|Cream
+Eladi Lehyam 30 gm|Eladi||30|gm|Lehyam
+Eladi  Oil SNA|Eladi|SNA|||Oil
+Eladi Oil 200 ml (AVP)|Eladi|AVP|200|ml|Oil
+Eladi Oil 200ml Vaidya|Eladi|Vaidya|200|ml|Oil
+Eladi Thailam (Vaidyaratnam)|Eladi|Vaidyaratnam|||Oil
+Eladi Thiri (Sreedhareeyam)|Eladi Thiri|Sreedhareeyam|||** Not yet coded
+Elakanadi Ks|Elakanadi||||Kashayam
+Elakanadi Ks [AVP]|Elakanadi|AVP|||Kashayam
+Elaneer Kuzhambu (Vaidya)|Elaneer|Vaidya|||Kuzhambu
+Elaneer Kuzhambu KPL|Elaneer|KPL|||Kuzhambu
+Elaneer Kuzhambu Kot|Elaneer|Kottakkal|||Kuzhambu
+Elastic Abdominal Binder XL|Elastic Abdominal Binder XL||||Bandage / Belt / External
+Ellumnishadi Choornam|Ellumnishadi||||Choornam / Powder
+Enema Can PVC [ Satguru]|Enema Can PVC|Satguru|||Bandage / Belt / External
+Eranda Beeja|Eranda Beeja||||** Not yet coded
+Eranda beeja|Eranda beeja||||** Not yet coded
+Eranda Moola|Eranda Moola||||** Not yet coded
+Erandasukumaram Oil [KAL]|Erandasukumaram|KAL|||Oil
+Erandasulumaram 100 ml|Erandasukumaram||100|ml|** Not yet coded
+Evecare Syr (Himalaya)|Evecare|Himalaya|||Syrup
+Exercise Therapy|Exercise Therapy||||Bandage / Belt / External
+Extra Leach|Extra Leach||||Bandage / Belt / External
+Extra Leech ^|Extra Leech||||Leech
+Extraction ( PEDO)|Extraction ( PEDO)||||Bandage / Belt / External
+Extrammune Syrup 200Ml (Charak)|Extrammune|Charak|200|ml|Syrup
+Extrammune tab (Charak)|Extrammune|Charak|||Tablet / Gulika / Vati
+Eye Kit|Eye Kit||||** Not yet coded
+Eye Plus Eye Drops (Sreedhareeyam)|Eye Plus|Sreedhareeyam|||Drops Eye
+Eye Wash Cup|Eye Wash Cup||||** Not yet coded
+Fattrid Cap|Fattrid||||Tablet / Gulika / Vati
+Ferberry Syr (Atrimed)|Ferberry|Atrimed|||Syrup
+Fertilex -7|Fertilex -7||||** Not yet coded
+Fineye Drops|Fineye||||Drops
+Flexofen Gel 30gm (Prakruthi)|Flexofen Gel|Prakruti|30|gm|Gel
+Flexofen Liniment (Prakruti)|Flexofen|Prakruti|||Liniment
+Flexofen MR Cap (Prakruthi)|Flexofen MR|Prakruti|||Tablet / Gulika / Vati
+Flexy Cap|Flexy||||Tablet / Gulika / Vati
+Flexy Cap 30C (Green Remedies)|Flexy|Green Remedies|30|C|Tablet / Gulika / Vati
+Flexy Forte 10C (Green Remedies)|Flexy Forte|Green Remedies|10|C|** Not yet coded
+Foot Care Cream 20gm|Foot Care||20|gm|Cream
+Foreign Body Extraction|Foreign Body Extraction||||Bandage / Belt / External
+Forestica 500 Ml (Western)|Forestica|Western|500|ml|** Not yet coded
+Fortege Tab (Alarsin)|Fortege|Alarsin|||Tablet / Gulika / Vati
+Freemodex|Freemodex||||** Not yet coded
+freemodex|Freemodex||||** Not yet coded
+Freemodex cap|Freemodex||||Tablet / Gulika / Vati
+Freemodex caps (JaffMin)|Freemodex|JaffMin|||Tablet / Gulika / Vati
+Fresh Kashaya|Fresh||||Kashayam
+G 32 Mouth Paint|G 32||||Mouthwash / Paste
+G 32 Tab (Alarsin)|G 32|Alarsin|||Tablet / Gulika / Vati
+G Fit Slim Tea|G Fit Slim Tea||||Juice / Tea
+G P 500 CAP|G P||500|C|** Not yet coded
+G P 500 Cap (Zen)|G P|Zen|500|C|** Not yet coded
+g p 500cap|G P||500|c|** Not yet coded
+G T Capsule (KPL)|G T|KPL||C|** Not yet coded
+G T cap|G T|||C|** Not yet coded
+Gait Training|Gait Training||||Bandage / Belt / External
+Gandaka rasayana [amruta]|Gandhaka|amruta|||Rasayanam
+Gandha Thailam 10ml Vaidya|Gandha|Vaidya|10|ml|Oil
+Gandha thailam 10 ml(AVP)|Gandha|AVP|10|ml|Oil
+gandha thailam [kpl]|Gandha|kpl|||Oil
+Gandha Thailam Cap (AVP)|Gandha|AVP|||Oil Cap
+Gandha Thailm Cap (AVN)|Gandha|AVN|||Oil Cap
+Gandha Thailm Cap - 10 (AVN)|Gandha|AVN|10||Oil Cap
+Gandha Thaila Cap AVN|Gandha Thaila|AVN|||Tablet / Gulika / Vati
+Gandhaka Rasayana Tab 50T (Dooth)|Gandhaka|Dooth|50|T|Rasayanam Tab
+Gandharvahastadi Ks 200ml [Avp]|Gandharvahastadi|AVP|200|ml|Kashayam
+Gandharvahastadi Ks Vaidya|Gandharvahastadi|Vaidya|||Kashayam
+Gandharvahastadi Ks [Vaidya]|Gandharvahastadi|Vaidya|||Kashayam
+Gandharvahastadi Ks Tab (AVN)|Gandharvahastadi|AVN|||Kashayam Tab
+Gandharvashastha Castro Oil 50ml|Gandharvashastha Castro||50|ml|Oil
+Gandharvashastha Castro Oil 50ml Vaidya|Gandharvashastha Castro|Vaidya|50|ml|Oil
+Gandharvashastha Cstr oil SNA|Gandharvashastha Castro|SNA|||Oil
+Gandharvashastha Oil 50 AVP|Gandharvashastha Castro|AVP|50|ml|Oil
+Gandharvashastha  Thailam AVP|Gandharvashastha|AVP|||Oil
+Gandharvashastha Oil Vaidya|Gandharvashastha|Vaidya|||Oil
+Gandoosham ^|Gandoosham||||** Not yet coded
+Gangadhara Choornam (50 grms)|Gangadhara||50|gm|Choornam / Powder
+Garcini Cap|Garcini||||Tablet / Gulika / Vati
+Garcini Cap - 1|Garcini||||Tablet / Gulika / Vati
+Garcini Caps|Garcini||||Tablet / Gulika / Vati
+Garcini Tab (60s ) (SGPHYTO)|Garcini|SGPHYTO|60|s|Tablet / Gulika / Vati
+Garudanjanam Eye Drops (Sreedhareeyam)|Garudanjanam|Sreedhareeyam|||Drops Eye
+Gasex Syr (Himalaya)|Gasex|Himalaya|||Syrup
+Gasex Tab (Himalaya)|Gasex|Himalaya|||Tablet / Gulika / Vati
+Gasino Syr. 200ml (Green Remedies)|Gasino|Green Remedies|200|ml|Syrup
+Gaytarin Tab|Gaytarin||||Tablet / Gulika / Vati
+Gaytarin Tab 10s (Arya Aushadhi)|Gaytarin|Arya Aushadhi|10|T|Tablet / Gulika / Vati
+Geloy Satva Choornam 10 gm|Geloy Satva||10|gm|Choornam / Powder
+Geriforte Syr|Geriforte||||Syrup
+Geriforte Tab (Himalaya)|Geriforte|Himalaya|||Tablet / Gulika / Vati
+GIC Restorations|GIC Restorations||||** Not yet coded
+Giloya Satwa|Giloya Satwa||||** Not yet coded
+Giloya Satwa 10 gm (Baidyanath)|Giloya Satwa|Baidyanath|10|gm|** Not yet coded
+Gingelly Oil|Gingelly||||Oil
+Ginger Tea|Ginger Tea||||Juice / Tea
+Glucomap Tab|Glucomap||||Tablet / Gulika / Vati
+Glukostat Cap (Atrimed)|Glukostat|Atrimed|||Tablet / Gulika / Vati
+Glycerine Syringe-100ml|Glycerine Syringe||100|ml|Bandage / Belt / External
+Glymin Tab (KPN)|Glymin|KPN|||Tablet / Gulika / Vati
+Glysikot Granules (Kottakkal)|Glysikot|Kottakkal|||Granules
+Godanti Mishra Rab|Godanti Mishrana||||Tablet / Gulika / Vati
+Godanti Mishrana Tab (Baidyanath)|Godanti Mishrana|Baidyanath|||Tablet / Gulika / Vati
+Godhanti Basma 10gm|Godhanti||10|gm|Bhasma
+Godhanti Basma 50 g (SDM)|Godhanti|SDM|50|gm|Bhasma
+Godhanti Basma 5gm (Dooth)|Godhanti|Dooth|5|gm|Bhasma
+Godhanti Bhasma 50gm [SDM]|Godhanti|SDM|50|gm|Bhasma
+Gokharu Ks 450 ml [ Sandu]|Gokshura|Sandu|450|ml|Kashayam
+Gokshura|Gokshura||||** Not yet coded
+Gokshura Cap Him|Gokshura|Himalaya|||Tablet / Gulika / Vati
+Gokshura Choornam 100g|Gokshura||100|gm|Choornam / Powder
+Gokshura Choornam KPL|Gokshura|KPL|||Choornam / Powder
+Gokshura Churna|Gokshura||||Choornam / Powder
+Gokshura churna|Gokshura||||Choornam / Powder
+Gokshuradi Guggul 60T [ Amrita ]|Gokshuradi Guggulu|Amrita|60|T|Tablet / Gulika / Vati
+Gokshuradi Guggul 60T [ Dooth ]|Gokshuradi Guggulu|Dooth|60|T|Tablet / Gulika / Vati
+Gokshuradi Gulgu DS Tab|Gokshuradi Guggulu DS||||Tablet / Gulika / Vati
+Gokshuradi Gulgul DS Tab (AVN)|Gokshuradi Guggulu DS|AVN|||Tablet / Gulika / Vati
+gokshuradi guggul tab|Gokshuradi Guggulu||||Tablet / Gulika / Vati
+Gokshuradi Modaka 200g[ SDM ]|Gokshuradi Modaka|SDM|200|gm|** Not yet coded
+Gomoothra Hreetaki Lehyam|Gomutra Hreetaki||||Lehyam
+Gomoothrasavam 450ml Vaidya|Gomutrasavam|Vaidya|450|ml|Asavam
+Gomutra Arka|Gomutra Arka||||Arka
+Gopeechandanadi Gulika (AVP)|Gopeechandanadi|AVP|||Tablet / Gulika / Vati
+Gopeechandanadi Gulika SNA|Gopeechandanadi|SNA|||Tablet / Gulika / Vati
+Goranch Tab (Sagar)|Goranch|Sagar|||Tablet / Gulika / Vati
+Goranch Tab (Sagar) - 100|Goranch|Sagar|100|T|Tablet / Gulika / Vati
+Gorochanadi Gulika (AVP)|Gorochanadi|AVP|||Tablet / Gulika / Vati
+Gorochanadi Gulika Vaidya|Gorochanadi|Vaidya|||Tablet / Gulika / Vati
+Gorochanadi Gulika Vaidya - 1|Gorochanadi|Vaidya|||Tablet / Gulika / Vati
+Goutheertha Arka 450ml|Goutheertha Arka||450|ml|Arka
+Grahanyantaka Gritha|Grahanyantaka||||Ghritham
+Grihadhoomadi Choornam (Vaidya)|Grihadhoomadi|Vaidya|||Choornam / Powder
+Grihadhoomadi Choornam SNA|Grihadhoomadi|SNA|||Choornam / Powder
+Group Yoga session for IP|Group Yoga session for IP||||Yoga
+Guduchi cap|Guduchi||||Tablet / Gulika / Vati
+Guduchi Fresh|Guduchi||||** Not yet coded
+guduchi sathva [prakruthi]|Guduchi|Prakruti|||** Not yet coded
+Guduchi Satva choornam|Guduchi||||Choornam / Powder
+Guduchi Tab (Himalaya)|Guduchi|Himalaya|||Tablet / Gulika / Vati
+Guduchyadi  Ks|Guduchyadi||||Kashayam
+Guggulu|Guggulu||||** Not yet coded
+Guggulu Sudhi|Guggulu Sudhi||||** Not yet coded
+Gulgulupanchapalam Choorna [Vaidya]|Guggulupanchapalam|Vaidya|||Choornam / Powder
+Gulguluthiktakam Ks|Gugguluthiktakam||||Kashayam
+Gulguluthiktakam Ks SNA|Gugguluthiktakam|SNA|||Kashayam
+Gulguluthikthakam Kashayam 200ml Vaidya|Gugguluthiktakam|Vaidya|200|ml|Kashayam
+Gulguluthikthakam Kashayam [avp]|Gugguluthiktakam|AVP|||Kashayam
+Gulguluthikthakam KS Vaidya|Gugguluthiktakam|Vaidya|||Kashayam
+Gulguluthikthakam Ks Rajah|Gugguluthiktakam|Rajah|||Kashayam
+Gulgulutiktakam Ks Tab (AVN)|Gugguluthiktakam|AVN|||Kashayam Tab
+Gulgulutiktakam Ks Tab AVP|Gugguluthiktakam|AVP|||Kashayam Tab
+3602Gulgulpanchapala Choornam 50 gm|Guggulupanchapalam||50|gm|Choornam / Powder
+Gulgulpanchapala Choornam|Guggulupanchapalam||||Choornam / Powder
+Gulgulpanchapala Choornam (AVP)|Guggulupanchapalam|AVP|||Choornam / Powder
+Gulgulpanchapala Choornam KOt|Guggulupanchapalam|Kottakkal|||Choornam / Powder
+Gulgulthikataka Gritha SNA|Gugguluthiktakam|SNA|||Ghritham
+Gulgulthikthakam Gritha|Gugguluthiktakam||||Ghritham
+Gulgulthikthakam Gritha SNA|Gugguluthiktakam|SNA|||Ghritham
+Gulgulthikthakam Gritha Vaidya|Gugguluthiktakam|Vaidya|||Ghritham
+Gulgulthikthakam Gritha avp|Gugguluthiktakam|AVP|||Ghritham
+Gulguthikthakam Ghritham [ KPL ]|Gugguluthiktakam|KPL|||Ghritham
+Gulkand 400 GM (Sandu)|Gulkand|Sandu|400|gm|** Not yet coded
+Guluchayadi Kashyam [AVP]|Guduchyadi|AVP|||Kashayam
+Guluchyadi Ks (Rajah)|Guduchyadi|Rajah|||Kashayam
+Guluchyadi Ks Tab (AVN)|Guduchyadi|AVN|||Kashayam Tab
+Gum Tone Powder (Charak)|Gum Tone|Charak|||Choornam / Powder
+Guru Rasayana 30C (SDM)|Guru|SDM|30|C|Rasayanam
+Guru Rasayana 40C (SDM)|Guru|SDM|40|C|Rasayanam
+Gycon Syr. 200ml (Green Remedies)|Gycon|Green Remedies|200|ml|Syrup
+Gynakot Tab (Kottakkal)|Gynakot|Kottakkal|||Tablet / Gulika / Vati
+Gyneacologist|Gyneacologist||||Misc
+Gynoveda Cap (Sagar)|Gynoveda|Sagar|||Tablet / Gulika / Vati
+Gywomin Powder 150gm (Everest Pharma)|Gywomin|Everest Pharma|150|gm|Choornam / Powder
+H D M 10gm|H D M||10|gm|** Not yet coded
+H Gum Powder (Sagar)|H Gum|Sagar|||Choornam / Powder
+Hadjod Tab 60T (Himalaya)|Hadjod|Himalaya|60|T|Tablet / Gulika / Vati
+Hairoyal Cap 60C (Vasishta)|Hairoyal|Vasishta|60|C|Tablet / Gulika / Vati
+Hairzone Solution (Himalaya)|Hairzone|Himalaya|||Solution
+Hajrulayahda Bhasma (Baidyanath)|Hajrulayahda|Baidyanath|||Bhasma
+Halin Cap - 10's (Nagarjuna)|Halin|Nagarjuna|10||Tablet / Gulika / Vati
+Hamsa Pathyadi Ks (Malabar)|Hamsa Pathyadi|Malabar|||Kashayam
+Hamsapathyadi Ks [SNA]|Hamsa Pathyadi|SNA|||Kashayam
+Hand Splint(Single)|Hand Splint (Single)||||** Not yet coded
+Hareetaki Abhaya|Hareetaki Abhaya||||** Not yet coded
+Hareetaki Abhaya Churna|Hareetaki Abhaya||||Choornam / Powder
+Haridra|Haridra||||Granules
+Haridra 60T Himalaya|Haridra|Himalaya|60|T|Granules
+Haridra Churna|Haridra||||Choornam / Powder
+Haridra Churna_1|Haridra||||Choornam / Powder
+Haridra Khandam (AVP)|Haridra Khandam|AVP|||Granules
+Haridra Khandam Amrita|Haridra Khandam|Amrita|||Granules
+Haridra Khandam Prakruthi|Haridra Khandam|Prakruthi|||Granules
+Haridra Khandam [Vaidya]|Haridra Khandam|Vaidya|||Granules
+haridra khandam (SNA)|Haridra Khandam|SNA|||Granules
+Haridra powder|Haridra||||Choornam / Powder
+Haritaka Tab|Haritaka||||Tablet / Gulika / Vati
+Hasta prasadana (Manicure)|Hasta prasadana (Manicure)||||** Not yet coded
+Heal Pain Balm (AVP)|Heal Pain|AVP|||Balm
+Heeraka Bhasma (Dabur)|Heeraka|Dabur|||Bhasma
+Heeraka Bhasma 100mg [Dooth]|Heeraka|Dooth|100|gm|Bhasma
+Hemostop Cap [60C] (Shree Ayurvedic)|Hemostop|Shree Ayurvedic|60|C|Tablet / Gulika / Vati
+Himasagaram Thailam 200 ml (AVP)|Himasagaram|AVP|200|ml|Oil
+Himasagaram Thailam 200ml [Malabar]|Himasagaram|Malabar|200|ml|Oil
+Himcocid Syr (Himalaya)|Himcocid|Himalaya|||Syrup
+Himcocid ayr|Himcocid||||Syrup
+Himcolin gel - 30g - Himalaya|Himcolin gel|Himalaya|30|gm|Gel
+Himcospaz  Cap (Himalaya)|Himcospaz|Himalaya|||Tablet / Gulika / Vati
+Himplasia Tab (Himalaya)|Himplasia|Himalaya|||Tablet / Gulika / Vati
+Hingavachadi Gulika|Hinguvachadi||||Tablet / Gulika / Vati
+Hingavachadi Gulika Vaidya|Hinguvachadi|Vaidya|||Tablet / Gulika / Vati
+Hingavachadi Gulika [AVP]|Hinguvachadi|AVP|||Tablet / Gulika / Vati
+Hingd Knee Support  XL|Hinged Knee Support||||Bandage / Belt / External
+Hinged Knee Stabilizer Patela M (1450)|Hinged Knee Support||||Tablet / Gulika / Vati
+Hinged Knee Support Patella Opening M[Vissco-0718]|Hinged Knee Support|Vissco|||Bandage / Belt / External
+Hingula Bhasama Cap (Kottakkal)|Hingula Cap|Kottakkal|||Bhasma
+Hinguthariguna Tailam 100ml Vaidya|Hinguthariguna|Vaidya|100|ml|Oil
+Hinguthariguna Thailam 100ml Vaidya|Hinguthariguna|Vaidya|100|ml|Oil
+Hinguthariguna Thailam SNA|Hinguthariguna|SNA|||Oil
+Hinguvachadi Choornam|Hinguvachadi||||Choornam / Powder
+Hinguvachadi Choornam [Vaidya]|Hinguvachadi|Vaidya|||Choornam / Powder
+Hinguvachadi choornam [avp]|Hinguvachadi|AVP|||Choornam / Powder
+Hinguvachadi Gulika (Kottakkal)|Hinguvachadi|Kottakkal|||Tablet / Gulika / Vati
+Hinguvachadi Gulika Vaidya|Hinguvachadi|Vaidya|||Tablet / Gulika / Vati
+HInguvachadi Tab AVP|Hinguvachadi|AVP|||Tablet / Gulika / Vati
+Hingwastaka Choornam 100 g|Hingwastaka||100|gm|Choornam / Powder
+Hingwastaka Choornam 60g [Baidyanath]|Hingwastaka|Baidyanath|60|gm|Choornam / Powder
+Hingwastaka Choornam 60g [Dooth]|Hingwastaka|Dooth|60|gm|Choornam / Powder
+Hiora K Mouth Wash (Himalaya)|Hiora K|Himalaya|||Mouthwash / Paste
+Hiora K Paste (Himalaya)|Hiora K|Himalaya|||Mouthwash / Paste
+Hiora Mouth Wash Regular [Himalaya]|Hiora K|Himalaya|||Mouthwash / Paste
+Hiora Shine Paste|Hiora Shine||||Mouthwash / Paste
+Hiora-SG Gel (Himalaya)|Hiora-SG Gel|Himalaya|||Gel
+Hiowna Adult 400gm [Chocolate]- Himalaya|Hiowna|Himalaya|||** Not yet coded
+Hiowna Kidz Chocolate (Himalaya)|Hiowna|Himalaya|||** Not yet coded
+Hiowna(BIG)Chocolate (Himalaya)|Hiowna|Himalaya|||** Not yet coded
+Hiowna JR Strawbeery|Hiowna|Strawbeery|||** Not yet coded
+Hiowna(BIG)Vanilla|Hiowna||||** Not yet coded
+Hip Bath|Hip Bath||||Bandage / Belt / External
+Histantin Tab|Histantin||||Tablet / Gulika / Vati
+Histantin Tab - 10T (KAL)|Histantin|KAL|10|T|Tablet / Gulika / Vati
+Honey 100gm (Nisarga)|Honey|Nisarga|100|gm|** Not yet coded
+Honey 200 G (Nisarga)|Honey|Nisarga|200|gm|** Not yet coded
+Honey(AVP)|Honey|AVP|||** Not yet coded
+Hot Water Bag|Hot Water Bag||||Bandage / Belt / External
+Hridyavirechanam Lehyam|Hridyavirechanam||||Lehyam
+Hriswa Cap 10s (Sreedhareeyam)|Hriswa|Sreedhareeyam|10|C|Tablet / Gulika / Vati
+Hrudayam Tab|Hrudayam||||Tablet / Gulika / Vati
+Hrudroga Chindamani Rasa Tab (Dooth)|Hrudroga Chindamani|Dooth|||Rasayanam Tab
+Hrudyam Syr 200ml (AVN)|Hrudayam|AVN|200|ml|Syrup
+Hutabhugadi Choornam|Hutabhugadi||||Choornam / Powder
+Hyponidd Tab (Charak)|Hyponidd|Charak|||Tablet / Gulika / Vati
+I Tone Eye Drops (Deys medical)|I Tone|Deys medical|||Drops Eye
+IFT|IFT||||** Not yet coded
+IFT + Shortwave|IFT + Shortwave||||** Not yet coded
+IHC Abhaya(Haritaki) Churna|IHC Abhaya(Haritaki) Churna||||** Not yet coded
+IHC Agasthya rasayanam|IHC Agasthya||||Rasayanam
+aim dasamoola|IHC AIM Dasamoola||||** Not yet coded
+IHC Ajamoda|IHC Ajamoda||||** Not yet coded
+IHC Amalaki churna|IHC Amalaki||||Choornam / Powder
+IHC Apasmaranthaka  gritam|IHC Apasmaranthaka||||Ghritham
+IHC Aragwdha|IHC Aragwdha||||** Not yet coded
+ihc aragwdha|IHC Aragwdha||||** Not yet coded
+IHC Arjuna twak|IHC Arjuna Twak||||Twak
+IHC Asokapushpa taila|IHC Asokapushpa||||Oil
+IHC Asokatwak churna|IHC AsokaTwak||||Choornam / Powder
+IHC Aswagandha Choorna|IHC Aswagandha||||Choornam / Powder
+IHC Bala churna|IHC Bala||||Choornam / Powder
+IHC Balachurna 50 g|IHC Bala||50|gm|Choornam / Powder
+IHC Balasaireyakadi churna|IHC Balasaireyakadi||||Choornam / Powder
+IHC Bhoomyamalaki- Fresh|IHC Bhoomyamalaki- Fresh||||** Not yet coded
+IHC Bhoomyamalaki- Fresh 10gm|IHC Bhoomyamalaki- Fresh||10|gm|** Not yet coded
+IHC Bilwapatra- Fresh 100gm|IHC Bilwapatra- Fresh||100|gm|** Not yet coded
+IHC Brahmi|IHC Brahmi||||** Not yet coded
+IHC Brihat triphala churna|IHC Brihat triphala||||Choornam / Powder
+IHC Brihathtyadi churna|IHC Brihathtyadi||||Choornam / Powder
+IHC Brihatyadi churna|IHC Brihatyadi||||Choornam / Powder
+Ichchhabhedi Tab 40|IHC chhabhedi||40|T|Tablet / Gulika / Vati
+Ichchhcbhedi  Tab|IHC chhabhedi||||Tablet / Gulika / Vati
+Ichchhcbhedi  Tab - 20 (Vasu)|IHC chhabhedi|Vasu|20|T|Tablet / Gulika / Vati
+IHC Dadimatwak|IHC DadimaTwak||||Twak
+IHC Dasamoola|IHC Dasamoola||||** Not yet coded
+IHC Dasanga churna|IHC Dasanga||||Choornam / Powder
+IHC Devadaru 100 gms|IHC Devadaru||100|gm|** Not yet coded
+IHC Devataru tailam|IHC Devataru||||Oil
+IHC Dhanyamla -  1 ltr|IHC Dhanyamla||1|Ltr|** Not yet coded
+IHC Erandabeeja|IHC Erandabeeja||||** Not yet coded
+IHC Gandharvahastadi kashaya churna|IHC Gandharvahastadi kashaya||||Choornam / Powder
+IHC Gokshura|IHC Gokshura||||** Not yet coded
+IHC Grahanyantaka grita|IHC Grahanyantaka||||Ghritham
+IHC Guduci Fresh|IHC Guduci Fresh||||** Not yet coded
+IHC Haridra(turmeric)|IHC Haridra(turmeric)||||** Not yet coded
+IHC Hingu|IHC Hingu||||** Not yet coded
+IHC Incha(Tailasatru)|IHC Incha (Tailasatru)||||Oil
+IHC Jyothishmadi oil|IHC Jyothishmadi||||Oil
+IHC Kallyanaka kashaya churna|IHC Kallyanaka kashaya||||Choornam / Powder
+IHC kampavatari churna|IHC kampavatari||||Choornam / Powder
+IHC Kampavatari kashaya|IHC Kampavatari||||Kashayam
+IHC Kasturi haridrta|IHC Kasturi haridrta||||** Not yet coded
+IHC Katakakhadiradi kashaya churna|IHC Katakakhadiradi kashaya||||Choornam / Powder
+IHC Keelunov oil|IHC Keelunov||||Oil
+IHC khadira|IHC khadira||||** Not yet coded
+IHC Kokilaksha churna|IHC Kokilaksha||||Choornam / Powder
+IHC Kokkam (Vrikshamla)|IHC Kokkam (Vrikshamla)||||** Not yet coded
+IHC Laja|IHC Laja||||** Not yet coded
+Ihc Lasuna marma tailam|IHC Lasuna marma||||Oil
+IHC Lodhra churna|IHC Lodhra||||Choornam / Powder
+IHC Manjishta churna|IHC Manjishta||||Choornam / Powder
+IHC Moorchita taila|IHC Moorchita||||Oil
+IHC Mudga churna|IHC Mudga||||Choornam / Powder
+IHC Musta|IHC Musta||||** Not yet coded
+IHC Nalpamara Churna|IHC Nalpamara||||Choornam / Powder
+IHC nalpamara churna|IHC nalpamara||||Choornam / Powder
+IHC Nimba(Neem)|IHC Nimba(Neem)||||** Not yet coded
+IHC Nirgundi- Fresh|IHC Nirgundi- Fresh||||** Not yet coded
+IHC Nyagrodhadi kashaya churna 100g|IHC Nyagrodhadi kashaya||100|gm|Choornam / Powder
+IHC nyagrodhadi kashaya churna|IHC nyagrodhadi kashaya||||Choornam / Powder
+IHC Nyagrodhadi kashaya  500ml|IHC Nyagrodhadi||500|ml|Kashayam
+IHC Panaka churnam|IHC Panaka||||Choornam / Powder
+IHC Panchagandha Churna|IHC Panchagandha||||Choornam / Powder
+IHC Phalatrika kashayam|IHC Phalatrika||||Kashayam
+IHC Pippali|IHC Pippali||||** Not yet coded
+IHC Punarnava|IHC Punarnava||||** Not yet coded
+IHC Pushkaramoola|IHC Pushkaramoola||||** Not yet coded
+IHC Rasayana churna|IHC Rasayana||||Rasayanam
+IHC Rasna|IHC Rasna||||Rasayanam
+IHC Rasna churna|IHC Rasna||||Choornam / Powder
+IHC Saindhava|IHC Saindhava||||** Not yet coded
+IHC Sariba|IHC Sariba||||** Not yet coded
+IHC Satavari Churna|IHC Satavari||||Choornam / Powder
+IHC Sathahwa churna (Shathapushpa churna)|IHC Sathahwa (Shathapushpa churna)||||Choornam / Powder
+IHC Shadanga churna|IHC Shadanga||||Choornam / Powder
+IHC Shunti Choorna|IHC Shunti||||Choornam / Powder
+IHC Sigruadi kashaya|IHC Sigruadi||||Kashayam
+IHC Stira(Orila)|IHC Stira(Orila)||||** Not yet coded
+IHC Sunti|IHC Sunti||||** Not yet coded
+IHC Tiktaka Kashaya churna|IHC Tiktaka Kashaya||||Choornam / Powder
+IHC Tilataila|IHC Tila||||Oil
+IHC Trikatu churna|IHC Trikatu||||Choornam / Powder
+IHC Trinapanchamoola|IHC Trinapanchamoola||||** Not yet coded
+IHC Triphala churna|IHC Triphala||||Choornam / Powder
+IHC Triphala Kwatha Churna|IHC Triphala Kwatha||||Choornam / Powder
+IHC Triphaladi churna 50|IHC Triphaladi||50||Choornam / Powder
+IHC Twak choorna|IHC Twak||||Choornam / Powder
+IHC useera|IHC useera||||** Not yet coded
+IHC Vacha|IHC Vacha||||** Not yet coded
+IHC Varanadi tailam|IHC Varanadi||||Oil
+IHC Varuna Twak churna|IHC Varuna Twak||||Choornam / Powder
+IHC Vasa|IHC Vasa||||** Not yet coded
+IHC Vasa- Fresh|IHC Vasa- Fresh||||** Not yet coded
+IHC Vettupala tailam|IHC Vettupala||||Oil
+IHC Vidanga choorna|IHC Vidanga||||Choornam / Powder
+IHC Vidarikanda Choorna|IHC Vidarikanda||||Choornam / Powder
+IHC Vidaryadi Kas churna|IHC Vidaryadi Kas||||Choornam / Powder
+IHC Yashtimadhu|IHC Yashtimadhu||||** Not yet coded
+IHC Yavachurna|IHC Yava||||Choornam / Powder
+Ihc Yavakshara|IHC Yavakshara||||Kshar
+Immunoj Cap 30C (Ayurveda One)|Immunoj|Ayurveda One|30|C|Tablet / Gulika / Vati
+Implant Dentium per unit|Implant Dentium per unit||||Bandage / Belt / External
+Imunocin Syr 100ml(Gufic)|Imunocin|Gufic|100|ml|Syrup
+Imunocin Syr 200ml(Gufic)|Imunocin|Gufic|200|ml|Syrup
+Imunocin Tablet (Gufic)|Imunocin|Gufic|||Tablet / Gulika / Vati
+Incision & Drainage- Big|Incision & Drainage||||Bandage / Belt / External
+Incision & Drainage- Medium|Incision & Drainage||||Bandage / Belt / External
+Incision And Drainage|Incision & Drainage||||Bandage / Belt / External
+Indraluptamashi Powder|Indraluptamashi||||Choornam / Powder
+Indukantam Ks Tab (AVN)|Indukantam|AVN|||Kashayam Tab
+Indukantam Ks Tab AVP|Indukantam|AVP|||Kashayam Tab
+Indukantha Ghritham [KPL]|Indukantam|KPL|||Ghritham
+Indukantha Gritham|Indukantam||||Ghritham
+Indukantha Gritham (AVP)|Indukantam|AVP|||Ghritham
+Indukantha Gritham SNA|Indukantam|SNA|||Ghritham
+Indukantha Gritham Cap KAL|Indukantam|KAL|||Ghritham Cap
+Indukantha ks|Indukantam||||Kashayam
+Indukantham Gritha Vaidya|Indukantam|Vaidya|||Ghritham
+Indukantham Ks|Indukantam||||Kashayam
+Indukantham Ks (AVP)|Indukantam|AVP|||Kashayam
+Indukantham Ks [Vaidya]|Indukantam|Vaidya|||Kashayam
+Indukantham Syr Rajah|Indukantam|Rajah|||Syrup
+Indukanthamritham syr 200ml (Kottakkal)|Indukanthamritham|Kottakkal|200|ml|Syrup
+Injection Prick|Injection Prick||||Bandage / Belt / External
+Insulan-D Tab 60T (Caram)|Insulan-D|Caram|60|T|Tablet / Gulika / Vati
+Integrated Neuro Rehab|Integrated Neuro Rehab||||** Not yet coded
+Intra oral Periapical(IOPA)|Intra oral Periapical||||** Not yet coded
+Iogen Syr (KAL)|Logen|KAL|||Syrup
+Iogin Syp|Login||||Syrup
+IR Therapy|IR Therapy||||** Not yet coded
+IV Fluids|IV Fluids||||Bandage / Belt / External
+Jadamayadi choornam|Jadamayadi||||Choornam / Powder
+Jadamayadi choornam SNA|Jadamayadi|SNA|||Choornam / Powder
+Jadamayadi choornam Vaidya|Jadamayadi|Vaidya|||Choornam / Powder
+Jaffman Ayur Soap (Jaffman)|Jaffman Ayur|Jaffman|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Jaffman Baby Soap (Jaffman)|Jaffman Baby|Jaffman|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Jala Neti|Jala Neti||||** Not yet coded
+Jalookavacharana - Netra (Leech Therapy) ^|Jalookavacharana - Netra (Leech Therapy)||||Leech
+Jalookavacharana (Leech Therapy)|Jalookavacharana (Leech Therapy)||||Leech
+Jalookavacharana (Leech Therapy) ^|Jalookavacharana (Leech Therapy)||||Leech
+Jambeera Thailam|Jambeera||||Oil
+Jamboo Syr|Jamboo||||Syrup
+Jambrushila Tab (Virgo)|Jambrushila|Virgo|||Tablet / Gulika / Vati
+Jatamamsi|Jatamansi||||** Not yet coded
+Jatamansi Syrup 200ml (Saptagiri)|Jatamansi|Saptagiri|200|ml|Syrup
+Jatamayadi Choornam [vaidya]|Jatamayadi|vaidya|||Choornam / Powder
+Jatamayadi choornam [avp]|Jatamayadi|avp|||Choornam / Powder
+Jathyadi Co Oil 200 ml|Jathyadi||200|ml|Oil
+Jathyadi Co Oil 200 ml Vaidya|Jathyadi|Vaidya|200|ml|Oil
+Jathyadi Gritham (AVP)|Jathyadi|AVP|||Ghritham
+Jathyadi Gritham Kot|Jathyadi|Kottakkal|||Ghritham
+Jathyadi Gritham SNA|Jathyadi|SNA|||Ghritham
+Jathyadi Gritham Vaidya|Jathyadi|Vaidya|||Ghritham
+Jathyadi Gritham Ointment (Vaidya)|Jathyadi|Vaidya|||Ghritham Ointment
+Jathyadi Oil AVP|Jathyadi|AVP|||Oil
+Jatyadi Oil 200 ml|Jathyadi||200|ml|Oil
+Jeeavanthyadi Yamakam 200 ml|Jeevanthyadi Yamakam||200|ml|Yamakam
+Jeerakadhyarishtam 450ml (AVP)|Jeerakadhyarishtam|AVP|450|ml|Aristham
+Jeerakadhyarishtam 450ml (Vaidya)|Jeerakadhyarishtam|Vaidya|450|ml|Aristham
+Jeerakam|Jeerakam||||** Not yet coded
+Jeevamrutham Lehyam 150gm (Malabar)|Jeevamrutham|Malabar|150|gm|Lehyam
+Jeevamrutham Lehyam 300gm (Malabar)|Jeevamrutham|Malabar|300|gm|Lehyam
+Jeevani 200 ML|Jeevani||200|ml|** Not yet coded
+Jeevanthyadi Churna (Sreedhareeyam)|Jeevanthyadi|Sreedhareeyam|||Choornam / Powder
+Jeevanthyadi Ghritham - Sreedhareeyam|Jeevanthyadi|Sreedhareeyam|||Ghritham
+Jeevanthyadi Gritham|Jeevanthyadi|Gritham|||Ghritham
+Jeevanthyadi Gritham SNA|Jeevanthyadi|SNA|||Ghritham
+Jeevanthyadi Yamakam 200ml [AVP]|Jeevanthyadi Yamakam|AVP|200|ml|Yamakam
+Jeevanthyadi Yamakam 200ml [Kottakkal]|Jeevanthyadi Yamakam|Kottakkal|200|ml|Yamakam
+jeevanthyadi yamakam avp|Jeevanthyadi Yamakam|AVP|||Yamakam
+Jeevanthydi Yamakam Ointment (Vaidya)|Jeevanthyadi Yamakam|Vaidya|||Yamakam
+Jeevathyadiyamakam [avp]|Jeevanthyadi Yamakam|AVP|||Yamakam
+Jodarin Cap (Medifield)|Jodarin|Medifield|||Tablet / Gulika / Vati
+Jodarin Gel (Medifield)|Jodarin Gel|Medifield|||Gel
+Jothismati oil|Jyothishmadi||||Oil
+Jyothishmadi oil|Jyothishmadi||||Oil
+Jyothishmati|Jyothishmadi||||Oil
+Jyothishmati Oil|Jyothishmadi||||Oil
+Jyotismati|Jyothishmadi||||Oil
+K M Lepam (KAL)|K M|KAL|||Lepam
+Kachayapanam Kuzhambu 10 ml (AVP)|Kachayapanam|AVP|10|ml|Kuzhambu
+Kachayapanam Kuzhambu Kot|Kachayapanam|Kottakkal|||Kuzhambu
+Kachooradi Choorna (Rajah)|Kachooradi|Rajah|||Choornam / Powder
+Kachooradi Choornam (Vaidya)|Kachooradi|Vaidya|||Choornam / Powder
+Kachooradi Choornam SNA|Kachooradi|SNA|||Choornam / Powder
+Kachooradi Choornam[ AVP]|Kachooradi|AVP|||Choornam / Powder
+Kachoradi Choornam_1|Kachooradi||||Choornam / Powder
+Kadaleephaladi Thailam|Kadaleephaladi||||Oil
+Kadhiradi Gulika Dooth|Kadhiradi|Dooth|||Tablet / Gulika / Vati
+Kadira Gulika|Kadhiradi||||Tablet / Gulika / Vati
+Kaisora Gulgulu (Malabar)|Kaisora Guggulu|Malabar|||Tablet / Gulika / Vati
+Kaisoragulgulu Dooth|Kaisora Guggulu|Dooth|||Tablet / Gulika / Vati
+Kaisora Gulgulu DS Tab (AVN)|Kaisora Guggulu DS|AVN|||Tablet / Gulika / Vati
+Kaisoragulgulu Gulika SNA|Kaisora Guggulu|SNA|||Tablet / Gulika / Vati
+Kaisoragulgulu Vatika AVP|Kaisora Guggulu|AVP|||Tablet / Gulika / Vati
+Kaisoragulgulu Vatika vaidya|Kaisora Guggulu|vaidya|||Tablet / Gulika / Vati
+Kaisoragulgulu Vatika vaidya - 10|Kaisora Guggulu|vaidya|10||Tablet / Gulika / Vati
+kaisoragulgulu vatika SNA|Kaisora Guggulu|SNA|||Tablet / Gulika / Vati
+Kaivishaparihari Gulika|Kaivishaparihari||||Tablet / Gulika / Vati
+Kalasaakadi Ksm (Vaidya)|Kalasaakadi|Vaidya|||Kashayam
+kalka|Kalka||||** Not yet coded
+Kallyanagulam 250 (AVP)|Kalyanagulam|AVP|250|gm|Herbal jam
+Kallyanagulam 250 SNA|Kalyanagulam|SNA|250||Herbal jam
+Kallyanagulam 250 vaidya|Kalyanagulam|Vaidya|||Herbal jam
+Kallyanaka Ghritham (AVP)|Kalyanakam|AVP|||Ghritham
+Kallyanaka Gritham Vaidya|Kalyanakam|Vaidya|||Ghritham
+Kallyanaksharam Basma 10gm (AVP)|Kalyanaksharam|AVP|10|mg|Bhasma
+Kalyanaka Gritha (Dr Yogidas)|Kalyanakam|Dr Yogidas|||Ghritham
+Kalyanaka KS (AVP)|Kalyanakam|AVP|||Kashayam
+Kalyanaka KS (Varavisaladi) - Kottakkal|Kalyanaka KS (Varavisaladi)|Kottakkal|||Kashayam
+Kalyanakam KS (Rajah)|Kalyanakam|Rajah|||Kashayam
+Kalyanakam Ks (KAL)|Kalyanakam|KAL|||Kashayam
+Kalyanakam Ks SNA|Kalyanakam|SNA|||Kashayam
+Kalyanakam Ks Sookshma Choorna (Everest Pharma)|Kalyanakam Ks Sookshma|Everest Pharma|||Choornam / Powder
+Kalyanavaleham Choornam|Kalyanavaleham||||Choornam / Powder
+Kamadudha Ras SDM|Kamadudha|SDM|||Rasayanam Tab
+Kamadudha Ras Tab|Kamadudha||||Rasayanam Tab
+Kamadugha Mouktik 10Tab|Kamadugha Mouktik||10|T|Tablet / Gulika / Vati
+Kamadugha Mouktik 25Tab (Dooth)|Kamadugha Mouktik|Dooth|25|T|Tablet / Gulika / Vati
+Kamadugha Plain 10Tab|Kamadugha Plain||10|T|Tablet / Gulika / Vati
+Kamadugha Plain 25Tab (Dooth)|Kamadugha Plain|Dooth|25|T|Tablet / Gulika / Vati
+Kanaasathahwadi KS SNA|Kanaasathahwadi|SNA|||Kashayam
+Kanaasathahwadi Ks [Vaidya]|Kanaasathahwadi|Vaidya|||Kashayam
+Kanakasavam|Kanakasavam||||Asavam
+Kanakasavam 450 ml (AVP)|Kanakasavam|AVP|450|ml|Asavam
+Kanakasavam 450ml SNA|Kanakasavam|SNA|450|ml|Asavam
+Kanakasavam 450ml Vaidya|Kanakasavam|Vaidya|450|ml|Asavam
+kanakayanavatika [avp]|Kanakayana|avp|||Tablet / Gulika / Vati
+Kanasathahwadi Ks|Kanaasathahwadi||||Kashayam
+Kanasathahwadi Ks SNA|Kanaasathahwadi|SNA|||Kashayam
+Kanchanara gulgulu sna|Kanchanara Guggulu|SNA|||Tablet / Gulika / Vati
+Kanchanaragulgulu|Kanchanara Guggulu||||Tablet / Gulika / Vati
+Kanchanaragulgulu (AVP)|Kanchanara Guggulu|AVP|||Tablet / Gulika / Vati
+Kanchanaragulgulu Amrit|Kanchanara Guggulu|Amrit|||Tablet / Gulika / Vati
+Kanchanaragulgulu Dooth|Kanchanara Guggulu|Dooth|||Tablet / Gulika / Vati
+Kanchanaragulgulu Dooth - 1|Kanchanara Guggulu|Dooth|||Tablet / Gulika / Vati
+Kanchanaragulgulu Doth|Kanchanara Guggulu|Dooth|||Tablet / Gulika / Vati
+Kanchanara Gulgulu DS TAB (AVN)|Kanchanara Guggulu DS|AVN|||Tablet / Gulika / Vati
+Kankayana Vatika|Kanakayana||||Tablet / Gulika / Vati
+Kankayana Vatika 10T [AVP]|Kanakayana|AVP|10|T|Tablet / Gulika / Vati
+Kankayana vati avp|Kanakayana|AVP|||Tablet / Gulika / Vati
+Kankayanvati (AVN)|Kanakayana|AVN|||Tablet / Gulika / Vati
+Kanmada Bhasma(10gm) (AVP)|Kanmada|AVP|10|gm|Bhasma
+Kantakari Ghritham 150gm Kottakal|Kantakari|Kottakal|150|gm|Ghritham
+Kapikachu Choornam|Kapikachu||||Choornam / Powder
+Kapikachu Choornam SDM|Kapikachu|SDM|||Choornam / Powder
+Kapikachu Choornam [vaidya]|Kapikachu|vaidya|||Choornam / Powder
+Karappan Thailam Vaidya|Karappan|Vaidya|||Oil
+Karaskara Thailam 200 ml|Karaskara||200|ml|Oil
+Karela Cap (Himalaya)|Karela Cap|Himalaya|||Tablet / Gulika / Vati
+Karela Jamun Juice - Sri Sri|Karela Jamun Juice|Sri Sri|||Juice / Tea
+Karimbirumbadi Ks Tab|Karimbirumbadi||||Kashayam Tab
+Karimpirumpadi Ks [AVP]|Karimbirumbadi|AVP|||Kashayam
+Karnapoorana Thailam 100 ml|Karnapoorana||100|ml|Oil
+Karpasasthyadi Kuzhambu [Rajah]|Karpasasthyadi|Rajah|||Kuzhambu
+Karpasasthyadi Thailam 200 ml|Karpasasthyadi||200|ml|Oil
+Karpasasthyadi Thailam vaidya|Karpasasthyadi|vaidya|||Oil
+Karpasathyadi Kuzhampu|Karpasasthyadi||||Kuzhambu
+Karpasathyadi Kuzhampu (AVP)|Karpasasthyadi|AVP|||Kuzhambu
+Karpasathyadi Tailam 200 ml SNA|Karpasasthyadi|SNA|200|ml|Oil
+Karpasathyadi Tailam vaidya|Karpasasthyadi|vaidya|||Oil
+Karpasathyadi Tailam(AVP) 200 ml|Karpasasthyadi|AVP|200|ml|Oil
+Karpoora Oil|Karpooradi||||Oil
+Karpooradi Choornam (AVP)|Karpooradi|AVP|||Choornam / Powder
+Karpooradi Choornam [Vaidya]|Karpooradi|Vaidya|||Choornam / Powder
+Karpooradi Kuzhambu - 10ml - Kottakkal|Karpooradi|Kottakkal|10|ml|Kuzhambu
+Karpooradi Kuzhambu 10 ml|Karpooradi||10|ml|Kuzhambu
+Karpooradi Tailam (AVP) 200ml|Karpooradi|AVP|200|ml|Oil
+Karpooradi Thailam (Avp) 200 ml|Karpooradi|AVP|200|ml|Oil
+Karpooradi Thailam SNA|Karpooradi|SNA|||Oil
+Karpooradi Thailam Vaidya|Karpooradi|Vaidya|||Oil
+Karpooradi Thailam(AVP)|Karpooradi|AVP|||Oil
+Karutha Gulika|Karutha|Gulika|||Tablet / Gulika / Vati
+Karutha Gulika [ Kottakal ]|Karutha|Kottakal|||Tablet / Gulika / Vati
+Karuthu gulika SNA|Karutha|SNA|||Tablet / Gulika / Vati
+Kaseesa Bhasma 10gm [Dooth]|Kaseesa|Dooth|10|gm|Bhasma
+Kashaya|Kashaya||||Kashayam
+kashaya DS|Kashaya DS||||Kashayam
+Kashis Bhasma (Baidyanath)|Kaseesa|Baidyanath|||Bhasma
+Kashisadi Oil 50 ml (Baidyanath)|Kashisadi|Baidyanath|50|ml|Oil
+Kashyapa Churna (Sreedhareeyam)|Kashyapa|Sreedhareeyam|||Choornam / Powder
+Kashyapa Ghritham (Sreedhareeyam)|Kashyapa|Sreedhareeyam|||Ghritham
+Kasni Syr (Maharish)|Kasni|Maharish|||Syrup
+Kasyapa Choornam 100g (Sreedhareeyam)|Kashyapa|Sreedhareeyam|100|gm|Choornam / Powder
+Kasyapa Choornam Tab 60T (Sreedhareeyam)|Kashyapa|Sreedhareeyam|60|T|Choornam / Powder
+Kataka|Kataka||||** Not yet coded
+Kathaka Kathiradi Ks [AVP]|Kathaka Kathiradi|AVP|||Kashayam
+Kathaka Kathiradi Ks [SNA]|Kathaka Kathiradi|SNA|||Kashayam
+Kathaka Khadiradi Ks [AVN]|Kathaka Kathiradi|AVN|||Kashayam
+Kathaka Khadiradi Ksm|Kathaka Kathiradi|Ksm|||Kashayam
+Kathaka Khadiradi Ksm SNA|Kathaka Kathiradi|SNA|||Kashayam
+Kathaka Khadiradi Ks Tab|Kathaka Kathiradi||||Kashayam Tab
+Kathakadi Tab Vaidya|Kathakadi|Vaidya|||Tablet / Gulika / Vati
+Katuki Choornam|Katuki|Choornam|||Choornam / Powder
+Kautajadi Shilajit Vati (Arya Ayurveda)|Kautajadi Shilajit|Arya Ayurveda|||Tablet / Gulika / Vati
+Kavala|Kavalam||||** Not yet coded
+Kavala ^|Kavalam||||** Not yet coded
+Kavalam **|Kavalam||||** Not yet coded
+Kayyanadi Co Oil (AVP)|Kayyanadi|AVP|||Oil
+Kesha Sutram Powder-100G (Aswin)|Kesha Sutram|Aswin|100|gm|Choornam / Powder
+Keshini Oil 100ml (Malabar)|Keshini|Malabar|100|ml|Oil
+Keshya Taila 100ml (Atreya)|Keshyam|Atreya|100|ml|Oil
+Keshyam Oil - 100 ml (Kottakkal)|Keshyam|Kottakkal|100|ml|Oil
+Kesini Powder|Keshini||||Choornam / Powder
+khadira Choorna|Khadiradi||||Choornam / Powder
+Khadiradi Gulika (Zandu)|Khadiradi|Zandu|||Tablet / Gulika / Vati
+khadiradi gulika|Khadiradi||||Tablet / Gulika / Vati
+Khadiradi Bati 40T [ Baidyanath]|Khadiradi|Baidyanath|40|T|Tablet / Gulika / Vati
+Khadirarishtam (AVP)|Khadirarishtam|AVP|||Aristham
+Khadirarishtam-Vaidya|Khadirarishtam|Vaidya|||Aristham
+Khajitha Pinda Thailam (AVP)|Khajitha Pinda|AVP|||Oil
+Khajitha Pinda Thailam Kottakkal|Khajitha Pinda|Kottakkal|||Oil
+Khajitha Pinda Thailam Vaidya|Khajitha Pinda|Vaidya|||Oil
+Khajithapinda Oil SNA|Khajitha Pinda|SNA|||Oil
+Kineaz Cap|Kineaz||||Tablet / Gulika / Vati
+Kineaz oil 50ml (Atrimed)|Kineaz|Atrimed|50|ml|Oil
+Kineaz Tab - 10's - Atrimed|Kineaz|Atrimed|10||Tablet / Gulika / Vati
+Knee Brace Long Type M|Knee Brace Long Type M||||Bandage / Belt / External
+Knee Cap Large Vissco[ 0705]|Knee Cap||||Bandage / Belt / External
+Knee Cap Medium Vissco[ 0705]|Knee Cap||||Bandage / Belt / External
+Kofend Cough Syrup (Gufic)|Kofend Cough|Gufic|||Syrup
+Koflet H Lozen (Ginger)|Koflet H Lozen|Ginger|||** Not yet coded
+Koflet Lozenges|Koflet Lozenges||||** Not yet coded
+Koflet Lozenges - 250|Koflet Lozenges||250||** Not yet coded
+Koflet -SF Syr (Himalaya)|Koflet -SF|Himalaya|||Syrup
+Koflet Syr (Himalaya)|Koflet|Himalaya|||Syrup
+Kofnorm Syrup 100ml (Green Remedies)|Kofnorm|Green Remedies|100|ml|Syrup
+Kokilaksha beeja|Kokilaksha beeja||||** Not yet coded
+Kokilaksha G Tab|Kokilaksha G||||Tablet / Gulika / Vati
+Kokilaksha G Tab 10T (Malabar)|Kokilaksha G|Malabar|||Tablet / Gulika / Vati
+Kokilaksha Moola|Kokilaksha||||Root
+Kokilaksha moola|Kokilaksha||||Root
+Kokilakshakam Ks [AVP]|Kokilaksha|AVP|||Kashayam
+Kokilakshakam Ks [Vaidya]|Kokilaksha|Vaidya|||Kashayam
+Kokilakshakam Ksm|Kokilaksha||||Kashayam
+Kolakulathadi Choornam AVP|Kolakulathadi|AVP|||Choornam / Powder
+Kolakulathadi Choornam Vaidya|Kolakulathadi|Vaidya|||Choornam / Powder
+Kompanchadi Gulika|Kompanchadi||||Tablet / Gulika / Vati
+Kompanchadi Gulika (AVN)|Kompanchadi|AVN|||Tablet / Gulika / Vati
+Koosmanda Avaleha 200gm [Kumar]|Koosmanda Avaleha|Kumar|200|gm|** Not yet coded
+Koosmanda Rasayanam 250|Koosmanda||250||Rasayanam
+Koosmanda Rasayanam 250 vaidya|Koosmanda|vaidya|250||Rasayanam
+koosmanda Rasayanam  250 (AVP)|Koosmanda|AVP|250||Rasayanam
+Kottamchukadi Choorna AVP|Kottamchukkadi|AVP|||Choornam / Powder
+Kottamchukadi Choornam|Kottamchukkadi||||Choornam / Powder
+Kottamchukadi Choornam KPL|Kottamchukkadi|KPL|||Choornam / Powder
+Kottamchukadi Choornam [Vaidya]|Kottamchukkadi|Vaidya|||Choornam / Powder
+Kottamchukadi Choornam.|Kottamchukkadi||||Choornam / Powder
+Kottamchukkadi Oil 5 ltr AVP|Kottamchukkadi|AVP|5|Ltr|Oil
+Kottamchukkadi Tailam 200ml Vaidya|Kottamchukkadi|Vaidya|200|ml|Oil
+Kottamchukkadi Thailam 200ml [KPL]|Kottamchukkadi|KPL|200|ml|Oil
+Kottamchukkadi Thialam 200 ml|Kottamchukkadi||200|ml|Oil
+Kottamchukkadi Thialam 200 ml AVP|Kottamchukkadi|AVP|200|ml|Oil
+Kottamchukkadi Thialam SNA|Kottamchukkadi|SNA|||Oil
+Kozhi Oil|Kozhi||||Oil
+KPN Anti Dandraff Shampo 100 ml|KPN Anti Dandraff||100|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+KPN Anti Dandraff Shampo 50 ml|KPN Anti Dandraff||50|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Krimighatini 12gm (BHUV)|Krimighatini|BHUV|12|gm|** Not yet coded
+Krimighna Vati Kottekal|Krimighna|Kottakkal|||Tablet / Gulika / Vati
+Krimighna Vati [Kottakkal]|Krimighna|Kottakkal|||Tablet / Gulika / Vati
+Krimikutara Ras Tab (Dooth)|Krimikutara|Dooth|||Rasayanam Tab
+Krimisodhini Gulika (AVP)|Krimisodhini|AVP|||Tablet / Gulika / Vati
+Krush Tab -15T (Prakruti)|Krush|Prakruti|15|T|Tablet / Gulika / Vati
+Kshara Thailam 100ml Vaidya|Kshara|Vaidya|100|ml|Oil
+Kshara Sutra Changing|Kshara Sutra Changing||||Kshar
+Kshara sutra ligation|Kshara sutra ligation||||Kshar
+Ksharakarma|Ksharakarma||||Kshar
+Ksharalepa - Corns & Warts (M)|Ksharalepa - Corns & Warts||||Lepam
+Ksharalepa - Corns & Warts (S)|Ksharalepa - Corns & Warts||||Lepam
+Ksheebala [ 101 ] 10 ml [ KPL ]|Ksheerabala|KPL|10|ml|** Not yet coded
+Ksheerabala (101) 10 ml|Ksheerabala||10|ml|** Not yet coded
+Ksheerabala (101) 10 ml AVP|Ksheerabala|AVP|10|ml|** Not yet coded
+Ksheerabala (101) 25ml [avp]|Ksheerabala|AVP|25|ml|** Not yet coded
+Ksheerabala [101] 25m|Ksheerabala||25|ml|** Not yet coded
+Ksheerabala(101)10ml Vaidya|Ksheerabala|Vaidya|10|ml|** Not yet coded
+Ksheerabala (21) Avarti [ Kottakkal]|Ksheerabala Avarti|Kottakkal|21||** Not yet coded
+Ksheerabala (101) 10C (AVN)|Ksheerabala|AVN|10|C|Tablet / Gulika / Vati
+Ksheerabala (101) Caps (AVP)|Ksheerabala|AVP|||Tablet / Gulika / Vati
+Ksheerabala (7) Oil 10 gm|Ksheerabala||10|gm|Oil
+Ksheerabala Thailam 200 ml Vaidya|Ksheerabala|Vaidya|200|ml|Oil
+Ksheerabala Thailam SNA|Ksheerabala|SNA|||Oil
+Ksheerabala Thailam(AVP)|Ksheerabala|AVP|||Oil
+Ksheerapaka|Ksheerapaka||||** Not yet coded
+Ksheerapaka DS|Ksheerapaka DS||||** Not yet coded
+Ksheerapaka Special - 250 Ml|Ksheerapaka Special||250|ml|** Not yet coded
+Ksheerapaka Special -1200Ml|Ksheerapaka Special||1200|ml|** Not yet coded
+Kulatha_1|Kulatha||||** Not yet coded
+Kulathadi Ks [AVN]|Kulathadi|AVN|||Kashayam
+Kulathadi Ks [Kottakkal]|Kulathadi|Kottakkal|||Kashayam
+Kumarakalyan Ras Tab|Kumarakalyan||||Rasayanam Tab
+Kumari  rasa|Kumari||||Rasayanam
+Kumari Shampoo 200ml (Prakruthi)|Kumari|Prakruthi|200|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Kumaryasavam 450 ml|Kumaryasavam||450|ml|Asavam
+Kumaryasavam 450 ml (AVP)|Kumaryasavam|AVP|450|ml|Asavam
+Kumaryasavam 450ml Vaidya|Kumaryasavam|Vaidya|450|ml|Asavam
+Kumkumadi Lepam|Kumkumadi||||Lepam
+Kumkumadi Lepam [Imis]|Kumkumadi|Imis|||Lepam
+kumkumadi lepam|Kumkumadi||||Lepam
+Kumkumadi Oil 20 ml|Kumkumadi||20|ml|Oil
+Kumkumadi Oil 20ml|Kumkumadi||20|ml|Oil
+Kumkumadi Oil 5 ml AVP|Kumkumadi|AVP|5|ml|Oil
+Kumkumadi Oil 50ml|Kumkumadi|ml|50|ml|Oil
+Kumkumadi Oil Vaidya|Kumkumadi|Vaidya|||Oil
+Kunjal/Vamana Dhauti|Kunjal/Vamana Dhauti||||** Not yet coded
+kuntalakanthi oil avp|Kuntalakanthi|avp|||Oil
+Kunthalakanthi Co Oil 200ml (AVP)|Kuntalakanthi|AVP|200|ml|Oil
+Kunthalakanthi Oil AVP|Kuntalakanthi|AVP|||Oil
+Kusuma Abhaya Cap (Kumar)|Kusuma Abhaya|Kumar|||Tablet / Gulika / Vati
+Kusuma Abhaya cap (Kumar)|Kusuma Abhaya|Kumar|||Tablet / Gulika / Vati
+Kusuma Bath Powder (Kumar)|Kusuma Bath|Kumar|||Choornam / Powder
+Kusumangana Taila 30ml (Kumar)|Kusumangana|Kumar|30|ml|Oil
+Kusumolin Ointment (Kumar)|Kusumolin|Kumar|||** Not yet coded
+Kutaja Parpati Tab (Dooth)|Kutaja Parpati|Dooth|||Tablet / Gulika / Vati
+Kutajaghan Bati [ Zandu]|Kutajaghan|Zandu|||Tablet / Gulika / Vati
+Kutajaghan Bati [Baidyanath]|Kutajaghan|Baidyanath|||Tablet / Gulika / Vati
+Kutajarishtam 450 ml (AVP)|Kutajarishtam|AVP|450|ml|Aristham
+Kutajarishtam 450 ml Vaidya|Kutajarishtam|Vaidya|450|ml|Aristham
+Kutajarishtam [avp]|Kutajarishtam|avp|||Aristham
+Kutajatwagadhi Lehym|Kutajatwagadhi||||Lehyam
+L S Belt L|L S Belt L||||Bandage / Belt / External
+Laghu Malini Ras Tab|Laghu Malini||||Rasayanam Tab
+Laghu Malini Vasanth Tab (Dooth)|Laghu Malini Vasanth|Dooth|||Tablet / Gulika / Vati
+Laghu Shankha Prakshalana|Laghu Shankha Prakshalana||||** Not yet coded
+Laghu Shankha Prakshalana(Salt Water)|Laghu Shankha Prakshalana(Salt Water)||||** Not yet coded
+Laghumalini Vasant Ras 40T (Baidyanath)|Laghumalini Vasant|Baidyanath|40|T|Rasayanam
+Laghusootha Mishrana (SDM)|Laghusootha Mishrana|SDM|||** Not yet coded
+Laghusootha Shekara Vati (SDM)|Laghusootha Shekara|SDM|||Tablet / Gulika / Vati
+Laja (Malar)|Laja|Malar|||** Not yet coded
+Laja (malar)|Laja|Malar|||** Not yet coded
+Laksha_1|Laksha||||** Not yet coded
+Laksha Choornam|Laksha||||Choornam / Powder
+Lakshadi Choornam [Vaidya]|Lakshadi|Vaidya|||Choornam / Powder
+Lakshadi Co Oil 200ml  Vaidya|Lakshadi|Vaidya|200|ml|Oil
+Lakshadi Coconut Oil (AVP)|Lakshadi Coconut|AVP|||Oil
+Lakshadi Gulgulu (Dooth)|Lakshadi Guggulu|Dooth|||Tablet / Gulika / Vati
+Lakshadi Kuzhambu (AVP)|Lakshadi|AVP|||Kuzhambu
+Lakshadi Oil 200ml Vaidya|Lakshadi|Vaidya|200|ml|Oil
+Lakshadi Oil AVP|Lakshadi|AVP|||Oil
+Lakshadi Thailam ( Big) 107|Lakshadi||||Oil
+lakshadi oil [big] [avp]|Lakshadi|avp|||Oil
+Lakshmi Vilas Ras Tab (Dabur)|Lakshmi Vilas|Dabur|||Rasayanam Tab
+Lakshmi Vilas Ras Tab Dooth|Lakshmi Vilas|Dooth|||Rasayanam Tab
+Lakshmivilas Ras Tab 10T|Lakshmi Vilas||10|T|Rasayanam Tab
+Lasuna Marma oil|Lasuna Marma||||Oil
+Lasuna Tab|Lasuna||||Tablet / Gulika / Vati
+Lasunaerandadi Ks [AVP]|Lasunaerandadi|AVP|||Kashayam
+Lavanabhaskar Choornam|Lavanabhaskar||||Lavana
+Lavanya|Lavanya||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Lavanya [avp]|Lavanya|AVP|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+lavanya [avp]|Lavanya|AVP|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Laxokid Syrup (Ocean)|Laxokid|Ocean|||Syrup
+Laxsen|Laxsen|Laxsen|||** Not yet coded
+Leanheal Syr|Leanheal||||Syrup
+Leg Skin Traction|Leg Skin Traction||||Bandage / Belt / External
+Lehamla 250 GMS|Lehamla||250|gm|** Not yet coded
+Lekhana(Scrapping)|Lekhana(Scrapping)||||** Not yet coded
+Leno Drink 500ml [ Ashtanga Ayurvedics]|Leno Drink|Ayurvedics|500|ml|Juice / Tea
+Lepa all joints^|Lepa all joints||||Lepam
+Lepam|Lepam||||Lepam
+Lepam (Thalapodichil) - Shiro|Lepam (Thalapodichil) - Shiro||||Lepam
+Lepam (Thalapodichil) - Shiro ^|Lepam (Thalapodichil) - Shiro||||Lepam
+Lepam Ardhanga^|Lepam Ardhanga||||Lepam
+Lepam Ekanga^|Lepam Ekanga||||Lepam
+Lepam Service ^|Lepam Service||||Lepam
+Lepam Sthanika^|Lepam-Sthanika||||Lepam
+Lepam-Ardhanga(Special) ^|Lepam-Ardhanga(Special)||||Lepam
+Lepam-Ekanga(Special) ^|Lepam-Ekanga(Special)||||Lepam
+Lepam-Mastaka (Forehead) ^|Lepam-Mastaka (Forehead)||||Lepam
+Lepam-Mukha (Facial)|Lepam-Mukha (Facial)||||Lepam
+Lepam-Mukha (Facial) *|Lepam-Mukha (Facial)||||Lepam
+Lepam-Mukha (Facial) ^|Lepam-Mukha (Facial)||||Lepam
+Lepam-Sarvaga(Special)|Lepam-Sarvaga(Special)||||Lepam
+Lepam-Sarvaga(Special) **|Lepam-Sarvaga(Special)||||Lepam
+Lepam-Sarvanga **|Lepam-Sarvanga||||Lepam
+Lepam-Sarvanga^|Lepam-Sarvanga||||Lepam
+Lepam-Special (Mud Pack)|Lepam-Special (Mud Pack)||||Lepam
+Lepam-Sthanika **|Lepam-Sthanika||||Lepam
+Leptaden TAB|Leptaden||||Tablet / Gulika / Vati
+Leptaden Tab|Leptaden||||Tablet / Gulika / Vati
+Leuconil Capsules - AVP|Leuconil|AVP|||Tablet / Gulika / Vati
+Lifestyle Advise|Lifestyle Advise||||Misc
+Limiron Granules (SGPHYTO)|Limiron|SGPHYTO|||Granules
+Lingavardhana Thailam (AVP)|Lingavardhana|AVP|||Oil
+Lipived Cap|Lipived||||Tablet / Gulika / Vati
+Lipomap Tab - 40|Lipomap||40|T|Tablet / Gulika / Vati
+Lipomap Tab 15T (Maharishi)|Lipomap|Maharishi|15|T|Tablet / Gulika / Vati
+Lipomap Tab 20T (Maharishi)|Lipomap|Maharishi|20|T|Tablet / Gulika / Vati
+Liporid Tab - 10's (Nagarjuna)|Lipomap|Nagarjuna|10||Tablet / Gulika / Vati
+Liposem Tab (KAL)|Liposem|KAL|||Tablet / Gulika / Vati
+LIPPU OIL|Lippu|Dr JRK|||Oil
+Lippu Ointment 75gm (Dr JRK)|Lippu|Dr JRK|75|gm|** Not yet coded
+Liquid Diet|Liquid Diet||||** Not yet coded
+Liv 52 DS Syr|Liv 52 DS|Himalaya|||Syrup
+Liv 52 DS Tab (Himalaya)|Liv 52 DS|Himalaya|||Tablet / Gulika / Vati
+Liv 52 HB Cap (Himalaya)|Liv 52 HB|Himalaya|||Tablet / Gulika / Vati
+Liv 52 HP Cap|Liv 52 HP|Himalaya|||Tablet / Gulika / Vati
+Liv 52 Syp (Himalaya)|Liv 52|Himalaya|||Syrup
+Liv 52 Tab (Himalaya)|Liv 52|Himalaya|||Tablet / Gulika / Vati
+Liv Up|Liv Up||||** Not yet coded
+Livomyn syr (Charak)|Livomyn|Charak|||Syrup
+Livomyn Tab (Charak)|Livomyn|Charak|||Tablet / Gulika / Vati
+Lodhra|Lodhra||||** Not yet coded
+Lodhrasavam 450 ml|Lodhrasavam|ml|450|ml|Asavam
+Lodhrasavam 450 ml (AVP)|Lodhrasavam|AVP|450|ml|Asavam
+Lodhrasavam 450 ml Kot|Lodhrasavam|Kottakkal|450|ml|Asavam
+Lohasavam  450|Lodhrasavam||450|ml|Asavam
+Lohasavam 450 ml|Lodhrasavam||450|ml|Asavam
+Lohasavam [AVP]|Lohasavam|AVP|||Asavam
+Lomashatan Lepa (Prakruti)|Lomashatan|Prakruti|||Lepam
+Lo-Medus Tab (AVN)|Lo-Medus|AVN|||Tablet / Gulika / Vati
+LT Charges|LT Charges||||Misc
+Lukol Tab (Himalaya)|Lukol|Himalaya|||Tablet / Gulika / Vati
+Lukoskin Ointment +Oral Liquid (Aimil)|Lukoskin Ointment +Oral Liquid|Aimil|||** Not yet coded
+Lukoskin Oral Liquid 100ml(Aimil)|Lukoskin Oral Liquid|Aimil|100|ml|** Not yet coded
+Lumbaton  Plus Cap (AVN)|Lumbaton Plus|AVN|||Tablet / Gulika / Vati
+Lumbaton Cap (AVN)|Lumbaton|AVN|||Tablet / Gulika / Vati
+Lumbaton Tab (AVN)|Lumbaton|AVN|||Tablet / Gulika / Vati
+Lumber Sacral Belt 32"" (D-Lock)|Lumber Sacral Belt 32"" (D-Lock)||||Bandage / Belt / External
+Lumber Sacro Belt - M|Lumber Sacro Belt - M||||Bandage / Belt / External
+M2 Tone syr (Charak)|M2 Tone|Charak|||Syrup
+M2 Tone Tab (Charak)|M2 Tone|Charak|||Tablet / Gulika / Vati
+MAD - Agnikarma|MAD - Agnikarma||||** Not yet coded
+Madanakameshwara Lehya|Madanakameshwara||||Lehyam
+Madhunashini Cap 60C(Vasishta Pharma)|Madhunashini|Vasishta Pharma|60|C|Tablet / Gulika / Vati
+Madhunashini Plus Cap 60C (Vasishta)|Madhunashini Plus|Vasishta|60|C|Tablet / Gulika / Vati
+Madhusnuhi Rasayana Vaidya|Madhusnuhi|Vaidya|||Rasayanam
+madhusnuhirasayanam [big] avp|Madhusnuhi|avp|||Rasayanam
+Madhusnuhi Rasayanam(S) Kottakkal|Madhusnuhi|Kottakkal|||Rasayanam
+Madhusnuhirasayanam [big] (AVP)|Madhusnuhi|AVP|||Rasayanam
+Madhusnuhirasayanam (S) AVP|Madhusnuhi|AVP|||Rasayanam
+Madhuyashtadi Mezhukupakam 100 ml|Madhuyashtyadi||100|ml|Mezhupakam
+Madhuyashtadi Mezhpkam SNA|Madhuyashtyadi|SNA|||Mezhupakam
+Madhuyashtyadi Oil 200 ml SNA|Madhuyashtyadi|SNA|200|ml|Oil
+Madhuyashtyadi Thailam (AVP)|Madhuyashtyadi|AVP|||Oil
+Madhuyashtyadi Thailam (Kottakkal)|Madhuyashtyadi|Kottakkal|||Oil
+Madhuyashtyadi Thailam Vaidya|Madhuyashtyadi|Vaidya|||Oil
+Madiphala Rasayana -Sandu|Madiphala|Sandu|||Rasayanam
+Madiphala Rasayana 200ml [ Venkateshwara]|Madiphala|Venkateshwara|200|ml|Rasayanam
+Maha Narayana Thailam [ KPL ] 100 ML|Mahanarayana|ML|100|ml|Oil
+MahaNarayana Oil Rajah|Mahanarayana|Rajah|||Oil
+Mahabala Oil (Dr Yogidas)|Mahabala|Dr Yogidas|||Oil
+Mahadhanwantharam Gulika (AVN)|Mahadhanwantharam|AVN|||Tablet / Gulika / Vati
+Mahadhanwantharam Gulika (AVP)|Mahadhanwantharam|AVP|||Tablet / Gulika / Vati
+Mahadhanwantharam Gulika[Kottakkal]|Mahadhanwantharam|Kottakkal|||Tablet / Gulika / Vati
+Mahakalyanaka Ghritham (AVP)|Mahakalyanka|AVP|||Ghritham
+Mahakalyanka Gritham Kot|Mahakalyanka|Kottakkal|||Ghritham
+Mahakalyanka Gritham SNA|Mahakalyanka|SNA|||Ghritham
+Mahakalyanka Gritham Vaidya|Mahakalyanka|Vaidya|||Ghritham
+Mahakukkudamamsa Thailam (AVP)|Mahakukkudamamsa|AVP|||Oil
+Mahakukkudamamsa Thailam 200 ml|Mahakukkudamamsa||200|ml|Oil
+Maha Manjishtadi KS [ KPL ]|Mahamanjishtadi|KPL|||Kashayam
+Mahamanjishtadi KS [KAL]|Mahamanjishtadi|KAL|||Kashayam
+Mahamanjishtadi ks [ Rajah ]|Mahamanjishtadi|Rajah|||Kashayam
+Mahamanjistadi Ks (AVP)|Mahamanjishtadi|AVP|||Kashayam
+Mahamanjistadi Ks SNA|Mahamanjishtadi|SNA|||Kashayam
+Mahananjistadi Ks AVP|Mahamanjishtadi|AVP|||Kashayam
+Mahamasha Tailam (AVP)|Mahamasha|AVP|||Oil
+Mahamasha Tailam AVP|Mahamasha|AVP|||Oil
+Mahamasha Tailam SNA|Mahamasha|SNA|||Oil
+Mahamasha Tailam Vaidya|Mahamasha|Vaidya|||Oil
+Mahamasha oil avp|Mahamasha|avp|||Oil
+Mahamasha tailam|Mahamasha||||Oil
+mahananjistadi Ks|Mahamanjishtadi||||Kashayam
+Mahanarayana Oil SNA|Mahanarayana|SNA|||Oil
+Mahanarayana Thailam Vaidya|Mahanarayana|Vaidya|||Oil
+Mahaneela Ghritham (Sreedhareeyam)|Mahaneela|Sreedhareeyam|||Ghritham
+Mahapaishchika Ghritham (AVP)|Mahapaishchika|AVP|||Ghritham
+Maharaja Prasarini Thailam 25 ml (AVP)|Maharaja Prasarini|AVP|25|ml|Oil
+Maharajaprasarini Gel Cap [Kottakkal]|Maharajaprasarini Gel|Kottakkal|||Gel
+Maharajaprasarini Gel cap (AVP)|Maharajaprasarini Gel|AVP|||Gel
+maharasanaYogaraja|Maharasana Yogaraja||||** Not yet coded
+Maharasnadi Ks Tab (AVN)|Maharasnadi|AVN|||Kashayam Tab
+Maharasnayogaraja Gulgulu Ks [AVP]|Maharasnayogaraja Guggulu|AVP|||Kashayam
+Maharishi Amrit Kalash (Maharshi)|Maharishi Amrit Kalash|Maharshi|||** Not yet coded
+Maharsanadi Ks SNA|Maharsanadi|SNA|||Kashayam
+Maharsanadi Ks [Vaidya]|Maharsanadi|Vaidya|||Kashayam
+Mahasapthamruthaloham Tab|Mahasapthamruthaloham||||Tablet / Gulika / Vati
+Mahasapthamruthaloham Tab 10T (Malabar)|Mahasapthamruthaloham|Malabar|10|T|Tablet / Gulika / Vati
+Mahashankh Bati (Baidyanath)|Mahashankh|Baidyanath|||Tablet / Gulika / Vati
+Mahasneham Ghritham (Vaidya)|Mahasneham|Vaidya|||Ghritham
+Mahasudarshan Ghan Vati|Mahasudarshan Ghana||||Tablet / Gulika / Vati
+Mahathiktaka Gritha Vaidya|Mahathikthakam|Vaidya|||Ghritham
+Mahathikthaka Gritham Cap KAL|Mahathikthakam|KAL|||Ghritham Cap
+Mahathikthakam Ghritham (SNA)|Mahathikthakam|SNA|||Ghritham
+Mahathikthakam Ghritham AVP|Mahathikthakam|AVP|||Ghritham
+Mahathikthakam Gritha (Rajah)|Mahathikthakam|Rajah|||Ghritham
+Mahathikthakam Ks Vaidya|Mahathikthakam|Vaidya|||Kashayam
+Mahathikthakam Ks [AVP]|Mahathikthakam|AVP|||Kashayam
+Mahathikthakam KS Tab [AVP]|Mahathikthakam|AVP|||Kashayam Tab
+Mahathikthakam Lepam [vaidya]|Mahathikthakam|vaidya|||Lepam
+Mahathriphala Gritha (Pentacare)|Mahathriphala|Pentacare|||Ghritham
+Mahathriphala Gritha Sri|Mahathriphala|Sri Sri|||Ghritham
+Mahatiktakam Ks|Mahathikthakam||||Kashayam
+Mahavatvidhwansan Ras Tab|Mahavatvidhwansan||||Rasayanam Tab
+Mahavishagarba Oil 200ml [Malabar]|Mahavishagarba|Malabar|200|ml|Oil
+Mahavishagarba Oil 200ml [Veda]|Mahavishagarba|Veda|||Oil
+Mahavishagarba oil|Mahavishagarba||||Oil
+Mahavishagarba oil (Baidyanath)|Mahavishagarba|Baidyanath|||Oil
+Mahavishagarba oil 100 ML|Mahavishagarba||100|ml|Oil
+Mahavishagarbha Oil 100 ML (Baidyanath)|Mahavishagarba|Baidyanath|100|ml|Oil
+Mahayogaraj Guggul (Sandu)|Mahayogaraj Guggulu|Sandu|||Tablet / Gulika / Vati
+Mahayogaraj Guggul 40T [Zandu]|Mahayogaraj Guggulu|Zandu|40|T|Tablet / Gulika / Vati
+Mahayogaraj Guggul 60 Tab Dooth|Mahayogaraj Guggulu|Dooth|60|T|Tablet / Gulika / Vati
+Mahishadravakam 450ml (Brahma)|Mahishadravakam|Brahma|450|ml|** Not yet coded
+Major Surgical/ParaSurgical Procedure|Major Surgical/ParaSurgical Procedure||||Bandage / Belt / External
+Makaradhavaja Sidha Tab (Dindayal)|Makaradhwaja Sidha|Dindayal|||Tablet / Gulika / Vati
+Makaradhavaja Tab|Makardhwaja||||Tablet / Gulika / Vati
+Makardhwaj Vati 25 Tab|Makardhwaja||25|T|Tablet / Gulika / Vati
+Makardhwaja Gutika 10 Gold [Dooth]|Makardhwaja Gold|Dooth|10||Tablet / Gulika / Vati
+Makardwaja Rasayan Tab (UAP)|Makardhwaja|UAP|||Rasayanam Tab
+Malathyadi Co Oil 200 (AVP)|Malathyadi|AVP|200|ml|Oil
+Malathyadi Thailam (AVP)|Malathyadi|AVP|||Oil
+Malbet Cap 15C (SGPHYTO)|Malbet|SGPHYTO|15|C|Tablet / Gulika / Vati
+Mamejava Ghana Vati|Mamejava Ghana||||Tablet / Gulika / Vati
+Mamejava Ghana Vati 100T (SDM)|Mamejava Ghana|SDM|||Tablet / Gulika / Vati
+Mamsa Rasa|Mamsa Rasa||||Rasayanam
+Mamsarohini_1|Mamsarohini||||** Not yet coded
+Manasamithra Gulika (AVP)|Manasamithra|AVP|||Tablet / Gulika / Vati
+Manasamithra Vatakam KPL|Manasamithra|KPL|||Tablet / Gulika / Vati
+Manasamithra Vatakam Kottakkal|Manasamithra|Kottakkal|||Tablet / Gulika / Vati
+Manasamithra Vatakam SNA|Manasamithra|SNA|||Tablet / Gulika / Vati
+Manasamithra Vatakam Vaidya|Manasamithra|Vaidya|||Tablet / Gulika / Vati
+Manasamithra Vatakam Vaidya - 10|Manasamithra|Vaidya|10||Tablet / Gulika / Vati
+Manasamithra Vatakam Gulika|Manasamithra||||Tablet / Gulika / Vati
+Manasamithravatakam gulika avp|Manasamithra|avp|||Tablet / Gulika / Vati
+Mandibular Impression|Mandibular Impression||||** Not yet coded
+Mandoora Vatakam (AVP)|Mandoora|AVP|||Tablet / Gulika / Vati
+Mandoora Vatakam 10T[vaidya]|Mandoora|vaidya|10|T|Tablet / Gulika / Vati
+Mandoora Vatakam vaidya|Mandoora|vaidya|||Tablet / Gulika / Vati
+Manibhadra Guda 100gm (SDM)|Manibhadra Guda|SDM|100|gm|** Not yet coded
+Manibhadra Lehyam 200gm (AVP)|Manibhadra|AVP|200|gm|Lehyam
+Manibhadra Lehyam 250gm Vaidya|Manibhadra|Vaidya|250|gm|Lehyam
+Manjishadi Oil Pra|Manjishtadi|Prakruti|||Oil
+Manjishadi taila [swa]|Manjishtadi|swadeshi|||Oil
+Manjishiadi Ks Tab|Manjishtadi||||Kashayam Tab
+Manjishtadi Choornam|Manjishtadi||||Choornam / Powder
+Manjishtadi KS [ KPL ]|Manjishtadi|KPL|||Kashayam
+Manjishtadi KS [AVP]|Manjishtadi|AVP|||Kashayam
+Manjishtadi Ks (AVN)|Manjishtadi|AVN|||Kashayam
+Manjishtadi Ks SNA|Manjishtadi|SNA|||Kashayam
+Manjishtadi Ksm|Manjishtadi||||Kashayam
+Manjistadi Ks [Vaidya]|Manjishtadi|Vaidya|||Kashayam
+Manjishtadi ks tab (AVN)|Manjishtadi|AVN|||Kashayam Tab
+Manjishtadi ks tab AVP|Manjishtadi|AVP|||Kashayam Tab
+Manjishtadi Oil AVP|Manjishtadi|AVP|||Oil
+Manjishtadi Oil Vaidya|Manjishtadi|Vaidya|||Oil
+manjista Churna|Manjishtadi||||Choornam / Powder
+Manjistadi churna|Manjishtadi||||Choornam / Powder
+Manjistadi Ks Tab Kot|Manjishtadi|Kottakkal|||Kashayam Tab
+Manjistadi Thailam 100ML|Manjishtadi||||Oil
+Manoll Malt 400g (Charak)|Manoll Malt|Charak|40|gm|** Not yet coded
+Manomitram Tab (AVN)|Manomitram|AVN|||Tablet / Gulika / Vati
+Mantha|Mantha||||** Not yet coded
+Maricha Thailam Vaidya|Marichadi|Vaidya|||Oil
+Marichadi Co Oil  Vaidya|Marichadi|Vaidya|||Oil
+MARICHADI OIL [ vaidya]|Marichadi|vaidya|||Oil
+MARICHADI OIL [vaidya]|Marichadi|vaidya|||Oil
+Marichadi Oil (AVP)|Marichadi|AVP|||Oil
+Marichadi Oil (Kottakkal)|Marichadi|Kottakkal|||Oil
+Marichadi Tailam 200ml|Marichadi||200|ml|Oil
+Marichadi Tailam 200ml  SNA|Marichadi|SNA|200|ml|Oil
+Marichadi oil|Marichadi||||Oil
+Marichadi oil Kot|Marichadi|Kottakkal|||Oil
+Markava thailam|Markava||||Oil
+Marma Gulika|Marma||||Tablet / Gulika / Vati
+Marma Gulika (AVP)|Marma|AVP|||Tablet / Gulika / Vati
+Marma Gulika - Kottakkal|Marma|Kottakkal|||Tablet / Gulika / Vati
+Marma Gulika sna|Marma|sna|||Tablet / Gulika / Vati
+Marma Guliks Rajaha|Marma|Rajaha|||Tablet / Gulika / Vati
+Marma Manipulation|Marma Manipulation||||** Not yet coded
+Marvin Cap (SGPHYTO)|Marvin|SGPHYTO|||Tablet / Gulika / Vati
+Maxillary impression|Maxillary impression||||** Not yet coded
+Maya Black Tea|Maya Black Tea||||Juice / Tea
+Mceaz Cap (Atrimed)|Mceaz|Atrimed|||Tablet / Gulika / Vati
+Me Cal Cap|Me Cal||||Tablet / Gulika / Vati
+Me-Cal Cap 60T (SGPHYTO)|Me Cal|SGPHYTO|60|T|Tablet / Gulika / Vati
+Mebarid|Mebarid||||** Not yet coded
+Mebarid Cap (SGPHYTO)|Mebarid|SGPHYTO|||Tablet / Gulika / Vati
+Mebarid Syr (SGPHYTO)|Mebarid|SGPHYTO|||Syrup
+Mebarid tab|Mebarid||||Tablet / Gulika / Vati
+Meditation|Meditation||||Yoga
+Meditrim Cap (Medilab India)|Meditrim|Medilab India|||Tablet / Gulika / Vati
+Medohar Vidangadi Loha Tab (Amrita)|Medohar Vidangadi Loha|Amrita|||Tablet / Gulika / Vati
+Mehanil|Mehanil||||** Not yet coded
+Mehanil Tab Vaidya|Mehanil|Vaidya|||Tablet / Gulika / Vati
+Mehari Choornam 100gm (AVN)|Mehari|AVN|100|gm|Choornam / Powder
+Mehari Choornam 250gm (AVN)|Mehari|AVN|250|gm|Choornam / Powder
+Mehasree Tab (Sreedhareeyam)|Mehasree|Sreedhareeyam|||Tablet / Gulika / Vati
+Memocap Cap (Capro)|Memocap|Capro|||Tablet / Gulika / Vati
+Memorin caps (SGPHYTO)|Memorin|SGPHYTO|||Tablet / Gulika / Vati
+Memorin Syr. 200ml (SGPHYTO)|Memorin|SGPHYTO|200|ml|Syrup
+Menoleap Cap 10C (Bal Pharm)|Menoleap|Bal Pharm|10|C|Tablet / Gulika / Vati
+Menorex|Menorex||||** Not yet coded
+Menosan Tab (Himalaya)|Menosan|Himalaya|||Tablet / Gulika / Vati
+Mensotone Cap [100C] (Shree Shakti)|Mensotone|Shree Shakti|100|C|Tablet / Gulika / Vati
+Mentat|Mentat||||** Not yet coded
+mentat|Mentat||||** Not yet coded
+Mentat Syr (Himalaya)|Mentat|Himalaya|||Syrup
+Mentat Tab (Himalaya)|Mentat|Himalaya|||Tablet / Gulika / Vati
+mentat Tablet|Mentat||||Tablet / Gulika / Vati
+Meryton Capsule - 10's - Vasu|Meryton|Vasu|10|C|Tablet / Gulika / Vati
+Meryton L Tab (Vasu)|Meryton L|Vasu|||Tablet / Gulika / Vati
+Meryton Syr (Vasu)|Meryton|Vasu|||Syrup
+Meshashringi Tab 60T (Himalaya)|Meshashringi|Himalaya|60|T|Tablet / Gulika / Vati
+Methika Churna|Methika||||Choornam / Powder
+Methika powder|Methika||||Choornam / Powder
+Migrakot Oil (Kottakkal)|Migrakot|Kottakkal|||Oil
+Migrakot Tab (Kottakkal)|Migrakot|Kottakkal|||Tablet / Gulika / Vati
+Migrakot Tab - 100|Migrakot|Tab|100||Tablet / Gulika / Vati
+Miniscar Oint (Charak)|Miniscar Ointment|Charak|||** Not yet coded
+Minor Gynaec Procedure|Minor Gynaec Procedure||||Misc
+Minor Surgical/ParaSurgical Procedure|Minor Surgical/ParaSurgical Procedure||||Bandage / Belt / External
+Miscelaneous Charge|Miscelaneous Charge||||Bandage / Belt / External
+Mishraka Sneha Vaidya|Mishraka Sneha|Vaidya|||** Not yet coded
+Mishraka Sneha Gritham AVP|Mishraka Sneha|AVP|||Ghritham
+Mobilization|Mobilization||||Bandage / Belt / External
+Moderate Surgical/ParaSurgical Procedure|Moderate Surgical/ParaSurgical Procedure||||Bandage / Belt / External
+Moist Therapy|Moist Therapy||||Bandage / Belt / External
+Molar RCT|Molar RCT||||** Not yet coded
+Mono crystalline ceramic brackets|Mono crystalline ceramic brackets||||Bandage / Belt / External
+Moolakadyarishtam 450 ml (AVP)|Moolakadyarishtam|AVP|450|ml|Aristham
+Moolakadyarishtam-Kottakkal|Moolakadyarishtam|Kottakkal|||Aristham
+Moolkadi Ks AVP|Moolkadi|AVP|||Kashayam
+Mridweekadi leham|Mridweekadi||||Lehyam
+Mrityanjaya Ras Tab (Baidyanath)|Mrityanjaya|Baidyanath|||Rasayanam Tab
+MRY Compound Tab|MRY Compound||||Tablet / Gulika / Vati
+Mucex Syr 100ml (Ayurchem)|Mucex|Ayurchem|100|ml|Syrup
+Mukkadi Gulika 60s (Sreedhareeyam)|Mukkadi|Sreedhareeyam|60||Tablet / Gulika / Vati
+Mukkadi Puramada tab|Mukkadi Puramada||||Tablet / Gulika / Vati
+Mukulanjanam Eye Drops (Sreedhareeyam)|Mukulanjanam|Sreedhareeyam|||Drops Eye
+Murchita Taila|Murchita||||Oil
+Murivenna 200 ml|Murivenna|ml|200|ml|Oil
+Murivenna 200 ml SNA|Murivenna|SNA|200|ml|Oil
+Murivenna 200 ml [avp]|Murivenna|avp|200|ml|Oil
+Murivenna 200ml (AVP)|Murivenna|AVP|200|ml|Oil
+Murivenna 200ml Vaidya|Murivenna|Vaidya|200|ml|Oil
+Musaleekhadiradi Ks [AVP]|Musaleekhadiradi|AVP|||Kashayam
+Musaleekhadiradi Ks [Kottakkal]|Musaleekhadiradi|Kottakkal|||Kashayam
+Musaleekharadi KS SNA|Musaleekhadiradi|SNA|||Kashayam
+Muscle Tone|Muscle Tone||||** Not yet coded
+Musta Churna|Musta||||Choornam / Powder
+Musta churna|Musta||||Choornam / Powder
+Mustadi Marma Ks ( Kottakal )|Mustadi Marma|Kottakal|||Kashayam
+Mustha|Mustha||||** Not yet coded
+Mustharishtam 450 ml (AVP)|Musthtarishtam|AVP|450|ml|Aristham
+Musthtarishtam [avp]|Musthtarishtam|avp|||Aristham
+Myaxyl|Myaxyl||||** Not yet coded
+Myaxyl Cap|Myaxyl||||Tablet / Gulika / Vati
+Myaxyl Oil 60 ml|Myaxyl||60|ml|Oil
+Myaxyl Oil 60ml|Myaxyl||60|ml|Oil
+Myostaal forte (Solumiks)|Myostaal forte|Solumiks|||** Not yet coded
+Myostaal Gel (Solumiks)|Myostaal Gel|Solumiks|||Gel
+Myostal Liniment  110 ml (Solumiks)|Myostal|Solumiks|110|ml|Liniment
+Myostal Linment 60 ml|Myostal||60|ml|Liniment
+Myostal Liniment Oil 30 ml|Myostal|ml|30|ml|Liniment
+Myostal Liniment Oil 60 ml|Myostal|ml|60|ml|Liniment
+Nabhi Vati|Nabhi||||Tablet / Gulika / Vati
+Nabhi Vati (1000)|Nabhi||1000||Tablet / Gulika / Vati
+Nagaradi Choorna (SNA)|Nagaradi|SNA|||Choornam / Powder
+Nagaradi Choornam|Nagaradi||||Choornam / Powder
+Nakulanjanam Eye Drops (Sreedhareeyam)|Nakulanjanam|Sreedhareeyam|||Drops Eye
+Nalapamara Choorna|Nalapamaradi||||Choornam / Powder
+Nalapamaradi Oil SNA|Nalapamaradi|SNA|||Oil
+Nalikeranjanam Eye Drops (Sreedhareeyam)|Nalikeranjanam|Sreedhareeyam|||Drops Eye
+Nalpamara|Nalapamaradi||||Oil
+Nalpamara_1|Nalapamaradi||||Oil
+Nalpamaradi Co Oil SNA|Nalapamaradi|SNA|||Oil
+Nalpamaradi Co Oil Vaidya|Nalapamaradi|Vaidya|||Oil
+Nalpamaradi Coconut Oil (AVP)|Nalpamaradi Coconut|AVP|||Oil
+Nalpamaradi Oil AVP|Nalapamaradi|AVP|||Oil
+Nalpamaradi Oil Kottakkal|Nalapamaradi|Kottakkal|||Oil
+Nalpamaradi Oil SNA|Nalapamaradi|SNA|||Oil
+nalpmaradi co oil [avp]|Nalapamaradi|avp|||Oil
+Namboodiri Paste 100g (KPN)|Namboodiri Paste|KPN|100|gm|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Namboodiri paste|Namboodiri Paste||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Namboodiri paste 150g|Namboodiri Paste||150|gm|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Namboodiri paste 50g|Namboodiri Paste||50|gm|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Nanonut-9 Cap (Phyto Castle)|Nanonut|Phyto Castle|9||Tablet / Gulika / Vati
+Narasimha Rasayanam|Narasimha|Rasayanam|||Rasayanam
+Narasimha Rasayanam (AVP)|Narasimha|AVP|||Rasayanam
+Narasimha Rasayanam Vaidya|Narasimha|Vaidya|||Rasayanam
+narasimharasayanam [avp]|Narasimha|avp|||Rasayanam
+Narayana Thailam (Big) 200 ml (AVP)|Narayana|AVP|200|ml|Oil
+Narayana Thailam 200ml Kottakkal|Narayana|Kottakkal|200|ml|Oil
+Narayana Thailam 200ml Vaidya|Narayana|Vaidya|||Oil
+Narayana Thailam SNA|Narayana|SNA|||Oil
+Narayana Thailam [vaidya]|Narayana|vaidya|||Oil
+Narayana tailam [big] avp|Narayana|avp|||Oil
+narayana tailam [big] avp|Narayana|avp|||Oil
+Nasika Choornam (Kottakkal)|Nasika|Kottakkal|||Choornam / Powder
+Nasollerin Cap|Nasollerin||||Tablet / Gulika / Vati
+Nasya Pradamana **|Nasya Pradamana||||Nasyam
+Nasya Pradamana^|Nasya Pradamana||||Nasyam
+Nasya^|Nasya||||Nasyam
+Nasyam**|Nasyam||||Nasyam
+Nasya-Pratimarsha|Nasya-Pratimarsha||||Nasyam
+Naturopathy A|Naturopathy A||||Bandage / Belt / External
+Naturopathy B|Naturopathy B||||Bandage / Belt / External
+Naturopathy Cold Hip Bath|Naturopathy Cold Hip Bath||||Bandage / Belt / External
+Naturopathy Cold Immersion Bath|Naturopathy Cold Immersion Bath||||Bandage / Belt / External
+Naturopathy under water massage|Naturopathy under water massage||||Bandage / Belt / External
+Nava Gulgulu|Navaka Guggulu||||Tablet / Gulika / Vati
+Navaayasam Gulika|Navaayasam||||Tablet / Gulika / Vati
+Navaka Guggulu|Navaka Guggulu||||Tablet / Gulika / Vati
+Navaka Guggulu (Amrit)|Navaka Guggulu|Amrit|||Tablet / Gulika / Vati
+Navayasa Choornam [AVP]|Navayasa|AVP|||Choornam / Powder
+Navayasa Loha Tab|Navayasa Loha||||Tablet / Gulika / Vati
+Nayanamrutham Kuzhambu 10 ml|Nayanamrutham||10|ml|Kuzhambu
+Nayopayam Ks [AVP]|Nayopayam|AVP|||Kashayam
+Nayopayam Ksm|Nayopayam||||Kashayam
+Nebulization|Nebulization||||Bandage / Belt / External
+Neeleebhringadi Co Oil Vaidya|Neeleebhringadi|Vaidya|||Oil
+Neeleebhringadi Oil 200 ml|Neeleebhringadi||200|ml|Oil
+Neeleebhringadi Oil Vaidy|Neeleebhringadi|Vaidya|||Oil
+Neeleebhringadi Oil Vaidya|Neeleebhringadi|Vaidya|||Oil
+Neelibhringadi Co Oil -AVP|Neeleebhringadi|AVP|||Oil
+Neelibhringadi Co Oil-Vaidya|Neeleebhringadi|Vaidya|||Oil
+neelibhringadi oil|Neeleebhringadi||||Oil
+Neelibringadi Co Oil AVP|Neeleebhringadi|AVP|||Oil
+Neelibringhadi Oil (AVP)|Neeleebhringadi|AVP|||Oil
+Neem Foaming Face Wash 150ml|Neem Foaming Face Wash||150|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Neem Taila|Neem||||Oil
+Neeri Syr. 200ml (Aimil)|Neeri|Aimil|200|ml|Syrup
+Neo Tab (Charak)|Neo|Charak|||Tablet / Gulika / Vati
+Nethramrutham Eye Drops (Sreedhareeyam)|Nethramrutham|Sreedhareeyam|||Drops Eye
+Nethraraksha Cap 10s (Sreedhareeyam)|Nethraraksha|Sreedhareeyam|10||Tablet / Gulika / Vati
+Netraksha Ks 450ml (Sreedhareeyam)|Nethraraksha|Sreedhareeyam|450|ml|Kashayam
+Netramritham - 10ml - Kottakkal|Nethramrutham|Kottakkal|10|ml|Drops Eye
+Neuplex Cap (Caram)|Neuplex|Caram|||Tablet / Gulika / Vati
+Neuro Rehablitation|Neuro Rehablitation||||Misc
+Neuron Cap (Prakruti)|Neuron|Prakruti|||Tablet / Gulika / Vati
+Neurotone Forte 10T (Vasishta)|Neurotone Forte|Vasishta|10|T|Tablet / Gulika / Vati
+Neurotone Forte 60T|Neurotone Forte||60|T|Tablet / Gulika / Vati
+Neurovine 450ml|Neurovine||450|ml|Juice / Tea / Buttermilk / Liquid
+Neutral Immersion Bath|Neutral Immersion Bath||||Bandage / Belt / External
+Niargim Tab|Niargim||||Tablet / Gulika / Vati
+Nilsin Cap|Nilsin||||Tablet / Gulika / Vati
+Nilsin Cap. (SGPHYTO)|Nilsin|SGPHYTO|||Tablet / Gulika / Vati
+Nilsin cap|Nilsin|cap|||Tablet / Gulika / Vati
+Nilsin capsules|Nilsin|capsules|||Tablet / Gulika / Vati
+Nimba|Nimba||||** Not yet coded
+Nimba_1|Nimba||||** Not yet coded
+Nimbadi Choornam [AVP]|Nimbadi|AVP|||Choornam / Powder
+Nimbadi Choornam [Vaidya]|Nimbadi|Vaidya|||Choornam / Powder
+Nimbadi Gugglu (SDM)|Nimbadi Guggulu|SDM|||Tablet / Gulika / Vati
+Nimbadi Guggul 1000 tab|Nimbadi Guggulu||1000|T|Tablet / Gulika / Vati
+Nimbadi Guggulu 100T [ SDP]|Nimbadi Guggulu|SDP|100|T|Tablet / Gulika / Vati
+NImbadi gugulu tab|NImbadi Guggulu||||Tablet / Gulika / Vati
+Nimbadi Ks [Rajah]|Nimbadi|Rajah|||Kashayam
+Nimbadi Ks Tab|Nimbadi||||Kashayam Tab
+Nimbamruthadi Castor Oil 100 ml|Nimbamruthadi Castor||100|ml|Oil
+Nimbamruthadi Castor Oil 200 ml|Nimbamruthadi Castor||200|ml|Oil
+Nimbamruthadi Castor Oil 50 ml|Nimbamruthadi Castor||50|ml|Oil
+Nimbamruthadi Castor Oil Vaidya|Nimbamruthadi Castor|Vaidya|||Oil
+Nimbamruthasavam (Rajah)|Nimbamruthasavam|Rajah|||Asavam
+Nimbamruthasavam 450 ml|Nimbamruthasavam||450|ml|Asavam
+Nimbamruthasavam Kot|Nimbamruthasavam|Kottakkal|||Asavam
+Nimbamruthasavam [avp]|Nimbamruthasavam|avp|||Asavam
+Nimbasavam 450ml Vaidya|Nimbasavam|Vaidya|450|ml|Asavam
+Nirgundyadi Ghritham|Nirgundyadi||||Ghritham
+Nirgundyadi gulika|Nirgundyadi||||Tablet / Gulika / Vati
+nirgundyadi gulika|Nirgundyadi||||Tablet / Gulika / Vati
+Nirgundyadi Ks [Vaidya]|Nirgundyadi|Vaidya|||Kashayam
+nirgundyadi leaves|Nirgundyadi Leaves||||** Not yet coded
+Nirgundyadi Thailam 200ml Vaidya|Nirgundyadi|Vaidya|200|ml|Oil
+Nirocil syr 110ml (Solumiks)|Nirocil|Solumiks|110|ml|Syrup
+Nirocil Tab 30T (Solumiks)|Nirocil|Solumiks|30|T|Tablet / Gulika / Vati
+Niruryadi Ks Tab (AVN)|Niruryadi|AVN|||Kashayam Tab
+Nisa Amalaki Tab (Amrita)|Nisa Amalaki|Amrita|||Tablet / Gulika / Vati
+Nisa Amalaki Tab 90T (Amrit)|Nisa Amalaki|Amrit|90|T|Tablet / Gulika / Vati
+Nisamlaki Tab-60' - Sri Sri|Nisa Amalaki|Sri Sri|60|T|Tablet / Gulika / Vati
+Nisha Amalaki tab|Nisa Amalaki||||Tablet / Gulika / Vati
+Nisaamalaki|Nisa Amalaki||||Tablet / Gulika / Vati
+Nisaamalaki churna|Nisa Amalaki||||Choornam / Powder
+Nisakathakadi KS (Rajah)|Nisakathakadi|Rajah|||Kashayam
+Nisakathakadi Ks SNA|Nisakathakadi|SNA|||Kashayam
+Nisakathakadi Ks Sookshma Choorna (Everest Pharma)|Nisakathakadi Ks Sookshma|Everest Pharma|||Choornam / Powder
+Nisamallki|Nisa Amalaki||||Tablet / Gulika / Vati
+Nisa-useeradi tlm|Nisa-useeradi tlm||||Tablet / Gulika / Vati
+Nishakatakadi choornam|Nishakathakadi||||Choornam / Powder
+NishaKathakadi KS [ KPL ]|Nishakathakadi|KPL|||Kashayam
+Nishakathakadi Ks|Nishakathakadi||||Kashayam
+Nishakathakadi Ks SNA|Nishakathakadi|SNA|||Kashayam
+Nishakathakadi Ks Vaidya|Nishakathakadi|Vaidya|||Kashayam
+Nisoseeradi Oil Kottakkal|Nisoseeradi|Kottakkal|||Oil
+Nisoseeradi Oil Vaidya|Nisoseeradi|Vaidya|||Oil
+Nityananda Ras Tab (Baidyanath)|Nityananda|Baidyanath|||Rasayanam Tab
+Nongandi Oil|Nongandi||||Oil
+Nucart OA Tab (Gufic)|Nucart OA|Gufic|||Tablet / Gulika / Vati
+Nuro - XT Cap (Green Remedies)|Nuro - XT|Green Remedies|||Tablet / Gulika / Vati
+Nuro Cap 30C (Green Remedies)|Nuro|Green Remedies|30|C|Tablet / Gulika / Vati
+Nuro capsules|Nuro||||Tablet / Gulika / Vati
+nurodex|Nurodex||||Tablet / Gulika / Vati
+Nurodex Cap (JaffMan)|Nurodex|JaffMan|||Tablet / Gulika / Vati
+Nutri Tone Powder|Nutri Tone||||Choornam / Powder
+Nyagrodhadi kashaya choorna|Nyagrodhadi Kashaya||||Choornam / Powder
+Obe Cap|Obe||||Tablet / Gulika / Vati
+Obecap|Obe||||Tablet / Gulika / Vati
+Obesity Care Juice 500ml (Rattan Organic)|Obesity Care Juice|Rattan Organic|500|ml|Juice / Tea
+Obez Cap|Obez||||Tablet / Gulika / Vati
+Obis 30 Cap|Obis||30||Tablet / Gulika / Vati
+Obloz Cap (Atrimed)|Obloz|Atrimed|||Tablet / Gulika / Vati
+Oil Application - Ardhanga^|Oil Application - Ardhanga||||Oil
+Oil Application - Ekanga^|Oil Application - Ekanga||||Oil
+Oil Application - Sarvanga^|Oil Application - Sarvanga||||Oil
+Oil Application ^|Oil Application||||Oil
+Oil application Ardhanga with hot water fomentation^|Oil application Ardhanga with hot water fomentation||||Oil
+Oil application Ekanga with hot water fomentation^|Oil application Ekanga with hot water fomentation||||Oil
+Oil Application with hot fomentation **|Oil Application with hot fomentation||||Oil
+One Sec Ear Drops (Ayurchem)|One Sec|Ayurchem|||Drops Ear
+OP Group yoga (6 days)|OP Group yoga||||Yoga
+Opta Care eye drops (Himalaya)|Opta Care|Himalaya|||Drops Eye
+Optha Cap (Sreedhareeyam)|Optha|Sreedhareeyam|||Tablet / Gulika / Vati
+OptimHealth - Weight|OptimHealth - Weight||||Tablet / Gulika / Vati
+Optisperm Cap (Sneha)|Optisperm|Sneha|||Tablet / Gulika / Vati
+Optova Cap (Sneha)|Optova|Sneha|||Tablet / Gulika / Vati
+Ossigen Cap (SGPHYTO)|Ossigen|SGPHYTO|||Tablet / Gulika / Vati
+Ostikot Tab|Ostikot||||Tablet / Gulika / Vati
+OT Charge|OT Charge||||Bandage / Belt / External
+Oushadha 1|Oushadha 1||||Misc
+Oushadha 2|Oushadha 2||||Misc
+Oushadha 3|Oushadha 3||||Misc
+Oushadha 4|Oushadha 4||||Misc
+Oushadha 5|Oushadha 5||||Misc
+Oushadha 6|Oushadha 6||||Misc
+Oushadha 7|Oushadha 7||||Misc
+Oushadha 8|Oushadha 8||||Misc
+Oushadha 9|Oushadha 9||||Misc
+Oushadha Yoga|Oushadha Yoga||||Misc
+Oushadha yoga Preperation|Oushadha yoga Preperation||||Bandage / Belt / External
+Oushadha Yoga Service|Oushadha Yoga Service||||Bandage / Belt / External
+Out Reach Yoga Session|Out Reach Yoga Session||||Yoga
+Ovarin Cap (Ban Labs)|Ovarin|Ban Labs|||Tablet / Gulika / Vati
+Ovarin Syr|Ovarin||||Syrup
+Oxitard Cap (Himalaya)|Oxitard|Himalaya|||Tablet / Gulika / Vati
+Oxygen Supply per day|Oxygen Supply per day||||Bandage / Belt / External
+Oxygen Supply per Hr|Oxygen Supply per Hr||||Bandage / Belt / External
+Ozzo Moisturis Lotion 500Ml|Ozzo Moisturis Lotion||500|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Pada prasadana (Pedicure)|Pada prasadana (Pedicure)||||Bandage / Belt / External
+Padabhyanga ^|Padabhyanga||||Abhyanga
+Paineaz Oint|Paineaz||||** Not yet coded
+Palsinuron Cap|Palsinuron||||Tablet / Gulika / Vati
+Palsinuron Caps (SGPHYTO)|Palsinuron|SGPHYTO|||Tablet / Gulika / Vati
+palsinuron capsule|Palsinuron||||Tablet / Gulika / Vati
+Panaka|Panaka||||** Not yet coded
+Panaka Churna|Panaka||||Choornam / Powder
+Panamrutham Powder Vaidya|Panamrutham|Vaidya|||Choornam / Powder
+Panchagandha Choornam [Vaidya]|Panchagandha|Vaidya|||Choornam / Powder
+Panchagavyam Ghritham [Vaidya]|Panchagavyam|Vaidya|||Ghritham
+Panchagavyam Ghrutham Big [AVP]|Panchagavyam|AVP|||Ghritham
+Panchajeera Rasayana 500gm(Malabar)|Panchajeera|Malabar|500|gm|Rasayanam
+Panchakola Choornam|Panchakola||||Choornam / Powder
+Panchakola Choornam[Kottakkal]|Panchakola|Kottakkal|||Choornam / Powder
+Panchakola Kulathadi Ks [AVP]|Panchakola Kulathadi|AVP|||Kashayam
+Panchakolasavam 450ml Vaidya|Panchakolasavam|Vaidya|450|ml|Asavam
+Panchamla Thailam AVP|Panchamla|AVP|||Oil
+Panchamrita Loha Guggul Tab [ Amrita]|Panchamrita Loha Guggulu|Amrita|||Tablet / Gulika / Vati
+Panchamrut Loha Guggul Tab [Dooth]|Panchamrita Loha Guggulu|Dooth|||Tablet / Gulika / Vati
+Panchamruta Parpati 10gm Baidyanath|Panchamruta Parpati|Baidyanath|10|gm|Choornam / Powder
+Panchamruta Parpati 5gm Dooth|Panchamruta Parpati|Dooth|5|gm|Choornam / Powder
+Panchanimbadi tablet (AVN)|Panchanimbadi|AVN|||Tablet / Gulika / Vati
+Panchasneham 200ml Vaidya|Panchasneham|Vaidya|200|ml|** Not yet coded
+Panchathiktha Gritham Vaidya|Panchathikthakam|Vaidya|||Ghritham
+Panchathiktha Gritham Guggul Tab (Dooth)|Panchathikthakam|Dooth|||Ghritham
+Panchathikthakam kashyam[swa]|Panchathikthakam|Swadeshi|||Kashayam
+Panchathikthakam Ksm [AVP]|Panchathikthakam|AVP|||Kashayam
+Panchathikthakam Ksm [Vaidya]|Panchathikthakam|Vaidya|||Kashayam
+Panchavalka kwatha choornam|Panchavalka kwatha||||Choornam / Powder
+Panchavalkadi Yamakam 200ml (Vaidya)200ml|Panchavalkadi Yamakam|Vaidya|200|ml|Yamakam
+Panchavalkala Cap 30C (Univa)|Panchavalkala|Univa|30|C|Tablet / Gulika / Vati
+Panchavalkala Kashaya Choornam|Panchavalkala Kashaya||||Choornam / Powder
+Panchavalkala Ks 100ml (Univa)|Panchavalkala|Univa|100|ml|Kashayam
+Panchavalkala Ks Choorna 100gm(Prakruti)|Panchavalkala Kashaya|Prakruti|100|gm|Choornam / Powder
+Panchavalkala Lepam (Univa)|Panchavalkala|Univa|||Lepam
+Panchavalkala Oint 20gms (Univa)|Panchavalkala|Univa|20|gm|Choornam / Powder
+Paneeya|Paneeya||||** Not yet coded
+Paranthyadi  Co Oil Vaidya|Paranthyadi|Vaidya|||Oil
+Paranthyadi Co Oil AVP|Paranthyadi|AVP|||Oil
+Paranthyadi Co Oil SNA|Paranthyadi|SNA|||Oil
+paranthyadi co oil [avp]|Paranthyadi|avp|||Oil
+Parinatakervadi tlm|Parinatakervadi tlm||||** Not yet coded
+Parinathakereeksheeradi Oil Vaidya|Parinathakereeksheeradi|Vaidya|||Oil
+Parinathakeryadiksheeradi Oil AVP|Parinathakereeksheeradi|AVP|||Oil
+Parinithakereeksheeradi Oil Vaidya|Parinathakereeksheeradi|Vaidya|||Oil
+Parinithkeriadi oil sna|Parinithkeriadi|sna|||Oil
+Parpatakarishtam [vaidya]|Parpatakarishtam|vaidya|||Aristham
+Parthadyarishtam 450 ml (AVP)|Parthadyarishtam|AVP|450|ml|Aristham
+Pathooral Marmani Gulika Vaidya|Pathooral Marmani|Vaidya|||Tablet / Gulika / Vati
+Pathyadi Choornam|Pathyadi||||Choornam / Powder
+Pathyadi Ks 450ml|Pathyadi||450|ml|Kashayam
+Pathyadi Ks [Sandu]|Pathyadi|Sandu|||Kashayam
+pathyadi quath [b]|Pathyadi quath||||** Not yet coded
+Pathyakshadhathryadi Ks [AVP]|Pathyakshadhathryadi|AVP|||Kashayam
+Pathyakshadhathryadi Ksm|Pathyakshadhathryadi||||Kashayam
+Pathyakshadhathryadi Ksm AVN|Pathyakshadhathryadi|AVN|||Kashayam
+Pathyakshadhatyadi ks tab (AVN)|Pathyakshadhathryadi|AVN|||Kashayam Tab
+Pathyakshadhatyadi ks tab AVN|Pathyakshadhathryadi|AVN|||Kashayam Tab
+Pathyapunarnnavadi Choornam (Sreedhareeyam)|Pathyapunarnnavadi|Sreedhareeyam|||Choornam / Powder
+Pathyashadangam Tab 30T (Sreedhareeyam)|Pathyashadangam|Sreedhareeyam|30|T|Tablet / Gulika / Vati
+Patola Katurobinyadi Ksm|Patola Katurobinyadi||||Kashayam
+Patola Katurobinyadi Ksm AVN|Patola Katurobinyadi|AVN|||Kashayam
+Patoladi Ghritham(AVP)|Patoladi|AVP|||Ghritham
+Patoladi Gritham|Patoladi||||Ghritham
+Patoladi Gritham Vaidya|Patoladi|Vaidya|||Ghritham
+Patoladi Kashayam [Vaidya]|Patoladi|Vaidya|||Kashayam
+Patolakaturohinyadi Ks (Rajah)|Patola Katurobinyadi|Rajah|||Kashayam
+Patolakaturohinyadi  ks tab|Patola Katurobinyadi||||Kashayam Tab
+patolakaturohinyadi  ks tab|Patola Katurobinyadi||||Kashayam Tab
+Patolakatuthrohinyadi Ks [AVP]|Patola Katurobinyadi|AVP|||Kashayam
+Patolamooladi Ks [AVP]|Patolamooladi|AVP|||Kashayam
+Patolamooladi Ks [Vaidya]|Patolamooladi|Vaidya|||Kashayam
+Patolamooladi Ks Tab (AVN)|Patolamooladi|AVN|||Kashayam Tab
+Patrangasava 450 ml - Dabur|Patrangasavam|Dabur|450|ml|Asavam
+Pattabandhana|Pattabandhana||||Tablet / Gulika / Vati
+Pconidd Tab (Sneha)|Pconidd|Sneha|||Tablet / Gulika / Vati
+Pead -36 100|Pead -36||100||** Not yet coded
+Pead -36 200ml (Malabar)|Pead -36|Malabar|||** Not yet coded
+Peadiatric Charges|Peadiatric Charges||||Bandage / Belt / External
+Peethaka Choornam|Peethaka||||Choornam / Powder
+Peethaka Choornam 10g (Kottakal)|Peethaka|Kottakal|10|gm|Choornam / Powder
+Pentaphyte P 5 Capsules (Dr P M)|Pentaphyte P|Dr P M|5|C|Tablet / Gulika / Vati
+Pentaphyte P 5 Cream|Pentaphyte P||5|Cream|Cream
+Per Rectal Examination|Per Rectal Examination||||Bandage / Belt / External
+Per Vaginal Examination|Per Vaginal Examination||||Bandage / Belt / External
+Phalasarpi|Phalasarpis||||Ghritam
+Phalasarpis SNA|Phalasarpis|SNA|||Ghritam
+Phalasarpis Ghritham [AVP)|Phalasarpis|AVP|||Ghritham
+Phalasarpis Ghritham [Kottakal]|Phalasarpis|Kottakal|||Ghritham
+Phalathrika Tab|Phalathrika||||Tablet / Gulika / Vati
+Phalathrika Tab 10T (Malabar)|Phalathrika|Malabar|10|T|Tablet / Gulika / Vati
+Phanta|Phanta||||** Not yet coded
+Pichu (All joints)^|Pichu (All joints)||||Pichu
+Pichu ^|Pichu||||Pichu
+Pichu^|Pichu||||Pichu
+Pichu-Netra ^|Pichu-Netra||||Pichu
+Pichu-Shiro^|Pichu-Shiro||||Pichu
+Pigmento Oint (Charak)|Pigmento|Charak|||Tablet / Gulika / Vati
+Pigmento Tab (Charak)|Pigmento|Charak|||Tablet / Gulika / Vati
+Pilex Ointment (Himalaya)|Pilex|Himalaya|||** Not yet coded
+Pilex Tab (Himalaya)|Pilex|Himalaya|||Tablet / Gulika / Vati
+Pilocid Gel (Kottakkal)|Pilocid Gel|Kottakkal|||Gel
+Pilocid Tab (Kottakkal)|Pilocid|Kottakkal|||Tablet / Gulika / Vati
+Pilsowin Cap|Pilsowin||||Tablet / Gulika / Vati
+Pinda Thailam 200ml (AVP)|Pinda|AVP|200|ml|Oil
+Pinda Thailam Vaidya|Pinda|Vaidya|||Oil
+Pinda- Taila|Pinda||||Oil
+Pinda- Taila SNA|Pinda|SNA|||Oil
+Pinnyaka Oil Vaidya|Pinda|Vaidya|||Oil
+Pippali|Pippali||||** Not yet coded
+Pippali_1|Pippali||||** Not yet coded
+Pippalyadi Thailam 200 ml (Vaidya)|Pippalyadi|Vaidya|200|ml|Oil
+Pippalyasavam 450 ml|Pippalyasavam||450|ml|Asavam
+Pippalyasavam 450 ml [Kottakal]|Pippalyasavam|Kottakal|450|ml|Asavam
+Pipplyadi Ghritham|Pippalyadi||||Ghritham
+Pittashekar Ras Tab|Pittashekhar||||Rasayanam Tab
+Pittashekhar Rasa 30 Tab (Dooth)|Pittashekhar|Dooth|30|T|Rasayanam
+Pooranam Karna ^|Pooranam Karna||||** Not yet coded
+Pootheekaranjasavam  [AVP)]|Pootheekaranjasavam|AVP|||Asavam
+Pootheekaranjasavam 450ml Vaidya|Pootheekaranjasavam|Vaidya|450|ml|Asavam
+Pootheevalkasavam 450 ml (AVP)|Pootheevalkasavam|AVP|450|ml|Asavam
+POP Cast (Ankle)|POP Cast (Ankle)||||Bandage / Belt / External
+POP Cast (Forearm)|POP Cast (Forearm)||||Bandage / Belt / External
+POP Cast (Tibia)|POP Cast (Tibia)||||Bandage / Belt / External
+Posex Cap (Charak)|Posex|Charak|||Tablet / Gulika / Vati
+Pothin Dravakam 450ml|Pothin Dravakam||450|ml|** Not yet coded
+Prabhakar Tab (Baidyanath)|Prabhakar|Baidyanath|||Tablet / Gulika / Vati
+Prabhakar Bati Tab|Prabhakar||||Tablet / Gulika / Vati
+Prabhakar Vati Tab|Prabhakar|Tab|||Tablet / Gulika / Vati
+Prabhanjanam Kuzhambu AVP|Prabhanjanam|AVP|||Kuzhambu
+Prabhanjanam Thailam 200 ml SNA|Prabhanjanam|SNA|200|ml|Oil
+Prabhanjanam Thailam 200ml AVP|Prabhanjanam|AVP|200|ml|Oil
+Prabhanjanam Thailam 200ml Vaidya|Prabhanjanam|Vaidya|200|ml|Oil
+Prakruti Analysis|Prakruti Analysis||||Bandage / Belt / External
+Prakruti Hair Oil 100ml (Prakruthi)|Prakruti Hair|Prakruthi|100|ml|Oil
+Pranada Tab (Bipha)|Pranada|Bipha|||Tablet / Gulika / Vati
+Prandhara Drops 3ml - Maharishi|Prandhara|Maharishi|3|ml|Drops
+Prapundareekadi Co. Oil (SNA)|Prapundareekadi|SNA|||Oil
+Prapundareekadi Thailam 200 ml (AVP)|Prapundareekadi|AVP|200|ml|Oil
+Prapundareekadi Thailam 200ml|Prapundareekadi||200|ml|Oil
+Prapundareekadi Thailam SNA|Prapundareekadi|SNA|||Oil
+Prasanna Varthy tab|Prasanna Varthy||||Tablet / Gulika / Vati
+Prasaranyadi Ks [Rajah]|Prasaranyadi|Rajah|||Kashayam
+Prasaranyadi Ks [Vaidya]|Prasaranyadi|Vaidya|||Kashayam
+Prasarini Thailam AVP|Prasarini|AVP|||Oil
+Prasarini Thailam Kottakkal|Prasarini|Kottakkal|||Oil
+Prasarini Thailam SNA|Prasarini|SNA|||Oil
+Prasarini Thailam Vaidya|Prasarini|Vaidya|||Oil
+Prasarinyadi KS [ KPL ]|Prasaranyadi|KPL|||Kashayam
+Prasarinyadi Ks Amrita|Prasaranyadi|Amrita|||Kashayam
+Prasarinyadi Ks Tab (AVN)|Prasaranyadi|AVN|||Kashayam Tab
+Prasarinyadi Ksm|Prasaranyadi|Ksm|||Kashayam
+Prasarinyadi Ksm Vaidya|Prasaranyadi|Vaidya|||Kashayam
+Prasarinyadi Ksm [avp]|Prasaranyadi|avp|||Kashayam
+Pravala bhasma|Pravala||||Bhasma
+Pravala Bhasma Tab Dooth|Pravala|Dooth|||Bhasma Tab
+Pravala Bhasmam (AVP)|Pravala|AVP|||Bhasma
+Pravala Bhasmam Cap (Kottakkal)|Pravala|Kottakkal|||Bhasma Cap
+Pravala Bhasmam Cap - 100|Pravala||100||Bhasma Cap
+Pravala Panchamrutham Mouktik 25T (Dooth)|Pravala Panchamrutham Mouktik|Dooth|25|T|Tablet / Gulika / Vati
+Pravala Panchamrutham (P) Tab Dooth|Pravala Panchamrutham|Dhoot|||Tablet / Gulika / Vati
+Pravala Panchamrutham Tab Baidya|Pravala Panchamrutham|Baidyanath|||Tablet / Gulika / Vati
+Premolar RCT|Premolar RCT||||** Not yet coded
+Probing and Primary Threading|Probing and Primary Threading||||Bandage / Belt / External
+Proctoclysis Enema|Proctoclysis Enema||||Bandage / Belt / External
+Proherb D Powder 200gm (Prakruthi)|Proherb D|Prakruthi|200|gm|Choornam / Powder
+Pronarc D 200 GMS|Pronarc D||200|gm|** Not yet coded
+Pronarc Kids 150 GMS|Pronarc Kids||150|gm|** Not yet coded
+Prostina Cap (Deys Medicals)|Prostina|Deys Medicals|||Tablet / Gulika / Vati
+Prostowin Cap (Bal Pharm)|Prostowin|Bal Pharm|||Tablet / Gulika / Vati
+Protect D 30Tab (Meditek India)|Protect D|Meditek India|30|T|** Not yet coded
+Protex D Powder (Meditek India)|Protex D|Meditek India|||Choornam / Powder
+Protex PL 200gm (Meditek)|Protex PL|Meditek|200|gm|** Not yet coded
+Prunil Oint|Prunil Ointment||||** Not yet coded
+Prunilol Cap (Atrimed)|Prunilol|Atrimed|||Tablet / Gulika / Vati
+Prunilol Oint 20 gm (Atrimed)|Prunilol|Atrimed|20|gm|** Not yet coded
+Prunilol Syr (Atrimed)|Prunilol|Atrimed|||Syrup
+Prurinil|Prurinil|Prurinil|||** Not yet coded
+Psorakot Ointment (Kottakkal)|Psorakot|Kottakkal|||Tablet / Gulika / Vati
+Psorakot Tab (Kottakkal)|Psorakot|Kottakkal|||Tablet / Gulika / Vati
+Psoria Oil 100 ml|Psoria||100|ml|Oil
+Psorolin Oint (Dr JRK)|Psorolin|Dr JRK|||** Not yet coded
+Psorolin Soap (Dr JRK)|Psorolin|Dr JRK|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Pulimkuzhambu 50|Pulim||||Kuzhambu
+Pulse Oxymeter / hr|Pulse Oxymeter / hr||||Bandage / Belt / External
+Punaranavadi Ks Tab (AVN)|Punaranavadi|AVN|||Kashayam Tab
+Punaranavadi Ks Tab AVP|Punaranavadi|AVP|||Kashayam Tab
+Punaranvarna root|Punaranvarna||||Root
+Punarjeevani [avp]|Punarjeevani|AVP|||** Not yet coded
+punarjeevani [avp]|Punarjeevani|AVP|||** Not yet coded
+Punarnav Guggul|Punarnava Guggulu||||Tablet / Gulika / Vati
+Punarnava Cap (Himalaya)|Punarnava|Himalaya|||Tablet / Gulika / Vati
+Punarnava  Churna|Punarnava||||Choornam / Powder
+Punarnava churna|Punarnava||||Choornam / Powder
+Punarnava Mandor (Dooth)|Punarnava Mandor|Dooth|||Tablet / Gulika / Vati
+Punarnava Mandor Tab (AVN)|Punarnava Mandor|AVN|||Tablet / Gulika / Vati
+Punarnava Root|Punarnava||||Root
+Punarnavadi Guggul (Dooth)|Punarnava Guggulu|Dooth|||Tablet / Gulika / Vati
+Punarnavadi KS AVN|Punaranavadi|AVN|||Kashayam
+Punarnavadi KS [Vaidya]|Punaranavadi|Vaidya|||Kashayam
+Punarnavadi ks SNA|Punaranavadi|SNA|||Kashayam
+Punarnavadi ks Vaidya|Punaranavadi|Vaidya|||Kashayam
+Punarnavadi ks [AVP]|Punaranavadi|AVP|||Kashayam
+punarnavadi ks|Punaranavadi||||Kashayam
+Punarnavadi Mandoor [Amrita]|Punarnava Mandor|Amrita|||Tablet / Gulika / Vati
+Punarnavadi Oil 100 Ml|Punarnavadi||100|ml|Oil
+Punarnavasavam 450 ml (AVP)|Punarnavasavam|AVP|450|ml|Asavam
+Punarnavasavam 450 ml KPL|Punarnavasavam|KPL|450|ml|Asavam
+Punarnavasavam 450ml Vaidya|Punarnavasavam|Vaidya|450|ml|Asavam
+Punarnavasavam Kottakkal|Punarnavasavam|Kottakkal|||Asavam
+Pure Virgin Coconut Oil 500ml (Meditek India)|Pure Virgin Coconut|Meditek India|500|ml|Oil
+Purgein Syr 200ml (Everest Pharma)|Purgein|Everest Pharma|200|ml|Syrup
+Puritin Cap 30C (Virgo)|Puritin|Virgo|30|C|Tablet / Gulika / Vati
+Purodil Syr 200ml (Aimil)|Purodil|Aimil|200|ml|Syrup
+Pushkaramoolasava 450ml (Saptagiri)|Pushkaramoolasavam|Saptagiri|450|ml|Asavam
+Pushkaramrith 200 ml (Swadeshi)|Pushkaramrith|Swadeshi|200|ml|Syrup
+Pushkaramrith 450 ml (Swadeshi)|Pushkaramrith|Swadeshi|450|ml|Syrup
+Pushpadhanwa Ras Tab-25 (Dooth)|Pushpadhanwa|Dooth|25|T|Rasayanam Tab
+Pushpadhanwa Ras tab 50' (Dooth)|Pushpadhanwa|Dooth|50|T|Rasayanam
+Pushyanuga Choornam [AVP]|Pushyanuga|AVP|||Choornam / Powder
+Pushyanuga Choornam [Vaidya]|Pushyanuga|Vaidya|||Choornam / Powder
+Pylapy Caps (Capro Labs)|Pylapy|Capro Labs|||Tablet / Gulika / Vati
+Pyroflex Gel (Solumiks)|Pyroflex Gel|Solumiks|||Gel
+Pyroflex Lintment 60ml (Solumiks)|Pyroflex|Solumiks|60|ml|Liniment
+Pyroles Gel|Pyroles Gel||||Gel
+Qadriceps Therapy|Qadriceps Therapy||||Bandage / Belt / External
+Quadripod Walking Stick [ Vissco-0909 ]|Quadripod Walking Stick [ Vissco-0909 ]||||Bandage / Belt / External
+Quick Heal Cream 25g (Sri Sri)|Quick Heal|Sri Sri|25|gm|Cream
+R Compound Tab (Alarsin)|R Compound|Alarsin|||Tablet / Gulika / Vati
+R G Tab (Malabar)|R G|Malabar|||Tablet / Gulika / Vati
+Raasnagugul|Raasnaguggulu||||Tablet / Gulika / Vati
+Radona  Syr 210ml (Solumiks)|Radona|Solumiks|210|ml|Syrup
+Radona Tab (Solumiks)|Radona|Solumiks|||Tablet / Gulika / Vati
+Rajahpravartani Vati|Rajahpravartani||||Tablet / Gulika / Vati
+Rajahpravartani Vati (AVN)|Rajahpravartani|AVN|||Tablet / Gulika / Vati
+Rajahpravartani Vati 60T - Dooth|Rajahpravartani|Dooth|60|T|Tablet / Gulika / Vati
+Rajahpravartani Vati AVP|Rajahpravartani|AVP|||Tablet / Gulika / Vati
+Rajanyadi Choornam|Rajanyadi||||Choornam / Powder
+Rajanyadi Choornam (AVP)|Rajanyadi|AVP|||Choornam / Powder
+Rajanyadi Choornam Vaidya|Rajanyadi|Vaidya|||Choornam / Powder
+Rajatabhasma Cap (Kottakkal)|Rajata|Kottakkal|||Bhasma
+Rakta chandana|Rakta chandana||||** Not yet coded
+Raktachandana Choornam Vaidya|Rakta chandana|Vaidya|||Choornam / Powder
+Raktastambhak Tab (Dooth)|Raktastambhak|Dooth|||Tablet / Gulika / Vati
+Ramabana Oil 100ml (Narayans)|Ramabana|Narayans|100|ml|Oil
+Ramabana Oil 200ml|Ramabana||200|ml|Oil
+Ramabana Taila|Ramabana||||Oil
+Ranger Syr|Ranger||||Syrup
+Rasa Thailam 200 ml|Rasa||200|ml|Oil
+Rasa Sindhura Dooth|Rasa Sindhura|Dooth|||Rasayanam
+Rasa Sindhura SDM|Rasa Sindhura|SDM|||Rasayanam
+Rasagandhi Mezhugu Cap|Rasagandhi Mezhugu||||Tablet / Gulika / Vati
+Rasanadi Choornam [Vaidya]|Rasnadi|Vaidya|||Choornam / Powder
+Rasanadi Ks SNA|Rasnadi|SNA|||Kashayam
+Rasaraja Ras Tab-10' (Gold) - Dooth|Rasaraja (Gold)||10||Rasayanam
+Rasaraja Ras Tab-30' (Suvarnakalpa) - Dooth|Rasaraja (Gold)||30||Rasayanam
+Rasarajesshwar Ras Tab (Dooth)|Rasarajeshwar|Dooth|||Rasayanam Tab
+Rasasindooram Cap (Kottakkal)|Rasasindooram|Kottakkal|||Rasayanam Tab
+Rasayana Churna|Rasayana||||Choornam / Powder
+Rasna|Rasna||||** Not yet coded
+Rasna_1|Rasna||||** Not yet coded
+Rasna Gugul Tab|Rasna Guggulu||||Tablet / Gulika / Vati
+Rasnadasamooladi Gritham|Rasnadasamooladi||||Ghritham
+Rasnadasamooladi Thailam 200 ml|Rasnadasamooladi||200|ml|Oil
+Rasnadi Choornam [avp]|Rasnadi|AVP|||Choornam / Powder
+Rasnadi Gritham Vaidya|Rasnadi|Vaidya|||Ghritham
+Rasnadi Gulugulu Tab|Rasnadi Guggulu||||Tablet / Gulika / Vati
+rasnadi kashyam [big] avp|Rasnadi|AVP|||Kashayam
+Rasnadi Ks ( Big) 200ml (AVP)|Rasnadi|AVP|200|ml|Kashayam
+Rasnadi Ks Tab Vaidya|Rasnadi|Vaidya|||Kashayam Tab
+Rasnadwigunapakam Ks [AVP]|Rasnadwigunapakam|AVP|||Kashayam
+Rasnadwigunapakam Ks Tab (AVP)|Rasnadwigunapakam|AVP|||Kashayam Tab
+Rasnaerandadi Ks AVN|Rasnaerandadi|AVN|||Kashayam
+Rasnaerandadi Ks [Vaidya]|Rasnaerandadi|Vaidya|||Kashayam
+Rasnaerandadi Ksm (AVP)|Rasnaerandadi|AVP|||Kashayam
+Rasnaerandadi ksm (Vaidya)|Rasnaerandadi|Vaidya|||Kashayam
+Rasnaerandadi ksm Vaiya|Rasnaerandadi|Vaiya|||Kashayam
+Rasnaerandadi Ks Tab (AVN)|Rasnaerandadi|AVN|||Kashayam Tab
+Rasnaerandadi Ks Tab AVP|Rasnaerandadi|AVP|||Kashayam Tab
+RasnaSapthakam KS [ KPL ]|RasnaSapthakam|KPL|||Kashayam
+Rasnasapthakam Ks AVP|RasnaSapthakam|AVP|||Kashayam
+Rasnasapthakam Ks Vaidya|RasnaSapthakam|Vaidya|||Kashayam
+Rasnasapthakam ks Rajah|RasnaSapthakam|Rajah|||Kashayam
+Rasnasapthakam Ks Tab (AVN)|RasnaSapthakam|AVN|||Kashayam Tab
+Rasnasapthakam Ks Tab (AVP)|RasnaSapthakam|AVP|||Kashayam Tab
+Rasnayogaraja Gulgulu Ksm|Rasnayogaraja Guggulu||||Kashayam
+Rasnayogaraja Gulgulu Ksm [avp]|Rasnayogaraja Guggulu|avp|||Kashayam
+Rasonadi Ks|Rasonadi||||Kashayam
+Rasonadi Ks SNA|Rasonadi|SNA|||Kashayam
+Rasonadi Ks [Vaidya]|Rasonadi|Vaidya|||Kashayam
+Rectone Tab (Shree Shakti)|Rectone|Shree Shakti|||Tablet / Gulika / Vati
+Recumbent Bike|Recumbent Bike||||Bandage / Belt / External
+Redema Tab (Jammi)|Redema|Jammi|||Tablet / Gulika / Vati
+Remolar RCT|Remolar RCT||||** Not yet coded
+Renali 30C|Renali||30|C|Tablet / Gulika / Vati
+Renali Cap 30C (Green Remedies)|Renali|Green Remedies|30|C|Tablet / Gulika / Vati
+Renalka Syr|Renalka||||Syrup
+Reosto|Reosto||||Tablet / Gulika / Vati
+Reosto TAB (Himalaya)|Reosto|Himalaya|||Tablet / Gulika / Vati
+Reosto Tab|Reosto||||Tablet / Gulika / Vati
+Repromed Cap 60C (Pentacare)|Repromed|Pentacare|60|C|Tablet / Gulika / Vati
+Restone Tab|Restone||||Tablet / Gulika / Vati
+Rheuma Off Gold 30T (Virgo)|Rheuma Off Gold|Virgo|30|T|Tablet / Gulika / Vati
+Rheumaheal Balm (AVP)|Rheumaheal Balm|AVP|||Balm
+Rhinagra Syrup 100ml (Prakruti)|Rhinagra|Prakruti|100|ml|Syrup
+Rhinagra Syrup 200ml|Rhinagra||200|ml|Syrup
+Rhukot Ointment (Kottakkal)|Rhukot|Kottakkal|||Tablet / Gulika / Vati
+Rhukot Tab (Kottakkal)|Rhukot|Kottakkal|||Tablet / Gulika / Vati
+Rilanx Cap (Atrimed)|Rilanx|Atrimed|||Tablet / Gulika / Vati
+Rohithakarishta 450ml [Baidyanath]|Rohithakarishta|Baidyanath|450|ml|Aristham
+Ropak -C Gel 25g (Ayurchem)|Ropak -C Gel|Ayurchem|25|gm|Gel
+Roupya (Rajatha) Bhasma|Roupya (Rajatha)||||Bhasma
+Roupya (Rajatha) Bhasma 5 gm (Dooth)|Roupya (Rajatha)|Dooth|5|gm|Bhasma
+Rubber - Catheter 10""|Rubber - Catheter 10""||||Bandage / Belt / External
+Rubber Catheter 3""|Rubber Catheter 3""||||Bandage / Belt / External
+Rubber Catheter 8""|Rubber Catheter 8""||||Bandage / Belt / External
+Rubber Catheter 9""|Rubber Catheter 9""||||Bandage / Belt / External
+Rudraksha|Rudraksha||||Bandage / Belt / External
+Rumalaya Forte Tab (Himalaya)|Rumalaya Forte|Himalaya|||Tablet / Gulika / Vati
+Rumalaya Gel (Himalaya)|Rumalaya Gel|Himalaya|||Gel
+Rumalaya Liniment - 60ml - Himalaya|Rumalaya|Himalaya|60|ml|Liniment
+Rumalaya Lintment|Rumalaya||||Liniment
+Rumastal Forte Tab (Gufic)|Rumastal Forte|Gufic|||Tablet / Gulika / Vati
+Ryles's Tube Insertion / catheterization|Ryles's Tube Insertion / catheterization||||Bandage / Belt / External
+S G Tab|S G||||Tablet / Gulika / Vati
+S G Tab 10T (Malabar)|S G|Malabar|10|T|Tablet / Gulika / Vati
+Sacro Lumber Belt -L [ Vissco-0101 ]|Sacro Lumber Belt -L [ Vissco-0101 ]||||Bandage / Belt / External
+Sadabindu Oil 25 ml|Sadabindu||25|ml|Oil
+Sadyo Vamana **|Sadyo Vamana||||Panchakarma
+Safrozan Cream|Safrozan||||Cream
+Sagarlic Tab (Sagar)|Sagarlic|Sagar|||Tablet / Gulika / Vati
+Sagun Cap|Sagun||||Tablet / Gulika / Vati
+Sagun Liniment|Sagun||||Liniment
+Sahacharadi (3) Vaidya|Sahacharadi|Vaidya|||Oil
+Sahacharadi (7) 200 ML Kot|Sahacharadi|Kottakkal|200|ml|Oil
+Sahacharadi (7) AVP - 50ml|Sahacharadi|AVP|50|ml|Oil
+sahacharadi [7 times]|Sahacharadi||||Oil
+Sahacharadi Ks|Sahacharadi|Ks|||Kashayam
+Sahacharadi Ks (AVP)|Sahacharadi|AVP|||Kashayam
+Sahacharadi Ks AVN|Sahacharadi|AVN|||Kashayam
+Sahacharadi Ks KPL|Sahacharadi|KPL|||Kashayam
+Sahacharadi Ks SNA|Sahacharadi|SNA|||Kashayam
+Sahacharadi Ks [Rajah]|Sahacharadi|Rajah|||Kashayam
+Sahacharadi Ks [Vaidya]|Sahacharadi|Vaidya|||Kashayam
+Sahacharadi Ks vaidya|Sahacharadi|vaidya|||Kashayam
+sahacharadi Ks|Sahacharadi||||Kashayam
+sahacharadi Ks vaidya|Sahacharadi|vaidya|||Kashayam
+Sahacharadi Ks Tab (AVN)|Sahacharadi|AVN|||Kashayam Tab
+Sahacharadi Ks Tab (AVP)|Sahacharadi|AVP|||Kashayam Tab
+Sahacharadi Ks Tab [Vaidya]|Sahacharadi|Vaidya|||Kashayam Tab
+Sahacharadi Kuzhambu 450 ML|Sahacharadi||450|ml|Kuzhambu
+Sahacharadi Kuzhampu AVP|Sahacharadi|AVP|||Kuzhambu
+Sahacharadi Kuzhampu Vaidya|Sahacharadi|Vaidya|||Kuzhambu
+sahachzradi kuzhambu [avp]|Sahacharadi|avp|||Kuzhambu
+Sahacharadi Mezhupakam 100 ml|Sahacharadi||100|ml|Mezhupakam
+Sahacharadi Mezhupakam 100Ml|Sahacharadi||100|ml|Mezhupakam
+Sahacharadi Mezhupakam SNA|Sahacharadi|SNA|||Mezhupakam
+Sahacharadi Mezhupakam Vaidya|Sahacharadi|Vaidya|||Mezhupakam
+Sahacharadi Oil (7) 10 ml|Sahacharadi||10|ml|Oil
+Sahacharadi Oil 5 Ltr|Sahacharadi||5|Ltr|Oil
+Sahacharadi Thailam 100 ml|Sahacharadi||100|ml|Oil
+Sahacharadi Thailam 200 ml|Sahacharadi||200|ml|Oil
+Sahacharadi Thailam 200ml|Sahacharadi||200|ml|Oil
+Sahacharadi Thailam 200ml Vaidya|Sahacharadi|Vaidya|200|ml|Oil
+Sahacharadi Thailam AVP|Sahacharadi|AVP|||Oil
+Sahacharadi Thailam SNA|Sahacharadi|SNA|||Oil
+Sahachardi  14 10 gm|Sahacharadi||10|gm|Oil
+Sahachardi (3) sna|Sahacharadi|SNA|||Oil
+Sahachardi 21[10gm] Vaidya|Sahacharadi|Vaidya|10|gm|Oil
+Saina Nasal Drops (Ayurchem)|Saina|Ayurchem|||Drops Nasal
+Saina Tab 20T (Ayurchem)|Saina|Ayurchem|20|T|Tablet / Gulika / Vati
+Saindhava Lavana|Saindhava Lavana||||Lavana
+Saindhava lavana|Saindhava Lavana||||Lavana
+Saindhava oil|Saindhava||||Oil
+Sal + Cap|Sal + Cap||||Tablet / Gulika / Vati
+Sallaki (sambrni)|Sallaki||||** Not yet coded
+Sallaki Forte Tab (Gufic)|Sallaki Forte|Gufic|||Tablet / Gulika / Vati
+Sallaki Liniment-100ml (Gufic)|Sallaki|Gufic|100|ml|Liniment
+Sallaki Linment-60ml (Gufic)|Sallaki|Gufic|60|ml|Liniment
+Sallaki M R Tab (Gufic)|Sallaki M R|Gufic|||Tablet / Gulika / Vati
+Sallaki Plus Tab (Gufic)|Sallaki Plus|Gufic|||Tablet / Gulika / Vati
+Sallaki (400) Tab (Gufic)|Sallaki|Gufic|400|T|Tablet / Gulika / Vati
+Sallaki Tab (600) (Gufic)|Sallaki|Gufic|600||Tablet / Gulika / Vati
+Sallaki Tab Vasu|Sallaki|Vasu|||Tablet / Gulika / Vati
+Sallaki Tab(400)|Sallaki||||Tablet / Gulika / Vati
+Sallaki XT Tab (Gufic)|Sallaki XT|Gufic|||Tablet / Gulika / Vati
+Sameerapanchakam Cap 10s (Sreedhareeyam)|Sameerapanchakam|Sreedhareeyam|10||Tablet / Gulika / Vati
+Sameerapanchakam Ks 450ml (Sreedhareeyam)|Sameerapanchakam|Sreedhareeyam|450|ml|Kashayam
+Sameerapannaga Bhasma (Dooth)|Sameerapannaga|Dooth|||Bhasma
+Samvardhana Ghritham (Malabar)|Samvardhana|Malabar|||Ghritham
+Sandhilini Oil|Sandhilini||||Oil
+sanka bhasmam|Sanka||||Bhasma
+sankha bhasma|Sanka||||Bhasma
+Sankha Bhasma(AVP)|Sanka|AVP|||Bhasma
+Saptamrut Loha Dooth|Saptamrut Loha|Dooth|||Tablet / Gulika / Vati
+Saptasaran Ks|Saptasaran||||Kashayam
+Sapthamruthaloham|Saptamrut Loha||||Tablet / Gulika / Vati
+Sapthamrutham Ghritham (Sreedhareeyam)|Sapthamrutham|Sreedhareeyam|||Ghritham
+Sapthamrutham Ks [Sreedhareeyam]|Sapthamrutham|Sreedhareeyam|||Kashayam
+Sapthasaram Ghrutham [Vaidya]|Sapthasaram|Vaidya|||Ghritham
+Sapthasaram Ks Vaidya|Sapthasaram|Vaidya|||Kashayam
+Sapthasaram Ks [AVP]|Sapthasaram|AVP|||Kashayam
+Sapthasaram Ksm|Sapthasaram||||Kashayam
+Sapthasaram Ksm SNA|Sapthasaram|SNA|||Kashayam
+Sapthasaram Ks Tab Vaidya|Sapthasaram|Vaidya|||Kashayam Tab
+Sarasaparilla Syp [500ml]|Sarasaparilla||500|ml|Syrup
+Sarasaparilla Syr 500 ml (B V Pundit)|Sarasaparilla|B V Pundit|500|ml|Syrup
+Sarasaparilla Syrup 200ml (B V Pundit)|Sarasaparilla|B V Pundit|200|ml|Syrup
+Saraswatha Choornam Kot|Saraswatha|Kottakkal|||Choornam / Powder
+Saraswatha Choornam [Vaidya]|Saraswatha|Vaidya|||Choornam / Powder
+Saraswatha ghritham|Saraswatham||||Ghritham
+Saraswatham Ghrihtam [Vaidya]|Saraswatham|Vaidya|||Ghritham
+Saraswatham Ghritham [AVP]|Saraswatham|AVP|||Ghritham
+Saraswatharishtam 450 ML|Saraswatharishtam||450|ml|Aristham
+Saraswatharishtam Vaidya|Saraswatharishtam|Vaidya|||Aristham
+Saraswatharishtam Gold 100ml Vaidya|Saraswatharishtam Gold|Vaidya|100|ml|Aristham
+Saraswatharishtam Gold 200 ml|Saraswatharishtam Gold||200|ml|Aristham
+Saraswatharishtam Gold 200 ml AVP|Saraswatharishtam Gold|AVP|200|ml|Aristham
+Saraswatharishtam Gold 200ml Dooth|Saraswatharishtam Gold|Dooth|200|ml|Aristham
+Saraswatharishtam Gold 400 ml|Saraswatharishtam Gold||400|ml|Aristham
+Saraswatharishtam Gold 450ml Dooth|Saraswatharishtam Gold|Dooth|450|ml|Aristham
+Saraswatharishtam Plain (KAL)|Saraswatharishtam Plain|KAL|||Aristham
+Saribadi Bati|Saribadi||||Tablet / Gulika / Vati
+Saribadyasavam 450 ml|Saribadyasavam||450|ml|Asavam
+Saribadyasavam 450 ml Vaidya|Saribadyasavam|Vaidya|450|ml|Asavam
+Saribadyasavam 450 ml [deesya]|Saribadyasavam|deesya|450|ml|Asavam
+Saribadyasavam [avp]|Saribadyasavam|avp|||Asavam
+Saribadyasavan 450 ml (AVP)|Saribadyasavam|AVP|450|ml|Asavam
+Saribadyasavan 450 ml SNA|Saribadyasavam|SNA|450|ml|Asavam
+Sariva  root|Sariva||||Root
+Sariva Churna|Sariva||||Choornam / Powder
+Sariva Root|Sariva||||Root
+Sarivadi Bati (Baidyanath)|Saribadi|Baidyanath|||Tablet / Gulika / Vati
+Sarpagandha Gulika (AVP)|Sarpagandha|AVP|||Tablet / Gulika / Vati
+Sarphagandha Gulika (AVP)|Sarpagandha|AVP|||Tablet / Gulika / Vati
+Sarswatharishtam  200|Sarswatharishtam||200||Aristham
+Satadhouta Gritha vaidya|Satadhouta|vaidya|||Ghritham
+satadhouta Gritha m|Satadhouta||||Ghritham
+satadhouta Gritha vaidya|Satadhouta|Vaidya|||Ghritham
+Satahwa (Sadhkuppa)|Satahwa||||Misc
+Satahwa churna|Satahwa||||Choornam / Powder
+Satavari Churna|Satavari||||Choornam / Powder
+Satavari churna|Satavari||||Choornam / Powder
+Satavari Gritha Spl|Satavari Spl||||Ghritham
+Sathadautham Gritha Ointment (Vaidya)|Sathadautham|Vaidya|||Ghritham Ointment
+Sathadowtha Gritha AVP|Sathadowtha|AVP|||Ghritham
+Sathavareegritham Vaidya|Satavari|Vaidya|||Ghritham
+Sathavari Gulam (AVP)|Sathavari Gulam|AVP|||Herbal jam
+Sathavaryadi Gritham|Sathavaryadi|Gritham|||Ghritham
+Scaling|Scaling||||Bandage / Belt / External
+Scurfol Lotion (Atrimed)|Scurfol|Atrimed|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Sebaceous cyst excision|Sebaceous cyst excision||||Bandage / Belt / External
+Sebaceous cyst excision(Major OT)|Sebaceous cyst excision||||Bandage / Belt / External
+Seevana Karma (Suturing) / Suture|Seevana Karma (Suturing) / Suture||||Bandage / Belt / External
+Seevana Karma (Suturing) /Suture-Extra Stich|Seevana Karma (Suturing) /Suture-Extra Stich||||Bandage / Belt / External
+Seka-Netra **|Seka-Netra||||Bandage / Belt / External
+Sennabael Powder|Sennabael||||Choornam / Powder
+Septec Tab 20T (Ayurchem)|Septec|Ayurchem|20|T|Tablet / Gulika / Vati
+Septilin Drops|Septilin||||Drops
+Septilin Syr (Himalaya)|Septilin|Himalaya|||Syrup
+Septilin Syrup|Septilin||||Syrup
+Septilin Tab (Himalaya)|Septilin|Himalaya|||Tablet / Gulika / Vati
+Setcalm Cap|Setcalm||||Tablet / Gulika / Vati
+Setcalm Tab|Setcalm||||Tablet / Gulika / Vati
+Shad Dharana DS Tab (AVN)|Shad Dharana DS|AVN|||Tablet / Gulika / Vati
+Shadanga  Choorna|Shadanga ||||Choornam / Powder
+Shadbindu Taila 50ml [Baidyanath]|Sadabindu|Baidyanath|50|ml|Oil
+Shaddaranam Choornam [Vaidya]|Shaddaranam|Vaidya|||Choornam / Powder
+Shaddaranam choornam Kottakkal|Shaddaranam|Kottakkal|||Choornam / Powder
+Shaddaranam Gulika|Shaddaranam||||Tablet / Gulika / Vati
+Shad-dharana Choornam (AVP)|Shaddaranam|AVP|||Choornam / Powder
+Shaddharanam choornam Vaidya|Shaddaranam|Vaidya|||Choornam / Powder
+Shadolite Cream 25gm|Shadolite||25|gm|Cream
+Shanka Pushpi Syr|Shankhupushpee||||Syrup
+Shankh Bati 40T ( Baidyanath)|Shankha|Baidyanath|40|T|Tablet / Gulika / Vati
+Shankha Vati SDM|Shankha|SDM|||Tablet / Gulika / Vati
+Shankhupushpee Choornam|Shankhupushpee||||Choornam / Powder
+Shashtika Lepa|Shashtika||||Lepam
+Shashtika Tailam 200ml (Malabar)|Shashtika|Malabar|200|ml|Oil
+Shastika Oil (Dr Yogidas)|Shashtika|Dr Yogidas|||Oil
+Shatahwadi Pinda Sweda - Ardhanga|Shatahwadi Pinda Sweda - Ardhanga||||Sweda
+Shatahwadi Pinda Sweda - Ekanga|Shatahwadi Pinda Sweda - Ekanga||||Sweda
+Shatahwadi Pinda Sweda - Sarvanga|Shatahwadi Pinda Sweda - Sarvanga||||Sweda
+Shatavari Kalpa 350g (Dooth)|Shatavari Kalpa|Dooth|350|gm|Tablet / Gulika / Vati
+Shatavari Tab-60' - Sri Sri|Satavari|Sri Sri|60|T|Tablet / Gulika / Vati
+Shatpalam Ghrutham (Vaidya)|Shatpalam|Vaidya|||Ghritham
+Shecare Syr|Shecare||||Syrup
+Sheetaprabha Tab (Dooth)|Sheetaprabha|Dooth|||Tablet / Gulika / Vati
+Sheethasudha Syr (Dooth)|Sheethasudha|Dooth|||Syrup
+Shigru Tab 60T (Himalaya)|Shigru|Himalaya|60|T|Tablet / Gulika / Vati
+Shilajit Cap - 10 [Gold] (Dabur)|Shilajit Gold|Dabur|10||Tablet / Gulika / Vati
+Shilajith Bhasma|Shilajith||||Bhasma
+Shilajith Cap (Dabur)|Shilajith|Dabur|||Tablet / Gulika / Vati
+Shilajith Bati|Shilajith||||Tablet / Gulika / Vati
+Shilapravanga Spl (Dooth)|Shilapravanga Spl|Dooth|||Tablet / Gulika / Vati
+Shilapravanga Tab|Shilapravanga||||Tablet / Gulika / Vati
+Shirahshooladi Vajra Rasa Tab 60T (Dooth)|Shirahshooladi Vajra|Dooth|60|T|Rasayanam Tab
+Shirashooladri Vajra Ras 500 t|Shirahshooladi Vajra||500|T|Rasayanam
+Shirasthoda Vatakam (Sreedhareeyam)|Shirasthoda|Sreedhareeyam|||Tablet / Gulika / Vati
+Shiva Gulika  Tab|Shiva|Tab|||Tablet / Gulika / Vati
+Shiva Gulika Oushadi|Shiva||||Tablet / Gulika / Vati
+Shiva Gulika tab Amrith|Shiva|Amrith|||Tablet / Gulika / Vati
+Shiva Gutika 32T (BV Pundit)|Shiva|BV Pundit|32|T|Tablet / Gulika / Vati
+Shiva Gutika 32T (BVP) (Sadvaidya)|Shiva|Sadvaidya|32|T|Tablet / Gulika / Vati
+Shiva Gutika-50T (Amrita Drugs)|Shiva|Amrita Drugs|50|T|Tablet / Gulika / Vati
+ShivaGutika Tab 32|Shiva||||Tablet / Gulika / Vati
+Shivabutika Tab|Shiva||||Tablet / Gulika / Vati
+Shodhaka Oil 100ml(Prakruthi)|Shodhaka|Prakruthi|100|ml|Oil
+Shodhaka Syr 200ml(Prakruti)|Shodhaka|Prakruthi|200|ml|Syrup
+Shoolari vati (SDM)|Shoolari|SDM|100||Tablet / Gulika / Vati
+Shoolari vati [100 nos]|Shoolari||100||Tablet / Gulika / Vati
+Shortwave Therapy|Shortwave Therapy||||Bandage / Belt / External
+Shringa Bhasma (AVP)|Shringa|AVP|||Bhasma
+Shringa Bhasma 10gm [ Vyas]|Shringa|Vyas|10|gm|Bhasma
+Shuddha Guggulu Tab 60T (Himalaya)|Shudha Guggulu|Himalaya|60|T|Tablet / Gulika / Vati
+Shuddha Shilajeet Sat (divya pharma)|Shuddha Shilajeet Sat|divya pharma|||Misc
+Shuddha Shilajit Bhasma|Shuddha Shilajit||||Bhasma
+Shuddha guggulu cap|Shudha Guggulu||||Tablet / Gulika / Vati
+Shudha Guggulu Cap 120|Shudha Guggulu||120||Tablet / Gulika / Vati
+Shunti Choornam 50g|Shunti||50|gm|Choornam / Powder
+Shunti Choornam100g|Shunti||100|gm|Choornam / Powder
+Shwas Kas Chintamani Rasa Tab|Shwas Kas Chintamani||||Rasayanam Tab
+Shwaskuthar Ras Tab 60T (Dooth)|Shwaskuthar|Dooth|60|T|Rasayanam Tab
+Shweta Parpati|Shweta Parpati||||Tablet / Gulika / Vati
+Shyamala Oil 100 ml|Shyamala||||Oil
+Shyamala Shampoo 100 ml|Shyamala||100|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Shyamala Shampoo 300 ml (Vasu)|Shyamala|Vasu|300|ml|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Siddhamakaradhwaja Plain|Siddhamakaradhwaja Plain||||Tablet / Gulika / Vati
+Siddhamakardhwaj Tab|Siddhamakardhwaj||||Tablet / Gulika / Vati
+Sidhartha Snana Chorna 150g [Prakruthi]|Sidhartha Snana|Prakruthi|150|gm|Choornam / Powder
+Sidhartha Soap 75gm (Prakruthi)|Sidhartha Soap|Prakruthi|75|gm|Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Sidharthaka Snana Choornam( Prakruthi)|Sidharthaka Snana|Prakruthi|||Choornam / Powder
+Sidharthaka Snana Choornam[Vaidya]|Sidharthaka Snana|Vaidya|||Choornam / Powder
+Sigruadi  Spl Kashaya|Sigruadi Spl||||Kashayam
+Siledin Tab (Alarsin)|Siledin|Alarsin|||Tablet / Gulika / Vati
+Simlim Cap (Vasu)|Simlim|Vasu|||Tablet / Gulika / Vati
+Simple extractions|Simple extractions||||Bandage / Belt / External
+Sinduvarairandam 100 ml SNA|Sinduvarairandam|SNA|100|ml|Oil
+Sinduvarairandam 100ml Vaidya|Sinduvarairandam|Vaidya|100|ml|Oil
+Sinhanad Guggul (Dooth))|Sinhanad Guggulu|Dooth|||Tablet / Gulika / Vati
+Sinhanad Guggul Tab|Sinhanad Guggulu||||Tablet / Gulika / Vati
+Sinol Nasal Drops (Kumar)|Sinol|Kumar|||Drops Nasal
+Sinorin Oil|Sinorin|Oil|||Oil
+sinus 44 cap|Sinus 44||||Tablet / Gulika / Vati
+Sinus 44 Caps (JaffMan)|Sinus 44|JaffMan|||Tablet / Gulika / Vati
+Siravyadha|Siravyadha||||Bloodletting
+Sireesharishtam|Sireesharishtam||||Aristham
+Sirisarista 200ml (Ayurchem)|Sireesharishtam|Ayurchem|200|ml|Aristham
+Sitopaladi Churna 120gms|Sitophaladi|gms|120|gm|Choornam / Powder
+Sitophaladi choornam 60g (Dhoot)|Sitophaladi|Dhoot|60|gm|Choornam / Powder
+Sitophaladi choornam [sna]|Sitophaladi|SNA|||Choornam / Powder
+Sixc oint|Sixc||||Misc
+Skimune Gel 25g (Ayurchem)|Skimune Gel|Ayurchem|25|gm|Gel
+Skimune Tab (Ayurchem)|Skimune|Ayurchem|||Tablet / Gulika / Vati
+Smriti Sagar Ras Tab  50T (Dooth)|Smriti Sagar|Dooth|50|T|Rasayanam Tab
+Smriti Sagar Ras Tab 25T (Dooth)|Smriti Sagar|Dooth|||Rasayanam Tab
+Snehapana ^|Snehapana||||Panchakarma
+Soap Water Enema|Soap Water Enema||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Solid Diet|Solid Diet||||Misc
+Sonithamrutham Ks SNA|Sonithamrutham|SNA|||Kashayam
+Sonithamrutham Ks [AVN]|Sonithamrutham|AVN|||Kashayam
+Sookshma Triphala Vati 60T (Ayurveda Rasashala)|Sookshma Triphala|Ayurveda Rasashala|60|T|Tablet / Gulika / Vati
+Sooktyn Tab (Alarsin)|Sooktyn|Alarsin|||Tablet / Gulika / Vati
+Sooranadi Lehyam 200 [avp]|Sooranadi|avp|200||Lehyam
+Soothasekar Ras Tab|Soothashekar||||Rasayanam Tab
+Soothashekar Ras Gold 10 (Dooth)|Soothashekar Gold|Dooth|10||Rasayanam
+Soothashekar Ras Gold 30 (Dooth)|Soothashekar Gold|Dooth|30||Rasayanam
+Soothashekar Ras 20 Plain Dooth|Soothashekar Plain|Dooth|20||Rasayanam
+Soothashekar Ras Plain Tab|Soothashekar Plain||||Rasayanam Tab
+Soothashekar Ras Plain Tab 100|Soothashekar Plain||100||Rasayanam Tab
+Soothashekar Ras 30 Tab Gold 25 tab|Soothashekar Gold||30|T|Rasayanam Tab
+Soothashekara Ras 10T (Dooth) (STD)|Soothashekar|Dhoot|||Rasayanam
+soothsekar ras|Soothashekar||||Rasayanam
+Sowbhagya Sunti 250g (AVP)|Sowbhagya Sunti|AVP|250|gm|Herbal jam
+Sowbhagyavardhana Thailam 200 ml|Sowbhagyavardhana||200|ml|Oil
+sowbhasunti [avp]|Sowbhasunti|AVP|||Misc
+Spasma Syr (Charak)|Spasma|Charak|||Syrup
+Spazex Cap (D Spas) (Atrimed)|Spazex Cap (D Spas)|Atrimed|||Tablet / Gulika / Vati
+Speech Therapy|Speech Therapy||||Bandage / Belt / External
+Spl Asavenna Oil|Spl Asavenna||||Oil
+Spl Devdaru Oil|Spl Devdaru||||Oil
+Spl HDM Powder (SDM)|Spl HDM|SDM|||Choornam / Powder
+spl oil kelu oil|Spl kelu||||Oil
+Spl Mahanarayan Taila|Spl Mahanarayan||||Oil
+Spl Medhohara churna|Spl Medhohara||||Choornam / Powder
+Spl Prepared Ks|Spl Prepared||||Kashayam
+Spl Rasanaerndadi Ks|Spl Rasanaerndadi||||Kashayam
+Spl Saindhava Tailam|Spl Saindhava||||Oil
+Spl Sastika oil|Spl Sastika||||Oil
+Spl Vettupal Oil|Spl Vettupal||||Oil
+spl vettupal oil|Spl Vettupal||||Oil
+Splint bandage change Ankle|Bandhana||||Bandage / Belt / External
+Splint bandage Change Femur|Bandhana||||Bandage / Belt / External
+Splint Bandage Change Forearm|Bandhana||||Bandage / Belt / External
+Splint bandage change upperarm|Bandhana||||Bandage / Belt / External
+Sreekandasavam 450 ml (deseeya)|Sreekandasavam|deseeya|450|ml|Asavam
+steam inhalation|Steam inhalation||||Bandage / Belt / External
+Stefit Cap|Stefit||||Tablet / Gulika / Vati
+Stefit Cap [Prakruti]|Stefit|Prakruti|||Tablet / Gulika / Vati
+Step Cap (Vasu)|Step|Vasu|||Tablet / Gulika / Vati
+Step Caps|Step||||Tablet / Gulika / Vati
+Step cap (Vasu)|Step|Vasu|||Tablet / Gulika / Vati
+Step Syrup (Vasu)|Step|Vasu|||Syrup
+Sthoullyahara Churna 250gm|Sthoulyahara||250|gm|Choornam / Powder
+Sthoulyahara  Ks 200ml [Prakruthi]|Sthoulyahara|Prakruthi|200|ml|Kashayam
+Stifain Tab 20T (Ayurchem)|Stifain|Ayurchem|20|T|Tablet / Gulika / Vati
+Stimulation|Stimulation||||Bandage / Belt / External
+Stira (Orila)|Stira|Orila|||Misc
+Stomatab (Sagar)|Stomatab|Sagar|||Tablet / Gulika / Vati
+Stomatab Gel (Sagar)|Stomatab Gel|Sagar|||Gel
+Stonex Cap (Bal Pharm)|Stonex|Bal Pharm|||Tablet / Gulika / Vati
+Stonvil Cap (SGPHYTO)|Stonvil|SGPHYTO|||Tablet / Gulika / Vati
+Straight Wire/MBT|Straight Wire/MBT||||Bandage / Belt / External
+Strapping Of Chest|Strapping Of Chest||||Bandage / Belt / External
+Strapping of fingers|Strapping of fingers||||Bandage / Belt / External
+Stresscom Cap (Dabur)|Stresscom|Dabur|||Tablet / Gulika / Vati
+Stresscom Caps|Stresscom||||Tablet / Gulika / Vati
+Stressex Cap - Sreedhareeyam|Stressex|Sreedhareeyam|||Tablet / Gulika / Vati
+Styplon Tab (Himalaya)|Styplon|Himalaya|||Tablet / Gulika / Vati
+Suction Machine inside room|Suction Machine inside room||||Bandage / Belt / External
+Suction Machine Usage|Suction Machine Usage||||Bandage / Belt / External
+Suction machine usage / Hour|Suction machine usage / Hour||||Bandage / Belt / External
+Sudarshan Ghanvati - 1|Sudarshan Ghana||||Tablet / Gulika / Vati
+Sudarshan Ghanvati-40T (Zandu)|Sudarshan Ghana|Zandu|40|T|Tablet / Gulika / Vati
+Sudhabala Thailam (AVP) 200 ml|Sudhabala|AVP|200|ml|Oil
+Sudhabala Thailam 200ml|Sudhabala||200|ml|Oil
+Sudhabala Thailam 200ml SNA|Sudhabala|SNA|200|ml|Oil
+Sudhabala Thailam 200mlVaidya|Sudhabala|vaidya|200|ml|Oil
+Sugar Candy|Sugar Candy||||Misc
+Sujat Cap [Dr. PM]|Sujat|[Dr. PM]|||Tablet / Gulika / Vati
+Sukhaprasavada ghritham|Sukhaprasavada||||Ghritham
+Sukumara Ghritham [AVP]|Sukumaram|AVP|||Ghritham
+Sukumara Gritham SNA|Sukumaram|SNA|||Ghritham
+Sukumara Gritham vaidya|Sukumaram|vaidya|||Ghritham
+Sukumara Lehyam 250 (AVP)|Sukumaram|AVP|250||Lehyam
+Sukumara Lehyam 500|Sukumaram||||Lehyam
+Sukumaram KS Vaidya|Sukumaram|Vaidya|||Kashayam
+Sukumaram Ks|Sukumaram||||Kashayam
+Sukumaram Ks (AVP)|Sukumaram|AVP|||Kashayam
+Sukumaram Ks AVN|Sukumaram|AVN|||Kashayam
+Sukumaram Ks Rajah|Sukumaram|Rajah|||Kashayam
+Sukumaram Ks Tab (AVN)|Sukumaram|AVN|||Kashayam Tab
+Sukumaram Ks Tab (AVP)|Sukumaram|AVP|||Kashayam Tab
+Sukumaram Ks Vaidya|Sukumaram|Vaidya|||Kashayam Tab
+Sumenta Tablets (Charak)|Sumenta|Charak|||Tablet / Gulika / Vati
+Sunarin Cap (SGPHYTO)|Sunarin|SGPHYTO|||Tablet / Gulika / Vati
+Sunarin Ointment 25gm (SGPHYTO)|Sunarin|SGPHYTO|25|gm|Tablet / Gulika / Vati
+Sunetra Junior Eye Drops-Sreedhareeyam|Sunetra|Sreedhareeyam|||Drops Eye
+Sunetra Regular Eye Drops - Sreedhareeyam|Sunetra|Sreedhareeyam|||Drops Eye
+Sunetra Senior Eye Drops (Sreedhareeyam)|Sunetra|Sreedhareeyam|||Drops Eye
+Sunidha Soap (Jaffman)|Sunidha|Jaffman|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Supad Macho|Supad Macho||||Misc
+Supad Trekker|Supad Trekker||||Misc
+Supthi Thailam Vaidya|Supthi|Vaidya|||Oil
+Susandhi Plus 10C (Univa)|Susandhi Plus|Univa|10|C|Tablet / Gulika / Vati
+Susandhi Plus 30C|Susandhi Plus||30|C|Tablet / Gulika / Vati
+Susmruthi lehyam 250gm|Susmruthi||||Lehyam
+Suture Removal per suture|Suture Removal per suture||||Bandage / Belt / External
+Suvarna Face Cream 20g (Sreedhareeyam)|Suvarna Face|Sreedhareeyam|20|gm|Cream
+Suvarna Mukthadi Gulika (AVP)|Suvarna Mukthadi|AVP|||Tablet / Gulika / Vati
+Suvarna Vasant Malati Tab 30s (Dooth)|Suvarna Vasant Malati|Dooth|30||Tablet / Gulika / Vati
+Suvarna  Vasant Maliti Tab 10s (Dooth)|Suvarna Vasant Malati|Dooth|10|T|Tablet / Gulika / Vati
+Suvarnmoshik Bhasma|Suvarnmoshik||||Bhasma
+Swadishta Virechana choornam|Swadishta Virechana||||Choornam / Powder
+Swadishta Virechana choornam (Zandu)|Swadishta Virechana|Zandu|||Choornam / Powder
+Swamala Compound 200 gm (Dooth)|Swamala Compound|Dooth|200|gm|Herbal jam
+Swamala Compound 500gm (Dooth)|Swamala Compound|Dooth|500|gm|Herbal jam
+Swamala Compound  Lehyam|Swamala Compound||||Lehyam
+Swarasa|Swarasa||||Juice / Tea / Buttermilk
+Swasamrutha Syrup Vaidya|Swasamrutham|Vaidya|||Syrup
+Swasamrutham Syr (Sri Chamund)|Swasamrutham|Sri Chamund|||Syrup
+Swasanandam Gulika AVP|Swasanandam|AVP|||Tablet / Gulika / Vati
+Swasanandam Gulika Vaidya|Swasanandam|Vaidya|||Tablet / Gulika / Vati
+Sweda Ishtika|Sweda Ishtika||||Sweda
+Sweda JPS (Narangakizhi) Ekanga|Sweda JPS (Narangakizhi) Ekanga||||Sweda
+Sweda-Bashpa(Steam Bath) ^|Sweda-Bashpa(Steam Bath)||||Sweda
+Sweda-CPS (Podikizhi )-Ardhanga|Sweda-CPS (Podikizhi )-Ardhanga||||Sweda
+Sweda-CPS (Podikizhi )-Ardhanga ^|Sweda-CPS (Podikizhi )-Ardhanga||||Sweda
+Sweda-CPS (Podikizhi )-Ekanga|Sweda-CPS (Podikizhi )-Ekanga||||Sweda
+Sweda-CPS (Podikizhi )-Ekanga **|Sweda-CPS (Podikizhi )-Ekanga||||Sweda
+Sweda-CPS (Podikizhi )-Ekanga ^|Sweda-CPS (Podikizhi )-Ekanga||||Sweda
+Sweda-CPS (Podikizhi)-Sarvanga|Sweda-CPS (Podikizhi)-Sarvanga||||Sweda
+Sweda-CPS (Podikizhi)-Sarvanga ^|Sweda-CPS (Podikizhi)-Sarvanga||||Sweda
+Sweda-CPS-netra|Sweda-CPS-netra||||Sweda
+Sweda-Ishtika ^|Sweda-Ishtika||||Sweda
+Sweda-JPS (Narangakizhi)-Ardhanga|Sweda-JPS (Narangakizhi)-Ardhanga||||Sweda
+Sweda-JPS(Narangakizhi)-Ardhanga|Sweda-JPS(Narangakizhi)-Ardhanga||||Sweda
+Sweda-JPS(Narangakizhi)-Ardhanga ^|Sweda-JPS(Narangakizhi)-Ardhanga||||Sweda
+Sweda-JPS(Narangakizhi)-Ekanga|Sweda-JPS(Narangakizhi)-Ekanga||||Sweda
+Sweda-JPS(Narangakizhi)-Ekanga **|Sweda-JPS(Narangakizhi)-Ekanga||||Sweda
+Sweda-JPS(Narangakizhi)-Ekanga ^|Sweda-JPS(Narangakizhi)-Ekanga||||Sweda
+Sweda-JPS(Narangakizhi)-Sarvanga|Sweda-JPS(Narangakizhi)-Sarvanga||||Sweda
+Sweda-JPS(Narangakizhi)-Sarvanga **|Sweda-JPS(Narangakizhi)-Sarvanga||||Sweda
+Sweda-JPS(Narangakizhi)-Sarvanga ^|Sweda-JPS(Narangakizhi)-Sarvanga||||Sweda
+Sweda-Nadi-Ardhanga|Sweda-Nadi-Ardhanga||||Sweda
+Sweda-Nadi-Ardhanga (medicated)^|Sweda-Nadi-Ardhanga (medicated)||||Sweda
+Sweda-Nadi-Ardhanga**|Sweda-Nadi-Ardhanga||||Sweda
+Sweda-Nadi-Ardhanga^|Sweda-Nadi-Ardhanga||||Sweda
+Sweda-Nadi-Ekanga|Sweda-Nadi-Ekanga||||Sweda
+Sweda-Nadi-Ekanga(medicated) ^|Sweda-Nadi-Ekanga(medicated)||||Sweda
+Sweda-Nadi-Ekanga^|Sweda-Nadi-Ekanga||||Sweda
+Sweda-Nadi-Sarvanga|Sweda-Nadi-Sarvanga||||Sweda
+Sweda-Nadi-Sarvanga (medicated)^|Sweda-Nadi-Sarvanga (medicated)||||Sweda
+Sweda-Nadi-Sarvanga**|Sweda-Nadi-Sarvanga||||Sweda
+Sweda-Nadi-Sarvanga^|Sweda-Nadi-Sarvanga||||Sweda
+Sweda-PPS (Eye)|Sweda-PPS (Eye)||||Sweda
+Sweda-PPS(Elakizhi)-Ardhanga|Sweda-PPS(Elakizhi)-Ardhanga||||Sweda
+Sweda-PPS(Elakizhi)-Ardhanga **|Sweda-PPS(Elakizhi)-Ardhanga||||Sweda
+Sweda-PPS(Elakizhi)-Ardhanga ^|Sweda-PPS(Elakizhi)-Ardhanga||||Sweda
+Sweda-PPS(Elakizhi)-Ekanga|Sweda-PPS(Elakizhi)-Ekanga||||Sweda
+Sweda-PPS(Elakizhi)-Ekanga **|Sweda-PPS(Elakizhi)-Ekanga||||Sweda
+Sweda-PPS(Elakizhi)-Ekanga ^|Sweda-PPS(Elakizhi)-Ekanga||||Sweda
+Sweda-PPS(Elakizhi)-Sarvanga|Sweda-PPS(Elakizhi)-Sarvanga||||Sweda
+Sweda-PPS(Elakizhi)-Sarvanga *|Sweda-PPS(Elakizhi)-Sarvanga||||Sweda
+Sweda-PPS(Elakizhi)-Sarvanga **|Sweda-PPS(Elakizhi)-Sarvanga||||Sweda
+Sweda-PPS-Karna ^|Sweda-PPS-Karna||||Sweda
+Sweda-PPS-Sarvanga ^|Sweda-PPS-Sarvanga||||Sweda
+Sweda-Putapakam-Netra**|Sweda-Putapakam-Netra||||Sweda
+Sweda-SSPS(Mamsa Navara Kizhi) Ardhanga ^|Sweda-SSPS(Mamsa Navara Kizhi) Ardhanga||||Sweda
+Sweda-SSPS(Mamsa Navara Kizhi) Ekanga|Sweda-SSPS(Mamsa Navara Kizhi) Ekanga||||Sweda
+Sweda-SSPS(Mamsa Navara Kizhi) Ekanga ^|Sweda-SSPS(Mamsa Navara Kizhi) Ekanga||||Sweda
+Sweda-SSPS(Mamsa Navara Kizhi) Sarvanga ^|Sweda-SSPS(Mamsa Navara Kizhi) Sarvanga||||Sweda
+Sweda-SSPS(Navara Kizhi) - Netra ^|Sweda-SSPS(Navara Kizhi) - Netra||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ardhanga|Sweda-SSPS(Navara Kizhi)-Ardhanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ardhanga **|Sweda-SSPS(Navara Kizhi)-Ardhanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ardhanga ^|Sweda-SSPS(Navara Kizhi)-Ardhanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ekanga|Sweda-SSPS(Navara Kizhi)-Ekanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ekanga **|Sweda-SSPS(Navara Kizhi)-Ekanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Ekanga ^|Sweda-SSPS(Navara Kizhi)-Ekanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Karna^|Sweda-SSPS(Navara Kizhi)-Karna||||Sweda
+Sweda-SSPS(Navara Kizhi)-Netra|Sweda-SSPS(Navara Kizhi)-Netra||||Sweda
+Sweda-SSPS(Navara Kizhi)-Netra Samamsa|Sweda-SSPS(Navara Kizhi)-Netra Samamsa||||Sweda
+Sweda-SSPS(Navara Kizhi)-Sarvanga|Sweda-SSPS(Navara Kizhi)-Sarvanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Sarvanga **|Sweda-SSPS(Navara Kizhi)-Sarvanga||||Sweda
+Sweda-SSPS(Navara Kizhi)-Sarvanga ^|Sweda-SSPS(Navara Kizhi)-Sarvanga||||Sweda
+Sweda-TMPS(Tila Masha Pinda) Ardhanga|Sweda-TMPS(Tila Masha Pinda) Ardhanga||||Sweda
+Sweda-TMPS(Tila Masha Pinda) Sarvanga^|Sweda-TMPS(Tila Masha Pinda) Sarvanga||||Sweda
+Sweda-Valuka-Ardhanga|Sweda-Valuka-Ardhanga||||Sweda
+Sweda-Valuka-Ardhanga ^|Sweda-Valuka-Ardhanga||||Sweda
+Sweda-Valuka-Ekanga^|Sweda-Valuka-Ekanga||||Sweda
+Sweda-Valuka-Sarvanga|Sweda-Valuka-Sarvanga||||Sweda
+Sweda-Valuka-Sarvanga**|Sweda-Valuka-Sarvanga||||Sweda
+Sweda-Valuka-Sarvanga^|Sweda-Valuka-Sarvanga||||Sweda
+Syringe 10ml|Syringe||10|ml|Bandage / Belt / External
+Tagara Cap|Tagara||||Tablet / Gulika / Vati
+Tagara Caps|Tagara||||Tablet / Gulika / Vati
+Tagara Tab 60T (Himalaya)|Tagara|Himalaya|60|T|Tablet / Gulika / Vati
+Takararishtam (Goseva0|Takararishtam|Goseva|||Aristham
+Takra|Takra||||Juice / Tea / Buttermilk
+Takrarista 450 ml (Fours Lab)|Takararishtam|Fours Lab|450|ml|Aristham
+Taleesapathradi choornam [sna]|Taleesapathradi|sna|||Choornam / Powder
+Talekt Cap 60C (Himalaya)|Talekt|Himalaya|60|C|Tablet / Gulika / Vati
+Talisule granule (Kottakkal)|Talisule|Kottakkal|||Granules
+Tankan Bhasma (Baidyanath)|Tankan|Baidyanath|||Bhasma
+Tankan Bhasma 10gm|Tankan||10|gm|Bhasma
+Tantupashan Tab (Sagar)|Tantupashan|Sagar|||Tablet / Gulika / Vati
+Tapyadi Loha Bhasma (Dooth)|Tapyadi Loha|Dooth|||Bhasma
+Tapyadi Loha Tab 30T[Dooth]|Tapyadi Loha|Dooth|30|T|Tablet / Gulika / Vati
+Tapyadi Loha Tab 60T [Dooth]|Tapyadi Loha|Dooth|60|T|Tablet / Gulika / Vati
+Tarakeshwar Ras Tab (Baidyanath)|Tarakeshwar|Baidyanath|||Rasayanam Tab
+Tarpanam - Hastatala (Manicure)**|Tarpanam - Hastatala (Manicure)||||Tarpanam
+Tarpanam - Hastatala (Manicure)^|Tarpanam - Hastatala (Manicure)||||Tarpanam
+Tarpanam-Netra - Maha ^|Tarpanam-Netra - Maha||||Tarpanam
+Tarpanam-Netra - Mini ^|Tarpanam-Netra - Mini||||Tarpanam
+Tarpanam-Netra ^|Tarpanam-Netra||||Tarpanam
+Tarpanam-Padatala (Pedicure)**|Tarpanam-Padatala (Pedicure)||||Tarpanam
+Tarpanam-Padatala (Pedicure)^|Tarpanam-Padatala (Pedicure)||||Tarpanam
+Taruni Face Pack-100G (Aswin)|Taruni||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Temporary Crown|Temporary Crown||||Bandage / Belt / External
+Tender Pluz  250ml|Tender Pluz||250|ml|Misc
+Tennis Elbow Support (M)|Tennis Elbow Support (M)||||Bandage / Belt / External
+Tentes Forte Tab|Tentex Forte||||Tablet / Gulika / Vati
+Tentex Forte Tab (Himalaya)|Tentex Forte|Himalaya|||Tablet / Gulika / Vati
+Tentex Royal (Himalaya)|Tentex Royal|Himalaya|||Tablet / Gulika / Vati
+Thai Massage|Thai Massage||||Bandage / Belt / External
+Thalam*|Thalam||||Oil
+Thalam^|Thalam||||Oil
+Thaleesadi Choorna|Thaleesadi||||Choornam / Powder
+Thaleesapathradi Chornam (Vaidya)|Thaleesapatradi|Vaidya|||Choornam / Powder
+Thaleesapathradi choornam [avp]|Thaleesapatradi|avp|||Choornam / Powder
+Thaleesapatradi Lehyam 250gm [ Ashtanga Ayurvedics]|Thaleesapatradi|Ayurvedics|250|gm|Lehyam
+Thalispatradi Leham 200gm|Thaleesapatradi||200|gm|Lehyam
+Thamboola Lehyam 50g (AVP)|Thamboola|AVP|50|gm|Lehyam
+Thani Oil|Thani||||Oil
+Thankasree Ghritham|Thankasree||||Ghritham
+Thekaraja Co Oil (AVP)|Thekaraja|AVP|||Oil
+Thekaraja Co Oil 200ml (AVP)|Thekaraja|AVP|200|ml|Oil
+Thekaraja Thialam (AVP)|Thekaraja|AVP|||Oil
+Thekaraja Thialam 200 ml [avp]|Thekaraja|avp|200|ml|Oil
+Thikthakam Ghritham (AVP)|Thikthakam|AVP|||Ghritham
+Thikthakam Ghritham Vaidya|Thikthakam|Vaidya|||Ghritham
+Thikthakam Gritham SNA|Thikthakam|SNA|||Ghritham
+Thikthakam ghritham|Thikthakam||||Ghritham
+Thikthakam kashyam [avp]|Thikthakam|avp|||Kashayam
+Thikthakam Ks Rajah|Thikthakam|Rajah|||Kashayam
+Thikthakam Ks [Vaidya]|Thikthakam|Vaidya|||Kashayam
+Thikthakam Ksm|Thikthakam||||Kashayam
+Thikthakam Ksm Vaidya|Thikthakam|Vaidya|||Kashayam
+Thimiranjanam Eye Drops (Sreedhareeyam)|Thimiranjanam|Sreedhareeyam|||Drops Eye
+Thripaladi Oil 200 ml|Thriphaladi||200|ml|Oil
+Thriphala Cap(Himalaya)|Thriphaladi|Himalaya|||Tablet / Gulika / Vati
+Thriphala Gritham|Thriphaladi||||Ghritham
+Thriphala Gritham 150gm[Kottakkal]|Thriphaladi|Kottakkal|150|mg|Ghritham
+Thriphala Gritham 150gm[Vaidya]|Thriphaladi|Vaidya|150|mg|Ghritham
+Thriphala tab|Thriphaladi||||Tablet / Gulika / Vati
+Thriphaladi choornam SNA|Thriphaladi|SNA|||Choornam / Powder
+Thriphaladi choornam [AVP]|Thriphaladi|AVP|||Choornam / Powder
+Thriphaladi Co Oil 200ml|Thriphaladi||200|ml|Oil
+Thriphaladi Co Oil SNA|Thriphaladi|SNA|||Oil
+Thriphaladi Coconut Oil (AVP)|Thriphaladi Coconut|AVP|||Oil
+Thriphaladi  Oil (AVP)|Thriphaladi|AVP|||Oil
+Thriphaladi  Oil 100ml KAL|Thriphaladi|KAL|100|ml|Oil
+Thriphaladi Oil Vaidya|Thriphaladi|Vaidya|||Oil
+Thulasyadi Thailam 200 ml|Thulasyadi||200|ml|Oil
+Thulasyadi Thailam 200 ml (Kottakkal)|Thulasyadi|Kottakkal|200|ml|Oil
+Thungadrumadi Thailam 200 ml|Thungadrumadi||200|ml|Oil
+Tiktakam Ks Tab (AVN)|Thikthakam|AVN|||Kashayam Tab
+Tikthakam ks Tab|Thikthakam||||Kashayam Tab
+Tila Taila|Tila||||Oil
+Tilt Table|Tilt Table||||Bandage / Belt / External
+Tonsari Syrup (Sagar)|Tonsari|Sagar|||Syrup
+Tonsari Tab (Sagar)|Tonsari|Sagar|||Tablet / Gulika / Vati
+Top Crepe 10cm x 4m|Top Crepe 10cm x 4m||||Bandage / Belt / External
+Torchnil Cap (DR P M)|Torchnil|DR P M|||Tablet / Gulika / Vati
+Traction|Traction||||Bandage / Belt / External
+Trataka|Trataka||||Yoga
+Trayantiaadi Ks SNA|Trayantiaadi|SNA|||Kashayam
+Trayantiaadi Ks [AVN]|Trayantiaadi|AVN|||Kashayam
+Trayodasanga Gulgulu (Amrit)|Trayodasanga Guggulu|Amrit|||Tablet / Gulika / Vati
+Trayodasanga Gulgulu (Prakruthi)|Trayodasanga Guggulu|Prakruthi|||Tablet / Gulika / Vati
+Trayodasanga Gulgulu 60T (Dooth)|Trayodasanga Guggulu|Dooth|60|T|Tablet / Gulika / Vati
+Trayodasanga Gulgulu 80T[Baidyanath]|Trayodasanga Guggulu|Baidyanath|80|T|Tablet / Gulika / Vati
+Trayodasanga Gulgulu DS Tab (AVN)|Trayodasanga Guggulu DS|AVN|||Tablet / Gulika / Vati
+Trayodasanga Gulgulu Tab|Trayodasanga Guggulu||||Tablet / Gulika / Vati
+Tribang Shila Tab (Zandu)|Tribang Shila|Zandu|||Tablet / Gulika / Vati
+Tribhuvanaikeerti Ras Dooth|Tribhuvan Kriti|Dooth|||Rasayanam
+Tribhuvan Kriti Ras Tab|Tribhuvan Kriti||||Rasayanam Tab
+Tribhuvan Kriti Ras Tab - 70.00|Tribhuvan Kriti||70||Rasayanam Tab
+Trichoderm Crem (Atrimed)|Trichoderm|Atrimed|||Cream
+Trichup Cap|Trichup||||Tablet / Gulika / Vati
+Trichup Cap 30 C (Vasu)|Trichup|Vasu|30|C|Tablet / Gulika / Vati
+Trichup Hair Fall Control Oil 200ml [Vasu]|Trichup|Vasu|200|ml|Oil
+Trichup Oil 200ml [Vasu]|Trichup|Vasu|200|ml|Oil
+Trichup Shyampo (Vasu)|Trichup|Vasu|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Triglize Cap|Triglize||||Tablet / Gulika / Vati
+Trikatu Choornam 100g|Trikatu||100|gm|Choornam / Powder
+Trikatu churna|Trikatu||||Choornam / Powder
+Trimpil Tab 30s [Meditek India]|Trimpil|Meditek India|30|T|Tablet / Gulika / Vati
+Trinapancha Moola|Trinapancha Moola||||Misc
+Trinapancha moolam|Trinapancha Moola||||Misc
+Trinapanchamoolam Ks|Trinapancha Moola||||Kashayam
+Trinapanchamoolam Ks [SNA]|Trinapancha Moola|SNA|||Kashayam
+Triphala Cap Himalaya|Triphala|Himalaya|||Tablet / Gulika / Vati
+Triphala Choornam|Triphala||||Choornam / Powder
+Triphala Choornam  100 g|Triphala||100|gm|Choornam / Powder
+Triphala Choornam  50g KPL|Triphala|KPL|50|gm|Choornam / Powder
+Triphala Choornam 120g|Triphala||120|gm|Choornam / Powder
+Triphala Choornam 50g|Triphala||50|gm|Choornam / Powder
+Triphala Choornam 50g SNA|Triphala|SNA|50|gm|Choornam / Powder
+Triphala Churna|Triphala||||Choornam / Powder
+Triphala churna|Triphala||||Choornam / Powder
+Triphaladi Choornam  25 gm (AVP)|Triphala|AVP|25|gm|Choornam / Powder
+Triphala Guggulu 60T [Dooth]|Triphala Guggulu|Dooth|60|T|Tablet / Gulika / Vati
+Triphala Guggulu [Amritha]|Triphala Guggulu|Amritha|||Tablet / Gulika / Vati
+Triphala Gugulu D S Tab (AVN)|Triphala Guggulu DS|AVN|||Tablet / Gulika / Vati
+Triphala Syr (Himalaya)|Triphala|Himalaya|||Syrup
+Triphala Tab 50T [SNA]|Triphala|SNA|50|T|Tablet / Gulika / Vati
+Triphala Tab 60T [ Himalaya ]|Triphala|Himalaya|60|T|Tablet / Gulika / Vati
+Triphala Tab Amrith|Triphala|Amrith|||Tablet / Gulika / Vati
+Trivanga Bhasma (Dooth)|Trivanga|Dooth|||Bhasma
+Trivril Lehyam 200g [Kottakkal]|Trivril|Kottakkal|200|gm|Lehyam
+Trivril Lehyam 250gm - AVP|Trivril|AVP|250|gm|Lehyam
+Trivril Lehyam 50gm (AVP)|Trivril|AVP|50|gm|Lehyam
+TRP Liniment  100ml (Meditek India)|TRP|Meditek India|100|ml|Liniment
+Tulasyamrith Syr (Swedeshi)|Tulasyamrith|Swedeshi|||Syrup
+Tungadrumaadi Oil SNA|Tungadrumaadi|SNA|||Oil
+Twak|Twak||||Twak
+Twak_1|Twak||||Twak
+Udwarthana (Ardhanga) ^|Udwarthana (Ardhanga)||||Udwarthana
+Udwarthana (Ekanga) ^|Udwarthana (Ekanga)||||Udwarthana
+Udwarthana (Sarvanga)|Udwarthana (Sarvanga)||||Udwarthana
+Udwarthana (Sarvanga)**|Udwarthana (Sarvanga)||||Udwarthana
+Udwarthana (Sarvanga)^|Udwarthana (Sarvanga)||||Udwarthana
+Udwarthana Ardhanga **|Udwarthana Ardhanga||||Udwarthana
+Udwarthana Ekanga **|Udwarthana Ekanga||||Udwarthana
+Udwarthana Kashaya (Sarvanga)^|Udwarthana Kashaya (Sarvanga)||||Udwarthana
+Udwarthana-Kashaya (Ardhanga)|Udwarthana-Kashaya (Ardhanga)||||Udwarthana
+Udwarthana-Kashaya (Ardhanga) ^|Udwarthana-Kashaya (Ardhanga)||||Udwarthana
+Udwarthana-Kashaya (Ekanga) ^|Udwarthana-Kashaya (Ekanga)||||Udwarthana
+Udwarthana-Kashaya (Sarvanga)|Udwarthana-Kashaya (Sarvanga)||||Udwarthana
+Udwarthana-Kashaya (Sarvanga) *|Udwarthana-Kashaya (Sarvanga)||||Udwarthana
+Udwarthana-Kashaya (Sarvanga) **|Udwarthana-Kashaya (Sarvanga)||||Udwarthana
+Udwarthana-Kashaya (Sarvanga) ^|Udwarthana-Kashaya (Sarvanga)||||Udwarthana
+Udwarthana-Taila (Ardhanga) **|Udwarthana-Taila (Ardhanga)||||Udwarthana
+Udwarthana-Taila (Ardhanga) ^|Udwarthana-Taila (Ardhanga)||||Udwarthana
+Udwarthana-Taila (Ekanga) **|Udwarthana-Taila (Ekanga)||||Udwarthana
+Udwarthana-Taila (Ekanga) ^|Udwarthana-Taila (Ekanga)||||Udwarthana
+Udwarthana-Taila (Sarvanga)|Udwarthana-Taila (Sarvanga)||||Udwarthana
+Udwarthana-Taila (Sarvanga) ^|Udwarthana-Taila (Sarvanga)||||Udwarthana
+Ulactin Tab|Ulactin||||Tablet / Gulika / Vati
+Ulsant Tab 20T (Ayurchem)|Ulsant|Ayurchem|20|T|Tablet / Gulika / Vati
+Ulsant-D Syr (Ayurchem)|Ulsant-D|Ayurchem|||Syrup
+Ultra sonic Therapy|Ultra sonic Therapy||||Bandage / Belt / External
+UltraSonic Therapy + IFT|UltraSonic Therapy + IFT||||Bandage / Belt / External
+ultrasonic Therapy + Traction+IFT|ultrasonic Therapy + Traction+IFT||||Bandage / Belt / External
+UltraSonic Therapy +Shortwave + IFT|UltraSonic Therapy +Shortwave + IFT||||Bandage / Belt / External
+UltraSonic Therapy +TENs|UltraSonic Therapy +TENs||||Bandage / Belt / External
+Uninuron Cap (Univa)|Uninuron|Univa|||Tablet / Gulika / Vati
+Upanaha Choornam [ Vaidya]|Upanaha|Vaidya|||Choornam / Powder
+Upnaham Samamsam Per Joint|Upanaham Samamsam Per Joint||||Upanaham
+Upnaham Samamsam^|Upanaham Samamsam||||Upanaham
+Upanaham-Ardhanga ^|Upanaham-Ardhanga||||Upanaham
+Upnaham-Sandhi*|Upanaham-Sandhi||||Upanaham
+Upnaham-Sandhi^|Upanaham-Sandhi||||Upanaham
+Upanaham-Special|Upanaham-Special||||Upanaham
+Ural BPH Cap (Vasu)|Ural BPH|Vasu|||Tablet / Gulika / Vati
+Ural BPH Cap - 60|Ural BPH||||Tablet / Gulika / Vati
+Ural BPH tab|Ural BPH||||Tablet / Gulika / Vati
+Ural Cap|Ural||||Tablet / Gulika / Vati
+Ural Cap 30C (Vasu)|Ural|Vasu|30|C|Tablet / Gulika / Vati
+Ural Syr (Vasu)|Ural|Vasu|||Syrup
+Ural Syr 100 ml|Ural||100|ml|Syrup
+Uronil Cap (AVP)|Uronil|AVP|||Tablet / Gulika / Vati
+Urtiples Cap|Urtiplex||||Tablet / Gulika / Vati
+Urtiplex Cap (Charak)|Urtiplex|Charak|||Tablet / Gulika / Vati
+Urtiplex Lotion (Charak)|Urtiplex|Charak|||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Useera|Useera||||Misc
+Useera Churna|Useera||||Choornam / Powder
+Useerasavam 450 ml|Useerasavam||450|ml|Asavam
+Useerasavam 450ml Vaidya|Useerasavam|Vaidya|450|ml|Asavam
+Utsadana (Ardhanga)^|Utsadana (Ardhanga)||||Utsadana
+Utsadana (Ekanga)^|Utsadana (Ekanga)||||Utsadana
+Utsadana (Sarvanga)^|Utsadana (Sarvanga)||||Utsadana
+V Gel Oint (Himalaya)|V Gel|Himalaya|||Gel
+V Rins Oint|V Rins||||** Not yet coded
+V V Stocking L|V V Stocking||||Bandage / Belt / External
+V V Stocking M|V V Stocking||||Bandage / Belt / External
+Vaasasree Tab 30T (Sreedhareeyam)|Vaasasree|Sreedhareeyam|30|T|Tablet / Gulika / Vati
+Vacha Churna|Vacha||||Choornam / Powder
+Vacha churna|Vacha||||Choornam / Powder
+Vachadi Coconut Oil ( AVP)|Vachadi Coconut|AVP|||Oil
+Vachadi Oil|Vachadi||||Oil
+Vachadi Oil (AVP)|Vachadi|AVP|||Oil
+Vachadi Oil Vidya|Vachadi|Vaidya|||Oil
+Vachalashuna OIl SNA|Vachalashuna|SNA|||Oil
+Vachalashuna OIl SNA 100 ml|Vachalashuna||100|ml|Oil
+Vacuum Dressing|Vacuum Dressing||||Bandage / Belt / External
+Vagbhatokta Asthimajjapachaka Tab (Agasti)|Vagbhatokta Asthimajjapachaka|Agasti|||Tablet / Gulika / Vati
+Vagbhatokta Mamsapachaka Tab (Agasti)|Vagbhatokta Mamsapachaka|Agasti|||Tablet / Gulika / Vati
+Vagbhatokta Medhopachaka Tab (Agasti)|Vagbhatokta Medhopachaka|Agasti|||Tablet / Gulika / Vati
+Vagbhatokta Raktapachaka Tab (Agasti)|Vagbhatokta Raktapachaka|Agasti|||Tablet / Gulika / Vati
+Vagbhatokta Rasapachaka Tab (Agasti)|Vagbhatokta Rasapachaka|Agasti|||Tablet / Gulika / Vati
+Vagbhatokta Rasapachaka Tab 60T(Agasti)|Vagbhatokta Rasapachaka|Agasti|60|T|Tablet / Gulika / Vati
+Vaidyaratnam Soap|Vaidyaratnam||||Face Pack / Wash / Soap / Shampoo / Lotion / Cream
+Vainatheya Ghritham (Sreedhareeyam)|Vainatheya|Sreedhareeyam|||Ghritham
+Vaiswanara Choornam 50g (Vaidya)|Vaiswanara|Vaidya|50|gm|Choornam / Powder
+Vaiswanara Choornam [Vaidya]|Vaiswanara|Vaidya|||Choornam / Powder
+Valiya Chandanaadi Oil SNA|Valiya Chandanaadi|SNA|||Oil
+Vamanam ^|Vamanam||||Panchakarma
+Vanari Kalpa (Sandu)|Vanari Kalpa|Sandu|||Granules
+Vanga Bhasma 5g (Dhoot)|Vanga|Dhoot|5|gm|Bhasma
+Vara Choornam (Vaidya)|Vara|Vaidya|||Choornam / Powder
+Varadi Ks Kottakkal|Varanadi|Kottakkal|||Kashayam
+Varanaadiarishtam SNA|Varanaadiarishtam|SNA|||Aristham
+Varanadi Gritham (AVP)|Varanadi|AVP|||Ghritham
+Varanadi Gritham SNA|Varanadi|SNA|||Ghritham
+Varanadi Gritham Vaidya|Varanadi|Vaidya|||Ghritham
+Varanadi Ks Rajah|Varanadi|Rajah|||Kashayam
+Varanadi Ks [Vaidya]|Varanadi|Vaidya|||Kashayam
+Varanadi ks 200 ml|Varanadi||200|ml|Kashayam
+Varanadi ks 200 ml (AVP)|Varanadi|AVP|200|ml|Kashayam
+Varanadi ks 200 ml KPL|Varanadi|KPL|200|ml|Kashayam
+Varanadi ks 200 ml Vaidya|Varanadi|Vaidya|200|ml|Kashayam
+Varanadi Ks Tab (AVN)|Varanadi|AVN|||Kashayam Tab
+Varanadi Ks Tab (AVN).|Varanadi|AVN|||Kashayam Tab
+Varanadi Ks Tab AVP|Varanadi|AVP|||Kashayam Tab
+Varanadi Ks Tab Kot|Varanadi|Kottakkal|||Kashayam Tab
+Varanadi Thailam (Vaidya)|Varanadi|Vaidya|||Oil
+Varanadiksheera Ghritham Vaidya|Varanadiksheera|Vaidya|||Ghritham
+Varanasavam|Varanasavam||||Asavam
+Varanasavam 450 ml Deseeya|Varanasavam|Deseeya|450|ml|Asavam
+Varanasavam 450ml Veda|Varanasavam|Veda|450|ml|Asavam
+Varthy|Varthy||||Misc
+Varuna Churna|Varuna||||Choornam / Powder
+Varuni Thailam (SNA)|Varuni|SNA|||Oil
+Vasa_1|Vasa_1|Vasa|||Misc
+Vasagullchyadi KS Tab (AVN)|Vasaguloochyadi|AVN|||Kashayam Tab
+Vasaguloochyadi Ks|Vasaguloochyadi||||Kashayam
+Vasaguloochyadi Ks SNA|Vasaguloochyadi|SNA|||Kashayam
+Vasaguloochyadi Ks Vaidya|Vasaguloochyadi|Vaidya|||Kashayam
+Vasaguluchyadi Ks [Vaidya]|Vasaguloochyadi|Vaidya|||Kashayam
+Vasaguluchyadi Ks [avp]|Vasaguloochyadi|avp|||Kashayam
+Vasaguluchyadi Ks-Kottakkal|Vasaguloochyadi|Kottakkal|||Kashayam
+Vasant Kusumakar Rasa Plain 25T (Amrutha)|Vasant Kusumakar Plain|Amrutha|25|T|Rasayanam
+Vasant Kusumakar Rasa Plain 30T [Amrutha]|Vasant Kusumakar Plain|Amrutha|30|T|Rasayanam
+Vasanth kusum plain Tab|Vasant Kusumakar Plain||||Tablet / Gulika / Vati
+Vasantha Kusumakara Ras 30 tab|Vasant Kusumakar Plain||30|T|Rasayanam
+Vasantha Kusumakara Rasa 60|Vasant Kusumakar Plain||60||Rasayanam
+Vasantha Kusumakara Rasa 30T (STD) - Dooth|Vasant Kusumakar Plain|Dhoot|||Rasayanam
+Vasantha Kusumakara Rasa 10 Gold (DPL)|Vasant Kusumakar Gold|DPL|||Rasayanam
+Vasantha Kusumakara Rasa 30 Gold(Dooth)|Vasant Kusumakar Gold|Dooth|30||Rasayanam
+Vasantha Kusumakara Rasa Tab|Vasant Kusumakar Plain||||Rasayanam Tab
+Vasarishtam 450 ml (AVP)|Vasarishtam|AVP|450|ml|Aristham
+Vasarishtam 450 ml Deseeya|Vasarishtam|Deseeya|450|ml|Aristham
+Vasarishtam 450ml Vaidya|Vasarishtam|Vaidya|||Aristham
+vasarishtam|Vasarishtam||||Aristham
+Vasoril|Vasoril||||Misc
+Vasthyamayanthaka Ghritham (AVP)|Vasthyamayanthaka|AVP|||Ghritham
+Vasthyamayanthaka Gritham SNA|Vasthyamayanthaka|SNA|||Ghritham
+Vasthyamayanthaka Gritham Vaidya|Vasthyamayanthaka|Vaidya|||Ghritham
+Vasti- Asthapana -Takra|Vasti- Asthapana -Takra||||Vasti
+Vasti-Anuvasana|Vasti-Anuvasana||||Vasti
+Vasti-Anuvasana^|Vasti-Anuvasana||||Vasti
+Vasti-Asthapana-Kashaya|Vasti-Asthapana-Kashaya||||Vasti
+Vasti-Asthapana-Kashaya samamsa^|Vasti-Asthapana-Kashaya samamsa||||Vasti
+Vasti-Asthapana-Kashaya*|Vasti-Asthapana-Kashaya||||Vasti
+Vasti-Asthapana-Kashaya^|Vasti-Asthapana-Kashaya||||Vasti
+Vasti-Asthapana-Ksheera samamsa^|Vasti-Asthapana-Ksheera samamsa||||Vasti
+Vasti-Asthapana-Ksheera*|Vasti-Asthapana-Ksheera||||Vasti
+Vasti-Asthapana-Ksheera^|Vasti-Asthapana-Ksheera||||Vasti
+Vasti-Greeva*|Vasti-Greeva||||Vasti
+Vasti-Greeva^|Vasti-Greeva||||Vasti
+Vasti-Jala **|Vasti-Jala||||Vasti
+Vasti-Jala ^|Vasti-Jala||||Vasti
+Vasti-Janu (Both) ^|Vasti-Janu (Both)||||Vasti
+Vasti-Janu Single) *|Vasti-Janu Single)||||Vasti
+Vasti-Janu Single) ^|Vasti-Janu Single)||||Vasti
+Vasti-Kati*|Vasti-Kati||||Vasti
+Vasti-Kati^|Vasti-Kati||||Vasti
+Vasti-Matra **|Vasti-Matra||||Vasti
+Vasti-Prushta|Vasti-Prushta||||Vasti
+Vasti-Prushta ^|Vasti-Prushta||||Vasti
+Vasti-Shiro**|Vasti-Shiro||||Vasti
+Vasti-Shiro^|Vasti-Shiro||||Vasti
+Vasti-Uro(Hridaya)|Vasti-Uro(Hridaya)||||Vasti
+Vasti-Uro(Hridaya) ^|Vasti-Uro(Hridaya)||||Vasti
+Vasti-Uttara (Female)|Vasti-Uttara (Female)||||Vasti
+Vasti-Uttara (Female)^|Vasti-Uttara (Female)||||Vasti
+Vasti-Uttara (Male)^|Vasti-Uttara (Male)||||Vasti
+Vasti-Vankshana ^|Vasti-Vankshana||||Vasti
+Vata Vidhvansa Ras 25T[ Dooth ]|Vata Vidhvansa|Dooth|25|T|Rasayanam
+Vata Vidhvansa Ras 80T (Baidyanath)|Vata Vidhvansa|Baidyanath|80|T|Rasayanam
+Vatagajankush Ras 40 T (Baidyanath)|Vatagajankush|Baidyanath|40|T|Rasayanam
+Vatagajankush Ras 80 T (Baidyanath)|Vatagajankush|Baidyanath|80|T|Rasayanam
+Vatagajankush Ras Tab (Baidyanath)|Vatagajankush|Baidyanath|||Rasayanam Tab
+Vathamardanam Kuzhamubu 200 ml|Vathamardanam||200|ml|Kuzhambu
+Vathapy Caps (Capro Labs)|Vathapy|Capro Labs|||Tablet / Gulika / Vati
+Vatholin Ointment (Kumar)|Vatholin|Kumar|||Misc
+Vayu Gulika Vaidya|Vayu|Vaidya|||Tablet / Gulika / Vati
+Vayu Gulika [AVP]|Vayu|AVP|||Tablet / Gulika / Vati
+Veeratharadhi Ks [AVP]|Veeratharadhi|AVP|||Kashayam
+veeratharadhi ks|Veeratharadhi||||Kashayam
+Vela Green Tea (Aswini Herbs)|Vela Green Tea|Aswini Herbs|||Juice / Tea
+Vettumaran Gulika (AVP)|Vettumaran|AVP|||Tablet / Gulika / Vati
+Vibheetaki|Vibheetaki||||Misc
+Vidalaka-Netra ^|Vidalaka-Netra||||Misc
+Vidangarishta 200ml|Vidangarishtam||200|ml|Aristham
+Vidangarishta 400|Vidangarishtam||400||Aristham
+Vidangarishtam|Vidangarishtam||||Aristham
+Vidangarishtam 450ml (Saptagiri)|Vidangarishtam|Saptagiri|450|ml|Aristham
+Vidangasava Dabur|Vidangasavam|Dabur|||Asavam
+Vidaryadi Ghritham (AVP)|Vidaryadi|AVP|||Ghritham
+Vidaryadi Gritham SNA|Vidaryadi|SNA|||Ghritham
+Vidaryadi Gritham Vaidya|Vidaryadi|Vaidya|||Ghritham
+Vidaryadi Kashayam Vaidya|Vidaryadi|Vaidya|||Ghritham
+Vidaryadi Ks (Vaidya)|Vidaryadi|Vaidya|||Kashayam
+Vidaryadi kashyam [avp]|Vidaryadi|avp|||Kashayam
+Vidaryadi Leham 500gm (Vaidya)|Vidaryadi|Vaidya|500|gm|Lehyam
+Vilwadi Gulika|Vilwadi||||Tablet / Gulika / Vati
+Vilwadi Gulika KPL|Vilwadi|KPL|||Tablet / Gulika / Vati
+Vilwadi Gulika SNA|Vilwadi|SNA|||Tablet / Gulika / Vati
+Vilwadi Gulika Vaidya|Vilwadi|Vaidya|||Tablet / Gulika / Vati
+Vilwadi Guliks SNA|Vilwadi|SNA|||Tablet / Gulika / Vati
+Vilwadi gulika (AVP)|Vilwadi|AVP|||Tablet / Gulika / Vati
+Vilwadi Leham 200gm (AVP)|Vilwadi|AVP|200|gm|Lehyam
+Vilwadi Leham 200gm Kottakal|Vilwadi|Kottakal|||Lehyam
+Vilwadi Lehyam 250gm Vaidya|Vilwadi|Vaidya|||Lehyam
+Vilwadi Lehyam 50gm (AVP)|Vilwadi|AVP|||Lehyam
+Vilwadi Lehyam 50gm SNA|Vilwadi|SNA|||Lehyam
+Vilwadi Lehyam Vaidya|Vilwadi|Vaidya|||Lehyam
+vilwadi lehyam [50g] avp|Vilwadi|avp|||Lehyam
+Vilwampachottyadi Oil 100 ml (SNA)|Vilwampachottyadi|SNA|100|ml|Oil
+Vilwampachottyadi Oil 200ml|Vilwampachottyadi||200|ml|Oil
+Vilwampachottyadi Oil SNA|Vilwampachottyadi|SNA|||Oil
+Vilwampathradi Thailam 200 ml|Vilwampathradi||200|ml|Oil
+Vinayakanjanam (Sreedhareeyam)|Vinayakanjanam|Sreedhareeyam|||Misc
+Virechana Package - Classical|Virechana Package - Classical||||Panchakarma
+Virechana-Nitya **|Virechana-Nitya||||Panchakarma
+Virgin Coconut Oil (Coconess)|Virgin Coconut||||Oil
+Viscovas Cap (Atrimed)|Viscovas|Atrimed|||Tablet / Gulika / Vati
+Vishagarbha Oil (Maha)|Vishagarbha|Maha|||Oil
+Vishamushti Vati 100T (SDM)|Vishamushti|SDM|100|T|Tablet / Gulika / Vati
+Vishamusti Thailam 100 ml|Vishamushti||100|ml|Oil
+Vishamusti Thailam 100ml|Vishamushti||100|ml|Oil
+Vishamusti Thailam 200 ml|Vishamushti||200|ml|Oil
+Vision Test|Vision Test||||Bandage / Belt / External
+Vomiteb Syr (Charak)|Vomiteb|Charak|||Syrup
+Vrana Dhupana|Vrana Dhupana||||Dhoopana
+Vrana Prakshlana|Vrana Prakshlana||||Bandage / Belt / External
+Vrikshamala Tab 60T (Himalaya)|Vrikshamla|Himalaya|60|T|Tablet / Gulika / Vati
+Vrikshamla (Kokkam)|Vrikshamla||||Tablet / Gulika / Vati
+Vrikshamlam (kokkam)|Vrikshamla||||Tablet / Gulika / Vati
+Vyaghryadi kashyam [avp]|Vyaghryadi|avp|||Kashayam
+Vyoshadi Vatakam 100gm|Vyoshadi||100|gm|Tablet / Gulika / Vati
+Vyoshadi Vatakam 50gm [Vaidya]|Vyoshadi|Vaidya|50|gm|Tablet / Gulika / Vati
+Vyraksha Cap|Vrikshamla||||Tablet / Gulika / Vati
+Wama Syr. 200ml|Wama||200|ml|Syrup
+Wart excision(large)|Wart excision||||Bandage / Belt / External
+Wart excision(medium)|Wart excision||||Bandage / Belt / External
+Wart excision(small)|Wart excision||||Bandage / Belt / External
+Whyral 22 Cap (Medifield)|Whyral 22|Medifield|||Tablet / Gulika / Vati
+Whyral 22 Drops (Medifield)|Whyral 22|Medifield|||Drops
+Wormicid Plus Syr 100ml (Prakruthi)|Wormicid Plus|Prakruthi|100|ml|Syrup
+Wound Debridement|Wound Debridement||||Bandage / Belt / External
+Wound Debridment - Medium|Wound Debridement||||Bandage / Belt / External
+Wound Debridment - Small|Wound Debridement||||Bandage / Belt / External
+Wound Repair|Wound Debridement||||Bandage / Belt / External
+Xerfer Cap (AVN)|Xerfer|AVN|||Tablet / Gulika / Vati
+Yashada Bhasma 5gm (Dooth)|Yashada|Dooth|5|gm|Bhasma
+Yashtimadhu Oil 200ml[Prakruti]|Yashtimadhu|Prakruti|200|ml|Oil
+Yastimadhu|Yashtimadhu||||Root
+Yastimadhu_1|Yashtimadhu||||Root
+Yastimadhu churna|Yashtimadhu||||Choornam / Powder
+Yastimadhu Oil|Yashtimadhu||||Oil
+Yastimadhu Oil 100 ml|Yashtimadhu||100|ml|Oil
+Yastimadhu Oil 100 ml [Prakruti]|Yashtimadhu|Prakruti|100|ml|Oil
+Yastimadhu Oil 200 ml|Yashtimadhu||200|ml|Oil
+Yava|Yava||||** Not yet coded
+Yava Churna|Yava||||Choornam / Powder
+Yava churna|Yava||||Choornam / Powder
+Yavakshar bhasma|Yavakshara||||Bhasma
+Yavakshara|Yavakshara||||Kshar
+Yavaloha Choornam|Yavaloha||||Choornam / Powder
+Yavaloha Choornam 100 gm|Yavaloha||100|gm|Choornam / Powder
+Yavaloha Choornam 50gm|Yavaloha||50|gm|Choornam / Powder
+Yavaloha choornam [vaidya]|Yavaloha|vaidya|||Choornam / Powder
+Yeshtimadhu Oil 100 ml|Yashtimadhu||100|ml|Oil
+Yoga Consultation|Yoga Consultation||||Yoga
+Yoga session|Yoga session||||Yoga
+Yogaraja Choornam|Yogaraja||||Choornam / Powder
+Yogaraja Choornam SNA|Yogaraja|SNA|||Choornam / Powder
+Yogaraja Gulgulu (Malabar)|Yogaraja Guggulu|Malabar|||Tablet / Gulika / Vati
+Yogaraja Gulgulu DS Tab (AVN)|Yogaraja Guggulu DS|AVN|||Tablet / Gulika / Vati
+Yogaraja Gulgulu Tab KPL|Yogaraja Guggulu|KPL|||Tablet / Gulika / Vati
+Yogarajagulgulu Vatika 14T [AVP]|Yogaraja Guggulu|AVP|14|T|Tablet / Gulika / Vati
+Yogarajagulgulu Vatika Vaidya|Yogaraja Guggulu|Vaidya|||Tablet / Gulika / Vati
+Yogarajagulgulu Vatika [Vaidya]|Yogaraja Guggulu|Vaidya|||Tablet / Gulika / Vati
+Yogarajagulgulu vatika|Yogaraja Guggulu|vatika|||Tablet / Gulika / Vati
+Yogic Kriya|Yogic Kriya||||Yoga
+Yoni - Sweda **|Yoni - Sweda||||Sweda
+Yoni Abhyanga **|Yoni Abhyanga||||Abhyanga
+Yoni Kalka Dharanam^|Yoni Kalka Dharanam||||Misc
+Yoni Lepam^|Yoni Lepam||||Lepam
+Yoni Pichu **|Yoni Pichu||||Pichu
+Yoni Pooranam **|Yoni Pooranam||||Misc
+Yoni Prakshalanam ^|Yoni Prakshalanam||||Misc
+Yoni Vrana Parisheka^|Yoni Vrana Parisheka||||Bandage / Belt / External
+Yuva Cream 25gm|Yuva||25|gm|Cream
+Zeal Herbal Granles|Zeal Herbal||||Granules
+Zeal Lozenges|Zeal Lozenges||||Granules
+Zeal plus Lozenges (Vasu)|Zeal Plus Lozenges|Vasu|||Granules
+Zeal S F Syrups (Vasu)|Zeal S F|Vasu|||Syrup
+Zeal Syrup (Vasu)|Zeal|Vasu|||Syrup
+Zeotone Gel Cap (AVN)|Zeotone Gel|AVN|||Gel
+Zeotone Plus Cap (AVN)|Zeotone Plus|AVN|||Tablet / Gulika / Vati
+Zeotone Tab (AVN)|Zeotone|AVN|||Tablet / Gulika / Vati
+Zirconia classic|Zirconia classic||||Misc
+Zirconia Platinum|Zirconia Platinum||||Misc
+Zirconia platinum plus|Zirconia Platinum plus||||Misc

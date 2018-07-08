@@ -231,6 +231,17 @@ rm (base01_ip, base01_op, base01_ser, l)
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 
+#############################################
+# Update the data by re-coded Medicine names
+#############################################
+lookup_medicine <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_medicine.txt", sep="|")
+
+all_met_rmsd <- merge(x = all_met_rmsd,
+                  y = lookup_medicine,
+                  all.x = TRUE,
+                  by.x = c("medicine_name"),
+                  by.y = c("medicine_name")  )
+
 fwrite(all, "D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
 fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.csv")
 saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
