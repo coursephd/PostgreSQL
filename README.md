@@ -9,7 +9,7 @@ The following files should be used in the following sequence:
 | Program name | Description |
 | --- | --- |
 | 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
-| 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services |
+| 100_adsl.R | R code to create data for patient level information: Demog + Visit + diseases + treatments + services<br>-- Treatment names are corrected, Type_med variable is an attempt to create logical treatment grouping|
 | 02other_data.R | SQL code is added at the top of the file and then followed by R code |
 | 100_adsl_updt_BasedOn_otherData.R | Ongoing <br>Creates various background characteristics variables using other data, <br>this program uses a few other files, <br>Used files:<br>lookup.csv, lookup_backchar004_003.txt and lookup_backchar004_005.txt<br>Allopathic diagnosis variable creation: 060_allopathic_diag.R |
 
@@ -32,6 +32,7 @@ The following files should be used in the following sequence:
 | 05_slopegraph.R | Edward Tufte style slopegraph to understand the trends in the data |
 | 060_allopathic_diag.R| ICD10 coding for background diseases used in **Tableau** displays|
 | 070_Diff_Visit_Studyday_analysis | Create file for differences in 2 consecutive visits Overall and by Disease, these 2 files are used in **Tableau** displays|
+| 070_Diff_Visit_Studyday_Medicine_analysis| Create file for differences in 2 consecutive visits by treatment, this file is used in **Tableau** displays|
 
 # Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
@@ -62,7 +63,7 @@ The following files should be used in the following sequence:
 | Viz name | Description |
 | --- | --- |
 | **Based on data from SQL database till Oct 2017**||
-| 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases by each day, gender and **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and **Rutu**)<br>- PatProf_season - Aamavaata (Patient Profile 1 row per patient by **Rutus**)<br>- ~~Sheet 13~~ (**Do not use*)| 
+| 01SQL_Dis_Med_Ser|Detailed RMSD and Metabolic disease analysis<br>- RMSD_Met_patients (Frequency table)<br>- Visit_Duration (Boxplot)<br>- Patient_Visit_View (Patient Profile 1 row per patient)<br>- 1stDay_Met_Disease (Summary statistics of metabolic disease reporting)<br>- DisType_Diseases (Disease frequency by gender and type)<br>- MedType_DisType (Medicine by gender and type)<br>- Medicine_DisCode (Medicine by disease, gender and type)<br>- DiseaseByStudyDay (Frequency of diseases by each day and gender)<br>- DiseaseByStudyDaySeason - Grishma Ritu (Frequency of diseases by each day, gender and **Rutus**)<br>- MedByStudyDay (Medicine prescribed by each study day)<br>- SeasonDisease (Frequency of diseases by gender and **Rutu**)<br>- SeasonMedicine (Frequency of medicines by gender and **Rutu**)<br>- PatProf_season - Aamavaata (Patient Profile 1 row per patient by **Rutus**)<br>- Box_AgeMed - Box plot for Age and medicine<br>- Slopegraph_disPatients -- Number of patients per year for each disease<br>- Slopegraph_disVisit -- Number of visits per year for each disease<br>- MedicineByDay -- Medicines prescribed by day| 
 | Diff_Visit_Studyday | Boxplots for difference between 2 consecutive visits<br>- The number of days between 2 consecutive visits is quite large in initial visits, the difference reduces as the visits increase|
 | Diff_Visit_Studyday_ByDisease | Boxplots for difference between 2 consecutive visits for individual disease<br>- This helps understand diseases reported more than once for individual patients.|
 | Allopathic_diag | These displays provide background disease information for 8000+ patients.|
@@ -82,3 +83,10 @@ The following files should be used in the following sequence:
 | **Based on data from SQL database till Oct 2017**||
 | 01_Primary_madhumeha| The diseases and corresponding treatments are displayed on calendar days as well as Study day view|
 | 02_Primary_madhumeha_comb_medicine|A cumulative view of diseases and corresponding treatments prescribed.<br>- There are 1026 combinations of diseases observed in the data|
+
+# Gridhrasee
+## Gridhrasee specific analysis: This is an attempt to understand patients with primary diagnosis of Gridhrasee "V2.23", there are approximately 2000 patients in this subset.
+
+| Program name | Description |
+| --- | --- |
+| 01_Primary_Gridhrasee| |
