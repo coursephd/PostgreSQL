@@ -1,0 +1,21 @@
+data <-fread ("C:\\Users\\mahajvi1\\Desktop\\data.txt", sep ="!")
+
+# Create dummy patient and visit columns
+data <- data [, row :=1:.N ]
+data <- data [, patid := round(row/100, 0)]
+data <- data [, vis :=1:.N, by = .(patid)]
+
+
+library(sentimentr)
+library(magrittr)
+library(dplyr)
+
+data %>%
+  get_sentences(data$Value) %>%
+  sentiment_by(by = c('patid', 'vis'))
+
+data5000 <- data[row <= 5000]
+
+anals <- data5000 %>%
+  mutate(dialogue_split = get_sentences(data5000$Value)) %$%
+  sentiment_by(dialogue_split, by = c(patid, vis)) 
