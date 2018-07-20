@@ -1,5 +1,7 @@
 
 https://github.com/trinker/sentimentr
+https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-017-0121-9 -- very good example
+
 
 library(sentimentr)
 library(magrittr)
