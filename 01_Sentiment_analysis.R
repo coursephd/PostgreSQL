@@ -1,3 +1,6 @@
+
+https://github.com/trinker/sentimentr
+
 library(sentimentr)
 library(magrittr)
 library(dplyr)
