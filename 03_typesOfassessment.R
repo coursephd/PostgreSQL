@@ -7,6 +7,18 @@ library(sqldf)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
+##################################
+# Subset for Metabolic RMSD data
+##################################
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage",
+                                   "city_name", "state_name", "dateofbirth", "country_name",
+                                   "death_date")])
+
+vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "vis", "Type", "Code", "distype", "description",
+                                   "all_ip", "all_op")])
+
 ##################################################
 # Get records per visit for Treatment / Procedure
 # Med start date, end date non missing and 
@@ -14,18 +26,18 @@ all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rd
 ##################################################
 
 med_ip <- unique( na.omit( all_met_rmsd, cols = c("stdt_IP") ))
-med_ip <- unique( med_ip [, c("mr_no", "studyday", "vis"), ] )
+med_ip <- unique( med_ip [, c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 med_ip <- med_ip [, cat := "Treatment - IP"]
 
 med_op <- unique( na.omit( all_met_rmsd, cols = c("stdt_OP") ))
-med_op <- unique( med_op [, c("mr_no", "studyday", "vis"), ] )
+med_op <- unique( med_op [, c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 med_op <- med_op [, cat := "Treatment - OP"]
 
 ser <- unique( na.omit( all_met_rmsd, cols = c("serstdt") ))
-ser <- unique( ser [, c("mr_no", "studyday", "vis"), ] )
+ser <- unique( ser [, c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 ser <- ser [, cat := "Treatment - Procedure"]
 
-dis <- unique( all_met_rmsd [Code != " " | description != " ", c("mr_no", "studyday", "vis"), ] )
+dis <- unique( all_met_rmsd [Code != " " | description != " ", c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 dis <- dis [, cat := "Disease"]
 
 catall <- rbind(med_ip, med_op, ser, dis, fill = TRUE)
@@ -52,7 +64,6 @@ base01_other022 <- merge (x = base01_other02 [ option_id >= 0],
                           all.x = TRUE)
 
 # Keep Unique records
-#base01_other022 <- unique ( base01_other02 [, c("mr_no", "patient_id", "section_id", "option_id", "field_id", "option_remarks", "section_title", "display_order", "option_value"), with =FALSE] )
 base01_other022 <- unique ( base01_other022 [, c("mr_no", "patient_id", "section_id",  "field_id", "option_remarks", "section_title", "display_order", "option_value"), with =FALSE] )
 
 # Sort the data by patient and visits
@@ -83,17 +94,6 @@ base01_all <- rbind(base01_other022, base01_other044, fill =TRUE)
 # Create a counter variable for transpose
 base01_other030 <- base01_all [, subvis := 1:.N, by = .(mr_no, patient_id, section_id, field_id, option_value)]
 
-##################################
-# Subset for Metabolic RMSD data
-##################################
-all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
-
-subpat <- unique(all_met_rmsd [, c("mr_no", "Metabolic", "RMSD", "combine", "all_vis",
-                                   "city_name", "state_name", "dateofbirth", "country_name",
-                                   "death_date")])
-
-vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "vis", "Type", "Code", "distype", "description",
-                                   "all_ip", "all_op")])
 
 # Only keep Metabolic and RMSD patients
 base01_met_rmsd <- merge (x = base01_other030,
@@ -114,7 +114,7 @@ base01_met_rmsd <- merge (x = base01_met_rmsd,
                                  "field_id", "display_order", "option_value"), 
                           all.x = TRUE)
 
-base01_met_rmsd02 <- unique( base01_met_rmsd [option_remarks != " ", c("mr_no", "option_value", "patient_id")] )
+base01_met_rmsd02 <- unique( base01_met_rmsd [option_remarks != " ", c("mr_no", "option_value", "patient_id", "trnvar")] )
 
 # Add visit information and disease information:
 base01_met_rmsd02 <- merge (x = base01_met_rmsd02,
@@ -131,3 +131,18 @@ base01_met_rmsd02 <- merge (x = base01_met_rmsd02,
 
 base01_met_rmsd02 <- unique( base01_met_rmsd02 )
 
+# variable names
+types <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_03types.csv")
+
+base01_met_rmsd02 <- merge (x = base01_met_rmsd02,
+                            y = types [, c("trnvar", "cat")],
+                            by = c("trnvar"), 
+                            all.x = TRUE)
+
+base01_met_rmsd03 <- unique( base01_met_rmsd02 [ , -c("option_value", "patient_id", "trnvar" )])
+
+catall02 <- rbind(catall, base01_met_rmsd03, fill = TRUE)
+catall02 <- catall02 [, val :=1]
+
+fwrite(catall02, 
+       "D:/Hospital_data/ProgresSQL/analysis/03_typesOfassessent.csv")
