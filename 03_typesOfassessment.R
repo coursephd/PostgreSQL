@@ -26,11 +26,11 @@ vispat <- unique(all_met_rmsd [, c("mr_no", "studyday", "patient_id", "newdt", "
 ##################################################
 
 med_ip <- unique( na.omit( all_met_rmsd, cols = c("stdt_IP") ))
-med_ip <- unique( med_ip [, c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
+med_ip <- unique( med_ip [Type == "IP", c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 med_ip <- med_ip [, cat := "Treatment - IP"]
 
 med_op <- unique( na.omit( all_met_rmsd, cols = c("stdt_OP") ))
-med_op <- unique( med_op [, c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
+med_op <- unique( med_op [Type == "OP", c("mr_no", "vis", "studyday", "Metabolic", "RMSD", "combine", "all_vis", "patient_gender", "baseage"), ] )
 med_op <- med_op [, cat := "Treatment - OP"]
 
 ser <- unique( na.omit( all_met_rmsd, cols = c("serstdt") ))
