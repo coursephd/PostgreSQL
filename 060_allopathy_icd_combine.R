@@ -154,11 +154,11 @@ acd03 <- acd02 [ i = minday > studyday,
                  j = c("icd", "minday", "V5", "high", "code01", "text01") := NA]
 
 madhumeha <- unique( all_met_rmsd [ Code %in% c("M2.0") & diag_type == "P", c("mr_no"), ])
-all_madhu <- chk02min [ mr_no %in% madhumeha$mr_no]
+all_madhu <- acd03 [ mr_no %in% madhumeha$mr_no]
 all_madhu <- all_madhu [, primary := "Madhumeha"]
 
 gridh <- unique( all_met_rmsd [ Code %in% c("V2.23") & diag_type == "P", c("mr_no"), ])
-all_gridh <- chk02min [ mr_no %in% gridh$mr_no]
+all_gridh <- acd03 [ mr_no %in% gridh$mr_no]
 all_gridh <- all_gridh [, primary := "Gridharasee"]
 
 all_madh_gr <- rbind (all_madhu, all_gridh)
