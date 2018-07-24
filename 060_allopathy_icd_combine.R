@@ -155,9 +155,16 @@ acd03 <- acd02 [ i = minday > studyday,
 
 madhumeha <- unique( all_met_rmsd [ Code %in% c("M2.0") & diag_type == "P", c("mr_no"), ])
 all_madhu <- chk02min [ mr_no %in% madhumeha$mr_no]
+all_madhu <- all_madhu [, primary := "Madhumeha"]
 
 gridh <- unique( all_met_rmsd [ Code %in% c("V2.23") & diag_type == "P", c("mr_no"), ])
 all_gridh <- chk02min [ mr_no %in% gridh$mr_no]
+all_gridh <- all_gridh [, primary := "Gridharasee"]
+
+all_madh_gr <- rbind (all_madhu, all_gridh)
+
+fwrite(all_madh_gr, 
+       "D:/Hospital_data/ProgresSQL/analysis/060_allopathy_icd_comb_madhu_gridh.csv")
 
 ######################################################################
 # End of program
