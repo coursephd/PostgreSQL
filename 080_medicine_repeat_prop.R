@@ -20,7 +20,7 @@ meds0 <- meds
 ###########################################################
 meds0 <- meds0 [order(mr_no, studyday, as.numeric(cat_id) )]  
 meds0 <- meds0 [, minday := min(studyday), by = .(mr_no)]
-meds0 <- meds0 [, minmedday := min(studyday), by = .(mr_no, medicine_name)]
+meds0 <- meds0 [, minmedday := min(studyday), by = .(mr_no, Coded_med, Type_med)]
 
 ###########################################################
 # Get group (each day of treatment) as a grouping variable
@@ -48,8 +48,8 @@ cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, cat_id)]
 cum01 <- cum01 [order(mr_no, studyday, minday, as.numeric(cat_id), presc )]  
 cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
 
-tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", 
-                  "medicine_name", "grpday", "grpmaxday", "grpall",
+tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", "Type_med",
+                  "medicine_name", "grpday", "grpmaxday", "grpall", "Coded_med",
                   "minmedday")]
 
 ####################################################################
@@ -70,7 +70,7 @@ fwrite(cum02,
 #############################################################################
 
 cum03 <- cum02 [, (list( cumday = (grpday: grpmaxday) ) ), 
-                by = .(mr_no, cat_id, presc, medicine_name, 
+                by = .(mr_no, cat_id, presc, Type_med, Coded_med, 
                        studyday, grpday, grpmaxday, minmedday, newold2) ]
 
 cum03 <- cum03 [, cumday2 := paste("Till visit", cumday, sep = " "), ]
