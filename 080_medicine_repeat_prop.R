@@ -12,23 +12,45 @@ meds <- unique( all_met_rmsd [substr(cat_id, 1, 3) != "SER",
 meds0 <- meds [nchar(medicine_name) > 0 & 
                  nchar(duration) > 0 & nchar(duration_units) > 0] 
 
+###########################################################
+# Get the minimum day (minday) for any medicine and
+# Get the minimum day (minmedday) for individual medicine
+###########################################################
 meds0 <- meds0 [order(mr_no, studyday, as.numeric(cat_id) )]  
 meds0 <- meds0 [, minday := min(studyday), by = .(mr_no)]
+meds0 <- meds0 [, minmedday := min(studyday), by = .(mr_no, medicine_name)]
 
+###########################################################
+# Get group (each day of treatment) as a grouping variable
+# Get individual sequential rows within each group
+###########################################################
 time <- unique(meds0 [, c("mr_no", "studyday")] ) 
 time <- time [order(mr_no, studyday)]
 time <- time [, grpday := 1:.N, by = .(mr_no)]
 time <- time [, grpmaxday := max(grpday), by = .(mr_no)]
 
+#######################################################
+# Merge the grouping variables for further calculations
+# Sort the data
+#######################################################
 meds0 <- merge (x = meds0, y = time, by = c("mr_no", "studyday") )
+meds0 <- meds0[order(mr_no, as.numeric(cat_id), studyday, grpday)]
 
-cum <- meds0 [mr_no == "MR000016"][order(mr_no, as.numeric(cat_id), studyday, grpday)]
+###############################################################################
+# Sort the data to get prescription number for each medicine
+# If the prescription number is > 1 then that medicine is given more than once
+#
+# There are 2 sequence variables: one for day and one for medicine
+###############################################################################
 cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, cat_id)]
 cum01 <- cum01 [order(mr_no, studyday, minday, as.numeric(cat_id), presc )]  
 cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
 
 tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", "medicine_name", "grpday", "grpmaxday", "grpall")]
 
+# If the prescription = 1 and studyday = minmedday then Start
+# If prescription > 1 then Old (already given and not a medicine)
+# If prescription  group number is > 1 then Start
 cum02 <- tmp [, newold := ifelse(presc == 1 & grpday > 1, "new", "old"), by =.(mr_no)]
 
 #############################################################################
