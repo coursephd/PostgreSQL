@@ -46,18 +46,36 @@ cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, cat_id)]
 cum01 <- cum01 [order(mr_no, studyday, minday, as.numeric(cat_id), presc )]  
 cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
 
-tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", "medicine_name", "grpday", "grpmaxday", "grpall")]
+tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", 
+                  "medicine_name", "grpday", "grpmaxday", "grpall",
+                  "minmedday")]
 
+####################################################################
 # If the prescription = 1 and studyday = minmedday then Start
 # If prescription > 1 then Old (already given and not a medicine)
 # If prescription  group number is > 1 then Start
-cum02 <- tmp [, newold := ifelse(presc == 1 & grpday > 1, "new", "old"), by =.(mr_no)]
+####################################################################
+cum01 <- cum01 [, newold := ifelse (studyday == minmedday, "1st dose", ""), ]
+cum02 <- cum01 [, newold2 := ifelse(presc > 1 & grpday > 1 & studyday > minmedday & newold != "1st dose", "Repeat", newold), by =.(mr_no)]
+
+fwrite(cum02, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop.csv")
 
 #############################################################################
 # Duplicate the medication and see which medications are given multiple times
+# This gives a cumulative view of what has been prescribed till a certain
+# Visit, how many medicines are 1st time given and how many are Repeated
 #############################################################################
 
-cum03 <- cum02 [, (list( newday = (grpday: grpmaxday) ) ), 
-                by = .(mr_no, cat_id, presc, medicine_name, studyday, grpday, grpmaxday, newold) ]
+cum03 <- cum02 [, (list( cumday = (grpday: grpmaxday) ) ), 
+                by = .(mr_no, cat_id, presc, medicine_name, 
+                       studyday, grpday, grpmaxday, minmedday, newold2) ]
+
+cum04 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
+                by = .(mr_no, cumday, newold2)]
+
+cum05 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
+                by = .(mr_no, studyday, cumday, newold2)]
+
 
 tmp02 <- cum03 [mr_no == "MR000016"]
