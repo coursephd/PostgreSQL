@@ -31,7 +31,11 @@ tmp <- cum01 [, c("mr_no", "studyday", "minday","cat_id", "presc", "medicine_nam
 
 cum02 <- tmp [, newold := ifelse(presc == 1 & grpday > 1, "new", "old"), by =.(mr_no)]
 
+#############################################################################
 # Duplicate the medication and see which medications are given multiple times
+#############################################################################
 
 cum03 <- cum02 [, (list( newday = (grpday: grpmaxday) ) ), 
-                by = .(mr_no, cat_id, presc, medicine_name, studyday, grpday, grpmaxday) ]
+                by = .(mr_no, cat_id, presc, medicine_name, studyday, grpday, grpmaxday, newold) ]
+
+tmp02 <- cum03 [mr_no == "MR000016"]
