@@ -4,13 +4,15 @@ library(stringr)
 library(sqldf)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
-meds <- unique( all_met_rmsd [substr(cat_id, 1, 3) != "SER", 
+
+#substr(cat_id, 1, 3) != "SER"
+meds <- unique( all_met_rmsd [medicine_name != " ", 
                               c("mr_no", "medicine_name", "studyday", "remarks", "frequency", 
                                "duration", "duration_units", "Coded_med", "Type_med", 
                                "quantity", "patient_id", "cat_id")] )
 
-meds0 <- meds [nchar(medicine_name) > 0 & 
-                 nchar(duration) > 0 & nchar(duration_units) > 0] 
+meds0 <- meds
+#meds0 <- meds [nchar(medicine_name) > 0 & nchar(duration) > 0 & nchar(duration_units) > 0] 
 
 ###########################################################
 # Get the minimum day (minday) for any medicine and
@@ -71,8 +73,17 @@ cum03 <- cum02 [, (list( cumday = (grpday: grpmaxday) ) ),
                 by = .(mr_no, cat_id, presc, medicine_name, 
                        studyday, grpday, grpmaxday, minmedday, newold2) ]
 
+cum03 <- cum03 [, cumday2 := paste("Till visit", cumday, sep = " "), ]
+
+fwrite(cum03, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative.csv")
+
+
 cum04 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
-                by = .(mr_no, cumday, newold2)]
+                by = .(mr_no, cumday, cumday2, newold2)]
+
+cum04tot <- cum03 [, .(medtot = uniqueN(medicine_name)),
+                   by = .(mr_no, cumday, cumday2)]
 
 cum05 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
                 by = .(mr_no, studyday, cumday, newold2)]
