@@ -141,9 +141,9 @@ cum02all <- cum02all[, -c("newold"),]
 cum03all <- rbind (cum03, cum03dis, fill = TRUE)
 
 fwrite(cum02all, 
-       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop.csv")
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_dis_repeat_prop.csv")
 fwrite(cum03all, 
-       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative.csv")
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_dis_repeat_prop_cumulative.csv")
 
 ################################################################
 # End of program
