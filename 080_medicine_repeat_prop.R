@@ -81,6 +81,8 @@ cum03 <- cum03 [, cumday2 := paste("Till visit", cumday, sep = " "), ]
 # Data related to diseases
 ###########################
 meds0 <- unique( all_met_rmsd [, c("mr_no", "Code", "studyday", "description")] )
+meds0 <- data.table(meds0 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),])
+meds0 <- data.table(meds0 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),])
 
 ###########################################################
 # Get the minimum day (minday) for any medicine and
@@ -134,8 +136,14 @@ cum03dis <- cum03dis [, cumday2 := paste("Till visit", cumday, sep = " "), ]
 # Combine all disease and medicine information
 # for individual visits as well as cumulative visit data
 ########################################################
-cum02all <- rbind (cum02, cum02dis, fill = TRUE)[, -c("newold"), ]
-cum03all <- rbind (cum03, cum03dis, fill = TRUE)[, -c("newold"), ]
+cum02all <- rbind (cum02, cum02dis, fill = TRUE)
+cum02all <- cum02all[, -c("newold"),]
+cum03all <- rbind (cum03, cum03dis, fill = TRUE)
+
+fwrite(cum02all, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop.csv")
+fwrite(cum03all, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative.csv")
 
 ################################################################
 # End of program
