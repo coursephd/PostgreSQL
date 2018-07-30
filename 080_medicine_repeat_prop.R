@@ -63,6 +63,12 @@ cum02 <- cum01 [, newold2 := ifelse(presc > 1 & grpday > 1 & studyday > minmedda
 fwrite(cum02, 
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop.csv")
 
+cum022 <- cum02 [, .(medcnt = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
+                by = .(mr_no, grpday, studyday, newold2)]
+
+cum022tot <- cum02 [, .(medtot = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
+                   by = .(mr_no, grpday, studyday)]
+
 #############################################################################
 # Duplicate the medication and see which medications are given multiple times
 # This gives a cumulative view of what has been prescribed till a certain
@@ -86,7 +92,10 @@ cum04tot <- cum03 [, .(medtot = uniqueN( paste(Type_med, Coded_med, sep= " ")) )
                    by = .(mr_no, cumday, cumday2)]
 
 cum05 <- cum03 [, .(medcnt = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
-                by = .(mr_no, studyday, cumday, newold2)]
+                by = .(mr_no, studyday, grpday, cumday, cumday2, newold2)]
+
+cum05tot <- cum03 [, .(medtot = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
+                by = .(mr_no, studyday, grpday, cumday, cumday2)]
 
 
 ########################################################################################
@@ -95,7 +104,8 @@ cum05 <- cum03 [, .(medcnt = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
 # display
 ########################################################################################
 #substr(cat_id, 1, 3) != "SER"
-meds <- unique( all_met_rmsd [nchar(Code) > 0, 
+# nchar(Code) > 0
+meds <- unique( all_met_rmsd [, 
                               c("mr_no", "Code", "studyday", "description", "patient_id")] )
 
 meds0 <- meds
@@ -105,7 +115,7 @@ meds0 <- meds
 # Get the minimum day (minday) for any medicine and
 # Get the minimum day (minmedday) for individual medicine
 ###########################################################
-meds0 <- meds0 [order(mr_no, studyday, Code )]  
+meds0 <- meds0 [order(mr_no, studyday, Code, description )]  
 meds0 <- meds0 [, minday := min(studyday), by = .(mr_no)]
 meds0 <- meds0 [, minmedday := min(studyday), by = .(mr_no, Code, description)]
 
@@ -131,7 +141,7 @@ meds0 <- meds0[order(mr_no, studyday, grpday)]
 #
 # There are 2 sequence variables: one for day and one for medicine
 ###############################################################################
-cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, Code)]
+cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, Code, description)]
 cum01 <- cum01 [order(mr_no, studyday, minday, presc )]  
 cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
 
@@ -141,10 +151,16 @@ cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
 # If prescription  group number is > 1 then Start
 ####################################################################
 cum01 <- cum01 [, newold := ifelse (studyday == minmedday, "1st time disease", ""), ]
-cum02 <- cum01 [, newold2 := ifelse(presc > 1 & grpday > 1 & studyday > minmedday & newold != "1st time dose", "Repeat", newold), by =.(mr_no)]
+cum02dis <- cum01 [, newold2 := ifelse(presc > 1 & grpday > 1 & studyday > minmedday & newold != "1st time dose", "Repeat", newold), by =.(mr_no)]
 
-fwrite(cum02, 
+fwrite(cum02dis, 
        "D:/Hospital_data/ProgresSQL/analysis/080_disease_repeat_prop.csv")
+
+cum022dis <- cum02dis [, .(medcnt = uniqueN( paste(Code, description, sep=" ") ) ),
+                      by = .(mr_no, grpday, studyday, newold2)]
+
+cum022distot <- cum02dis [, .(medtot = uniqueN( paste(Code, description, sep=" ") ) ),
+                         by = .(mr_no, grpday, studyday)]
 
 #############################################################################
 # Duplicate the medication and see which medications are given multiple times
@@ -152,21 +168,21 @@ fwrite(cum02,
 # Visit, how many medicines are 1st time given and how many are Repeated
 #############################################################################
 
-cum03 <- cum02 [, (list( cumday = (grpday: grpmaxday) ) ), 
+cum03dis <- cum02dis [, (list( cumday = (grpday: grpmaxday) ) ), 
                 by = .(mr_no, Code, presc, description, 
                        studyday, grpday, grpmaxday, minmedday, newold2) ]
 
-cum03 <- cum03 [, cumday2 := paste("Till visit", cumday, sep = " "), ]
+cum03dis <- cum03dis [, cumday2 := paste("Till visit", cumday, sep = " "), ]
 
-fwrite(cum03, 
+fwrite(cum03dis, 
        "D:/Hospital_data/ProgresSQL/analysis/080_disease_repeat_prop_cumulative.csv")
 
 
-cum04 <- cum03 [, .(medcnt = uniqueN(Code)),
+cum04dis <- cum03dis [, .(medcnt = uniqueN( paste(Code, description, sep=" ") ) ),
                 by = .(mr_no, cumday, cumday2, newold2)]
 
-cum04tot <- cum03 [, .(medtot = uniqueN(Code)),
+cum04distot <- cum03dis [, .(medtot = uniqueN( paste(Code, description, sep=" ") ) ),
                    by = .(mr_no, cumday, cumday2)]
 
-cum05 <- cum03 [, .(medcnt = uniqueN(Code)),
-                by = .(mr_no, studyday, cumday, newold2)]
+cum05dis <- cum03dis [, .(medcnt = uniqueN( paste(Code, description, sep=" ") ) ),
+                by = .(mr_no, studyday, cumday, cumday2, newold2)]
