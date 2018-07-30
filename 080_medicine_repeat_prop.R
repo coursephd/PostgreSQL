@@ -134,8 +134,8 @@ cum03dis <- cum03dis [, cumday2 := paste("Till visit", cumday, sep = " "), ]
 # Combine all disease and medicine information
 # for individual visits as well as cumulative visit data
 ########################################################
-cum02all <- rbind (cum02, cum02dis, fill = TRUE)
-cum03all <- rbind (cum03, cum03dis, fill = TRUE)
+cum02all <- rbind (cum02, cum02dis, fill = TRUE)[, -c("newold"), ]
+cum03all <- rbind (cum03, cum03dis, fill = TRUE)[, -c("newold"), ]
 
 ################################################################
 # End of program
