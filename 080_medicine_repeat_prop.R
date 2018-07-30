@@ -79,13 +79,13 @@ fwrite(cum03,
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative.csv")
 
 
-cum04 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
+cum04 <- cum03 [, .(medcnt = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
                 by = .(mr_no, cumday, cumday2, newold2)]
 
-cum04tot <- cum03 [, .(medtot = uniqueN(medicine_name)),
+cum04tot <- cum03 [, .(medtot = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
                    by = .(mr_no, cumday, cumday2)]
 
-cum05 <- cum03 [, .(medcnt = uniqueN(medicine_name)),
+cum05 <- cum03 [, .(medcnt = uniqueN( paste(Type_med, Coded_med, sep= " ")) ),
                 by = .(mr_no, studyday, cumday, newold2)]
 
 
