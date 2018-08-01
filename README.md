@@ -1,3 +1,14 @@
+Disease medicine analysis:
+Summary statistics for number of prescriptions per visit, new as well as repeat
+Summary statistics for number of diseases per visit, new as well as repeat
+
+Number of prescriptions per medicine and disease combination
+
+Combinations of treatments given at a specific visit, almost like a shift table.
+When a new treatment is introduced what is the sentiment? – any sentiment analysis?
+
+1st disease and 1st dose combination – would it give any idea?
+
 AA0084IRH2  
 QLIK
 
