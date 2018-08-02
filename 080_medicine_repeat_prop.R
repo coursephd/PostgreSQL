@@ -145,6 +145,40 @@ fwrite(cum02all,
 fwrite(cum03all, 
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_dis_repeat_prop_cumulative.csv")
 
+
+all_met_rmsd0 <- data.table(all_met_rmsd [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),])
+all_met_rmsd0 <- data.table(all_met_rmsd0 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),])
+
+keep <- c("mr_no", "studyday", "patient_gender", "baseage", "age", "Code", "description", 
+          "Coded_med", "Type_med", "combine", "Metabolic", "RMSD", "vis", "season", "newdt0")
+
+all_met_rmsd_unq <- unique( all_met_rmsd0 [, ..keep, ])
+
+
+all_met_rmsd_unq02 <- merge(x = all_met_rmsd_unq, 
+                            y = cum02 [, -c("newold", "cat"),],
+                            by = c("mr_no", "studyday", "Coded_med", "Type_med"),
+                            all.x = TRUE)
+
+###################################################
+# Should look at this syntax for these 2 variables
+###################################################
+setnames (cum02dis, "Code", "Type_med")
+setnames (cum02dis, "description", "Coded_med")
+
+setnames (cum02dis, "presc", "prescdis")
+setnames (cum02dis, "newold2", "newold2dis")
+setnames (cum02dis, "grpday", "grpdaydis")
+
+all_met_rmsd_unq03 <- merge(x = all_met_rmsd_unq02, 
+                            y = cum02dis [, -c("newold", "cat", "grpall", "minday", "minmedday", "grpmaxday"),],
+                            by = c("mr_no", "studyday", "Code", "description"),
+                            all.x = TRUE)
+
+fwrite(all_met_rmsd_unq03, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_dis_all_met_rmsd_prop.csv")
+
+
 ################################################################
 # End of program
 ################################################################
