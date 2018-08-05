@@ -291,6 +291,8 @@ a01all <- merge(x = a01all,
 fwrite(a01all, 
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_Rcal.csv")
 
+saveRDS (a01all, "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_Rcal.rds")
+
 ################################################################
 # End of program
 ################################################################
