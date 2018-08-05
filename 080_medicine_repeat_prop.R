@@ -151,7 +151,7 @@ all_met_rmsd0 <- data.table(all_met_rmsd [, Code := ifelse (Code == " " | Code =
 all_met_rmsd0 <- data.table(all_met_rmsd0 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),])
 
 keep <- c("mr_no", "studyday", "patient_gender", "baseage", "age", "Code", "description", 
-          "Coded_med", "Type_med", "combine", "Metabolic", "RMSD", "vis", "season", "newdt0")
+          "Coded_med", "Type_med", "combine", "Metabolic", "RMSD", "vis", "season", "newdt0", "distype")
 
 all_met_rmsd_unq <- unique( all_met_rmsd0 [, ..keep, ])
 
@@ -251,8 +251,38 @@ a01all <- a01all [, `:=` (perc1dis = percent(`1st time disease` / totdis),
                           perc1dose = percent(`1st dose` / totdose),
                           percrepdose = percent(`Repeatdose` / totdose)) , ]
 
+#################################################
+# Get the diseases and doses collapsed into 1 row
+#################################################
+
+dis <- unique(all_met_rmsd_unq03 [grpday > 0, 
+                                  c("mr_no", "grpday", "Code", "description", "distype", "studyday", "newold2dis"), ])
+dis <- dis [, `:=` (disall = paste(distype, Code, sep= ":"),
+                    desall = paste(distype, description, sep= ":"))]
+
+discomb <- dis [grpday > 0, 
+                 .(discomb = paste(disall, collapse = ";", sep = " " ),
+                      descomb = paste(desall, collapse = ";", sep = " " )), 
+                 by = .(mr_no, grpday, newold2dis)]
+discomb_t <- dcast(data = discomb,
+                   mr_no + grpday ~ newold2dis,
+                   value.var = c("discomb", "descomb"))
+
+dose <- unique(all_met_rmsd_unq03 [grpday > 0, 
+                                  c("mr_no", "grpday", "Type_med", "Coded_med", "studyday", "newold2"), ])
+dose <- dose [, doseall := paste(Type_med, Coded_med, sep= ":")]
+doscomb <- dose [grpday > 0, 
+                .(dosecomb = paste(doseall, collapse = ";", sep = " " )),
+                by = .(mr_no, grpday, newold2)]
+doscomb_t <- dcast(data = doscomb,
+                   mr_no + grpday ~ trimws(paste("Combine", newold2, sep="")),
+                   value.var = c("dosecomb"))
+
+a01all <- Reduce(function(...) merge(..., all.y = TRUE, by = c("mr_no", "grpday") ),
+                   list(a01all, discomb_t, doscomb_t))
+
 fwrite(a01all, 
-       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_rcal.csv")
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_Rcal.csv")
 
 ################################################################
 # End of program
