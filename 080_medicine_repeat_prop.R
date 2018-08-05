@@ -278,8 +278,15 @@ doscomb_t <- dcast(data = doscomb,
                    mr_no + grpday ~ trimws(paste("Combine", newold2, sep="")),
                    value.var = c("dosecomb"))
 
+adsl <- unique( all_met_rmsd_unq03 [grpday >0, c("mr_no", "patient_gender", "grpday", "season",
+                                        "age", "baseage", "combine", "Metabolic", "RMSD"), ])
+
 a01all <- Reduce(function(...) merge(..., all.y = TRUE, by = c("mr_no", "grpday") ),
                    list(a01all, discomb_t, doscomb_t))
+
+a01all <- merge(x = a01all, 
+                y = adsl, 
+                by = c("mr_no", "grpday"))
 
 fwrite(a01all, 
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_Rcal.csv")
