@@ -2,6 +2,7 @@ library(data.table)
 library(stringi)
 library(stringr)
 library(sqldf)
+library(scales)
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
@@ -163,8 +164,8 @@ all_met_rmsd_unq02 <- merge(x = all_met_rmsd_unq,
 ###################################################
 # Should look at this syntax for these 2 variables
 ###################################################
-setnames (cum02dis, "Code", "Type_med")
-setnames (cum02dis, "description", "Coded_med")
+setnames (cum02dis, "Type_med", "Code")
+setnames (cum02dis, "Coded_med", "description")
 
 setnames (cum02dis, "presc", "prescdis")
 setnames (cum02dis, "newold2", "newold2dis")
@@ -178,6 +179,80 @@ all_met_rmsd_unq03 <- merge(x = all_met_rmsd_unq02,
 fwrite(all_met_rmsd_unq03, 
        "D:/Hospital_data/ProgresSQL/analysis/080_medicine_dis_all_met_rmsd_prop.csv")
 
+
+all_met_rmsd_unq04 <- all_met_rmsd_unq03 [grpday > 0, `:=`(cumday = grpmaxday, 
+                                                           cumday3 = max(studyday),
+                                                           cumday2 = paste("Till visit", grpmaxday, sep = " ") ), 
+                                          by = .(mr_no)]
+
+#############################################################################
+# Duplicate the medication and see which medications are given multiple times
+# This gives a cumulative view of what has been prescribed till a certain
+# Visit, how many medicines are 1st time given and how many are Repeated
+#############################################################################
+
+all_met_rmsd_unq05 <- all_met_rmsd_unq03 [grpday > 0, (list( cumday = (grpday: grpmaxday) ) ), 
+                                          by = .(mr_no, presc, prescdis, Type_med, Coded_med, 
+                                                 Code, description, baseage, age, combine, Metabolic, RMSD, 
+                                                 studyday, grpday, grpmaxday, minmedday, newold2, newold2dis) ]
+
+all_met_rmsd_unq05 <- all_met_rmsd_unq05 [, cumday2 := paste("Till visit", cumday, sep = " "), ]
+all_met_rmsd_unq05 <- all_met_rmsd_unq05 [, cumday3 := max(studyday), by = .(mr_no, cumday2)]
+
+
+#########################################
+# Count number of 1st and repeat diseases
+# for individual patient
+#
+# Count number of 1st and repeat doses
+# for individual patient
+#
+# Transpose the 
+#########################################
+
+a0dis <- all_met_rmsd_unq04 [, .(cntdis = uniqueN( paste(Code, description, sep=" "))), 
+                             by = .(mr_no, grpday, cumday, cumday2, cumday3, newold2dis)]
+a0dis_t <- dcast(data = a0dis,
+                 mr_no + grpday + cumday + cumday2 + cumday3 ~ newold2dis,
+                 value.var = c("cntdis"),
+                 fill = 0)
+setnames(a0dis_t, "Repeat", "Repeatdis")
+
+a0dose <- all_met_rmsd_unq04 [, .(cntdose = uniqueN( paste(Type_med, Coded_med, sep=" "))), 
+                              by = .(mr_no, grpday, cumday, cumday2, cumday3, newold2)]
+a0dose_t <- dcast(data = a0dose,
+                  mr_no + grpday + cumday + cumday2 + cumday3 ~ newold2,
+                  value.var = c("cntdose"),
+                  fill = 0)
+setnames(a0dose_t, "Repeat", "Repeatdose")
+
+##################################################################
+# Count total number of diseases and doses for individual patients
+##################################################################
+a0distot <- all_met_rmsd_unq05 [, .(totdis = uniqueN( paste(Code, description, sep=" "))), 
+                                by = .(mr_no, cumday, cumday2, cumday3)]
+
+a0dosetot <- all_met_rmsd_unq05 [, .(totdose = uniqueN( paste(Type_med, Coded_med, sep=" "))), 
+                                 by = .(mr_no, cumday, cumday2, cumday3)]
+
+a01small <- Reduce(function(...) merge(..., all.y = TRUE, by = c("mr_no", "grpday", "cumday", "cumday2", "cumday3") ),
+                   list(a0dis_t, a0dose_t))
+
+a01cap <- Reduce(function(...) merge(..., all.y = TRUE, by = c("mr_no", "cumday", "cumday2", "cumday3") ),
+                 list(a0distot, a0dosetot))
+
+a01all <- merge(x = a01small [, -c("cumday", "cumday2", "cumday3"),], 
+                y = a01cap, 
+                by.x = c("mr_no", "grpday"),
+                by.y = c("mr_no", "cumday"))
+
+a01all <- a01all [, `:=` (perc1dis = percent(`1st time disease` / totdis),
+                          percrepdis = percent(`Repeatdis` / totdis), 
+                          perc1dose = percent(`1st dose` / totdose),
+                          percrepdose = percent(`Repeatdose` / totdose)) , ]
+
+fwrite(a01all, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_rcal.csv")
 
 ################################################################
 # End of program
