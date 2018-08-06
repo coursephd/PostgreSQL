@@ -40,6 +40,14 @@ setnv02 <- rbind(setnv, soc04)
 setnv02 <- setnv02[, source := str_replace_all(string=source, pattern=" ", repl=""),]
 setnv02 <- setnv02[, target := str_replace_all(string=target, pattern=" ", repl=""),]
 
+
+sub <- setnv02 [ source %in% c("M10.0",	"M10.1",	"M10.2",	"M2.0",	"P5.0",	"P5.1",	"P5.2",	"P5.3",	"P5.4", "S16.0") | 
+                   target %in% c("M10.0",	"M10.1",	"M10.2",	"M2.0",	"P5.0",	"P5.1",	"P5.2",	"P5.3",	"P5.4", "S16.0")]
+
+fwrite(sub, "D:/Hospital_data/ProgresSQL/analysis/setnv01weighted_metabolic.csv")
+fwrite(sub, sep ="\t", "D:/Hospital_data/ProgresSQL/analysis/setnv01weighted_metabolic.txt")
+
+
 fwrite(setnv02, "D:/Hospital_data/ProgresSQL/analysis/setnv01weighted.csv")
 fwrite(setnv02, sep ="\t", "D:/Hospital_data/ProgresSQL/analysis/setnv01weighted.txt")
 
