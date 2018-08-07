@@ -3,6 +3,34 @@ library(stringi)
 library(stringr)
 library(sqldf)
 
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+gephi <- unique(all_met_rmsd [, .(Weight = uniqueN(mr_no)), by = .(Code, Coded_med)])
+gephi02 <- na.omit(gephi) 
+gephi02 <- gephi02 [ nchar(Code) > 0]
+setnv <- gephi02 [, c(1, 2, 3),]
+setnv <- setnv [order(Code)]
+setnv <- setnv [, row := 1:.N, by = .(Code)]
+
+soc01 <- unique(all_met_rmsd [Code != "" | Code != " ", c("mr_no", "Code"), ])
+soc01 <- soc01 [ nchar(Code) > 0]
+soc02 <- soc01 [, Code2 := Code]
+soc03 <- merge(x = soc01 [, c("mr_no", "Code"),],
+               y = soc02 [, c("mr_no", "Code2"),],
+               by = c("mr_no"),
+               allow.cartesian = TRUE)
+
+soc04 <- soc03 [, .(Weight02 = uniqueN(mr_no)), by = .(Code, Code2)]
+soc04 <- soc04 [, row := 1:.N, by = .(Code)]
+
+setnv02 <- merge(x = setnv, 
+                 y = soc04,
+                 by = c("Code", "row"),
+                 all = TRUE)
+
+fwrite(setnv02, "D:/Hospital_data/ProgresSQL/analysis/090_med_dis_rel_tableau.csv")
+#######################################################################################
+
 ##########################################
 # Disease and medicine combination
 # Count of patients as weight
