@@ -1,7 +1,77 @@
+
 library(data.table)
 library(stringi)
 library(stringr)
 library(sqldf)
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+
+gephi <- unique(all_met_rmsd [, .(Weight = uniqueN(mr_no)), by = .(Code, Coded_med)])
+gephi02 <- na.omit(gephi) 
+gephi02 <- gephi02 [ nchar(Code) > 0]
+setnames (gephi02, "Code", "Label")
+
+setnv <- gephi02 [, c(1, 2, 3),]
+setnames(setnv, "Label", "source")
+setnames(setnv, "Coded_med", "target")
+setnames(setnv, "Weight", "weight")
+setnv <- setnv [, `:=` (linex = 10, NodeName = source),]
+
+setnv00 <- copy(setnv)
+setnv00 <- setnv00 [, `:=` (linex = 50, NodeName = target),]
+
+###############################################
+# Unique disease and codes
+# Combine the rownum and other into one data
+###############################################
+code <- unique(setnv [, c("source"),])
+code <- code [ order(source)]
+code <- code [, liney := .I, ]
+setnames(code, "source", "ref") 
+
+dis <- unique(setnv [, c("target"),])
+dis <- dis [ order(target)]
+dis <- dis [, liney := .I, ]
+setnames(dis, "target", "ref") 
+
+ref02 <- rbind(code, dis)
+
+soc01 <- unique(all_met_rmsd [Code != "" | Code != " ", c("mr_no", "Code"), ])
+soc01 <- soc01 [ nchar(Code) > 0]
+soc02 <- soc01 [, Code2 := Code]
+
+soc03 <- merge(x = soc01 [, c("mr_no", "Code"),],
+               y = soc02 [, c("mr_no", "Code2"),],
+               by = c("mr_no"),
+               allow.cartesian = TRUE)
+
+soc04 <- soc03 [, .(Weight = uniqueN(mr_no)), by = .(Code, Code2)]
+
+setnames(soc04, "Code", "source")
+setnames(soc04, "Code2", "target")
+setnames(soc04, "Weight", "weight")
+soc04 <- soc04 [, `:=` (linex = 50, NodeName = source),]
+
+soc040 <- copy(soc04)
+soc040 <- soc040 [, `:=` (linex = 100, NodeName = target),]
+
+
+setnv02 <- rbind(setnv, setnv00, soc04, soc040)
+
+setnv03 <- merge(x = setnv02,
+                 y = ref02,
+                 by.x = c("target"),
+                 by.y = c("ref"),
+                 all.x = TRUE)
+
+setnv03 <- setnv03 [, `:=` (circley = liney,
+                            relationship = paste(trimws(source), "->", trimws(target), sep = "") ),]
+setnv03 <- setnv03 [, id := .GRP, by = .(source, target)]
+
+fwrite(setnv03, "D:/Hospital_data/ProgresSQL/analysis/090_med_dis_rel_tableau.csv")
+#######################################################################################
+
+
 
 all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
