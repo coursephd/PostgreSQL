@@ -1,12 +1,14 @@
 
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 
-Bruce McPherson   
+Bruce McPherson D3 and java examples (look brilliant):     
 Another network analysis approach: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3-concept-browser  
 http://ramblings.mcpher.com/Home/excelquirks/drivesdk/vizdependencies  
 Dowloadable files: http://ramblings.mcpher.com/Home/excelquirks/downloadlist  
-
 D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779  
+
+Tableau:  
+http://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html  
 
 
 Disease medicine analysis:
