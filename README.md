@@ -1,8 +1,9 @@
 
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 
-Bure 
+Bruce McPherson   
 Another network analysis approach: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3-concept-browser  
+http://ramblings.mcpher.com/Home/excelquirks/drivesdk/vizdependencies  
 Dowloadable files: http://ramblings.mcpher.com/Home/excelquirks/downloadlist  
 
 D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779  
