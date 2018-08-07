@@ -1,6 +1,8 @@
 
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 Another network analysis approach: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3-concept-browser  
+D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779  
+
 
 Disease medicine analysis:
 Summary statistics for number of prescriptions per visit, new as well as repeat
