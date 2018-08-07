@@ -9,6 +9,7 @@ D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779
 
 Tableau:  
 http://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html  
+https://stephanefrechette.com/network-graphs-tableau/#.W2lXoWlubiw  
 
 
 Disease medicine analysis:
