@@ -15,10 +15,10 @@ setnv <- gephi02 [, c(1, 2, 3),]
 setnames(setnv, "Label", "source")
 setnames(setnv, "Coded_med", "target")
 setnames(setnv, "Weight", "weight")
-setnv <- setnv [, `:=` (linex = 10, NodeName = source),]
+setnv <- setnv [, `:=` (linex = 10, NodeName = target),]
 
 setnv00 <- copy(setnv)
-setnv00 <- setnv00 [, `:=` (linex = 50, NodeName = target),]
+setnv00 <- setnv00 [, `:=` (linex = 50, NodeName = source),]
 
 ###############################################
 # Unique disease and codes
@@ -55,17 +55,35 @@ soc04 <- soc04 [, `:=` (linex = 50, NodeName = source),]
 soc040 <- copy(soc04)
 soc040 <- soc040 [, `:=` (linex = 100, NodeName = target),]
 
+setnv_ref <- merge(x = setnv,
+                   y = ref02,
+                   by.x = c("target"),
+                   by.y = c("ref"),
+                   all.x = TRUE)
 
-setnv02 <- rbind(setnv, setnv00, soc04, soc040)
+setnv00_ref <- merge(x = setnv00,
+                     y = code,
+                     by.x = c("source"),
+                     by.y = c("ref"),
+                     all.x = TRUE)
 
-setnv03 <- merge(x = setnv02,
-                 y = ref02,
-                 by.x = c("target"),
-                 by.y = c("ref"),
-                 all.x = TRUE)
+soc04_ref <- merge(x = soc04,
+                   y = code,
+                   by.x = c("source"),
+                   by.y = c("ref"),
+                   all.x = TRUE)
 
-setnv03 <- setnv03 [, `:=` (circley = liney,
+soc040_ref <- merge(x = soc040,
+                    y = code,
+                    by.x = c("target"),
+                    by.y = c("ref"),
+                    all.x = TRUE)
+
+setnv02 <- rbind(setnv_ref, setnv00_ref, soc04_ref, soc040_ref)
+
+setnv03 <- setnv02 [, `:=` (circley = liney,
                             relationship = paste(trimws(source), "->", trimws(target), sep = "") ),]
+
 setnv03 <- setnv03 [, id := .GRP, by = .(source, target)]
 
 fwrite(setnv03, "D:/Hospital_data/ProgresSQL/analysis/090_med_dis_rel_tableau.csv")
