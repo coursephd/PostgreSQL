@@ -11,6 +11,8 @@ Tableau:
 http://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html  
 https://stephanefrechette.com/network-graphs-tableau/#.W2lXoWlubiw  
 
+Timelines storyteller:  
+https://timelinesrevisited.github.io/  
 
 Disease medicine analysis:
 Summary statistics for number of prescriptions per visit, new as well as repeat
