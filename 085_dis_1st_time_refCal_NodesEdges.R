@@ -46,8 +46,25 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
                        by = c("refmnyr"),
                        all.x = TRUE)
 
+disease <- unique(all_met_rmsd02 [, -c("Type_med", "Coded_med"),])
+disease <- disease [, cat :="Disease"]
+
+meds <- unique(all_met_rmsd02 [, -c("Code", "description"),])
+meds <- meds [, cat :="Medicine"]
+meds <- meds [, Coded_med := paste(Type_med, Coded_med, sep=":"),]
+
+setnames(meds, "Type_med", "Code")
+setnames(meds, "Coded_med", "description")
+
+all <- rbind(disease, meds)
+
+fwrite(all, 
+       "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
+
+
 chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
                          by = .(refcode, refdesc, period, periodn, Code, description )]
 
 chk01med <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
                          by = .(refcode, refdesc, period, periodn, Type_med, Coded_med )]
+
