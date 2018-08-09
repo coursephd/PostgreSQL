@@ -46,6 +46,12 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
                        by = c("refmnyr"),
                        all.x = TRUE)
 
+####################################
+# Post process to get day 1 as Day 1
+####################################
+all_met_rmsd02 <-  all_met_rmsd02[, period := ifelse(refday == 1, 1, period), ]
+all_met_rmsd02 <-  all_met_rmsd02[, periodn := ifelse(refday == 1, "Day 1", periodn), ]
+
 disease <- unique(all_met_rmsd02 [, -c("Type_med", "Coded_med"),])
 disease <- disease [, cat :="Disease"]
 
