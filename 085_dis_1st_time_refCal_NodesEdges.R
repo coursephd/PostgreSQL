@@ -22,6 +22,7 @@ all_met_rmsd02 <- merge(x = all_met_rmsd,
                         y = unqdis,
                         by = c("mr_no"),
                         allow.cartesian = TRUE)
+
 all_met_rmsd02 <- all_met_rmsd02 [, c("mr_no", "Code", "description", "combine", "RMSD", "Metabolic",
                                       "newdt0", "Type_med", "Coded_med", "studyday", "mindisday",
                                       "refcode", "refdesc", "patient_gender", "age", "baseage", 
@@ -34,6 +35,16 @@ all_met_rmsd02 <- all_met_rmsd02 [, c("mr_no", "Code", "description", "combine",
 all_met_rmsd02 <- all_met_rmsd02 [, refday := ifelse(studyday >= mindisday, 
                                                      studyday - mindisday + 1,
                                                      studyday - mindisday),]
+all_met_rmsd02 <- all_met_rmsd02[, refmnyr := as.numeric( ceiling (refday / 30.4375) ), ]
 
+period01 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_1st_nodesedges.csv")
+period02 <- period01[ , list(period = period, periodn = periodn,
+                         refmnyr = seq(as.numeric(start), as.numeric(end)) ), by = 1:nrow(period01)]
 
-chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), by = .(refcode, refdesc, refday, Code, description )]
+all_met_rmsd02 <- merge (x = all_met_rmsd02,
+                       y = period02 [, c("refmnyr", "period", "periodn")],
+                       by = c("refmnyr"),
+                       all.x = TRUE)
+
+chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
+                         by = .(refcode, refdesc, period, periodn, Code, description )]
