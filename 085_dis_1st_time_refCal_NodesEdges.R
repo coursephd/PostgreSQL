@@ -48,3 +48,6 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
 
 chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
                          by = .(refcode, refdesc, period, periodn, Code, description )]
+
+chk01med <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
+                         by = .(refcode, refdesc, period, periodn, Type_med, Coded_med )]
