@@ -35,7 +35,10 @@ all_met_rmsd02 <- all_met_rmsd02 [, c("mr_no", "Code", "description", "combine",
 all_met_rmsd02 <- all_met_rmsd02 [, refday := ifelse(studyday >= mindisday, 
                                                      studyday - mindisday + 1,
                                                      studyday - mindisday),]
-all_met_rmsd02 <- all_met_rmsd02[, refmnyr := as.numeric( ceiling (refday / 30.4375) ), ]
+
+all_met_rmsd02 <- all_met_rmsd02[, refmnyr := ifelse(refday >= 1,
+                                                     as.numeric( ceiling (refday / 30.4375) ), 
+                                                     as.numeric( floor (refday / 30.4375) ) ), ]
 
 period01 <- fread("D:/Hospital_data/ProgresSQL/analysis/lookup_1st_nodesedges.csv")
 period02 <- period01[ , list(period = period, periodn = periodn,
@@ -64,7 +67,23 @@ setnames(meds, "Coded_med", "description")
 
 all <- rbind(disease, meds)
 
-fwrite(all, 
+bfraftr <- all [, .(min = min(refday), max = max(refday)), by = .(mr_no, refcode, refdesc, Code, description)]
+
+bfraftr <- sqldf("select *, 
+                   case 
+                    When min <= 0 and max <= 0 then 'Reported only before'
+                    When min >= 1 and max >= 1 then 'Reported on or after'
+                    When min <= 0 and max >= 1 then 'Reported before and after'
+                   end as classification
+                   from bfraftr")
+
+all02 <- merge (x = all,
+              y = bfraftr ,
+              by = c("mr_no", "refcode", "refdesc", "Code", "description"),
+              all.x = TRUE)
+all02 <- all02 [, -c("min", "max"),]
+
+fwrite(all02, 
        "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
 
 
