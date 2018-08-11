@@ -86,10 +86,4 @@ all02 <- all02 [, -c("min", "max"),]
 fwrite(all02, 
        "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
 
-
-chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
-                         by = .(refcode, refdesc, period, periodn, Code, description )]
-
-chk01med <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
-                         by = .(refcode, refdesc, period, periodn, Type_med, Coded_med )]
-
+saveRDS (all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.rds")
