@@ -10,6 +10,10 @@ D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779
 Tableau:  
 Use this post to print a circle: http://www.kenflerlage.com/2017/11/beyond-show-me-part-2-trigonometry.html  
 Data layering examples: http://www.datablick.com/blog?category=Tableau  
+Jim Knippenberg:  
+https://public.tableau.com/profile/jim.knippenberg#!/vizhome/NetworkGraphExample_0/NetworkGraph  
+https://www.dropbox.com/sh/83uslc5lshnf2po/AAA7cmGt2ICQNW7xGwgBPzcra?dl=0  
+
 http://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html  
 https://stephanefrechette.com/network-graphs-tableau/#.W2lXoWlubiw  
 
