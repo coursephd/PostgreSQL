@@ -55,6 +55,8 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
 all_met_rmsd02 <-  all_met_rmsd02[, period := ifelse(refday == 1, 1, period), ]
 all_met_rmsd02 <-  all_met_rmsd02[, periodn := ifelse(refday == 1, "Day 1", periodn), ]
 
+saveRDS (all_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+
 disease <- unique(all_met_rmsd02 [, -c("Type_med", "Coded_med"),])
 disease <- disease [, cat :="Disease"]
 
