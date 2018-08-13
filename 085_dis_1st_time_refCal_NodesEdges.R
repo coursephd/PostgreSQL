@@ -89,3 +89,14 @@ fwrite(all02,
        "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
 
 saveRDS (all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.rds")
+
+###############################################
+# Save disease and medicine version of the data
+###############################################
+all_met_rmsd02 <- merge (x = all_met_rmsd02,
+                         y = bfraftr ,
+                         by = c("mr_no", "refcode", "refdesc", "Code", "description"),
+                         all.x = TRUE)
+all_met_rmsd02 <- all_met_rmsd02 [, -c("min", "max"),]
+
+saveRDS (all_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
