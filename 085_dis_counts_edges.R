@@ -76,7 +76,7 @@ path01 <- merge (x = chk02all,
 path01 <- path01 [, `:=` (cat = "DiseaseMedicine", Code = Code02),] 
 path01 <- path01 [, c("TabCode", "TabMed") := tstrsplit(Code, "->", fixed = TRUE), ]
 
-chk03all <- rbind(path01, dismed, fill = TRUE)
+chk03all <- rbind(path01, dismed_all, fill = TRUE)
 
 fwrite(chk03all, 
        "D:/Hospital_data/ProgresSQL/analysis/085_dis_count_edges_3rd_byPeriod.csv")
