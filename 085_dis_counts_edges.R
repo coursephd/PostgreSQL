@@ -17,6 +17,12 @@ all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := paste(Type_med, Coded_med, sep=
 
 edges <- readRDS("D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.rds")
 
+####################################################
+# Get unique diseases in RMSD and Metabolic
+# Keep refcode from these 2 areas 107 unique values
+####################################################
+discat <- unique( all_met_rmsd02 [distype %in% c("RMSD", "Metabolic"), c("Code", "description"), ])
+
 ###########################################################
 # Get the unique number of reference diseases and medicines
 # Create this for each of the periods before and after 1st 
@@ -77,8 +83,9 @@ path01 <- path01 [, `:=` (cat = "DiseaseMedicine", Code = Code02),]
 path01 <- path01 [, c("TabCode", "TabMed") := tstrsplit(Code, "->", fixed = TRUE), ]
 
 chk03all <- rbind(path01, dismed_all, fill = TRUE)
+chk04all <- chk03all [ refcode %in% discat$Code]
 
-fwrite(chk03all, 
+fwrite(chk04all, 
        "D:/Hospital_data/ProgresSQL/analysis/085_dis_count_edges_3rd_byPeriod.csv")
 
 #########################################################################################
