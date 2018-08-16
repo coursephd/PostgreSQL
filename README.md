@@ -8,6 +8,7 @@ Dowloadable files: http://ramblings.mcpher.com/Home/excelquirks/downloadlist
 D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779  
 
 Tableau:  
+Radial and polygon charts: http://www.analysis-consulting.com/single-post/2017/01/13/Polygon-Radial-Charts -- help in improving the current graph   
 Use this post to print a circle: http://www.kenflerlage.com/2017/11/beyond-show-me-part-2-trigonometry.html  
 Data layering examples: http://www.datablick.com/blog?category=Tableau  
 Jim Knippenberg:  
