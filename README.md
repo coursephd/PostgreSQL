@@ -1,4 +1,6 @@
 
+====================================================================================================================
+All related to the network graphs:  
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 
 Bruce McPherson D3 and java examples (look brilliant):     
@@ -20,6 +22,9 @@ https://stephanefrechette.com/network-graphs-tableau/#.W2lXoWlubiw
 
 Timelines storyteller: https://timelinesrevisited.github.io/  
 App for use: https://timelinestoryteller.com/app/  
+====================================================================================================================
+
+Zipf's law: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189502/  
 
 Disease medicine analysis:
 Summary statistics for number of prescriptions per visit, new as well as repeat
