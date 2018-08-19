@@ -293,6 +293,69 @@ fwrite(a01all,
 
 saveRDS (a01all, "D:/Hospital_data/ProgresSQL/analysis/080_medicine_repeat_prop_cumulative_Rcal.rds")
 
+
+##########################################
+# Create disease and medicine combination
+# by patient
+##########################################
+dismed <- all_met_rmsd_unq04 [, .(cntdismed = .N), 
+                              by = .(mr_no,  
+                                     Code, description, Type_med, Coded_med)]
+
+dis100 <- all_met_rmsd_unq04 [, .(cntdis = .N), 
+                              by = .(mr_no,  
+                                     Code, description)]
+med100 <- all_met_rmsd_unq04 [, .(cntmed = .N), 
+                              by = .(mr_no,  
+                                     Type_med, Coded_med)]
+
+dismed01 <- merge(x = dismed, 
+                  y = dis100, 
+                  by = c("mr_no", "Code", "description"),
+                  all = TRUE)
+
+dismed02 <- merge(x = dismed01, 
+                  y = med100, 
+                  by = c("mr_no", "Type_med", "Coded_med"),
+                  all = TRUE)
+
+fwrite(dismed02, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_bymr_no_dismed_comb_Rcal.csv")
+
+saveRDS (dismed02, "D:/Hospital_data/ProgresSQL/analysis/080_medicine_bymr_no_dismed_comb_Rcal.rds")
+
+##########################################
+# Create disease and medicine combination
+# by medicine and disease
+# count number of combinations and number of
+# patients
+##########################################
+a_dismed <- all_met_rmsd_unq04 [, .(cntdismed = .N,
+                                    unqdismedpat = uniqueN(mr_no)), 
+                                by = .(Code, description, Type_med, Coded_med)]
+
+a_dis100 <- all_met_rmsd_unq04 [, .(cntdis = .N, unqdispat = uniqueN(mr_no)), 
+                                by = .(Code, description)]
+
+a_med100 <- all_met_rmsd_unq04 [, .(cntmed = .N, unqmedpat = uniqueN(mr_no)), 
+                                by = .(Type_med, Coded_med)]
+
+a_dismed01 <- merge(x = a_dismed, 
+                    y = a_dis100, 
+                    by = c("Code", "description"),
+                    all = TRUE)
+
+a_dismed02 <- merge(x = a_dismed01, 
+                    y = a_med100, 
+                    by = c("Type_med", "Coded_med"),
+                    all = TRUE)
+
+fwrite(a_dismed02, 
+       "D:/Hospital_data/ProgresSQL/analysis/080_medicine_byoverall_dismed_comb_Rcal.csv")
+
+saveRDS (a_dismed02, "D:/Hospital_data/ProgresSQL/analysis/080_medicine_byoverall_dismed_comb_Rcal.rds")
+
+
 ################################################################
 # End of program
 ################################################################
