@@ -4,6 +4,8 @@ Interactive tree of life:
 http://itol.embl.de/  
 Login: mahajvi, password: frlht123  
 
+Dendroscope: http://dendroscope.org/  
+
 All related to the network graphs:  
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 
