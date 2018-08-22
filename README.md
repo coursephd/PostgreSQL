@@ -1,5 +1,5 @@
 
-=======================================================================================    
+=================================================================================    
 Interactive tree of life:  
 http://itol.embl.de/  
 Login: mahajvi, password: frlht123  
@@ -32,7 +32,7 @@ https://stephanefrechette.com/network-graphs-tableau/#.W2lXoWlubiw
 
 Timelines storyteller: https://timelinesrevisited.github.io/  
 App for use: https://timelinestoryteller.com/app/  
-====================================================================================================================
+=================================================================================    
 
 Zipf's law: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3189502/  
 
