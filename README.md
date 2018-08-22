@@ -13,6 +13,10 @@ Bruce McPherson D3 and java examples (look brilliant):
 Another network analysis approach: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3-concept-browser  
 http://ramblings.mcpher.com/Home/excelquirks/drivesdk/vizdependencies  
 Dowloadable files: http://ramblings.mcpher.com/Home/excelquirks/downloadlist  
+Files to create: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3nodefocus  
+http://ramblings.mcpher.com/Home/excelquirks/gassites/siterestexce  
+
+
 D3 Bi-directional Sankey diagram: http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779  
 
 Tableau:  
