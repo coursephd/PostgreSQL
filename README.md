@@ -10,6 +10,8 @@ All related to the network graphs:
 Gephi:https://seinecle.github.io/gephi-tutorials/  
 
 Bruce McPherson D3 and java examples (look brilliant):     
+This should help in generating the necessary output: http://ramblings.mcpher.com/Home/excelquirks/d3/anyforce  
+
 Another network analysis approach: http://ramblings.mcpher.com/Home/excelquirks/gassites/d3-concept-browser  
 http://ramblings.mcpher.com/Home/excelquirks/drivesdk/vizdependencies  
 Dowloadable files: http://ramblings.mcpher.com/Home/excelquirks/downloadlist  
