@@ -18,12 +18,17 @@ all_met_rmsd02 <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.
 all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := paste(Type_med, Coded_med, sep=":"),]
 
 chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
-                         by = .(period, periodn, refcode, refdesc, Code, description, Type_med, Coded_med )]
+                         by = .(refcode, refdesc, Code, description, Type_med, Coded_med )]
 chk01 <- chk01[Code != "" & Coded_med != ""]
 chk01 <- chk01 [, `:=` (Code02 = paste(Code, ":", description, "->", Coded_med, sep =""),
-                        name = paste(period, periodn, refcode, refdesc, sep =","),
-                        key = paste(Code, description, sep=","),
-                        nrow = .I), ]
+                        name = paste(refcode, refdesc, sep =","),
+                        key = paste(Code, description, sep=",") ), ]
+
+med <- unique( chk01 [Coded_med != c("", " "), c("Coded_med"), ])
+setnames(med, "Coded_med", "name")
+dis <- unique( chk01 [name != c("", " "), c("name"), ])
+meddis <- rbind(med, dis)
+meddis <- meddis [, nrow := .I,]
 
 ###################################################################
 # Create a version of data as follows:
@@ -32,12 +37,17 @@ chk01 <- chk01 [, `:=` (Code02 = paste(Code, ":", description, "->", Coded_med, 
 # (2) other diseases <--> Medicine
 # Use the other diseases section for creating the moving nodes
 ###################################################################
-part01 <- chk01 [, c("name", "key", "nrow", "Code02", "cnt", "refdesc", "refcode"), ]
+part01 <- chk01 [, c("name", "key", "Code02", "cnt", "refdesc", "refcode"), ]
 
-part02 <- chk01 [, c("Coded_med", "key", "nrow", "Code02", "cnt", "refdesc", "refcode"), ]
+part02 <- chk01 [, c("Coded_med", "key", "Code02", "cnt", "refdesc", "refcode"), ]
 setnames(part02, "Coded_med", "name")
 
 part03 <- rbind (part01, part02)
+part03 <- merge(part03, 
+                meddis, 
+                by = c("name"),
+                all = TRUE)
+
 part03 <- part03 [, num := .N, by =.(refdesc, key)]
 part03 <- part03 [, maxnum := max(num), by =.(refdesc)]
 part03 <- part03 [, pernum := (num / maxnum) * 100,]
