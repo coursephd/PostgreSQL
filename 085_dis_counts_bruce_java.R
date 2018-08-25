@@ -75,9 +75,17 @@ part04 <- part04 [, scndprt := paste('{"name" :"', name, '", "key" :', nrow, ', 
 #######################################################################
 part05 <- part04 [, .(scndprt02 = paste(scndprt, collapse = ",", sep = " " )), 
                   by = .(refcode, refdesc, frstprt)]
-part05 <- part05 [, scndprt02 := paste('"pages": [', scndprt02, "]}", sep=""), ]
+part05 <- part05 [ order(refcode, refdesc, frstprt)]
+part05 <- part05 [, rowrecal := .I, by = .(refcode, refdesc)]
+part05 <- part05 [, scndprt03 := paste('"pages": [', scndprt02, "]},", sep=""), ]
 
 chk02 <- part05 [ refcode == "A2.0"]
+
+fwrite(chk02 [ scndprt02 != "...", c("frstprt", "scndprt03"), ], 
+       "D:/Hospital_data/ProgresSQL/analysis/085d3concept.json", 
+       col.names = FALSE, 
+       quote = FALSE, 
+       sep = " ")
 
 
 
