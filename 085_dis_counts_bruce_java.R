@@ -9,6 +9,7 @@ library(sqldf)
 library(tidyr)
 library(rjson)
 library(jsonlite)
+library(dplyr)
 
 #######################################################################
 # These 2 are created using 085_dis_1st_time_refCal_NodeEdges.R program
@@ -16,6 +17,8 @@ library(jsonlite)
 
 all_met_rmsd02 <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := paste(Type_med, Coded_med, sep=":"),]
+
+all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := str_replace_all(Coded_med, "\"", ""),]
 
 chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
                          by = .(refcode, refdesc, Code, description, Type_med, Coded_med )]
@@ -97,6 +100,18 @@ fwrite(chk02 [ scndprt02 != "...", c("frstprt", "scndprt03"), ],
        quote = FALSE, 
        sep = " ")
 
+
+chk02 <- part05 [ refcode == "P5.0"]
+
+fwrite(chk02 [ scndprt02 != "...", c("frstprt", "scndprt03"), ], 
+       "D:/Hospital_data/ProgresSQL/analysis/085d3concept_P5_0.json", 
+       col.names = FALSE, 
+       quote = FALSE, 
+       sep = " ")
+
+############################################################################
+# End of program
+############################################################################
 
 
 chk02 <- chk02 [, `:=` (name = paste(period, periodn, refcode, refdesc, sep =","),
