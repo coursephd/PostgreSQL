@@ -16,20 +16,20 @@ library(dplyr)
 #######################################################################
 
 all_met_rmsd02 <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
-all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := paste(Type_med, Coded_med, sep=":"),]
+all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := paste(Type_med, ":", Coded_med, "[", classification, "]", sep=" "),]
 
 all_met_rmsd02 <- all_met_rmsd02 [, Coded_med := str_replace_all(Coded_med, "\"", ""),]
 
 chk01 <- all_met_rmsd02 [, .(cnt = uniqueN(mr_no)), 
-                         by = .(period, periodn, refcode, refdesc, Code, description, Type_med, Coded_med )]
+                         by = .(refcode, refdesc, Code, description, Type_med, Coded_med )]
 chk01 <- chk01[Code != "" & Coded_med != ""]
 chk01 <- chk01 [, `:=` (Code02 = paste(Code, ":", description, "->", Coded_med, sep =""),
-                        name = paste(Code, description, sep =","),
-                        key = paste(period, periodn, sep=",") ), ]
+                        name = paste(refcode, refdesc, sep =","),
+                        key = paste(Code, description, sep=",") ), ]
 
-med <- unique( chk01 [!Coded_med %in% c("", " "), c("Coded_med"), ])
+med <- unique( chk01 [Coded_med != c("", " "), c("Coded_med"), ])
 setnames(med, "Coded_med", "name")
-dis <- unique( chk01 [!name %in% c("", " "), c("name"), ])
+dis <- unique( chk01 [name != c("", " "), c("name"), ])
 meddis <- rbind(med, dis)
 meddis <- meddis [, nrow := .I,]
 
@@ -38,12 +38,11 @@ meddis <- meddis [, nrow := .I,]
 # Fixed nodes as relation between 
 # (1) Period + Reference disease <--> other diseases
 # (2) other diseases <--> Medicine
-# Use Period + Periodn as a floating key
 # Use the other diseases section for creating the moving nodes
 ###################################################################
-part01 <- chk01 [, c("name", "key", "Code02", "cnt", "refdesc", "refcode", "period", "periodn"), ]
+part01 <- chk01 [, c("name", "key", "Code02", "cnt", "refdesc", "refcode"), ]
 
-part02 <- chk01 [, c("Coded_med", "key", "Code02", "cnt", "refdesc", "refcode", "period", "periodn"), ]
+part02 <- chk01 [, c("Coded_med", "key", "Code02", "cnt", "refdesc", "refcode"), ]
 setnames(part02, "Coded_med", "name")
 
 part03 <- rbind (part01, part02)
@@ -52,7 +51,7 @@ part03 <- merge(part03,
                 by = c("name"),
                 all = TRUE)
 
-part03 <- part03 [, num := .N, by =.(refdesc, name)]
+part03 <- part03 [, num := .N, by =.(refdesc, key)]
 part03 <- part03 [, maxnum := max(num), by =.(refdesc)]
 part03 <- part03 [, pernum := (num / maxnum) * 100,]
 
@@ -71,9 +70,9 @@ part03 <- part03 [, pernum := (num / maxnum) * 100,]
 # }]
 # }
 #
-# "name" : use name
+# "name" : use key
 # "count" : use num
-# "key" : use name
+# "key" : use key
 # "pages" : 
 #   "names" : use name
 #   "key" : use nrow
@@ -81,17 +80,16 @@ part03 <- part03 [, pernum := (num / maxnum) * 100,]
 #   "url" : Code02
 ######################################################################
 
-part04 <- part03 [, frstprt := paste('{"name" :"', name, '", "count" :', pernum, ', "key" :"', name, '",', sep ="" ), ]
+part04 <- part03 [, frstprt := paste('{"name" :"', key, '", "count" :', pernum, ', "key" :"', key, '",', sep ="" ), ]
 part04 <- part04 [, scndprt := paste('{"name" :"', name, '", "key" :', nrow, ', "title" :"', name, '", "url" :"', Code02, '"}', sep = ""), ]
 
 #######################################################################
-# Combine the scndprt variable into 1 row per 
-# period + period (which is stored in key) + refdesc + key combination
+# Combine the scndprt variable into 1 row per refdesc + key combination
 #######################################################################
 part05 <- part04 [, .(scndprt02 = paste(scndprt, collapse = ",", sep = " " )), 
-                  by = .(key, refcode, refdesc, frstprt)]
-part05 <- part05 [ order(key, refcode, refdesc, frstprt)]
-part05 <- part05 [, rowrecal := .I, by = .(key, refcode, refdesc)]
+                  by = .(refcode, refdesc, frstprt)]
+part05 <- part05 [ order(refcode, refdesc, frstprt)]
+part05 <- part05 [, rowrecal := .I, by = .(refcode, refdesc)]
 part05 <- part05 [, scndprt03 := paste('"pages": [', scndprt02, "]},", sep=""), ]
 
 chk02 <- part05 [ refcode == "A2.0"]
