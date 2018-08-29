@@ -1,5 +1,9 @@
 
 =================================================================================    
+
+Pathfinder: Harvard tool  
+http://caleydo.org/tools/
+
 Interactive tree of life:  
 http://itol.embl.de/  
 Login: mahajvi, password: frlht123  
