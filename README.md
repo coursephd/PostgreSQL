@@ -23,8 +23,12 @@ Status from the installers:
 [05C8:2D84][2018-08-31T20:19:41]i000: MUX:  Free Disk Space before install:  SystemDrive C:\ 17357598720 bytes  AppDrive C:\ 17357598720 bytes
 [2480:07BC][2018-08-31T20:19:41]i360: Creating a system restore point.
 
-------------------- Python --------------------
-Successfully installed Python 2.7
+------------------- Python --------------------  
+Successfully installed Python 2.7  
+All done!
+
++ windows-build-tools@3.1.0
+added 142 packages in 228.729s  
 
 
 Pathfinder: Harvard tool  
