@@ -1,5 +1,31 @@
 
 =================================================================================    
+Execute as an administrator  
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\WINDOWS\system32> npm install -g --production windows-build-tools
+
+> windows-build-tools@3.1.0 postinstall C:\Users\user\AppData\Roaming\npm\node_modules\windows-build-tools
+> node ./dist/index.js
+
+Downloading BuildTools_Full.exe
+Downloading python-2.7.14.amd64.msi
+[>                                            ] 0.0% (0 B/s)
+Downloaded python-2.7.14.amd64.msi. Saved to C:\Users\user\.windows-build-tools\python-2.7.14.amd64.msi.
+
+Starting installation...
+Launched installers, now waiting for them to finish.
+This will likely take some time - please be patient!
+
+Status from the installers:
+---------- Visual Studio Build Tools ----------
+[05C8:2D84][2018-08-31T20:19:41]i000: MUX:  Free Disk Space before install:  SystemDrive C:\ 17357598720 bytes  AppDrive C:\ 17357598720 bytes
+[2480:07BC][2018-08-31T20:19:41]i360: Creating a system restore point.
+
+------------------- Python --------------------
+Successfully installed Python 2.7
+
 
 Pathfinder: Harvard tool  
 http://caleydo.org/tools/
