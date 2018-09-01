@@ -13,6 +13,8 @@ library(dplyr)
 library(zoo)
 library(tidyr)
 
+# https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
+
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
 
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
@@ -28,6 +30,25 @@ dis02 <- dis [, .(newgrp = seq(nrow, nrowend, by =1)), by = .(mr_no, Code, nrow,
 
 dis03 <- dis02 [, .(combdis = paste(Code, collapse = ",", sep = " " )), 
               by = .(mr_no, newgrp, ndis, totrow)]
+
+
+# Get the unique combinations per patient
+unq01comb <- unique( dis03 [, c("mr_no", "combdis"), ])
+unq01comb <- unq01comb [, x := 1, ]
+
+# create a copy
+unq02comb <- copy(unq01comb)
+setnames(unq02comb, "mr_no", "mr_no2")
+setnames(unq02comb, "combdis", "combdis2")
+
+# Merge the datasets on x to get all the combinations
+
+unq03comb <- merge(x = unq01comb [ mr_no == "MR000002"], 
+                   y = unq02comb, 
+                   by = c("x"), 
+                   allow.cartesian = TRUE)
+unq03comb <- unq03comb [, num := ifelse( combdis == combdis2, 1, 0), ]
+
 
 dis03cnt <- dis03 [, .(npat = uniqueN(mr_no)), by = .(combdis)]
 
