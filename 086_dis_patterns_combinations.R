@@ -17,23 +17,32 @@ library(tidyr)
 
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
 
-all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+#all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 
-dis <- unique(all_met_rmsd[!Code %in% c("", " "), c("mr_no", "studyday", "Code")])
-dis <- dis [ order(mr_no, studyday, Code)]
+dis <- unique(all_met_rmsd[!Code %in% c("", " ") & refcode == "A2.0", c("mr_no", "studyday", "Code", "refcode", "refdesc")])
+dis <- dis [ order(mr_no, studyday, Code, refcode, refdesc)]
 dis <- dis [, `:=` (ndis = uniqueN(Code), 
                     nrow = seq_len(.N),
                     nrowend = seq_len(.N) + 4,
-                    totrow = .N), by = .(mr_no)]
+                    totrow = .N), by = .(mr_no, refcode, refdesc)]
 
-dis02 <- dis [, .(newgrp = seq(nrow, nrowend, by =1)), by = .(mr_no, Code, nrow, nrowend, ndis, totrow)]
+dis02 <- dis [, .(newgrp = seq(nrow, nrowend, by =1)), by = .(mr_no, Code, refcode, refdesc, nrow, nrowend, ndis, totrow)]
 
 dis03 <- dis02 [, .(combdis = paste(Code, collapse = ",", sep = " " )), 
-              by = .(mr_no, newgrp, ndis, totrow)]
+              by = .(mr_no, refcode, refdesc, newgrp, ndis, totrow)]
 
-
+########################################################
 # Get the unique combinations per patient
-unq01comb <- unique( dis03 [, c("mr_no", "combdis"), ])
+# Get the numerator -- equal n-grams
+# Find the jacard distance for each patient combination
+#
+# Denominator: distinct n-grams for each 
+# patient combination
+# num / den for each patient combination, gives jacard
+# distance
+########################################################
+
+unq01comb <- unique( dis03 [, c("mr_no", "refcode", "refdesc", "combdis"), ])
 unq01comb <- unq01comb [, x := 1, ]
 
 # create a copy
@@ -43,12 +52,38 @@ setnames(unq02comb, "combdis", "combdis2")
 
 # Merge the datasets on x to get all the combinations
 
-unq03comb <- merge(x = unq01comb [ mr_no == "MR000002"], 
-                   y = unq02comb, 
+unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"], 
+                   y = unq02comb [, -c("refcode", "refdesc"), ], 
                    by = c("x"), 
                    allow.cartesian = TRUE)
-unq03comb <- unq03comb [, num := ifelse( combdis == combdis2, 1, 0), ]
 
+unq04comb <- unq03comb [ combdis == combdis2]
+unq04comb <- unq04comb [, num := 1]
+
+num01 <- unq04comb [, .(num01 = sum(num)), by = .(mr_no, mr_no2, refcode, refdesc)]
+rm(unq04comb)
+
+###################################
+# Get the denominator calculations
+###################################
+
+temp01 <- unique( unq03comb [, c("mr_no", "mr_no2", "combdis", "refcode", "refdesc"), ])
+temp02 <- unique( unq03comb [, c("mr_no", "mr_no2", "combdis2", "refcode", "refdesc"), ])
+setnames(temp02, "combdis2", "combdis")
+
+temp03 <- unique( rbind (temp01, temp02))
+
+rm(temp01); rm(temp02)
+
+den01 <- temp03 [, .(den01 = .N), by = .(mr_no, mr_no2, refcode, refdesc)]
+
+rm(unq03comb)
+
+jacard01 <- merge(x = num01,
+                  y = den01,
+                  by = c("mr_no", "mr_no2", "refdesc", "refcode"),
+                  all.x = TRUE)
+jacard01 <- jacard01 [, dist := (num01 / den01) * 100, ]
 
 dis03cnt <- dis03 [, .(npat = uniqueN(mr_no)), by = .(combdis)]
 
