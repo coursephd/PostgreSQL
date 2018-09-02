@@ -85,6 +85,10 @@ jacard01 <- merge(x = num01,
                   all.x = TRUE)
 jacard01 <- jacard01 [, dist := (num01 / den01) * 100, ]
 
+jacard01trn <- dcast(data = jacard01, 
+                     refcode + refdesc + mr_no ~ mr_no2, 
+                     value.var = c ("dist"))
+
 dis03cnt <- dis03 [, .(npat = uniqueN(mr_no)), by = .(combdis)]
 
 
