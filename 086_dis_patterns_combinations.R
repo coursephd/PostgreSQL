@@ -17,16 +17,14 @@ library(tidyr)
 
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
 
-#all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
-
-dis <- unique(all_met_rmsd[!Code %in% c("", " ") & refcode == "A2.0", c("mr_no", "studyday", "Code", "refcode", "refdesc")])
+dis <- unique(all_met_rmsd[!Code %in% c("", " ") & refcode == "A2.0", c("mr_no", "studyday", "Code", "description", "refcode", "refdesc")])
 dis <- dis [ order(mr_no, studyday, Code, refcode, refdesc)]
 dis <- dis [, `:=` (ndis = uniqueN(Code), 
                     nrow = seq_len(.N),
                     nrowend = seq_len(.N) + 4,
                     totrow = .N), by = .(mr_no, refcode, refdesc)]
 
-dis02 <- dis [, .(newgrp = seq(nrow, nrowend, by =1)), by = .(mr_no, Code, refcode, refdesc, nrow, nrowend, ndis, totrow)]
+dis02 <- dis [, .(newgrp = seq(nrow, nrowend, by =1)), by = .(mr_no, Code, description, refcode, refdesc, nrow, nrowend, ndis, totrow)]
 
 dis03 <- dis02 [, .(combdis = paste(Code, collapse = ",", sep = " " )), 
               by = .(mr_no, refcode, refdesc, newgrp, ndis, totrow)]
@@ -74,10 +72,11 @@ setnames(temp02, "combdis2", "combdis")
 temp03 <- unique( rbind (temp01, temp02))
 
 rm(temp01); rm(temp02)
+rm(unq03comb)
 
 den01 <- temp03 [, .(den01 = .N), by = .(mr_no, mr_no2, refcode, refdesc)]
 
-rm(unq03comb)
+rm(temp03)
 
 jacard01 <- merge(x = num01,
                   y = den01,
@@ -87,8 +86,16 @@ jacard01 <- jacard01 [, dist := (num01 / den01) * 100, ]
 
 jacard01trn <- dcast(data = jacard01, 
                      refcode + refdesc + mr_no ~ mr_no2, 
-                     value.var = c ("dist"))
+                     value.var = c ("dist"), 
+                     fill = 0)
 
-dis03cnt <- dis03 [, .(npat = uniqueN(mr_no)), by = .(combdis)]
+#dis03cnt <- dis03 [, .(npat = uniqueN(mr_no)), by = .(combdis)]
 
+unqdis <- unique( dis [, c("mr_no", "ndis", "totrow", "refcode", "refdesc"), ])
+alldis <- dis02 [, .(alldis = paste(unique(Code), collapse = ",", sep = " " ),
+                     alldesc = paste(unique(description), collapse = ",", sep = " " )), 
+                by = .(mr_no, refcode, refdesc)]
 
+# Combine all variables into 1 dataset ADSL
+alldis <- Reduce(function(...) merge(..., all = TRUE, by = c("mr_no", "refcode", "refdesc")),
+               list(unqdis, alldis, jacard01trn) )
