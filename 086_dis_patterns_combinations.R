@@ -99,3 +99,6 @@ alldis <- dis02 [, .(alldis = paste(unique(Code), collapse = ",", sep = " " ),
 # Combine all variables into 1 dataset ADSL
 alldis <- Reduce(function(...) merge(..., all = TRUE, by = c("mr_no", "refcode", "refdesc")),
                list(unqdis, alldis, jacard01trn) )
+
+fwrite(alldis, 
+       "D:/Hospital_data/ProgresSQL/analysis/086_dis_patterns_combinations_A2.0.csv")
