@@ -1,11 +1,6 @@
-###################################################################  
-# 2nd attempt using the stringsim function  
-# at present this code takes into account the   
-# unique diseases experienced by patients  
-# 
-# This could be changed to patterns experienced by patient  
-# Additionally these calculations could be done on before and after  
-# diseases differently to understand the similar / dissimilar nature 
+
+####################################################################
+# This is used for 086_dis_count_edges_3rd_byPeriod Tableau display
 ####################################################################
 
 library(tidyverse)
@@ -14,61 +9,62 @@ library(stringr)
 library(data.table)
 library(stringdist)
 
-data <-fread ("C:\\Users\\mahajvi1\\Desktop\\dis01.csv", sep =",")
+# https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
 
-unq01comb <- unique( data [, c("mr_no", "refcode", "refdesc", "alldis", "ndis", "totrow"), ])
+all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+a2 <- all_met_rmsd [!Code %in% c("", " ") & refcode == "A2.0"]
+
+dis <- unique(a2[!Code %in% c("", " ") & refcode == "A2.0", c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")])
+dis <- dis [, refday2 := ifelse(refday >=1, "Before", "After"), ]
+dis <- dis [ order(mr_no, studyday, Code, refcode, refdesc)]
+dis <- dis [, `:=` (alldis = uniqueN(Code), 
+                    nrow = seq_len(.N),
+                    nrowend = seq_len(.N) + 4,
+                    totrow = .N), by = .(mr_no, refcode, refdesc)]
+dis <- dis [, `:=` (alldisbfraftr = uniqueN(Code), 
+                    nrowbfraftr = seq_len(.N) ), by = .(mr_no, refcode, refdesc, refday2)]
+
+dis02 <- dis [, .(combdis = paste(Code, collapse = ",", sep = " " )), 
+              by = .(mr_no, refcode, refdesc, refday2, alldis, totrow)]
+
+unq01comb <- unique( dis02 [, c("mr_no", "refcode", "refdesc", "alldis", "refday2",
+                                "totrow",  "combdis"), ])
 unq01comb <- unq01comb [, x := 1, ]
 
 # create a copy
 unq02comb <- copy(unq01comb)
 setnames(unq02comb, "mr_no", "mr_no2")
-setnames(unq02comb, "alldis", "combdis2")
+setnames(unq02comb, "combdis", "combdis2")
 
 # Merge the datasets on x to get all the combinations
 
 unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"], 
-                   y = unq02comb [, -c("refcode", "refdesc", "ndis", "totrow"), ], 
-                   by = c("x"), 
+                   y = unq02comb [, -c("refcode", "refdesc", "totrow", "alldis"), ], 
+                   by = c("x", "refday2"), 
                    allow.cartesian = TRUE)
-unq03comb <- unq03comb [ order(mr_no)]
-unq03comb <- unq03comb [, x := .I, ]
 
-chk02 <- unq03comb [, `:=` (dist_jac = stringsim(alldis, combdis2, method = c("jaccard")),
-                            dist_osa = stringsim(alldis, combdis2, method = c("osa")),
-                            dist_lv  = stringsim(alldis, combdis2, method = c("lv")),
-                            dist_dl  = stringsim(alldis, combdis2, method = c("dl")),
-                            dist_hamming = stringsim(alldis, combdis2, method = c("hamming")), 
-                            dist_lcs  = stringsim(alldis, combdis2, method = c("lcs")),
-                            dist_qgram  = stringsim(alldis, combdis2, method = c("qgram")),
-                            dist_cosine  = stringsim(alldis, combdis2, method = c("cosine")),
-                            dist_jw  = stringsim(alldis, combdis2, method = c("jw")),
-                            dist_soundex  = stringsim(alldis, combdis2, method = c("soundex")) ), ]
+chk02 <- unq03comb [, `:=` (dist_jac = stringsim(combdis, combdis2, method = c("jaccard")),
+                            dist_osa = stringsim(combdis, combdis2, method = c("osa")),
+                            dist_lv  = stringsim(combdis, combdis2, method = c("lv")),
+                            dist_dl  = stringsim(combdis, combdis2, method = c("dl")),
+                            dist_hamming = stringsim(combdis, combdis2, method = c("hamming")), 
+                            dist_lcs  = stringsim(combdis, combdis2, method = c("lcs")),
+                            dist_qgram  = stringsim(combdis, combdis2, method = c("qgram")),
+                            dist_cosine  = stringsim(combdis, combdis2, method = c("cosine")),
+                            dist_jw  = stringsim(combdis, combdis2, method = c("jw")),
+                            dist_soundex  = stringsim(combdis, combdis2, method = c("soundex")) ), ]
 
 chk022 <- melt(data = chk02,
-               id.vars = 1:9,
-               measure.vars = 10:19,
+               id.vars = 1:10,
+               measure.vars = 11:20,
                variable.name = "distmethod")
 
-jacard01 <- dcast(data = chk022, 
-                     refcode + refdesc + mr_no + ndis + totrow + alldis + distmethod ~ mr_no2, 
-                     value.var = c ("value"), 
-                     fill = 0)
+fwrite(chk022, 
+       "D:/Hospital_data/ProgresSQL/analysis/086_dis_patterns_combinations_A2.0.csv")
 
-chk03 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
-                                                 cmr_no2 = uniqueN(mr_no2) ), by = .(ndis)]
-
-chk033 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
-                                                 cmr_no2 = uniqueN(mr_no2) ), 
-                 by = .(ndis, alldis)]
-
-
-jacard02 <- jacard01 [alldis %like% c("A2.0,V2.0,V2.30,V2.63")]
-                      
-                      c("refcode", "refdesc", "mr_no", "alldis", "MR035071",  "MR047738", "MR014238"), ]
 ####################################################################
 # End of program
 ####################################################################
-
 ####################################################################
 # This is used for 086_dis_count_edges_3rd_byPeriod Tableau display
 ####################################################################
@@ -83,6 +79,7 @@ library(jsonlite)
 library(dplyr)
 library(zoo)
 library(tidyr)
+library(HDMD)
 
 # https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
 
