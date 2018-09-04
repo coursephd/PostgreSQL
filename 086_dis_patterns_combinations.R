@@ -44,9 +44,14 @@ chk02 <- unq03comb [, `:=` (dist_jac = stringsim(alldis, combdis2, method = c("j
                             dist_jw  = stringsim(alldis, combdis2, method = c("jw")),
                             dist_soundex  = stringsim(alldis, combdis2, method = c("soundex")) ), ]
 
-jacard01 <- dcast(data = chk02, 
-                     refcode + refdesc + mr_no + ndis + totrow + alldis ~ mr_no2, 
-                     value.var = c ("dist_jac"), 
+chk022 <- melt(data = chk02,
+               id.vars = 1:9,
+               measure.vars = 10:19,
+               variable.name = "distmethod")
+
+jacard01 <- dcast(data = chk022, 
+                     refcode + refdesc + mr_no + ndis + totrow + alldis + distmethod ~ mr_no2, 
+                     value.var = c ("value"), 
                      fill = 0)
 
 chk03 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
