@@ -33,11 +33,20 @@ unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"],
 unq03comb <- unq03comb [ order(mr_no)]
 unq03comb <- unq03comb [, x := .I, ]
 
-chk02 <- unq03comb [, dist := stringsim(alldis, combdis2, method = c("jaccard")), ]
+chk02 <- unq03comb [, `:=` (dist_jac = stringsim(alldis, combdis2, method = c("jaccard")),
+                            dist_osa = stringsim(alldis, combdis2, method = c("osa")),
+                            dist_lv  = stringsim(alldis, combdis2, method = c("lv")),
+                            dist_dl  = stringsim(alldis, combdis2, method = c("dl")),
+                            dist_hamming = stringsim(alldis, combdis2, method = c("hamming")), 
+                            dist_lcs  = stringsim(alldis, combdis2, method = c("lcs")),
+                            dist_qgram  = stringsim(alldis, combdis2, method = c("qgram")),
+                            dist_cosine  = stringsim(alldis, combdis2, method = c("cosine")),
+                            dist_jw  = stringsim(alldis, combdis2, method = c("jw")),
+                            dist_soundex  = stringsim(alldis, combdis2, method = c("soundex")) ), ]
 
 jacard01 <- dcast(data = chk02, 
                      refcode + refdesc + mr_no + ndis + totrow + alldis ~ mr_no2, 
-                     value.var = c ("dist"), 
+                     value.var = c ("dist_jac"), 
                      fill = 0)
 
 chk03 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
