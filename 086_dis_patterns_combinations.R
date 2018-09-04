@@ -14,10 +14,9 @@ library(stringr)
 library(data.table)
 library(stringdist)
 
-data <-fread ("<Include appropriate directory>/dis01.csv", sep =",")
+data <-fread ("C:\\Users\\mahajvi1\\Desktop\\dis01.csv", sep =",")
 
-
-unq01comb <- unique( data [, c("mr_no", "refcode", "refdesc", "alldis"), ])
+unq01comb <- unique( data [, c("mr_no", "refcode", "refdesc", "alldis", "ndis", "totrow"), ])
 unq01comb <- unq01comb [, x := 1, ]
 
 # create a copy
@@ -28,7 +27,7 @@ setnames(unq02comb, "alldis", "combdis2")
 # Merge the datasets on x to get all the combinations
 
 unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"], 
-                   y = unq02comb [, -c("refcode", "refdesc"), ], 
+                   y = unq02comb [, -c("refcode", "refdesc", "ndis", "totrow"), ], 
                    by = c("x"), 
                    allow.cartesian = TRUE)
 unq03comb <- unq03comb [ order(mr_no)]
@@ -37,12 +36,21 @@ unq03comb <- unq03comb [, x := .I, ]
 chk02 <- unq03comb [, dist := stringsim(alldis, combdis2, method = c("jaccard")), ]
 
 jacard01 <- dcast(data = chk02, 
-                     refcode + refdesc + mr_no + alldis ~ mr_no2, 
+                     refcode + refdesc + mr_no + ndis + totrow + alldis ~ mr_no2, 
                      value.var = c ("dist"), 
                      fill = 0)
 
-jacard02 <- jacard01 [alldis %like% c("A1.0,A2.0"), c("refcode", "refdesc", "mr_no", "alldis", "MR035071",  "MR047738", "MR014238"), ]
+chk03 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
+                                                 cmr_no2 = uniqueN(mr_no2) ), by = .(ndis)]
 
+chk033 <- chk02 [dist > 0.9 & mr_no != mr_no2, .( cmr_no = uniqueN(mr_no),
+                                                 cmr_no2 = uniqueN(mr_no2) ), 
+                 by = .(ndis, alldis)]
+
+
+jacard02 <- jacard01 [alldis %like% c("A2.0,V2.0,V2.30,V2.63")]
+                      
+                      c("refcode", "refdesc", "mr_no", "alldis", "MR035071",  "MR047738", "MR014238"), ]
 ####################################################################
 # End of program
 ####################################################################
