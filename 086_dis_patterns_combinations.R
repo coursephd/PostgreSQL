@@ -1,3 +1,52 @@
+###################################################################  
+# 2nd attempt using the stringsim function  
+# at present this code takes into account the   
+# unique diseases experienced by patients  
+# 
+# This could be changed to patterns experienced by patient  
+# Additionally these calculations could be done on before and after  
+# diseases differently to understand the similar / dissimilar nature 
+####################################################################
+
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(data.table)
+library(stringdist)
+
+data <-fread ("<Include appropriate directory>/dis01.csv", sep =",")
+
+
+unq01comb <- unique( data [, c("mr_no", "refcode", "refdesc", "alldis"), ])
+unq01comb <- unq01comb [, x := 1, ]
+
+# create a copy
+unq02comb <- copy(unq01comb)
+setnames(unq02comb, "mr_no", "mr_no2")
+setnames(unq02comb, "alldis", "combdis2")
+
+# Merge the datasets on x to get all the combinations
+
+unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"], 
+                   y = unq02comb [, -c("refcode", "refdesc"), ], 
+                   by = c("x"), 
+                   allow.cartesian = TRUE)
+unq03comb <- unq03comb [ order(mr_no)]
+unq03comb <- unq03comb [, x := .I, ]
+
+chk02 <- unq03comb [, dist := stringsim(alldis, combdis2, method = c("jaccard")), ]
+
+jacard01 <- dcast(data = chk02, 
+                     refcode + refdesc + mr_no + alldis ~ mr_no2, 
+                     value.var = c ("dist"), 
+                     fill = 0)
+
+jacard02 <- jacard01 [alldis %like% c("A1.0,A2.0"), c("refcode", "refdesc", "mr_no", "alldis", "MR035071",  "MR047738", "MR014238"), ]
+
+####################################################################
+# End of program
+####################################################################
+
 ####################################################################
 # This is used for 086_dis_count_edges_3rd_byPeriod Tableau display
 ####################################################################
