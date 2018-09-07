@@ -15,7 +15,7 @@ all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rd
 a2 <- all_met_rmsd [!Code %in% c("", " ") & refcode == "A2.0"]
 
 dis <- unique(a2[!Code %in% c("", " ") & refcode == "A2.0", c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")])
-dis <- dis [, refday2 := ifelse(refday >=1, "Before", "After"), ]
+dis <- dis [, refday2 := ifelse(refday >=1, "After", "Before"), ]
 dis <- dis [ order(mr_no, studyday, Code, refcode, refdesc)]
 dis <- dis [, `:=` (alldis = uniqueN(Code), 
                     nrow = seq_len(.N),
