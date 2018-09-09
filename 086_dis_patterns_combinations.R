@@ -1,3 +1,56 @@
+####################################################################
+#
+####################################################################
+
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(stringi)
+library(data.table)
+library(stringdist)
+
+# https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
+
+all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+a2 <- all_met_rmsd [!Code %in% c("", " ", "A2.0") & refcode == "A2.0"]
+
+dis <- unique(a2[!Code %in% c("", " ", "A2.0") & refcode == "A2.0", c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")])
+dis <- dis [, refday2 := ifelse(refday >=1, "After", "Before"), ]
+dis <- dis [ order(mr_no, studyday, Code, refcode, refdesc)]
+dis <- dis [, `:=` (alldis = uniqueN(Code), 
+                    nrow = seq_len(.N),
+                    nrowend = seq_len(.N) + 4,
+                    totrow = .N), by = .(mr_no, refcode, refdesc)]
+dis <- dis [, `:=` (alldisbfraftr = uniqueN(Code), 
+                    nrowbfraftr = seq_len(.N) ), by = .(mr_no, refcode, refdesc, refday2)]
+
+dis02 <- dis [, .(combdis = paste(unique(description), collapse = ",", sep = " " )), 
+              by = .(mr_no, refcode, refdesc, refday2, alldis, totrow)]
+
+unq01comb <- unique( dis02 [, c("mr_no", "refcode", "refdesc", "alldis", "refday2",
+                                "totrow",  "combdis"), ])
+unq01comb <- unq01comb [, x := 1, ]
+
+# create a copy
+unq02comb <- copy(unq01comb)
+setnames(unq02comb, "mr_no", "mr_no2")
+setnames(unq02comb, "combdis", "combdis2")
+
+unq01comb <- unq01comb [, combdis := str_replace_all(combdis, ",", "|"), ]
+
+# Merge the datasets on x to get all the combinations
+
+unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"], 
+                   y = unq02comb [, -c("refcode", "refdesc", "totrow", "alldis"), ], 
+                   by = c("x", "refday2"), 
+                   allow.cartesian = TRUE)
+
+########################################################
+# Using str_count function to count the common diseases
+########################################################
+chk02 <- unq03comb[, `:=` (dist_fnd = str_count(combdis2, combdis)),  ]
+chk022 <- chk02 [, `:=` (try = str_replace_all( paste(combdis, combdis2, sep = " " ), "\\||,", " " ) ), ]
+
 
 ####################################################################
 # This is used for 086_dis_count_edges_3rd_byPeriod Tableau display
@@ -8,6 +61,7 @@ library(tidytext)
 library(stringr)
 library(data.table)
 library(stringdist)
+library(qualV)
 
 # https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
 
@@ -52,7 +106,8 @@ chk02 <- unq03comb [, `:=` (dist_jac = stringsim(combdis, combdis2, method = c("
                             dist_qgram  = stringsim(combdis, combdis2, method = c("qgram")),
                             dist_cosine  = stringsim(combdis, combdis2, method = c("cosine")),
                             dist_jw  = stringsim(combdis, combdis2, method = c("jw")),
-                            dist_soundex  = stringsim(combdis, combdis2, method = c("soundex")) ), ]
+                            dist_soundex  = stringsim(combdis, combdis2, method = c("soundex")),
+                            dist_lcs  = LCS(combdis, combdis2) ), ]
 
 chk022 <- melt(data = chk02,
                id.vars = 1:10,
