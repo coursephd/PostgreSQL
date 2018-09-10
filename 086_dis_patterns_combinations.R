@@ -51,6 +51,11 @@ unq03comb <- merge(x = unq01comb, # [ mr_no == "MR000002"],
 chk02 <- unq03comb[, `:=` (dist_fnd = str_count(combdis2, combdis)),  ]
 chk022 <- chk02 [, `:=` (try = str_replace_all( paste(combdis, combdis2, sep = " " ), "\\||,", " " ) ), ]
 
+chk023 = unnest_tokens(chk022, token, try, token = 'words')
+
+chk024 <- chk023 [, .(allcnt = str_count ( paste( unique( token), collapse = " "), " " ) + 1), 
+                  by = .(refday2, mr_no, mr_no2, combdis, combdis2)]
+
 
 ####################################################################
 # This is used for 086_dis_count_edges_3rd_byPeriod Tableau display
