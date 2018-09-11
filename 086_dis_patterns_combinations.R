@@ -1,6 +1,5 @@
 # attempt based on the binary measures papers:
 
-
 library(tidyverse)
 library(tidytext)
 library(stringr)
@@ -50,7 +49,7 @@ unq03comb <- unq03comb[, `:=` (a = str_count(combdis2, tempdis)),]
 unq03comb <- unq03comb [, `:=` (b = cntdis - a,
                                c = cntdis2 - a),  ]
 
-
+distmsr <- unq03comb[, a01jac := (a / (a + b + c)),]
 
 ####################################################################
 #
