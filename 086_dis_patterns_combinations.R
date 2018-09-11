@@ -1,3 +1,57 @@
+# attempt based on the binary measures papers:
+
+
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(data.table)
+library(stringdist)
+library(reshape2)
+
+data <-fread ("C:\\Users\\mahajvi1\\Desktop\\dis01.csv", sep =",")
+
+unq01comb <- unique( data [, c("mr_no", "refcode", "refdesc", "alldis", "ndis", "totrow"), ])
+unq01comb <- unq01comb [, x := 1, ]
+unq01comb <- unq01comb [, alldis := str_replace_all(alldis, " ", ""), ]
+
+setnames(unq01comb, "alldis", "combdis")
+
+# create a copy
+unq02comb <- copy(unq01comb)
+setnames(unq02comb, "mr_no", "mr_no2")
+setnames(unq02comb, "combdis", "combdis2")
+
+# Merge the datasets on x to get all the combinations
+
+unq03comb <- merge(x = unq01comb, 
+                   y = unq02comb [, -c("refcode", "refdesc", "ndis", "totrow"), ], 
+                   by = c("x"), 
+                   allow.cartesian = TRUE)
+
+########################################################
+# Using str_count function to count the common diseases
+# Create tempdis and tempdis2
+#
+# Consider mr_no as the reference patient
+# tempdis: should be lookup
+# a: common in both the strings
+# b: only present in reference patient (mr_no)
+# c: only present in other patient (mr_no2)
+# d: complete absence -- not sure how to calculate this
+########################################################
+
+unq03comb <- unq03comb [, `:=` (tempdis = str_replace_all(combdis, ",", "|"), 
+                                tempdis2 = str_replace_all(combdis2, ",", "|"),
+                                cntdis = str_count(combdis, ",") + 1, 
+                                cntdis2 = str_count(combdis2, ",") + 1), ]
+
+unq03comb <- unq03comb[, `:=` (a = str_count(combdis2, tempdis)),]
+
+unq03comb <- unq03comb [, `:=` (b = cntdis - a,
+                               c = cntdis2 - a),  ]
+
+
+
 ####################################################################
 #
 ####################################################################
