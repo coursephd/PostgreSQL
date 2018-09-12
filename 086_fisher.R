@@ -1,3 +1,6 @@
+https://www.nature.com/articles/s41598-018-22578-1 Fisher test, paper
+https://pdfs.semanticscholar.org/b0d4/dadbb6284373b504ef7aa0b74a571e222bc9.pdf Distance measures
+
 library(data.table)
 library(tidyverse)
 
