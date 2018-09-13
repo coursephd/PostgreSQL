@@ -12,9 +12,16 @@ library(stringdist)
 # https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
 
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
-a2 <- all_met_rmsd [!Code %in% c("", " ", "A2.0") & refcode == "A2.0"]
+a2 <- all_met_rmsd [!Code %in% c("", " ", "M2.0") & refcode == "M2.0"]
 
-dis <- unique(a2[!Code %in% c("", " ", "A2.0") & refcode == "A2.0", c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")])
+a2med <- a2 [, description := paste(Type_med, Coded_med),]
+a2med <- a2med [ order(description)]
+a2med <- a2med [, Code := paste("M", str_pad(.N, width =4, pad="0"), sep =""), by = .(description) ]
+
+a2all <- rbind(a2 [, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")], 
+                   a2med [, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")] )
+  
+dis <- unique(a2all[, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc")])
 dis <- dis [, `:=` (refday2 = ifelse(refday >=1, "After", "Before"), 
                     Code = str_replace_all (Code, " ", ""),
                     description = str_replace_all(description, " ", "")),]
@@ -71,8 +78,13 @@ unq03comb <- unq03comb [, `:=` (b = cntdis - a,
                                 c = cntdis2 - a),  ]
 
 unq03comb <- unq03comb[, a01jac := (a / (a + b + c)),]
+unq03comb <- unq03comb [ mr_no != mr_no2]
 
-cnt <- unq03comb [, .(cnt = uniqueN( paste(mr_no, mr_no2))), by = .(a01jac)]
+distraj <- unique(unq03comb [tempdis != tempdis2 , c("tempdis", "tempdis2", "a01jac", "refday2"),])
+
+distraj01 <- distraj [, .(distraj = .N), by = .(refday2, a01jac)]
+
+cnt <- unq03comb [, .(cnt = uniqueN( paste(mr_no))), by = .(refday2, a01jac)]
 
 chk022 <- melt(data = chk02,
                id.vars = 1:10,
@@ -86,16 +98,6 @@ fwrite(unq03comb,
 # End of program
 ####################################################################
 
-########################################################
-# Using str_count function to count the common diseases
-########################################################
-chk02 <- unq03comb[, `:=` (dist_fnd = str_count(combdis2, combdis)),  ]
-chk022 <- chk02 [, `:=` (try = str_replace_all( paste(combdis, combdis2, sep = " " ), "\\||,", " " ) ), ]
-
-chk023 = unnest_tokens(chk022, token, try, token = 'words')
-
-chk024 <- chk023 [, .(allcnt = str_count ( paste( unique( token), collapse = " "), " " ) + 1), 
-                  by = .(refday2, mr_no, mr_no2, combdis, combdis2)]
 
 
 ####################################################################
