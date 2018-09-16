@@ -8,11 +8,12 @@ library(stringr)
 library(stringi)
 library(data.table)
 library(stringdist)
+library(scales)
 
 # https://stackoverflow.com/questions/43706729/expand-dates-in-data-table
 
 all_met_rmsd <- readRDS ("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
-a2 <- all_met_rmsd [!Code %in% c("", " ") & refcode == "M2.0"]
+a2 <- all_met_rmsd [!Code %in% c("", " ") & refcode == "A2.0"]
 
 a2med <- a2 [, description := paste(Type_med, Coded_med),]
 a2med <- a2med [ order(description)]
@@ -97,5 +98,16 @@ maxscr03 <- maxscr [, .(scr = uniqueN(mr_no)), by = .(maxscr, combdis, refday2)]
 maxscr03_t <- dcast(data = maxscr03, 
                     combdis + maxscr ~ refday2,
                     value.var = c("scr"))
+
+totscr <- unq03comb [, .( rowcnt = .N), by = .(refday2, cut(a01jac, 
+                                                            seq(0, 1, .25), 
+                                                            include.lowest = TRUE,
+                                                            ordered_result = TRUE) )]
+totscr02 <- unq03comb [, .(totn = .N), by = .(refday2 )]
+totscr02 <- merge (totscr, totscr02, by = c("refday2"))
+totscr02 <- totscr02 [, perc := percent( rowcnt / totn),]
+totscr02_t <- dcast(data = totscr02,
+                    cut ~ refday2,
+                    value.var = c("perc", "totn", "rowcnt"))
 
 dismaxscr02_t <- maxscr02_t
