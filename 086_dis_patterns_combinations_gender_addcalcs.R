@@ -110,4 +110,23 @@ totscr02_t <- dcast(data = totscr02,
                     cut ~ refday2,
                     value.var = c("perc", "totn", "rowcnt"))
 
-dismaxscr02_t <- maxscr02_t
+#dismaxscr02_t <- maxscr02_t
+
+############################################
+# Find patients with only the disease 
+# same as reference disease
+# 1 = patients with only disease
+# 99 = patients with more than 1 disease in
+# a reference disease category
+############################################
+
+addmr <- unique( all_met_rmsd [!Code %in% c(" ", ""), c("mr_no", "refcode", "Code", "distype"),])
+addmr <- addmr [, cnt := uniqueN(refcode), by  = .(mr_no)] 
+addmr <- addmr [, dis := ifelse(refcode == Code, 1, 0),]
+addmr <- addmr [, calc := ifelse(cnt == 1 & dis == 1, 1, 99),]
+
+addmr02 <- addmr [, .(cntr = uniqueN(mr_no)), by = .(distype, refcode, Code, calc)]
+addmr03 <- addmr [, .(cntot = uniqueN(mr_no)), by = .(refcode)]
+addmr04 <- merge(addmr02, addmr03, by = c("refcode"))
+addmr04 <- addmr04 [, perc := percent(cntr / cntot),]
+addmr05 <- addmr04 [ refcode == Code]
