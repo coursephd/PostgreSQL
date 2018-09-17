@@ -23,7 +23,7 @@ a2all <- rbind(a2 [, c("mr_no", "studyday", "refday", "Code", "description", "re
                a2med [, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc", "patient_gender")] )
 
 # Change a2 to a2all
-dis <- unique(a2[, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc", "patient_gender")])
+dis <- unique(a2all[, c("mr_no", "studyday", "refday", "Code", "description", "refcode", "refdesc", "patient_gender")])
 dis <- dis [, `:=` (refday2 = ifelse(refday >=1, paste("After",patient_gender, sep =""),  paste("Before", patient_gender, sep="")), 
                     Code = str_replace_all (Code, " ", ""),
                     description = str_replace_all(description, " ", "")),]
@@ -79,7 +79,13 @@ unq03comb <- unq03comb[, `:=` (a = str_count(combdis2, tempdis)),]
 unq03comb <- unq03comb [, `:=` (b = cntdis - a,
                                 c = cntdis2 - a),  ]
 
-unq03comb <- unq03comb[, a01jac := (a / (a + b + c)),]
+unq03comb <- unq03comb[, `:=` (a01jac = (a / (a + b + c)),
+                               a02dice = (2 * a / (2* a + b + c) ),
+                               a03CZEKANOWSKI = (2 * a / (2* a + b + c) ),
+                               a04jac3w = (3 * a / (3* a + b + c) ),
+                               a05nei_li = (2 * a /  (a + b + a + c) ),
+                               a06sokalsneath1 = (a / (a + 2 * b + 2 * c))
+                               ),]
 unq03comb <- unq03comb [ mr_no != mr_no2]
 
 
