@@ -36,7 +36,7 @@ addmr04 <- addmr04 [, perc := percent(cntr / cntot),]
 addmr05 <- addmr04 [ refcode == Code]
 addmr06 <- merge (addmr05, dis, by = c("refcode"), all.y = TRUE)
 
-unq <- unique(addmr06 [cntot > 10, c("refcode"),])
+unq <- unique(addmr06 [cntot > 5, c("refcode"),])
 unqdis <- unique(unq$refcode)
 
 
@@ -67,12 +67,14 @@ dis <- dis [, `:=` (alldis = uniqueN(Code),
                     totrow = .N), by = .(mr_no, refcode, refdesc)]
 dis <- dis [, `:=` (alldisbfraftr = uniqueN(Code), 
                     nrowbfraftr = seq_len(.N) ), by = .(mr_no, refcode, refdesc, refday2)]
+dis <- dis [, `:=` (total = uniqueN(mr_no) ), by = .(refcode, refdesc, refday2)]
+dis <- dis [, `:=` (allcapn = uniqueN(mr_no) ), by = .(refcode, refdesc)]
 
 dis02 <- dis [, .(combdis = paste(unique(Code), collapse = ",", sep = " " )), 
-              by = .(mr_no, refcode, refdesc, refday2, alldis, totrow)]
+              by = .(mr_no, refcode, refdesc, refday2, alldis, totrow, total, allcapn)]
 
 unq01comb <- unique( dis02 [, c("mr_no", "refcode", "refdesc", "alldis", "refday2",
-                                "totrow",  "combdis"), ])
+                                "totrow",  "combdis", "total", "allcapn"), ])
 unq01comb <- unq01comb [, x := 1, ]
 
 # create a copy
@@ -85,7 +87,7 @@ unq01comb <- unq01comb [, combdis := str_replace_all(combdis, ",", "|"), ]
 # Merge the datasets on x to get all the combinations
 
 unq03comb <- merge(x = unq01comb, 
-                   y = unq02comb [, -c("refcode", "refdesc", "totrow", "alldis"), ], 
+                   y = unq02comb [, -c("refcode", "refdesc", "totrow", "alldis", "total", "allcapn"), ], 
                    by = c("x", "refday2"), 
                    allow.cartesian = TRUE)
 
@@ -121,35 +123,34 @@ unq03comb <- unq03comb[, `:=` (a01jac = (a / (a + b + c)),
 unq03comb <- unq03comb [ mr_no != mr_no2]
 
 
-maxscr <- unq03comb[, .(maxscr = max(a01jac) ), by = .(mr_no, refcode, totrow, alldis, refday2, combdis)]
+maxscr <- unq03comb[, .(maxscr = max(a01jac) ), by = .(mr_no, refcode, total, allcapn, totrow, alldis, refday2, combdis)]
 maxscr_t <- dcast (data = maxscr, 
                    mr_no + refcode + totrow + alldis ~ refday2, 
                    value.var = c("maxscr", "combdis"))
 
-
-maxscr02 <- maxscr [, .(scr = uniqueN(mr_no)), by = .(refcode, refday2, cut(maxscr,  
+maxscr02 <- maxscr [, .(scr = uniqueN(mr_no)), by = .(refcode, total, allcapn, refday2, cut(maxscr,  
                                                                             seq(0, 1, .25), 
                                                                             include.lowest = TRUE,
                                                                             ordered_result = TRUE))]
 maxscr02_t <- dcast(data = maxscr02, 
-                    cut + refcode ~ refday2,
-                    value.var = c("scr"))
+                    refcode + allcapn + cut ~ refday2,
+                    value.var = c("scr", "total"))
 
-maxscr03 <- maxscr [, .(scr = uniqueN(mr_no)), by = .(refcode, maxscr, combdis, refday2)]
+maxscr03 <- maxscr [, .(scr = uniqueN(mr_no)), by = .(refcode, total, allcapn, maxscr, combdis, refday2)]
 maxscr03_t <- dcast(data = maxscr03, 
-                    refcode + combdis + maxscr ~ refday2,
-                    value.var = c("scr"))
+                    refcode + allcapn + combdis + maxscr ~ refday2,
+                    value.var = c("scr", "total"))
 
-totscr <- unq03comb [, .( rowcnt = .N), by = .(refcode, refday2, cut(a01jac, 
+totscr <- unq03comb [, .( rowcnt = .N), by = .(refcode, total, allcapn, refday2, cut(a01jac, 
                                                             seq(0, 1, .25), 
                                                             include.lowest = TRUE,
                                                             ordered_result = TRUE) )]
-totscr02 <- unq03comb [, .(totn = .N), by = .(refcode, refday2 )]
-totscr02 <- merge (totscr, totscr02, by = c("refcode", "refday2"))
+totscr02 <- unq03comb [, .(totn = .N), by = .(refcode, refday2, total, allcapn )]
+totscr02 <- merge (totscr, totscr02, by = c("refcode", "refday2", "total", "allcapn"))
 totscr02 <- totscr02 [, perc := percent( rowcnt / totn),]
 totscr02_t <- dcast(data = totscr02,
-                    refcode + cut ~ refday2,
-                    value.var = c("perc", "totn", "rowcnt"))
+                    refcode + allcapn + cut ~ refday2,
+                    value.var = c("perc", "totn", "rowcnt", "total"))
 
 #dismaxscr02_t <- maxscr02_t
 
@@ -164,12 +165,12 @@ count = count + 1
 }
 
 allD01maxscr_t <- rbindlist(mget(ls(pattern = "D01maxscr_t*")), fill = TRUE)
-allD02maxscr_t <- rbindlist(mget(ls(pattern = "D02maxscr02_t*")), fill = TRUE)
-allD03maxscr_t <- rbindlist(mget(ls(pattern = "D03maxscr03_t*")), fill = TRUE)
-allt02maxscr_t <- rbindlist(mget(ls(pattern = "t02totscr02_t*")), fill = TRUE)
+allD02maxscr02_t <- rbindlist(mget(ls(pattern = "D02maxscr02_t*")), fill = TRUE)
+allD03maxscr03_t <- rbindlist(mget(ls(pattern = "D03maxscr03_t*")), fill = TRUE)
+allt02maxscr02_t <- rbindlist(mget(ls(pattern = "t02totscr02_t*")), fill = TRUE)
 
-rm(list = ls( pattern='D01maxscr_t*'))
-rm(list = ls( pattern='D02maxscr02_t*'))
-rm(list = ls( pattern='D03maxscr03_t*'))
-rm(list = ls( pattern='t02totscr02_t*'))
+rm(list = ls( pattern='^D01maxscr_t*'))
+rm(list = ls( pattern='^D02maxscr02_t*'))
+rm(list = ls( pattern='^D03maxscr03_t*'))
+rm(list = ls( pattern='^t02totscr02_t*'))
 
