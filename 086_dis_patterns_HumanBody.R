@@ -39,7 +39,7 @@ setnames (after, "Y2", "Y")
 
 
 data03 <- rbind (before, after, fill = TRUE)
-data03 <- data03 [, -c("scr_Before", "total_Before", "scr_After", "scr_Before"),]
+data03 <- data03 [, -c("scr_Before", "total_Before", "scr_After", "total_After"),]
 
 data04 <- data03[scr > 0 ]
 
