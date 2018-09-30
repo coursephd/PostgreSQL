@@ -69,12 +69,17 @@ a06all <- a06all [ order(mr_no, grpday, cumday2, cumday3)]
 dis <- unique( a06all [, c("mr_no", "discomb01"),])
 dis <- dis [, disnum_cal := 1:.N, by =.(mr_no)]
 
+dis00 <- unique( a06all [, c("mr_no", "discomb01", "grpday"),])
+dis00 <- dis00 [, distimes := 1:.N, by =.(mr_no, discomb01)]
+
 med <- unique( a06all [, c("mr_no", "doscomb01"),])
 med <- med [, dosnum_cal := 1:.N, by =.(mr_no)]
 
+med00 <- unique( a06all [, c("mr_no", "doscomb01", "grpday"),])
+med00 <- med00 [, dostimes := 1:.N, by =.(mr_no, doscomb01)]
+
 dismed <- unique( a06all [, c("mr_no", "discomb01", "doscomb01", "grpday"),])
 dismed <- dismed [, bothnum_cal := 1:.N, by =.(mr_no, discomb01, doscomb01)]
-
 
 a07all <- merge( x = a06all,
                  y = dis,
@@ -87,3 +92,13 @@ a07all <- merge( x = a07all,
 a07all <- merge( x = a07all,
                  y = dismed,
                  by = c("mr_no", "discomb01", "doscomb01", "grpday"))
+
+a07all <- merge( x = a07all,
+                 y = dis00,
+                 by = c("mr_no", "discomb01", "grpday"))
+
+a07all <- merge( x = a07all,
+                 y = med00,
+                 by = c("mr_no", "doscomb01", "grpday"))
+
+saveRDS (a07all, "D:/Hospital_data/ProgresSQL/analysis/080_medcine_repeat_prop_addnl.rds")
