@@ -274,3 +274,4 @@ a07all <- merge( x = a07all,
 a08all <- data.table(unique ( a07all) )
 
 saveRDS (a08all, "D:/Hospital_data/ProgresSQL/analysis/080_medcine_repeat_prop_addnl.rds")
+fwrite(a08all, "D:/Hospital_data/ProgresSQL/analysis/080_medcine_repeat_prop_addnl.csv")
