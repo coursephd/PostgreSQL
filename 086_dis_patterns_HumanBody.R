@@ -13,15 +13,19 @@ library(stringdist)
 library(scales)
 
 pos <- read.xlsx("D:/Hospital_data/ProgresSQL/misc/HumanBody/HumanBody02.xlsx")
+pos <- data.table(pos)
+pos <- pos [, BodyPosition := str_replace_all(BodyPosition, " ", ""),]
 
 traj <- fread("D:/Hospital_data/ProgresSQL/analysis/086_dis_indtrajectory.csv")
-traj <- traj [, orig := combdesc,]
+traj <- traj [, orig := str_replace_all(combdis, " ", ""),]
 
-traj0 <- separate_rows(traj, orig, sep =",")
+traj0 <- data.table( separate_rows(traj, orig, sep ="\\|") )
+traj0 <- traj0 [, ndisease := str_count(combdesc, ",") + 1,]
 traj01 <- merge( x= traj0,
                  y = pos,
                  by.x = c("orig"),
-                 by.y = c("Description"))
+                 by.y = c("BodyPosition"),
+                 all = TRUE)
 
 before <- copy(traj01)
 before <- before [, -c("X2", "Y2"),]
