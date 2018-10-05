@@ -123,8 +123,10 @@ The following files should be used in the following sequence:
 | 01_traxminer_disease.R | Event sequence analysis using R |
 | 05_slopegraph.R | Edward Tufte style slopegraph to understand the trends in the data |
 | 060_allopathic_diag.R| ICD10 coding for background diseases used in **Tableau** displays|
-| 070_Diff_Visit_Studyday_analysis | Create file for differences in 2 consecutive visits Overall and by Disease, these 2 files are used in **Tableau** displays|
-| 070_Diff_Visit_Studyday_Medicine_analysis| Create file for differences in 2 consecutive visits by treatment, this file is used in **Tableau** displays|
+| 070_Diff_Visit_Studyday_analysis | Create a file for differences in 2 consecutive visits Overall and by Disease, these 2 files are used in **Tableau** displays|
+| 070_Diff_Visit_Studyday_Medicine_analysis| Create a file for differences in 2 consecutive visits by treatment, this file is used in **Tableau** displays|
+| 080_medicine_repeat_prop.R| Create a file to understand the first occurrence of the disease, repeat occurrences of diseases as well as for the medicines|
+| 080_medicine_repeat_prop_addnl_cal.R| Create a file to understand the first occurrence of the disease, repeat occurrences of diseases as well as for the medicines, this inlcudes number of times a disease and treatment is co-occurring|
 
 # Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
