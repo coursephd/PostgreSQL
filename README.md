@@ -40,6 +40,11 @@ The following files should be used in the following sequence:
 | 085_dis_counts_bruce_java.R| Bruce McPherson, a programmer, has provided a Java utility to create a **collapsible view**. This is implemented using R, Java and Github, this program creates the necessary Json file. This view allows combination of diseases and treatments assigned|
 | 085_dis_counts_bruce_java_byperiod.R| Explanation similar to the above program, data by period "before" and "after" view is possible|
 | 085_dis_counts_edges.R| This program creates a csv file used in a Circular Tableau display, the inner circle represents the diseases, the outer circle represents the medicines given, the data is visualised for each reference disease and period|
+| 085_dis_counts_edges_3rdbyPeriod_circular17.R| Explanation similar to the above program|
+| 086_dis_patterns_HumanBody.R| This program creates a dataset useful for display of disease trajectories on a human body tableau display|
+| 086_dis_patterns_combinations.R| This program creates a dataset of disease trajectories|
+| 086_dis_patterns_combinations_gender_Macro.R| This programs creates multiple files, similarity measurements for each patient by reference disease, similarity measurements for medicines, these files are used in Tableau display|
+| 086_fisher.R| This program creates singificant combinations of disease trajectories|
 
 # Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
