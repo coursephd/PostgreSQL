@@ -79,6 +79,15 @@ The following files should be used in the following sequence:
 | Diff_Visit_Studyday | Boxplots for difference between 2 consecutive visits<br>- The number of days between 2 consecutive visits is quite large in initial visits, the difference reduces as the visits increase|
 | Diff_Visit_Studyday_ByDisease | Boxplots for difference between 2 consecutive visits for individual disease<br>- This helps understand diseases reported more than once for individual patients.|
 | Allopathic_diag | These displays provide background disease information for 8000+ patients.|
+| 080_medicine_dis_repeat_prop | These displays may be inaccurate (over representing number of treatments and diseases)|
+| 080_medicine_dis_repeat_prop_cumulative | These displays may be inaccurate (over representing number of treatments and diseases)|
+| 080_medicine_dis_all_met_rmsd_prop | These displays provide patient level information by visit, number of medicines and diseases, 1st time reporting and repeat reporting|
+| 085_dis_1st_time_refCal_NodesEdges | These displays provide display for each reference disease by period "before" and "after" , split into month and year, frequency of distinct patients by each disease and treatment|
+| 085_dis_count_edges_3rd_byPeriod02try | This display provides a comprehensive view of disease and treatment combinations across "before" and "after" periods. The inner circle represents the diseases, the outer circle represents the medicines given, the data is visualised for each reference disease and period|
+| 086_dis_patterns_combinations_distance | Diease trajectory similarity distance calculations are displayed as a matrix form, before and after each reference disease, Distance (0 dissimilar, 1 similar) is color coded. A lot of dissimilarity is visible before day 1 of reference disease, it becomes more homogeneous after day 1|
+| DistanceMeasures | Butterfly views of the similarity distance matrix, diease distance before and after, maximum distance (similarity) before and after, Maximum distance for each patient for each reference disease, distance for each disease by gender before and after day 1|
+| DistanceMeasures-Medicines| Butterfly views for medicines similar to the disease views|
+| HumanBody02 | This display show disease trajectory for each reference disease on human body|
 
 # Madhumeha
 ## Madhumeha specific analysis: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.
