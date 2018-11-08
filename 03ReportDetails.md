@@ -117,7 +117,7 @@ This provides the following information:
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>* The section below displays detailed data for diseases and prescribed medicines.|   
+| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays detailed data for diseases and prescribed medicines.|   
 
 12. 085_dis_1st_time_refCal_NodesEdges:  
 Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference disease.  
