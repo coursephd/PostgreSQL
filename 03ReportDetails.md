@@ -161,6 +161,19 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 * More frequenct counts are displayed in the table above for each of the periods.  
 
 14. Viz name: DistanceMeasures  
+* There are 100s of Distance measures available in mathematics and statistics. These provide the similarity / dis similarity between objects.  
+* Diseases experienced by each patient is sorted by date and only 1st instance of a disease is retained. This way a disease trajectory is created for each and every patient for each and every reference disease, before and after the occurence of the reference disease.  
+* Cartesian product of patients is created for each reference disease.  
+* The similarity measure is calculated for each disease trajectory, e.g. Jaccard distance is used as a distance measure for this display.  
+* Jaccard distance closer to 0 shows dissimilarities and closer to 1 shows similarities.  
+
+| Sheet name | Description |
+| --- | --- |
+| DiseaseDist | |
+| DiseaseMaxDist| |
+| DistIndPatientFreq| |
+
+
 
 
 
