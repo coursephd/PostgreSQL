@@ -117,4 +117,23 @@ This provides the following information:
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays individual data for diseases and prescribed medicines.|   
+| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays detailed data for diseases and prescribed medicines.|   
+
+12. 085_dis_1st_time_refCal_NodesEdges:  
+Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference disease.  
+- Day 1 is calculated as the reference day 1 for individual patient for each disease.  
+- Duration w.r.to this reference day is calculated before and after day 1. This calculation provides the background view as well as future view.  
+- This referencing allows for more informative background disease as well as background medicine information.
+- The duration is split into the following time points:  
+
+| Before | After |
+| --- | --- |
+| Before 1 month| Within 1 month|
+| Before 2 months| Within 2 months|
+| Before 3 to 6 months| Within 3 to 6 months|
+| Before 7 to 12 months| Within 7 to 12 months|
+| Before 2nd year| Within 2nd year|
+| Before 3rd year| Within 3rd year|
+| Before 4th year| Within 4th year|
+| Before 5 year| Within 5 year|
+
