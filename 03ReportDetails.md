@@ -35,4 +35,12 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 | Sheet name | Description |
 | --- | --- |
-| Sheet1| These boxplots provide the different between 2 visits in terms of days. Patients visit hospital as and when they need to or based on the guidance given by Vaidyas.<br>- There are some patients visiting the hospital for more than 2500 days.<br>- There are some patients only coming for a single visit.<br>- 1 unique date for a patient is considered as 1 visit.<br>- Difference between 2 consecutive visits is calculated for each patient and then plotted as a boxplot.<br>- The observed median difference in 2 visits reduces as the visit number increases.<br>- The median difference starts at 447 days and reduces to 342, 293, 235, 211.5, 197, 191.5, 154, and so on.<br>- Till visit 82 there are 10 or more patients| 
+| Sheet1| These boxplots provide the different between 2 visits in terms of days. Patients visit hospital as and when they need to or based on the guidance given by Vaidyas.<br>- There are some patients visiting the hospital for more than 2500 days.<br>- There are some patients only coming for a single visit.<br>- 1 unique date for a patient is considered as 1 visit.<br>- Difference between 2 consecutive visits is calculated for each patient and then plotted as a boxplot.<br>- The observed median difference in 2 visits reduces as the visit number increases.<br>- The median difference starts at 447 days and reduces to 342, 293, 235, 211.5, 197, 191.5, 154, and so on.<br>- Till visit 82 there are 10 or more patients.<br><br>This would provide useful insights into patient behaviour w.r.to visiting, recurrence and follow-up with vaidyas, operational challenges.|
+
+3. Viz name: Diff_Visit_Studyday_ByDisease  
+
+| Sheet name | Description |
+| --- | --- |
+| Sheet1| These boxplots provide similar information to the "Diff_Visit_Studyday" visual.<br>- For same patient, find out if a disease is reported more than once on different visits. If yes, then find out the difference between 2 consecutive occurences, use that "duration" in the boxplot.<br>- Display this difference as per visits for each disease reported.<br>- Many diseases are not reported more than once for the same patient.<br><br>This analysis should provide a clinical view as well as operational view on follow-up visits for patients. In case of diseases getting cured and a new episode appearing for a patient, large gaps could be seen. If the diseases can be classified into chronic / acute, easily curable vs. difficult to cure then this analysis would provide more useful insights.|
+
+
