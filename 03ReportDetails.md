@@ -9,7 +9,7 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 **Based on data from SQL database till Oct 2017**
 
-##1. Viz name: 01SQL_Dis_Med_Ser  
+## 1. Viz name: 01SQL_Dis_Med_Ser  
 
 | Sheet name | Description |
 | --- | --- |
