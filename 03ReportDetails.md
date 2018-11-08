@@ -58,5 +58,17 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | --- | --- |
 | Sheet 1| These boxplots provide similar information to the "Diff_Visit_Studyday" visual.<br>- For same patient, find out if a prescribed medicine is reported more than once on different visits. If yes, then find out the difference between 2 consecutive occurences, use that "duration" in the boxplot.<br>- Display this difference as per visits for each prescribed medicine.<br>- Many prescribed medicines are not reported more than once for the same patient.<br><br>This analysis should provide a clinical view as well as operational view on follow-up visits for patients.|
 
-6. 01_Primary_madhumeha  
+6. 01_Primary_madhumeha: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.  
+
+| Sheet name | Description |
+| --- | --- |
+| Dis+Med_Caldate_view| This is a listing for individual madhumeha patient.<br>- Patient ID, gender, Baseline age are displayed.<br>- Diseases and medicines are displayed one below the other under Code and description columns.<br>- The duration is displayed as per calendar days.<br>- Duration of each disease and prescribed medicine is calculated as difference between maximum date - minimum date + 1 (this may not always be accurate, as it combines 2 independent episodes into 1).<br>- In the tooltip, additional information about total duration of visits to hospital, duration of disease and duration of prescribed medicine are displayed.|
+| Dis+Med_Studyday_view| This is a listing similar to the calendar view, in place of calendar dates, the study day starting from 1 to maximum study day are used.|
+| Box_MedAge| This boxplot display shows the summary statistics for age of Madhumeha patients getting prescribed to different medicines.|  
+
+This individual patient listing would help in understanding relationship between treatments, diseases, co-occurences of diseases and co-admininstritation of treatments.  
+
+
+
+
 
