@@ -8,9 +8,9 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 ## Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
-| **Based on data from SQL database till Oct 2017**||
+| **Based on data from SQL database till Oct 2017** ||
 
-| Viz name |01SQL_Dis_Med_Ser|
+| Viz name |01SQL_Dis_Med_Ser |
 | Sheet name | Description |
 | --- | --- |
 | RMSD_Met_patients| Frequency table by gender and high level disease classification, there are more number of RMSD patients compared to the Metabolic, Metabolic and RMSD patients.<br>There are more number of female RMSD patients compared to males.<br>There are similar number of males and females in Metabolic disease categories| 
