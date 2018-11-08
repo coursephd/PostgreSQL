@@ -184,5 +184,9 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 * Before and after periods are shown as 2 skeletons next to each other.  
 * Diseases which could be approximately assigned to a body part are displayed on the body, otherwise are displayed on the side of the body.  
 * Following Frequency counts are displayed:  
-    ** Number of patients experiencing the disease trajectory is displayed
-
+  * Total number of patients  
+  * Total number of patients by gender  
+  * Number of patients experiencing the disease trajectory is displayed  
+  * Similarity score  
+  * Total number of diseases listed in the disease trajectory  
+  
