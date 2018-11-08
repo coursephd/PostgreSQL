@@ -6,9 +6,7 @@ The Source data used is the Hospital database
 SQL programming and R programming are used to create analysis datasets  
 These analysis datasets are then used as inputs to Tableau for generating various interactive visual displays  
 
-# Dataset creation files: 
-
-# Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
+## Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
 | Viz name | Description |
 | --- | --- |
