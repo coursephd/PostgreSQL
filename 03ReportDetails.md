@@ -96,3 +96,14 @@ This individual patient listing would help in understanding relationship between
 | Summary - Visit| This table displays frequency counts of unique patients for each of the categories created above for each visit.<br>- A patient is counted if the data is non-missing for a specific category.|
 | Summary - StudyDay| This table is similar to earlier table, it is presented by study day.|
 
+9. 080_medicine_dis_all_met_rmsd_prop: the Dashboard 1 in this visual is explained below.
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 1| This is done for Metabolic and RMSD patients. This provides diseases and treatments per patient as either "disease reported 1st time" or "repeat", "treatment reported 1st time" or "repeat".<br>- This is done by studyday (or visit) when a disease and medicine is reported in the data.|  
+
+This shows individual patient data for disease and treatment, and a table. This helps in understanding the following:  
+(1) When a new disease is reported, usually a new treatment or treatments are reported  
+(2) If there is only a new treatment added then it could indicate, the earlier treatment may not have worked, or it explains the treatment regimen.  
+
+9. 080_medicine_dis_repeat_prop_cumulative  
