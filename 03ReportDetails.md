@@ -161,20 +161,16 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 * More frequenct counts are displayed in the table above for each of the periods.  
 
 14. Viz name: DistanceMeasures  
-* There are 100s of Distance measures available in mathematics and statistics. These provide the similarity / dis similarity between objects.  
+* There are 100s of Distance measures available in mathematics and statistics. These provide the similarity / dis-similarity between objects.  
 * Diseases experienced by each patient is sorted by date and only 1st instance of a disease is retained. This way a disease trajectory is created for each and every patient for each and every reference disease, before and after the occurence of the reference disease.  
-* Cartesian product of patients is created for each reference disease.  
+* Cartesian product of patients is created for each reference disease, so that distances can be calculated.  
 * The similarity measure is calculated for each disease trajectory, e.g. Jaccard distance is used as a distance measure for this display.  
 * Jaccard distance closer to 0 shows dissimilarities and closer to 1 shows similarities.  
+* The distances are cut into 4 categories 0 to 0.25, 0.25 to 0.5, 0.5 to 0.75 and 0.75 to 1.  
 
 | Sheet name | Description |
 | --- | --- |
-| DiseaseDist | |
-| DiseaseMaxDist| |
-| DistIndPatientFreq| |
-
-
-
-
-
+| DiseaseDist |-Most of the disease trajectories have distance score between 0 and 0.25 for before and after the reference disease.<br> - This could be interpreted as dissimilar. Not many patients have similar diseases before and after the reference disease.<br>- The underlying patient population could be considered as a heterogeneous population.<br>- This should also be seen in distance measures calculated for prescribed medicines.|
+| DiseaseMaxDist|- Maximum distance measure from Jaccard is considered for calculations.<br>- This way most similar patients (as per disease trajectory) are analysed.<br>- Similarity scores between 0.75 and 1 increase in "After period" for almost all the diseases when compared to the "Before period".<br>- After an onset of a reference disease similar diseases are experienced and could help in building causal relationship between diseases.|
+| DistIndPatientFreq|This view shows frequency count of distinct patients for each reference disease by similarity distance categories for Before and After periods|
 
