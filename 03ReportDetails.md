@@ -74,7 +74,20 @@ This individual patient listing would help in understanding relationship between
 | --- | --- |
 | Dis+Med_Studyday_view| This is a listing for individual Gridhrasee patient.<br>- Patient ID, gender, Baseline age are displayed.<br>- Diseases and medicines are displayed one below the other under Code and description columns.<br>- The duration is displayed as per the study day starting from 1 to maximum study day are used.<br>- Duration of each disease and prescribed medicine is calculated as difference between maximum date - minimum date + 1 (this may not always be accurate, as it combines 2 independent episodes into 1).<br>- In the tooltip, additional information about total duration of visits to hospital, duration of disease and duration of prescribed medicine are displayed.|  
 
-8. 03_typesOfassessment: The hospital database captures information for each and every visit. This covers the operational data and clinical data. There are more than 100 Case Report Forms (CRF) within our database with more than 500 variables. Some of the CRF pages are not used at all. These CRFs are covering the In-patient as well as Out-patient visits. This information has been classified into 
+8. 03_typesOfassessment: The hospital database captures information for each and every visit. This covers the operational data and clinical data. There are more than 100 Case Report Forms (CRF) within our database with more than 500 variables. Some of the CRF pages are not used at all. These CRFs are covering the In-patient as well as Out-patient visits. This information has been classified into the following categories:
+
+* Ayurvedic data  
+* Background data  
+* Diease data  
+* Doctor's Notes  
+* Food / Exercise  
+* Hospital Visit  
+* Lab report  
+* Measurement  
+* Treatment - IP  
+* Treatment - OP  
+* Treatment - Procedure  
+* Treatment / Procedure  
 
 | Sheet name | Description |
 | --- | --- |
