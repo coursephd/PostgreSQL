@@ -96,14 +96,25 @@ This individual patient listing would help in understanding relationship between
 | Summary - Visit| This table displays frequency counts of unique patients for each of the categories created above for each visit.<br>- A patient is counted if the data is non-missing for a specific category.|
 | Summary - StudyDay| This table is similar to earlier table, it is presented by study day.|
 
-9. 080_medicine_dis_all_met_rmsd_prop: the Dashboard 1 in this visual is explained below.
+9. 080_medicine_dis_all_met_rmsd_prop: Dashboard 1 in this visual is explained below.  
+080_medicine_dis_repeat_prop_cumulative: 
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 1| This is done for Metabolic and RMSD patients. This provides diseases and treatments per patient as either "disease reported 1st time" or "repeat", "treatment reported 1st time" or "repeat".<br>- This is done by studyday (or visit) when a disease and medicine is reported in the data.|  
+| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients. It provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat".<br>- It is reported by studyday (or visit) when a disease and medicine is reported in the data.|  
 
-This shows individual patient data for disease and treatment, and a table. This helps in understanding the following:  
-(1) When a new disease is reported, usually a new treatment or treatments are reported  
-(2) If there is only a new treatment added then it could indicate, the earlier treatment may not have worked, or it explains the treatment regimen.  
+This provides the following information:  
+(1) When a new disease is reported, usually a new treatment(s) is (are) reported  
+(2) If there is only a new treatment added then it could indicate, the earlier treatment may not have worked, or it explains the nature of treatment regimen.  
 
-9. 080_medicine_dis_repeat_prop_cumulative  
+10. 080_medicine_dis_repeat_prop_cumulative: Dashboard 1 in this visual is explained below.  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 1| This dashboard should be read in parallel to the Dashborad on **080_medicine_dis_all_met_rmsd_prop** visual.<br>- Individual patient data is presented by visit in a cumulative manner for disease and prescribed medicine. In the adjoining table % are displayed.<br>|  
+
+11. 080_medicine_dis_repeat_prop: Dashboard 1 in this visual is explained below.  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays individual data for diseases and prescribed medicines.|   
