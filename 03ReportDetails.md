@@ -30,3 +30,9 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | DisType_Diseases| Frequency table for individual diseases by disease category and gender<br>Prameha, Madhumeha and Sthaulya are top 3 most frequently reported diseases.<br>- Prameha and Madhumeha are reported more by males than females.<br>- Vaatavyaadhi - Sandhigata Vaata, Vaatavydahi, Vaatavydahi - Gridhrasee, Sthanabhedena Shoola - Katee Shoola and Sthanabhedena Shoola - Katee Graha are top 5 reported diseases in RMSD.<br>- Vaatavyaadhi - Sandhigata Vaata, Amavaata, Vaatavyaadhi - Asthigata Vaata, Vaatavyaadhi - Vaatakantaka are reported more by females compared to males.|
 | Slopegraph_disVisit| Line chart similar to Slopegraph_disPatients. This visual shows number of distinct visits to the hospital.|
 | MedicineByDay| This visual uses a derived variable for prescribed medicine. The medicines are classified into different kinds, Aristham, Asavams, Bhasmas, Arkas, Dhara, Drops, etc.<br>- Frequency counts by each day is plotted by gender.<br>- Arkas, Avagha, Bhasmas, Panchakarma are prescribed in lesser frequencies.<br>- Kashayam, Aristham, Rasaynama, Abhyanga, etc. are prescribed in higher frequencies.|
+
+2. Viz name: Diff_Visit_Studyday  
+
+| Sheet name | Description |
+| --- | --- |
+| Sheet1| These boxplots provide the different between 2 visits in terms of days.| 
