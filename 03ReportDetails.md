@@ -35,4 +35,4 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 | Sheet name | Description |
 | --- | --- |
-| Sheet1| These boxplots provide the different between 2 visits in terms of days.| 
+| Sheet1| These boxplots provide the different between 2 visits in terms of days. Patients visit hospital as and when they need to or based on the guidance given by Vaidyas. There are some patients visiting the hospital for more than 2500 days. There are some patients only coming for a single visit.<br>- Difference between 2 consecutive visits is calculated for each patient and then plotted as a boxplot.| 
