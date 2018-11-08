@@ -183,6 +183,6 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 * This visual shows the disease trajectories on a human skeleton.  
 * Before and after periods are shown as 2 skeletons next to each other.  
 * Diseases which could be approximately assigned to a body part are displayed on the body, otherwise are displayed on the side of the body.  
-* Following Frequency counts are displayed:
+* Following Frequency counts are displayed:  
     ** Number of patients experiencing the disease trajectory is displayed
 
