@@ -122,13 +122,14 @@ This provides the following information:
 12. 085_dis_1st_time_refCal_NodesEdges:  
 Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference disease.  
 - Day 1 is calculated as the reference day 1 for individual patient for each disease.  
+- Other diseases for the same patient are positioned either before or after compared to this reference disease.  
 - Duration w.r.to this reference day is calculated before and after day 1. This calculation provides the background view as well as future view.  
 - This referencing allows for more informative background disease as well as background medicine information.
 - The duration is split into the following time points:  
 
 | Before | After |
 | --- | --- |
-| Day 1|
+| Day 1 as reference|
 | Before 1 month| Within 1 month|
 | Before 2 months| Within 2 months|
 | Before 3 to 6 months| Within 3 to 6 months|
@@ -139,4 +140,7 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 | Before 5 year| Within 5 year|  
 
 * 1 sheet for each reference disease is created.  
-* Frequency count 
+* Frequency count of diseases and prescribed medicines is displayed.  
+* Prior counts are displayed in red colour and After counts are displayed in Green colour.  
+
+This view should provide good insights into the causal relationships.  
