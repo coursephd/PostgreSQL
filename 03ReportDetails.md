@@ -144,3 +144,23 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 * Prior counts are displayed in red colour and After counts are displayed in Green colour.  
 
 This view should provide good insights into the causal relationships.  
+
+13. 085_dis_count_edges_3rd_byPeriod02try: Dashboard PrimaryDis_relatedDisMed (2): circular view of disease and medicine relationship.  
+This view allows the following comparisons:
+
+* Relationship between diseases and treatments across different time points.  
+* If a disease is experienced in different time windows then would the treatment options look different or would they look similar.  
+* Occurrence of diseases and proximity -- do the diseases precede and / or succeed each other, etc.  
+
+E.g. Amavaata, what all diseases were experienced and treatments given before the 1st occurrence of disease and after the 1st occurrence of  disease. How far or how close were these events are given in terms of within 1 month, within 2 months, within 3 to 6 months, 1 year, 2year etc. on both sides.  
+
+The inner circle displays the diseases.  
+The outer circle displays the treatments.  
+Counts of distinct medicines prescribed and distinct diseases experienced are given.  
+More frequenct counts are displayed in the table above.  
+
+
+
+
+
+
