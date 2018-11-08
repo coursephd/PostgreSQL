@@ -174,3 +174,15 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 | DiseaseMaxDist|- Maximum distance measure from Jaccard is considered for calculations.<br>- This way most similar patients (as per disease trajectory) are analysed.<br>- Similarity scores between 0.75 and 1 increase in "After period" for almost all the diseases when compared to the "Before period".<br>- After an onset of a reference disease similar diseases are experienced and could help in building causal relationship between diseases.|
 | DistIndPatientFreq|This view shows frequency count of distinct patients for each reference disease by similarity distance categories for Before and After periods|
 
+15. Viz name: DistanceMeasures-Medicines:   
+* This analysis is same as "DistanceMeasures" analysis. In place of disease trajectories, prescribed treatment trajectories.  
+* The similarity scores are worse than that for the disease trajectories.  
+* Most of the prescribed treatments are dis-similar for both the periods.  
+
+16. Viz name: HumanBody02:  
+* This visual shows the disease trajectories on a human skeleton.  
+* Before and after periods are shown as 2 skeletons next to each other.  
+* Diseases which could be approximately assigned to a body part are displayed on the body, otherwise are displayed on the side of the body.  
+* Following Frequency counts are displayed:
+** Number of patients experiencing the disease trajectory is displayed
+
