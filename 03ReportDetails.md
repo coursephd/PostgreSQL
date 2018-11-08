@@ -68,7 +68,9 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 This individual patient listing would help in understanding relationship between treatments, diseases, co-occurences of diseases and co-admininstritation of treatments.  
 
+7. 01__Primary_Gridhrasee: This is an attempt to understand patients with primary diagnosis of Gridhrasee "V2.23", there are approximately 2000 patients in this subset.  
 
-
+| Dis+Med_Studyday_view| This is a listing for individual Gridhrasee patient.<br>- Patient ID, gender, Baseline age are displayed.<br>- Diseases and medicines are displayed one below the other under Code and description columns.<br>- The duration is displayed as per the study day starting from 1 to maximum study day are used.<br>- Duration of each disease and prescribed medicine is calculated as difference between maximum date - minimum date + 1 (this may not always be accurate, as it combines 2 independent episodes into 1).<br>- In the tooltip, additional information about total duration of visits to hospital, duration of disease and duration of prescribed medicine are displayed.|
+| Box_MedAge| This boxplot display shows the summary statistics for age of Gridhrasee patients getting prescribed to different medicines.|  
 
 
