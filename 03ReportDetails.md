@@ -91,8 +91,8 @@ This individual patient listing would help in understanding relationship between
 
 | Sheet name | Description |
 | --- | --- |
-| TypesOfassessments - Visit| |
-| TypesOfassessments - StudyDay| |
-| Summary - Visit| |
-| Summary - StudyDay| |
+| TypesOfassessments - Visit| This listing shows data for each patient for each of the categories created above for each visit.<br>- If the data is collected for a particular visit then a vertical bar is presented, if the data is not present then a blank is presented.<br>- Disease data, Treatment data, Treatment - procedure data is captured for almost each and every visit.<br>- Ayurvedic data, Background data, measurements, Doctor's notes are not captured consistently.|
+| TypesOfassessments - StudyDay| This listing is similar to earlier listing, it is presented by study day.|
+| Summary - Visit| This table displays frequency counts of unique patients for each of the categories created above for each visit.<br>- A patient is counted if the data is non-missing for a specific category.|
+| Summary - StudyDay| This table is similar to earlier table, it is presented by study day.|
 
