@@ -1,4 +1,4 @@
-# PostgreSQL
+# PostgreSQL and details of analysis with Tableau 
 Hospital data access
 
 Creation of programs using the PostgreSQL database and SQL codes
