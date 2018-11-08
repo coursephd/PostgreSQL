@@ -43,4 +43,9 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | --- | --- |
 | Sheet1| These boxplots provide similar information to the "Diff_Visit_Studyday" visual.<br>- For same patient, find out if a disease is reported more than once on different visits. If yes, then find out the difference between 2 consecutive occurences, use that "duration" in the boxplot.<br>- Display this difference as per visits for each disease reported.<br>- Many diseases are not reported more than once for the same patient.<br><br>This analysis should provide a clinical view as well as operational view on follow-up visits for patients. In case of diseases getting cured and a new episode appearing for a patient, large gaps could be seen. If the diseases can be classified into chronic / acute, easily curable vs. difficult to cure then this analysis would provide more useful insights.|
 
+4. Allopathic_diag
+
+| Sheet name | Description |
+| --- | --- |
+| ICDFreq|The existing ACD codes are used to map to the ICD 10 dictionary |
 
