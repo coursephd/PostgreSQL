@@ -145,8 +145,9 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 
 This view should provide good insights into the causal relationships.  
 
-13. 085_dis_count_edges_3rd_byPeriod02try: Dashboard PrimaryDis_relatedDisMed (2): circular view of disease and medicine relationship.  
-This view allows the following comparisons:
+13. 085_dis_count_edges_3rd_byPeriod02try:  
+Dashboard PrimaryDis_relatedDisMed (2): circular view of disease and medicine relationship.  
+This view allows the following comparisons:  
 
 * Relationship between diseases and treatments across different time points.  
 * If a disease is experienced in different time windows then would the treatment options look different or would they look similar.  
