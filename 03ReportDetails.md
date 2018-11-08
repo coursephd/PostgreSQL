@@ -117,7 +117,7 @@ This provides the following information:
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays detailed data for diseases and prescribed medicines.|   
+| Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>* The section below displays detailed data for diseases and prescribed medicines.|   
 
 12. 085_dis_1st_time_refCal_NodesEdges:  
 Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference disease.  
@@ -155,10 +155,10 @@ This view allows the following comparisons:
 
 E.g. Amavaata, what all diseases were experienced and treatments given before the 1st occurrence of disease and after the 1st occurrence of  disease. How far or how close were these events are given in terms of within 1 month, within 2 months, within 3 to 6 months, 1 year, 2year etc. on both sides.  
 
-The inner circle displays the diseases.  
-The outer circle displays the treatments.  
-Counts of distinct medicines prescribed and distinct diseases experienced are given.  
-More frequenct counts are displayed in the table above.  
+* The inner circle displays the diseases.  
+* The outer circle displays the treatments.  
+* Counts of distinct medicines prescribed and distinct diseases experienced are given.  
+* More frequenct counts are displayed in the table above.  
 
 
 
