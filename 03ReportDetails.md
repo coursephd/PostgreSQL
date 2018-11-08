@@ -14,7 +14,7 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | Sheet name | Description |
 | --- | --- |
 | RMSD_Met_patients| Frequency table by gender and high level disease classification, there are more number of RMSD patients compared to the Metabolic, Metabolic and RMSD patients.<br>There are more number of female RMSD patients compared to males.<br>There are similar number of males and females in Metabolic disease categories| 
-| Visit_Duration| Total duration of hopsital visits is calculated as the maximum date of hopsital visit - minimum date of hospital visit + 1 in days for each patient. This duration is plotted by each disease category.<br>* The median duration for RMSD was more than that for other categories|   
+| Visit_Duration| Total duration of hopsital visits is calculated as the maximum date of hopsital visit - minimum date of hospital visit + 1 in days for each patient. This duration is plotted by each disease category. \\* The median duration for RMSD was more than that for other categories|   
 
 | Viz name | Description |
 | --- | --- |
