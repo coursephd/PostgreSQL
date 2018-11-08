@@ -128,6 +128,7 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 
 | Before | After |
 | --- | --- |
+| Day 1|
 | Before 1 month| Within 1 month|
 | Before 2 months| Within 2 months|
 | Before 3 to 6 months| Within 3 to 6 months|
@@ -135,5 +136,7 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 | Before 2nd year| Within 2nd year|
 | Before 3rd year| Within 3rd year|
 | Before 4th year| Within 4th year|
-| Before 5 year| Within 5 year|
+| Before 5 year| Within 5 year|  
 
+* 1 sheet for each reference disease is created.  
+* Frequency count 
