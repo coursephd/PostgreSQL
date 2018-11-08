@@ -43,7 +43,7 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | --- | --- |
 | Sheet1| These boxplots provide similar information to the "Diff_Visit_Studyday" visual.<br>- For same patient, find out if a disease is reported more than once on different visits. If yes, then find out the difference between 2 consecutive occurences, use that "duration" in the boxplot.<br>- Display this difference as per visits for each disease reported.<br>- Many diseases are not reported more than once for the same patient.<br><br>This analysis should provide a clinical view as well as operational view on follow-up visits for patients. In case of diseases getting cured and a new episode appearing for a patient, large gaps could be seen. If the diseases can be classified into chronic / acute, easily curable vs. difficult to cure then this analysis would provide more useful insights.|
 
-4. Allopathic_diag  
+4. Viz name: Allopathic_diag  
 
 | Sheet name | Description |
 | --- | --- |
@@ -52,13 +52,13 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 | All_vis_box| Boxplot of total number Visits by ICD code and gender|
 | Hospital_duration| Boxplot of hospital duration by ICD and gender|
 
-5. Diff_Visit_Studyday_ByMedicine(NotCoded)  
+5. Viz name: Diff_Visit_Studyday_ByMedicine(NotCoded)  
 
 | Sheet name | Description |
 | --- | --- |
 | Sheet 1| These boxplots provide similar information to the "Diff_Visit_Studyday" visual.<br>- For same patient, find out if a prescribed medicine is reported more than once on different visits. If yes, then find out the difference between 2 consecutive occurences, use that "duration" in the boxplot.<br>- Display this difference as per visits for each prescribed medicine.<br>- Many prescribed medicines are not reported more than once for the same patient.<br><br>This analysis should provide a clinical view as well as operational view on follow-up visits for patients.|
 
-6. 01_Primary_madhumeha: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.  
+6. Viz name: 01_Primary_madhumeha: This is an attempt to understand patients with primary diagnosis of madhumeha "M2.0", there are approximately 1400 patients in this subset.  
 
 | Sheet name | Description |
 | --- | --- |
@@ -68,13 +68,13 @@ These analysis datasets are then used as inputs to Tableau for generating variou
 
 This individual patient listing would help in understanding relationship between treatments, diseases, co-occurences of diseases and co-admininstritation of treatments.  
 
-7. 01__Primary_Gridhrasee: This is an attempt to understand patients with primary diagnosis of Gridhrasee "V2.23", there are approximately 2000 patients in this subset.  
+7. Viz name: 01__Primary_Gridhrasee: This is an attempt to understand patients with primary diagnosis of Gridhrasee "V2.23", there are approximately 2000 patients in this subset.  
 
 | Sheet name | Description |
 | --- | --- |
 | Dis+Med_Studyday_view| This is a listing for individual Gridhrasee patient.<br>- Patient ID, gender, Baseline age are displayed.<br>- Diseases and medicines are displayed one below the other under Code and description columns.<br>- The duration is displayed as per the study day starting from 1 to maximum study day are used.<br>- Duration of each disease and prescribed medicine is calculated as difference between maximum date - minimum date + 1 (this may not always be accurate, as it combines 2 independent episodes into 1).<br>- In the tooltip, additional information about total duration of visits to hospital, duration of disease and duration of prescribed medicine are displayed.|  
 
-8. 03_typesOfassessment: The hospital database captures information for each and every visit. This covers the operational data and clinical data. There are more than 100 Case Report Forms (CRF) within our database with more than 500 variables. Some of the CRF pages are not used at all. These CRFs are covering the In-patient as well as Out-patient visits. This information has been classified into the following categories:
+8. Viz name: 03_typesOfassessment: The hospital database captures information for each and every visit. This covers the operational data and clinical data. There are more than 100 Case Report Forms (CRF) within our database with more than 500 variables. Some of the CRF pages are not used at all. These CRFs are covering the In-patient as well as Out-patient visits. This information has been classified into the following categories:
 
 * Ayurvedic data  
 * Background data  
@@ -96,7 +96,7 @@ This individual patient listing would help in understanding relationship between
 | Summary - Visit| This table displays frequency counts of unique patients for each of the categories created above for each visit.<br>- A patient is counted if the data is non-missing for a specific category.|
 | Summary - StudyDay| This table is similar to earlier table, it is presented by study day.|
 
-9. 080_medicine_dis_all_met_rmsd_prop: Dashboard 1 in this visual is explained below.  
+9. Viz name: 080_medicine_dis_all_met_rmsd_prop: Dashboard 1 in this visual is explained below.  
 080_medicine_dis_repeat_prop_cumulative: 
 
 | Sheet name | Description |
@@ -107,19 +107,19 @@ This provides the following information:
 (1) When a new disease is reported, usually a new treatment(s) is (are) reported  
 (2) If there is only a new treatment added then it could indicate, the earlier treatment may not have worked, or it explains the nature of treatment regimen.  
 
-10. 080_medicine_dis_repeat_prop_cumulative: Dashboard 1 in this visual is explained below.  
+10. Viz name: 080_medicine_dis_repeat_prop_cumulative: Dashboard 1 in this visual is explained below.  
 
 | Sheet name | Description |
 | --- | --- |
 | Dashboard 1| This dashboard should be read in parallel to the Dashborad on **080_medicine_dis_all_met_rmsd_prop** visual.<br>- Individual patient data is presented by visit in a cumulative manner for disease and prescribed medicine. In the adjoining table % are displayed.<br>|  
 
-11. 080_medicine_dis_repeat_prop: Dashboard 1 in this visual is explained below.  
+11. Viz name: 080_medicine_dis_repeat_prop: Dashboard 1 in this visual is explained below.  
 
 | Sheet name | Description |
 | --- | --- |
 | Dashboard 1| This shows individual patient data for disease and treatment for Metabolic and RMSD patients.<br>- The top section provides diseases and treatments per patient as either<br>"disease reported 1st time" or "repeat",<br>"treatment reported 1st time" or "repeat". <br>- The section below displays detailed data for diseases and prescribed medicines.|   
 
-12. 085_dis_1st_time_refCal_NodesEdges:  
+12. Viz name: 085_dis_1st_time_refCal_NodesEdges:  
 Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference disease.  
 - Day 1 is calculated as the reference day 1 for individual patient for each disease.  
 - Other diseases for the same patient are positioned either before or after compared to this reference disease.  
@@ -145,7 +145,7 @@ Each of the 106 diseases (10 Metabolic and 96 RMSD) is considered as a reference
 
 This view should provide good insights into the causal relationships.  
 
-13. 085_dis_count_edges_3rd_byPeriod02try:  
+13. Viz name: 085_dis_count_edges_3rd_byPeriod02try:  
 Dashboard PrimaryDis_relatedDisMed (2): circular view of disease and medicine relationship.  
 This view allows the following comparisons:  
 
@@ -158,9 +158,9 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
 * The inner circle displays the diseases.  
 * The outer circle displays the treatments.  
 * Counts of distinct medicines prescribed and distinct diseases experienced are given.  
-* More frequenct counts are displayed in the table above.  
+* More frequenct counts are displayed in the table above for each of the periods.  
 
-
+14. Viz name: DistanceMeasures  
 
 
 
