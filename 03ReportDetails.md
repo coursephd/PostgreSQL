@@ -197,7 +197,7 @@ E.g. Amavaata, what all diseases were experienced and treatments given before th
   * Total number of diseases listed in the disease trajectory  
   
 ## 17. Viz name: Primary_disease_and_all_other_diseases (On Older data)
-Dashboard 2 in this visual is explained below[https://coursephd.github.io/nodediagram/A2_0byperiod/].  
+Dashboard 2 in this visual is explained below.  
 
 | Sheet name | Description |
 | --- | --- |
@@ -224,7 +224,7 @@ This report has been split into 7 sections.
 Amavaata [https://coursephd.github.io/nodediagram/A2_0/]  
 Amavaata by period [https://coursephd.github.io/nodediagram/A2_0byperiod/]
 
-Prameha [https://coursephd.github.io/nodediagram/P5_0_Prameha/]
+Prameha [https://coursephd.github.io/nodediagram/P5_0_Prameha/]  
 Prameha by period [https://coursephd.github.io/nodediagram/P5_0_Pramehabyperiod/]
 
 * This tree shows the relationships between the reference disease, other diseases and treatments administered.
