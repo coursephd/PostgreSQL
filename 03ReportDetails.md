@@ -221,7 +221,20 @@ This report has been split into 7 sections.
 
 ## 2. Collapsible network diagrams
 
-[https://coursephd.github.io/nodediagram/A2_0/]
-[https://coursephd.github.io/nodediagram/A2_0byperiod/]
+Amavaata [https://coursephd.github.io/nodediagram/A2_0/]  
+Amavaata by period [https://coursephd.github.io/nodediagram/A2_0byperiod/]
 
-*
+Prameha [https://coursephd.github.io/nodediagram/P5_0_Prameha/]
+Prameha by period [https://coursephd.github.io/nodediagram/P5_0_Pramehabyperiod/]
+
+* This tree shows the relationships between the reference disease, other diseases and treatments administered.
+* The links above show 2 examples using Amavaata as a reference disease.
+* Explanation: 
+    * Identify unique patients who have had Amavaata reported at least once. 
+    * Get all the other diseases and prescribed medicines for this subset of patients.
+    * The bubble display the proportional sizes.
+    * The links display relationships between diseases and treatments
+* If a bubble is "double clicked" then all the "unrelated data" to that bubble vanishes and only relevant data is retained on the screen. Once double clicked again the complete data is displayed again.
+* "By period" link shows the time period in which either a treatment or disease has been reported providing relationship between entities.
+
+Similar type of displays could be built for all the diseases.
