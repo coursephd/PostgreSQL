@@ -1,3 +1,20 @@
+
+Health management information system  
+Proposed paper should include following points:  
+HIMS data of Ayurveda  
+Challenges and potentials  
+Technologies used for pattern generation  
+Interpretation of patterns  
+
+My comments on 'Patient_Visit_View'   
+Band density  
+IP and OP cases characteristics  
+Frequency, Total duration  w r t patients characteristics  
+Club medicines and map medicines / Rx according to diseases, sub-types and Samprapti groups  
+Medicines and diseases mapping  
+
+
+
 http://cdn.intechopen.com/pdfs/32600/InTech-Qualitative_research_in_epidemiology.pdf
 Qualitative Research in Epidemiology 
 Susana Silva and Sílvia Fraga, University of Porto Medical School, Institute of Public Health of the University of Porto Portugal
