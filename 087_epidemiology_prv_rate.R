@@ -59,3 +59,7 @@ all01sns_yr <- merge(x = small03sns_yr,
 
 all01sns <- all01sns[, perc := percent(smalln / capn), ]
 all01sns_yr <- all01sns_yr[, perc := percent(smalln / capn), ]
+
+
+add01sns <- all01sns [, .(chk01 = sum(smalln)), by = .(Code, description)]
+add01sns_yr <- all01sns_yr [, .(chk01 = sum(smalln)), by = .(Code, description)]
