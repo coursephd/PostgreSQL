@@ -1,3 +1,61 @@
+# Paper shared by Kaustav
+# https://arxiv.org/pdf/1307.1411.pdf
+
+library(data.table)
+library(tidyverse)
+
+all_met_rmsd02 <- readRDS("C:/Users/mahajvi1/Downloads/all_met_rmsd02.rds")
+
+amavat <- all_met_rmsd02 [ refcode == "A2.0"]
+amavatpst <- amavat [ refday >= 1 & Code == "A2.0"]
+
+
+all_met_rmsd02 <- readRDS("C:/Users/mahajvi1/Downloads/all_met_rmsd02.rds")
+all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
+all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
+all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
+
+all_met_rmsd02 <- all_met_rmsd02[, comdisn := .GRP, by = .(Code02)]
+
+all_met_rmsd02 <- all_met_rmsd02[Code != "** Not yet coded"]
+
+all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "comdisn",
+                                              "period", "periodn", "patient_gender", "baseage"), ])
+
+all_met_rmsd04 <- all_met_rmsd03 [ refcode == "M2.0"]
+
+all_met_rmsd05 <- all_met_rmsd04 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
+                                  by = .(mr_no, refcode, refdesc, period, periodn, baseage)]
+
+
+# create 1 line per patient
+# -1 to seperate itemset and
+# -2 to seperate sequence
+
+all_met_rmsd06 <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " -1 ", sep = " " )), 
+                                  by = .(mr_no, refcode, refdesc, baseage)]
+all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep = ""), ]
+
+fwrite(x = all_met_rmsd06 [, c("combdis02"),], 
+       col.names = FALSE,
+       file = "C:/Users/mahajvi1/Downloads/spmf_SPADE.txt")
+
+disnum <- unique( all_met_rmsd02 [, c("Code02", "Code", "comdisn"),])
+
+
+
+# Layout needed for the Associatio rules:
+# FPGrowth_association_rules
+
+all_met_rmsd06_arff <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " ", sep = " " )), 
+                                  by = .(mr_no, refcode, refdesc, baseage)]
+
+fwrite(x = all_met_rmsd06_arff [, c("combdis02"),], 
+       col.names = FALSE,
+       file = "C:/Users/mahajvi1/Downloads/spmf_ARFF.txt")
+#=====================================================================================================================
+
+
 library(openxlsx)
 library(tidyverse)
 library(tidytext)
