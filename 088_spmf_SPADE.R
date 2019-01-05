@@ -32,6 +32,7 @@ fwrite(x = all_met_rmsd06 [, c("combdis02"),],
        file = "D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_SPADE_M2.0.txt")
 
 disnum <- unique( all_met_rmsd02 [, c("Code02", "Code", "comdisn"),])
+disnum <- disnum [, comdisn := as.numeric(comdisn),]
 
 
 
@@ -52,12 +53,29 @@ out <- fread("D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_ARFFoutput_TopKRule
              header = FALSE)
 
 out2 <- out [, c("var01", "var02", "var03") := tstrsplit(V1, "#"),]
-out3 <- out2 [, c("var021", "var022") := tstrsplit(var01, "==>"),]
-out4 <- out3 [, `:=` (cntvar021 = str_count( trimws(var021), " ") + 1,
-                      cntvar022 = str_count( trimws(var022), " ") + 1),]
+out3 <- out2 [, c("var021", "var022") := tstrsplit(trimws(var01), "==>"),]
+out4 <- out3 [, `:=` (cntvar021 = max(str_count( trimws(var021), " ")) + 1,
+                      cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]
 
-out5 <- out4 [, paste0("type", 1:max(out3$cntvar021)) := tstrsplit(var021, " "),]
+out5 <- out4 [, paste0("type", 1:max(out4$cntvar021)) := tstrsplit(trimws(var021), " ", fixed = TRUE ),]
+out6 <- out5 [, paste0("typeend", 1:max(out5$cntvar022)) := tstrsplit(trimws(var022), " ", fixed = TRUE),]
+#out6 <- out6 [, nrow := 1:.N,]
 
+out6_tra <- melt (data = out6, 
+                  id.vars = 1:8,
+                  value.factor = FALSE)
+
+out6_tra <- out6_tra [, value := as.numeric(value), ]
+
+out7 <- merge (x = out6_tra, 
+               y = disnum,
+               all.x = TRUE,
+               by.x = c("value"),
+               by.y = c("comdisn") )
+
+out7_tra <- dcast (data = out7,
+                   formula = V1 + var01 + var02 + var03 + var021 + var022 + cntvar021 + cntvar022 ~ variable,
+                   value.var = c("Code02"))
 
 
 library(openxlsx)
