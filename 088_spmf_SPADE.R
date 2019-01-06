@@ -57,8 +57,8 @@ out3 <- out2 [, c("var021", "var022") := tstrsplit(trimws(var01), "==>"),]
 out4 <- out3 [, `:=` (cntvar021 = max(str_count( trimws(var021), " ")) + 1,
                       cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]
 
-out5 <- out4 [, paste0("type", 1:max(out4$cntvar021)) := tstrsplit(trimws(var021), " ", fixed = TRUE ),]
-out6 <- out5 [, paste0("typeend", 1:max(out5$cntvar022)) := tstrsplit(trimws(var022), " ", fixed = TRUE),]
+out5 <- out4 [, paste0("stt", 1:max(out4$cntvar021)) := tstrsplit(trimws(var021), " ", fixed = TRUE ),]
+out6 <- out5 [, paste0("end", 1:max(out5$cntvar022)) := tstrsplit(trimws(var022), " ", fixed = TRUE),]
 #out6 <- out6 [, nrow := 1:.N,]
 
 out6_tra <- melt (data = out6, 
@@ -69,13 +69,18 @@ out6_tra <- out6_tra [, value := as.numeric(value), ]
 
 out7 <- merge (x = out6_tra, 
                y = disnum,
-               all.x = TRUE,
                by.x = c("value"),
                by.y = c("comdisn") )
 
 out7_tra <- dcast (data = out7,
                    formula = V1 + var01 + var02 + var03 + var021 + var022 + cntvar021 + cntvar022 ~ variable,
-                   value.var = c("Code02"))
+                   value.var = c("Code02"), 
+                   fill = "")
+
+out8 <- out7_tra [, newstt := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("stt", 1:max(out7_tra$cntvar021)), ]
+out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("end", 1:max(out8$cntvar022)), ]
+
+out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]
 
 
 library(openxlsx)
