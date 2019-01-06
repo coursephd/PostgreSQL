@@ -1,3 +1,10 @@
+FPGrowth_association_rules	ARFF	No output	
+CFPGrowth++_association_rules	ARFF		
+RuleGen	SPMF	Output	
+RuleGrowth	SPMF	Output	0.05 and 0.05
+TNS	SPMF	Output	
+TRuleGrowth	SPMF	Output	0.05 and 0.05
+
 library(data.table)
 library(tidyverse)
 
@@ -81,6 +88,64 @@ out8 <- out7_tra [, newstt := do.call(paste, c(.SD, sep = " ")), .SDcols = paste
 out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("end", 1:max(out8$cntvar022)), ]
 
 out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]
+
+###############################################################################################################
+# unique records
+
+library(data.table)
+library(tidyverse)
+
+all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
+all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
+all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
+
+all_met_rmsd02 <- all_met_rmsd02[, comdisn := .GRP, by = .(Code02)]
+
+all_met_rmsd02 <- all_met_rmsd02[Code != "** Not yet coded"]
+
+all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, studyday)]
+all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", 
+                                              "comdisn", "patient_gender", "baseage"), ])
+
+all_met_rmsd04 <- all_met_rmsd03 [ refcode == "M2.0"]
+
+all_met_rmsd05 <- all_met_rmsd04 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
+                                  by = .(mr_no, refcode, refdesc, baseage)]
+
+
+# create 1 line per patient
+# -1 to seperate itemset and
+# -2 to seperate sequence
+
+all_met_rmsd06 <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " -1 ", sep = " " )), 
+                                  by = .(mr_no, refcode, refdesc, baseage)]
+all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep = ""), ]
+
+fwrite(x = all_met_rmsd06 [, c("combdis02"),], 
+       col.names = FALSE,
+       file = "D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_SPADE_M2.0unq.txt")
+
+disnum <- unique( all_met_rmsd02 [, c("Code02", "Code", "comdisn"),])
+disnum <- disnum [, comdisn := as.numeric(comdisn),]
+
+
+
+# Layout needed for the Associatio rules:
+# FPGrowth_association_rules
+
+all_met_rmsd06_arff <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " ", sep = " " )), 
+                                       by = .(mr_no, refcode, refdesc, baseage)]
+
+fwrite(x = all_met_rmsd06_arff [, c("combdis02"),], 
+       col.names = FALSE,
+       file = "D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_ARFF_M2.0unq.txt")
+######################################################################################################################
+
+
+
+
+
 
 
 library(openxlsx)
