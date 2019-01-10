@@ -89,13 +89,21 @@ out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("e
 
 out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]
 
+
+# Paper shared by Kaustav
+# https://arxiv.org/pdf/1307.1411.pdf
+
+# Another paper
+# https://ac.els-cdn.com/S1877050917319658/1-s2.0-S1877050917319658-main.pdf?_tid=4dae5eea-4b89-4dc3-a250-c0c17a12479f&acdnat=1547099573_c752bb97ccf58523c2ab84a88d7f9fb5
+
 ###############################################################################################################
 # unique records
 
 library(data.table)
 library(tidyverse)
 
-all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+setwd("C:/Users/mahajvi1/Downloads/")
+all_met_rmsd02 <- readRDS("all_met_rmsd02.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
 all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
@@ -104,13 +112,14 @@ all_met_rmsd02 <- all_met_rmsd02[, comdisn := .GRP, by = .(Code02)]
 
 all_met_rmsd02 <- all_met_rmsd02[Code != "** Not yet coded"]
 
-all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, studyday)]
-all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", 
+all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]
+all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period",
                                               "comdisn", "patient_gender", "baseage"), ])
 
 all_met_rmsd04 <- all_met_rmsd03 [ refcode == "M2.0"]
+all_met_rmsd040 <- all_met_rmsd04 [ ! (Code == "M2.0" & period > 1) ]
 
-all_met_rmsd05 <- all_met_rmsd04 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
+all_met_rmsd05 <- all_met_rmsd040 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
                                   by = .(mr_no, refcode, refdesc, baseage)]
 
 
@@ -124,7 +133,7 @@ all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep 
 
 fwrite(x = all_met_rmsd06 [, c("combdis02"),], 
        col.names = FALSE,
-       file = "D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_SPADE_M2.0unq.txt")
+       file = "spmf_SPADE_M2.0unq.txt")
 
 disnum <- unique( all_met_rmsd02 [, c("Code02", "Code", "comdisn"),])
 disnum <- disnum [, comdisn := as.numeric(comdisn),]
@@ -139,13 +148,9 @@ all_met_rmsd06_arff <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse =
 
 fwrite(x = all_met_rmsd06_arff [, c("combdis02"),], 
        col.names = FALSE,
-       file = "D:/Hospital_data/ProgresSQL/analysis_spmf/spmf_ARFF_M2.0unq.txt")
-######################################################################################################################
+       file = "spmf_ARFF_M2.0unq.txt")
 
-
-
-
-
+####################################################################################################################
 
 
 library(openxlsx)
