@@ -2,6 +2,8 @@ library(data.table)
 library(tidyverse)
 library(readxl)
 library(httr)
+library(dplyr)
+library(scales)
 library(fCertificates)
 
 # https://www.nseindia.com/products/content/derivatives/equities/homepage_fo.htm
@@ -18,6 +20,8 @@ rm(temp)
 
 # Daily volatality automation
 volality <- fread("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_11012019.csv")
+names(volality)[3]<-"LASTCLOSE"
+names(volality)[4]<-"PRVTOLASTCLOSE"
 
 # Daily settlement Prices
 settle <- fread("https://www.nseindia.com/archives/nsccl/sett/FOSett_prce_11012019.csv")
@@ -88,18 +92,33 @@ bhavcopy031 <- merge (x = bhavcopy03,
                       by = c("SYMBOL", "EXPIRY_DT", "INSTRUMENT"))
 
 # create putcall ratio for each strike price
-unqstr <- unique(bhavcopy03 [, c("SYMBOL", "OPTION_TYP", "totcontract", "EXPIRY_DT", "INSTRUMENT", "STRIKE_PR", "CONTRACTS"), ] )
-bhavcopy030 <- dcast( unqstr,
-                      formula = SYMBOL + INSTRUMENT + STRIKE_PR + EXPIRY_DT ~ OPTION_TYP,
-                      value.var =c("totcontract", "CONTRACTS"),
+unqstr02 <- unique(bhavcopy03 [, c("SYMBOL", "OPTION_TYP", "totcontract", "EXPIRY_DT", "INSTRUMENT", "STRIKE_PR", "CONTRACTS"), ] )
+bhavcopy0302 <- dcast( unqstr02,
+                      formula = SYMBOL + INSTRUMENT + STRIKE_PR + EXPIRY_DT ~ paste("ind_", OPTION_TYP, sep=""),
+                      value.var =c("CONTRACTS"),
                       fill = "0")
+
+bhavcopy0302 <- bhavcopy0302 [, putcallratioind := ind_PE / ind_CE, ]
+
+bhavcopy0303 <- merge (x = bhavcopy031,
+                      y = bhavcopy0302,
+                      by = c("SYMBOL", "EXPIRY_DT", "INSTRUMENT", "STRIKE_PR"))
 
 
 # Create overall sum of open_int for each security including F&O
-bhavcopy031 <- bhavcopy031 [, totopenint := sum(OPEN_INT), by = .(SYMBOL, EXPIRY_DT)]
+bhavcopy0303 <- bhavcopy0303 [, totopenint := sum(OPEN_INT), by = .(SYMBOL, EXPIRY_DT)]
+bhavcopy0303 <- bhavcopy0303 [, totoptint := sum(OPEN_INT), by = .(SYMBOL, INSTRUMENT, EXPIRY_DT)]
 
+# create quantiles based on the number of Open interest for Options
+# 10th quartile should be the highest frequency companies
 
-# A rising put-call ratio or greater than .7 or exceeding 1 means equity traders 
+bhavcopy0303 <- bhavcopy0303 [, `:=` (quartile = ntile(totoptint, 10),
+                                      diff = STRIKE_PR - LASTCLOSE ),] 
+
+bhavcopy0303 <- bhavcopy0303 [order(SYMBOL, INSTRUMENT, EXPIRY_DT, OPTION_TYP, diff)]
+bhavcopy0303 <- bhavcopy0303 [, difford := seq_len(.N), by = .(SYMBOL, INSTRUMENT, OPTION_TYP, EXPIRY_DT)]
+
+# A rising put-call ratio or greater than 0.7 or exceeding 1 means equity traders 
 # are buying more puts than calls and indicates a bearish sentiment 
 # is building in the market
 
@@ -107,5 +126,6 @@ bhavcopy031 <- bhavcopy031 [, totopenint := sum(OPEN_INT), by = .(SYMBOL, EXPIRY
 # since it means more calls are being bought versus puts. 
 # In other words, the market has a bullish sentiment. 
 
-# Count total companies >= 500
-bhavcopy04 <- bhavcopy031 [ totcontract >= 500]
+
+
+# https://traderslounge.in/nifty-openinterest-pcr/
