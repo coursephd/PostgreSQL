@@ -18,7 +18,7 @@ all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Co
                                               "comdisn", "patient_gender", "baseage"), ])
 
 all_met_rmsd04 <- all_met_rmsd03 [ refcode == "M2.0"]
-all_met_rmsd040 <- all_met_rmsd04 [ ! (Code == "M2.0" & period < 1) ]
+all_met_rmsd040 <- all_met_rmsd04 [ ! (Code == "M2.0" & period <= -1) ]
 
 all_met_rmsd05 <- all_met_rmsd040 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
                                    by = .(mr_no, refcode, refdesc, baseage)]
@@ -92,13 +92,13 @@ java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL
 
 # /cygdrive/d/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/M2.0
 # Combine the files into 1 file  
-# gawk '{print $0, "#" FILENAME}' oARFF_M2* > oARFF_Apriori_M2.0_Priorunq.txt
+# gawk '{print FILENAME "#", $0}' oARFF_M2.0_Priorunq_*perc.txt > oARFF_Apriori_M2.0_Priorunq.txt
 
 out <- fread( paste(path, "oARFF_Apriori_M2.0_Priorunq.txt", sep=""), 
              sep ="!",
              header = FALSE)
 
-out2 <- out [, c("var01", "var02", "var03") := tstrsplit(V1, "#"),]
+out2 <- out [, c("var03", "var01", "var02") := tstrsplit(V1, "#"),]
 out3 <- out2 [, c("var021", "var022") := tstrsplit(trimws(var01), "==>"),]
 out4 <- out3 [, `:=` (cntvar021 = max(str_count( trimws(var021), " ")) + 1,
                       cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]

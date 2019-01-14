@@ -50,6 +50,47 @@ fwrite(x = all_met_rmsd06_arff [, c("combdis02"),],
        file = paste(path, "ARFF_M2.0_allunq.txt", sep="") )
 
 # Execute the java program command with Apriori algorithm
+
+Frequent itemset mining:
+  
+  D:\Hospital_data\ProgresSQL\analysis_spmf
+
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_01perc.txt" 1%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_02perc.txt" 2%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_03perc.txt" 3%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_04perc.txt" 4%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_05perc.txt" 5%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_06perc.txt" 6%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_07perc.txt" 7%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_08perc.txt" 8%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_09perc.txt" 9%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_10perc.txt" 10%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_11perc.txt" 11%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_12perc.txt" 12%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_13perc.txt" 13%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_14perc.txt" 14%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_15perc.txt" 15%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_16perc.txt" 16%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_17perc.txt" 17%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_18perc.txt" 18%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_19perc.txt" 19%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_20perc.txt" 20%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_21perc.txt" 21%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_22perc.txt" 22%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_23perc.txt" 23%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_24perc.txt" 24%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_25perc.txt" 25%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_26perc.txt" 26%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_27perc.txt" 27%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_28perc.txt" 28%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_29perc.txt" 29%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_30perc.txt" 30%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_31perc.txt" 31%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_32perc.txt" 32%
+java -jar spmf-V2.35-VDate18NOV2018.jar run Apriori "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\ARFF_M2.0_allunq.txt" "D:\Hospital_data\ProgresSQL\analysis_spmf_InputsOutputs\M2.0\oARFF_M2.0_allunq_33perc.txt" 33%
+
+
+# /cygdrive/d/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/M2.0
 # Combine the files into 1 file  gawk '{print FILENAME, $0}' oARFF_M2* > oARFF_M2.0_allunq.txt
 
 
@@ -86,5 +127,6 @@ out8 <- out7_tra [, newstt := do.call(paste, c(.SD, sep = " ")), .SDcols = paste
 out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("end", 1:max(out8$cntvar022)), ]
 
 out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]
+out9 <- out9 [ order ( var03)]
 
 fwrite(out9, file = paste(path, "oARFF_M2.0_allunq_formatted.csv", sep="") )
