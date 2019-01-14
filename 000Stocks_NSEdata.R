@@ -67,7 +67,7 @@ bhavcopy02 <- merge (x = bhavcopy02,
                      by.y = c("Symbol"))
 
 # & INSTRUMENT == "OPTSTK"
-bhavcopy03 <- bhavcopy02 [CONTRACTS > 0  & 
+bhavcopy03 <- bhavcopy02 [CONTRACTS > 0  & INSTRUMENT == "OPTSTK" &
                           ! (SYMBOL %in% ban$SYMBOL) &
                           ! (SYMBOL %in% mwpl$SYMBOL) &
                           ! (SYMBOL %in% explmt02$SYMBOL)]
@@ -108,11 +108,13 @@ bhavcopy0303 <- merge (x = bhavcopy031,
 # Create overall sum of open_int for each security including F&O
 bhavcopy0303 <- bhavcopy0303 [, totopenint := sum(OPEN_INT), by = .(SYMBOL, EXPIRY_DT)]
 bhavcopy0303 <- bhavcopy0303 [, totoptint := sum(OPEN_INT), by = .(SYMBOL, INSTRUMENT, EXPIRY_DT)]
+bhavcopy0303 <- bhavcopy0303 [, totchgint := sum(CHG_IN_OI), by = .(SYMBOL, INSTRUMENT, EXPIRY_DT)]
 
 # create quantiles based on the number of Open interest for Options
 # 10th quartile should be the highest frequency companies
 
 bhavcopy0303 <- bhavcopy0303 [, `:=` (quartile = ntile(totoptint, 10),
+                                      voltquartile = ntile(`Applicable Annualised Volatility (N) = Max (F or L)`, 4),
                                       diff = STRIKE_PR - LASTCLOSE ),] 
 
 bhavcopy0303 <- bhavcopy0303 [order(SYMBOL, INSTRUMENT, EXPIRY_DT, OPTION_TYP, diff)]
@@ -126,6 +128,55 @@ bhavcopy0303 <- bhavcopy0303 [, difford := seq_len(.N), by = .(SYMBOL, INSTRUMEN
 # since it means more calls are being bought versus puts. 
 # In other words, the market has a bullish sentiment. 
 
+# Bullish signal: Price rising + Increasing Open interest
+# Bullish signal: Price falling + Declining Open interest
 
+# Bearish signal: Price rising + Declining Open interest
+# Bearish signal: Price falling + Increasing Open interest
 
 # https://traderslounge.in/nifty-openinterest-pcr/
+
+
+#Now Create a view: High volume and low variability
+
+disp01 <- unique( bhavcopy0303 [, c("SYMBOL", "quartile", "voltquartile", "totoptint", 
+                                    "INSTRUMENT", "putcallratio", "EXPIRY_DT"), ])
+disp01 <- disp01 [, num := seq_len(.N), by = .(INSTRUMENT, quartile, voltquartile, EXPIRY_DT)]
+
+disp02 <- dcast(disp01,
+                num + INSTRUMENT + EXPIRY_DT + putcallratio + voltquartile ~ quartile,
+                value.var = c("SYMBOL") )
+
+
+
+# Create Cumulative additions for CONTRACTS, VAL_IN_LAKH, OPEN_INT, CHG_IN_OI
+# for each company, index, instrument, each day, expiry date
+
+bhavcopy <- bhavcopy [, `:=` (cCONTRACTS = cumsum(CONTRACTS), 
+                              cVAL_INLAKH = cumsum(VAL_INLAKH), 
+                              cOPEN_INT = cumsum(OPEN_INT), 
+                              cCHG_IN_OI = cumsum (CHG_IN_OI)), 
+                      by = .(INSTRUMENT, SYMBOL, EXPIRY_DT, TIMESTAMP, OPTION_TYP)]
+
+test <- dcast (data = bhavcopy,
+               subset = . (INSTRUMENT %like% c("OPT") ),
+               INSTRUMENT + SYMBOL + EXPIRY_DT + STRIKE_PR + TIMESTAMP ~ OPTION_TYP,
+               value.var = c("OPEN", "HIGH", "LOW", "CLOSE", "SETTLE_PR", 
+                             "CONTRACTS", "VAL_INLAKH", "OPEN_INT", "CHG_IN_OI",
+                             "cCONTRACTS", "cVAL_INLAKH", "cOPEN_INT", "cCHG_IN_OI"))
+
+test01 <- test [, putcallind :=ifelse(CONTRACTS_CE> 0, formatC( CONTRACTS_PE / CONTRACTS_CE, digits = 2, format ="f"), "" ), ]
+
+
+
+library(RQuantLib)
+
+BarrierOption(barrType="downin", type="put", underlying=338,
+              strike=320, dividendYield=0.02, riskFreeRate=0.03,
+              maturity=15/252, volatility=0.4, barrier=90)
+
+
+EuropeanOption(type="put", underlying=333, strike=320, dividendYield=0, 
+               riskFreeRate=0.03, maturity=0.5/12, volatility=0.4)
+
+
