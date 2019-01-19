@@ -6,6 +6,7 @@ library(dplyr)
 library(scales)
 library(anytime)
 library(derivmkts)
+library(RQuantLib)
 
 # File to get all stocks historic data VBA macro
 # http://investexcel.net/multiple-stock-quote-downloader-for-excel/
@@ -33,7 +34,12 @@ yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ), ]
 # Calculate average returns and volatility for the period, for a year
 
 yf_tr02 <- yf_tr [, .(avg = mean(dlyrtn, na.rm = TRUE),
-                      sd = stdev(dlyrtn, na.rm = TRUE)), by = .(Symbol)]
+                      sd = stdev(dlyrtn, na.rm = TRUE) / sqrt(uniqueN(trday) )
+                      ), by = .(Symbol)]
+
+
+#yf_tr02 <- yf_tr02 [, avg := percent( avg / 100),]
+#yf_tr02 <- yf_tr02 [, sd := percent( sd / 100),]
 
 # https://www.nseindia.com/products/content/derivatives/equities/homepage_fo.htm
 
@@ -99,15 +105,15 @@ bhavcopy02 <- merge (x = bhavcopy02,
                      by.x = c("SYMBOL"),
                      by.y = c("Symbol"))
 
-# & INSTRUMENT == "OPTSTK"
-bhavcopy03 <- bhavcopy02 [CONTRACTS > 0  & INSTRUMENT == "OPTSTK" &
+# & INSTRUMENT == "OPTSTK" 
+# CONTRACTS > 0  &
+bhavcopy03 <- bhavcopy02 [ INSTRUMENT == "OPTSTK" &
                             ! (SYMBOL %in% ban$SYMBOL) &
                             ! (SYMBOL %in% explmt02$SYMBOL)]
 
 # create a numeric date variable and expiry date
 bhavcopy03 <- bhavcopy03[, trday := anydate(TIMESTAMP) ]
 bhavcopy03 <- bhavcopy03[, nexpday := anydate(EXPIRY_DT) ]
-
 
 # Presently only kept the Jan-19 values for contract sizes
 cal01 <- bhavcopy03 [, c("SYMBOL", "UNDERLYING", "INSTRUMENT", "STRIKE_PR",
@@ -122,15 +128,28 @@ cal02 <- merge (x = cal01,
 # Maximum number of days to expiry
 cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
 
+# Create 1 day till each expiry date 
+cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
+                      by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
+                             nexpday, LASTCLOSE, trday, maxday, sd, avg, `JAN-19`) ]
+
 # calculate Call and Put prices
-cal03 <- cal02 [, pricecall := ifelse (OPTION_TYP == "CE", 
-                                       bscall (s = LASTCLOSE,
+cal03 <- cal03 [OPTION_TYP == "CE", pricecall := bscall (s = LASTCLOSE,
                                                k = STRIKE_PR,
                                                v = sd * sqrt(maxday),
-                                               tt = maxday / 252,
+                                               tt = 31, #maxday / 365,
                                                r = 0.06,
-                                               d = 0), "" ), ]
+                                               d = 0), ]
 
+cal04 <- cal03 [, erpcall := EuropeanOption(type = "call", 
+                                            underlying = LASTCLOSE, 
+                                            strike = STRIKE_PR,
+                                            dividendYield = 0, 
+                                            riskFreeRate = 0.06, 
+                                            maturity = maxday / 365, 
+                                            volatility = sd * sqrt(maxday)) $value , ]
+
+temp <- cal03 [SYMBOL =="BHARTIARTL" & OPTION_TYP == "CE" & cumday ==1 & maxday == 13]
 
 # Margin calculator file:
 # https://www.swastika.co.in/span-margin -- need to download manually
