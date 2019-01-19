@@ -5,12 +5,13 @@ library(httr)
 library(dplyr)
 library(scales)
 library(anytime)
-library(fCertificates)
+library(derivmkts)
 
 # File to get all stocks historic data VBA macro
 # http://investexcel.net/multiple-stock-quote-downloader-for-excel/
 # Execute the VBA macro on Yahoo finance and get the data for each of F&O companies
 
+temp <- "D:/My-Shares/prgm/Multiple Stock Quote Downloader.xlsm"
 yf <- data.table(read_excel(temp, sheet = "Adjusted Close Price"))
 yf <- yf [, trday := anydate(Date), ]
 yf_tr <- melt (yf,
@@ -18,23 +19,21 @@ yf_tr <- melt (yf,
                variable.name = "SYMBOL02",
                value.name = "price")
 
-yf_tr <- yf_tr [, SYMBOL := word(SYMBOL02, 1, sep= "\\."),]
+yf_tr <- yf_tr [, Symbol := word(SYMBOL02, 1, sep= "\\."),]
   
 # Sort the data for each company by day
-yf_tr <- yf_tr [ order(SYMBOL, trday)]
+yf_tr <- yf_tr [ order(Symbol, trday)]
 
 # Calculate previous value for each company and 
 # log (value / prv) = Daily returns
 
-yf_tr <- yf_tr [, prv := shift(price), by = .(SYMBOL)]
+yf_tr <- yf_tr [, prv := shift(price), by = .(Symbol)]
 yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ), ]
 
 # Calculate average returns and volatility for the period, for a year
 
 yf_tr02 <- yf_tr [, .(avg = mean(dlyrtn, na.rm = TRUE),
-                      sd = stdev(dlyrtn, na.rm = TRUE)), by = .(SYMBOL)]
-
-
+                      sd = stdev(dlyrtn, na.rm = TRUE)), by = .(Symbol)]
 
 # https://www.nseindia.com/products/content/derivatives/equities/homepage_fo.htm
 
@@ -49,9 +48,13 @@ bhavcopy <- fread(unzip(temp, files = "fo18JAN2019bhav.csv"))
 rm(temp)
 
 # Daily volatality automation
+# Keep the last day stock price
+
 volality <- fread("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_18012019.csv")
 names(volality)[3]<-"LASTCLOSE"
 names(volality)[4]<-"PRVTOLASTCLOSE"
+
+volality <-  volality [ , c(1:4)]
 
 # Daily settlement Prices
 settle <- fread("https://www.nseindia.com/archives/nsccl/sett/FOSett_prce_18012019.csv")
@@ -103,7 +106,31 @@ bhavcopy03 <- bhavcopy02 [CONTRACTS > 0  & INSTRUMENT == "OPTSTK" &
 
 # create a numeric date variable and expiry date
 bhavcopy03 <- bhavcopy03[, trday := anydate(TIMESTAMP) ]
-bhavcopy03 <- bhavcopy03[, nepxday := anydate(EXPIRY_DT) ]
+bhavcopy03 <- bhavcopy03[, nexpday := anydate(EXPIRY_DT) ]
+
+
+# Presently only kept the Jan-19 values for contract sizes
+cal01 <- bhavcopy03 [, c("SYMBOL", "UNDERLYING", "INSTRUMENT", "STRIKE_PR",
+                         "OPTION_TYP", "LASTCLOSE", "trday", "nexpday", "JAN-19")]
+
+# Merge Option chain and the variability
+cal02 <- merge (x = cal01,
+                     y = yf_tr02,
+                     by.x = c("SYMBOL"),
+                     by.y = c("Symbol"))
+
+# Maximum number of days to expiry
+cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
+
+# calculate Call and Put prices
+cal03 <- cal02 [, pricecall := ifelse (OPTION_TYP == "CE", 
+                                       bscall (s = LASTCLOSE,
+                                               k = STRIKE_PR,
+                                               v = sd * sqrt(maxday),
+                                               tt = maxday / 252,
+                                               r = 0.06,
+                                               d = 0), "" ), ]
+
 
 # Margin calculator file:
 # https://www.swastika.co.in/span-margin -- need to download manually
