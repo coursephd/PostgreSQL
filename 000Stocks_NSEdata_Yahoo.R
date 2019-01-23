@@ -152,7 +152,7 @@ cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
 # calculate Call and Put prices
 cal03 <- cal03 [OPTION_TYP == "CE", pricecall := bscall (s = LASTCLOSE,
                                                k = STRIKE_PR,
-                                               v = exp(sddaily) * sqrt(maxday),
+                                               v = exp(sddaily) * sqrt(maxday) * 100,
                                                tt = maxday / 365,
                                                r = 0.06,
                                                d = 0), ]
@@ -165,7 +165,7 @@ cal04 <- cal03 [, erpcall := EuropeanOption(type = "call",
                                             maturity = maxday / 365, 
                                             volatility = sd * sqrt(maxday)) , ]
 
-temp <- cal03 [SYMBOL =="BHARTIARTL" & OPTION_TYP == "CE" & cumday ==1 & maxday == 13]
+temp <- cal03 [SYMBOL =="BHARTIARTL" & OPTION_TYP == "CE" & cumday ==1 ]
 
 # Margin calculator file:
 # https://www.swastika.co.in/span-margin -- need to download manually
