@@ -21,7 +21,7 @@ yf_tr <- melt (yf,
                value.name = "price")
 
 yf_tr <- yf_tr [, Symbol := word(SYMBOL02, 1, sep= "\\."),]
-  
+
 # Sort the data for each company by day
 yf_tr <- yf_tr [ order(Symbol, trday)]
 
@@ -29,17 +29,33 @@ yf_tr <- yf_tr [ order(Symbol, trday)]
 # log (value / prv) = Daily returns
 
 yf_tr <- yf_tr [, prv := shift(price), by = .(Symbol)]
-yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ), ]
+yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ) , ]
 
+yf_tr0 <- na.omit(yf_tr, cols="dlyrtn")
 # Calculate average returns and volatility for the period, for a year
+# The calculated volatility is daily
+# * sqrt(uniqueN(trday)
 
-yf_tr02 <- yf_tr [, .(avg = mean(dlyrtn, na.rm = TRUE),
-                      sd = stdev(dlyrtn, na.rm = TRUE) / sqrt(uniqueN(trday) )
-                      ), by = .(Symbol)]
+yf_tr02 <- yf_tr0 [, .(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
+                       sddaily = sd(dlyrtn, na.rm = TRUE) ,
+                       avgprice = mean(as.numeric(price), na.rm = TRUE) )
+                   , by = .(Symbol)]
+
+# Calculate for x number of days
+day <- 8
+yf_tr02 <- yf_tr02 [, `:=` (avgxday = avgdaily * day, sdxday = sddaily * sqrt(day) ),]
 
 
-#yf_tr02 <- yf_tr02 [, avg := percent( avg / 100),]
-#yf_tr02 <- yf_tr02 [, sd := percent( sd / 100),]
+# Create Confidence interval
+
+yf_tr02 <- yf_tr02 [, `:=` (xup01 = avgxday + sdxday, xlw01 = avgxday - sdxday,
+                            xup02 = avgxday + 2*sdxday, xlw02 = avgxday - 2*sdxday,
+                            xup03 = avgxday + 3*sdxday, xlw03 = avgxday - 3*sdxday),]
+
+yf_tr02 <- yf_tr02 [, `:=` (xup01p = avgprice * exp(xup01), xlw01p = avgprice * exp(xlw01),
+                            xup02p = avgprice * exp(xup02), xlw02p = avgprice * exp(xlw02),
+                            xup03p = avgprice * exp(xup03), xlw03p = avgprice * exp(xlw03))]
+
 
 # https://www.nseindia.com/products/content/derivatives/equities/homepage_fo.htm
 
@@ -136,18 +152,18 @@ cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
 # calculate Call and Put prices
 cal03 <- cal03 [OPTION_TYP == "CE", pricecall := bscall (s = LASTCLOSE,
                                                k = STRIKE_PR,
-                                               v = sd * sqrt(maxday),
-                                               tt = 31, #maxday / 365,
+                                               v = exp(sd) * sqrt(maxday),
+                                               tt = maxday / 365,
                                                r = 0.06,
                                                d = 0), ]
 
 cal04 <- cal03 [, erpcall := EuropeanOption(type = "call", 
                                             underlying = LASTCLOSE, 
                                             strike = STRIKE_PR,
-                                            dividendYield = 0, 
+                                            dividendYield = 0.01, 
                                             riskFreeRate = 0.06, 
                                             maturity = maxday / 365, 
-                                            volatility = sd * sqrt(maxday)) $value , ]
+                                            volatility = sd * sqrt(maxday)) , ]
 
 temp <- cal03 [SYMBOL =="BHARTIARTL" & OPTION_TYP == "CE" & cumday ==1 & maxday == 13]
 
