@@ -147,12 +147,12 @@ cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
 # Create 1 day till each expiry date 
 cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
                       by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
-                             nexpday, LASTCLOSE, trday, maxday, sd, avg, `JAN-19`) ]
+                             nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily, `JAN-19`) ]
 
 # calculate Call and Put prices
 cal03 <- cal03 [OPTION_TYP == "CE", pricecall := bscall (s = LASTCLOSE,
                                                k = STRIKE_PR,
-                                               v = exp(sd) * sqrt(maxday),
+                                               v = exp(sddaily) * sqrt(maxday),
                                                tt = maxday / 365,
                                                r = 0.06,
                                                d = 0), ]
