@@ -1,4 +1,12 @@
 library(data.table)
+library(RQuantLib)
+
+EO <-   EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4)             
+
+try <- setDT(EO)
+try2 <- setDT (EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4))
+
+library(data.table)
 library(tidyverse)
 library(readxl)
 library(httr)
