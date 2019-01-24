@@ -1,12 +1,4 @@
 library(data.table)
-library(RQuantLib)
-
-EO <-   EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4)             
-
-try <- setDT(EO)
-try2 <- setDT (EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4))
-
-library(data.table)
 library(tidyverse)
 library(readxl)
 library(httr)
@@ -15,6 +7,11 @@ library(scales)
 library(anytime)
 library(derivmkts)
 library(RQuantLib)
+
+EO <-   EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4)             
+
+try <- setDT(EO)
+try2 <- setDT (EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4))
 
 # File to get all stocks historic data VBA macro
 # http://investexcel.net/multiple-stock-quote-downloader-for-excel/
@@ -44,10 +41,20 @@ yf_tr0 <- na.omit(yf_tr, cols="dlyrtn")
 # The calculated volatility is daily
 # * sqrt(uniqueN(trday)
 
-yf_tr02 <- yf_tr0 [, .(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
-                       sddaily = sd(dlyrtn, na.rm = TRUE) ,
-                       avgprice = mean(as.numeric(price), na.rm = TRUE) )
-                   , by = .(Symbol)]
+# Calculate the avg daily rice as well as moving averages
+
+yf_tr0 <- yf_tr0 [, `:=`(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
+                         sddaily = sd(dlyrtn, na.rm = TRUE) ,
+                         avgprice = mean(as.numeric(price), na.rm = TRUE),
+                         avg50s = frollmean(as.numeric(price), 50),
+                         avg100s = frollmean(as.numeric(price), 100),
+                         avg200s = frollmean(as.numeric(price), 200),
+                         nrow = 1:.N,
+                         maxrow = .N
+)
+, by = .(Symbol)]
+
+yf_tr02 <- yf_tr0 [ maxrow == nrow]
 
 # Calculate for x number of days
 day <- 8
