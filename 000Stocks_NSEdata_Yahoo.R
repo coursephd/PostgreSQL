@@ -179,7 +179,8 @@ cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
 # Create 1 day till each expiry date 
 cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
                 by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
-                       nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily, `JAN-19`) ]
+                       nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily,
+                       avg50s, avg100s, avg200s, `JAN-19`) ]
 
 # Calculate for x number of days
 cal03 <- cal03 [, `:=` (avgxday = avgdaily * cumday, sdxday = sddaily * sqrt(cumday) ),]
@@ -196,7 +197,30 @@ cal04 <- cal04 [, `:=` (xup01 = avgxday + sdxday, xlw01 = avgxday - sdxday,
 
 cal04 <- cal04 [, `:=` (xup01p = LASTCLOSE * exp(xup01), xlw01p = LASTCLOSE * exp(xlw01),
                         xup02p = LASTCLOSE * exp(xup02), xlw02p = LASTCLOSE * exp(xlw02),
-                        xup03p = LASTCLOSE * exp(xup03), xlw03p = LASTCLOSE * exp(xlw03))]
+                        xup03p = LASTCLOSE * exp(xup03), xlw03p = LASTCLOSE * exp(xlw03),
+                        nobs = .I,
+                        x2 = paste( "dset", str_pad(.I, 6, side = "left", pad = 0), SYMBOL, sep="_")),]
+
+cal04 <- cal04 [, calls :=paste(x2, "<- setDT(EuropeanOption(type ='call', underlying =", LASTCLOSE, ", strike =", STRIKE_PR, ", dividendYield = 0, riskFreeRate = 0.07, maturity =", cumday / 365, ", volatility =", sdxday, "))", sep=""),]
+
+# This creates mcall_shares.txt file, where the macro call is created
+# follwing is one such example
+
+outfile <- "D://My-Shares//prgm//macall_shares.R"
+
+fwrite(cal04 [SYMBOL == "ACC", c("calls"),],
+       outfile,
+       row.names = FALSE,
+       col.names = FALSE,
+       quote = FALSE,
+       sep=" ")
+
+# Execute the program
+source("D://My-Shares//prgm//macall_shares.R")
+agreek <- rbindlist(mget(ls(pattern = "dset*")), fill = TRUE)
+
+
+##############################################################################################
 
 
 # calculate Call and Put prices
