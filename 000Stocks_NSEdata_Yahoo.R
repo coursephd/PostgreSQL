@@ -201,6 +201,40 @@ cal04 <- cal04 [, `:=` (xup01p = LASTCLOSE * exp(xup01), xlw01p = LASTCLOSE * ex
                         nobs = .I,
                         x2 = paste( "dset", str_pad(.I, 6, side = "left", pad = 0), SYMBOL, sep="_")),]
 
+dd2 <- greeks(bscall(s = cal04$LASTCLOSE, 
+                     k = cal04$STRIKE_PR, 
+                     v = as.numeric(cal04$sddaily) * sqrt(cal04$maxday) * 100, 
+                     r = 0.06, 
+                     tt = cal04$maxday / 365, 
+                     d = 0 ), complete=FALSE, long=FALSE, initcaps=TRUE)
+
+dd3 <- setDT( list(dd2))
+dd3 <-dd3 [, nobs := ceiling(.I/8),]
+dd3 <- dd3 [, indrow := 1:.N, by = .(nobs)]
+
+dd3_tr <- dcast (data = dd3,
+                 nobs ~ indrow,
+                 value.var = c("V1"))
+
+setnames(dd3_tr, "1", "premium")
+setnames(dd3_tr, "2", "delta")
+setnames(dd3_tr, "3", "gamma")
+setnames(dd3_tr, "4", "vega")
+setnames(dd3_tr, "5", "rho")
+setnames(dd3_tr, "6", "theta")
+setnames(dd3_tr, "7", "psi")
+setnames(dd3_tr, "8", "elasticity")
+
+
+cal05 <- merge(x = cal04,
+               y = dd3_tr,
+               by = c("nobs"))
+
+##############################################################################################
+
+
+# This does not work for large datasets
+
 cal04 <- cal04 [, calls :=paste(x2, "<- setDT(EuropeanOption(type ='call', underlying =", LASTCLOSE, ", strike =", STRIKE_PR, ", dividendYield = 0, riskFreeRate = 0.07, maturity =", cumday / 365, ", volatility =", sdxday, "))", sep=""),]
 
 # This creates mcall_shares.txt file, where the macro call is created
