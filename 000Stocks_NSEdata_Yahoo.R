@@ -208,7 +208,9 @@ cal04 <- cal04 [, calls :=paste(x2, "<- setDT(EuropeanOption(type ='call', under
 
 outfile <- "D://My-Shares//prgm//macall_shares.R"
 
-fwrite(cal04 [SYMBOL == "ACC", c("calls"),],
+# SYMBOL == "ACC"
+
+fwrite(cal04 [, c("calls"),],
        outfile,
        row.names = FALSE,
        col.names = FALSE,
