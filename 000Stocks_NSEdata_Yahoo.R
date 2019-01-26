@@ -8,10 +8,120 @@ library(anytime)
 library(derivmkts)
 library(RQuantLib)
 
-EO <-   EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4)             
+# Create all the directories and files based on the date
+# One date DDMONYYYY should be put as input
+# Rest of the files will be extracted based on this date
 
-try <- setDT(EO)
-try2 <- setDT (EuropeanOption("call", 100, 100, 0.01, 0.03, 0.5, 0.4))
+date <- c("18JAN2019")
+
+# Only month in upcase
+# Month number
+# Year
+mon <- toupper(format(anydate(date),"%b"))
+mon_num <- format(anydate(date),"%m")
+day <- toupper(format(anydate(date),"%d"))
+yr <- toupper(format(anydate(date),"%Y"))
+
+monyr <- paste(yr, "/", mon, sep="")
+
+# For bhav: 2019/JAN/fo18JAN2019bhav.csv.zip
+date_char <- paste("fo", date, "bhav.csv", sep ="")
+
+# For other files
+date_num <- paste(day, mon_num, yr, sep="")
+
+# Contract size automation
+cntrt <- fread("https://www.nseindia.com/content/fo/fo_mktlots.csv")
+
+# Bhavcopy automation
+# The folder structure is:
+# "https://www.nseindia.com/content/historical/DERIVATIVES/2019/JAN/fo18JAN2019bhav.csv.zip
+
+temp <- tempfile()
+download.file( paste("https://www.nseindia.com/content/historical/DERIVATIVES/", monyr, "/", date_char, ".zip", sep=""), temp)
+bhavcopy <- fread(unzip(temp, files = date_char))
+rm(temp)
+
+# Daily volatality automation
+# Keep the last day stock price
+# The folder structure is:
+# "https://www.nseindia.com/archives/nsccl/volt/FOVOLT_18012019.csv"
+
+volality <- fread( paste("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_", date_num, ".csv", sep="") )
+names(volality)[3]<-"LASTCLOSE"
+names(volality)[4]<-"PRVTOLASTCLOSE"
+
+volality <-  volality [ , c(1:4)]
+
+# Daily settlement Prices
+# Folder structure
+# https://www.nseindia.com/archives/nsccl/sett/FOSett_prce_18012019.csv
+
+settle <- fread( paste("https://www.nseindia.com/archives/nsccl/sett/FOSett_prce_", date_num, ".csv", sep="") )
+
+# Securities with bans remove then in 
+# Folder structure
+# https://www.nseindia.com/archives/fo/sec_ban/fo_secban_18012019.csv
+
+ban <- fread( paste("https://www.nseindia.com/archives/fo/sec_ban/fo_secban_", date_num, ".csv", sep="") )
+names(ban)[2]<-"SYMBOL"
+
+# MWPL
+#A stock comes under ban period when its open interest crosses 
+# 95% of MWPL(market wide position limit)
+# I.e. when the combined open interest in futures and option in 
+# all the available contracts taken together crosses the prescribed limit. 
+
+# Would it be good to keep away from any listed here? 
+# https://www.nseindia.com/content/nsccl/mwpl_cli_18012019.xls
+
+temp <- paste("https://www.nseindia.com/content/nsccl/mwpl_cli_", date_num, ".xls", sep="")
+
+GET(temp, write_disk(tf <- tempfile(fileext = ".xls")))
+mwpl <- read_excel(tf, skip = 1)
+rm(temp)
+names(mwpl)[2]<-"SYMBOL"
+
+# Exposure Limit file (csv)
+# Would it be ok to keep away from any stock where there is additional limit levied
+# https://www.nseindia.com/archives/exp_lim/ael_18012019.csv
+
+explmt <- fread( paste("https://www.nseindia.com/archives/exp_lim/ael_", date_num, ".csv", sep="") )
+
+names(explmt)[2]<-"SYMBOL"
+names(explmt)[4]<-"ADDLMT"
+explmt02 <- explmt [ ADDLMT > 0]
+
+# Haircut for securities, may not be useful for calculations
+# https://www.nseindia.com/content/equities/APPSEC_COLLVAL_18012019.csv
+
+haircut <- fread( paste("https://www.nseindia.com/content/equities/APPSEC_COLLVAL_", date_num, ".csv", sep="") )
+
+# Merge contract size and bhavcopy
+
+bhavcopy02 <- merge (x = cntrt,
+                     y = bhavcopy,
+                     by = c("SYMBOL"))
+
+bhavcopy02 <- merge (x = bhavcopy02,
+                     y = volality,
+                     by.x = c("SYMBOL"),
+                     by.y = c("Symbol"))
+
+# & INSTRUMENT == "OPTSTK" 
+# CONTRACTS > 0  &
+bhavcopy03 <- bhavcopy02 [ INSTRUMENT == "OPTSTK" &
+                             ! (SYMBOL %in% ban$SYMBOL) &
+                             ! (SYMBOL %in% explmt02$SYMBOL)]
+
+# create a numeric date variable and expiry date
+bhavcopy03 <- bhavcopy03[, `:=` (trday = anydate(TIMESTAMP), 
+                                 nexpday = anydate(EXPIRY_DT)), ]
+
+# Presently only kept the Jan-19 values for contract sizes
+cal01 <- bhavcopy03 [, c("SYMBOL", "UNDERLYING", "INSTRUMENT", "STRIKE_PR",
+                         "OPTION_TYP", "LASTCLOSE", "trday", "nexpday", "JAN-19")]
+
 
 # File to get all stocks historic data VBA macro
 # http://investexcel.net/multiple-stock-quote-downloader-for-excel/
@@ -56,129 +166,54 @@ yf_tr0 <- yf_tr0 [, `:=`(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
 
 yf_tr02 <- yf_tr0 [ maxrow == nrow]
 
-# Calculate for x number of days
-day <- 8
-yf_tr02 <- yf_tr02 [, `:=` (avgxday = avgdaily * day, sdxday = sddaily * sqrt(day) ),]
-
-
-# Create Confidence interval
-
-yf_tr02 <- yf_tr02 [, `:=` (xup01 = avgxday + sdxday, xlw01 = avgxday - sdxday,
-                            xup02 = avgxday + 2*sdxday, xlw02 = avgxday - 2*sdxday,
-                            xup03 = avgxday + 3*sdxday, xlw03 = avgxday - 3*sdxday),]
-
-yf_tr02 <- yf_tr02 [, `:=` (xup01p = avgprice * exp(xup01), xlw01p = avgprice * exp(xlw01),
-                            xup02p = avgprice * exp(xup02), xlw02p = avgprice * exp(xlw02),
-                            xup03p = avgprice * exp(xup03), xlw03p = avgprice * exp(xlw03))]
-
-
-# https://www.nseindia.com/products/content/derivatives/equities/homepage_fo.htm
-
-# Contract size automation
-cntrt <- fread("https://www.nseindia.com/content/fo/fo_mktlots.csv")
-
-# Bhavcopy automation
-#bhavcopy <- fread("curl https://www.nseindia.com/content/historical/DERIVATIVES/2019/JAN/fo11JAN2019bhav.csv.zip | funzip")
-temp <- tempfile()
-download.file("https://www.nseindia.com/content/historical/DERIVATIVES/2019/JAN/fo18JAN2019bhav.csv.zip", temp)
-bhavcopy <- fread(unzip(temp, files = "fo18JAN2019bhav.csv"))
-rm(temp)
-
-# Daily volatality automation
-# Keep the last day stock price
-
-volality <- fread("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_18012019.csv")
-names(volality)[3]<-"LASTCLOSE"
-names(volality)[4]<-"PRVTOLASTCLOSE"
-
-volality <-  volality [ , c(1:4)]
-
-# Daily settlement Prices
-settle <- fread("https://www.nseindia.com/archives/nsccl/sett/FOSett_prce_18012019.csv")
-
-# Securities with bans remove then in 
-ban <- fread("https://www.nseindia.com/archives/fo/sec_ban/fo_secban_18012019.csv")
-names(ban)[2]<-"SYMBOL"
-
-# MWPL
-#A stock comes under ban period when its open interest crosses 
-# 95% of MWPL(market wide position limit)
-# I.e. when the combined open interest in futures and option in 
-# all the available contracts taken together crosses the prescribed limit. 
-
-# Would it be good to keep away from any listed here? 
-
-temp <- "https://www.nseindia.com/content/nsccl/mwpl_cli_18012019.xls"
-GET(temp, write_disk(tf <- tempfile(fileext = ".xls")))
-mwpl <- read_excel(tf, skip = 1)
-rm(temp)
-names(mwpl)[2]<-"SYMBOL"
-
-# Exposure Limit file (csv)
-# Would it be ok to keep away from any stock where there is additional limit levied
-
-explmt <- fread("https://www.nseindia.com/archives/exp_lim/ael_18012019.csv")
-names(explmt)[2]<-"SYMBOL"
-names(explmt)[4]<-"ADDLMT"
-explmt02 <- explmt [ ADDLMT > 0]
-
-# Haircut for securities, may not be useful for calculations
-haircut <- fread("https://www.nseindia.com/content/equities/APPSEC_COLLVAL_18012019.csv")
-
-# Merge contract size and bhavcopy
-
-bhavcopy02 <- merge (x = cntrt,
-                     y = bhavcopy,
-                     by = c("SYMBOL"))
-
-bhavcopy02 <- merge (x = bhavcopy02,
-                     y = volality,
-                     by.x = c("SYMBOL"),
-                     by.y = c("Symbol"))
-
-# & INSTRUMENT == "OPTSTK" 
-# CONTRACTS > 0  &
-bhavcopy03 <- bhavcopy02 [ INSTRUMENT == "OPTSTK" &
-                            ! (SYMBOL %in% ban$SYMBOL) &
-                            ! (SYMBOL %in% explmt02$SYMBOL)]
-
-# create a numeric date variable and expiry date
-bhavcopy03 <- bhavcopy03[, trday := anydate(TIMESTAMP) ]
-bhavcopy03 <- bhavcopy03[, nexpday := anydate(EXPIRY_DT) ]
-
-# Presently only kept the Jan-19 values for contract sizes
-cal01 <- bhavcopy03 [, c("SYMBOL", "UNDERLYING", "INSTRUMENT", "STRIKE_PR",
-                         "OPTION_TYP", "LASTCLOSE", "trday", "nexpday", "JAN-19")]
 
 # Merge Option chain and the variability
 cal02 <- merge (x = cal01,
-                     y = yf_tr02,
-                     by.x = c("SYMBOL"),
-                     by.y = c("Symbol"))
+                y = yf_tr02 [, -c("trday"), ],
+                by.x = c("SYMBOL"),
+                by.y = c("Symbol"))
 
 # Maximum number of days to expiry
 cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
 
 # Create 1 day till each expiry date 
 cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
-                      by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
-                             nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily, `JAN-19`) ]
+                by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
+                       nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily, `JAN-19`) ]
+
+# Calculate for x number of days
+cal03 <- cal03 [, `:=` (avgxday = avgdaily * cumday, sdxday = sddaily * sqrt(cumday) ),]
+
+# Keep contracts only till next 45 days
+
+cal04 <- cal03 [INSTRUMENT %like% c("OPT") & OPTION_TYP == "CE"  & maxday <= 45]
+
+# Create Confidence interval
+
+cal04 <- cal04 [, `:=` (xup01 = avgxday + sdxday, xlw01 = avgxday - sdxday,
+                        xup02 = avgxday + 2*sdxday, xlw02 = avgxday - 2*sdxday,
+                        xup03 = avgxday + 3*sdxday, xlw03 = avgxday - 3*sdxday),]
+
+cal04 <- cal04 [, `:=` (xup01p = LASTCLOSE * exp(xup01), xlw01p = LASTCLOSE * exp(xlw01),
+                        xup02p = LASTCLOSE * exp(xup02), xlw02p = LASTCLOSE * exp(xlw02),
+                        xup03p = LASTCLOSE * exp(xup03), xlw03p = LASTCLOSE * exp(xlw03))]
+
 
 # calculate Call and Put prices
-cal03 <- cal03 [OPTION_TYP == "CE", pricecall := list( bscall (s = LASTCLOSE,
+cal04 <- cal04 [OPTION_TYP == "CE", pricecall := list( bscall (s = LASTCLOSE,
                                                k = STRIKE_PR,
                                                v = as.numeric(sddaily) * sqrt(maxday) * 100,
                                                tt = maxday / 365,
                                                r = 0.06,
                                                d = 0) ), ]
 
-cal04 <- cal03 [, erpcall := EuropeanOption(type = "call", 
+cal04 <- cal03 [, erpcall := EuropeanOptionArrays(type = "call", 
                                             underlying = LASTCLOSE, 
                                             strike = STRIKE_PR,
                                             dividendYield = 0.01, 
                                             riskFreeRate = 0.06, 
                                             maturity = maxday / 365, 
-                                            volatility = sd * sqrt(maxday)) , ]
+                                            volatility = sddaily * sqrt(maxday)) , ]
 
 temp <- cal03 [SYMBOL =="BHARTIARTL" & OPTION_TYP == "CE" & cumday ==13 ]
 
