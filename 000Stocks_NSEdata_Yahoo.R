@@ -12,7 +12,7 @@ library(RQuantLib)
 # One date DDMONYYYY should be put as input
 # Rest of the files will be extracted based on this date
 
-date <- c("18JAN2019")
+date <- c("25JAN2019")
 
 # Only month in upcase
 # Month number
@@ -187,7 +187,7 @@ cal03 <- cal03 [, `:=` (avgxday = avgdaily * cumday, sdxday = sddaily * sqrt(cum
 
 # Keep contracts only till next 45 days
 
-cal04 <- cal03 [INSTRUMENT %like% c("OPT") & OPTION_TYP == "CE"  & maxday <= 45]
+cal04 <- cal03 [INSTRUMENT %like% c("OPT") & OPTION_TYP == "CE"  & maxday <= 100]
 
 # Create Confidence interval
 
@@ -203,7 +203,7 @@ cal04 <- cal04 [, `:=` (xup01p = LASTCLOSE * exp(xup01), xlw01p = LASTCLOSE * ex
 
 dd2 <- greeks(bscall(s = cal04$LASTCLOSE, 
                      k = cal04$STRIKE_PR, 
-                     v = as.numeric(cal04$sddaily) * sqrt(cal04$maxday) * 100, 
+                     v = as.numeric(cal04$sdxday), 
                      r = 0.06, 
                      tt = cal04$maxday / 365, 
                      d = 0 ), complete=FALSE, long=FALSE, initcaps=TRUE)
@@ -225,6 +225,7 @@ setnames(dd3_tr, "6", "theta")
 setnames(dd3_tr, "7", "psi")
 setnames(dd3_tr, "8", "elasticity")
 
+# Final dataset for analysis purpose:
 
 cal05 <- merge(x = cal04,
                y = dd3_tr,
