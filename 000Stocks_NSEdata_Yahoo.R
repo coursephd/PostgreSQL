@@ -219,6 +219,7 @@ fwrite(cal04 [SYMBOL == "ACC", c("calls"),],
 source("D://My-Shares//prgm//macall_shares.R")
 agreek <- rbindlist(mget(ls(pattern = "dset*")), fill = TRUE)
 
+rm(list = ls( pattern='^dset*'))
 
 ##############################################################################################
 
