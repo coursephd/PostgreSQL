@@ -117,3 +117,4 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
 all_met_rmsd03 <- all_met_rmsd02 [tolower(distype) == "vrikkaroga", -c("min", "max"),]
 
 saveRDS (all_met_rmsd03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr.rds")
+fwrite(all_met_rmsd03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr.csv")
