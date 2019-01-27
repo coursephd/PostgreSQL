@@ -95,7 +95,7 @@ all02 <- merge (x = all,
                 y = bfraftr ,
                 by = c("mr_no", "refcode", "refdesc", "Code", "description"),
                 all.x = TRUE)
-all03 <- all02 [tolower(distype) == "vrikkaroga", -c("min", "max"),]
+all03 <- all02 [, -c("min", "max"),]
 
 fwrite(all03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr_cat.csv")
 saveRDS (all03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr_cat.rds")
@@ -114,7 +114,8 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
 # Remove all other reference dieases as they may not be of interest
 # distype = VrikkaRoga
 ###########################################################################
-all_met_rmsd03 <- all_met_rmsd02 [tolower(distype) == "vrikkaroga", -c("min", "max"),]
+# tolower(distype) == "vrikkaroga"
+all_met_rmsd03 <- all_met_rmsd02 [, -c("min", "max"),]
 
 saveRDS (all_met_rmsd03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr.rds")
 fwrite(all_met_rmsd03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr.csv")
