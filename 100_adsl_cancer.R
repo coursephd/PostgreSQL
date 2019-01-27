@@ -234,8 +234,6 @@ rm (base01_ip, base01_op, base01_ser, l)
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 
-fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer.csv")
-saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer.rds")
 
 #?????????????????????????????????????????
 # Section after this has not been executed
@@ -253,6 +251,8 @@ all_met_rmsd <- merge(x = all_met_rmsd,
                       by.x = c("medicine_name"),
                       by.y = c("medicine_name")  )
 
+fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer.csv")
+saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer.rds")
 
 dis_rutu <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(season, Code, description)] [order(season, -cnt, Code)]
 dis_rutu_yr <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(year, season, Code, description)][order(year, season, -cnt, Code)]
