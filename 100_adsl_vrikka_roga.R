@@ -1,7 +1,7 @@
 
 ######################################################
-# Program name: 100_adsl_cancer.R
-# Output files: 01adsl_cancer.csv, 01adsl_cancer.rds
+# Program name: 100_adsl_vrikka_roga.R
+# Output files: 01adsl_vrikka_roga.csv, 01adsl_vrikka_roga.rds
 # Create calculations using base01_ip and base01_op
 ######################################################
 
@@ -234,9 +234,6 @@ rm (base01_ip, base01_op, base01_ser, l)
 
 all_met_rmsd <- all_met_rmsd [, `:=` (baseage = min(age)), by =.(mr_no)]
 
-fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.csv")
-saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
-
 #?????????????????????????????????????????
 # Section after this has not been executed
 # as the names of the medicines are unknown
@@ -253,7 +250,9 @@ all_met_rmsd <- merge(x = all_met_rmsd,
                       by.x = c("medicine_name"),
                       by.y = c("medicine_name")  )
 
-
+fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.csv")
+saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
+					  
 dis_rutu <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(season, Code, description)] [order(season, -cnt, Code)]
 dis_rutu_yr <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(year, season, Code, description)][order(year, season, -cnt, Code)]
 dis_rutu_yr02 <- dcast(dis_rutu_yr,
