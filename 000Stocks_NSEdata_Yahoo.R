@@ -122,6 +122,23 @@ bhavcopy03 <- bhavcopy03[, `:=` (trday = anydate(TIMESTAMP),
 cal01 <- bhavcopy03 [, c("SYMBOL", "UNDERLYING", "INSTRUMENT", "STRIKE_PR",
                          "OPTION_TYP", "LASTCLOSE", "trday", "nexpday", "JAN-19")]
 
+# Download file as Results.csv
+# https://www.bseindia.com/corporates/Forth_Results.aspx
+
+results <- fread("C:/Users/user/Downloads/Results.csv")
+
+names(results)[1]<-"number"
+names(results)[2]<-"SYMBOL"
+names(results)[3]<-"name"
+names(results)[4]<-"resdate"
+
+# Keep only the F&O companies
+
+results02 <- merge (x = results,
+                    y = cntrt [, c("SYMBOL"),],
+                    by = c("SYMBOL"),
+                    all.y = TRUE)
+results02 <- results02 [, resdtn := anydate(resdate),]
 
 # File to get all stocks historic data VBA macro
 # http://investexcel.net/multiple-stock-quote-downloader-for-excel/
@@ -172,6 +189,11 @@ cal02 <- merge (x = cal01,
                 y = yf_tr02 [, -c("trday"), ],
                 by.x = c("SYMBOL"),
                 by.y = c("Symbol"))
+
+# Merge Option chain and the variability
+cal02 <- merge (x = cal02,
+                y = results02,
+                by = c("SYMBOL"))
 
 # Maximum number of days to expiry
 cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
