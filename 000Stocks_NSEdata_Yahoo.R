@@ -200,7 +200,7 @@ cal02 <- cal02 [, maxday :=  as.numeric(nexpday - trday), ]
 
 # Create 1 day till each expiry date 
 cal03 <- cal02 [, (list( cumday = (1: maxday) ) ),
-                by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, 
+                by = .(SYMBOL, INSTRUMENT, STRIKE_PR, OPTION_TYP, resdate, resdtn,
                        nexpday, LASTCLOSE, trday, maxday, sddaily, avgdaily,
                        avg50s, avg100s, avg200s, `JAN-19`) ]
 
