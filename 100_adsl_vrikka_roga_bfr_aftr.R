@@ -95,10 +95,10 @@ all02 <- merge (x = all,
                 y = bfraftr ,
                 by = c("mr_no", "refcode", "refdesc", "Code", "description"),
                 all.x = TRUE)
-all02 <- all02 [, -c("min", "max"),]
+all03 <- all02 [tolower(distype) == "vrikkaroga", -c("min", "max"),]
 
-#fwrite(all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
-#saveRDS (all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.rds")
+fwrite(all03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr_cat.csv")
+saveRDS (all03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka_roga_bfr_aftr_cat.rds")
 
 ###############################################
 # Save disease and medicine version of the data
