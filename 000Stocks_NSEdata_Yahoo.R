@@ -10,6 +10,7 @@ library(RQuantLib)
 
 # download the margin file
 http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/
+http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/FNO%20MARGIN%2030012019.xls
 
 # Create all the directories and files based on the date
 # One date DDMONYYYY should be put as input
