@@ -8,6 +8,9 @@ library(anytime)
 library(derivmkts)
 library(RQuantLib)
 
+# download the margin file
+http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/
+
 # Create all the directories and files based on the date
 # One date DDMONYYYY should be put as input
 # Rest of the files will be extracted based on this date
