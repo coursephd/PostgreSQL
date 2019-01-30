@@ -262,6 +262,51 @@ rm(temp)
 
 ##############################################################################################
 
+# Simple checks on the spot price and strike 
+
+s=c(62:80); k=80; v=0.40; r=0.08; tt=c(1:31); d=0;
+data <- data.table(expand.grid(s = s, k = k, v = v, r = r, tt = tt, d = d))
+data <- data [, nobs := .I,]
+
+dd20 <- greeks(bscall(s = data$s, 
+                      k = data$k, 
+                      v = data$v, 
+                      r = data$r, 
+                      tt = data$tt / 365, 
+                      d = data$d), complete=FALSE, long=FALSE, initcaps=TRUE)
+
+dd3 <- setDT( list(dd20))
+dd3 <-dd3 [, nobs := ceiling(.I/8),]
+dd3 <- dd3 [, indrow := 1:.N, by = .(nobs)]
+
+dd3_tr <- dcast (data = dd3,
+                 nobs ~ indrow,
+                 value.var = c("V1"))
+
+setnames(dd3_tr, "1", "premium")
+setnames(dd3_tr, "2", "delta")
+setnames(dd3_tr, "3", "gamma")
+setnames(dd3_tr, "4", "vega")
+setnames(dd3_tr, "5", "rho")
+setnames(dd3_tr, "6", "theta")
+setnames(dd3_tr, "7", "psi")
+setnames(dd3_tr, "8", "elasticity")
+
+
+cal05 <- merge(x = data,
+               y = dd3_tr,
+               by = c("nobs"))
+
+cal05 <- cal05 [, premium02 := round(premium, digits = 2)]
+cal05 [order(s, -tt)]
+
+prm_t <- dcast(data = cal05,
+               s ~ tt,
+               value.var = c("premium02"))
+prm_t <- prm_t [, s2 := s,]
+############################################################################################
+
+
 
 # This does not work for large datasets
 
