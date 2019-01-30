@@ -8,15 +8,11 @@ library(anytime)
 library(derivmkts)
 library(RQuantLib)
 
-# download the margin file
-http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/
-http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/FNO%20MARGIN%2030012019.xls
-
 # Create all the directories and files based on the date
 # One date DDMONYYYY should be put as input
 # Rest of the files will be extracted based on this date
 
-date <- c("25JAN2019")
+date <- c("29JAN2019")
 
 # Only month in upcase
 # Month number
@@ -256,6 +252,13 @@ setnames(dd3_tr, "8", "elasticity")
 cal05 <- merge(x = cal04,
                y = dd3_tr,
                by = c("nobs"))
+
+
+temp <- paste("http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/FNO%20MARGIN%20", date_num, ".xls", sep="")
+
+GET(temp, write_disk(tf <- tempfile(fileext = ".xls")))
+marfile <- read_excel(tf)
+rm(temp)
 
 ##############################################################################################
 
