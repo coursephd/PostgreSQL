@@ -273,6 +273,53 @@ rm(temp)
 
 
 ##############################################################################################
+# Implied volatility calculation
+
+
+library(RCurl)
+
+seq(as.Date('2017-01-01'),as.Date('2017-01-31')+365,by = 1)
+
+# from today to 2 years behind
+tday <- Sys.Date()
+
+#format(Sys.Date(), "%d%b%Y")  
+
+dates <- seq ( tday - (2 * 365), tday, by=1)
+
+mon <- toupper(format(anydate(dates),"%b"))
+mon_num <- format(anydate(dates),"%m")
+day <- toupper(format(anydate(dates),"%d"))
+yr <- toupper(format(anydate(dates),"%Y"))
+
+monyr <- paste(yr, "/", mon, sep="")
+
+# For bhav: 2019/JAN/fo18JAN2019bhav.csv.zip
+date_char <- paste("fo", toupper(format(dates, "%d%b%Y")), "bhav.csv", sep ="")
+
+# For other files
+date_num <- paste(day, mon_num, yr, sep="")
+
+n <- length(dates)
+out <- vector('list', n)
+for (i in 1:n) { 
+  
+  url <- paste("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_", date_num[i], ".csv", sep="")
+  print(i)
+  if (url.exists(url))
+    out[[i]] <- fread( url )
+  
+}
+
+out2 <- rbindlist(out)
+
+out3 <- out2 
+names(out3)[16]<-"volatility"
+
+out4 <- out3 [, c("Date", "Symbol", "volatility"),]
+out4 <- out4 [, monyr := paste(toupper(format(anydate(Date),"%Y")), "-", toupper(format(anydate(Date),"%b")), sep="") , ]
+
+#############################################################################################
 
 # Simple checks on the spot price and strike 
 
