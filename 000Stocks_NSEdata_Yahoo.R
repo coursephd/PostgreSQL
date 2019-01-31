@@ -275,7 +275,6 @@ rm(temp)
 ##############################################################################################
 # Implied volatility calculation
 
-
 library(RCurl)
 
 seq(as.Date('2017-01-01'),as.Date('2017-01-31')+365,by = 1)
@@ -313,11 +312,26 @@ for (i in 1:n) {
 
 out2 <- rbindlist(out)
 
+saveRDS (out2, "D:/My-Shares/data_tickers/volatility.rds")
+
+
 out3 <- out2 
 names(out3)[16]<-"volatility"
 
 out4 <- out3 [, c("Date", "Symbol", "volatility"),]
-out4 <- out4 [, monyr := paste(toupper(format(anydate(Date),"%Y")), "-", toupper(format(anydate(Date),"%b")), sep="") , ]
+out4 <- out4 [, monyr := substring(Date, 4) , ]
+
+out5 <- out4 [, .(min = min(volatility),
+                  max = max(volatility),
+                  mean = mean(volatility),
+                  sd = sd(volatility)), by =.(Symbol, monyr)]
+
+out5 <- out5 [, `:=` (mnsd10 = mean + sd,
+                      mnsd20 = mean + 2*sd,
+                      mnsd30 = mean + 3*sd,
+                      mnsd01 = mean - sd,
+                      mnsd02 = mean - 2*sd,
+                      mnsd03 = mean - 3*sd),]
 
 #############################################################################################
 
