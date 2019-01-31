@@ -253,12 +253,24 @@ cal05 <- merge(x = cal04,
                y = dd3_tr,
                by = c("nobs"))
 
+# Keep only records for where strike price >= last close
+# Calculate the % difference between strike price and last close
+# Keep only records with >= 15% difference 
+
+#cal06 <- cal05 [ maxday > 6 & STRIKE_PR > LASTCLOSE]
+cal06 <- cal05 [, per := as.numeric(STRIKE_PR) / as.numeric(LASTCLOSE),]
+cal07 <- cal06 [ cumday == maxday & 
+                   cumday >5 & 
+                   per >= 1.15 & 
+                   (1-delta) >= 0.9 & 
+                   LASTCLOSE < avg50s & avg50s < avg100s & avg100s < avg200s]
 
 temp <- paste("http://download.nirmalbang.com/odin/EquityCommodity/Marginfiles/FNO%20MARGIN%20", date_num, ".xls", sep="")
 
 GET(temp, write_disk(tf <- tempfile(fileext = ".xls")))
 marfile <- read_excel(tf)
 rm(temp)
+
 
 ##############################################################################################
 
