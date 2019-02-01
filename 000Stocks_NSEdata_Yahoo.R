@@ -314,19 +314,30 @@ out2 <- rbindlist(out)
 
 saveRDS (out2, "D:/My-Shares/data_tickers/volatility.rds")
 
+out2 <- readRDS("D:/My-Shares/data_tickers/volatility.rds")
 
 out3 <- out2 
 names(out3)[16]<-"volatility"
 
 out4 <- out3 [, c("Date", "Symbol", "volatility"),]
-out4 <- out4 [, monyr := substring(Date, 4) , ]
+out4 <- out4 [ order(Symbol, Date)]
+out4 <- out4 [, `:=` (monyr = substring(Date, 4),
+                      nobs10 = ceiling(.I/10),
+                      nobs20 = ceiling(.I/20),
+                      nobs30 = ceiling(.I/30),
+                      nobs45 = ceiling(.I/45),
+                      nobs60 = ceiling(.I/60),
+                      nobs90 = ceiling(.I/90)), by = .(Symbol)]
 
-out5 <- out4 [, .(min = min(volatility),
+out5 <- melt(data = out4,
+             id.vars = 1:4 )
+
+out6 <- out5 [, .(min = min(volatility),
                   max = max(volatility),
                   mean = mean(volatility),
-                  sd = sd(volatility)), by =.(Symbol, monyr)]
+                  sd = sd(volatility)), by =.(Symbol, variable, value)]
 
-out5 <- out5 [, `:=` (mnsd10 = mean + sd,
+out6 <- out6 [, `:=` (mnsd10 = mean + sd,
                       mnsd20 = mean + 2*sd,
                       mnsd30 = mean + 3*sd,
                       mnsd01 = mean - sd,
