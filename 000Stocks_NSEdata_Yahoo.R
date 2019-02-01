@@ -330,12 +330,14 @@ out4 <- out4 [, `:=` (monyr = substring(Date, 4),
                       nobs90 = ceiling(.I/90)), by = .(Symbol)]
 
 out5 <- melt(data = out4,
-             id.vars = 1:4 )
+             id.vars = 1:4,
+             variable.name = "day",
+             value.name = "dayn")
 
 out6 <- out5 [, .(min = min(volatility),
                   max = max(volatility),
                   mean = mean(volatility),
-                  sd = sd(volatility)), by =.(Symbol, variable, value)]
+                  sd = sd(volatility)), by =.(Symbol, day, dayn)]
 
 out6 <- out6 [, `:=` (mnsd10 = mean + sd,
                       mnsd20 = mean + 2*sd,
@@ -343,6 +345,12 @@ out6 <- out6 [, `:=` (mnsd10 = mean + sd,
                       mnsd01 = mean - sd,
                       mnsd02 = mean - 2*sd,
                       mnsd03 = mean - 3*sd),]
+
+out7 <- melt(data = out6 [, -c("sd"),],
+             id.vars = 1:3)
+
+fwrite(out7, "D:/My-Shares/data_tickers/volatility_cone.csv")
+
 
 #############################################################################################
 
