@@ -348,6 +348,7 @@ out6 <- out6 [, `:=` (mnsd10 = mean + sd,
 
 out7 <- melt(data = out6 [, -c("sd"),],
              id.vars = 1:3)
+out7 <- out7 [, period := substring(day, 5),]
 
 fwrite(out7, "D:/My-Shares/data_tickers/volatility_cone.csv")
 
