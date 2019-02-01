@@ -318,6 +318,7 @@ out2 <- readRDS("D:/My-Shares/data_tickers/volatility.rds")
 
 out3 <- out2 
 names(out3)[16]<-"volatility"
+out3 <- out3 [, volatility := volatility * 100,]
 
 out4 <- out3 [, c("Date", "Symbol", "volatility"),]
 out4 <- out4 [ order(Symbol, Date)]
