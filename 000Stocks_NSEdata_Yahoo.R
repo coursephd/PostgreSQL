@@ -352,9 +352,70 @@ out7 <- melt(data = out6 [, -c("sd"),],
 out7 <- out7 [, period := substring(day, 5),]
 
 fwrite(out7, "D:/My-Shares/data_tickers/volatility_cone.csv")
-
-
 #############################################################################################
+
+# Bhavcopies for Dec 2018 and Jan 2019
+# Use this data for display in Tableau
+# If a premium at a specific strike rate goes up the
+# the higher strike rate premium also goes up after selling a specific strike 
+# if the rate goes up then accept that loss at that strike price 
+# and sell another strike price. Usually the offset will be in positive
+# 
+# Make sure that there is enough margin money to sell another lot
+# If playing with 3 lakh rupees then split this sum of money into
+# 2 or 4 parts to cover for the mis calculation
+
+# Tableu display: 01Shares-bhavcopiesDec2018-Jan2019Call
+
+library(RCurl)
+
+# from today to 2 years behind
+tday <- Sys.Date()
+
+#format(Sys.Date(), "%d%b%Y")  
+
+dates <- seq ( tday, tday - 66, by=-1)
+
+mon <- toupper(format(anydate(dates),"%b"))
+mon_num <- format(anydate(dates),"%m")
+day <- toupper(format(anydate(dates),"%d"))
+yr <- toupper(format(anydate(dates),"%Y"))
+
+monyr <- paste(yr, "/", mon, sep="")
+
+# For bhav: 2019/JAN/fo18JAN2019bhav.csv.zip
+date_char <- paste("fo", toupper(format(dates, "%d%b%Y")), "bhav.csv", sep ="")
+
+# For other files
+date_num <- paste(day, mon_num, yr, sep="")
+
+n <- length(dates)
+
+bhavcopy <- vector('list', n)
+
+for (i in 1:n) { 
+  
+  url <- paste("https://www.nseindia.com/content/historical/DERIVATIVES/", monyr[i], "/", date_char[i], ".zip", sep="")
+  print(i)
+  
+  if (url.exists(url)) {
+    temp <- tempfile()
+    
+    download.file( url, temp)
+    bhavcopy[[i]] <- fread(unzip(temp, files = date_char[i]))
+    rm(temp)
+  }
+  
+}
+
+out2 <- rbindlist(bhavcopy)
+
+out2 <- out2 [INSTRUMENT == "OPTSTK" & OPTION_TYP == "CE"]
+
+tatapower <- out2 [ SYMBOL == "TATAPOWER"]
+fwrite(out2, "D:/My-Shares/data_tickers/01bhavs-tatapower.csv")
+#############################################################################################
+
 
 # Simple checks on the spot price and strike 
 
