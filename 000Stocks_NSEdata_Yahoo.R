@@ -273,6 +273,119 @@ rm(temp)
 
 
 ##############################################################################################
+library(RCurl)
+library(tidyverse)
+library(lubridate)
+
+# from today to 2 years behind
+tday <- Sys.Date()
+
+#format(Sys.Date(), "%d%b%Y")  
+#365 *
+
+dates <- seq ( tday, tday -  365 * 2, by=-1)
+
+mon <- toupper(format(anydate(dates),"%b"))
+mon_num <- format(anydate(dates),"%m")
+day <- toupper(format(anydate(dates),"%d"))
+yr <- toupper(format(anydate(dates),"%Y"))
+
+monyr <- paste(yr, "/", mon, sep="")
+
+# For bhav: 2019/JAN/fo18JAN2019bhav.csv.zip
+date_char <- paste("fo", toupper(format(dates, "%d%b%Y")), "bhav.csv", sep ="")
+
+# For other files
+date_num <- paste(day, mon_num, yr, sep="")
+
+n <- length(dates)
+
+bhavcopy <- vector('list', n)
+outprice <- vector('list', n)
+
+for (i in 1:n) { 
+  
+  url <- paste("https://www.nseindia.com/content/historical/DERIVATIVES/", monyr[i], "/", date_char[i], ".zip", sep="")
+  print(i)
+  
+  if (url.exists(url)) {
+    temp <- tempfile()
+    
+    download.file( url, temp)
+    bhavcopy[[i]] <- fread(unzip(temp, files = date_char[i]))
+    rm(temp)
+  }
+  
+  price <- paste("https://www.nseindia.com/archives/nsccl/volt/FOVOLT_", date_num[i], ".csv", sep="")
+  print(i)
+  if (url.exists(price))
+    outprice[[i]] <- fread( price )
+  
+}
+
+out2 <- rbindlist(bhavcopy)
+out2price <- rbindlist(outprice)
+
+rm (bhavcopy)
+rm (outprice)
+
+out2 <- out2 [INSTRUMENT == "OPTSTK" & OPTION_TYP == "CE"]
+out2 <- out2 [, dt := anydate( dmy(TIMESTAMP) ),]
+
+names(out2price)[3]<-"LASTCLOSE"
+outprice02 <- out2price [, c("Date", "Symbol", "LASTCLOSE"),]
+outprice02 <- outprice02 [, dt := anydate( dmy(Date) ),]
+
+out3 <- merge (x = out2,
+               y = outprice02,
+               by.x = c("SYMBOL", "dt"),
+               by.y =  c("Symbol", "dt"))
+
+fwrite(out3, "D:/My-Shares/data_tickers/01bhavs2017-Jan2019.csv")
+
+#tatapower <- out2 [ SYMBOL == "TATAPOWER"]
+#fwrite(out2, "D:/My-Shares/data_tickers/01bhavs-tatapower.csv")
+
+
+###########################################
+###
+# Beta calculations
+###########################################
+
+temp <- "D:/My-Shares/prgm/Multiple Stock Quote Downloader.xlsm"
+yf <- data.table(read_excel(temp, sheet = "Adjusted Close Price"))
+yf <- yf [, trday := anydate(Date), ]
+yf_tr <- melt (yf,
+               id = c("Date", "trday", "NSEI" ),
+               variable.name = "SYMBOL02",
+               value.name = "price")
+
+yf_tr <- yf_tr [, Symbol := word(SYMBOL02, 1, sep= "\\."),]
+
+# Sort the data for each company by day
+yf_tr <- yf_tr [ order(Symbol, trday)]
+
+# Calculate previous value for each company and 
+# log (value / prv) = Daily returns
+
+yf_tr <- yf_tr [, `:=` (prv = shift(price), prvnse = shift(NSEI) ), by = .(Symbol)]
+yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ) , ]
+
+yf_tr0 <- na.omit(yf_tr, cols=c("dlyrtn", "prvnse") )
+
+yf_tr0 <- yf_tr0 [, `:=` (perchg = ( ( as.numeric(price) - as.numeric(prv) )/ as.numeric(prv)) * 100,
+                          pernse = ( ( as.numeric(NSEI) - as.numeric(prvnse) )/ as.numeric(prvnse) ) * 100 ), ]
+
+
+beta.tab <- yf_tr0 %>% 
+  group_by(Symbol) %>% # group by column ticker
+  do(ols.model = lm(data = ., formula = perchg ~ pernse)) %>%   # estimate model
+  mutate(beta = coef(ols.model)[2]) # get coefficients
+
+yf_tr1 <- setDT(beta.tab)
+yf_tr1 <- yf_tr1 [, c("Symbol", "beta"),]
+######################################################################################
+
 # Implied volatility calculation
 
 library(RCurl)
