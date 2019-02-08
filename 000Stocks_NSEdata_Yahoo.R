@@ -2,11 +2,14 @@ library(data.table)
 library(tidyverse)
 library(readxl)
 library(httr)
-library(dplyr)
 library(scales)
 library(anytime)
 library(derivmkts)
 library(RQuantLib)
+library(RCurl)
+library(lubridate)
+library(zoo)
+library(PerformanceAnalytics)
 
 # Create all the directories and files based on the date
 # One date DDMONYYYY should be put as input
