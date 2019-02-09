@@ -383,6 +383,73 @@ yf_tr0 <- na.omit(yf_tr, cols=c("dlyrtn", "prvnse") )
 yf_tr0 <- yf_tr0 [, `:=` (perchg = ( ( as.numeric(price) - as.numeric(prv) )/ as.numeric(prv)) * 100,
                           pernse = ( ( as.numeric(NSEI) - as.numeric(prvnse) )/ as.numeric(prvnse) ) * 100 ), ]
 
+yf_tr01 <- na.omit(yf_tr0)
+
+yf_tr01 <- yf_tr01 [, `:=`(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
+                           sddaily = sd(dlyrtn, na.rm = TRUE) ,
+                           avgprice = mean(as.numeric(price), na.rm = TRUE),
+                           avg50s = frollmean(as.numeric(price), 50),
+                           avg100s = frollmean(as.numeric(price), 100),
+                           avg200s = frollmean(as.numeric(price), 200),
+                           nrow = 1:.N,
+                           maxrow = .N)
+                    , by = .(Symbol)]
+
+yf_tr0100 <- yf_tr01 [maxrow > 200]
+
+yf_tr0100 <- yf_tr0100 [, `:=` (trday2 = trday %m+% months(1),
+                                trday3 = trday %m+% months(2)), ]
+
+yf_tr0100 <- yf_tr0100 [, `:=` (mnth01 = format(as.Date(trday), "%m-%Y"),
+                                mnth02 = format(as.Date(trday2), "%m-%Y"),
+                                mnth03 = format(as.Date(trday3), "%m-%Y"))]
+
+yf_tr0100 <- yf_tr0100 [, `:=` (beta50 = runCor(pernse, perchg, n = 50, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                                beta100 = runCor(pernse, perchg, n = 100, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                                beta200 = runCor(pernse, perchg, n = 200, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                                betaall = runCor(pernse, perchg, n = maxrow, use = "all.obs", sample = TRUE, cumulative = FALSE)),  by = .(Symbol)]
+
+#########################
+# create rows by contract
+#########################
+yf_tr0100 <- yf_tr0100 [, `:=`( ncntrt = .N, rowcntrt = 1:.N), by = .(Symbol, mnth01, mnth02, mnth03)]
+
+
+yf_cntrt <- yf_tr0100 [, .(betacntrt = runCor(pernse, perchg, n = ncntrt, use = "all.obs", sample = TRUE, cumulative = FALSE)),  
+                       by = .(Symbol, mnth01, mnth02, mnth03)]
+
+yf_tr02 <- yf_tr0100 [ maxrow == nrow]
+
+
+###########################################
+###
+# Beta calculations
+###########################################
+
+temp <- "D:/My-Shares/prgm/Multiple Stock Quote Downloader.xlsm"
+yf <- data.table(read_excel(temp, sheet = "Adjusted Close Price"))
+yf <- yf [, trday := anydate(Date), ]
+yf_tr <- melt (yf,
+               id = c("Date", "trday", "NSEI" ),
+               variable.name = "SYMBOL02",
+               value.name = "price")
+
+yf_tr <- yf_tr [, Symbol := word(SYMBOL02, 1, sep= "\\."),]
+
+# Sort the data for each company by day
+yf_tr <- yf_tr [ order(Symbol, trday)]
+
+# Calculate previous value for each company and 
+# log (value / prv) = Daily returns
+
+yf_tr <- yf_tr [, `:=` (prv = shift(price), prvnse = shift(NSEI) ), by = .(Symbol)]
+yf_tr <- yf_tr [, dlyrtn := log( as.numeric(price) / as.numeric(prv) ) , ]
+
+yf_tr0 <- na.omit(yf_tr, cols=c("dlyrtn", "prvnse") )
+
+yf_tr0 <- yf_tr0 [, `:=` (perchg = ( ( as.numeric(price) - as.numeric(prv) )/ as.numeric(prv)) * 100,
+                          pernse = ( ( as.numeric(NSEI) - as.numeric(prvnse) )/ as.numeric(prvnse) ) * 100 ), ]
+
 
 beta.tab <- yf_tr0 %>% 
   group_by(Symbol) %>% # group by column ticker
