@@ -1,5 +1,7 @@
 library(data.table)
 library(tidyverse)
+library(tidyquant)
+library(dendroTools)
 library(readxl)
 library(httr)
 library(scales)
@@ -10,6 +12,8 @@ library(RCurl)
 library(lubridate)
 library(zoo)
 library(PerformanceAnalytics)
+library(rollRegres)
+
 
 # Create all the directories and files based on the date
 # One date DDMONYYYY should be put as input
@@ -387,6 +391,27 @@ beta.tab <- yf_tr0 %>%
 
 yf_tr1 <- setDT(beta.tab)
 yf_tr1 <- yf_tr1 [, c("Symbol", "beta"),]
+
+yf_tr01 <- na.omit(yf_tr0)
+
+yf_tr01 <- yf_tr01 [, `:=`(avgdaily = mean(dlyrtn, na.rm = TRUE) ,
+                           sddaily = sd(dlyrtn, na.rm = TRUE) ,
+                           avgprice = mean(as.numeric(price), na.rm = TRUE),
+                           avg50s = frollmean(as.numeric(price), 50),
+                           avg100s = frollmean(as.numeric(price), 100),
+                           avg200s = frollmean(as.numeric(price), 200),
+                           nrow = 1:.N,
+                           maxrow = .N)
+                    , by = .(Symbol)]
+
+yf_tr01 <- yf_tr01 [Symbol != "IDFCFIRSTB"]
+yf_tr0100 <- yf_tr01 [, `:=` (beta50 = runCor(pernse, perchg, n = 50, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                              beta100 = runCor(pernse, perchg, n = 100, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                              beta200 = runCor(pernse, perchg, n = 200, use = "all.obs", sample = TRUE, cumulative = FALSE),
+                              betaall = runCor(pernse, perchg, n = maxrow, use = "all.obs", sample = TRUE, cumulative = FALSE)),  by = .(Symbol)]
+
+yf_tr02 <- yf_tr0100 [ maxrow == nrow]
+
 ######################################################################################
 
 # Implied volatility calculation
