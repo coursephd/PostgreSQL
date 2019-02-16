@@ -1,3 +1,4 @@
+
 library(data.table)
 library(tidyverse)
 
@@ -8,55 +9,22 @@ path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/"
 
 x <- 1
 input <- paste(path, "ARFF_P5.0_AfterMedunq.txt", sep="")
-output <- paste(path, "oARFF_P5.0_AfterMedunq_", str_pad(x, 2, side = "left", pad = 0), "perc.txt", sep="")
+output <- paste(path, "vinayoARFF_P5.0_AfterMedunq_", str_pad(x, 2, side = "left", pad = 0), "perc.txt", sep="")
 perc <- paste(x, "%", sep="")
 
-system( paste('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori ',
-              "'", input, "' ", 
-              "'", output, "' ", perc, sep ="") )
+options(useFancyQuotes = FALSE)
+ll <- noquote (paste( "'java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori ",
+             noquote(dQuote(input)) , ' ',  
+             noquote(dQuote(output)), ' ', perc, "'", sep="") )
 
+ll2 <- paste("system (", ll, ")", sep="")
 
-system( paste('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori ',
-              "\"", input, "\" ", 
-              "\"", output, "\" ", perc, sep ="") )
+write.table(ll2, "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt",
+            quote = FALSE, 
+            col.names = FALSE,
+            row.names = FALSE)
 
-
-###############################################
-#
-# create a lookup table with combinations of 
-# diseases 
-# before after time period
-# Filenames for the outputs and inputs
-# Execute Java program with various algorithms
-#
-###############################################
-
-all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
-all_met_rmsd02 <- all_met_rmsd02 [! Coded_med %in% c("", " "),]
-all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Type_med, ":", Coded_med, sep =""), ]
-all_met_rmsd02 <- all_met_rmsd02[, comdisn := .GRP, by = .(Code02)]
-
-all_met_rmsd02 <- all_met_rmsd02[Code != "** Not yet coded"]
-
-all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]
-all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period",
-                                              "comdisn", "patient_gender", "baseage"), ])
-
-
-refcode <- unique( all_met_rmsd03 [, c("refcode")])
-period <- c(">= 0", "< 0")
-algo <- c("Apriori", "SPADE")
-
-comb01 <- setDT( crossing (refcode = refcode, period = period, algo = algo) )
-
-comb01 <- comb01 [, bfraftr := ifelse(period == "< 0", "Before", "After"),]
-comb01 <- comb01 [, path := paste(path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/", refcode, "/", sep=""),]
-comb01 <- comb01 [, spddis := paste("SPADE_", refcode, bfraftr, "unq.txt", sep=""),]
-comb01 <- comb01 [, arfdis := paste("ARFF_", refcode, bfraftr, "unq.txt", sep=""),]
-comb01 <- comb01 [, spdmed := paste("SPADE_", refcode, bfraftr, "Medunq.txt", sep=""),]
-comb01 <- comb01 [, arfmed := paste("ARFF_", refcode, bfraftr, "Medunq.txt", sep=""),]
-comb01 <- comb01 [, sub01 := paste( "refcode == '", refcode, "'", sep=""),]
-comb01 <- comb01 [, sub02 := paste( "! (Code == '", refcode, "' & period", period, ")", sep=""),]
+source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt")
 
 
 library(data.table)
