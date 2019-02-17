@@ -2,32 +2,6 @@
 library(data.table)
 library(tidyverse)
 
-# working
-system('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/ARFF_P5.0_AfterMedunq.txt" "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/oARFF_P5.0_AfterMedunq_01perc.txt" 1%')
-
-path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/"
-
-x <- c(1:50)
-input <- paste(path, "ARFF_P5.0_AfterMedunq.txt", sep="")
-output <- paste(path, "vinayoARFF_P5.0_AfterMedunq_", str_pad(x, 2, side = "left", pad = 0), "perc.txt", sep="")
-perc <- paste(x, "%", sep="")
-
-options(useFancyQuotes = FALSE)
-ll <- noquote (paste( "'java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori ",
-             noquote(dQuote(input)) , ' ',  
-             noquote(dQuote(output)), ' ', perc, "'", sep="") )
-
-ll2 <- paste("system (", ll, ")", sep="")
-
-write.table(ll2, "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt",
-            quote = FALSE, 
-            col.names = FALSE,
-            row.names = FALSE)
-
-source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt")
-
-
-
 ###############################################
 #
 # create a lookup table with combinations of 
@@ -72,14 +46,14 @@ comb01 <- comb01 [, step000 := paste("path <-'", path, "'", sep="" ),]
 comb01 <- comb01 [, step001 := paste("all_met_rmsd04 <- all_met_rmsd03 [", sub01, "]" ),]
 comb01 <- comb01 [, step002 := paste("all_met_rmsd040 <- all_met_rmsd03 [", sub02, "]" ),]
 comb01 <- comb01 [, step003 := paste('all_met_rmsd05 <- all_met_rmsd040 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
-                                                                        by = .(mr_no, refcode, refdesc, baseage)]'), ]
+                                     by = .(mr_no, refcode, refdesc, baseage)]'), ]
 
 comb01 <- comb01 [, step004 := paste('all_met_rmsd06 <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " -1 ", sep = " " )), 
-                                  by = .(mr_no, refcode, refdesc, baseage)] '),]
+                                     by = .(mr_no, refcode, refdesc, baseage)] '),]
 comb01 <- comb01 [, step005 := paste('all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep = ""), ]'), ]
 comb01 <- comb01 [, step006 := paste('fwrite(x = all_met_rmsd06 [, c("combdis02"),], 
-                                 col.names = FALSE,
-                                 file = paste("', path, spdmed, '", sep="") )', sep=""), ]
+                                     col.names = FALSE,
+                                     file = paste("', path, spdmed, '", sep="") )', sep=""), ]
 
 comb01_t <- melt(data = comb01,
                  id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis"),
@@ -98,27 +72,28 @@ post <- comb01 [, step008 := paste('disnum <- unique( all_met_rmsd02 [, c("Code0
 post <- post [, step009 := paste('disnum <- disnum [, comdisn := as.numeric(comdisn),]', sep=""),]
 post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', algo, "*", bfraftr, "Medunq*perc.txt", '"', "))", sep="" ) ,]
 post <- post [, step020 := paste ('out <- rbindlist( sapply(paste(path, list_of_files, sep=""), fread, simplify = FALSE, sep="!", header = FALSE),
-                  use.names = TRUE, idcol = "temp" )', sep=""),]
+                                  use.names = TRUE, idcol = "temp" )', sep=""),]
 post <- post [, step030 := paste('out <- out [, V1 := paste(temp, "#", V1, sep=""),]', sep=""),]
+post <- post [, step035 := paste('out <- out [, V1 := str_remove(V1, "-1"),]', sep=""),]
 post <- post [, step040 := paste('out <- out [, -c("temp"), ]', sep=""),]
 post <- post [, step050 := paste('out2 <- out [, c("var03", "var01", "var02") := tstrsplit(V1, "#"),]', sep=""),]
 post <- post [, step060 := paste('out3 <- out2 [, c("var021", "var022") := tstrsplit(trimws(var01), "==>"),]', sep=""),]
 post <- post [, step070 := paste('out4 <- out3 [, `:=` (cntvar021 = max(str_count( trimws(var021), " ")) + 1,
-                      cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]', sep=""),]
+                                 cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]', sep=""),]
 
 post <- post [, step080 := paste('out5 <- out4 [, paste0("stt", 1:max(out4$cntvar021)) := tstrsplit(trimws(var021), " ", fixed = TRUE ),]', sep=""),]
 post <- post [, step090 := paste('out6 <- out5 [, paste0("end", 1:max(out5$cntvar022)) := tstrsplit(trimws(var022), " ", fixed = TRUE),]', sep=""),]
 post <- post [, step100 := paste('out6_tra <- melt (data = out6, 
-                  id.vars = 1:8,
+                                 id.vars = 1:8,
                                  value.factor = FALSE)', sep=""),]
 post <- post [, step110 := paste('out6_tra <- out6_tra [, value := as.numeric(value), ]', sep=""), ]
 post <- post [, step120 := paste('out7 <- merge (x = out6_tra, 
-               y = disnum,
+                                 y = disnum,
                                  by.x = c("value"),
                                  by.y = c("comdisn") )', sep=""),]
 
 post <- post [, step130 := paste('out7_tra <- dcast (data = out7,
-                   formula = V1 + var01 + var02 + var03 + var021 + var022 + cntvar021 + cntvar022 ~ variable,
+                                 formula = V1 + var01 + var02 + var03 + var021 + var022 + cntvar021 + cntvar022 ~ variable,
                                  value.var = c("Code02"), 
                                  fill = "")', sep=""),]
 
@@ -126,15 +101,15 @@ post <- post [, step140 := paste('out8 <- out7_tra [, newstt := do.call(paste, c
 post <- post [, step150 := paste('out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("end", 1:max(out8$cntvar022)), ]', sep=""),]
 post <- post [, step160 := paste('out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]', sep=""),]
 post <- post [, step170 := paste('out9 <- out9 [ order ( var03)]', sep=""),]
-post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", "_formatted.csv), sep='')"), "\n", sep=""),]
+post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
 
 post_t <- melt(data = post,
-                 id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis"),
-                 measure.vars = c("step008", "step009", "step010", "step020", "step030", "step040",
-                                  "step050", "step060", "step070", "step080",
-                                  "step090", "step100", "step110", "step120",
-                                  "step130", "step140", "step150", "step160",
-                                  "step170", "step180") )
+               id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis"),
+               measure.vars = c("step008", "step009", "step010", "step020", "step030", "step035", "step040",
+                                "step050", "step060", "step070", "step080",
+                                "step090", "step100", "step110", "step120",
+                                "step130", "step140", "step150", "step160",
+                                "step170", "step180") )
 
 comb01_all <- rbind (comb01_t [, -c("variable")], comb02_t, post_t [, -c("variable")] )
 comb01_all <- comb01_all [ order(rdis)]
@@ -146,6 +121,35 @@ fwrite(comb01_all [refcode == "V2.63", c("value"),],
        col.names = FALSE,
        quote = FALSE,
        sep="\n")
+
+##########################################################################################
+
+# working
+system('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/ARFF_P5.0_AfterMedunq.txt" "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/oARFF_P5.0_AfterMedunq_01perc.txt" 1%')
+
+path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/"
+
+x <- c(1:50)
+input <- paste(path, "ARFF_P5.0_AfterMedunq.txt", sep="")
+output <- paste(path, "vinayoARFF_P5.0_AfterMedunq_", str_pad(x, 2, side = "left", pad = 0), "perc.txt", sep="")
+perc <- paste(x, "%", sep="")
+
+options(useFancyQuotes = FALSE)
+ll <- noquote (paste( "'java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run Apriori ",
+             noquote(dQuote(input)) , ' ',  
+             noquote(dQuote(output)), ' ', perc, "'", sep="") )
+
+ll2 <- paste("system (", ll, ")", sep="")
+
+write.table(ll2, "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt",
+            quote = FALSE, 
+            col.names = FALSE,
+            row.names = FALSE)
+
+source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/P5.0/chk.txt")
+
+
+
 
 
 
@@ -263,6 +267,7 @@ out <- rbindlist( sapply(paste(path, list_of_files, sep=""), fread, simplify = F
                   use.names = TRUE, idcol = "temp" )
 
 out <- out [, V1 := paste(temp, "#", V1, sep=""),]
+out <- out [, V1 := str_remove(V1, "-1"),]
 out <- out [, -c("temp"), ]
 
 # out <- fread( paste(path, "oARFF_Apriori_P5.0_AfterMedunq.txt", sep=""), sep ="!", header = FALSE)
