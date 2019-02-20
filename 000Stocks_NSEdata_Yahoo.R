@@ -348,6 +348,15 @@ out3 <- merge (x = out2,
                by.x = c("SYMBOL", "dt"),
                by.y =  c("Symbol", "dt"))
 
+nifty50 <- fread("https://www.nseindia.com/content/indices/ind_nifty50list.csv")
+nifty50 <- nifty50 [, nifty:=1,]
+
+out3 <- merge (x = out3,
+               y = nifty50 [, c("Symbol", "nifty"),],
+               by.x = c("SYMBOL"),
+               by.y =  c("Symbol"),
+               all = TRUE)
+
 fwrite(out3, "D:/My-Shares/data_tickers/01bhavs2017-Jan2019.csv")
 
 #tatapower <- out2 [ SYMBOL == "TATAPOWER"]
