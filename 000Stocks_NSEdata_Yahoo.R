@@ -288,9 +288,9 @@ library(lubridate)
 tday <- Sys.Date()
 
 #format(Sys.Date(), "%d%b%Y")  
-#365 *
+#365 * 2
 
-dates <- seq ( tday, tday -  365 * 2, by=-1)
+dates <- seq ( tday, tday -  365, by=-1)
 
 mon <- toupper(format(anydate(dates),"%b"))
 mon_num <- format(anydate(dates),"%m")
