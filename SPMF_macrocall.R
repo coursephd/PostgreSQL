@@ -178,7 +178,7 @@ fwrite(comb01_all [refcode == "V2.63", c("value"),],
 
 comb200 <- comb01_all [refcode %in% c("V2.63", "A2.0", "M2.0"), c("value", "refcode", "path"),]
 comb200 <- comb200 [, output := paste0(path, refcode, ".R"), ]
-  
+
 for(i in unique(comb200$output)) {
   da <- comb200[ output == i]
   fwrite(da [, c("value"),], 
@@ -190,8 +190,6 @@ for(i in unique(comb200$output)) {
 }
 
 #########################################################################################################################
-
-
 
 library(data.table)
 library(tidyverse)
