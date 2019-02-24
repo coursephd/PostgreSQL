@@ -1,6 +1,7 @@
 
 library(data.table)
 library(tidyverse)
+library(sqldf)
 
 ###############################################
 #
@@ -51,12 +52,19 @@ for( type in c("med", "dis") ) {
   }
   
   refcode <- unique( all_met_rmsd03 [, c("refcode")])
-  period <- c(">= 0", "< 0")
+  period <- c(">= 0", "< 0", "< 9999")
   algo <- c("SPADE") # "Apriori"
   
   comb01 <- setDT( crossing (refcode = refcode, period = period, algo = algo) )
-  
-  comb01 <- comb01 [, bfraftr := ifelse(period == "< 0", "Before", "After"),]
+  comb01 <- sqldf("select *, 
+                   case 
+                  When period == '< 0' then 'Before'
+                  When period == '>= 0' then 'After'
+                  When period == '< 9999' then 'All'
+                  end as bfraftr
+                  from comb01")
+  comb01 <- as.data.table(comb01)
+  #comb01 <- comb01 [, bfraftr := ifelse(period == "< 0", "Before", "After"),]
   comb01 <- comb01 [, path := paste(path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/", refcode, "/", sep=""),]
   comb01 <- comb01 [, spddis := paste("SPADE_", refcode, bfraftr, "disunq.txt", sep=""),]
   comb01 <- comb01 [, arfdis := paste("ARFF_", refcode, bfraftr, "disunq.txt", sep=""),]
@@ -160,21 +168,22 @@ for( type in c("med", "dis") ) {
   
   if (tolower(type) == "dis")
   {
-    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spddis, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spddis, ".txt", '_formatted.csv'), '"', ", sep='') )", sep="") ,]
   }
   
   if (tolower(type) == "med")
   {
-    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", '_formatted.csv'), '"', ", sep='') )", sep="") ,]
   }
   
+  post <- post [, step190 := paste( "file.remove( paste(path, list_of_files, sep='') )", "\n", sep=""), ]
   post_t <- melt(data = post,
                  id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis", "path"),
                  measure.vars = c("step008", "step009", "step010", "step020", "step030", "step035", "step040",
                                   "step050", "step060", "step070", "step080",
                                   "step090", "step100", "step110", "step120",
                                   "step130", "step140", "step150", "step160",
-                                  "step170", "step180") )
+                                  "step170", "step180", "step190") )
   
   comb01_all <- rbind (comb01_t [, -c("variable")], comb02_t, post_t [, -c("variable")] )
   comb01_all <- comb01_all [, cat := type]
