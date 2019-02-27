@@ -53,25 +53,27 @@ for( type in c("med", "dis") ) {
   
   refcode <- unique( all_met_rmsd03 [, c("refcode")])
   period <- c(">= 0", "< 0", "< 9999")
-  algo <- c("SPADE") # "Apriori"
+  algo0 <- c("F1-SPADE", "F1-PrefixSpan", "F1-GSP", "F1-SPAM") # "Apriori"
   
-  comb01 <- setDT( crossing (refcode = refcode, period = period, algo = algo) )
+  comb01 <- setDT( crossing (refcode = refcode, period = period, algo0 = algo0) )
   comb01 <- sqldf("select *, 
-                   case 
+                  case 
                   When period == '< 0' then 'Before'
                   When period == '>= 0' then 'After'
                   When period == '< 9999' then 'All'
                   end as bfraftr
                   from comb01")
   comb01 <- as.data.table(comb01)
-  #comb01 <- comb01 [, bfraftr := ifelse(period == "< 0", "Before", "After"),]
+  comb01 <- comb01 [, c("filetype", "algo") := tstrsplit(algo0, "-"),]
+  
   comb01 <- comb01 [, path := paste(path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/", refcode, "/", sep=""),]
-  comb01 <- comb01 [, spddis := paste("SPADE_", refcode, bfraftr, "disunq.txt", sep=""),]
-  comb01 <- comb01 [, arfdis := paste("ARFF_", refcode, bfraftr, "disunq.txt", sep=""),]
-  comb01 <- comb01 [, spdmed := paste("SPADE_", refcode, bfraftr, "medunq.txt", sep=""),]
-  comb01 <- comb01 [, arfmed := paste("ARFF_", refcode, bfraftr, "medunq.txt", sep=""),]
-  comb01 <- comb01 [, sub01 := paste( "refcode == '", refcode, "'", sep=""),]
-  comb01 <- comb01 [, sub02 := paste( "! (Code == '", refcode, "' & period", period, ")", sep=""),]
+  comb01 <- comb01 [, spddis := paste(filetype, refcode, bfraftr, "disunq.txt", sep=""),]
+  comb01 <- comb01 [, arfdis := paste(filetype, refcode, bfraftr, "disunq.txt", sep=""),]
+  comb01 <- comb01 [, spdmed := paste(filetype, refcode, bfraftr, "medunq.txt", sep=""),]
+  comb01 <- comb01 [, arfmed := paste(filetype, refcode, bfraftr, "medunq.txt", sep=""),]
+  comb01 <- comb01 [, sub01 := paste( 'refcode == "', refcode, '"', sep=""),]
+  #comb01 <- comb01 [, sub02 := paste( '! (Code == "', refcode, "' & period", period, ")", sep=""),]
+  comb01 <- comb01 [, sub02 := paste( 'refcode == "', refcode, '" & Code != "', refcode, '" & period ', period, sep=""),]
   comb01 <- comb01 [, java := paste("system('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run "),]
   comb01 <- comb01 [, rnum := 1:.GRP, by = .(refcode)]
   comb01 <- comb01 [, rdis := .I, by = .(refcode)]
@@ -100,7 +102,7 @@ for( type in c("med", "dis") ) {
   }
   
   comb01_t <- melt(data = comb01,
-                   id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis", "path"),
+                   id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
                    measure.vars = c("step000", "step001", "step002", "step003", 
                                     "step004", "step005", "step006") )
   
@@ -120,19 +122,19 @@ for( type in c("med", "dis") ) {
     comb02 <- comb02 [, value := paste(java, " ", algo, ' "', path, spdmed, '" ', '"', path, "o", str_replace(spdmed, '.txt', ''), x2, 'perc.txt','" ', perc, "')", sep="" ),]
   }
   
-  comb02_t <- comb02 [, c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis", "value", "path"),]
+  comb02_t <- comb02 [, c("refcode", "period", "filetype", "algo",  "bfraftr", "rnum", "rdis", "value", "path"),]
   
   post <- comb01 [, step008 := paste('disnum <- unique( all_met_rmsd02 [, c("Code02", "comdisn"),])', sep=""),]
   post <- post [, step009 := paste('disnum <- disnum [, comdisn := as.numeric(comdisn),]', sep=""),]
   
   if (tolower(type) == "dis")
   {
-    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', algo, "*", bfraftr, "disunq*perc.txt", '"', "))", sep="" ) ,]
+    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', str_replace(spddis, ".txt", "*perc.txt"), '"', "))", sep="" ) ,]
   }
   
   if (tolower(type) == "med")
   {
-    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', algo, "*", bfraftr, "medunq*perc.txt", '"', "))", sep="" ) ,]
+    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', str_replace(spdmed, ".txt", "*perc.txt"), '"', "))", sep="" ) ,]
   }
   
   post <- post [, step020 := paste ('out <- rbindlist( sapply(paste(path, list_of_files, sep=""), fread, simplify = FALSE, sep="!", header = FALSE),
@@ -168,17 +170,17 @@ for( type in c("med", "dis") ) {
   
   if (tolower(type) == "dis")
   {
-    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spddis, ".txt", '_formatted.csv'), '"', ", sep='') )", sep="") ,]
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spddis, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
   }
   
   if (tolower(type) == "med")
   {
-    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", '_formatted.csv'), '"', ", sep='') )", sep="") ,]
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spdmed, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
   }
   
   post <- post [, step190 := paste( "file.remove( paste(path, list_of_files, sep='') )", "\n", sep=""), ]
   post_t <- melt(data = post,
-                 id.vars = c("refcode", "period",  "algo",  "bfraftr", "rnum", "rdis", "path"),
+                 id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
                  measure.vars = c("step008", "step009", "step010", "step020", "step030", "step035", "step040",
                                   "step050", "step060", "step070", "step080",
                                   "step090", "step100", "step110", "step120",
@@ -188,7 +190,6 @@ for( type in c("med", "dis") ) {
   comb01_all <- rbind (comb01_t [, -c("variable")], comb02_t, post_t [, -c("variable")] )
   comb01_all <- comb01_all [, cat := type]
   comb01_all <- comb01_all [ order(rdis)]
-  
   
   print(type)
   
@@ -200,8 +201,10 @@ for( type in c("med", "dis") ) {
 l <- list(final_dis, final_med)
 final_all <- rbindlist(l)
 
-comb200 <- final_all [refcode %in% c("V2.63", "A2.0", "M2.0", "P5.0"), c("value", "refcode", "path", "algo", "cat"),]
-comb200 <- comb200 [, output := paste0(path, refcode, algo, cat, ".R"), ]
+# refcode %in% c("V2.63", "A2.0", "M2.0", "P5.0")
+
+comb200 <- final_all [refcode %in% c( "A2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
+comb200 <- comb200 [, output := paste0(path, refcode, filetype, algo, cat, ".R"), ]
 
 for(i in unique(comb200$output)) {
   da <- comb200[ output == i]
@@ -225,7 +228,7 @@ fwrite(comb300 [, c("coderun"),],
        quote = FALSE,
        sep="\n")
 
-source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
+#source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
 
 ##########################################################################################
 
