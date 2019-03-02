@@ -1,3 +1,244 @@
+################################
+# The latest working version
+# 2nd March 2019
+################################
+
+
+library(data.table)
+library(tidyverse)
+library(sqldf)
+
+###############################################
+#
+# create a lookup table with combinations of 
+# diseases 
+# before after time period
+# Filenames for the outputs and inputs
+# Execute Java program with various algorithms
+#
+#Disease / Medicine
+#
+# (1) Before / After
+# (2) Unique / All records
+# (3) Output file Space / seperated by -1
+# (4) Algorithm combination with files
+# (5) Output from Java program
+# (6) Output from R program CSV file
+###############################################
+all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
+
+#type <- "med"
+
+for( type in c("med", "dis") ) {
+  
+  if (tolower(type) == "dis")
+  {
+    all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
+    all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
+    all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
+    all_met_rmsd02 <- all_met_rmsd02 [, comdisn := .GRP, by = .(Code02)]
+    all_met_rmsd02 <- all_met_rmsd02 [Code != "** Not yet coded"]
+    all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]
+    all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period",
+                                                  "comdisn", "patient_gender", "baseage"), ])
+    
+  }
+  
+  if (tolower(type) == "med")
+  {
+    all_met_rmsd02 <- all_met_rmsd02 [! Coded_med %in% c("", " "),]
+    all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Type_med, ":", Coded_med, sep =""), ]
+    all_met_rmsd02 <- all_met_rmsd02 [, comdisn := .GRP, by = .(Code02)]
+    all_met_rmsd02 <- all_met_rmsd02 [Code != "** Not yet coded"]
+    all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]
+    all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period",
+                                                  "comdisn", "patient_gender", "baseage"), ])
+    
+  }
+  
+  refcode <- unique( all_met_rmsd03 [, c("refcode")])
+  period <- c(">= 0", "< 0", "< 9999")
+  algo0 <- c("F1-SPADE", "F1-PrefixSpan", "F1-GSP", "F1-SPAM",
+             "SPC-Apriori", "SPC-Apriori_TID", "SPC-FPGrowth_itemsets") # "Apriori"
+  
+  comb01 <- setDT( crossing (refcode = refcode, period = period, algo0 = algo0) )
+  comb01 <- sqldf("select *, 
+                  case 
+                  When period == '< 0' then 'Before'
+                  When period == '>= 0' then 'After'
+                  When period == '< 9999' then 'All'
+                  end as bfraftr
+                  from comb01")
+  comb01 <- as.data.table(comb01)
+  comb01 <- comb01 [, c("filetype", "algo") := tstrsplit(algo0, "-"),]
+  
+  comb01 <- comb01 [, path := paste(path <- "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/", refcode, "/", sep=""),]
+  comb01 <- comb01 [, spcf1dis := paste(filetype, algo, refcode, bfraftr, "disunq.txt", sep=""),]
+  comb01 <- comb01 [, spcf1med := paste(filetype, algo, refcode, bfraftr, "medunq.txt", sep=""),]
+  comb01 <- comb01 [, sub01 := paste( 'refcode == "', refcode, '"', sep=""),]
+  comb01 <- comb01 [, sub02 := paste( 'refcode == "', refcode, '" & Code != "', refcode, '" & period ', period, sep=""),]
+  comb01 <- comb01 [, java := paste("system('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run "),]
+  comb01 <- comb01 [, rnum := 1:.GRP, by = .(refcode)]
+  comb01 <- comb01 [, rdis := .I, by = .(refcode)]
+  comb01 <- comb01 [, step000 := paste("path <-'", path, "'", sep="" ),]
+  comb01 <- comb01 [, step001 := paste("all_met_rmsd04 <- all_met_rmsd03 [", sub01, "]" ),]
+  comb01 <- comb01 [, step002 := paste("all_met_rmsd040 <- all_met_rmsd03 [", sub02, "]" ),]
+  comb01 <- comb01 [, step003 := paste('all_met_rmsd05 <- all_met_rmsd040 [, .(combdis = paste(comdisn, collapse = " ", sep = " " )), 
+                                       by = .(mr_no, refcode, refdesc, baseage)]'), ]
+  
+  comb01 <- comb01 [, step004 := paste('all_met_rmsd06 <- all_met_rmsd05 [, .(combdis02 = paste(combdis, collapse = " -1 ", sep = " " )), 
+                                       by = .(mr_no, refcode, refdesc, baseage)] '),]
+  comb01 <- comb01 [, step005 := paste('all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep = ""), ]'), ]
+  comb01 <- comb01 [, step0055 := paste('all_met_rmsd06 <- all_met_rmsd06 [, combdis03 := str_remove_all(combdis02, "-1 -2"), ]'), ]
+  comb01 <- comb01 [, step00555 := ifelse (filetype == "F1", step005, step0055),]
+  
+  comb01 <- comb01 [, step006 := paste('fwrite(x = all_met_rmsd06 [, c("combdis02"),], col.names = FALSE,', sep=""), ]
+  comb01 <- comb01 [, step0066 := paste('fwrite(x = all_met_rmsd06 [, c("combdis03"),], col.names = FALSE,', sep=""), ]
+  comb01 <- comb01 [, step00666 := ifelse (filetype == "F1", step006, step0066),]
+  
+  if (tolower(type) == "dis")
+  {
+    comb01 <- comb01 [, step007 := paste(step00666, 'file = paste("', path, spcf1dis, '", sep="") )', sep=""), ]
+  }
+  
+  if (tolower(type) == "med")
+  {
+    comb01 <- comb01 [, step007 := paste(step00666, 'file = paste("', path, spcf1med, '", sep="") )', sep=""), ]
+  }
+  
+  comb01_t <- melt(data = comb01,
+                   id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
+                   measure.vars = c("step000", "step001", "step002", "step003", 
+                                    "step004", "step00555", "step007") )
+  
+  
+  x<- c(1:50)
+  comb02 <- setDT( crossing (comb01, x =x ) )
+  comb02 <- comb02 [, perc := paste(x, "%", sep=""), ]
+  comb02 <- comb02 [, x2 := str_pad(x, 3, side = "left", pad = 0),] 
+  
+  if (tolower(type) == "dis")
+  {
+    comb02 <- comb02 [, value := paste(java, " ", algo, ' "', path, spcf1dis, '" ', '"', path, "o", str_replace(spcf1dis, '.txt', ''), x2, 'perc.txt','" ', perc, "')", sep="" ),]
+  }
+  
+  if (tolower(type) == "med")
+  {
+    comb02 <- comb02 [, value := paste(java, " ", algo, ' "', path, spcf1med, '" ', '"', path, "o", str_replace(spcf1med, '.txt', ''), x2, 'perc.txt','" ', perc, "')", sep="" ),]
+  }
+  
+  comb02_t <- comb02 [, c("refcode", "period", "filetype", "algo",  "bfraftr", "rnum", "rdis", "value", "path"),]
+  
+  post <- comb01 [, step008 := paste('disnum <- unique( all_met_rmsd02 [, c("Code02", "comdisn"),])', sep=""),]
+  post <- post [, step009 := paste('disnum <- disnum [, comdisn := as.numeric(comdisn),]', sep=""),]
+  
+  if (tolower(type) == "dis")
+  {
+    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', str_replace(spcf1dis, ".txt", "*perc.txt"), '"', "))", sep="" ) ,]
+  }
+  
+  if (tolower(type) == "med")
+  {
+    post <- post [, step010 := paste( 'list_of_files <- list.files(path = path, pattern = glob2rx("o', str_replace(spcf1med, ".txt", "*perc.txt"), '"', "))", sep="" ) ,]
+  }
+  
+  post <- post [, step020 := paste ('out <- rbindlist( sapply(paste(path, list_of_files, sep=""), fread, simplify = FALSE, sep="!", header = FALSE),
+                                    use.names = TRUE, idcol = "temp" )', sep=""),]
+  post <- post [, step030 := paste('out <- out [, V1 := paste(temp, "#", V1, sep=""),]', sep=""),]
+  post <- post [, step035 := paste('out <- out [, V1 := str_remove(V1, "-1"),]', sep=""),]
+  post <- post [, step040 := paste('out <- out [, -c("temp"), ]', sep=""),]
+  post <- post [, step050 := paste('out2 <- out [, c("var03", "var01", "var02") := tstrsplit(V1, "#"),]', sep=""),]
+  post <- post [, step060 := paste('out3 <- out2 [, c("var021", "var022") := tstrsplit(trimws(var01), "==>"),]', sep=""),]
+  post <- post [, step070 := paste('out4 <- out3 [, `:=` (cntvar021 = max(str_count( trimws(var021), " ")) + 1,
+                                   cntvar022 = max(str_count( trimws(var022), " ")) + 1 ),]', sep=""),]
+  
+  post <- post [, step080 := paste('out5 <- out4 [, paste0("stt", 1:max(out4$cntvar021)) := tstrsplit(trimws(var021), " ", fixed = TRUE ),]', sep=""),]
+  post <- post [, step090 := paste('out6 <- out5 [, paste0("end", 1:max(out5$cntvar022)) := tstrsplit(trimws(var022), " ", fixed = TRUE),]', sep=""),]
+  post <- post [, step100 := paste('out6_tra <- melt (data = out6, 
+                                   id.vars = 1:8,
+                                   value.factor = FALSE)', sep=""),]
+  post <- post [, step110 := paste('out6_tra <- out6_tra [, value := as.numeric(value), ]', sep=""), ]
+  post <- post [, step120 := paste('out7 <- merge (x = out6_tra, 
+                                   y = disnum,
+                                   by.x = c("value"),
+                                   by.y = c("comdisn") )', sep=""),]
+  
+  post <- post [, step130 := paste('out7_tra <- dcast (data = out7,
+                                   formula = V1 + var01 + var02 + var03 + var021 + var022 + cntvar021 + cntvar022 ~ variable,
+                                   value.var = c("Code02"), 
+                                   fill = "")', sep=""),]
+  
+  post <- post [, step140 := paste('out8 <- out7_tra [, newstt := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("stt", 1:max(out7_tra$cntvar021)), ]', sep=""),]
+  post <- post [, step150 := paste('out8 <- out8 [, newend := do.call(paste, c(.SD, sep = " ")), .SDcols = paste0("end", 1:max(out8$cntvar022)), ]', sep=""),]
+  post <- post [, step160 := paste('out9 <- out8 [, c("newstt", "newend", "var02", "var03"),]', sep=""),]
+  post <- post [, step170 := paste('out9 <- out9 [ order ( var03)]', sep=""),]
+  
+  if (tolower(type) == "dis")
+  {
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spcf1dis, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
+  }
+  
+  if (tolower(type) == "med")
+  {
+    post <- post [, step180 := paste('fwrite(out9, file = paste(path, "o', str_replace(spcf1med, ".txt", '_formatted.csv'), '"', ", sep='') )", "\n", sep="") ,]
+  }
+  
+  post <- post [, step190 := paste( "file.remove( paste(path, list_of_files, sep='') )", "\n", sep=""), ]
+  post_t <- melt(data = post,
+                 id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
+                 measure.vars = c("step008", "step009", "step010", "step020", "step030", "step035", "step040",
+                                  "step050", "step060", "step070", "step080",
+                                  "step090", "step100", "step110", "step120",
+                                  "step130", "step140", "step150", "step160",
+                                  "step170", "step180", "step190") )
+  
+  comb01_all <- rbind (comb01_t [, -c("variable")], comb02_t, post_t [, -c("variable")] )
+  comb01_all <- comb01_all [, cat := type]
+  comb01_all <- comb01_all [ order(rdis)]
+  
+  print(type)
+  
+  if (tolower(type) == "dis") { final_dis <- copy(comb01_all) }
+  if (tolower(type) == "med") { final_med <- copy(comb01_all) }
+  
+}
+
+l <- list(final_dis, final_med)
+final_all <- rbindlist(l)
+
+# refcode %in% c("V2.63", "A2.0", "M2.0", "P5.0")
+
+comb200 <- final_all [refcode %in% c( "A2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
+comb200 <- comb200 [, output := paste0(path, refcode, filetype, algo, cat, ".R"), ]
+
+for(i in unique(comb200$output)) {
+  da <- comb200[ output == i]
+  fwrite(da [, c("value"),], 
+         i, # outfile
+         row.names = FALSE,
+         col.names = FALSE,
+         quote = FALSE,
+         sep="\n")
+}
+
+# create calls using "source" for these R codes into another file
+
+comb300 <- unique( comb200 [, c("output"),])
+comb300 <- comb300 [, coderun := paste("source ('", output, "')", sep=""), ]
+
+fwrite(comb300 [, c("coderun"),], 
+       "D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R", # outfile
+       row.names = FALSE,
+       col.names = FALSE,
+       quote = FALSE,
+       sep="\n")
+
+source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
+#source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0F1GSPdis.R')
+##########################################################################################
+
+
+
 
 library(data.table)
 library(tidyverse)
