@@ -3,6 +3,7 @@
 # 2nd March 2019
 ################################
 
+
 library(data.table)
 library(tidyverse)
 library(sqldf)
@@ -90,11 +91,11 @@ for( type in c("med", "dis") ) {
   comb01 <- comb01 [, step005 := paste('all_met_rmsd06 <- all_met_rmsd06 [, combdis02 := paste(combdis02, " -1 -2", sep = ""), ]'), ]
   comb01 <- comb01 [, step0055 := paste('all_met_rmsd06 <- all_met_rmsd06 [, combdis03 := str_remove_all(combdis02, "-1 -2"), ]'), ]
   comb01 <- comb01 [, step00555 := ifelse (filetype == "F1", step005, step0055),]
-  
+
   comb01 <- comb01 [, step006 := paste('fwrite(x = all_met_rmsd06 [, c("combdis02"),], col.names = FALSE,', sep=""), ]
   comb01 <- comb01 [, step0066 := paste('fwrite(x = all_met_rmsd06 [, c("combdis03"),], col.names = FALSE,', sep=""), ]
   comb01 <- comb01 [, step00666 := ifelse (filetype == "F1", step006, step0066),]
-  
+
   if (tolower(type) == "dis")
   {
     comb01 <- comb01 [, step007 := paste(step00666, 'file = paste("', path, spcf1dis, '", sep="") )', sep=""), ]
@@ -104,14 +105,14 @@ for( type in c("med", "dis") ) {
   {
     comb01 <- comb01 [, step007 := paste(step00666, 'file = paste("', path, spcf1med, '", sep="") )', sep=""), ]
   }
-  
+
   comb01_t <- melt(data = comb01,
                    id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
                    measure.vars = c("step000", "step001", "step002", "step003", 
                                     "step004", "step00555", "step007") )
   
   
-  x<- c(1:50)
+  x<- c(1:100)
   comb02 <- setDT( crossing (comb01, x =x ) )
   comb02 <- comb02 [, perc := paste(x, "%", sep=""), ]
   comb02 <- comb02 [, x2 := str_pad(x, 3, side = "left", pad = 0),] 
@@ -201,7 +202,7 @@ for( type in c("med", "dis") ) {
   if (tolower(type) == "dis") { final_dis <- copy(comb01_all) }
   if (tolower(type) == "med") { final_med <- copy(comb01_all) }
   
-}
+  }
 
 l <- list(final_dis, final_med)
 final_all <- rbindlist(l)
@@ -234,9 +235,15 @@ fwrite(comb300 [, c("coderun"),],
        sep="\n")
 
 #source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
-
 source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0F1GSPdis.R')
 source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0SPCFPGrowth_itemsetsdis.R')
+
+#list_of_files <- list.files(path = path, pattern = glob2rx("oSPCFPGrowth_itemsetsA2.0Beforedisunq*perc.txt"))
+objs <- file.info(list.files(path = path,
+                             full.names = TRUE,
+                             pattern = glob2rx("oSPCFPGrowth_itemsetsA2.0Alldisunq*perc.txt")) )
+
+list_of_files <- rownames(objs)[objs$size/1024 < 100 & objs$size > 0]
 
 ##########################################################################################
 
