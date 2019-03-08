@@ -80,6 +80,31 @@ for( type in c("med", "dis") ) {
   comb01 <- comb01 [, java := paste("system('java -jar D:/Hospital_data/ProgresSQL/analysis_spmf/spmf-V2.35-VDate18NOV2018.jar run "),]
   comb01 <- comb01 [, rnum := 1:.GRP, by = .(refcode)]
   comb01 <- comb01 [, rdis := .I, by = .(refcode)]
+  
+  comb01 <- comb01 [, pre001 := paste('all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")', sep=""), ]
+  
+  if (tolower(type) == "dis")
+  {
+    comb01 <- comb01 [, pre010 := paste('all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]', sep=""),]
+    comb01 <- comb01 [, pre020 := paste('all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]', sep=""),]
+    comb01 <- comb01 [, pre030 := paste('all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]', sep=""),]
+    comb01 <- comb01 [, pre040 := paste('all_met_rmsd02 <- all_met_rmsd02 [, comdisn := .GRP, by = .(Code02)]', sep=""),]
+    comb01 <- comb01 [, pre050 := paste('all_met_rmsd02 <- all_met_rmsd02 [Code != "** Not yet coded"]', sep=""),]
+    comb01 <- comb01 [, pre060 := paste('all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]', sep=""),]
+    comb01 <- comb01 [, pre070 := paste('all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period", "comdisn", "patient_gender", "baseage"), ])', sep=""),]
+  }
+  
+  if (tolower(type) == "med")
+  {
+    comb01 <- comb01 [, pre010 := paste('all_met_rmsd02 <- all_met_rmsd02 [! Coded_med %in% c("", " "),]', sep=""),]
+    comb01 <- comb01 [, pre020 := paste('all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Type_med, ":", Coded_med, sep =""), ]', sep=""),]
+    comb01 <- comb01 [, pre030 := paste('all_met_rmsd02 <- all_met_rmsd02 [, comdisn := .GRP, by = .(Code02)]', sep=""),]
+    comb01 <- comb01 [, pre040 := paste('all_met_rmsd02 <- all_met_rmsd02 [Code != "** Not yet coded"]', sep=""),]
+    comb01 <- comb01 [, pre050 := paste('all_met_rmsd02 <- all_met_rmsd02 [ order(mr_no, refcode, refdesc, period)]', sep=""),]
+    comb01 <- comb01 [, pre060 := paste('all_met_rmsd03 <- unique( all_met_rmsd02 [, c("mr_no", "refcode", "refdesc", "Code02", "Code", "period", "comdisn", "patient_gender", "baseage"), ])', sep=""),]
+    comb01 <- comb01 [, pre070 := paste(' ', sep=""),]
+  }
+  
   comb01 <- comb01 [, step000 := paste("path <-'", path, "'", sep="" ),]
   comb01 <- comb01 [, step001 := paste("all_met_rmsd04 <- all_met_rmsd03 [", sub01, "]" ),]
   comb01 <- comb01 [, step002 := paste("all_met_rmsd040 <- all_met_rmsd03 [", sub02, "]" ),]
@@ -108,11 +133,11 @@ for( type in c("med", "dis") ) {
   
   comb01_t <- melt(data = comb01,
                    id.vars = c("refcode", "period", "filetype",  "algo",  "bfraftr", "rnum", "rdis", "path"),
-                   measure.vars = c("step000", "step001", "step002", "step003", 
-                                    "step004", "step00555", "step007") )
+                   measure.vars = c("pre001", "pre010", "pre020", "pre030", "pre040", "pre050", "pre060", "pre070",
+                                    "step000", "step001", "step002", "step003", "step004", "step00555", "step007") )
   
   
-  x<- c(1:50)
+  x<- c(10:50)
   comb02 <- setDT( crossing (comb01, x =x ) )
   comb02 <- comb02 [, perc := paste(x, "%", sep=""), ]
   comb02 <- comb02 [, x2 := str_pad(x, 3, side = "left", pad = 0),] 
@@ -214,7 +239,7 @@ final_all <- rbindlist(l)
 
 # refcode %in% c("V2.63", "A2.0", "M2.0", "P5.0")
 
-comb200 <- final_all [refcode %in% c( "A2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
+comb200 <- final_all [refcode %in% c( "M2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
 comb200 <- comb200 [, output := paste0(path, refcode, filetype, algo, cat, ".R"), ]
 
 for(i in unique(comb200$output)) {
@@ -239,16 +264,21 @@ fwrite(comb300 [, c("coderun"),],
        quote = FALSE,
        sep="\n")
 
-#source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
+############################################################################
+# Remove all objects other than 2 datasets starting with all
+# These 2 datasets are used in further processing
+# Removal of other objects will free up space and will increase the speed
+############################################################################
+
+to.remove <- ls()
+to.remove <- c(to.remove[!grepl("^all", to.remove)], "to.remove")
+rm(list=to.remove)
+
+source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
 
 ##########################################################################################
 
-#source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
 
-source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0F1GSPdis.R')
-source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0SPCFPGrowth_itemsetsdis.R')
-
-##########################################################################################
 
 library(data.table)
 library(tidyverse)
@@ -358,7 +388,7 @@ for( type in c("med", "dis") ) {
                                     "step004", "step00555", "step007") )
   
   
-  x<- c(1:50)
+  x<- c(10:50)
   comb02 <- setDT( crossing (comb01, x =x ) )
   comb02 <- comb02 [, perc := paste(x, "%", sep=""), ]
   comb02 <- comb02 [, x2 := str_pad(x, 3, side = "left", pad = 0),] 
@@ -454,7 +484,7 @@ final_all <- rbindlist(l)
 
 # refcode %in% c("V2.63", "A2.0", "M2.0", "P5.0")
 
-comb200 <- final_all [refcode %in% c( "A2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
+comb200 <- final_all [refcode %in% c( "M2.0"), c("value", "refcode", "path", "filetype", "algo", "cat"),]
 comb200 <- comb200 [, output := paste0(path, refcode, filetype, algo, cat, ".R"), ]
 
 for(i in unique(comb200$output)) {
@@ -478,6 +508,16 @@ fwrite(comb300 [, c("coderun"),],
        col.names = FALSE,
        quote = FALSE,
        sep="\n")
+
+############################################################################
+# Remove all objects other than 2 datasets starting with all
+# These 2 datasets are used in further processing
+# Removal of other objects will free up space and will increase the speed
+############################################################################
+
+to.remove <- ls()
+to.remove <- c(to.remove[!grepl("^all", to.remove)], "to.remove")
+rm(list=to.remove)
 
 source("D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/SPMF_macrocall_coderun.R")
 #source ('D:/Hospital_data/ProgresSQL/analysis_spmf_InputsOutputs/A2.0/A2.0F1GSPdis.R')
