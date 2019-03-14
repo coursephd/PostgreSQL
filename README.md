@@ -203,4 +203,6 @@ AA0084IRH2
 QLIK
 
 Sentiment analysis  
-https://www.cse.iitb.ac.in/~pb/papers/lrec18-medical-sa.pdf
+https://www.cse.iitb.ac.in/~pb/papers/lrec18-medical-sa.pdf  
+
+https://github.com/coursephd/PostgreSQL/blob/master/README.md  
