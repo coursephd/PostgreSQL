@@ -97,9 +97,8 @@ all02 <- merge (x = all,
                 all.x = TRUE)
 all02 <- all02 [, -c("min", "max"),]
 
-#fwrite(all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.csv")
-
-#saveRDS (all02, "D:/Hospital_data/ProgresSQL/analysis/085_dis_1st_time_refCal_NodesEdges.rds")
+fwrite(all02, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer_bfr_aftr_cat.csv")
+saveRDS (all02, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer_bfr_aftr_cat.rds")
 
 ###############################################
 # Save disease and medicine version of the data
@@ -115,6 +114,7 @@ all_met_rmsd02 <- merge (x = all_met_rmsd02,
 # Remove all other reference dieases as they may not be of interest
 # distype = Cancer
 ###########################################################################
-all_met_rmsd03 <- all_met_rmsd02 [tolower(distype) == "cancer", -c("min", "max"),]
+# tolower(distype) == "cancer"
+all_met_rmsd03 <- all_met_rmsd02 [, -c("min", "max"),]
 
 saveRDS (all_met_rmsd03, "D:/Hospital_data/ProgresSQL/analysis/01adsl_cancer_bfr_aftr.rds")
