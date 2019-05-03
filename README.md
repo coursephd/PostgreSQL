@@ -206,3 +206,7 @@ Sentiment analysis
 https://www.cse.iitb.ac.in/~pb/papers/lrec18-medical-sa.pdf  
 
 https://flare.prefuse.org/apps/job_voyager/  
+
+
+https://www.shanelynn.ie/using-pandas-dataframe-creating-editing-viewing-data-in-python/ 
+It is like Data.Table package
