@@ -15,20 +15,21 @@ all_met_rmsd03 <- all_met_rmsd03 [, distime := 1:.N, by = .(mr_no, Code02)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := studyday - shift(studyday), by = .(mr_no, Code, description)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
 
-############################################################
+#################################################################################
 # If all_vis = 1 then patient level only 1 visit
 # Category and explanation
 #
-# 100 = Drop out with no data
-# 200 = Drop out with limited data
+# 100 = Drop out with no data                       | 100 Drop outs
+# 200 = Drop out with limited data                  |
 #
-# 300 = Drop out with approx 1 month data
-# 400 = Limited visits with 1 to 6 month data?
+# 300 = Drop out with approx 1 month data           | 200 Drop outs limited data
+# 400 = Limited visits with 1 to 6 month data?      |
 #
-# 500 = Large visits with  1 to 6 month data?
-# 600 = More than 6 months data
+# 500 = Large visits with  1 to 6 month data?       | 300 Limited data
+# 600 = More than 6 months data                     | 400 Large data
 #
-############################################################
+#################################################################################
+
 all_met_rmsd04 <- all_met_rmsd03 %>%
   mutate(
     patdis =
@@ -38,6 +39,18 @@ all_met_rmsd04 <- all_met_rmsd03 %>%
                  all_vis > 5 & all_vis <= 10 & cdur > 30 & cdur <= 180 ~ 400,
                  all_vis > 10 & cdur > 30 & cdur <= 180 ~ 500,
                  cdur > 180 ~ 600
+      )
+  )
+
+all_met_rmsd04 <- all_met_rmsd03 %>%
+  mutate(
+    patdis =
+      case_when( all_vis == 1 ~ 100,
+                 all_vis > 1 & all_vis <= 5 ~ 100,
+                 all_vis > 5 & cdur <= 30 ~ 200,
+                 all_vis > 5 & all_vis <= 10 & cdur > 30 & cdur <= 180 ~ 200,
+                 all_vis > 10 & cdur > 30 & cdur <= 180 ~ 300,
+                 cdur > 180 ~ 400
       )
   )
 
