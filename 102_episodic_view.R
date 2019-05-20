@@ -30,6 +30,10 @@ all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
 #
 #################################################################################
 
+#####################
+# 6 category program
+#####################
+
 all_met_rmsd04 <- all_met_rmsd03 %>%
   mutate(
     patdis =
@@ -41,6 +45,11 @@ all_met_rmsd04 <- all_met_rmsd03 %>%
                  cdur > 180 ~ 600
       )
   )
+
+
+#####################
+# 4 category program
+#####################
 
 all_met_rmsd04 <- all_met_rmsd03 %>%
   mutate(
