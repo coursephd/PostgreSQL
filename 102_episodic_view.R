@@ -90,5 +90,34 @@ all_met_rmsd04 <- all_met_rmsd04 [, eps_vis := sequence(.N), by = .(mr_no, Code0
 # Calculate duration of invidual disease episode
 all_met_rmsd04 <- all_met_rmsd04 [, `:=` (epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, eps011)]
 
+epsd01 <- all_met_rmsd04 [, .(epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, eps011)]
+
+# calculate the median after removing events with only 1 day
+all_met_rmsd05 <- epsd01 [epsdur > 1]
+all_met_rmsd05 <- all_met_rmsd05 [, `:=` (epsmedian = median(epsdur, na.rm= FALSE) ), by = .(Code02, eps011)]
+all_met_rmsd05 <- all_met_rmsd05 [, pattype := ifelse(epsdur > epsmedian, "01Responder", "02Non-responder"), ]
+
+t01 <- epsd01 [, .(n = uniqueN(mr_no),
+                 mean = mean(epsdur, na.rm = FALSE),
+                 sd = sd(epsdur, na.rm = FALSE),
+                 median = median (epsdur, na.rm = FALSE),
+                 min = min (epsdur, na.rm = FALSE),
+                 max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
+
+t01_exl01 <- epsd01 [epsdur > 1, .(n = uniqueN(mr_no),
+                             mean = mean(epsdur, na.rm = FALSE),
+                             sd = sd(epsdur, na.rm = FALSE),
+                             median = median (epsdur, na.rm = FALSE),
+                             min = min (epsdur, na.rm = FALSE),
+                             max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
+
+
+t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
+                   mean = mean(epsdur, na.rm = FALSE),
+                   sd = sd(epsdur, na.rm = FALSE),
+                   median = median (epsdur, na.rm = FALSE),
+                   min = min (epsdur, na.rm = FALSE),
+                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
+
 pat <- all_met_rmsd04 [mr_no == "MR000059"]
 patchk <- all_met_rmsd04 [, nvis011 := max( eps011 ), by = .(mr_no, Code02)]
