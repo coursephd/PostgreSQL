@@ -97,27 +97,29 @@ all_met_rmsd05 <- epsd01 [epsdur > 1]
 all_met_rmsd05 <- all_met_rmsd05 [, `:=` (epsmedian = median(epsdur, na.rm= FALSE) ), by = .(Code02, eps011)]
 all_met_rmsd05 <- all_met_rmsd05 [, pattype := ifelse(epsdur > epsmedian, "01Responder", "02Non-responder"), ]
 
+fwrite(all_met_rmsd05, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
+
 t01 <- epsd01 [, .(n = uniqueN(mr_no),
-                 mean = mean(epsdur, na.rm = FALSE),
-                 sd = sd(epsdur, na.rm = FALSE),
-                 median = median (epsdur, na.rm = FALSE),
-                 min = min (epsdur, na.rm = FALSE),
-                 max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
-
-t01_exl01 <- epsd01 [epsdur > 1, .(n = uniqueN(mr_no),
-                             mean = mean(epsdur, na.rm = FALSE),
-                             sd = sd(epsdur, na.rm = FALSE),
-                             median = median (epsdur, na.rm = FALSE),
-                             min = min (epsdur, na.rm = FALSE),
-                             max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
-
-
-t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
                    mean = mean(epsdur, na.rm = FALSE),
                    sd = sd(epsdur, na.rm = FALSE),
                    median = median (epsdur, na.rm = FALSE),
                    min = min (epsdur, na.rm = FALSE),
-                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
+                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
+
+t01_exl01 <- epsd01 [epsdur > 1, .(n = uniqueN(mr_no),
+                                   mean = mean(epsdur, na.rm = FALSE),
+                                   sd = sd(epsdur, na.rm = FALSE),
+                                   median = median (epsdur, na.rm = FALSE),
+                                   min = min (epsdur, na.rm = FALSE),
+                                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
+
+
+t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
+                               mean = mean(epsdur, na.rm = FALSE),
+                               sd = sd(epsdur, na.rm = FALSE),
+                               median = median (epsdur, na.rm = FALSE),
+                               min = min (epsdur, na.rm = FALSE),
+                               max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
 
 pat <- all_met_rmsd04 [mr_no == "MR000059"]
 patchk <- all_met_rmsd04 [, nvis011 := max( eps011 ), by = .(mr_no, Code02)]
