@@ -2,7 +2,6 @@ library(data.table)
 library(tidyverse)
 library(sqldf)
 
-
 all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
@@ -14,6 +13,11 @@ all_met_rmsd03 <- all_met_rmsd03 [, comdisn := .N, by = .(mr_no, Code02)]
 all_met_rmsd03 <- all_met_rmsd03 [, distime := 1:.N, by = .(mr_no, Code02)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := studyday - shift(studyday), by = .(mr_no, Code, description)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
+
+
+# For merge
+pat <- unique( all_met_rmsd02 [, c("mr_no", "Metabolic", "RMSD", "patient_gender",
+                                   "baseage", "all_vis", "cdur")])
 
 #################################################################################
 # If all_vis = 1 then patient level only 1 visit
@@ -82,22 +86,27 @@ chk <- all_met_rmsd04 [, .(cnt = uniqueN(mr_no)), by = .(patdis)]
 ###############################################################################
 
 all_met_rmsd04 <- all_met_rmsd04 [, eps01 := ifelse(diff > 30, 1, 0), ]
-all_met_rmsd04 <- all_met_rmsd04 [, eps011 := cumsum(eps01) + 1, by = .(mr_no, Code02)]
+all_met_rmsd04 <- all_met_rmsd04 [, eps011 := cumsum(eps01) + 1, by = .(mr_no, Code02, Code, description)]
 
 # Create episodic visit numbering
-all_met_rmsd04 <- all_met_rmsd04 [, eps_vis := sequence(.N), by = .(mr_no, Code02, eps011)]
+all_met_rmsd04 <- all_met_rmsd04 [, eps_vis := sequence(.N), by = .(mr_no, Code02, Code, description, eps011)]
 
 # Calculate duration of invidual disease episode
-all_met_rmsd04 <- all_met_rmsd04 [, `:=` (epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, eps011)]
+all_met_rmsd04 <- all_met_rmsd04 [, `:=` (epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, Code, description, eps011)]
 
-epsd01 <- all_met_rmsd04 [, .(epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, eps011)]
+epsd01 <- all_met_rmsd04 [, .(epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, Code, description, eps011)]
 
 # calculate the median after removing events with only 1 day
 all_met_rmsd05 <- epsd01 [epsdur > 1]
 all_met_rmsd05 <- all_met_rmsd05 [, `:=` (epsmedian = median(epsdur, na.rm= FALSE) ), by = .(Code02, eps011)]
 all_met_rmsd05 <- all_met_rmsd05 [, pattype := ifelse(epsdur > epsmedian, "01Responder", "02Non-responder"), ]
 
-fwrite(all_met_rmsd05, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
+all_met_rmsd06 <- merge (x = all_met_rmsd05,
+                         y = pat,
+                         by = c("mr_no"),
+                         all.x = TRUE)
+
+fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
 
 t01 <- epsd01 [, .(n = uniqueN(mr_no),
                    mean = mean(epsdur, na.rm = FALSE),
