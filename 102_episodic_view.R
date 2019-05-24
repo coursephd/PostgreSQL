@@ -65,6 +65,13 @@ all_met_rmsd04 <- all_met_rmsd04 [, diffeps := studyday - shift(studyday), by = 
 all_met_rmsd04 <- all_met_rmsd04 [, diffeps := ifelse (eps011 ==1 & eps_vis ==1, 0, diffeps), ]
 all_met_rmsd04_11 <- unique( all_met_rmsd04 [ eps_vis ==1, c("mr_no", "Code02", "Code", "description", "eps011", "diffeps"), ] )
 
+# Calculate related events and unrelated events
+# Use 180 days a day seperator in order to identify the same
+# This logic will need to be updated for every individual disease
+
+all_met_rmsd04_11 <- all_met_rmsd04_11 [, releps01 := ifelse(diffeps > 180, 1, 0), ]
+all_met_rmsd04_11 <- all_met_rmsd04_11 [, releps011 := cumsum(releps01) + 1, by = .(mr_no, Code02, Code, description)]
+
 all_met_rmsd04 <- merge (x = all_met_rmsd04 [, -c("diffeps"),],
                          y = all_met_rmsd04_11,
                          by = c("mr_no", "Code02", "Code", "description", "eps011"),
