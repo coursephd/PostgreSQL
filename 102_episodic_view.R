@@ -16,8 +16,7 @@ all_met_rmsd03 <- all_met_rmsd03 [, diff := studyday - shift(studyday), by = .(m
 all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
 
 # For merge
-pat <- unique( all_met_rmsd02 [, c("mr_no", "Metabolic", "RMSD", "patient_gender", "baseage",
-                                    "all_vis", "cdur")])
+pat <- unique( all_met_rmsd02 [, c("mr_no", "Metabolic", "RMSD", "patient_gender", "all_vis", "cdur")])
 
 # If all_vis = 1 then patient level only 1 visit
 
@@ -65,10 +64,6 @@ all_met_rmsd04 <- all_met_rmsd04 [, diffeps := studyday - shift(studyday), by = 
 all_met_rmsd04 <- all_met_rmsd04 [, diffeps := ifelse (eps011 ==1 & eps_vis ==1, 0, diffeps), ]
 all_met_rmsd04_11 <- unique( all_met_rmsd04 [ eps_vis ==1, c("mr_no", "Code02", "Code", "description", "eps011", "diffeps"), ] )
 
-# Calculate related events and unrelated events
-# Use 180 days a day seperator in order to identify the same
-# This logic will need to be updated for every individual disease
-
 all_met_rmsd04_11 <- all_met_rmsd04_11 [, releps01 := ifelse(diffeps > 180, 1, 0), ]
 all_met_rmsd04_11 <- all_met_rmsd04_11 [, releps011 := cumsum(releps01) + 1, by = .(mr_no, Code02, Code, description)]
 
@@ -80,19 +75,29 @@ all_met_rmsd04 <- merge (x = all_met_rmsd04 [, -c("diffeps"),],
 # Calculate duration of invidual disease episode
 all_met_rmsd04 <- all_met_rmsd04 [, `:=` (epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, Code, description, eps011, diffeps)]
 
-epsd01 <- all_met_rmsd04 [, .(epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, Code, description, eps011, diffeps)]
+epsd01 <- all_met_rmsd04 [, .(epsdur = max(studyday) - min (studyday) + 1), by = .(mr_no, Code02, Code, description, eps011, diffeps, releps011)]
 
 # calculate the median after removing events with only 1 day
 all_met_rmsd05 <- epsd01 [epsdur > 1]
 all_met_rmsd05 <- all_met_rmsd05 [, `:=` (epsmedian = median(epsdur, na.rm= FALSE) ), by = .(Code02, eps011)]
 all_met_rmsd05 <- all_met_rmsd05 [, pattype := ifelse(epsdur > epsmedian, "01Responder", "02Non-responder"), ]
 
-all_met_rmsd06 <- merge (x = all_met_rmsd05,
-                         y = pat,
-                         by = c("mr_no"),
+
+all_met_rmsd06 <- merge (x = all_met_rmsd04,
+                         y = all_met_rmsd05,
+                         by = c("mr_no", "Code02", "Code", "description", "eps011", "diffeps", "releps011", "epsdur"),
                          all.x = TRUE)
 
+all_met_rmsd06 <- merge (x = all_met_rmsd06,
+                         y = pat,
+                         by = c("mr_no", "all_vis", "cdur"),
+                         all.x = TRUE)
+
+all_met_rmsd06$pattype[is.na(all_met_rmsd06$pattype)] <- "00Data-for-1day"
+all_met_rmsd06$epsmedian[is.na(all_met_rmsd06$epsmedian)] <- 9999
+
 fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
+
 
 t01 <- epsd01 [, .(n = uniqueN(mr_no),
                    mean = mean(epsdur, na.rm = FALSE),
@@ -123,5 +128,13 @@ t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
                                min = min (epsdur, na.rm = FALSE),
                                max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
 
-pat <- all_met_rmsd04 [mr_no == "MR000059"]
+t01resp_rel <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
+                               mean = mean(epsdur, na.rm = FALSE),
+                               sd = sd(epsdur, na.rm = FALSE),
+                               median = median (epsdur, na.rm = FALSE),
+                               min = min (epsdur, na.rm = FALSE),
+                               max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, releps011)]
+
+
+pat00 <- all_met_rmsd06 [mr_no == "MR000059"]
 patchk <- all_met_rmsd04 [, nvis011 := max( eps011 ), by = .(mr_no, Code02)]
