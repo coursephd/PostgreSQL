@@ -2,8 +2,8 @@ library(data.table)
 library(tidyverse)
 library(sqldf)
 
-all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
-#all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+#all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
+all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
 all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
@@ -114,11 +114,11 @@ t01_exl01 <- epsd01 [epsdur > 1, .(n = uniqueN(mr_no),
                                    max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
 
 t01_diffeps <- epsd01 [diffeps > 0, .(n = uniqueN(mr_no),
-                                   mean = mean(diffeps, na.rm = FALSE),
-                                   sd = sd(diffeps, na.rm = FALSE),
-                                   median = median (diffeps, na.rm = FALSE),
-                                   min = min (diffeps, na.rm = FALSE),
-                                   max = max (diffeps, na.rm = FALSE)), by = .(Code02, eps011)]
+                                      mean = mean(diffeps, na.rm = FALSE),
+                                      sd = sd(diffeps, na.rm = FALSE),
+                                      median = median (diffeps, na.rm = FALSE),
+                                      min = min (diffeps, na.rm = FALSE),
+                                      max = max (diffeps, na.rm = FALSE)), by = .(Code02, eps011)]
 
 
 t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
@@ -129,11 +129,11 @@ t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
                                max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
 
 t01resp_rel <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
-                               mean = mean(epsdur, na.rm = FALSE),
-                               sd = sd(epsdur, na.rm = FALSE),
-                               median = median (epsdur, na.rm = FALSE),
-                               min = min (epsdur, na.rm = FALSE),
-                               max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, releps011)]
+                                   mean = mean(epsdur, na.rm = FALSE),
+                                   sd = sd(epsdur, na.rm = FALSE),
+                                   median = median (epsdur, na.rm = FALSE),
+                                   min = min (epsdur, na.rm = FALSE),
+                                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, releps011)]
 
 
 pat00 <- all_met_rmsd06 [mr_no == "MR000059"]
