@@ -1,6 +1,7 @@
 library(data.table)
 library(tidyverse)
 library(sqldf)
+library(cumstats)
 
 #all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
 all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
@@ -96,8 +97,85 @@ all_met_rmsd06 <- merge (x = all_met_rmsd06,
 all_met_rmsd06$pattype[is.na(all_met_rmsd06$pattype)] <- "00Data-for-1day"
 all_met_rmsd06$epsmedian[is.na(all_met_rmsd06$epsmedian)] <- 9999
 
-fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
+###########################################################
+# Get group (each day of treatment) as a grouping variable
+# Get individual sequential rows within each group
+###########################################################
+time <- unique(all_met_rmsd06 [, c("mr_no", "studyday")] ) 
+time <- time [order(mr_no, studyday)]
+time <- time [, grpday := 1:.N, by = .(mr_no)]
+time <- time [, grpmaxday := max(grpday), by = .(mr_no)]
 
+###########################
+# Data related to diseases
+###########################
+meds0 <- unique( all_met_rmsd06 [, c("mr_no", "Code", "studyday", "description")] )
+meds0 <- data.table(meds0 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),])
+meds0 <- data.table(meds0 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),])
+
+###########################################################
+# Get the minimum day (minday) for any medicine and
+# Get the minimum day (minmedday) for individual medicine
+###########################################################
+meds0 <- meds0 [order(mr_no, studyday, Code, description )]  
+meds0 <- meds0 [, minday := min(studyday), by = .(mr_no)]
+meds0 <- meds0 [, minmedday := min(studyday), by = .(mr_no, Code, description)]
+
+#######################################################
+# Merge the grouping variables for further calculations
+# Sort the data
+#######################################################
+meds0 <- merge (x = meds0, y = time, by = c("mr_no", "studyday") )
+meds0 <- meds0[order(mr_no, studyday, grpday)]
+
+###############################################################################
+# Sort the data to get prescription number for each medicine
+# If the prescription number is > 1 then that medicine is given more than once
+#
+# There are 2 sequence variables: one for day and one for medicine
+###############################################################################
+cum01 <- meds0 [, presc := 1:.N, by = .(mr_no, Code, description)]
+cum01 <- cum01 [order(mr_no, studyday, minday, presc )]  
+cum01 <- cum01 [, grpall := 1:.N, by = .(mr_no)]
+
+####################################################################
+# If the prescription = 1 and studyday = minmedday then Start
+# If prescription > 1 then Old (already given and not a medicine)
+# If prescription  group number is > 1 then Start
+####################################################################
+cum01 <- cum01 [, newold := ifelse (studyday == minmedday, "1st time disease", ""), ]
+cum02dis <- cum01 [, newold2 := ifelse(presc > 1 & grpday > 1 & studyday > minmedday & newold != "1st time dose", "Repeat", newold), by =.(mr_no)]
+cum02dis <- cum02dis [, cat := "Disease", ]
+
+setnames (cum02dis, "Code", "Type_med")
+setnames (cum02dis, "description", "Coded_med")
+
+#############################################################################
+# Duplicate the medication and see which medications are given multiple times
+# This gives a cumulative view of what has been prescribed till a certain
+# Visit, how many medicines are 1st time given and how many are Repeated
+#############################################################################
+cum03dis <- cum02dis [, (list( cumday = (grpday: grpmaxday) ) ), 
+                      by = .(mr_no, Type_med, presc, Coded_med, 
+                             studyday, grpday, grpmaxday, minmedday, newold2, cat) ]
+
+cum03dis <- cum03dis [, cumday2 := paste("Till visit", cumday, sep = " "), ]
+cum03dis <- cum03dis [, study := max(studyday), by = .(mr_no, cumday2)]
+
+
+a0dis <- cum03dis [, .(cntdis = uniqueN( paste(Type_med, Coded_med, sep=" "))), 
+                   by = .(mr_no, study, cumday2)]
+
+all_met_rmsd07 <- all_met_rmsd06[, `:=`(mediandis = cummedian(diff),
+                                        q3dis = cumquant(diff, p =0.75)), by = .(mr_no, Code02)]
+
+all_met_rmsd07 <- all_met_rmsd07[ order(mr_no, studyday) ]
+
+all_met_rmsd07 <- all_met_rmsd07[, `:=`(medianpat = cummedian(diff),
+                                        q3pat = cumquant(diff, p =0.75)), by = .(mr_no)]
+
+
+fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
 
 t01 <- epsd01 [, .(n = uniqueN(mr_no),
                    mean = mean(epsdur, na.rm = FALSE),
