@@ -162,9 +162,17 @@ cum03dis <- cum02dis [, (list( cumday = (grpday: grpmaxday) ) ),
 cum03dis <- cum03dis [, cumday2 := paste("Till visit", cumday, sep = " "), ]
 cum03dis <- cum03dis [, study := max(studyday), by = .(mr_no, cumday2)]
 
-
 a0dis <- cum03dis [, .(cntdis = uniqueN( paste(Type_med, Coded_med, sep=" "))), 
                    by = .(mr_no, study, cumday2)]
+
+all_met_rmsd06 <- merge(x = all_met_rmsd06,
+                        y = a0dis,
+                        by.x = c("mr_no", "studyday"),
+                        by.y = c("mr_no", "study"))
+
+to.remove <- ls()
+to.remove <- c(to.remove[!grepl("^all", to.remove)], "to.remove")
+rm(list=to.remove)
 
 all_met_rmsd07 <- all_met_rmsd06[, `:=`(mediandis = cummedian(diff),
                                         q3dis = cumquant(diff, p =0.75)), by = .(mr_no, Code02)]
