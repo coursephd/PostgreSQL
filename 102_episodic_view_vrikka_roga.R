@@ -3,7 +3,7 @@ library(tidyverse)
 library(sqldf)
 
 #all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
-all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
+all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
 all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(Code, ":", description, sep =""), ]
@@ -16,7 +16,7 @@ all_met_rmsd03 <- all_met_rmsd03 [, diff := studyday - shift(studyday), by = .(m
 all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
 
 # For merge
-pat <- unique( all_met_rmsd02 [, c("mr_no", "Metabolic", "RMSD", "patient_gender", "all_vis", "cdur")])
+pat <- unique( all_met_rmsd02 [, c("mr_no", "patient_gender", "all_vis", "cdur")])
 
 # If all_vis = 1 then patient level only 1 visit
 
@@ -96,45 +96,4 @@ all_met_rmsd06 <- merge (x = all_met_rmsd06,
 all_met_rmsd06$pattype[is.na(all_met_rmsd06$pattype)] <- "00Data-for-1day"
 all_met_rmsd06$epsmedian[is.na(all_met_rmsd06$epsmedian)] <- 9999
 
-fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01.csv")
-
-
-t01 <- epsd01 [, .(n = uniqueN(mr_no),
-                   mean = mean(epsdur, na.rm = FALSE),
-                   sd = sd(epsdur, na.rm = FALSE),
-                   median = median (epsdur, na.rm = FALSE),
-                   min = min (epsdur, na.rm = FALSE),
-                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
-
-t01_exl01 <- epsd01 [epsdur > 1, .(n = uniqueN(mr_no),
-                                   mean = mean(epsdur, na.rm = FALSE),
-                                   sd = sd(epsdur, na.rm = FALSE),
-                                   median = median (epsdur, na.rm = FALSE),
-                                   min = min (epsdur, na.rm = FALSE),
-                                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, eps011)]
-
-t01_diffeps <- epsd01 [diffeps > 0, .(n = uniqueN(mr_no),
-                                      mean = mean(diffeps, na.rm = FALSE),
-                                      sd = sd(diffeps, na.rm = FALSE),
-                                      median = median (diffeps, na.rm = FALSE),
-                                      min = min (diffeps, na.rm = FALSE),
-                                      max = max (diffeps, na.rm = FALSE)), by = .(Code02, eps011)]
-
-
-t01resp <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
-                               mean = mean(epsdur, na.rm = FALSE),
-                               sd = sd(epsdur, na.rm = FALSE),
-                               median = median (epsdur, na.rm = FALSE),
-                               min = min (epsdur, na.rm = FALSE),
-                               max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, eps011)]
-
-t01resp_rel <- all_met_rmsd05 [, .(n = uniqueN(mr_no),
-                                   mean = mean(epsdur, na.rm = FALSE),
-                                   sd = sd(epsdur, na.rm = FALSE),
-                                   median = median (epsdur, na.rm = FALSE),
-                                   min = min (epsdur, na.rm = FALSE),
-                                   max = max (epsdur, na.rm = FALSE)), by = .(Code02, pattype, releps011)]
-
-
-pat00 <- all_met_rmsd06 [mr_no == "MR000059"]
-patchk <- all_met_rmsd04 [, nvis011 := max( eps011 ), by = .(mr_no, Code02)]
+fwrite(all_met_rmsd06, "D:/Hospital_data/ProgresSQL/analysis/102_episodicdis01vrikka.csv")
