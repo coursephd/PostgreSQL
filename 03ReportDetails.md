@@ -239,6 +239,47 @@ Analysis of number of diseases and number of prescribed treatments for Vrikka Ro
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
+## 23. Viz name: 102_episodic01_responder_nonresponder
+Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
+## 24. Viz name: 105_trt_dis_unq_mult
+Identification of prescribed treatments to a specific disease or multiple diseases  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
+## 25. Viz name: 107_prim_sec_diag01
+Disease-disease relationship, consider 1 disease as a primary disease and then calculate the duration between 2 reported events, distant events may mean clinically irrelevant events, closer could mean related to each other  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
+## 26. Viz name: 107_prim_sec_diag01vrikka_roga
+Disease-disease relationship as explained above carried out considering Vrikka Roga as a primary disease  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
+## 27. Viz name: 102_episodic01_responder_nonresponder_vrikka_roga
+Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit for Vrikka Roga patients  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
+## 28. Viz name: 105_trt_dis_unq_mult_vrikka_roga
+Identification of prescribed treatments to a specific disease or multiple diseases for Vrikka Roga patients  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
