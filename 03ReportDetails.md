@@ -203,6 +203,12 @@ Dashboard 2 in this visual is explained below.
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various diseases.<br>3. Number of other diseases contracted at any time while having the underlying disease.<br>4. Bubble plot using frequency counts for diseases.<br><br>The dashboard is controlled by a "PrimaryCode" of a reference disease. The corresponding data is displayed on the page.<br>- The bubble plot displays the number of distinct patients having the primary disease.<br>- Other bubbles display the diseases reported by this subset of patients at any point in time (these could be clinically related or unrelated, could have occurred before or after the occurence of reference disease).<br>- The tooltip shows min, median and max age, distict counts of patients.<br>- A small table on the left side shows number of diseases experienced.<br><br>This display provides a comprehensive view of the disease clsuters. Some diseases could be experienced a lot more than some of the other diseases. Some diseases could be experienced differently by different genders, at different age groups.|
 
+##18. Viz name: 01Cancer_SQL_Dis_Med_Ser
+| Sheet name | Description | 
+| --- | --- | 
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various | 
+
+
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
 ## 1. Metabolic and RMSD disease analysis
