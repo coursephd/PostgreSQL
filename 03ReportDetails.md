@@ -225,6 +225,13 @@ Analysis carried out for the before and after periods of reporting Vrikka Roga
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
 
+## 21. Viz name: 01Cancer_Before_After  
+Analysis carried out for the before and after periods of reporting Cancer  
+
+| Sheet name | Description |
+| --- | --- |
+| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
