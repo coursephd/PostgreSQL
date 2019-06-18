@@ -214,7 +214,8 @@ Dashboard 2 in this visual is explained below.
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
 ## 20. Viz name: 01VrikkaRoga_Before_After  
-Analysis carried out for the before and after periods of reporting Vrikka Roga  
+Analysis carried out for the before and after periods of reporting Vrikka Roga 
+
 | Sheet name | Description |
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
