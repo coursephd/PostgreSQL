@@ -208,6 +208,8 @@ Dashboard 2 in this visual is explained below.
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
+## 19. Viz name: 01VrikkaRoga_SQL_Dis_Med_Ser
+| Sheet name | Description | | --- | --- | | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
