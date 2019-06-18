@@ -45,17 +45,17 @@ The following files should be used in the following sequence:
 | 086_dis_patterns_combinations.R| This program creates a dataset of disease trajectories|
 | 086_dis_patterns_combinations_gender_Macro.R| This programs creates multiple files, similarity measurements for each patient by reference disease, similarity measurements for medicines, these files are used in Tableau display|
 | 086_fisher.R| This program creates singificant combinations of disease trajectories|
-| 01Cancer_SQL_Dis_Med_Ser.R| This program creates a dataset/csv file for basic analysis of Cancer patients|
-| 01VrikkaRoga_SQL_Dis_Med_Ser.R| |
-| 01VrikkaRoga_Before_After.R| |
-| 01Cancer_Before_After.R| |
-| 080VrikkaRogaDis_Med_analysis.R| |
-| 102_episodic01_responder_nonresponder.R| |
-| 105_trt_dis_unq_mult.R| |
-| 107_prim_sec_diag01.R| |
-| 107_prim_sec_diag01vrikka_roga.R| |
-| 102_episodic01_responder_nonresponder_vrikka_roga.R| |
-| 105_trt_dis_unq_mult_vrikka_roga.R| |
+| 01Cancer_SQL_Dis_Med_Ser.R| This program creates a dataset/csv file for basic analysis of Cancer patients, same named tableau display is also available|
+| 01VrikkaRoga_SQL_Dis_Med_Ser.R| This program creates a dataset/csv file for basic analysis of Vrikka Roga patients|
+| 01VrikkaRoga_Before_After.R| Analysis carried out for the before and after periods of reporting Vrikka Roga|
+| 01Cancer_Before_After.R| Analysis carried out for the before and after periods of reporting Cancer|
+| 080VrikkaRogaDis_Med_analysis.R| Analysis of number of diseases and number of prescribed treatments for Vrikka Roga patients|
+| 102_episodic01_responder_nonresponder.R| Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit|
+| 105_trt_dis_unq_mult.R| Identification of prescribed treatments to a specific disease or multiple diseases|
+| 107_prim_sec_diag01.R| Disease-disease relationship, consider 1 disease as a primary disease and then calculate the duration between 2 reported events, distant events may mean clinically irrelevant events, closer could mean related to each other|
+| 107_prim_sec_diag01vrikka_roga.R| Disease-disease relationship as explained above carried out considering Vrikka Roga as a primary disease|
+| 102_episodic01_responder_nonresponder_vrikka_roga.R| Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit for Vrikka Roga patients|
+| 105_trt_dis_unq_mult_vrikka_roga.R| Identification of prescribed treatments to a specific disease or multiple diseases for Vrikka Roga patients|
 
 # Documents created in RPubs based on the following programs [http://rpubs.com/mahajvi]:  
 
