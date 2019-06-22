@@ -4,6 +4,8 @@
 # VrikkaRoga patients are subsetted from the above data and csv, rds files are created in
 # the following folder: D:/Hospital_data/ProgresSQL/analysis_ckd
 #
+# Individual section wise csv / rds files are created: sec**
+#
 # The other CRF pages of data will not be very useful directly for analysis, but will be attempted
 # with some amount of manual review
 ##########################################################################################################
