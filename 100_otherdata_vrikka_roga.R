@@ -115,6 +115,57 @@ for (ii in sections){
   )
 }
 
+
+
+library(readxl)
+
+############################################
+# Get the Drug classification information
+############################################
+drugs <- read_excel(path = "D:\\Hospital_data\\ProgresSQL\\analysis\\Medicine_names.xlsx-VInay.xlsx")
+setnames(x=drugs, old=names(drugs), new=gsub(" ","",names(drugs)))
+setnames(x=drugs, old=names(drugs), new=gsub("\r\n","",names(drugs)))
+
+
+drugs2 <- unique( drugs [, c("medicine_name", "Subtype", "ClassicalProprietary", "ShamanaShodhana(Panchakarma)", "MetalbasedtreatmentsRasaoushadhi"),] )
+
+all_met_rmsd02 <- merge (x = all_met_rmsd,
+                         y = drugs2 ,
+                         by = c("medicine_name"),
+                         all.x = TRUE)
+
+#####################################
+# Merge single or multiple diseases
+#####################################
+patcat <- fread("D:\\Hospital_data\\ProgresSQL\\analysis\\105_trt_dis_unq_mult01vrikka_roga.csv")
+patcat2 <- unique( patcat [, c("mr_no", "discat"),])
+
+all_met_rmsd02 <- merge (x = all_met_rmsd02,
+                         y = patcat2, 
+                         by = c("mr_no"), 
+                         all.x = TRUE )
+
+base01_met_rmsd02 <- merge (x = base01_met_rmsd,
+                            y = patcat2, 
+                            by = c("mr_no"), 
+                            all.x = TRUE )
+
+
+# Single disease and cdur =1 only 1 and only visit
+onedisvis <- all_met_rmsd02 [, .(n= uniqueN(mr_no)), by = .(discat, cdur)]
+
+chk <- base01_met_rmsd02 [ ! is.na( option_remarks), .(n = uniqueN(mr_no) ), by = .(discat, trnvar) ]
+chk_t <- dcast(data = chk,
+               trnvar ~ discat,
+               value.var = c("n"),
+               fill ="")
+
+
+# Create a dataset with patients and therapy type:
+
+trt_type <- unique(all_met_rmsd02 [, c("mr_no", "studyday", "Code", "discat", "ShamanaShodhana(Panchakarma)"), ])
+
+
 # dtable <- df[, fwrite(.SD, paste0("./output/"), Name, ".csv"), by = Name]
 ########################################################################################
 # End of program
