@@ -50,6 +50,7 @@ base01_met_rmsd <- merge (x = base01_met_rmsd,
                                  "field_id", "display_order", "option_value"), 
                           all.x = TRUE)
 
+
 # Transpose the data as per CRF pages
 base01_met_rmsd_trn <- dcast(data = base01_met_rmsd,
                              mr_no + patient_id + subvis ~ trnvar,
@@ -149,6 +150,10 @@ base01_met_rmsd02 <- merge (x = base01_met_rmsd,
                             y = patcat2, 
                             by = c("mr_no"), 
                             all.x = TRUE )
+
+# Write to a permenant file for temporary calculations
+saveRDS (all_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis_ckd/01adsl_vrikka.rds")
+saveRDS (base01_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis_ckd/01other_vrikka.rds")
 
 
 # Single disease and cdur =1 only 1 and only visit
