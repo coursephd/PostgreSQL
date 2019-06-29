@@ -68,7 +68,33 @@ all_renal <- unique( rbind ( adsl3, othv001_40) )
 
 
 lab <- fread("D:/Hospital_data/ProgresSQL/analysis_ckd//001sec013crea_value_chk.csv")
+lab <- lab [, CREA := as.numeric(CREA),]
+lab <- lab [, POT := as.numeric(POT),]
+lab <- lab [, HGB := as.numeric(HGB),]
 
 summary(lab$CREA); uniqueN( lab [CREA > 0, c("mr_no"), ] )
 summary(lab$POT); uniqueN( lab [POT > 0, c("mr_no"), ] )
 summary(lab$HGB); uniqueN( lab [HGB > 0, c("mr_no"), ] )
+
+t01crea <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                   mean = mean(CREA, na.rm = FALSE),
+                   sd = sd(CREA, na.rm = FALSE),
+                   median = median (CREA, na.rm = FALSE),
+                   min = min (CREA, na.rm = FALSE),
+                   max = max (CREA, na.rm = FALSE)) ] 
+
+t01pot <- lab [POT > 0, .(n = uniqueN(mr_no),
+                            mean = mean(POT, na.rm = FALSE),
+                            sd = sd(POT, na.rm = FALSE),
+                            median = median (POT, na.rm = FALSE),
+                            min = min (POT, na.rm = FALSE),
+                            max = max (POT, na.rm = FALSE)) ] 
+
+t01hgb <- lab [HGB > 0, .(n = uniqueN(mr_no),
+                            mean = mean(HGB, na.rm = FALSE),
+                            sd = sd(HGB, na.rm = FALSE),
+                            median = median (HGB, na.rm = FALSE),
+                            min = min (HGB, na.rm = FALSE),
+                            max = max (HGB, na.rm = FALSE)) ] 
+
+, by = .(Code02, eps011)]
