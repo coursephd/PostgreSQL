@@ -72,9 +72,33 @@ lab <- lab [, CREA := as.numeric(CREA),]
 lab <- lab [, POT := as.numeric(POT),]
 lab <- lab [, HGB := as.numeric(HGB),]
 
-summary(lab$CREA); uniqueN( lab [CREA > 0, c("mr_no"), ] )
-summary(lab$POT); uniqueN( lab [POT > 0, c("mr_no"), ] )
-summary(lab$HGB); uniqueN( lab [HGB > 0, c("mr_no"), ] )
+
+#####################################
+# Merge single or multiple diseases
+#####################################
+patcat <- fread("D:\\Hospital_data\\ProgresSQL\\analysis\\105_trt_dis_unq_mult01vrikka_roga.csv")
+patcat2 <- unique( patcat [, c("mr_no", "discat"),])
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
+all_met_rmsd02 <- unique ( all_met_rmsd [, c("mr_no", "patient_gender", "baseage", "mindayVrikkaRoga"), ])
+
+all_met_rmsd02 <- merge (x = all_met_rmsd02,
+                         y = patcat2, 
+                         by = c("mr_no"), 
+                         all.x = TRUE )
+
+lab <- merge (x = all_met_rmsd02,
+              y = lab, 
+              by = c("mr_no"), 
+              all.y = TRUE )
+lab <- lab [, refday := as.numeric(studyday - mindayVrikkaRoga + 1), ]
+lab <- lab [, refper := ifelse ( refday <=1, "01 Pre-baseline", "02 Post-baseline"), ]
+
+chk <- unique( lab [refday < 0, c("mr_no", "refday"),] )
+
+#summary(lab$CREA); uniqueN( lab [CREA > 0, c("mr_no"), ] )
+#summary(lab$POT); uniqueN( lab [POT > 0, c("mr_no"), ] )
+#summary(lab$HGB); uniqueN( lab [HGB > 0, c("mr_no"), ] )
 
 t01crea <- lab [CREA > 0, .(n = uniqueN(mr_no),
                    mean = mean(CREA, na.rm = FALSE),
@@ -82,6 +106,31 @@ t01crea <- lab [CREA > 0, .(n = uniqueN(mr_no),
                    median = median (CREA, na.rm = FALSE),
                    min = min (CREA, na.rm = FALSE),
                    max = max (CREA, na.rm = FALSE)) ] 
+
+t01crea_per <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                            mean = mean(CREA, na.rm = FALSE),
+                            sd = sd(CREA, na.rm = FALSE),
+                            median = median (CREA, na.rm = FALSE),
+                            min = min (CREA, na.rm = FALSE),
+                            max = max (CREA, na.rm = FALSE)),
+                by = .(refper)] 
+
+t01crea_gen <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                            mean = mean(CREA, na.rm = FALSE),
+                            sd = sd(CREA, na.rm = FALSE),
+                            median = median (CREA, na.rm = FALSE),
+                            min = min (CREA, na.rm = FALSE),
+                            max = max (CREA, na.rm = FALSE)), 
+                , by = .(patient_gender)] 
+
+t01crea_discat <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                                mean = mean(CREA, na.rm = FALSE),
+                                sd = sd(CREA, na.rm = FALSE),
+                                median = median (CREA, na.rm = FALSE),
+                                min = min (CREA, na.rm = FALSE),
+                                max = max (CREA, na.rm = FALSE)), 
+                    , by = .(discat)] 
+
 
 t01pot <- lab [POT > 0, .(n = uniqueN(mr_no),
                             mean = mean(POT, na.rm = FALSE),
@@ -97,4 +146,3 @@ t01hgb <- lab [HGB > 0, .(n = uniqueN(mr_no),
                             min = min (HGB, na.rm = FALSE),
                             max = max (HGB, na.rm = FALSE)) ] 
 
-, by = .(Code02, eps011)]
