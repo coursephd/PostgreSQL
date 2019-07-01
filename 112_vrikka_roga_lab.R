@@ -92,7 +92,8 @@ lab <- merge (x = all_met_rmsd02,
               by = c("mr_no"), 
               all.y = TRUE )
 lab <- lab [, refday := as.numeric(studyday - mindayVrikkaRoga + 1), ]
-lab <- lab [, refper := ifelse ( refday <=1, "01 Pre-baseline", "02 Post-baseline"), ]
+lab <- lab [, refper := ifelse ( refday <=1, "01-Pre-baseline", "02-Post-baseline"), ]
+
 
 chk <- unique( lab [refday < 0, c("mr_no", "refday"),] )
 
@@ -114,6 +115,20 @@ t01crea_per <- lab [CREA > 0, .(n = uniqueN(mr_no),
                             min = min (CREA, na.rm = FALSE),
                             max = max (CREA, na.rm = FALSE)),
                 by = .(refper)] 
+
+library(ggplot)
+
+ggplot(lab, aes(x=refper, y=CREA)) +
+ geom_boxplot() +
+  geom_jitter() +
+  geom_hline(yintercept = c(2, 5), color ="red", linetype="dashed") 
+
+ggplot(lab, aes(x=refper, y=CREA)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_grid(. ~ patient_gender) +
+  geom_hline(yintercept = c(2, 5), color ="red", linetype="dashed") +
+  geom_text(aes(0, c(2, 5),label = h, vjust = -1))
 
 t01crea_gen <- lab [CREA > 0, .(n = uniqueN(mr_no),
                             mean = mean(CREA, na.rm = FALSE),
