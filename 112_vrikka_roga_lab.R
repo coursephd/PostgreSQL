@@ -116,6 +116,30 @@ t01crea_per <- lab [CREA > 0, .(n = uniqueN(mr_no),
                             max = max (CREA, na.rm = FALSE)),
                 by = .(refper)] 
 
+t01crea_per_gen <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                                mean = mean(CREA, na.rm = FALSE),
+                                sd = sd(CREA, na.rm = FALSE),
+                                median = median (CREA, na.rm = FALSE),
+                                min = min (CREA, na.rm = FALSE),
+                                max = max (CREA, na.rm = FALSE)),
+                    by = .(refper, patient_gender)] 
+
+t01crea_per_dis <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                                        mean = mean(CREA, na.rm = FALSE),
+                                        sd = sd(CREA, na.rm = FALSE),
+                                        median = median (CREA, na.rm = FALSE),
+                                        min = min (CREA, na.rm = FALSE),
+                                        max = max (CREA, na.rm = FALSE)),
+                            by = .(discat, refper)] 
+
+t01crea_per_gen_dis <- lab [CREA > 0, .(n = uniqueN(mr_no),
+                                    mean = mean(CREA, na.rm = FALSE),
+                                    sd = sd(CREA, na.rm = FALSE),
+                                    median = median (CREA, na.rm = FALSE),
+                                    min = min (CREA, na.rm = FALSE),
+                                    max = max (CREA, na.rm = FALSE)),
+                        by = .(discat, refper, patient_gender)] 
+
 library(ggplot)
 
 ggplot(lab, aes(x=refper, y=CREA)) +
@@ -128,7 +152,15 @@ ggplot(lab, aes(x=refper, y=CREA)) +
   geom_jitter() +
   facet_grid(. ~ patient_gender) +
   geom_hline(yintercept = c(2, 5), color ="red", linetype="dashed") +
-  geom_text(aes(0, c(2, 5),label = h, vjust = -1))
+  geom_text(aes(0, 2,label = "2", vjust = -1))
+
+
+ggplot(lab, aes(x=refper, y=CREA)) +
+  geom_boxplot() +
+  geom_jitter() +
+  facet_grid(. ~ discat + patient_gender) +
+  geom_hline(yintercept = c(2, 5), color ="red", linetype="dashed") +
+  geom_text(aes(0, 2,label = "2", vjust = -1))
 
 t01crea_gen <- lab [CREA > 0, .(n = uniqueN(mr_no),
                             mean = mean(CREA, na.rm = FALSE),
