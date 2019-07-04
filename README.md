@@ -221,3 +221,7 @@ https://flare.prefuse.org/apps/job_voyager/
 
 https://www.shanelynn.ie/using-pandas-dataframe-creating-editing-viewing-data-in-python/ 
 It is like Data.Table package
+
+
+Blog  
+https://shiring.github.io/categories.html#machine_learning-ref
