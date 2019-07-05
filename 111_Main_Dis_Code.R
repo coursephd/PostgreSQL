@@ -45,6 +45,7 @@ all_met_rmsd03 <- merge(x = all_met_rmsd02,
 
 npat <- all_met_rmsd03[, .(n = uniqueN(mr_no)), by = .(main, maindesc)]
 npat <- npat [, perc := percent( n / 44726), ]
+npat <- npat [ order(-n)]
 fwrite(npat, "D:/Hospital_data/ProgresSQL/analysis/111_Main_Dis_Perc.csv")
 
 
