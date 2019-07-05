@@ -4,12 +4,26 @@ library(cumstats)
 library(visNetwork)
 library(igraph)
 
-all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
+#########################################
+# For the complete set of 50,000 patients
+#########################################
+
+adsl <- fread("D:/Hospital_data/ProgresSQL/analysis/01adsl.csv")
+adsl <- adsl [, Code := icd_code,]
+adsl <- adsl [, distype := "Dis",]
+adsl <- adsl [, Type_med := "Med",]
+all_met_rmsd02 <- adsl [, Coded_med := medicine_name,]
+
+########################################
+# For the subset of Metabolic and RMSD
+########################################
+
+#all_met_rmsd02 <- fread("C://Users//mahajvi1//Downloads//01adsl_met_rmsd.csv")
 #all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
 all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(distype, ":", Code, ":", description, sep =""), ]
-#all_met_rmsd02 <- all_met_rmsd02 [, Med02 := paste(Type_med, ":", Coded_med, sep =""), ]
+all_met_rmsd02 <- all_met_rmsd02 [, Med02 := paste(Type_med, ":", Coded_med, sep =""), ]
 
 code <- unique (all_met_rmsd02 [, c("Code02", "Code", "description"),])
 code <- code [, pos := str_locate(Code, "\\."),]
@@ -54,11 +68,13 @@ prim_diag02 <- prim_diag [ primaryday <= studyday]
 prim_diag02 <- prim_diag02 [, diff := as.numeric(studyday - primaryday),]
 
 links <- prim_diag02 [, .(n = uniqueN(mr_no),
-                                mean = mean( diff, na.rm = FALSE),
-                                sd = sd(diff, na.rm = FALSE),
-                                median = median (diff, na.rm = FALSE),
-                                min = min (diff, na.rm = FALSE),
-                                max = max (diff, na.rm = FALSE)), by = .(primarycode, main02)]
+                          mean = mean( diff, na.rm = FALSE),
+                          sd = sd(diff, na.rm = FALSE),
+                          median = median (diff, na.rm = FALSE),
+                          min = min (diff, na.rm = FALSE),
+                          max = max (diff, na.rm = FALSE)), by = .(primarycode, main02)]
+
+fwrite(links, "D:/Hospital_data/ProgresSQL/analysis/111_cytoscape_dis.csv")
 
 # Create edges
 edges <- links [, `:=`(from = primarycode,
