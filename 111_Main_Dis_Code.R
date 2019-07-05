@@ -43,6 +43,11 @@ all_met_rmsd03 <- merge(x = all_met_rmsd02,
                         y = code03 [, c("Code02", "main", "maindesc"), ],
                         by = c("Code02") )
 
+npat <- all_met_rmsd03[, .(n = uniqueN(mr_no)), by = .(main, maindesc)]
+npat <- npat [, perc := percent( n / 44726), ]
+fwrite(npat, "D:/Hospital_data/ProgresSQL/analysis/111_Main_Dis_Perc.csv")
+
+
 all_met_rmsd03 <- all_met_rmsd03 [, main02 := paste(distype, ":", main, ":", maindesc, sep =""), ]
 
 diag3 <- unique( all_met_rmsd03[, c("mr_no", "main02", "studyday"), ] ) 
