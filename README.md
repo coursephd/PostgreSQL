@@ -225,3 +225,7 @@ It is like Data.Table package
 
 Blog  
 https://shiring.github.io/categories.html#machine_learning-ref
+
+Co-morbidity:  
+https://pdfs.semanticscholar.org/ada9/861da5deb32c0bb4133e3c05880af7b6c2fc.pdf
+
