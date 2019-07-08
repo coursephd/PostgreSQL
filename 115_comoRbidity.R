@@ -52,10 +52,13 @@ all_met_rmsd03 <- merge(x = all_met_rmsd02,
                         by = c("Code02") )
 all_met_rmsd03 <- all_met_rmsd03 [, maincode := paste(main, ":", maindesc, sep=""),]
 
+all_met_rmsd03 <- all_met_rmsd03 [ Code != "** Not yet coded" ]
+all_met_rmsd03 <- all_met_rmsd03 [ dateofbirth != "" ]
+
 ########################################################################
 # (1) patientData         [patient_id, patient_sex, patient_dateBirth]
 ########################################################################
-a01patientData <- unique ( all_met_rmsd03 [Code != "** Not yet coded", c("mr_no", "patient_gender", "dateofbirth"), ])
+a01patientData <- unique ( all_met_rmsd03 [, c("mr_no", "patient_gender", "dateofbirth"), ])
 setnames(a01patientData, "mr_no", "patient_id")
 setnames(a01patientData, "patient_gender", "patient_sex")
 setnames(a01patientData, "dateofbirth", "patient_dateBirth")
@@ -63,7 +66,7 @@ setnames(a01patientData, "dateofbirth", "patient_dateBirth")
 ########################################################################
 # (2) diagnosisData       [patient_id, admission_id, diagnosis_code]
 ########################################################################
-a02diagnosisData <- unique ( all_met_rmsd03 [Code != "** Not yet coded", c("mr_no", "vis", "maincode"), ])
+a02diagnosisData <- unique ( all_met_rmsd03 [, c("mr_no", "vis", "maincode"), ])
 setnames(a02diagnosisData, "mr_no", "patient_id")
 setnames(a02diagnosisData, "vis", "admission_id")
 setnames(a02diagnosisData, "maincode", "diagnosis_code")
@@ -71,7 +74,7 @@ setnames(a02diagnosisData, "maincode", "diagnosis_code")
 ########################################################################
 # (3) admissionData       [patient_id, admission_id, admissionStartDate]
 ########################################################################
-a03admissionData <- unique ( all_met_rmsd03 [Code != "** Not yet coded", c("mr_no", "vis", "newdt0"), ])
+a03admissionData <- unique ( all_met_rmsd03 [, c("mr_no", "vis", "newdt0"), ])
 setnames(a03admissionData, "mr_no", "patient_id")
 setnames(a03admissionData, "vis", "admission_id")
 setnames(a03admissionData, "newdt0", "admissionStartDate")
@@ -91,12 +94,57 @@ saveRDS (a02diagnosisData, "D:/Hospital_data/ProgresSQL/analysis/a02diagnosisDat
 saveRDS (a03admissionData, "D:/Hospital_data/ProgresSQL/analysis/a03admissionData.rds")
 saveRDS (a04indexDiseaseCodes, "D:/Hospital_data/ProgresSQL/analysis/a04indexDiseaseCodes.rds")
 
+###############################
+# Save the files as txt files
+###############################
+fwrite (a01patientData, "D:/Hospital_data/ProgresSQL/analysis/patientData.txt", sep = "\t")
+fwrite (a02diagnosisData, "D:/Hospital_data/ProgresSQL/analysis/diagnosisData.txt", sep = "\t")
+fwrite (a03admissionData, "D:/Hospital_data/ProgresSQL/analysis/admissionData.txt", sep = "\t")
+fwrite (a04indexDiseaseCodes, "D:/Hospital_data/ProgresSQL/analysis/indexDiseaseCode.txt", sep = "\t")
 
 ##############################
 # Execute the query function
 ##############################
 
-ff <- query( databasePth = databasePth,
-             codesPth = diagnosticCodes,
+ff <- query( databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+             codesPth = "D:/Hospital_data/ProgresSQL/analysis",
              admissionDataSep = "-",
              birthDataSep = "-")
+ff
+
+aggQuery <- query( databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+                   codesPth = "D:/Hospital_data/ProgresSQL/analysis",
+                   admissionDataSep = "-",
+                   birthDataSep = "-",
+                   aggregatedDis = TRUE)
+
+aggQuery
+
+queryIntra <- query( databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+                     codesPth = "D:/Hospital_data/ProgresSQL/analysis",
+                     admissionDataSep = "-",
+                     birthDataSep = "-",
+                     intraCodes = TRUE,
+                     aggregatedDis = FALSE)
+queryIntra
+
+aggQueryIntra <- query( databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+                        codesPth = "D:/Hospital_data/ProgresSQL/analysis",
+                        admissionDataSep = "-",
+                        birthDataSep = "-",
+                        intraCodes = TRUE,
+                        aggregatedDis = TRUE)
+aggQueryIntra
+
+
+summaryDB(input = ff,
+          maleCode = "M",
+          femaleCode ="F")
+## Checking the input object
+
+populationAge ( input = ff,
+                codesPth = "D:/Hospital_data/ProgresSQL/analysis",
+                databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+                type = "together",
+                interactive = FALSE)
+## Checking the input object
