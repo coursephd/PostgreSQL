@@ -55,35 +55,33 @@ all_met_rmsd03 <- all_met_rmsd03 [, maincode := paste(main, ":", maindesc, sep="
 all_met_rmsd03 <- all_met_rmsd03 [ Code != "** Not yet coded" ]
 all_met_rmsd03 <- all_met_rmsd03 [ dateofbirth != "" ]
 
+setnames(all_met_rmsd03, "mr_no", "patient_id")
+setnames(all_met_rmsd03, "patient_gender", "patient_sex")
+setnames(all_met_rmsd03, "dateofbirth", "patient_dateBirth")
+setnames(all_met_rmsd03, "vis", "admission_id")
+setnames(all_met_rmsd03, "maincode", "diagnosis_code")
+setnames(all_met_rmsd03, "newdt0", "admissionStartDate")
+
 ########################################################################
 # (1) patientData         [patient_id, patient_sex, patient_dateBirth]
 ########################################################################
-a01patientData <- unique ( all_met_rmsd03 [, c("mr_no", "patient_gender", "dateofbirth"), ])
-setnames(a01patientData, "mr_no", "patient_id")
-setnames(a01patientData, "patient_gender", "patient_sex")
-setnames(a01patientData, "dateofbirth", "patient_dateBirth")
+a01patientData <- unique ( all_met_rmsd03 [, c("patient_id", "patient_sex", "patient_dateBirth"), ])
 
 ########################################################################
 # (2) diagnosisData       [patient_id, admission_id, diagnosis_code]
 ########################################################################
-a02diagnosisData <- unique ( all_met_rmsd03 [, c("mr_no", "vis", "maincode"), ])
-setnames(a02diagnosisData, "mr_no", "patient_id")
-setnames(a02diagnosisData, "vis", "admission_id")
-setnames(a02diagnosisData, "maincode", "diagnosis_code")
+a02diagnosisData <- unique ( all_met_rmsd03 [, c("patient_id", "admission_id", "diagnosis_code"), ])
 
 ########################################################################
 # (3) admissionData       [patient_id, admission_id, admissionStartDate]
 ########################################################################
-a03admissionData <- unique ( all_met_rmsd03 [, c("mr_no", "vis", "newdt0"), ])
-setnames(a03admissionData, "mr_no", "patient_id")
-setnames(a03admissionData, "vis", "admission_id")
-setnames(a03admissionData, "newdt0", "admissionStartDate")
+a03admissionData <- unique ( all_met_rmsd03 [, c("patient_id", "admission_id", "admissionStartDate"), ])
 
 ########################################################################
 # (4) indexDiseaseCodes   [Code, Agg]
 ########################################################################
-a04indexDiseaseCodes <- unique ( all_met_rmsd03 [, c("maincode", "distype"), ])
-setnames(a04indexDiseaseCodes, "maincode", "Code")
+a04indexDiseaseCodes <- unique ( all_met_rmsd03 [ distype == "Metabolic", c("diagnosis_code", "distype"), ])
+setnames(a04indexDiseaseCodes, "diagnosis_code", "Code")
 setnames(a04indexDiseaseCodes, "distype", "Agg")
 
 ###########################
@@ -93,6 +91,8 @@ saveRDS (a01patientData, "D:/Hospital_data/ProgresSQL/analysis/a01patientData.rd
 saveRDS (a02diagnosisData, "D:/Hospital_data/ProgresSQL/analysis/a02diagnosisData.rds")
 saveRDS (a03admissionData, "D:/Hospital_data/ProgresSQL/analysis/a03admissionData.rds")
 saveRDS (a04indexDiseaseCodes, "D:/Hospital_data/ProgresSQL/analysis/a04indexDiseaseCodes.rds")
+
+save (a01patientData, file = "D:/Hospital_data/ProgresSQL/analysis/allData.Rdata")
 
 ###############################
 # Save the files as txt files
@@ -142,9 +142,18 @@ summaryDB(input = ff,
           femaleCode ="F")
 ## Checking the input object
 
+load ("D:/Hospital_data/ProgresSQL/analysis/allData.RData")
+
 populationAge ( input = ff,
                 codesPth = "D:/Hospital_data/ProgresSQL/analysis",
-                databasePth = "D:/Hospital_data/ProgresSQL/analysis",
+                databasePth = "D:/Hospital_data/ProgresSQL/analysis/",
                 type = "together",
-                interactive = FALSE)
+                interactive = FALSE,
+                verbose = TRUE)
+## Checking the input object
+
+diseasePrevalence(input = ff,
+                  maleCode = "M",
+                  femaleCode ="F",
+                  databasePth = "D:/Hospital_data/ProgresSQL/analysis")
 ## Checking the input object
