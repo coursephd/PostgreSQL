@@ -262,7 +262,7 @@ This view should provide good insights into the causal relationships.
 ## 21. Viz name: 01Cancer_Before_After  
 Analysis carried out for the before and after periods of reporting Cancer  
 
-The explanation for each of the visual displays is similar to the earlier display for Cancer patients, the data presented here is for Cancer patients.
+The explanation for each of the visual displays is similar to the earlier display for Vrikka Roga patients, the data presented here is for Cancer patients.
 
 ## 22. Viz name: 080VrikkaRogaDis_Med_analysis  
 Analysis of number of diseases and number of prescribed treatments for Vrikka Roga patients  
