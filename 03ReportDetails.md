@@ -234,17 +234,35 @@ Basic analysis carried out to understand the Vrikka Roga patients
 ## 20. Viz name: 01VrikkaRoga_Before_After  
 Analysis carried out for the before and after periods of reporting Vrikka Roga 
 
-| Sheet name | Description |
-| --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+Vrikka Roga is considered as a reference disease.  
+- Day 1 is calculated as the reference day 1 for individual patient for Vrikka Roga.  
+- Other diseases for the same patient are positioned either before or after compared to this reference disease (Vrikka Roga).  
+- Duration w.r.to this reference day is calculated before and after day 1. This calculation provides the background view as well as future view.  
+- This referencing allows for more informative background disease as well as background medicine information.
+- The duration is split into the following time points:  
 
+| Before | After |
+| --- | --- |
+| Day 1 as reference|
+| Before 1 month| Within 1 month|
+| Before 2 months| Within 2 months|
+| Before 3 to 6 months| Within 3 to 6 months|
+| Before 7 to 12 months| Within 7 to 12 months|
+| Before 2nd year| Within 2nd year|
+| Before 3rd year| Within 3rd year|
+| Before 4th year| Within 4th year|
+| Before 5 year| Within 5 year|  
+
+* 1 sheet for each reference disease (Vrikka Roga) is created.  
+* Frequency count of diseases and prescribed medicines is displayed.  
+* Prior counts are displayed in red colour and After counts are displayed in Green colour.  
+
+This view should provide good insights into the causal relationships. 
 
 ## 21. Viz name: 01Cancer_Before_After  
 Analysis carried out for the before and after periods of reporting Cancer  
 
-| Sheet name | Description |
-| --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+The explanation for each of the visual displays is similar to the earlier display for Cancer patients, the data presented here is for Cancer patients.
 
 ## 22. Viz name: 080VrikkaRogaDis_Med_analysis  
 Analysis of number of diseases and number of prescribed treatments for Vrikka Roga patients  
