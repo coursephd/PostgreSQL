@@ -267,9 +267,25 @@ The explanation for each of the visual displays is similar to the earlier displa
 ## 22. Viz name: 080VrikkaRogaDis_Med_analysis  
 Analysis of number of diseases and number of prescribed treatments for Vrikka Roga patients  
 
+This shows individual patient data for disease and treatment for Vrikka Roga patients. It provides diseases and treatments per patient as either  
+"disease reported 1st time" or "repeat" (data displayed in Sheet Disease),  
+"treatment reported 1st time" or "repeat" (data displayed in Sheet Medicine).  
+- It is reported by studyday (or visit) when a disease and medicine is reported in the data.  
+
+The data is analysed in 2 forms (1) what would have happened at every visit and (2) cumulative form (till a particular visit)  
+Interpretation  
+(1) When a new disease is reported, usually a new treatment(s) is (are) reported  
+(2) If there is only a new treatment added then it could indicate, the earlier treatment may not have worked, or it explains the nature of treatment regimen.  
+
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+| Disease| "disease reported 1st time" or "repeat"|
+| Medicine| "treatment reported 1st time" or "repeat"|
+| Patient_1st_Repeat| Individual patient listing of disease and medicine classified as 1st or "repeat" by study day|
+| Patient_Dis_Med_counts| Frequency count of disease and medicine classified as 1st or "repeat" by study day (i.e. each visit)|
+| Patient_dis_med_Cumulative| Frequency count of disease and medicine classified as 1st or "repeat" by cumulative study day (i.e. till xx visit)|
+| %Patient_dis_med_Cumulative| % of the cumulative classification|
+| Dashboard 1| All the above data is displayed on 1 page, the patient subset applied on this page is applied to all other pages for easy navigation and review|
 
 ## 23. Viz name: 102_episodic01_responder_nonresponder
 Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit  
