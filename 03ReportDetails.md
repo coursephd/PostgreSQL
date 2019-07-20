@@ -222,14 +222,14 @@ Basic analysis carried out to understand the Cancer patients
 | Box_AgeMed| Box plot representation of age for each prescribed medicine by gender.<br>- This analysis should provide insights into age groupings|
 | Slopegraph_disPatients| Line chart for each disease by calendar year by gender.<br>- Count of distinct patients is plotted on y-axis, the calendar years are displayed on x-axis.<br>- The x-axis can be expanded to an individual month or week or a day to understand the number of patients at a specific time point.<br>- This provides an easy comparison on similar or dissimilar reporting of a specific disease across gender.|
 | Slopegraph_disVisit| Line chart similar to Slopegraph_disPatients. This visual shows number of distinct visits to the hospital.|
-| MedicineByDay| This visual uses a derived variable for prescribed medicine. The medicines are classified into different kinds, Aristham, Asavams, Bhasmas, Arkas, Dhara, Drops, etc.<br>- Frequency counts by each day is plotted by gender.<br>- Arkas, Avagha, Bhasmas, Panchakarma are prescribed in lesser frequencies.<br>- Kashayam, Aristham, Rasaynama, Abhyanga, etc. are prescribed in higher frequencies.| 
+| MedicineByDay| This visual is for prescribed medicine. The medicines are classified into different kinds, Aristham, Asavams, Bhasmas, Arkas, Dhara, Drops, etc.<br>- Frequency counts by each day is plotted by gender.| 
 
 ## 19. Viz name: 01VrikkaRoga_SQL_Dis_Med_Ser  
 Basic analysis carried out to understand the Vrikka Roga patients 
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+| --| The explanation for each of the visual displays is similar to the earlier display for Cancer patients, the data presented here is for Vrikka Roga patients.|
 
 ## 20. Viz name: 01VrikkaRoga_Before_After  
 Analysis carried out for the before and after periods of reporting Vrikka Roga 
