@@ -290,6 +290,18 @@ Interpretation
 ## 23. Viz name: 102_episodic01_responder_nonresponder
 Based on study visits, creation of the disease episodes, related / un-related diseases / Only 1 day visit  
 
+Episodic view analysis:  
+Patients come to hospital as and when there is a need either for the same disease or for different diseases. There is no fixed protocol as well as fixed visit schedule which they would need to follow. A lot of patients (more than 50%) do not visit more than 1 visit. Within a month, the overall patient proportion falls to 30%. Due to this underlying reason the response variable is not properly captured.  
+The following algorithm attempts to create an artificial response rate.  
+
+Following steps create patient categories:  
+
+1.	Create a variable to identify episodes of a diseaseif a disease is re-appearing after 30 days then consider that asa new episode, this duration should be specific to each disease in reality  
+2.	Use the variable “eps01” for cumulative addition and get number of episodes for each disease for each patient, if a disease is non-episodic then use 9999 as the duration  
+3.	This calculation should help in understanding the disease specificpseudo outcome and amount of data collected  
+4.	Use 180 days duration to separate episodes as related vs. un-related as an additional layer of relationship, save this information in a variable called as “releps01”  
+5.	The duration between episodes as well as between related episodes provides an insight into how close or how far the recurrence of events  
+6.	Use these variables along with the overall classification of a patient to create a medical story  
 | Sheet name | Description |
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
