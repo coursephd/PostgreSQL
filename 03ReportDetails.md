@@ -303,7 +303,9 @@ Episodic view analysis:
 
 | Sheet name | Description |
 | --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+| Resp/NonResp/List| Individual patient listing for each disease (diseases are listed as an individual page), the response is displayed as 1 Day Visit, Responder, Non-responder.<br>* The subset created on this page is applied to all other pages |
+| Resp/NonResp/RelatedEvent| This is similar to the earlier display, an additional "related episode" variable is displayed to understand the recurrence of the related events |
+| Respond/NonRespond/Boxplot| 
 
 ## 24. Viz name: 105_trt_dis_unq_mult
 Identification of prescribed treatments to a specific disease or multiple diseases  
