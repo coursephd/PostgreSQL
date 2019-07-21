@@ -313,7 +313,8 @@ Episodic view analysis:
 ## 24. Viz name: 105_trt_dis_unq_mult
 Identification of prescribed treatments to a specific disease or multiple diseases  
 
-Treatments and diseases are reported per visit on a case report form. Multiple diseases and multiple treatments could get reported in a visit. Due to the database set-up, the 1 to 1 mapping of the disease and treatment may not be possible. In ayurvedic treatment mechanism, the same treatment could be administered for multiple diseases and vice versa.   
+* Treatments and diseases are reported per visit on a case report form. Multiple diseases and multiple treatments could get reported in a visit. Due to the database set-up, the 1 to 1 mapping of the disease and treatment may not be possible. In ayurvedic treatment mechanism, the same treatment could be administered for multiple diseases and vice versa.   
+* Patients are classified as having reported only a single disease and having reported multiple diseases.  
 
 | Sheet name | Description |
 | --- | --- |
