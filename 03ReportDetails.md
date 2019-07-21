@@ -294,9 +294,9 @@ Episodic view analysis:
 * Patients come to hospital as and when there is a need either for the same disease or for different diseases. There is no fixed protocol as well as fixed visit schedule which they would need to follow. A lot of patients (more than 50%) do not visit more than 1 visit. Within a month, the overall patient proportion falls to 30%. Due to this underlying reason the response variable is not properly captured.  
 * The following algorithm attempts to create an artificial response rate. Following steps create patient categories:  
 
-1.	Create a variable to identify episodes of a diseaseif a disease is re-appearing after 30 days then consider that asa new episode, this duration should be specific to each disease in reality  
+1.	Create a variable to identify episodes of a disease if a disease is re-appearing after 30 days then consider that asa new episode, this duration should be specific to each disease in reality  
 2.	Use the variable “eps01” for cumulative addition and get number of episodes for each disease for each patient, if a disease is non-episodic then use 9999 as the duration  
-3.	This calculation should help in understanding the disease specificpseudo outcome and amount of data collected  
+3.	This calculation should help in understanding the disease specific pseudo outcome and amount of data collected  
 4.	Use 180 days duration to separate episodes as related vs. un-related as an additional layer of relationship, save this information in a variable called as “releps01”  
 5.	The duration between episodes as well as between related episodes provides an insight into how close or how far the recurrence of events  
 6.	Use these variables along with the overall classification of a patient to create a medical story  
@@ -305,7 +305,10 @@ Episodic view analysis:
 | --- | --- |
 | Resp/NonResp/List| Individual patient listing for each disease (diseases are listed as an individual page), the response is displayed as 1 Day Visit, Responder, Non-responder.<br>* The subset created on this page is applied to all other pages |
 | Resp/NonResp/RelatedEvent| This is similar to the earlier display, an additional "related episode" variable is displayed to understand the recurrence of the related events |
-| Respond/NonRespond/Boxplot| 
+| Respond/NonRespond/Boxplot| Boxplot of responder vs. non-responder by individual episode, due to the current definition, the responder category would have more number days compared to the non-responder category |
+| SummaryStatsEpisodeDur| Descriptive statistics for the same analysis are displayed in "Respond/NonRespond/Boxplot" display |
+| BoxplotDiffBetEpisodes| This boxplot provides information about the number of days between episodes, the minimum duration between the 2 episodes is 30 days due to the algorithm used. Far apart the duration between the 2 episodes, the possibility of them being clinically independent from each other.|
+| SummaryStatsDiffBetEpisodes| Descriptive statistics for the same analysis are displayed in "BoxplotDiffBetEpisodes" display |
 
 ## 24. Viz name: 105_trt_dis_unq_mult
 Identification of prescribed treatments to a specific disease or multiple diseases  
