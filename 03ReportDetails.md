@@ -313,8 +313,8 @@ Episodic view analysis:
 | SummaryStatsDiffBetEpisodes| Descriptive statistics for the same analysis are displayed in "BoxplotDiffBetEpisodes" display |
 
 ## 24. Viz name: 105_trt_dis_unq_mult,  
-## 24a. Viz name: 105_trt_dis_unq_mult_vrikka_roga  
 Identification of prescribed treatments to a specific disease or multiple diseases  
+## 24a. Viz name: 105_trt_dis_unq_mult_vrikka_roga  
 Identification of prescribed treatments to a specific disease or multiple diseases for Vrikka Roga patients  
 
 * Treatments and diseases are reported per visit on a case report form. Multiple diseases and multiple treatments could get reported in a visit. Due to the database set-up, the 1 to 1 mapping of the disease and treatment may not be possible. In ayurvedic treatment mechanism, the same treatment could be administered for multiple diseases and vice versa.   
@@ -324,8 +324,7 @@ E.g. the same analysis is carried out for the Vrikka Roga patients. The single d
 
 ## 25. Viz name: 107_prim_sec_diag01
 Disease-disease relationship, consider 1 disease as a primary disease and then calculate the duration between 2 reported events, distant events may mean clinically irrelevant events, closer could mean related to each other  
-
-## 26. Viz name: 107_prim_sec_diag01vrikka_roga
+## 25a. Viz name: 107_prim_sec_diag01vrikka_roga
 Disease-disease relationship as explained above carried out considering Vrikka Roga as a primary disease  
 
 | Sheet name | Description |
