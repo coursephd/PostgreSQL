@@ -353,6 +353,24 @@ The SPMF utility offers implementations of 171 data mining algorithms as of Feb 
 9.	time-series mining.
 10.	clustering and classification,
 
+Medicine and disease data are classified before and after for each reference disease (as explained in “15.15	Dataset with each disease considered as a reference disease having day 1”). Some of the data mining algorithms available on the SPMF library are executed on the underlying data.
+
+The following steps are programmed using R program to automate the execution of algorithms:
+
+1.	The disease data is split into unique disease trajectories before the onset of reference disease, after disease and across all times. Same is done for the medicine data as well. The data mining utility accepts the data in numerical values hence the data is converted from textual data to numerals. 
+2.	The data for each disease and medicine is saved in text files separated either by blank or by predefined separator as expected by the program.
+3.	The text file is used as an input by the java program executable file. Appropriate algorithm names, parameters for the algorithm are passed along with the output file name. The text file is passed to individual algorithms to generate the support, confidence and lift.
+4.	The output file is in not readily available as a human readable file; hence the file will be post processed. The numerals will be formatted back to the appropriate disease and medicine names.
+5.	For an algorithm there are many parameters settings used hence there are multiple files generated. All the files with different settings after post processing are combined into a single csv file. 
+6.	E.g. for disease “A2.0 -- Aamvata”  input file naming “F1SPADEA2.0Afterdisunq.txt” is as follows: 
+a.	<File separator> [F1 / SPC]
+b.	<Algorithm name> [Names available in Java executable file – SPADE in this case]
+c.	<Disease Code name> [ACD code name]
+d.	<After/Before/All>
+e.	<Unique trajectories> [unq]
+f.	<Disease/Medicine> [dis/med]
+7.	The output file for the above algorithm is “oF1SPADEA2.0Afterdisunq_formatted.csv”, example rows from the output, patients who have reported A2.0 – Aamvata have reported the following diseases in “after” time period.
+
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
