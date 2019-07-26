@@ -310,15 +310,15 @@ Episodic view analysis:
 | BoxplotDiffBetEpisodes| This boxplot provides information about the number of days between episodes, the minimum duration between the 2 episodes is 30 days due to the algorithm used. Far apart the duration between the 2 episodes, the possibility of them being clinically independent from each other.|
 | SummaryStatsDiffBetEpisodes| Descriptive statistics for the same analysis are displayed in "BoxplotDiffBetEpisodes" display |
 
-## 24. Viz name: 105_trt_dis_unq_mult
+## 24. Viz name: 105_trt_dis_unq_mult,  
+## 24a. Viz name: 105_trt_dis_unq_mult_vrikka_roga  
 Identification of prescribed treatments to a specific disease or multiple diseases  
+Identification of prescribed treatments to a specific disease or multiple diseases for Vrikka Roga patients  
 
 * Treatments and diseases are reported per visit on a case report form. Multiple diseases and multiple treatments could get reported in a visit. Due to the database set-up, the 1 to 1 mapping of the disease and treatment may not be possible. In ayurvedic treatment mechanism, the same treatment could be administered for multiple diseases and vice versa.   
 * Patients are classified as having reported only a single disease and having reported multiple diseases.  
-
-| Sheet name | Description |
-| --- | --- |
-| Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
+This analysis carried out for a specific single disease provides a view.  
+E.g. the same analysis is carried out for the Vrikka Roga patients. The single disease defined in that analysis provides information about the prescribed medicines to patients only reporting Vrikka Roga. The most frequently occurring treatments should provide a good view of the medical options for Vrikka Roga. If the patients continue coming for treatment for considerable amount of time (which is not the case for majority of patients) then this approach would have the ability to provide "complete treatment protocol".  
 
 ## 25. Viz name: 107_prim_sec_diag01
 Disease-disease relationship, consider 1 disease as a primary disease and then calculate the duration between 2 reported events, distant events may mean clinically irrelevant events, closer could mean related to each other  
@@ -341,8 +341,6 @@ Based on study visits, creation of the disease episodes, related / un-related di
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
-## 28. Viz name: 105_trt_dis_unq_mult_vrikka_roga
-Identification of prescribed treatments to a specific disease or multiple diseases for Vrikka Roga patients  
 
 | Sheet name | Description |
 | --- | --- |
