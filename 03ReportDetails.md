@@ -355,7 +355,7 @@ The SPMF utility offers implementations of 171 data mining algorithms as of Feb 
 
 Medicine and disease data are classified before and after for each reference disease (as explained in “15.15	Dataset with each disease considered as a reference disease having day 1”). Some of the data mining algorithms available on the SPMF library are executed on the underlying data.
 
-The following steps are programmed using R program to automate the execution of algorithms:
+The following steps are programmed using R program to automate the execution of algorithms, R program is stored at the following location: [https://github.com/coursephd/PostgreSQL/blob/master/spmf/SPMF_macrocall.R]
 
 1.	The disease data is split into unique disease trajectories before the onset of reference disease, after disease and across all times. Same is done for the medicine data as well. The data mining utility accepts the data in numerical values hence the data is converted from textual data to numerals. 
 2.	The data for each disease and medicine is saved in text files separated either by blank or by predefined separator as expected by the program.
