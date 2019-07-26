@@ -1,4 +1,4 @@
-# Analysis carried out using Tableau, R and Java D3 
+# Analysis carried out using Tableau, R, Java D3 and SPMF (Sequential Pattern Mining) Java library
 
 This document covers the details of analysis carried out on the Hospital database.  
 The Source data used is the Hospital database
@@ -331,6 +331,8 @@ Disease-disease relationship as explained above carried out considering Vrikka R
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
+# Analysis carried out using SPMF (Sequential Pattern Mining) Java library
+Source library [http://www.philippe-fournier-viger.com/spmf/] by Prof. Fournier-Viger.  
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
