@@ -371,7 +371,6 @@ e.	<Unique trajectories> [unq]
 f.	<Disease/Medicine> [dis/med]
 7.	The output file for the above algorithm is “oF1SPADEA2.0Afterdisunq_formatted.csv”, example rows from the output, patients who have reported A2.0 – Aamvata have reported the following diseases in “after” time period.
 
-
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
 ## 1. Metabolic and RMSD disease analysis
