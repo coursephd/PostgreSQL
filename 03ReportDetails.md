@@ -331,8 +331,28 @@ Disease-disease relationship as explained above carried out considering Vrikka R
 | --- | --- |
 | Dashboard 2| This dashboard has 4 sections<br>1. Summary statistics for age for various diseases.<br>2. Boxplot of age for various |
 
-# Analysis carried out using SPMF (Sequential Pattern Mining) Java library
+## Analysis carried out using SPMF (Sequential Pattern Mining) Java library
 Source library [http://www.philippe-fournier-viger.com/spmf/] by Prof. Fournier-Viger.  
+
+Pattern mining using SPMF program:  
+Discovering unexpected and useful patterns in databases is a fundamental data mining task. One of the most popular data mining tasks on sequences is sequential pattern mining. It consists of discovering interesting subsequences in a set of sequences, where the interestingness of a subsequence can be measured in terms of various criteria such as its occurrence frequency, length, and profit. Sequential pattern mining has many real-life applications since data is encoded as sequences in many fields such as bioinformatics, e-learning, market basket analysis, text analysis, and webpage click-stream analysis. The patient level data generated for diseases as well as prescribed treatments provide a sizeable data for data mining task.  
+
+In the talk "P for Patterns" presented at the World Ayurvedic Conference, we had initiated some data mining activities. From Jan 2019 onward, the research work on the Pattern finding algorithms using an Open Source Java based Library SPMF (Sequential Pattern Mining Library) was initiated.  
+
+Philippe Fournier-Viger, Ph.D. is a data mining researcher and professor. He is the founder and main author of the SPMF data mining software, open-source software offering more than 150 algorithms for discovering itemsets, association rules, sequential patterns and rules in sequences and transactions. The SPMF software has been cited in more than 640 papers and was visited by more than 700,000 visitors since 2010. He has also written or participated in more than 200 research papers which have received more than 3000 citations. He is one of the two editor-in-chief of the Data Science and Pattern Recognition journal.  He edited the book “High-Utility Pattern Mining” (Springer).  
+
+The SPMF utility offers implementations of 171 data mining algorithms as of Feb 2019:
+1.	association rule mining,
+2.	itemset mining,
+3.	sequential pattern
+4.	sequential rule mining,
+5.	sequence prediction,
+6.	periodic pattern mining, 
+7.	episode mining
+8.	high-utility pattern mining,
+9.	time-series mining.
+10.	clustering and classification,
+
 
 ## Analysis created in RPubs [http://rpubs.com/mahajvi]:
 
