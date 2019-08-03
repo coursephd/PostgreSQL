@@ -252,6 +252,33 @@ all_met_rmsd <- merge(x = all_met_rmsd,
 
 fwrite(all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.csv")
 saveRDS (all_met_rmsd, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
+
+#######################################################
+# Update the medicine type as Prasan's classification
+#######################################################
+library(openxlsx)
+library(readxl)
+
+sheet01 <- read_xlsx(path ="D:/Hospital_data/ProgresSQL/analysis/Medicine_names.xlsx", sheet = "Latest3217 records")
+sheet02 <- read_xlsx(path ="D:/Hospital_data/ProgresSQL/analysis/Medicine_names.xlsx", sheet = "Reword")
+
+sheet02 <- as.data.table (unique( sheet02 ) )
+
+sheet_all <- merge (x = sheet01, 
+                    y = sheet02, 
+                    by = c("ShamanaShodhanaPanchakarma"))
+setnames(sheet_all, "Reworded", "ayurtype")
+
+all_met_rmsd <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
+
+all_met_rmsd02 <- merge(x = all_met_rmsd,
+                        y = sheet_all [ , c("medicine_name", "ClassicalProprietary", "ayurtype", "MetalbasedtreatmentsRasaoushadhi")],
+                        by = c("medicine_name"),
+                        all.x = TRUE)
+
+fwrite(all_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.csv")
+saveRDS (all_met_rmsd02, "D:/Hospital_data/ProgresSQL/analysis/01adsl_vrikka.rds")
+
 					  
 dis_rutu <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(season, Code, description)] [order(season, -cnt, Code)]
 dis_rutu_yr <- all_met_rmsd [Code != "",  .(cnt = uniqueN(mr_no)), by = .(year, season, Code, description)][order(year, season, -cnt, Code)]
