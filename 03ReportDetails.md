@@ -5,33 +5,32 @@ The Source data used is the Hospital database
 SQL programming and R programming are used to create analysis datasets  
 These analysis datasets are then used as inputs to Tableau for generating various interactive visual displays  
 
-Work needs to be completed and re-arranged
+Work needs to be completed and re-arranged  
 
+Duration of treatment given in the database  
+-- use that to determine the number of day of prescribed dose  
+-- use that to determine the related and un-related episodes  
 
-Duration of treatment given in the database 
--- use that to determine the number of day of prescribed dose
--- use that to determine the related and un-related episodes
+Rasa-aushadhi analysis  
+Write-up for the Vrikka Roga,  
+Create background data for Vrikka Roga  
+Time variable use for the distance calculations, correction of N for the distance calculations  
+Disease-disease difference duration -- display Primary / Secondary relation additional visual  
+Main disease and secondary disease [xx<11>.0] - create bigger group to identify classification  
 
-Rasa-aushadhi analysis
-Write-up for the Vrikka Roga, 
-Create background data for Vrikka Roga
-Time variable use for the distance calculations, correction of N for the distance calculations
-Disease-disease difference duration -- display Primary / Secondary relation additional visual
-Main disease and secondary disease [xx<11>.0] - create bigger group to identify classification
+Calculate DALY scores for diseases -- use as a pseudo endpoint  
+ComorBidity analysis based on the office laptop  
 
-Calculate DALY scores for diseases -- use as a pseudo endpoint
-ComorBidity analysis based on the office laptop
-
-(1) Before and After analysis -- tabular view
-(2) Before and After analysis -- circular view
-(3) Before and After analysis -- SPMF algorithms
-(4) Before and After analysis -- Cytoscape visuals
-(5) Before and After analysis -- Java visuals
-(6) Before and After analysis -- distance measures with time component
-(7) Before and After analysis -- distance measures without time component
-(8) Before and After analysis -- ComorBidity analysis
-(9) Before and After analysis -- Treatment changes, new and repeat, % [Not done at all]
-(10) Before and After analysis -- Responder vs. Non-responder analysis [Not done at all]
+(1) Before and After analysis -- tabular view  
+(2) Before and After analysis -- circular view  
+(3) Before and After analysis -- SPMF algorithms  
+(4) Before and After analysis -- Cytoscape visuals  
+(5) Before and After analysis -- Java visuals  
+(6) Before and After analysis -- distance measures with time component  
+(7) Before and After analysis -- distance measures without time component  
+(8) Before and After analysis -- ComorBidity analysis  
+(9) Before and After analysis -- Treatment changes, new and repeat, % [Not done at all]  
+(10) Before and After analysis -- Responder vs. Non-responder analysis [Not done at all]  
 
 
 ## Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
