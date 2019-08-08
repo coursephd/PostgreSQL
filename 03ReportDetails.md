@@ -14,9 +14,9 @@ Duration of treatment given in the database
 Rasa-aushadhi analysis  
 Write-up for the Vrikka Roga,  
 Create background data for Vrikka Roga  
-Time variable use for the distance calculations, correction of N for the distance calculations  
-Disease-disease difference duration -- display Primary / Secondary relation additional visual  
-Main disease and secondary disease [xx<11>.0] - create bigger group to identify classification  
+Time variable use for the distance calculations, correction of N for the distance calculations [Done, the Tableau visual is also built]    
+Disease-disease difference duration -- display Primary / Secondary relation additional visual   
+Main disease and secondary disease [xx<11>.0] - create bigger group to identify classification [Partly done]    
 
 Calculate DALY scores for diseases -- use as a pseudo endpoint  
 ComorBidity analysis based on the office laptop  
