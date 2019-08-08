@@ -5,7 +5,7 @@ The Source data used is the Hospital database
 SQL programming and R programming are used to create analysis datasets  
 These analysis datasets are then used as inputs to Tableau for generating various interactive visual displays  
 
-Work needs to be completed and re-arranged  
+## Work needs to be completed and re-arranged  
 
 Duration of treatment given in the database  
 -- use that to determine the number of day of prescribed dose  
