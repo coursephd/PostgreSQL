@@ -15,6 +15,26 @@ all_met_rmsd03 <- all_met_rmsd03 [, distime := 1:.N, by = .(mr_no, Code02)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := studyday - shift(studyday), by = .(mr_no, Code, description)]
 all_met_rmsd03 <- all_met_rmsd03 [, diff := ifelse (distime ==1, 1, diff), ]
 
+
+dur01 <- unique( all_met_rmsd02 [duration > 0, c("mr_no", "studyday", "duration", "duration_units")])
+dur01 <- dur01 [, duration := as.numeric(duration),]
+
+dur02 <- sqldf("select *,
+               case
+               When duration_units == 'D' then duration
+               When duration_units == 'M' then duration * 30
+               When duration_units == 'W' then duration * 7
+               end as durstd
+               from dur01"
+               , method = "name__class")
+
+dur02 <- data.table(dur02)
+dur02 <- dur02 [, maxdurstd := max(durstd), by = .(mr_no, studyday)]
+
+all_met_rmsd03 <- merge(x = all_met_rmsd03,
+                        y = dur02,
+                        by = c("mr_no", "studyday"))
+
 # For merge
 pat <- unique( all_met_rmsd02 [, c("mr_no", "Metabolic", "RMSD", "patient_gender", "all_vis", "cdur")])
 
@@ -53,7 +73,8 @@ chk <- all_met_rmsd04 [, .(cnt = uniqueN(mr_no)), by = .(patdis)]
 # create a medical story
 ###############################################################################
 
-all_met_rmsd04 <- all_met_rmsd04 [, eps01 := ifelse(diff > 30, 1, 0), ]
+#all_met_rmsd04 <- all_met_rmsd04 [, eps01 := ifelse(diff > 30, 1, 0), ]
+all_met_rmsd04 <- all_met_rmsd04 [, eps01 := ifelse(diff > maxdurstd, 1, 0), ]
 all_met_rmsd04 <- all_met_rmsd04 [, eps011 := cumsum(eps01) + 1, by = .(mr_no, Code02, Code, description)]
 
 # Create episodic visit numbering
