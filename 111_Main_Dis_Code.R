@@ -25,23 +25,23 @@ all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | de
 all_met_rmsd02 <- all_met_rmsd02 [, Code02 := paste(distype, ":", Code, ":", description, sep =""), ]
 all_met_rmsd02 <- all_met_rmsd02 [, Med02 := paste(Type_med, ":", Coded_med, sep =""), ]
 
-code <- unique (all_met_rmsd02 [, c("Code02", "Code", "description"),])
-code <- code [, pos := str_locate(Code, "\\."),]
+code <- unique (all_met_rmsd02 [, c("Code02", "Code", "description", "distype"),])
+code <- code [, pos := ifelse(str_count(Code, "\\.") >0,str_locate(Code, "\\."), 0 ), ]
 code <- code [, `:=` (main = substr(Code, 1, pos-1),
                       second = substr(Code, pos+1, length(Code) ) ),]
-
-code02 <- code [ second == "0", c("main", "description"),]
+ 
+code02 <- code [ second == "0", c("main", "description", "distype"),]
 #setnames(code02, "main", "maincode")
 setnames(code02, "description", "maindesc")
 
-code03 <- merge (x = code, 
-                 y = code02, 
+code03 <- merge (x = code,
+                 y = code02 [, -c("distype"), ],
                  by = c("main") )
-
-
+ 
 all_met_rmsd03 <- merge(x = all_met_rmsd02,
                         y = code03 [, c("Code02", "main", "maindesc"), ],
                         by = c("Code02") )
+all_met_rmsd03 <- all_met_rmsd03 [, maincode := paste(main, ":", maindesc, sep=""),]
 
 npat <- all_met_rmsd03[, .(n = uniqueN(mr_no)), by = .(main, maindesc)]
 npat <- npat [, perc := percent( n / 44726), ]
