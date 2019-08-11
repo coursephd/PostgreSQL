@@ -63,6 +63,8 @@ dur05 <- merge(x = dur04,
                y = dur04disc_t,
                by = c("Code02", "Med02"))
 
+fwrite(dur05, "D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_singl_multiple.csv")
+
 ############################################################
 # End of program
 ############################################################
