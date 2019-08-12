@@ -1,3 +1,11 @@
+###############################################
+# Pgm name: 117_disdur_med_single_multiple.R
+# This uses data from
+# (1) 105_trt_dis_unq_mult01 program
+# (2) 01adsl_met_rmsd.rds
+# (3) ayur classification
+###############################################
+
 library(data.table)
 library(tidyverse)
 library(sqldf)
@@ -7,14 +15,12 @@ library(readxl)
 ###################################################
 # Get the data from 105_trt_dis_unq_mult01 program
 ###################################################
-
 mult <- fread("D:/Hospital_data/ProgresSQL/analysis/105_trt_dis_unq_mult01.csv")
 mult0 <- unique( mult [, c("mr_no", "discat"),])
 
 #######################################################
 # Update the medicine type as Prasan's classification
 #######################################################
-
 sheet01 <- read_xlsx(path ="D:/Hospital_data/ProgresSQL/analysis/Medicine_names.xlsx", sheet = "Latest3217 records")
 sheet02 <- read_xlsx(path ="D:/Hospital_data/ProgresSQL/analysis/Medicine_names.xlsx", sheet = "Reword")
 
@@ -25,6 +31,9 @@ sheet_all <- merge (x = sheet01,
                     by = c("ShamanaShodhanaPanchakarma"))
 setnames(sheet_all, "Reworded", "ayurtype")
 
+#############################
+# Get the patient level data
+#############################
 all_met_rmsd02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/01adsl_met_rmsd.rds")
 all_met_rmsd02 <- all_met_rmsd02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 all_met_rmsd02 <- all_met_rmsd02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]
@@ -43,6 +52,9 @@ all_met_rmsd03 <- unique(all_met_rmsd02 [, c("mr_no", "studyday", "vis", "all_vi
 
 all_met_rmsd03 <- all_met_rmsd03 [, duration := as.numeric(duration),]
 
+###############################################
+# Get the duration for each prescribed medicine
+###############################################
 all_met_rmsd03 <- sqldf("select *,
                case
                When duration_units == 'D' then duration
@@ -57,6 +69,14 @@ all_met_rmsd03 <- merge (x = all_met_rmsd03,
                          y = mult0,
                          by = c("mr_no"))
 
+
+###########################################################
+# Calculate various frequency counts for 
+# (1) number of patients and 
+# (2) duration of medicine
+# (3) By patient type Single disease / multiple diseases
+# (4) By Ayurtype medicine
+###########################################################
 
 dur02 <- all_met_rmsd03 [, .(maxdurDisMed = sum(durstd, na.rm = TRUE),
                              unqPatDisMed = uniqueN(mr_no)), by = .(Code02, Med02)]
