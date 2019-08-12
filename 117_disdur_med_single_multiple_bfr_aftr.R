@@ -85,3 +85,5 @@ ref02 <- ref02 [, Med02 := paste(Type_med, ":", Coded_med, sep =""), ]
 all_met_rmsd04 <- merge (x = all_met_rmsd03,
                          y = ref02,
                          by = c("mr_no", "Code02", "Med02", "Type_med", "Coded_med", "studyday", "cdur"))
+
+fwrite(all_met_rmsd04, "D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_single_multiple_bfr_aftr.csv")
