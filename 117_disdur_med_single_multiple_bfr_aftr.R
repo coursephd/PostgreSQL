@@ -47,7 +47,7 @@ all_met_rmsd02 <- merge(x = all_met_rmsd02,
                         all.x = TRUE)
 
 all_met_rmsd03 <- unique(all_met_rmsd02 [, c("mr_no", "studyday", "vis", "all_vis", "cdur", 
-                                             "duration", "duration_units", 
+                                             "duration", "duration_units", "Code",
                                              "ClassicalProprietary", "ayurtype", "MetalbasedtreatmentsRasaoushadhi",
                                              "Type_med", "Coded_med", "Med02", "Code02")] )
 
@@ -84,7 +84,8 @@ ref02 <- ref02 [, Med02 := paste(Type_med, ":", Coded_med, sep =""), ]
 
 all_met_rmsd04 <- merge (x = all_met_rmsd03,
                          y = ref02,
-                         by = c("mr_no", "Code02", "Med02", "Type_med", "Coded_med", "studyday", "cdur"))
+                         by = c("mr_no", "Code02", "Med02", "Type_med", "Coded_med", "studyday", "cdur", "Code"))
+all_met_rmsd05 <- all_met_rmsd04 [ Code == refcode ]
 
-saveRDS ("D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_single_multiple_bfr_aftr.rds")
-fwrite(all_met_rmsd04, "D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_single_multiple_bfr_aftr.csv")
+saveRDS (all_met_rmsd05, "D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_single_multiple_bfr_aftr.rds")
+fwrite(all_met_rmsd05, "D:/Hospital_data/ProgresSQL/analysis/117_disdur_med_single_multiple_bfr_aftr.csv")
