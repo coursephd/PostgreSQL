@@ -1,0 +1,2447 @@
+
+Record #1 of 138
+ID: NHSEED-22013022688
+AU: Chang AM
+AU: Ho JC
+AU: Yan BP
+AU: Yu CM
+AU: Lam YY
+AU: Lee VW
+TI: Cost-effectiveness of dabigatran compared with warfarin for stroke prevention in patients with atrial fibrillation: a real patient data analysis in a Hong Kong teaching hospital (Provisional abstract)
+SO: Clinical Cardiology
+YR: 2013
+VL: 36
+NO: 5
+PG: 280-285
+KY: Anticoagulants [adverse effects] [economics] [therapeutic use];Atrial Fibrillation [complications] [diagnosis] [drug therapy] [economics];Benzimidazoles [adverse effects] [economics] [therapeutic use];beta-Alanine [adverse effects] [analogs & derivatives] [economics] [therapeutic use];Cost-Benefit Analysis;Drug Costs;Drug Utilization [economics];Drug Utilization Review;Health Expenditures;Hong Kong;Hospital Costs;Hospitals, Teaching [economics];Preventive Health Services [economics];Retrospective Studies;Stroke [diagnosis] [economics] [etiology] [prevention & control];Treatment Outcome;Warfarin [adverse effects] [economics] [therapeutic use];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22013022688/frame.html
+
+
+Record #2 of 138
+ID: NHSEED-22013043793
+AU: Ghislandi S
+AU: Torbica A
+AU: Boriani G
+TI: Assessing the outcomes of implantable cardioverter defibrillator treatment in a real world setting: results from hospital record data (Provisional abstract)
+SO: BMC Health Services Research
+YR: 2013
+VL: 13
+NO: 2
+PG: 100
+KY: Confidence Intervals;Databases, Factual;Defibrillators, Implantable;Hospital Records;Italy;Length of Stay;Matched-Pair Analysis;Outcome Assessment (Health Care) [methods];Patient Readmission;Survival Rate;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22013043793/frame.html
+
+
+Record #3 of 138
+ID: NHSEED-22013013590
+AU: Sakowski JA
+AU: Ketchel A
+TI: The cost of implementing inpatient bar code medication administration (Provisional abstract)
+SO: American Journal of Managed Care
+YR: 2013
+VL: 19
+NO: 2
+PG: e38-45
+KY: Automatic Data Processing [economics];Costs and Cost Analysis [methods];Diffusion of Innovation;Efficiency, Organizational;Hospital Costs;Hospitalization;Medication Errors [economics] [prevention & control];Medication Systems, Hospital [economics] [organization & administration];Pharmacy Service, Hospital [economics] [organization & administration];Retrospective Studies
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22013013590/frame.html
+
+
+Record #4 of 138
+ID: NHSEED-22013024293
+AU: Coronini-Cronberg S
+AU: Appleby J
+AU: Thompson J
+TI: Application of patient-reported outcome measures (PROMs) data to estimate cost-effectiveness of hernia surgery in England (Structured abstract)
+SO: Journal of the Royal Society of Medicine
+YR: 2013
+VL: 106
+NO: 7
+PG: 278-287
+KY: Activities of Daily Living;Confidence Intervals;Cost-Benefit Analysis;Economics, Hospital;England;Health Care Costs;Hernia, Inguinal [economics] [surgery];Herniorrhaphy [economics] [methods];Hospitals;Laparoscopy [economics];Outcome Assessment (Health Care) [economics];Quality-Adjusted Life Years;Quality of Life;Surveys and Questionnaires;Self Report;State Medicine;Treatment Outcome;Adult[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22013024293/frame.html
+
+
+Record #5 of 138
+ID: NHSEED-22013016488
+AU: Walker S
+AU: Girardin F
+AU: McKenna C
+AU: Ball SG
+AU: Nixon J
+AU: Plein S
+AU: Greenwood JP
+AU: Sculpher M
+TI: Cost-effectiveness of cardiovascular magnetic resonance in the diagnosis of coronary heart disease: an economic evaluation using data from the CE-MARC study (Structured abstract)
+SO: Heart
+YR: 2013
+VL: 99
+NO: 12
+PG: 873-881
+KY: Coronary Disease [diagnosis] [economics];Cost-Benefit Analysis;Decision Support Techniques;Great Britain;Hospital Costs [trends];Magnetic Resonance Imaging, Cine [economics];Models, Economic;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22013016488/frame.html
+
+
+Record #6 of 138
+ID: NHSEED-22012016467
+AU: Myers AL
+AU: Williams RF
+AU: Giles K
+AU: Waters TM
+AU: Eubanks JW
+AU: Hixson SD
+AU: Huang EY
+AU: Langham MR
+AU: Blakely ML
+TI: Hospital cost analysis of a prospective, randomized trial of early vs interval appendectomy for perforated appendicitis in children (Provisional abstract)
+SO: Journal of the American College of Surgeons
+YR: 2012
+VL: 214
+NO: 4
+PG: 427-434
+KY: Appendectomy [economics] [methods];Appendicitis [economics] [surgery];Hospital Costs [statistics & numerical data];Intention to Treat Analysis;numerical data;Patient Readmission [economics];Postoperative Complications [economics];Prospective Studies;Tennessee;Time Factors;Treatment Outcome;Adolescent[checkword];Child[checkword];Child, Preschool[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012016467/frame.html
+
+
+Record #7 of 138
+ID: NHSEED-22012026989
+AU: Huang LH
+AU: Zhang L
+AU: Tobe RY
+AU: Qi FH
+AU: Sun L
+AU: Teng Y
+AU: Ke QL
+AU: Mai F
+AU: Zhang XF
+AU: Zhang M
+AU: Yang RL
+AU: Tu L
+AU: Li HH
+AU: Gu YQ
+AU: Xu SN
+AU: Yue XY
+AU: Li XD
+AU: Qi BE
+AU: Cheng XH
+AU: Tang W
+AU: Xu LZ
+AU: Han DM
+TI: Cost-effectiveness analysis of neonatal hearing screening program in China: should universal screening be prioritized? (Provisional abstract)
+SO: BMC Health Services Research
+YR: 2012
+VL: 12
+NO: 2
+PG: 97
+KY: China;Cost-Benefit Analysis [trends];Cost Savings [statistics & numerical data];Databases, Factual;Education, Special [economics];Health Services Accessibility [economics];Hearing Disorders [diagnosis] [therapy];Hearing Loss [diagnosis] [rehabilitation] [therapy];Hearing Tests [economics] [methods];Hospitals, Maternity;Hospitals, Pediatric;Infant, Newborn;Models, Statistical;National Health Programs;Neonatal Screening [economics];numerical data [trends];Program Evaluation;Quality-Adjusted Life Years;Quality of Life;Humans[checkword];Infant[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012026989/frame.html
+
+
+Record #8 of 138
+ID: NHSEED-22012022024
+AU: Kossovsky M
+AU: Keller PF
+AU: Mach F
+AU: Gaspoz JM
+TI: Fondaparinux versus enoxaprin in the management of acute coronary syndromes in Switzerland: a cost comparison analysis (Provisional abstract)
+SO: Swiss Medical Weekly
+YR: 2012
+VL: 142
+NO: 2
+PG: w13536
+KY: Acute Coronary Syndrome [drug therapy] [economics];Anticoagulants [economics] [therapeutic use];Costs and Cost Analysis;Drug Costs [statistics & numerical data];Enoxaparin [economics] [therapeutic use];Factor X;Follow-Up Studies;Hospital Costs [statistics & numerical data];Length of Stay [economics];numerical data;Polysaccharides [economics] [therapeutic use];Retrospective Studies;Switzerland;Treatment Outcome;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012022024/frame.html
+
+
+Record #9 of 138
+ID: NHSEED-22012016770
+AU: Weaver CS
+AU: Myers IJ
+AU: Huffman G
+AU: Vohito R
+AU: Herceg D
+TI: An analysis of a case manager-driven emergent dialysis program (Provisional abstract)
+SO: Professional Case Management
+YR: 2012
+VL: 17
+NO: 1
+PG: 24-28
+KY: administration;Case Management [economics] [statistics & numerical data];Chi-Square Distribution;Emergency Service, Hospital [economics] [organization & administration];Emigrants and Immigrants;Feasibility Studies;Hospitals, Urban;Intensive Care Units;Kidney Failure, Chronic [economics] [therapy];Length of Stay;numerical data;Organizational Case Studies;Renal Dialysis [economics] [methods];Retrospective Studies;Statistics as Topic;United States;Urban Population;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012016770/frame.html
+
+
+Record #10 of 138
+ID: NHSEED-22012029691
+AU: Abbott DE
+AU: Cantor SB
+AU: Hu CY
+AU: Aloia TA
+AU: You YN
+AU: Nguyen S
+AU: Chang GJ
+TI: Optimizing clinical and economic outcomes of surgical therapy for patients with colorectal cancer and synchronous liver metastases (Provisional abstract)
+SO: Journal of the American College of Surgeons
+YR: 2012
+VL: 215
+NO: 2
+PG: 262-270
+KY: Cohort Studies;Colectomy [economics] [methods];Colorectal Neoplasms [economics] [mortality] [pathology] [surgery];Cost-Benefit Analysis;Decision Support Techniques;Decision Trees;Follow-Up Studies;Hepatectomy [economics] [methods];Hospital Costs;Length of Stay [economics] [statistics & numerical data];Liver Neoplasms [economics] [mortality] [secondary] [surgery];Medicare;Multivariate Analysis;numerical data;Postoperative Complications [economics] [epidemiology];Reimbursement Mechanisms;Retrospective Studies;Survival Analysis;Texas;Treatment Outcome;United States;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012029691/frame.html
+
+
+Record #11 of 138
+ID: NHSEED-22012012136
+AU: Woods ER
+AU: Bhaumik U
+AU: Sommer SJ
+AU: Ziniel SI
+AU: Kessler AJ
+AU: Chan E
+AU: Wilkinson RB
+AU: Sesma MN
+AU: Burack AB
+AU: Klements EM
+AU: Queenin LM
+AU: Dickerson DU
+AU: Nethersole S
+TI: Community Asthma Initiative: evaluation of a quality improvement program for comprehensive asthma care (Provisional abstract)
+SO: Pediatrics
+YR: 2012
+VL: 129
+NO: 3
+PG: 465-472
+KY: administration;Asthma [diagnosis] [economics] [therapy];Community Health Services [organization & administration];Comprehensive Health Care [organization & administration];Cost-Benefit Analysis;Cost Savings;Emergency Service, Hospital [economics] [utilization];Hospitalization [economics] [statistics & numerical data];Logistic Models;Multivariate Analysis;numerical data;Program Development;Program Evaluation;Quality Improvement;Risk Assessment;Severity of Illness Index;Socioeconomic Factors;United States;Urban Population;Child[checkword];Child, Preschool[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012012136/frame.html
+
+
+Record #12 of 138
+ID: NHSEED-22012012108
+AU: Morimae H
+AU: Maekawa T
+AU: Tamai H
+AU: Takahashi N
+AU: Ihara T
+AU: Hori A
+AU: Narita H
+AU: Banno H
+AU: Kobayashi M
+AU: Yamamoto K
+AU: Komori K
+TI: Cost disparity between open repair and endovascular aneurysm repair for abdominal aortic aneurysm: a single-institute experience in Japan (Provisional abstract)
+SO: Surgery Today
+YR: 2012
+VL: 42
+NO: 2
+PG: 121-126
+KY: Aortic Aneurysm, Abdominal [economics] [surgery];Blood Vessel Prosthesis Implantation [economics] [methods];Cost-Benefit Analysis;Endovascular Procedures [economics] [methods];Follow-Up Studies;Hospital Costs [statistics & numerical data];Laparotomy [economics] [methods];Length of Stay [economics];numerical data;Retrospective Studies;Treatment Outcome;Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012012108/frame.html
+
+
+Record #13 of 138
+ID: NHSEED-22012008288
+AU: Adogwa O
+AU: Parker SL
+AU: Shau DN
+AU: Mendenhall SK
+AU: Aaronson O
+AU: Cheng JS
+AU: Devin CJ
+AU: Mcgirt MJ
+TI: Cost per quality-adjusted life year gained of revision neural decompression and instrumented fusion for same-level recurrent lumbar stenosis: defining the value of surgical intervention (Provisional abstract)
+SO: Journal of Neurosurgery Spine
+YR: 2012
+VL: 16
+NO: 2
+PG: 135-140
+KY: Ambulatory Care [economics] [utilization];Cost-Benefit Analysis;Decompression, Surgical [economics] [statistics & numerical data];Health Expenditures [statistics & numerical data];Hospital Costs [statistics & numerical data];Lumbar Vertebrae [surgery];numerical data;Quality-Adjusted Life Years;Recurrence;Reoperation [economics] [statistics & numerical data];Spinal Fusion [economics] [statistics & numerical data];Spinal Stenosis [economics] [surgery];Adolescent[checkword];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012008288/frame.html
+
+
+Record #14 of 138
+ID: NHSEED-22012037979
+AU: Donaldson EA
+AU: Holtgrave DR
+AU: Duffin RA
+AU: Feltner F
+AU: Funderburk W
+AU: Freeman HP
+TI: Patient navigation for breast and colorectal cancer in 3 community hospital settings: an economic evaluation (Structured abstract)
+SO: Cancer
+YR: 2012
+VL: 118
+NO: 19
+PG: 4851-4859
+KY: Biopsy [economics];Breast Neoplasms [economics] [epidemiology];Colonoscopy [economics];Colorectal Neoplasms [economics] [epidemiology];Cost-Benefit Analysis;Data Interpretation, Statistical;Decision Support Techniques;Health Care Costs [statistics & numerical data];Healthcare Disparities;Hospitals, Community [economics] [statistics & numerical data];Mammography [economics];Mass Screening [economics] [methods];Medically Underserved Area;Poverty [economics];United States [epidemiology];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012037979/frame.html
+
+
+Record #15 of 138
+ID: NHSEED-22012009226
+AU: Howington JA
+AU: Gunnarsson CL
+AU: Maddaus MA
+AU: McKenna RJ
+AU: Meyers BF
+AU: Miller D
+AU: Moore M
+AU: Rizzo JA
+AU: Swanson S
+TI: In-hospital clinical and economic consequences of pulmonary wedge resections for cancer using video-assisted thoracoscopic techniques vs traditional open resections: a retrospective database analysis (Structured abstract)
+SO: Chest
+YR: 2012
+VL: 141
+NO: 2
+PG: 429-435
+KY: Chi-Square Distribution;Databases, Factual;Least-Squares Analysis;Length of Stay [statistics & numerical data];Logistic Models;Lung Neoplasms [economics] [surgery];numerical data;Pneumonectomy [methods];Retrospective Studies;Thoracic Surgery, Video-Assisted;Thoracotomy [methods];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012009226/frame.html
+
+
+Record #16 of 138
+ID: NHSEED-22012003601
+AU: Desborough JA
+AU: Sach T
+AU: Bhattacharya D
+AU: Holland RC
+AU: Wright DJ
+TI: A cost-consequences analysis of an adherence focused pharmacist-led medication review service (Structured abstract)
+SO: International Journal of Pharmacy Practice
+YR: 2012
+VL: 20
+NO: 1
+PG: 41-49
+KY: administration;Cost-Benefit Analysis;Cost Savings;dosage [economics];Drug Costs;Emergency Service, Hospital [economics] [statistics & numerical data];Follow-Up Studies;Hospitalization [economics] [statistics & numerical data];Medication Adherence;numerical data;Pharmaceutical Services [economics] [organization & administration];Pharmacists [economics] [organization & administration];Prescription Drugs [administration & dosage];Primary Health Care [economics] [methods];Professional Role;Quality of Life;Surveys and Questionnaires;Aged[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012003601/frame.html
+
+
+Record #17 of 138
+ID: NHSEED-22012020113
+AU: Broughton EI
+AU: Gomez I
+AU: Nunez O
+AU: Wong Y
+TI: Cost-effectiveness of improving pediatric hospital care in Nicaragua (Provisional abstract)
+SO: Pan American Journal of Public Health
+YR: 2011
+VL: 30
+NO: 5
+PG: 453-460
+KY: administration;Anti-Bacterial Agents [therapeutic use];Cost-Benefit Analysis;Cost Savings;Decision Trees;Diarrhea [mortality] [therapy];Diarrhea, Infantile [mortality] [therapy];Drug Costs;Hospital Costs [statistics & numerical data];Hospitalization [economics];Hospital Mortality;Hospitals, Pediatric [economics] [organization & administration];Length of Stay [statistics & numerical data];Nicaragua [epidemiology];numerical data;Pneumonia [drug therapy] [mortality] [therapy];Program Evaluation;Quality Improvement [economics];Retrospective Studies;Adolescent[checkword];Child[checkword];Child, Preschool[checkword];Humans[checkword];Infant[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012020113/frame.html
+
+
+Record #18 of 138
+ID: NHSEED-22011001823
+AU: McGuire KJ
+AU: Chacko AT
+AU: Bernstein J
+TI: Cost-effectiveness of teaching hospitals for the operative management of hip fractures (Provisional abstract)
+SO: Orthopedics
+YR: 2011
+VL: 34
+NO: 10
+PG: e598-e601
+KY: Cost-Benefit Analysis;Health Care Costs [statistics & numerical data];Hip Fractures [economics] [mortality] [surgery];Hospitals, Teaching [economics];Medicare;numerical data;Quality-Adjusted Life Years;Survival Rate;Treatment Outcome;United States [epidemiology];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001823/frame.html
+
+
+Record #19 of 138
+ID: NHSEED-22011000354
+AU: Rubino AS
+AU: Serraino GF
+AU: Mariscalco G
+AU: Marsico R
+AU: Sala A
+AU: Renzulli A
+TI: Leukocyte depletion during extracorporeal circulation allows better organ protection but does not change hospital outcomes (Provisional abstract)
+SO: Annals of Thoracic Surgery
+YR: 2011
+VL: 91
+NO: 2
+PG: 534-540
+KY: Amidohydrolases [blood];Atrial Fibrillation [epidemiology];Comorbidity;Coronary Artery Bypass [methods];Cost-Benefit Analysis;dosage;Extracorporeal Circulation [methods];Furosemide [administration & dosage];Glomerular Filtration Rate;Heart Function Tests;Hospital Mortality;Hypertension [epidemiology];Incidence;Infusions, Intravenous;Intraoperative Complications [epidemiology];Italy;Kidney Function Tests;Length of Stay [statistics & numerical data];Leukocyte Reduction Procedures [economics] [utilization];numerical data;Postoperative Complications [epidemiology];Respiratory Function Tests;Treatment Outcome;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000354/frame.html
+
+
+Record #20 of 138
+ID: NHSEED-22011001305
+AU: Srichang N
+AU: Jiamjarasrangsi W
+AU: Aekplakorn W
+AU: Supakankunti S
+TI: Cost and effectiveness of screening methods for abnormal fasting plasma glucose among Thai adults participating in the annual health check-up at King Chulalongkorn Memorial Hospital (Provisional abstract)
+SO: Journal of the Medical Association of Thailand
+YR: 2011
+VL: 94
+NO: 7
+PG: 833-841
+KY: Asian Continental Ancestry Group [statistics & numerical data];Blood Glucose [analysis];Cost-Benefit Analysis;Diabetes Mellitus, Type 2 [diagnosis] [economics] [epidemiology];Glucose Tolerance Test;Hospitals, University;Hypertension [complications] [epidemiology];Mass Screening [economics] [methods];numerical data;Prevalence;Surveys and Questionnaires;Sensitivity and Specificity;Thailand [epidemiology];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001305/frame.html
+
+
+Record #21 of 138
+ID: NHSEED-22011001378
+AU: Patel DA
+AU: Gao X
+AU: Stephens JM
+AU: Forshag MS
+AU: Tarallo M
+TI: US hospital database analysis of invasive aspergillosis in the chronic obstructive pulmonary disease non-traditional host (Provisional abstract)
+SO: Journal of Medical Economics
+YR: 2011
+VL: 14
+NO: 2
+PG: 227-237
+KY: Antifungal Agents [economics] [therapeutic use];Case-Control Studies;Databases, Factual [statistics & numerical data];Health Status Indicators;Hospitalization [statistics & numerical data];Invasive Pulmonary Aspergillosis [economics] [epidemiology] [etiology];Length of Stay [statistics & numerical data];Multivariate Analysis;numerical data;Pulmonary Disease, Chronic Obstructive [complications] [economics] [epidemiology];Retrospective Studies;United States [epidemiology];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001378/frame.html
+
+
+Record #22 of 138
+ID: NHSEED-22011000722
+AU: Votto JJ
+AU: Scalise PJ
+AU: Barton RW
+AU: Vogel CA
+TI: An analysis of clinical outcomes and costs of a long term acute care hospital (Provisional abstract)
+SO: Journal of Medical Economics
+YR: 2011
+VL: 14
+NO: 2
+PG: 141-146
+KY: Acute Disease;Case-Control Studies;Connecticut;Cost-Benefit Analysis;Health Care Costs [statistics & numerical data];Length of Stay;Long-Term Care [economics];Mortality [trends];numerical data;Quality of Health Care;Retrospective Studies;Skilled Nursing Facilities [economics] [statistics & numerical data];Time Factors;Treatment Outcome;United States;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000722/frame.html
+
+
+Record #23 of 138
+ID: NHSEED-22011001985
+AU: McGrath B
+AU: Buckius MT
+AU: Grim R
+AU: Bell T
+AU: Ahuja V
+TI: Economics of appendicitis: cost trend analysis of laparoscopic versus open appendectomy from 1998 to 2008 (Provisional abstract)
+SO: Journal of Surgical Research
+YR: 2011
+VL: 171
+NO: 2
+PG: e161-e168
+KY: Appendicitis [economics] [epidemiology] [surgery];Cost-Benefit Analysis [economics] [statistics & numerical data];Costs and Cost Analysis [economics] [statistics & numerical data];Hospital Costs [statistics & numerical data];Laparoscopy [economics] [utilization];Length of Stay [economics] [statistics & numerical data];numerical data;Postoperative Complications [economics] [epidemiology];Prevalence;United States [epidemiology];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001985/frame.html
+
+
+Record #24 of 138
+ID: NHSEED-22012021918
+AU: Babigumira JB
+AU: Stergachis A
+AU: Veenstra DL
+AU: Gardner JS
+AU: Ngonzi J
+AU: Mukasa-Kivunike P
+AU: Garrison LP
+TI: Estimating the costs of induced abortion in Uganda: a model-based analysis (Provisional abstract)
+SO: BMC Public Health
+YR: 2011
+VL: 11:904
+NO: 2
+KY: Abortion, Induced [economics];Costs and Cost Analysis [methods];Health Expenditures [statistics & numerical data];Hospital Costs [statistics & numerical data];Medical Audit [economics];Monte Carlo Method;numerical data;Prospective Studies;Uganda;Female[checkword];Humans[checkword];Pregnancy[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012021918/frame.html
+
+
+Record #25 of 138
+ID: NHSEED-22011001782
+AU: Lubowitz JH
+AU: Appleby D
+TI: Cost-effectiveness analysis of the most common orthopaedic surgery procedures: knee arthroscopy and knee anterior cruciate ligament reconstruction (Provisional abstract)
+SO: Arthroscopy
+YR: 2011
+VL: 27
+NO: 10
+PG: 1317-1322
+KY: Ambulatory Surgical Procedures [economics] [statistics & numerical data];Anterior Cruciate Ligament Reconstruction [economics] [statistics & numerical data];Arthroscopy [economics] [statistics & numerical data];Cohort Studies;Cost-Benefit Analysis;Fees and Charges [statistics & numerical data];Hospital Costs [statistics & numerical data];Knee Injuries [economics] [surgery];Menisci, Tibial [injuries] [surgery];New Mexico;numerical data;Quality-Adjusted Life Years;Retrospective Studies;Adolescent[checkword];Adult[checkword];Aged[checkword];Child[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001782/frame.html
+
+
+Record #26 of 138
+ID: NHSEED-22011001471
+AU: Joo EH
+AU: Rha SY
+AU: Ahn JB
+AU: Kang HY
+TI: Economic and patient-reported outcomes of outpatient home-based versus inpatient hospital-based chemotherapy for patients with colorectal cancer (Provisional abstract)
+SO: Supportive Care in Cancer
+YR: 2011
+VL: 19
+NO: 7
+PG: 971-978
+KY: Antineoplastic Agents [economics] [therapeutic use];Antineoplastic Combined Chemotherapy Protocols [economics] [therapeutic use];Colorectal Neoplasms [drug therapy] [economics];Cost-Benefit Analysis;Fluorouracil [economics] [therapeutic use];Focus Groups;Health Surveys;Home Care Services [economics] [statistics & numerical data];Inpatients [statistics & numerical data];Leucovorin [economics] [therapeutic use];Multivariate Analysis;numerical data;Organoplatinum Compounds [economics] [therapeutic use];Outpatients [statistics & numerical data];Patient Satisfaction [statistics & numerical data];Surveys and Questionnaires;Regression Analysis;Republic of Korea;Self Report [economics];Statistics as Topic;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001471/frame.html
+
+
+Record #27 of 138
+ID: NHSEED-22011001457
+AU: Frei CR
+AU: Bell AM
+AU: Traugott KA
+AU: Jaso TC
+AU: Daniels KR
+AU: Mortensen EM
+AU: Restrepo MI
+AU: Oramasionwu CU
+AU: Ruiz AD
+AU: Mylchreest WR
+AU: Sikirica V
+AU: Raut MR
+AU: Fisher A
+AU: Schein JR
+TI: A clinical pathway for community-acquired pneumonia: an observational cohort study (Provisional abstract)
+SO: BMC Infectious Diseases
+YR: 2011
+VL: 11:188
+NO: 2
+KY: Anti-Bacterial Agents [administration & dosage];Cohort Studies;Community-Acquired Infections [drug therapy] [economics] [epidemiology];dosage [economics] [therapeutic use];Hospital Costs;Least-Squares Analysis;Length of Stay [statistics & numerical data];Multivariate Analysis;numerical data;Pneumonia, Bacterial [drug therapy] [economics] [epidemiology];Regression Analysis;Risk Factors;Texas [epidemiology];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001457/frame.html
+
+
+Record #28 of 138
+ID: NHSEED-22011001745
+AU: Hinami K
+AU: Feinglass J
+AU: Ferranti DE
+AU: Williams MV
+TI: Potential role of comanagement in "rescue" of surgical patients (Provisional abstract)
+SO: American Journal of Managed Care
+YR: 2011
+VL: 17
+NO: 9
+PG: e333-e339
+KY: Confidence Intervals;General Surgery;Health Care Surveys;Health Status Indicators;Hospitalization [statistics & numerical data];Hospitals, Teaching;Length of Stay [statistics & numerical data];Multivariate Analysis;numerical data;Odds Ratio;Postoperative Complications [drug therapy];Quality Improvement;Retrospective Studies;Surgery Department, Hospital [statistics & numerical data];Treatment Outcome;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001745/frame.html
+
+
+Record #29 of 138
+ID: NHSEED-22011001821
+AU: David D
+AU: Samuel P
+AU: David T
+AU: Keshava SN
+AU: Irodi A
+AU: Peter JV
+TI: An open-labelled randomized controlled trial comparing costs and clinical outcomes of open endotracheal suctioning with closed endotracheal suctioning in mechanically ventilated medical intensive care patients (Provisional abstract)
+SO: Journal of Critical Care
+YR: 2011
+VL: 26
+NO: 5
+PG: 482-488
+KY: Costs and Cost Analysis;Follow-Up Studies;Hospital Mortality;Hospitals, Teaching [economics] [statistics & numerical data];India [epidemiology];Critical Care [economics] [methods];Intensive Care Units [statistics & numerical data];Intubation, Intratracheal [adverse effects] [instrumentation];Length of Stay [statistics & numerical data];numerical data;Pneumonia, Ventilator-Associated [etiology];Prospective Studies;Respiration, Artificial [adverse effects] [economics] [methods];Risk Factors;Suction [economics] [methods];Treatment Outcome;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001821/frame.html
+
+
+Record #30 of 138
+ID: NHSEED-22012012669
+AU: Boese CK
+AU: Gallo TJ
+AU: Weis M
+AU: Baker R
+AU: Plantikow CJ
+AU: Cooley B
+TI: Efficacy and cost-effectiveness of a blood salvage system in primary total knee arthroplasty: a retrospective match-controlled chart review (Provisional abstract)
+SO: Iowa Orthopaedic Journal
+YR: 2011
+VL: 31
+NO: 2
+PG: 78-82
+KY: Arthroplasty, Replacement, Knee [economics] [methods] [standards];Blood Loss, Surgical [prevention & control];Blood Transfusion [economics] [statistics & numerical data];control [statistics & numerical data];Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Matched-Pair Analysis;Medical Audit;numerical data;Operative Blood Salvage [economics] [standards] [statistics & numerical data];Retrospective Studies;Risk Factors;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012012669/frame.html
+
+
+Record #31 of 138
+ID: NHSEED-22011000929
+AU: Refai M
+AU: Brunelli A
+AU: Salati M
+AU: Pompili C
+AU: Xiume F
+AU: Sabbatini A
+TI: Efficacy of anterior fissureless technique for right upper lobectomies: a case-matched analysis (Provisional abstract)
+SO: European Journal of Cardio-Thoracic Surgery
+YR: 2011
+VL: 39
+NO: 6
+PG: 1043-1046
+KY: Carcinoma, Non-Small-Cell Lung [economics] [surgery];Hospital Costs [statistics & numerical data];Intraoperative Period;Lung Neoplasms [economics] [surgery];numerical data;Pleural Effusion [etiology];Pneumonectomy [adverse effects] [economics] [methods];Pneumothorax [etiology];Pulmonary Artery [surgery];Respiratory Mechanics;Retrospective Studies;Treatment Outcome;Aged[checkword];Humans[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000929/frame.html
+
+
+Record #32 of 138
+ID: NHSEED-22011001603
+AU: Schneider EB
+AU: Haider AH
+AU: Lidor AO
+AU: Efron JE
+AU: Villegas CV
+AU: Stevens KA
+AU: Hirani SA
+AU: Haut ER
+AU: Efron DT
+TI: Global surgical package reimbursement and the acute care surgeon: a threat to optimal care (Provisional abstract)
+SO: Journal of Trauma
+YR: 2011
+VL: 70
+NO: 3
+PG: 583-589
+KY: Age Factors;Colectomy [economics] [methods] [mortality];Comorbidity;Emergency Treatment [economics] [statistics & numerical data];Fees and Charges [statistics & numerical data];Hospital Mortality;Insurance, Health [statistics & numerical data];Length of Stay [statistics & numerical data];numerical data;Regression Analysis;Sex Factors;Statistics, Nonparametric;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001603/frame.html
+
+
+Record #33 of 138
+ID: NHSEED-22011001164
+AU: Shashinder S
+AU: Morton RP
+AU: Ahmad Z
+TI: Outcome and relative cost of transoral removal of submandibular calculi (Provisional abstract)
+SO: Journal of Laryngology and Otology
+YR: 2011
+VL: 125
+NO: 4
+PG: 386-389
+KY: Ambulatory Surgical Procedures [economics] [methods];Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Intraoperative Period;Length of Stay;New Zealand;numerical data;Otorhinolaryngologic Surgical Procedures [economics];Retrospective Studies;Salivary Gland Calculi [economics] [pathology] [surgery];Submandibular Gland Diseases [economics] [pathology] [surgery];Treatment Outcome;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001164/frame.html
+
+
+Record #34 of 138
+ID: NHSEED-22011001987
+AU: El-Sayed MM
+AU: Mohamed SA
+AU: Jones MH
+TI: Cost-effectiveness of ultrasound use by on-call registrars in an acute gynaecology setting (Structured abstract)
+SO: Journal of Obstetrics and Gynaecology
+YR: 2011
+VL: 31
+NO: 8
+PG: 743-745
+KY: Acute Disease;Cost-Benefit Analysis;Genital Diseases, Female [economics] [ultrasonography];Gynecology [economics];Hospital Costs [statistics & numerical data];Night Care [economics];numerical data;Patient Admission [economics];Prospective Studies;Ultrasonography [economics];Adult[checkword];Female[checkword];Humans[checkword];Pregnancy[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001987/frame.html
+
+
+Record #35 of 138
+ID: NHSEED-22011001139
+AU: Masa JF
+AU: Corral J
+AU: Pereira R
+AU: Duran-Cantolla J
+AU: Cabello M
+AU: Hernandez-Blasco L
+AU: Monasterio C
+AU: Alonso A
+AU: Chiner E
+AU: Rubio M
+AU: Garcia-Ledesma E
+AU: Cacelo L
+AU: Carpizo R
+AU: Sacristan L
+AU: Salord N
+AU: Carrera M
+AU: Sancho-Chust JN
+AU: Embid C
+AU: Vazquez-Polo F-J
+AU: Negrin MA
+AU: Montserrat JM
+TI: Effectiveness of home respiratory polygraphy for the diagnosis of sleep apnoea and hypopnoea syndrome (Provisional abstract)
+SO: Thorax
+YR: 2011
+VL: 66
+NO: 7
+PG: 567-573
+KY: Cost-Benefit Analysis;Epidemiologic Methods;Health Care Costs [statistics & numerical data];Home Care Services, Hospital-Based [economics];numerical data;Polysomnography [economics] [methods];Sleep Apnea Syndromes [diagnosis] [economics];Telemetry [economics] [methods];Transportation [economics] [methods];Adolescent[checkword];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001139/frame.html
+
+
+Record #36 of 138
+ID: NHSEED-22011001005
+AU: Franzini L
+AU: Sail KR
+AU: Thomas EJ
+AU: Wueste L
+TI: Costs and cost-effectiveness of a telemedicine intensive care unit program in 6 intensive care units in a large health care system (Provisional abstract)
+SO: Journal of Critical Care
+YR: 2011
+VL: 26
+NO: 3
+PG: 329.e1-329.e6
+KY: Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Intensive Care Units [economics];numerical data;Program Evaluation;Severity of Illness Index;Telemedicine [economics];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011001005/frame.html
+
+
+Record #37 of 138
+ID: NHSEED-22012000167
+AU: Adams JM
+AU: Bilaniuk JW
+AU: Difazio LT
+AU: Siegel BK
+AU: Durling-Grover R
+AU: McCarthy D
+AU: Grob P
+AU: Bobbin MD
+AU: Skerker RS
+AU: Nemeth ZH
+TI: Standard computed tomography of the chest, abdomen, and pelvis is sensitive and cost-effective for the detection of fractures of the shoulder girdle (Provisional abstract)
+SO: American Surgeon
+YR: 2011
+VL: 77
+NO: 9
+PG: 1183-1187
+KY: Cost-Benefit Analysis;Diagnosis, Differential;Follow-Up Studies;Hospital Charges [statistics & numerical data];New Jersey;numerical data;Pelvis [radiography];Radiography, Abdominal [economics] [methods];Radiography, Thoracic [economics] [methods];Retrospective Studies;Sensitivity and Specificity;Shoulder Fractures [radiography];Tomography, X-Ray Computed [economics];Trauma Severity Indices;Wounds, Nonpenetrating [radiography];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22012000167/frame.html
+
+
+Record #38 of 138
+ID: NHSEED-22011002004
+AU: Piednoir E
+AU: Thibon P
+AU: Borderan GC
+AU: Godde F
+AU: Borgey F
+AU: Coutour X
+AU: Parienti JJ
+TI: Long-term clinical and economic benefits associated with the management of a nosocomial outbreak resulting from extended-spectrum beta-lactamase-producing Klebsiella pneumoniae (Provisional abstract)
+SO: Critical Care Medicine
+YR: 2011
+VL: 39
+NO: 12
+PG: 2672-2677
+KY: Anti-Bacterial Agents [therapeutic use];beta-Lactam Resistance;control;Cost-Benefit Analysis;Cross Infection [drug therapy] [economics] [prevention & control];Disease Outbreaks [economics] [prevention & control];Hospital Costs;Intensive Care Units [economics] [statistics & numerical data];Klebsiella Infections [drug therapy] [economics] [prevention & control];Klebsiella pneumoniae [drug effects];numerical data;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011002004/frame.html
+
+
+Record #39 of 138
+ID: NHSEED-22011000826
+AU: Cho S
+AU: Do YW
+AU: Lee EB
+TI: Comparison of costs for video-assisted thoracic surgery lobectomy and open lobectomy for non-small cell lung cancer (Provisional abstract)
+SO: Surgical Endoscopy and Other Interventional Techniques
+YR: 2011
+VL: 25
+NO: 4
+PG: 1054-1061
+KY: Analgesia, Patient-Controlled [economics];Anesthesia, General [economics];Carcinoma, Non-Small-Cell Lung [economics] [surgery];Cost-Benefit Analysis;Health Expenditures [statistics & numerical data];Hospital Costs [statistics & numerical data];Learning Curve;Lung Neoplasms [economics] [surgery];National Health Programs [economics];numerical data;Pneumonectomy [economics] [education] [methods];Postoperative Complications [economics] [epidemiology];Practice (Psychology);Preoperative Care [economics];Republic of Korea [epidemiology];Retrospective Studies;Thoracic Surgery, Video-Assisted [economics] [education];Thoracotomy [economics] [education] [methods];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000826/frame.html
+
+
+Record #40 of 138
+ID: NHSEED-22011000942
+AU: Fitzgerald P
+AU: Goodacre SW
+AU: Cross E
+AU: Dixon S
+TI: Cost-effectiveness of point-of-care biomarker assessment for suspected myocardial infarction: the Randomized Assessment of Treatment using Panel Assay of Cardiac markers (RATPAC) trial (Structured abstract)
+SO: Academic Emergency Medicine
+YR: 2011
+VL: 18
+NO: 5
+PG: 488-495
+KY: Biomarkers [blood];Chest Pain [blood] [economics] [etiology];Cost-Benefit Analysis;Creatine Kinase, MB Form [blood];Emergency Service, Hospital [economics];England;Health Expenditures;Length of Stay [economics] [statistics & numerical data];Myocardial Infarction [blood] [complications] [economics];Myoglobin [blood];numerical data;Point-of-Care Systems [economics];Quality-Adjusted Life Years;Surveys and Questionnaires;Troponin [blood];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000942/frame.html
+
+
+Record #41 of 138
+ID: NHSEED-22010001445
+AU: Lissovoy GD
+AU: Fraeman K
+AU: Teerlink JR
+AU: Mullahy J
+AU: Salon J
+AU: Sterz R
+AU: Durtschi A
+AU: Padley RJ
+TI: Hospital costs for treatment of acute heart failure: economic analysis of the REVIVE II study (Provisional abstract)
+SO: European Journal of Health Economics
+YR: 2010
+VL: 11
+NO: 2
+PG: 185-193
+KY: Australia [epidemiology];Cardiotonic Agents [economics] [therapeutic use];Cost-Benefit Analysis;Heart Failure [drug therapy] [economics] [mortality];Hospital Costs [statistics & numerical data];Hydrazones [economics] [therapeutic use];Israel [epidemiology];Length of Stay [economics] [statistics & numerical data];numerical data;Pyridazines [economics] [therapeutic use];Randomized Controlled Trials as Topic;Survival Analysis;Treatment Outcome;United States [epidemiology];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001445/frame.html
+
+
+Record #42 of 138
+ID: NHSEED-22010001745
+AU: Lissovoy G
+AU: Fraeman K
+AU: Teerlink JR
+AU: Mullahy J
+AU: Salon J
+AU: Sterz R
+AU: Durtschi A
+AU: Padley RJ
+TI: Hospital costs for treatment of acute heart failure: economic analysis of the REVIVE II study (Provisional abstract)
+SO: European Journal of Health Economics
+YR: 2010
+VL: 11
+NO: 2
+PG: 185-93
+KY: Australia [epidemiology];Cardiotonic Agents [economics] [therapeutic use];Cost-Benefit Analysis;Heart Failure [drug therapy] [economics] [mortality];Hospital Costs [statistics & numerical data];Hydrazones [economics] [therapeutic use];Israel [epidemiology];Length of Stay [economics] [statistics & numerical data];numerical data;Pyridazines [economics] [therapeutic use];Randomized Controlled Trials as Topic;Survival Analysis;Treatment Outcome;United States [epidemiology];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001745/frame.html
+
+
+Record #43 of 138
+ID: NHSEED-22010001571
+AU: Datta SK
+AU: Oddone EZ
+AU: Olsen MK
+AU: Orr M
+AU: McCant F
+AU: Gentry P
+AU: Bosworth HB
+TI: Economic analysis of a tailored behavioral intervention to improve blood pressure control for primary care patients (Provisional abstract)
+SO: American Heart Journal
+YR: 2010
+VL: 160
+NO: 2
+PG: 257-263
+KY: Behavior Therapy [economics];control;Cost-Benefit Analysis;Cost Savings;Decision Support Techniques;Health Care Costs [statistics & numerical data];Health Services [utilization];Hospitalization [economics];Hospitals, Veterans [economics];Hypertension [economics] [prevention & control];North Carolina;numerical data;Nursing Staff, Hospital [economics];Primary Health Care [economics];Telemedicine [economics] [methods];Telephone;Veterans;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001571/frame.html
+
+
+Record #44 of 138
+ID: NHSEED-22010001882
+AU: Stallworth JR
+AU: Jerrell JM
+AU: Tripathi A
+TI: Cost-effectiveness of hydroxyurea in reducing the frequency of pain episodes and hospitalization in pediatric sickle cell disease (Provisional abstract)
+SO: American Journal of Hematology
+YR: 2010
+VL: 85
+NO: 10
+PG: 795-797
+KY: Acute Chest Syndrome [economics] [epidemiology] [etiology] [prevention & control];Anemia, Sickle Cell [complications] [drug therapy] [economics] [epidemiology];Cohort Studies;control;Cost-Benefit Analysis;Costs and Cost Analysis;Emergency Service, Hospital [economics] [statistics & numerical data];Hospital Costs;Hospitalization [economics] [statistics & numerical data];Hydroxyurea [economics] [therapeutic use];Medicaid [statistics & numerical data];numerical data;Outpatient Clinics, Hospital [economics] [statistics & numerical data];Pain [economics] [epidemiology] [etiology] [prevention & control];Poverty;South Carolina [epidemiology];United States;Adolescent[checkword];Child[checkword];Child, Preschool[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001882/frame.html
+
+
+Record #45 of 138
+ID: NHSEED-22010001153
+AU: Atreja A
+AU: Fu AZ
+AU: Sanaka MR
+AU: Vargo JJ
+TI: Non-invasive testing for Helicobacter pylori in patients hospitalized with peptic ulcer hemorrhage: a cost-effectiveness analysis (Provisional abstract)
+SO: Digestive Diseases and Sciences
+YR: 2010
+VL: 55
+NO: 5
+PG: 1356-1363
+KY: Breath Tests;Carbon Isotopes [diagnostic use];Cost-Benefit Analysis;Decision Trees;Gastroscopy [economics];Helicobacter Infections [diagnosis] [drug therapy] [economics];Helicobacter pylori;Hospital Costs;Monte Carlo Method;numerical data;Patient Admission [statistics & numerical data];Peptic Ulcer Hemorrhage [drug therapy] [economics] [microbiology];Proton Pump Inhibitors [economics] [therapeutic use];Sensitivity and Specificity;Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001153/frame.html
+
+
+Record #46 of 138
+ID: NHSEED-22010002079
+AU: Jackson D
+AU: Earnshaw SR
+AU: Farkouh R
+AU: Schwamm L
+TI: Cost-effectiveness of CT perfusion for selecting patients for intravenous thrombolysis: a US hospital perspective (Provisional abstract)
+SO: American Journal of Neuroradiology
+YR: 2010
+VL: 31
+NO: 9
+PG: 1669-1674
+KY: Cost-Benefit Analysis [statistics & numerical data];Fibrinolytic Agents [economics] [therapeutic use];Health Care Costs [statistics & numerical data];Hospitalization [economics];Incidence;numerical data;Patient Selection;Stroke [economics] [mortality] [therapy];Survival Analysis;Survival Rate;Thrombolytic Therapy [economics];Tomography, X-Ray Computed [economics];United States [epidemiology];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010002079/frame.html
+
+
+Record #47 of 138
+ID: NHSEED-22010001365
+AU: Sanguantrakul U
+AU: Jiamjarasrangsi W
+AU: Vimolket T
+TI: Efficiency and cost-effectiveness of dyslipidemia screening methods among workers in Bangkok (Provisional abstract)
+SO: Southeast Asian Journal of Tropical Medicine and Public Health
+YR: 2010
+VL: 41
+NO: 1
+PG: 215-223
+KY: Body Mass Index;Cost-Benefit Analysis;Cross-Sectional Studies;Dyslipidemias [blood] [diagnosis] [economics];Health Behavior;Health Status;Hospitals, University [statistics & numerical data];Lipids [blood];Mass Screening [economics] [methods];numerical data;Personnel, Hospital [statistics & numerical data];Sensitivity and Specificity;Thailand [epidemiology];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001365/frame.html
+
+
+Record #48 of 138
+ID: NHSEED-22010001051
+AU: Hu S
+AU: Zheng Z
+AU: Yuan X
+AU: Wang W
+AU: Song Y
+AU: Sun H
+AU: Xu J
+TI: Increasing long-term major vascular events and resource consumption in patients receiving off-pump coronary artery bypass: a single-center prospective observational study (Provisional abstract)
+SO: Circulation
+YR: 2010
+VL: 121
+NO: 16
+PG: 1800-1808
+KY: Atrial Fibrillation [mortality];Blood Transfusion [statistics & numerical data];Coronary Artery Bypass, Off-Pump [economics] [statistics & numerical data];Coronary Artery Disease [economics] [mortality] [surgery];Cost-Benefit Analysis;Follow-Up Studies;Health Expenditures [statistics & numerical data];Health Services [economics] [statistics & numerical data];Hospital Costs [statistics & numerical data];Hospital Mortality;numerical data;Postoperative Complications [mortality];Prospective Studies;Respiration, Artificial [statistics & numerical data];Retrospective Studies;Risk Factors;Stroke [mortality];Survival Rate;Treatment Outcome;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001051/frame.html
+
+
+Record #49 of 138
+ID: NHSEED-22011000508
+AU: Cicvaric T
+AU: Bencevic-Striehl H
+AU: Juretic I
+AU: Marinovic M
+AU: Grzalja N
+AU: Ostric M
+TI: Hip fractures in elderly: ten years analysis (Provisional abstract)
+SO: Collegium Antropologicum
+YR: 2010
+VL: 34
+NO: Supplement 2
+PG: 199-204
+KY: Arthroplasty, Replacement, Hip [economics] [mortality];Croatia [epidemiology];Femoral Neck Fractures [economics] [mortality] [surgery];Hip Fractures [economics] [mortality] [surgery];Hospital Costs;Incidence;Length of Stay [economics] [statistics & numerical data];numerical data;Outcome Assessment (Health Care);Reoperation [economics] [mortality];Retrospective Studies;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000508/frame.html
+
+
+Record #50 of 138
+ID: NHSEED-22010001391
+AU: MacKenzie EJ
+AU: Weir S
+AU: Rivara FP
+AU: Jurkovich GJ
+AU: Nathens AB
+AU: Wang W
+AU: Scharfstein DO
+AU: Salkever DS
+TI: The value of trauma center care (Provisional abstract)
+SO: Journal of Trauma
+YR: 2010
+VL: 69
+NO: 1
+PG: 1-10
+KY: Cost-Benefit Analysis;Emergency Service, Hospital [economics];Health Care Costs [statistics & numerical data];Medicaid [economics];Medicare [economics];numerical data;Quality-Adjusted Life Years;Trauma Centers [economics];United States;Wounds and Injuries [economics];Adolescent[checkword];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Humans[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001391/frame.html
+
+
+Record #51 of 138
+ID: NHSEED-22010000702
+AU: Bakhshai J
+AU: Bleu-Laine R
+AU: Jung M
+AU: Lim J
+AU: Reyes C
+AU: Sun L
+AU: Rochester C
+AU: Shaya FT
+TI: The cost effectiveness and budget impact of natalizumab for formulary inclusion (Provisional abstract)
+SO: Journal of Medical Economics
+YR: 2010
+VL: 13
+NO: 1
+PG: 63-69
+KY: Antibodies, Monoclonal [economics] [therapeutic use];Antibodies, Monoclonal, Humanized;Antirheumatic Agents [economics] [therapeutic use];Budgets [statistics & numerical data];Cost-Benefit Analysis;Crohn Disease [drug therapy] [economics];Databases, Factual [statistics & numerical data];Decision Making;Economics, Pharmaceutical [statistics & numerical data];Formularies, Hospital;Models, Economic;Multiple Sclerosis [drug therapy] [economics];numerical data;Recurrence;United States;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000702/frame.html
+
+
+Record #52 of 138
+ID: NHSEED-22010001433
+AU: Bergstrom J
+AU: Andersson G
+AU: Ljotsson B
+AU: Ruck C
+AU: Andreewitch S
+AU: Karlsson A
+AU: Carlbring P
+AU: Andersson E
+AU: Lindefors N
+TI: Internet-versus group-administered cognitive behaviour therapy for panic disorder in a psychiatric setting: a randomised trial (Provisional abstract)
+SO: BMC Psychiatry
+YR: 2010
+VL: 10:54
+NO: 2
+KY: Agoraphobia [diagnosis] [economics] [therapy];Cognitive Therapy [economics] [methods];Cost-Benefit Analysis;Diagnostic and Statistical Manual of Mental Disorders;Double-Blind Method;Follow-Up Studies;Health Care Costs [statistics & numerical data];Internet [economics];numerical data;Outcome Assessment (Health Care);Panic Disorder [diagnosis] [economics] [therapy];Psychiatric Department, Hospital;Psychiatric Status Rating Scales [statistics & numerical data];Psychotherapy, Group [economics] [methods];Self Care [methods];Treatment Outcome;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001433/frame.html
+
+
+Record #53 of 138
+ID: NHSEED-22011000344
+AU: Brunelli A
+AU: Salati M
+AU: Refai M
+AU: Nunzio L
+AU: Xiume F
+AU: Sabbatini A
+TI: Evaluation of a new chest tube removal protocol using digital air leak monitoring after lobectomy: a prospective randomised trial (Provisional abstract)
+SO: European Journal of Cardio-Thoracic Surgery
+YR: 2010
+VL: 37
+NO: 1
+PG: 56-60
+KY: Chest Tubes;Cost-Benefit Analysis;Device Removal [methods];Hospital Costs [statistics & numerical data];Length of Stay [statistics & numerical data];Lung Neoplasms [surgery];Monitoring, Physiologic [methods];numerical data;Pneumonectomy [adverse effects] [economics];Pneumothorax [diagnosis] [economics] [etiology];Postoperative Care [economics] [methods];Postoperative Period;Prospective Studies;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22011000344/frame.html
+
+
+Record #54 of 138
+ID: NHSEED-22010000998
+AU: Rudd KM
+AU: Dier JG
+TI: Comparison of two different models of anticoagulation management services with usual medical care (Provisional abstract)
+SO: Pharmacotherapy
+YR: 2010
+VL: 30
+NO: 4
+PG: 330-338
+KY: administration;Ambulatory Care Facilities [organization & administration];Case Management [organization & administration];Costs and Cost Analysis;Emergency Service, Hospital [organization & administration];Hospitalization [economics] [statistics & numerical data];International Normalized Ratio [methods];Medical Records;New York;numerical data;Pharmacists [organization & administration];Physicians [organization & administration];Prospective Studies;Warfarin [adverse effects] [therapeutic use];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000998/frame.html
+
+
+Record #55 of 138
+ID: NHSEED-22010002011
+AU: Irvine L
+AU: Conroy SP
+AU: Sach T
+AU: Gladman JR
+AU: Harwood RH
+AU: Kendrick D
+AU: Coupland C
+AU: Drummond A
+AU: Barton G
+AU: Masud T
+TI: Cost-effectiveness of a day hospital falls prevention programme for screened community-dwelling older people at high risk of falls (Structured abstract)
+SO: Age and Ageing
+YR: 2010
+VL: 39
+NO: 6
+PG: 710-716
+KY: Accidental Falls [prevention & control];administration [statistics & numerical data] [statistics & numerical data] [statistics & numerical data] [statistics & numerical data];control [statistics & numerical data];Cost-Benefit Analysis;Day Care, Medical [economics] [organization & administration];Geriatric Assessment [methods];Health Services [economics] [statistics & numerical data];Hospital Costs [statistics & numerical data];Housing for the Elderly [statistics & numerical data];Mass Screening [methods];numerical data [utilization];Occupational Therapy [economics] [organization & administration];Patient Care Team [economics] [organization & administration];Physical Therapy Modalities [economics] [organization & administration];Program Evaluation;Residence Characteristics [statistics & numerical data];Risk Factors;Aged[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010002011/frame.html
+
+
+Record #56 of 138
+ID: NHSEED-22010000636
+AU: Chung KC
+AU: Oda T
+AU: Saddawi-Konefka D
+AU: Shauver MJ
+TI: An economic analysis of hand transplantation in the United States (Structured abstract)
+SO: Plastic and Reconstructive Surgery
+YR: 2010
+VL: 125
+NO: 2
+PG: 589-598
+KY: Ambulatory Care Facilities [economics];Amputation, Traumatic [economics] [mortality] [surgery];Artificial Limbs [economics] [statistics & numerical data];Cost-Benefit Analysis;Data Collection;Drug Costs;Forearm [surgery];Graft Rejection [drug therapy] [economics] [mortality];Hand Transplantation;Hospital Costs;Immunosuppressive Agents [economics] [therapeutic use];Medicare [economics];Organ Transplantation [economics] [mortality];Outcome and Process Assessment (Health Care) [economics];Postoperative Complications [economics] [mortality];Quality-Adjusted Life Years;United States [epidemiology];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000636/frame.html
+
+
+Record #57 of 138
+ID: NHSEED-22010000314
+AU: Lorgelly PK
+AU: Briggs AH
+AU: Wedel H
+AU: Dunselman P
+AU: Hjalmarson A
+AU: Kjekshus J
+AU: Waagstein F
+AU: Wikstrand J
+AU: Janosi A
+AU: Veldhuisen DJ
+AU: Barrios V
+AU: Fonseca C
+AU: McMurray JJ
+TI: An economic evaluation of rosuvastatin treatment in systolic heart failure: evidence from the CORONA trial (Structured abstract)
+SO: European Journal of Heart Failure
+YR: 2010
+VL: 12
+NO: 1
+PG: 66-74
+KY: Cardiopulmonary Bypass [utilization];Cost-Benefit Analysis;Costs and Cost Analysis;Fluorobenzenes [economics] [therapeutic use];Heart Failure [drug therapy] [economics];Heart Transplantation [utilization];Hospitalization [economics] [statistics & numerical data];Hospital Mortality;Hydroxymethylglutaryl-CoA Reductase Inhibitors [economics] [therapeutic use];numerical data;Prospective Studies;Pyrimidines [economics] [therapeutic use];Sulfonamides [economics] [therapeutic use];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000314/frame.html
+
+
+Record #58 of 138
+ID: NHSEED-22010000979
+AU: Soeteman DI
+AU: Verheul R
+AU: Delimon J
+AU: Meerman AM
+AU: Eijnden E
+AU: Rossum BV
+AU: Ziegler U
+AU: Thunnissen M
+AU: Busschbach JJ
+AU: Kim JJ
+TI: Cost-effectiveness of psychotherapy for cluster B personality disorders (Structured abstract)
+SO: British Journal of Psychiatry
+YR: 2010
+VL: 196
+NO: 5
+PG: 396-403
+KY: Cost-Benefit Analysis;Cost of Illness;Day Care, Medical [economics];Health Care Costs [statistics & numerical data];Hospitalization [economics];Netherlands;numerical data;Outpatient Clinics, Hospital [economics];Personality Disorders [economics] [therapy];Psychotherapy [economics] [methods];Quality-Adjusted Life Years;Treatment Outcome;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000979/frame.html
+
+
+Record #59 of 138
+ID: NHSEED-22010001967
+AU: Lloyd JM
+AU: Martin R
+AU: Rajagopolan S
+AU: Zieneh N
+AU: Hartley R
+TI: An innovative and cost-effective way of managing ankle fractures prior to surgery: home therapy (Structured abstract)
+SO: Annals of the Royal College of Surgeons of England
+YR: 2010
+VL: 92
+NO: 7
+PG: 615-618
+KY: administration;Ankle Injuries [economics] [rehabilitation] [surgery];Cost-Benefit Analysis;England;Fracture Fixation [economics];Fractures, Bone [economics] [rehabilitation] [surgery];Home Care Services, Hospital-Based [economics] [organization & administration];Length of Stay [statistics & numerical data];numerical data;Patient Education as Topic [methods];Patient Satisfaction;Physical Therapy Modalities [economics];Preoperative Care [economics] [methods];Adult[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001967/frame.html
+
+
+Record #60 of 138
+ID: NHSEED-22010000938
+AU: Chen YH
+AU: Ho YL
+AU: Huang HC
+AU: Wu HW
+AU: Lee CY
+AU: Hsu TP
+AU: Cheng CL
+AU: Chen MF
+TI: Assessment of the clinical outcomes and cost-effectiveness of the management of systolic heart failure in Chinese patients using a home-based intervention (Structured abstract)
+SO: Journal of International Medical Research
+YR: 2010
+VL: 38
+NO: 1
+PG: 242-252
+KY: Asian Continental Ancestry Group;Case-Control Studies;Cost-Benefit Analysis;Follow-Up Studies;Health Care Costs [statistics & numerical data];Heart Failure, Systolic [economics] [nursing];Home Care Services, Hospital-Based [economics];Length of Stay;numerical data;Outcome Assessment (Health Care) [economics];Patient Readmission;Prospective Studies;Survival Rate;Telemedicine;Telephone;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000938/frame.html
+
+
+Record #61 of 138
+ID: NHSEED-22010001401
+AU: Muangman P
+AU: Pundee C
+AU: Opasanon S
+AU: Muangman S
+TI: A prospective, randomized trial of silver containing hydrofiber dressing versus 1% silver sulfadiazine for the treatment of partial thickness burns (Structured abstract)
+SO: International Wound Journal
+YR: 2010
+VL: 7
+NO: 4
+PG: 271-276
+KY: Ambulatory Care [economics];Anti-Infective Agents, Local [economics] [pharmacology] [therapeutic use];Body Surface Area;Burns [complications] [therapy];Carboxymethylcellulose Sodium [economics] [pharmacology] [therapeutic use];Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Kaplan-Meier Estimate;numerical data;Pain [etiology];Prospective Studies;Silver Sulfadiazine [economics] [pharmacology] [therapeutic use];Skin Care [adverse effects] [economics] [methods];Thailand;Time Factors;Travel [economics];Treatment Outcome;Wound Healing [drug effects];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010001401/frame.html
+
+
+Record #62 of 138
+ID: NHSEED-22009101131
+AU: Gomez J
+AU: Garcia-Vazquez E
+AU: Antonio Puertas J
+AU: Rodenas J
+AU: Herrero J A
+AU: Albaladejo C
+AU: Banos V
+AU: Canteras M
+AU: Alcaraz M
+TI: Clinical and economic analysis of an internal medicine-infectious disease department at a university general hospital (2005-2006) (Provisional abstract)
+SO: Enfermedades Infecciosas y Microbiologia Clinica
+YR: 2009
+VL: 27
+NO: 2
+PG: 70-74
+KY: administration;Cost-Benefit Analysis;Diagnosis-Related Groups [economics];Hospital Costs [statistics & numerical data];Hospital Departments [economics] [organization & administration];Hospital Mortality;Hospitals, General [economics] [organization & administration];Hospitals, University [economics] [organization & administration];Infectious Disease Medicine [economics] [organization & administration];Internal Medicine [economics] [organization & administration];numerical data;Respiratory Tract Infections [economics] [epidemiology] [therapy];Retrospective Studies;Sepsis [economics] [epidemiology] [therapy];Skin Diseases, Infectious [economics] [epidemiology] [therapy];Spain [epidemiology];Urinary Tract Infections [economics] [epidemiology] [therapy];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009101131/frame.html
+
+
+Record #63 of 138
+ID: NHSEED-22009102311
+AU: Losina E
+AU: Walensky RP
+AU: Kessler CL
+AU: Emrani PS
+AU: Reichmann WM
+AU: Wright EA
+AU: Holt HL
+AU: Solomon DH
+AU: Yelin E
+AU: Paltiel AD
+AU: Katz JN
+TI: Cost-effectiveness of total knee arthroplasty in the United States: parient risk and hospital volume (Provisional abstract)
+SO: Archives of Internal Medicine
+YR: 2009
+VL: 169
+NO: 12
+PG: 1113-1121
+KY: Arthroplasty, Replacement, Knee [economics] [utilization];Cost-Benefit Analysis;Hospital Bed Capacity [statistics & numerical data];Hospitals [statistics & numerical data];numerical data;Osteoarthritis, Knee [economics] [surgery];Risk Factors;United States;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009102311/frame.html
+
+
+Record #64 of 138
+ID: NHSEED-22009103358
+AU: Huang CY
+AU: Chen SS
+AU: Chen LK
+TI: Comparison of two different running models for the shock wave lithotripsy machine in Taipei City Hospital: self-support versus outsourcing cooperation (Provisional abstract)
+SO: Urological Research
+YR: 2009
+VL: 37
+NO: 5
+PG: 247-251
+KY: Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Hospitals, Urban [economics];Lithotripsy [economics];Models, Economic;numerical data;Outsourced Services [statistics & numerical data];Retrospective Studies;Taiwan;Urolithiasis [economics] [therapy];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009103358/frame.html
+
+
+Record #65 of 138
+ID: NHSEED-22009103815
+AU: Parker SG
+AU: Oliver P
+AU: Pennington M
+AU: Bond J
+AU: Jagger C
+AU: Enderby PM
+AU: Curless R
+AU: Chater T
+AU: Vanoli A
+AU: Fryer K
+AU: Cooper C
+AU: Julious S
+AU: Donaldson C
+AU: Dyer C
+AU: Wynn T
+AU: John A
+AU: Ross D
+TI: Rehabilitation of older patients: day hospital compared with rehabilitation at home - a randomised controlled trial (Provisional abstract)
+SO: Health Technology Assessment
+YR: 2009
+VL: 13
+NO: 39
+PG: 1-168
+KY: administration [psychology];Anxiety;Cost-Benefit Analysis;Day Care, Medical [utilization];Depression;England;Home Care Services [utilization];Hospitals, Public;numerical data;Outcome Assessment (Health Care) [statistics & numerical data];Quality of Life;Surveys and Questionnaires;Rehabilitation [organization & administration];State Medicine;Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009103815/frame.html
+
+
+Record #66 of 138
+ID: NHSEED-22009100755
+AU: Yong C
+AU: Fisher D A
+AU: Sklar G E
+AU: Li S C
+TI: A cost analysis of Outpatient Parenteral Antibiotic Therapy (OPAT): an Asian perspective (Provisional abstract)
+SO: International Journal of Antimicrobial Agents
+YR: 2009
+VL: 33
+NO: 1
+PG: 46-51
+KY: Ambulatory Care [economics] [methods];Anti-Bacterial Agents [administration & dosage];Bacterial Infections [drug therapy];Costs and Cost Analysis;dosage [economics];Home Infusion Therapy [economics];Hospital Charges;Hospitalization [statistics & numerical data];Hospitals, University;Infusions, Parenteral [economics];numerical data;Outcome Assessment (Health Care);Singapore;Adolescent[checkword];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009100755/frame.html
+
+
+Record #67 of 138
+ID: NHSEED-22009102716
+AU: Kan JH
+AU: Estrada C
+AU: Hasan U
+AU: Bracikowski A
+AU: Shyr Y
+AU: Shakhtour B
+AU: Hernanz-Schulman M
+TI: Management of occult fractures in the skeletally immature patient: cost analysis of implementing a limited trauma magnetic resonance imaging protocol (Provisional abstract)
+SO: Pediatric Emergency Care
+YR: 2009
+VL: 25
+NO: 4
+PG: 226-230
+KY: Bandages [economics];Braces [economics];Case Management;Casts, Surgical [economics];Cost of Illness;Costs and Cost Analysis;Diagnostic Errors;Direct Service Costs;Emergency Service, Hospital [economics] [statistics & numerical data];Follow-Up Studies;Fractures, Closed [diagnosis] [economics] [radiography] [therapy];Health Care Costs;Magnetic Resonance Imaging [economics];numerical data;Practice Guidelines as Topic;Retrospective Studies;Splints [economics];Unnecessary Procedures [economics];Adolescent[checkword];Child[checkword];Child, Preschool[checkword];Female[checkword];Humans[checkword];Infant[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009102716/frame.html
+
+
+Record #68 of 138
+ID: NHSEED-22009100701
+AU: Sporn E
+AU: Petroski G F
+AU: Mancini G J
+AU: Astudillo J A
+AU: Miedema B W
+AU: Thaler K
+TI: Laparoscopic appendectomy: is it worth the cost? Trend analysis in the US from 2000 to 2005 (Provisional abstract)
+SO: Journal of the American College of Surgeons
+YR: 2009
+VL: 208
+NO: 2
+PG: 179-185
+KY: Acute Disease;Appendectomy [adverse effects] [economics] [methods];Appendicitis [economics] [ethnology] [surgery];Confounding Factors (Epidemiology);Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Laparoscopy [adverse effects] [economics] [trends];Length of Stay;numerical data;Odds Ratio;Retrospective Studies;Treatment Outcome;United States;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009100701/frame.html
+
+
+Record #69 of 138
+ID: NHSEED-22010000453
+AU: Schuurman JP
+AU: Schoonhoven L
+AU: Defloor T
+AU: Engelshoven I
+AU: Ramshorst B
+AU: Buskens E
+TI: Economic evaluation of pressure ulcer care: a cost minimization analysis of preventive strategies (Structured abstract)
+SO: Nursing Economic$
+YR: 2009
+VL: 27
+NO: 6
+PG: 390-400
+KY: control;Cost-Benefit Analysis;Cost of Illness;Direct Service Costs [statistics & numerical data];Hospital Costs [statistics & numerical data];Hospitals, Teaching;Incidence;Length of Stay [economics];Netherlands [epidemiology];numerical data;Nursing Administration Research;Nursing Staff, Hospital [economics];Outcome Assessment (Health Care);Pressure Ulcer [economics] [epidemiology] [prevention & control];Primary Prevention [economics] [methods];Prospective Studies;Skin Care [economics] [methods] [nursing];Workload [economics];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000453/frame.html
+
+
+Record #70 of 138
+ID: NHSEED-22009101780
+AU: Chan A L
+AU: Hsieh H J
+AU: Lin S J
+TI: Pharmacist intervention in activated protein C therapy for severe sepsis: influence on health and economic outcomes (Provisional abstract)
+SO: International Journal of Clinical Pharmacology and Therapeutics
+YR: 2009
+VL: 47
+NO: 4
+PG: 229-235
+KY: Analysis of Variance;Anti-Infective Agents [administration & dosage];dosage [therapeutic use] [economics] [therapeutic use] [economics] [therapeutic use];Hospital Costs [statistics & numerical data];Hospital Mortality;Infusions, Intravenous;Length of Stay [statistics & numerical data];numerical data;Pharmacists [economics];Professional Role;Protein C [administration & dosage];Recombinant Proteins [administration & dosage];Reimbursement Mechanisms;Retrospective Studies;Sepsis [drug therapy] [economics] [mortality];Severity of Illness Index;Taiwan [epidemiology];Treatment Outcome;Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009101780/frame.html
+
+
+Record #71 of 138
+ID: NHSEED-22009103463
+AU: Suri MF
+AU: Vazquez G
+AU: Ezzeddine MA
+AU: Qureshi AI
+TI: A multicenter comparison of outcomes associated with intravenous nitroprusside and nicardipine treatment among patients with intracerebral hemorrhage (Provisional abstract)
+SO: Neurocritical Care
+YR: 2009
+VL: 11
+NO: 1
+PG: 50-55
+KY: Antihypertensive Agents [administration & dosage];Cerebral Hemorrhage [drug therapy] [economics] [mortality];Databases, Factual;dosage [economics] [economics] [economics];Drug Costs;Hospital Costs;Hospital Mortality;Infusions, Intravenous;Length of Stay [economics] [statistics & numerical data];Multivariate Analysis;Nicardipine [administration & dosage];Nitroprusside [administration & dosage];numerical data;Risk Factors;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009103463/frame.html
+
+
+Record #72 of 138
+ID: NHSEED-22009103793
+AU: Gosselin RA
+AU: Heitto M
+AU: Zirkle L
+TI: Cost-effectiveness of replacing skeletal traction by interlocked intramedullary nailing for femoral shaft fractures in a provincial trauma hospital in Cambodia (Provisional abstract)
+SO: International Orthopaedics
+YR: 2009
+VL: 33
+NO: 5
+PG: 1445-1448
+KY: Bone Nails [economics];Cambodia;Cost-Benefit Analysis;Femoral Fractures [economics] [therapy];Fracture Fixation, Intramedullary [economics] [instrumentation] [methods];Health Care Costs [statistics & numerical data];numerical data;Traction [economics];Treatment Outcome;Adolescent[checkword];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword];Young Adult[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009103793/frame.html
+
+
+Record #73 of 138
+ID: NHSEED-22010000505
+AU: Lage MJ
+AU: Gross GN
+AU: Brewster C
+AU: Spalitto A
+TI: Outcomes and costs of patients with persistent asthma treated with beclomethasone dipropionate hydrofluoroalkane or fluticasone propionate (Provisional abstract)
+SO: Advances in Therapy
+YR: 2009
+VL: 26
+NO: 8
+PG: 762-775
+KY: administration;Androstadienes [economics];Anti-Asthmatic Agents [economics];Anti-Inflammatory Agents [economics];Asthma [drug therapy] [economics];Beclomethasone [economics];Cost of Illness;Drug Costs [statistics & numerical data];Drug Therapy, Combination;Emergency Service, Hospital [economics];Health Care Costs [statistics & numerical data];Hospitalization [economics];Insurance Claim Reporting [economics];Medication Adherence [statistics & numerical data];Multivariate Analysis;numerical data;Outcome Assessment (Health Care) [organization & administration];Patient Selection;Regression Analysis;Retrospective Studies;United States;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22010000505/frame.html
+
+
+Record #74 of 138
+ID: NHSEED-22009103525
+AU: Faries DE
+AU: Ascher-Svanum H
+AU: Nyhuis AW
+AU: Kinon BJ
+TI: Clinical and economic ramifications of switching antipsychotics in the treatment of schizophrenia (Provisional abstract)
+SO: BMC Psychiatry
+YR: 2009
+VL: 9:54
+NO: 2
+KY: Ambulatory Care [economics];Antipsychotic Agents [administration & dosage];Cost-Benefit Analysis;Crisis Intervention [economics] [methods];Cross-Over Studies;dosage [economics] [therapeutic use];Drug Administration Schedule;Drug Costs [statistics & numerical data];Emergency Service, Hospital [economics] [utilization];Health Care Costs [statistics & numerical data];Hospitalization [economics] [statistics & numerical data];numerical data;Schizophrenia [drug therapy] [economics];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009103525/frame.html
+
+
+Record #75 of 138
+ID: NHSEED-22009100207
+AU: Shinall M C
+AU: Koehler E
+AU: Shyr Y
+AU: Lovvorn H N
+TI: Comparing cost and complications of primary and staged surgical repair of neonatally diagnosed Hirschsprung's disease (Provisional abstract)
+SO: Journal of Pediatric Surgery
+YR: 2008
+VL: 43
+NO: 12
+PG: 2220-2225
+KY: Colostomy [economics];Cost-Benefit Analysis;Direct Service Costs [statistics & numerical data];Follow-Up Studies;Hirschsprung Disease [economics] [surgery];Hospital Charges [statistics & numerical data];Hospital Costs [statistics & numerical data];Hospitals, Pediatric [economics];Hospitals, University [economics];Infant, Newborn;Laparoscopy [economics];Length of Stay [economics] [statistics & numerical data];numerical data;Postoperative Complications [epidemiology];Retrospective Studies;Tennessee [epidemiology];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009100207/frame.html
+
+
+Record #76 of 138
+ID: NHSEED-22008102127
+AU: Onukwugha E
+AU: Mullins C D
+AU: DeLisle S
+TI: Using cost-effectiveness analysis to sharpen formulary decision-making: the example of tiotropium at the veterans affairs health care system (Provisional abstract)
+SO: Value in Health
+YR: 2008
+VL: 11
+NO: 5
+PG: 980-988
+KY: Bronchodilator Agents [economics] [therapeutic use];Confidence Intervals;Cost-Benefit Analysis [economics];Decision Making;Formularies, Hospital;Hospitalization [economics] [statistics & numerical data];Hospitals, Veterans [economics];Ipratropium [economics] [therapeutic use];Maryland;Medical Records Systems, Computerized;Models, Economic;numerical data;Pulmonary Disease, Chronic Obstructive [drug therapy] [economics];Respiratory Function Tests [economics];Retrospective Studies;Scopolamine Derivatives [economics] [therapeutic use];Sensitivity and Specificity;United States;United States Department of Veterans Affairs;Veterans;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008102127/frame.html
+
+
+Record #77 of 138
+ID: NHSEED-22008101323
+AU: Secoli S R
+AU: Padilha K G
+AU: Litvoc J
+TI: Cost-effectiveness analysis of the analgesic therapy of postoperative pain (Provisional abstract)
+SO: Revista Latino-Americana de Enfermagem
+YR: 2008
+VL: 16
+NO: 1
+PG: 42-46
+KY: Analgesics [economics] [therapeutic use];Brazil;Cost-Benefit Analysis;Health Expenditures;Hemorrhoids [surgery];Hospitals [statistics & numerical data];numerical data;Pain, Postoperative [drug therapy] [economics];Retrospective Studies;Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101323/frame.html
+
+
+Record #78 of 138
+ID: NHSEED-22008100746
+AU: Zilberberg M D
+AU: Stern L S
+AU: Wiederkehr D P
+AU: Doyle J J
+AU: Shorr A F
+TI: Anemia, transfusions and hospital outcomes among critically ill patients on prolonged acute mechanical ventilation: a retrospective cohort study (Provisional abstract)
+SO: Critical Care
+YR: 2008
+VL: 12
+NO: 2
+PG: art R60
+KY: Anemia [etiology] [therapy];Blood Transfusion [statistics & numerical data];Chi-Square Distribution;Comorbidity;Critical Illness [therapy];Intensive Care Units [statistics & numerical data];Length of Stay [statistics & numerical data];numerical data;Regression Analysis;Respiration, Artificial [adverse effects];Retrospective Studies;Statistics, Nonparametric;Treatment Outcome;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008100746/frame.html
+
+
+Record #79 of 138
+ID: NHSEED-22008000777
+AU: Colombo G L
+AU: Caruggi M
+AU: Ottolini C
+AU: Maggioni A P
+TI: Candesartan in heart failure: assessment of reduction in mortality and morbidity (CHARM) and resource utilization and costs in Italy (Provisional abstract)
+SO: Vascular Health and Risk Management
+YR: 2008
+VL: 4
+NO: 1
+PG: 223-234
+KY: Angiotensin II Type 1 Receptor Blockers [economics] [therapeutic use];Benzimidazoles [economics] [therapeutic use];Cost-Benefit Analysis;Drug Costs;Heart Failure [drug therapy] [economics] [mortality];Hospital Costs;Hospitalization [statistics & numerical data];Italy [epidemiology];numerical data;Risk Factors;Survival Analysis;Tetrazoles [economics] [therapeutic use];Treatment Outcome;Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008000777/frame.html
+
+
+Record #80 of 138
+ID: NHSEED-22008000553
+AU: Salati M
+AU: Brunelli A
+AU: Xiume F
+AU: Refai M
+AU: Sciarra V
+AU: Soccetti A
+AU: Sabbatini A
+TI: Uniportal video-assisted thoracic surgery for primary spontaneous pneumothorax: clinical and economic analysis in comparison to the traditional approach (Provisional abstract)
+SO: Interactive CardioVascular and Thoracic Surgery
+YR: 2008
+VL: 7
+NO: 2
+PG: 63-66
+KY: Follow-Up Studies;Hospital Costs [statistics & numerical data];numerical data;Pneumothorax [economics] [radiography] [surgery];Postoperative Complications;Retrospective Studies;Thoracic Surgery, Video-Assisted [economics] [instrumentation];Thoracoscopes [economics];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008000553/frame.html
+
+
+Record #81 of 138
+ID: NHSEED-22008100566
+AU: Fotis T
+AU: Tsoumakidou G
+AU: Katostaras T
+AU: Kalokairinou A
+AU: Konstantinou E
+AU: Kiki V
+AU: Perdikides T
+TI: Cost and effectiveness comparison of endovascular aneurysm repair versus open surgical repair of abdominal aortic aneurysm: a single-center experience (Provisional abstract)
+SO: Journal of Vascular Nursing
+YR: 2008
+VL: 26
+NO: 1
+PG: 15-21
+KY: Angioplasty [economics] [mortality] [nursing];Aortic Aneurysm, Abdominal [surgery];Blood Vessel Prosthesis Implantation [economics] [mortality] [nursing];Chi-Square Distribution;Cost-Benefit Analysis;Health Services Research;Hospital Costs [statistics & numerical data];Critical Care [economics];Length of Stay [economics];numerical data;Nurse's Role;Retrospective Studies;Time Factors;Treatment Outcome;Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008100566/frame.html
+
+
+Record #82 of 138
+ID: NHSEED-22008100597
+AU: Talmor D
+AU: Greenberg D
+AU: Howell M D
+AU: Lisbon A
+AU: Novack V
+AU: Shapiro N
+TI: The costs and cost-effectiveness of an integrated sepsis treatment protocol (Provisional abstract)
+SO: Critical Care Medicine
+YR: 2008
+VL: 36
+NO: 4
+PG: 1168-1174
+KY: Anti-Bacterial Agents [economics] [therapeutic use];APACHE;Case-Control Studies;Cost-Benefit Analysis;Emergency Service, Hospital [economics] [statistics & numerical data];Length of Stay [economics];numerical data;Prospective Studies;Quality-Adjusted Life Years;Sepsis [classification] [drug therapy] [mortality];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008100597/frame.html
+
+
+Record #83 of 138
+ID: NHSEED-22008101615
+AU: Blanchette C M
+AU: Akazawa M
+AU: Dalal A
+AU: Simoni-Wastila L
+TI: Risk of hospitalizations/emergency department visits and treatment costs associated with initial maintenance therapy using fluticasone propionate 500 mug/salmeterol 50 mug compared with ipratropium for chronic obstructive pulmonary disease in older adults (Provisional abstract)
+SO: American Journal of Geriatric Pharmacotherapy
+YR: 2008
+VL: 6
+NO: 3
+PG: 138-146
+KY: Albuterol [analogs & derivatives];Androstadienes [therapeutic use];Bronchodilator Agents [therapeutic use];Cohort Studies;Costs and Cost Analysis;Databases, Factual;derivatives [therapeutic use];Drug Combinations;Emergency Service, Hospital [economics] [statistics & numerical data];Hospitalization [economics] [statistics & numerical data];Ipratropium [therapeutic use];numerical data;Proportional Hazards Models;Pulmonary Disease, Chronic Obstructive [drug therapy] [economics] [epidemiology];Retrospective Studies;Risk;Risk Assessment;Treatment Outcome;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101615/frame.html
+
+
+Record #84 of 138
+ID: NHSEED-22008101874
+AU: Fritzsche F R
+AU: Dietel M
+AU: Weichert W
+AU: Buckendahl A C
+TI: Cut-resistant protective gloves in pathology: effective and cost-effective (Provisional abstract)
+SO: Virchows Archiv
+YR: 2008
+VL: 452
+NO: 3
+PG: 313-318
+KY: Accidents, Occupational [prevention & control];Berlin;control [statistics & numerical data];Cost-Benefit Analysis;Gloves, Surgical [economics] [utilization];Hand Injuries [prevention & control];Hospitals, University;Needlestick Injuries [prevention & control];numerical data;Pathology, Clinical [economics] [methods] [statistics & numerical data];Time Factors;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101874/frame.html
+
+
+Record #85 of 138
+ID: NHSEED-22008100473
+AU: Jakovljevic M
+AU: Varjacic M
+AU: Jankovic S M
+TI: Cost-effectiveness of ritodrine and fenoterol for treatment of preterm labor in a low-middle-income country: a case study (Provisional abstract)
+SO: Value in Health
+YR: 2008
+VL: 11
+NO: 2
+PG: 149-153
+KY: Cohort Studies;Cost-Benefit Analysis [economics];Fenoterol [economics] [therapeutic use];Hospitals, University [statistics & numerical data];Montenegro;National Health Programs;numerical data;Obstetric Labor, Premature [drug therapy] [economics];Ritodrine [economics] [therapeutic use];Social Class;Tocolytic Agents [therapeutic use] [economics];Treatment Outcome;Yugoslavia;Adult[checkword];Female[checkword];Humans[checkword];Pregnancy[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008100473/frame.html
+
+
+Record #86 of 138
+ID: NHSEED-22008101256
+AU: Slover JD
+AU: Tosteson AN
+AU: Bozic KJ
+AU: Rubash HE
+AU: Malchau H
+TI: Impact of hospital volume on the economic value of computer navigation for total knee replacement (Structured abstract)
+SO: Journal of Bone and Joint Surgery. American volume
+YR: 2008
+VL: 90
+NO: 7
+PG: 1492-1500
+KY: Arthroplasty, Replacement, Knee [economics] [methods];Cost-Benefit Analysis;Decision Support Techniques;Feasibility Studies;Hospitals [statistics & numerical data];Markov Chains;Models, Biological;numerical data;Osteoarthritis, Knee [surgery];Stereotaxic Techniques [economics];Surgery, Computer-Assisted [economics];Aged[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101256/frame.html
+
+
+Record #87 of 138
+ID: NHSEED-22009100132
+AU: Polignano F M
+AU: Quyn A J
+AU: Figueiredo R S
+AU: Henderson N A
+AU: Kulli C
+AU: Tait I S
+TI: Laparoscopic versus open liver segmentectomy: prospective, case-matched, intention-to-treat analysis of clinical outcomes and cost effectiveness (Structured abstract)
+SO: Surgical Endoscopy
+YR: 2008
+VL: 22
+NO: 12
+PG: 2564-2570
+KY: Blood Loss, Surgical [prevention & control];Case-Control Studies;control [statistics & numerical data];Cost-Benefit Analysis;Hepatectomy [economics] [methods] [statistics & numerical data];Hospital Costs [statistics & numerical data];Intraoperative Period [statistics & numerical data];Laparoscopy [economics] [methods] [statistics & numerical data];Laparotomy [economics] [statistics & numerical data];Length of Stay [economics] [statistics & numerical data];numerical data;Pain, Postoperative [epidemiology] [prevention & control];Prospective Studies;Scotland;Treatment Outcome;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22009100132/frame.html
+
+
+Record #88 of 138
+ID: NHSEED-22008101049
+AU: Luce BR
+AU: Nichol KL
+AU: Belshe RB
+AU: Frick KD
+AU: Li SX
+AU: Boscoe A
+AU: Rousculp MD
+AU: Mahadevia PJ
+TI: Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States (Structured abstract)
+SO: Vaccine
+YR: 2008
+VL: 26
+NO: 23
+PG: 2841-2848
+KY: control;Cost-Benefit Analysis;Costs and Cost Analysis;Emergency Service, Hospital [economics];Hospitalization [economics] [statistics & numerical data];Influenza, Human [economics] [epidemiology] [prevention & control];Influenza Vaccines [adverse effects] [economics] [therapeutic use];Length of Stay [economics];numerical data;Office Visits [economics] [statistics & numerical data];Quality-Adjusted Life Years;United States [epidemiology];Vaccines, Attenuated [adverse effects] [economics] [therapeutic use];Vaccines, Inactivated [adverse effects] [economics] [therapeutic use];Child, Preschool[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101049/frame.html
+
+
+Record #89 of 138
+ID: NHSEED-22008000716
+AU: Deniz H B
+AU: Caro J J
+AU: Ward A
+AU: Moller J
+AU: Malik F
+TI: Economic and health consequences of managing bradycardia with dual-chamber compared to single-chamber ventricular pacemakers in Italy (Structured abstract)
+SO: Journal of Cardiovascular Medicine
+YR: 2008
+VL: 9
+NO: 2
+PG: 43-50
+KY: Bradycardia [economics] [physiopathology] [therapy];Cardiac Pacing, Artificial [economics] [methods];Cost-Benefit Analysis;Cost of Illness;Equipment Design;Follow-Up Studies;Heart Ventricles [physiopathology];Hospital Costs [statistics & numerical data];Italy;Models, Economic;numerical data;Pacemaker, Artificial [economics];Quality of Life;Time Factors;Treatment Outcome;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008000716/frame.html
+
+
+Record #90 of 138
+ID: NHSEED-22008101740
+AU: Ladapo J A
+AU: Hoffmann U
+AU: Bamberg F
+AU: Nagurney J T
+AU: Cutler D M
+AU: Weinstein M C
+AU: Gazelle G S
+TI: Cost-effectiveness of coronary MDCT in the triage of patients with acute chest pain (Structured abstract)
+SO: American Journal of Roentgenology
+YR: 2008
+VL: 191
+NO: 2
+PG: 455-463
+KY: Biomarkers [analysis];Chest Pain [mortality] [radiography];Coronary Angiography [economics];Cost-Benefit Analysis;Diagnosis, Differential;Emergency Service, Hospital;Health Care Costs;Monte Carlo Method;numerical data;Patient Admission [statistics & numerical data];Quality-Adjusted Life Years;Risk Assessment;Tomography, X-Ray Computed [economics];Triage;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008101740/frame.html
+
+
+Record #91 of 138
+ID: NHSEED-22007001222
+AU: Lujan M
+AU: Moreno A
+AU: Veigas C
+AU: Monton C
+AU: Pomares X
+AU: Domingo C
+TI: Non-invasive home mechanical ventilation: effectiveness and efficiency of an outpatient initiation protocol compared with the standard in-hospital model (Provisional abstract)
+SO: Respiratory Medicine
+YR: 2007
+VL: 101
+NO: 6
+PG: 1177-1182
+KY: administration;Carbon Dioxide [blood];Clinical Protocols;Cost-Benefit Analysis;Follow-Up Studies;Health Care Costs [statistics & numerical data];Home Care Services, Hospital-Based [organization & administration];Hospitalization [statistics & numerical data];Models, Organizational;numerical data;Outpatient Clinics, Hospital [organization & administration];Oxygen [blood];Partial Pressure;Prospective Studies;Respiration, Artificial [economics];Respiratory Insufficiency [blood] [etiology] [therapy];Spain;Adult[checkword];Aged[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007001222/frame.html
+
+
+Record #92 of 138
+ID: NHSEED-22007002712
+AU: Derksen R J
+AU: Coupe V M
+AU: Tulder M W
+AU: Veenings B
+AU: Bakker F C
+TI: Cost-effectiveness of the SEN-concept: Specialized Emergency Nurses (SEN) treating ankle/foot injuries (Provisional abstract)
+SO: BMC Musculoskeletal Disorders
+YR: 2007
+VL: 8
+NO: 99
+PG: 1-8
+KY: administration;Ankle Injuries [diagnosis] [economics] [nursing];Cost-Benefit Analysis;Emergency Nursing [economics] [organization & administration];Emergency Service, Hospital [economics] [statistics & numerical data];Foot Injuries [diagnosis] [economics] [nursing];Health Care Costs [statistics & numerical data];Medical Staff, Hospital [economics] [statistics & numerical data];numerical data;Nursing Service, Hospital [economics] [statistics & numerical data];Treatment Outcome;Workload [statistics & numerical data];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007002712/frame.html
+
+
+Record #93 of 138
+ID: NHSEED-22008000188
+AU: Mazo S
+AU: Emparan C
+AU: Vallejo M
+AU: Soriano P
+TI: Hospital-in-the-home treatment of surgical infectious diseases: an economic analysis (Provisional abstract)
+SO: Surgical Infections
+YR: 2007
+VL: 8
+NO: 6
+PG: 567-574
+KY: Anti-Bacterial Agents [administration & dosage];Bacterial Infections [drug therapy] [economics] [therapy];dosage [therapeutic use];Health Care Costs [statistics & numerical data];Home Care Services [economics];numerical data;Surgical Wound Infection [drug therapy] [economics] [therapy];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008000188/frame.html
+
+
+Record #94 of 138
+ID: NHSEED-22008006111
+AU: Unlu H
+AU: Sardan Y C
+AU: Ulker S
+TI: Comparison of sampling methods for urine cultures (Provisional abstract)
+SO: Journal of Nursing Scholarship
+YR: 2007
+VL: 39
+NO: 4
+PG: 325-329
+KY: Anti-Infective Agents, Local [economics] [therapeutic use];Asepsis [methods] [standards];Clinical Nursing Research;Cost-Benefit Analysis;Hospital Costs [statistics & numerical data];Hospitals, University;numerical data;Patient Education as Topic;Perineum [microbiology];Soaps [economics] [therapeutic use];Specimen Handling [economics] [methods] [nursing];Statistics, Nonparametric;Toilet Facilities;Turkey;Urinalysis [economics] [methods] [nursing];Urinary Catheterization;Urinary Tract Infections [diagnosis] [urine];Adolescent[checkword];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22008006111/frame.html
+
+
+Record #95 of 138
+ID: NHSEED-22007000984
+AU: Silva A
+AU: Glick N R
+AU: Lyss S B
+AU: Hutchinson A B
+AU: Gift T L
+AU: Pealer L N
+AU: Broussard D
+AU: Whitman S
+TI: Implementing an HIV and sexually transmitted disease screening program in an emergency department (Provisional abstract)
+SO: Annals of Emergency Medicine
+YR: 2007
+VL: 49
+NO: 5
+PG: 564-572
+KY: administration [statistics & numerical data] [statistics & numerical data];Age Distribution;Chicago [epidemiology];Continental Population Groups [statistics & numerical data];Cost-Benefit Analysis;Emergency Service, Hospital [organization & administration];Health Care Costs [statistics & numerical data];HIV Infections [diagnosis] [epidemiology];Hospitals, Urban [statistics & numerical data];Mass Screening [organization & administration];numerical data;Patient Acceptance of Health Care [statistics & numerical data];Program Development [methods];Sex Distribution;Sexually Transmitted Diseases [diagnosis] [epidemiology];Adolescent[checkword];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007000984/frame.html
+
+
+Record #96 of 138
+ID: NHSEED-22007001310
+AU: Ho Y L
+AU: Hsu T P
+AU: Chen C P
+AU: Lee C V
+AU: Lin Y H
+AU: Hsu R B
+AU: Wu Y W
+AU: Chou N K
+AU: Lee C M
+AU: Wang S S
+AU: Ting H T
+AU: Chen M F
+TI: Improved cost-effectiveness for management of chronic heart failure by combined home-based intervention with clinical nursing specialists (Provisional abstract)
+SO: Journal of the Formosan Medical Association
+YR: 2007
+VL: 106
+NO: 4
+PG: 313-319
+KY: Chi-Square Distribution;Cost-Benefit Analysis;Follow-Up Studies;Heart Failure [mortality] [nursing];Home Care Services, Hospital-Based [economics];Length of Stay [statistics & numerical data];numerical data;Nurse Clinicians;Patient Readmission [statistics & numerical data];Regression Analysis;Treatment Outcome;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007001310/frame.html
+
+
+Record #97 of 138
+ID: NHSEED-22007008325
+AU: Lindenauer P K
+AU: Rothberg M B
+AU: Pekow P S
+AU: Kenwood C
+AU: Benjamin E M
+AU: Auerbach A D
+TI: Outcomes of care by hospitalists, general internists, and family physicians (Provisional abstract)
+SO: New England Journal of Medicine
+YR: 2007
+VL: 357
+NO: 2
+PG: 2589-2600
+KY: Cohort Studies;Family Practice [economics];Health Care Costs [statistics & numerical data];Hospitalists [economics];Hospitalization [economics] [statistics & numerical data];Hospital Mortality;Internal Medicine [economics];Length of Stay [statistics & numerical data];Models, Statistical;Multivariate Analysis;numerical data;Outcome Assessment (Health Care);Regression Analysis;Retrospective Studies;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007008325/frame.html
+
+
+Record #98 of 138
+ID: NHSEED-22007002814
+AU: Dhainaut J F
+AU: Payet S
+AU: Vallet B
+AU: Franca L
+AU: Annane D
+AU: Bollaert P E
+AU: Tulzo Y
+AU: Runge I
+AU: Malledant Y
+AU: Guidet B
+AU: Lay K
+AU: Launois R
+TI: Cost-effectiveness of activated protein C in real-life clinical practice (Provisional abstract)
+SO: Critical Care
+YR: 2007
+VL: 11
+NO: 5
+PG: art R99
+KY: Anticoagulants [economics] [therapeutic use];Cohort Studies;Cost-Benefit Analysis;France [epidemiology];Hospital Costs [statistics & numerical data];Hospitalization [economics];Multiple Organ Failure [drug therapy] [mortality];numerical data;Protein C [economics] [therapeutic use];Sepsis [drug therapy] [mortality];Survival Analysis;Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007002814/frame.html
+
+
+Record #99 of 138
+ID: NHSEED-22007000645
+AU: Cox C E
+AU: Carson S S
+AU: Lindquist J H
+AU: Olsen M K
+AU: Govert J A
+AU: Chelluri L
+TI: Differences in one-year health outcomes and resource utilization by definition of prolonged mechanical ventilation: a prospective cohort study (Provisional abstract)
+SO: Critical Care
+YR: 2007
+VL: 11
+NO: R9
+KY: Activities of Daily Living;Age Distribution;Critical Illness [economics] [mortality] [therapy];Health Care Costs [statistics & numerical data];Health Resources [utilization];Hospital Mortality;Intensive Care Units;numerical data;Outcome Assessment (Health Care);Prospective Studies;Quality of Life;Respiration, Artificial [economics];Survival Analysis;Time Factors;Tracheostomy;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Humans[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007000645/frame.html
+
+
+Record #100 of 138
+ID: NHSEED-22007006284
+AU: New F R
+AU: Winecoff A
+TI: Cost and clinical outcomes of a back injury clinic (Provisional abstract)
+SO: Nursing Economic$
+YR: 2007
+VL: 25
+NO: 2
+PG: 127-129
+KY: Absenteeism;Accidents, Occupational [economics] [prevention & control];administration;Ambulatory Care Facilities [organization & administration];Back Injuries [economics] [prevention & control];Biomechanics;Clinical Protocols;control [rehabilitation];Cost-Benefit Analysis;Cost of Illness;Evidence-Based Medicine;Family Practice [organization & administration];Health Care Costs [statistics & numerical data];North Carolina;numerical data;Nursing Evaluation Research;Occupational Health Nursing [organization & administration];Occupational Health Services [organization & administration];Outcome Assessment (Health Care);Patient Education as Topic [organization & administration];Personnel, Hospital;Program Evaluation;Referral and Consultation [organization & administration];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007006284/frame.html
+
+
+Record #101 of 138
+ID: NHSEED-22007000761
+AU: Lalwani K
+AU: Kitchin J
+AU: Lax P
+TI: Office-based dental rehabilitation in children with special healthcare needs using a Pediatric Sedation Service model (Provisional abstract)
+SO: Journal of Oral and Maxillofacial Surgery
+YR: 2007
+VL: 65
+NO: 3
+PG: 427-433
+KY: Anesthesia, Dental [economics] [methods];Anesthesia, General [economics];Conscious Sedation [economics];Costs and Cost Analysis [statistics & numerical data];Cost Savings;Dental Care for Children [economics];Dental Care for Disabled [economics];Dental Restoration, Permanent [economics];Hospital Charges [statistics & numerical data];numerical data;Office Visits [economics];Operating Rooms [economics];Retrospective Studies;Child[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007000761/frame.html
+
+
+Record #102 of 138
+ID: NHSEED-22007008308
+AU: Auerbach A D
+AU: Rasic M A
+AU: Sehgal N
+AU: Ide B
+AU: Stone B
+AU: Maselli J
+TI: Opportunity missed: medical consultation, resource use, and quality of care of patients undergoing major surgery (Provisional abstract)
+SO: Archives of Internal Medicine
+YR: 2007
+VL: 167
+NO: 21
+PG: 2338-2344
+KY: Cohort Studies;control;Hospital Costs;Internal Medicine [methods];Length of Stay;Multivariate Analysis;numerical data;Outcome Assessment (Health Care) [statistics & numerical data];Postoperative Complications [prevention & control];Preoperative Care [methods] [standards];Quality of Health Care;Referral and Consultation;Surgical Procedures, Operative;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007008308/frame.html
+
+
+Record #103 of 138
+ID: NHSEED-22007000147
+AU: Honeycutt A A
+AU: Coleman M S
+AU: Anderson W L
+AU: Wirth K E
+TI: Cost-effectiveness of hospital vaccination programs in North Carolina (Structured abstract)
+SO: Vaccine
+YR: 2007
+VL: 25
+NO: 8
+PG: 1484-1496
+KY: Cost-Benefit Analysis;Health Care Costs;Hospitals [statistics & numerical data];Influenza Vaccines [economics];North Carolina;numerical data;Pneumococcal Vaccines [economics];Vaccination [economics] [statistics & numerical data];Adult[checkword];Aged[checkword];Humans[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007000147/frame.html
+
+
+Record #104 of 138
+ID: NHSEED-22007008273
+AU: Byford S
+AU: Barrett B
+AU: Roberts C
+AU: Clark A
+AU: Edwards V
+AU: Smethurst N
+AU: Gowers SG
+TI: Economic evaluation of a randomised controlled trial for anorexia nervosa in adolescents (Structured abstract)
+SO: British Journal of Psychiatry
+YR: 2007
+VL: 191
+NO: 2
+PG: 436-440
+KY: Anorexia Nervosa [economics] [therapy];Cognitive Therapy [economics];Community Mental Health Services [economics];Cost-Benefit Analysis;Delivery of Health Care [economics] [methods];England;Family Therapy [economics];Health Care Costs [statistics & numerical data];Health Resources [utilization];Health Services Research;Hospitalization [economics];numerical data;Outpatient Clinics, Hospital [economics];State Medicine [economics];Treatment Outcome;Adolescent[checkword];Child[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007008273/frame.html
+
+
+Record #105 of 138
+ID: NHSEED-22007000656
+AU: Latour C H
+AU: Bosmans J E
+AU: Tulder M W
+AU: Vos R
+AU: Huyse F J
+AU: Jonge P
+AU: Gemert L A
+AU: Stalman W A
+TI: Cost-effectiveness of a nurse-led case management intervention in general medical outpatients compared with usual care: an economic evaluation alongside a randomized controlled trial (Structured abstract)
+SO: Journal of Psychosomatic Research
+YR: 2007
+VL: 62
+NO: 3
+PG: 363-370
+KY: Case Management [economics] [utilization];Cost-Benefit Analysis [economics];Emergency Service, Hospital [economics] [utilization];Home Care Services [economics] [utilization];Netherlands;numerical data;Nurse Clinicians [economics];Patient Care Team [economics] [utilization];Patient Discharge [economics];Patient Readmission [economics];Referral and Consultation [economics] [utilization];Specialties, Medical [economics];Utilization Review [statistics & numerical data];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22007000656/frame.html
+
+
+Record #106 of 138
+ID: NHSEED-22006000742
+AU: Gosselin R A
+AU: Thind A
+AU: Bellardinelli A
+TI: Cost/DALY averted in a small hospital in Sierra Leone: what is the relative contribution of different services? (Provisional abstract)
+SO: World Journal of Surgery
+YR: 2006
+VL: 30
+NO: 4
+PG: 505-511
+KY: Cost-Benefit Analysis [economics];Cost Savings [economics];Developing Countries;Disability Evaluation;Health Policy [economics];Health Resources [economics];Hospital Costs [statistics & numerical data];Hospitals, Rural [economics];numerical data;Policy Making;Quality-Adjusted Life Years;Sierra Leone;Surgery Department, Hospital [economics];Surgical Procedures, Operative [economics];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006000742/frame.html
+
+
+Record #107 of 138
+ID: NHSEED-22006001586
+AU: Choudhary M
+AU: Ramirez L
+AU: Long R
+AU: Simmons K B
+AU: Blair D C
+AU: Forbes B A
+AU: Same K
+AU: Ploutz-Snyder R
+AU: Rose F B
+TI: A university hospital's 10-year experience with tuberculin testing: value of the 2-step tuberculin skin test (Provisional abstract)
+SO: American Journal of Infection Control
+YR: 2006
+VL: 34
+NO: 6
+PG: 358-361
+KY: Chi-Square Distribution;control;Cost-Benefit Analysis;Hospitals, University;Infectious Disease Transmission, Patient-to-Professional [prevention & control];Mass Screening [economics] [methods] [statistics & numerical data];New York;numerical data;Personnel, Hospital [statistics & numerical data];Tuberculin Test [economics] [methods] [statistics & numerical data];Tuberculosis [immunology];United States;United States Occupational Safety and Health Administration [standards];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006001586/frame.html
+
+
+Record #108 of 138
+ID: NHSEED-22006001270
+AU: Eastridge B J
+AU: Shafi S
+AU: Minei J P
+AU: Culica D
+AU: McConnel C
+AU: Gentilello L
+TI: Economic impact of motorcycle helmets: from impact to discharge (Provisional abstract)
+SO: Journal of Trauma
+YR: 2006
+VL: 60
+NO: 5
+PG: 978-983
+KY: Accidents, Traffic [economics] [mortality] [prevention & control];control;Cost of Illness;Costs and Cost Analysis [statistics & numerical data];Craniocerebral Trauma [economics] [mortality] [prevention & control];Cross-Sectional Studies;Databases, Factual;Emergency Medical Services [economics] [utilization];Head Protective Devices [economics] [utilization];Hospital Charges [statistics & numerical data];Hospital Costs [statistics & numerical data];Incidence;Motorcycles;numerical data;Patient Admission [economics] [statistics & numerical data];Survival Analysis;Utilization Review [statistics & numerical data];Wounds and Injuries [economics] [mortality] [prevention & control];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006001270/frame.html
+
+
+Record #109 of 138
+ID: NHSEED-22006001204
+AU: Dasta J F
+AU: Jacobi J
+AU: Sesti A M
+AU: McLaughlin T P
+TI: Addition of dexmedetomidine to standard sedation regimens after cardiac surgery: an outcomes analysis (Provisional abstract)
+SO: Pharmacotherapy
+YR: 2006
+VL: 26
+NO: 6 I
+PG: 798-805
+KY: Cardiac Surgical Procedures;Dexmedetomidine [economics] [therapeutic use];Drug Therapy, Combination;Hospitals [statistics & numerical data];Hypnotics and Sedatives [economics] [therapeutic use];Intensive Care Units [statistics & numerical data];Length of Stay;Lorazepam [economics] [therapeutic use];Midazolam [economics] [therapeutic use];numerical data;Outcome Assessment (Health Care) [economics] [methods];Propofol [economics] [therapeutic use];Retrospective Studies;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006001204/frame.html
+
+
+Record #110 of 138
+ID: NHSEED-22005001574
+AU: Wang C
+AU: Ghalambor N
+AU: Zarins B
+AU: Warner J J
+TI: Arthroscopic versus open bankart repair: analysis of patient subjective outcome and cost (Provisional abstract)
+SO: Arthroscopy
+YR: 2005
+VL: 21
+NO: 10
+PG: 1219-1222
+KY: Ambulatory Surgical Procedures [economics] [methods] [psychology] [statistics & numerical data];Anesthesia [economics] [methods];Arthroscopy [economics] [methods] [psychology] [statistics & numerical data];Fibrocartilage [injuries] [surgery];Hospital Costs;Hospitals, Teaching [economics];Intraoperative Period;numerical data;Operating Rooms [economics];Orthopedic Procedures [economics] [methods] [psychology] [statistics & numerical data];Patient Satisfaction;Postoperative Complications [epidemiology];Recurrence;Retrospective Studies;Shoulder Dislocation [epidemiology];Shoulder Joint [surgery];Treatment Outcome;Adolescent[checkword];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22005001574/frame.html
+
+
+Record #111 of 138
+ID: NHSEED-22005008125
+AU: Walsh B
+AU: Steiner A
+AU: Pickering R M
+AU: Ward-Basu J
+TI: Economic evaluation of nurse led intermediate care versus standard acute care for post-acute medical patients: cost minimisation analysis of data from a randomised controlled trial (Structured abstract)
+SO: BMJ
+YR: 2005
+VL: 330
+NO: 2
+PG: 699-702
+KY: Acute Disease [economics];Acute Disease [nursing];Cost-Benefit Analysis;Economics, Nursing;Great Britain;Hospital Costs;Hospitalization [economics];Hospitals, Teaching [economics];Length of Stay [economics];Nursing Care;Outcome Assessment (Health Care);Randomized Controlled Trials as Topic;Urban Health;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22005008125/frame.html
+
+
+Record #112 of 138
+ID: NHSEED-22006006443
+AU: Wenger U
+AU: Johnsson E
+AU: Bergquist H
+AU: Nyman J
+AU: Ejnell H
+AU: Lagergren J
+AU: Ruth M
+AU: Lundell L
+TI: Health economic evaluation of stent or endoluminal brachytherapy as a palliative strategy in patients with incurable cancer of the oesophagus or gastro-oesophageal junction: results of a randomized clinical trial (Provisional abstract)
+SO: European Journal of Gastroenterology and Hepatology
+YR: 2005
+VL: 17
+NO: 12
+PG: 1369-1377
+KY: Brachytherapy [economics];Cost-Benefit Analysis;Deglutition Disorders [economics] [radiotherapy] [therapy];Esophageal Neoplasms [radiotherapy] [therapy];Esophagogastric Junction;Health Care Costs [statistics & numerical data];Hospital Costs [statistics & numerical data];numerical data;Palliative Care [economics] [methods];Prospective Studies;Severity of Illness Index;Stents [economics];Survival Analysis;Sweden;Treatment Outcome;Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006006443/frame.html
+
+
+Record #113 of 138
+ID: NHSEED-22005001349
+AU: Arredondo A
+AU: Burke T A
+AU: Carides G W
+AU: Lemus E
+AU: Querol J
+TI: The impact of losartan on the lifetime incidence of ESRD and costs in Mexico (Provisional abstract)
+SO: Revista de Investigacion Clinica
+YR: 2005
+VL: 57
+NO: 3
+PG: 399-405
+KY: Angiotensin II Type 1 Receptor Blockers [economics] [therapeutic use];Antihypertensive Agents [economics] [therapeutic use];control;Cost-Benefit Analysis;Cost of Illness;Diabetes Mellitus, Type 2 [complications] [economics];Diabetic Nephropathies [complications] [economics] [epidemiology];Disease-Free Survival;Double-Blind Method;Follow-Up Studies;Hospitals, Public [statistics & numerical data];Hypertension [complications] [drug therapy];Incidence;Insurance, Health, Reimbursement [statistics & numerical data];Kidney Failure, Chronic [economics] [epidemiology] [etiology] [prevention & control];Life Expectancy;Losartan [economics] [therapeutic use];Mexico [epidemiology];Multicenter Studies as Topic [statistics & numerical data];numerical data;Randomized Controlled Trials as Topic [statistics & numerical data];Renal Replacement Therapy [economics];Risk;Survival Analysis;Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22005001349/frame.html
+
+
+Record #114 of 138
+ID: NHSEED-22005001304
+AU: Bond C A
+AU: Raehl C L
+TI: Clinical and economic outcomes of pharmacist-managed aminoglycoside or vancomycin therapy (Provisional abstract)
+SO: American Journal of Health-System Pharmacy
+YR: 2005
+VL: 62
+NO: 15
+PG: 1596-1605
+KY: Aminoglycosides [economics] [therapeutic use];Anti-Bacterial Agents [economics] [therapeutic use];Bacteremia [drug therapy] [epidemiology];Cost-Benefit Analysis;Cross Infection [drug therapy] [epidemiology];Diagnosis-Related Groups [statistics & numerical data];Drug Monitoring;Drug Utilization Review;Length of Stay;Medicare;numerical data;Outcome and Process Assessment (Health Care);Patient Care Team;Pharmacists;Pharmacy Service, Hospital [economics] [standards] [utilization];Professional Role;United States [epidemiology];Vancomycin [economics] [therapeutic use];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22005001304/frame.html
+
+
+Record #115 of 138
+ID: NHSEED-22005001531
+AU: LeBel J
+AU: Goldstein R
+TI: The economic cost of using restraint and the value added by restraint reduction or elimination (Provisional abstract)
+SO: Psychiatric Services
+YR: 2005
+VL: 56
+NO: 9
+PG: 1109-1114
+KY: Burnout, Professional [economics];Cost-Benefit Analysis [statistics & numerical data];Cost Savings [statistics & numerical data];Drug Costs [statistics & numerical data];Hospitals, Psychiatric [economics];Mental Disorders [economics];numerical data;Outcome and Process Assessment (Health Care);Outcome Assessment (Health Care);Patient Care Team [economics];Patient Discharge [economics];Patient Readmission [economics];Pennsylvania;Personnel Staffing and Scheduling [economics];Psychotropic Drugs [economics] [therapeutic use];Restraint, Physical;Adolescent[checkword];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22005001531/frame.html
+
+
+Record #116 of 138
+ID: NHSEED-22006006334
+AU: Gillespie E L
+AU: White C M
+AU: Kluger J
+AU: Sahni J
+AU: Gallagher R
+AU: Coleman C I
+TI: A hospital perspective on the cost-effectiveness of beta-blockade for prophylaxis of atrial fibrillation after cardiothoracic surgery (Structured abstract)
+SO: Clinical Therapeutics
+YR: 2005
+VL: 27
+NO: 12
+PG: 1963-1969
+KY: Adrenergic beta-Antagonists [therapeutic use];Atrial Fibrillation [prevention & control];Case-Control Studies;Connecticut;Cost-Benefit Analysis;Data Interpretation, Statistical;Hospital Costs [statistics & numerical data];Length of Stay [economics];Length of Stay [statistics & numerical data];Postoperative Complications [prevention & control];Prospective Studies;Thoracic Surgical Procedures;Aged[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22006006334/frame.html
+
+
+Record #117 of 138
+ID: NHSEED-22004001311
+AU: Paul I M
+AU: Phillips T A
+AU: Widome M D
+AU: Hollenbeak C S
+TI: Cost-effectiveness of postnatal home nursing visits for prevention of hospital care for jaundice and dehydration (Provisional abstract)
+SO: Pediatrics
+YR: 2004
+VL: 114
+NO: 4
+PG: 1015-1022
+KY: control;Cost-Benefit Analysis;Dehydration [economics] [prevention & control];Emergency Service, Hospital [economics] [utilization];Home Care Services [economics];Hospitalization [economics];Infant, Newborn;Jaundice, Neonatal [economics] [prevention & control];jurisprudence;Length of Stay [legislation & jurisprudence];numerical data;Patient Readmission [economics] [statistics & numerical data];Postnatal Care [economics];Retrospective Studies;United States;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22004001311/frame.html
+
+
+Record #118 of 138
+ID: NHSEED-22003009528
+AU: Greco M
+AU: Cozzio S
+AU: Scillieri M
+AU: Caprari F
+AU: Scivales A
+AU: Disertori M
+TI: Diagnostic pathway syncope and analysis of the impact of guidelines in a district general hospital: the ECSIT study (Epidemiology and Cost of Syncope in Trento) (Structured abstract)
+SO: Italian Heart Journal
+YR: 2003
+VL: 4
+NO: 2
+PG: 99-106
+KY: Cerebrovascular Disorders [complications];Cerebrovascular Disorders [diagnosis];Cerebrovascular Disorders [economics];Costs and Cost Analysis [economics];Costs and Cost Analysis [standards];Data Collection;Diagnostic Techniques and Procedures [economics];Diagnostic Techniques and Procedures [standards];Feasibility Studies;Heart Diseases [complications];Heart Diseases [diagnosis];Heart Diseases [economics];Hospitalization [economics];Hospitals, District [economics];Hospitals, District [standards];Hospitals, General [economics];Hospitals, General [standards];Incidence;Italy [epidemiology];Length of Stay [economics];Patient Care Management [economics];Patient Care Management [standards];Pilot Projects;Retrospective Studies;Syncope [diagnosis];Syncope [economics];Syncope [epidemiology];Adolescent[checkword];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22003009528/frame.html
+
+
+Record #119 of 138
+ID: NHSEED-22003006032
+AU: Secco G B
+AU: Cataletti M
+AU: Bonfante P
+AU: Baldi E
+AU: Davini M D
+AU: Biasotti B
+AU: Ravera G
+AU: Ferraris R
+TI: Laparoscopic versus mini-cholecystectomy: analysis of hospital costs and social costs in a prospective randomized study (Structured abstract)
+SO: Chirurgia Italiana
+YR: 2002
+VL: 54
+NO: 5
+PG: 685-692
+KY: Cholangiography;Cholecystectomy [economics];Cholecystectomy, Laparoscopic [economics];Cholelithiasis [surgery];Convalescence;Cost-Benefit Analysis;Costs and Cost Analysis;Data Interpretation, Statistical;Length of Stay;Patient Compliance;Postoperative Complications;Prospective Studies;Retrospective Studies;Socioeconomic Factors;Time Factors;Work;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22003006032/frame.html
+
+
+Record #120 of 138
+ID: NHSEED-22003000152
+AU: Lissovoy G
+AU: Subedi P
+TI: Economic evaluation of enoxaparin as prophylaxis against venous thromboembolism in seriously ill medical patients: A US perspective (Provisional abstract)
+SO: American Journal of Managed Care
+YR: 2002
+VL: 8
+NO: 12
+PG: 1082-1088
+KY: Anticoagulants [economics] [pharmacokinetics] [therapeutic use];Clinical Trials as Topic;control;Cost-Benefit Analysis;Double-Blind Method;Drug Costs;Enoxaparin [economics] [pharmacokinetics] [therapeutic use];Hospital Costs [statistics & numerical data];Hospitalization [economics];numerical data;Premedication [economics];Thromboembolism [economics] [prevention & control];United States;Venous Thrombosis [economics] [prevention & control];Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22003000152/frame.html
+
+
+Record #121 of 138
+ID: NHSEED-22001000994
+AU: Palmer S
+AU: Bader M K
+AU: Qureshi A
+AU: Palmer J
+AU: Shaver T
+AU: Borzatta M
+AU: Stalcup C
+TI: The impact on outcomes in a community hospital setting of using the AANS traumatic brain injury guidelines (Provisional abstract)
+SO: Journal of Trauma
+YR: 2001
+VL: 50
+NO: 4
+PG: 657-664
+KY: administration;Age Distribution;Algorithms;Brain Injuries [economics] [mortality] [therapy];Clinical Protocols [standards];Decision Trees;Glasgow Coma Scale;Guideline Adherence [economics] [standards];Health Resources [economics] [utilization];Hospital Charges [statistics & numerical data];Hospitals, Community [standards];Injury Severity Score;Length of Stay [statistics & numerical data];Logistic Models;Monitoring, Physiologic;numerical data;Odds Ratio;Outcome Assessment (Health Care);Patient Admission;Patient Care Team [organization & administration];Practice Guidelines as Topic;Prospective Studies;Retrospective Studies;Survival Analysis;Adolescent[checkword];Adult[checkword];Child[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22001000994/frame.html
+
+
+Record #122 of 138
+ID: NHSEED-22001008278
+AU: Jerant AF
+AU: Azari R
+AU: Nesbitt TS
+TI: Reducing the cost of frequent hospital admissions for congestive heart failure: a randomized trial of a home telecare intervention (Structured abstract)
+SO: Medical Care
+YR: 2001
+VL: 39
+NO: 11
+PG: 1234-1245
+KY: Aftercare [methods];Analysis of Variance;California;Cost Control [methods];Cost of Illness;Heart Failure [economics] [therapy];Home Care Services, Hospital-Based;Hospital Charges;numerical data;Patient Discharge;Patient Readmission [economics] [statistics & numerical data];Pilot Projects;Telemedicine [methods];Telephone;Television;Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22001008278/frame.html
+
+
+Record #123 of 138
+ID: NHSEED-22001001477
+AU: Canales P L
+AU: Dorson P G
+AU: Crismon M L
+TI: Outcomes assessment of clinical pharmacy services in a psychiatric inpatient setting (Provisional abstract)
+SO: American Journal of Health-System Pharmacy
+YR: 2001
+VL: 58
+NO: 14
+PG: 1309-1316
+KY: Brief Psychiatric Rating Scale [statistics & numerical data];Cost-Benefit Analysis [statistics & numerical data];Hospitals, Psychiatric [statistics & numerical data];Inpatients [psychology] [statistics & numerical data];Mental Disorders [psychology] [therapy];numerical data;Outcome Assessment (Health Care) [statistics & numerical data];Pharmacists [statistics & numerical data];Pharmacy Service, Hospital [methods] [statistics & numerical data];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22001001477/frame.html
+
+
+Record #124 of 138
+ID: NHSEED-22001006794
+AU: Walsh-Sukys M
+AU: Reitenbach A
+AU: Hudson-Barr D
+AU: DePompei P
+TI: Reducing light and sound in the neonatal intensive care unit: an evaluation of patient safety, staff satisfaction and costs (Structured abstract)
+SO: Journal of Perinatology
+YR: 2001
+VL: 21
+NO: 4
+PG: 230-235
+KY: Attitude of Health Personnel;Costs and Cost Analysis;Data Interpretation, Statistical;Hospital Design and Construction [economics];Hospital Design and Construction [standards];Intensive Care Units, Neonatal [economics];Intensive Care Units, Neonatal [standards];Lighting [economics];Lighting [standards];Medical Staff, Hospital [psychology];Personal Satisfaction;Safety Management [methods];Safety Management [standards];Sound;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22001006794/frame.html
+
+
+Record #125 of 138
+ID: NHSEED-21999008352
+AU: Jones J
+AU: Wilson A
+AU: Parker H
+AU: Wynn A
+AU: Jagger C
+AU: Spiers N
+AU: Parker G
+TI: Economic evaluation of hospital at home versus hospital care: cost minimisation analysis of data from randomised controlled trial (Structured abstract)
+SO: BMJ
+YR: 1999
+VL: 319
+NO: 2
+PG: 1547-1550
+KY: Cost of Illness;England;Health Care Costs;Health Resources [utilization];Home Care Services, Hospital-Based [economics];Hospital Costs;Hospitalization [economics];Length of Stay;Sensitivity and Specificity;Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21999008352/frame.html
+
+
+Record #126 of 138
+ID: NHSEED-21999001756
+AU: Seguin J
+AU: Garber B G
+AU: Coyle D
+AU: Hebert P C
+TI: An economic evaluation of trauma care in a Canadian lead trauma hospital (Provisional abstract)
+SO: Journal of Trauma
+YR: 1999
+VL: 47
+NO: 3 Supplement S
+PG: S99-S103
+KY: Cost-Benefit Analysis;Cross-Sectional Studies;Health Services Research;Hospital Costs [statistics & numerical data];Models, Econometric;numerical data;Ontario;Quality-Adjusted Life Years;Retrospective Studies;Trauma Centers [economics];Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21999001756/frame.html
+
+
+Record #127 of 138
+ID: NHSEED-21999006994
+AU: Barker S B
+AU: Knisely J S
+AU: Dawson K S
+TI: The evaluation of a consultation service for delivery of substance abuse services in a hospital setting (Provisional abstract)
+SO: Journal of Addictive Diseases
+YR: 1999
+VL: 18
+NO: 1
+PG: 73-82
+KY: Cost-Benefit Analysis;Evaluation Studies as Topic;Hospitalization [statistics & numerical data];Hospitals, Teaching;Length of Stay;Mid-Atlantic Region;numerical data;Outcome Assessment (Health Care);Program Evaluation;Referral and Consultation [standards];Substance Abuse Treatment Centers [standards];Substance-Related Disorders [rehabilitation];Adolescent[checkword];Adult[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21999006994/frame.html
+
+
+Record #128 of 138
+ID: NHSEED-21999001148
+AU: Condra L J
+AU: Morreale A P
+AU: Stolley S N
+AU: Marcus D
+TI: Assessment of patient satisfaction with a formulary switch from omeprazole to lansoprazole in gastroesophageal reflux disease maintenance therapy (Provisional abstract)
+SO: American Journal of Managed Care
+YR: 1999
+VL: 5
+NO: 5
+PG: 631-638
+KY: 2-Pyridinylmethylsulfinylbenzimidazoles;California;Cost-Benefit Analysis;Cost Savings;derivatives [economics] [therapeutic use];Drug Costs;Formularies, Hospital [standards];Gastroesophageal Reflux [drug therapy];Health Care Surveys;Hospitals, Veterans [standards];numerical data;Omeprazole [adverse effects] [analogs & derivatives];Patient Satisfaction [statistics & numerical data];Surveys and Questionnaires;Therapeutic Equivalency;Treatment Outcome;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21999001148/frame.html
+
+
+Record #129 of 138
+ID: NHSEED-22000000079
+AU: Lightwood J M
+AU: Phibbs C S
+AU: Glantz S A
+TI: Short-term health and economic benefits of smoking cessation: low birth weight (Provisional abstract)
+SO: Pediatrics
+YR: 1999
+VL: 104
+NO: 6
+PG: 1312-1320
+KY: California [epidemiology];Cost-Benefit Analysis [economics] [statistics & numerical data];Hospital Costs [statistics & numerical data];Incidence;Infant, Low Birth Weight;Infant, Newborn;Maternal Welfare [economics] [ethnology] [statistics & numerical data];numerical data;Odds Ratio;Pregnancy Trimester, First;Prevalence;Risk Factors;Smoking [economics] [ethnology];Smoking Cessation [economics] [ethnology] [statistics & numerical data];Time Factors;Female[checkword];Humans[checkword];Pregnancy[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-22000000079/frame.html
+
+
+Record #130 of 138
+ID: NHSEED-21999000384
+AU: Malek M
+AU: Cunningham-Davis J
+AU: Malek L
+AU: Paschen B
+AU: Tavakoli M
+AU: Zabihollah M
+AU: Davey P
+TI: A cost minimisation analysis of cardiac failure treatment in the UK using CIBIS trial data (Structured abstract)
+SO: International Journal of Clinical Practice
+YR: 1999
+VL: 53
+NO: 1
+PG: 19-23
+KY: Adrenergic beta-Antagonists [economics];Adrenergic beta-Antagonists [therapeutic use];Bisoprolol [economics];Bisoprolol [therapeutic use];Cardiac Output, Low [drug therapy];Cardiac Output, Low [economics];Cost-Benefit Analysis;Drug Costs;Hospital Costs;Adolescent[checkword];Adult[checkword];Aged[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21999000384/frame.html
+
+
+Record #131 of 138
+ID: NHSEED-21998006769
+AU: Meding J B
+AU: Keating E M
+AU: Faris P M
+AU: Ritter M A
+TI: Maximizing cost-effectiveness while minimizing complications in total hip replacement (Provisional abstract)
+SO: American Journal of Orthopedics
+YR: 1998
+VL: 27
+NO: 4
+PG: 295-298
+KY: Arthroplasty, Replacement, Hip [adverse effects] [economics];control;Cost-Benefit Analysis;Follow-Up Studies;Health Care Surveys;Hip Prosthesis [adverse effects] [economics];Hospital Costs [statistics & numerical data];numerical data;Prosthesis Failure;Prosthesis-Related Infections [prevention & control];Reoperation;Treatment Outcome;United States;Adult[checkword];Aged[checkword];Aged, 80 and over[checkword];Female[checkword];Humans[checkword];Male[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21998006769/frame.html
+
+
+Record #132 of 138
+ID: NHSEED-21998000748
+AU: Rosenheck R A
+AU: Neale M S
+TI: Cost-effectiveness of intensive psychiatric community care for high users of inpatient services (Provisional abstract)
+SO: Archives of General Psychiatry
+YR: 1998
+VL: 55
+NO: 5
+PG: 459-466
+KY: Age Factors;Community Mental Health Services [economics] [utilization];Connecticut;Cost-Benefit Analysis;Follow-Up Studies;Health Care Costs;Health Services Research;Hospitalization [economics] [statistics & numerical data];Hospitals, Veterans [economics] [utilization];Mental Disorders [economics] [therapy];numerical data;Patient Acceptance of Health Care;Patient Satisfaction;Social Adjustment;Treatment Outcome;United States;United States Department of Veterans Affairs;Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21998000748/frame.html
+
+
+Record #133 of 138
+ID: NHSEED-21998001532
+AU: Meier P A
+AU: Fredrickson M
+AU: Catney M
+AU: Nettleman M D
+TI: Impact of a dedicated intravenous therapy team on nosocomial bloodstream infection rates (Structured abstract)
+SO: American Journal of Infection Control
+YR: 1998
+VL: 26
+NO: 4
+PG: 388-392
+KY: Bacteremia [economics];Bacteremia [epidemiology];Bacteremia [microbiology];Bacteremia [prevention & control];Blood-Borne Pathogens;Cost-Benefit Analysis;Cross Infection [economics];Cross Infection [epidemiology];Cross Infection [microbiology];Cross Infection [prevention & control];Data Collection;Hospital Bed Capacity, 100 to 299;Hospitals, Veterans [statistics & numerical data];Incidence;Infection Control [economics];Infection Control [methods];Infusions, Intravenous [adverse effects];Infusions, Intravenous [nursing];Iowa;Patient Care Team [economics];Patient Care Team [organization & administration];Prospective Studies;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21998001532/frame.html
+
+
+Record #134 of 138
+ID: NHSEED-21997001250
+AU: Dardik A
+AU: Williams G M
+AU: Minken S L
+AU: Perler B A
+TI: Impact of a critical pathway on the results of carotid endarterectomy in a tertiary care university hospital: effect of methods on outcome (Structured abstract)
+SO: Journal of Vascular Surgery
+YR: 1997
+VL: 26
+NO: 2
+PG: 186-192
+KY: Analysis of Variance;Angiography;Baltimore;Critical Pathways;Data Interpretation, Statistical;Endarterectomy, Carotid [adverse effects];Endarterectomy, Carotid [economics];Endarterectomy, Carotid [mortality];Hospital Costs;Hospitals, University [economics];Hospitals, University [statistics & numerical data];Length of Stay;Reoperation;Retrospective Studies;Treatment Outcome;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21997001250/frame.html
+
+
+Record #135 of 138
+ID: NHSEED-21996008137
+AU: Croix S J
+AU: Russo G
+TI: A cost-benefit analysis of voluntary routine HIV-antibody testing for hospital patients (Provisional abstract)
+SO: Social Science and Medicine
+YR: 1996
+VL: 42
+NO: 9
+PG: 1259-1272
+KY: AIDS Serodiagnosis [economics];control [transmission] [transmission] [statistics & numerical data];Cost-Benefit Analysis;Cross Infection [economics] [prevention & control];Economics, Hospital [statistics & numerical data];Health Personnel [statistics & numerical data];HIV Infections [economics] [prevention & control];HIV Seroprevalence;Infectious Disease Transmission, Patient-to-Professional [economics] [prevention & control];Models, Economic;numerical data;Risk Assessment;Risk-Taking;Sexual Behavior [statistics & numerical data];Sexual Partners;Value of Life;Adolescent[checkword];Adult[checkword];Humans[checkword];Middle Aged[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21996008137/frame.html
+
+
+Record #136 of 138
+ID: NHSEED-21996000307
+AU: Leger A S
+AU: Spencely M
+AU: McCollum C N
+AU: Mossa M
+TI: Screening for abdominal aortic aneurysm: a computer assisted cost-utility analysis (Structured abstract)
+SO: European Journal of Vascular and Endovascular Surgery
+YR: 1996
+VL: 11
+NO: 2
+PG: 183-190
+KY: Aortic Aneurysm, Abdominal [economics];Aortic Aneurysm, Abdominal [mortality];Aortic Aneurysm, Abdominal [prevention & control];Computer Simulation;Cost-Benefit Analysis;Data Interpretation, Statistical;Great Britain [epidemiology];Hospital Costs [statistics & numerical data];Mass Screening [economics];Mass Screening [statistics & numerical data];Models, Economic;Quality-Adjusted Life Years;Risk Factors;Sensitivity and Specificity;Aged[checkword];Humans[checkword];Male[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21996000307/frame.html
+
+
+Record #137 of 138
+ID: NHSEED-21996000099
+AU: Low D E
+TI: Gastroesophageal reflux disease: examination of outcome and cost data of open and laparoscopic antireflux operations at Virginia Mason medical center in Seattle (Structured abstract)
+SO: Surgical Endoscopy - Ultrasound and Interventional Techniques
+YR: 1995
+VL: 9
+NO: 12
+PG: 1326-1328
+KY: Academic Medical Centers;Cost-Benefit Analysis;Costs and Cost Analysis;Gastroesophageal Reflux [surgery];Hospital Charges;Hospital Costs;Laparoscopy [economics];Laparoscopy [methods];Length of Stay [economics];Prospective Studies;Quality of Life;Treatment Outcome;Washington;Humans[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21996000099/frame.html
+
+
+Record #138 of 138
+ID: NHSEED-21995007056
+AU: Henderson J W
+TI: The cost-effectiveness of prenatal care (Structured abstract)
+SO: Health Care Financing Review
+YR: 1994
+VL: 15
+NO: 4
+PG: 21-32
+KY: Causality;Cost-Benefit Analysis [statistics & numerical data];Data Collection;Ethnic Groups;Health Services Research;Hospital Charges [statistics & numerical data];Hospital Costs [statistics & numerical data];Hospitalization [economics];Infant, Low Birth Weight;Infant, Newborn;Intensive Care Units, Neonatal [economics];Least-Squares Analysis;Marital Status;Pregnancy Outcome [economics];Prenatal Care [economics];Prenatal Care [statistics & numerical data];Prenatal Care [utilization];Texas [epidemiology];Female[checkword];Humans[checkword];Pregnancy[checkword]
+US: http://onlinelibrary.wiley.com/o/cochrane/cleed/articles/NHSEED-21995007056/frame.html
+
