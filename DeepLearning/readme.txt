@@ -43,7 +43,7 @@ Ebeddings:
 (6) MCE
 
 Predictions:
-(7) RETAIN
+(7) RETAIN [http://papers.nips.cc/paper/6321-retain-an-interpretable-predictive-model-for-healthcare-using-reverse-time-attention-mechanism.pdf]
 (8) doctorai [https://towardsdatascience.com/using-electronic-health-records-ehr-for-predicting-future-diagnosis-codes-using-gated-recurrent-bcd0de7d7436]
 (9) gram
 (10) rnn_predict
