@@ -4,6 +4,7 @@ https://arxiv.org/ftp/arxiv/papers/1903/1903.01039.pdf
 Some2vec:
 https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e
 
+https://towardsdatascience.com/understanding-feature-engineering-part-4-deep-learning-methods-for-text-data-96c44370bbfa
 
 https://academic.oup.com/jamia/article/25/10/1419/5035024
 
