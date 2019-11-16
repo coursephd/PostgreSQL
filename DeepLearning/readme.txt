@@ -1,6 +1,9 @@
 Survey Paper:
 https://arxiv.org/ftp/arxiv/papers/1903/1903.01039.pdf
 
+Python help:
+https://scikit-learn.org/stable/modules/model_evaluation.html
+
 Some2vec:
 https://gist.github.com/nzw0301/333afc00bd508501268fa7bf40cafe4e
 
