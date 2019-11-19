@@ -44,10 +44,11 @@ Ebeddings:
 (1) CBOW
 (2) Skip-gram
 (3) wang2vec
-(11) doc2vec
-(4) Glove
-(5) med2vec
-(6) MCE
+(4) doc2vec
+(5) Glove
+(6) med2vec
+(7) MCE
+(8) fastext https://fasttext.cc/docs/en/supervised-tutorial.html
 
 Predictions:
 (7) RETAIN [http://papers.nips.cc/paper/6321-retain-an-interpretable-predictive-model-for-healthcare-using-reverse-time-attention-mechanism.pdf]
