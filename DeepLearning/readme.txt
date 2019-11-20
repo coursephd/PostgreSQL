@@ -4,6 +4,10 @@ https://arxiv.org/ftp/arxiv/papers/1903/1903.01039.pdf
 Python help:
 https://scikit-learn.org/stable/modules/model_evaluation.html
 
+R package examples:
+http://www.rpubs.com/mukul13/rword2vec
+https://urldefense.proofpoint.com/v2/url?u=http-3A__feedproxy.google.com_-7Er_RBloggers_-7E3_Hp8Of-5Fk8TFo_-3Futm-5Fsource-3Dfeedburner-26utm-5Fmedium-3Demail&d=DwMFaQ&c=ZbgFmJjg4pdtrnL2HUJUDw&r=dfWOo6nWHgc9wkpIrXZXf-em7CXtrDm-xacGJzs-Xqc&m=4aMbIaHy3dqtIiySy2O_9slFprnQbTCBymteZO7JRbo&s=hV73d18EtdVq_jLfR6s2RoDLpiX-DnV9-sRCtf3uLw4&e=
+
 Thesis document with helpful text:
 https://scholarworks.iupui.edu/bitstream/handle/1805/17918/Thesis%20v4.4.pdf?sequence=1&isAllowed=y
 
