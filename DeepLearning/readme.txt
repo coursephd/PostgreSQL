@@ -6,6 +6,7 @@ https://scikit-learn.org/stable/modules/model_evaluation.html
 
 R package examples:
 https://rlbarter.github.io/superheat-examples/Word2Vec/ [Looks quite interesting]
+http://nandeshwar.info/data-science-2/deep-learning-tensorflow-r-tutorial/ [Looks quite interesting]
 http://www.rpubs.com/mukul13/rword2vec [works on Linux, may not on Windows -- so not tried]
 https://www.r-bloggers.com/customer-churn-modeling-using-machine-learning-with-parsnip/
 library fastrtext
