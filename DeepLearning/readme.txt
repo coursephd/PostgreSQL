@@ -4,6 +4,9 @@ https://arxiv.org/ftp/arxiv/papers/1903/1903.01039.pdf
 Python help:
 https://scikit-learn.org/stable/modules/model_evaluation.html
 
+20+ methods:
+https://github.com/denizyuret/DeepLearningFrameworks
+
 R package examples:
 https://rlbarter.github.io/superheat-examples/Word2Vec/ [Looks quite interesting]
 http://nandeshwar.info/data-science-2/deep-learning-tensorflow-r-tutorial/ [Looks quite interesting]
