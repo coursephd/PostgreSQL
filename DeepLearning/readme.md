@@ -1,7 +1,15 @@
 
 | Method name | Technology | Input file(s) | Programs to build model | Model performances |
 | --- | --- | --- | --- | --- |
-|   |  |  |  |  |
+| word2vec  |  |  |  |  |
+| GloVe  |  |  |  |  |
+| Fasttext  |  |  |  |  |
+| ElMo  |  |  |  |  |
+| wang2vec  |  |  |  |  |
+| MCE  |  |  |  |  |
+| med2vec  |  |  |  |  |
+| RETAIN  |  |  |  |  |
+
 
 
 | 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
