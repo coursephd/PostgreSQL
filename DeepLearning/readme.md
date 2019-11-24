@@ -1,14 +1,14 @@
 
 | Method name | Technology | Input file(s) | Programs to build model | Model performances |
 | --- | --- | --- | --- | --- |
-| word2vec  |  |  |  |  |
-| GloVe  |  |  |  |  |
-| Fasttext  |  |  |  |  |
-| ElMo  |  |  |  |  |
-| wang2vec  |  |  |  |  |
-| MCE  |  |  |  |  |
-| med2vec  |  |  |  |  |
-| RETAIN  |  |  |  |  |
+| word2vec  | C++ / Python |  |  |  |
+| GloVe  |  | C++ / Python |  |  |
+| Fasttext  | ? / Python |  |  |  |
+| ElMo  |  | ? |  |  |
+| wang2vec  | C++ |  |  |  |
+| MCE  | C++ |  |  |  |
+| med2vec  | Python |  |  |  |
+| RETAIN  | Python |  |  |  |
 
 
 
