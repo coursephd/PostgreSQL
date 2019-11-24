@@ -1,14 +1,14 @@
 
 | Method name | Technology | Input file(s) | Programs to build model | Model performance<br>statistics |
 | --- | --- | --- | --- | --- |
-| word2vec  | C++ / Python |  |  |  |
+| word2vec  | C++ / Python | One patient disease trajectory on each line |  |  |
 | GloVe  | C++ / Python |  |  |  |
 | Fasttext  | ? / Python |  |  |  |
 | ElMo  |  | ? |  |  |
-| wang2vec  | C++ |  |  |  |
-| MCE  | C++ |  |  |  |
-| med2vec  | Python |  |  |  |
-| RETAIN  | Python |  |  |  |
+| wang2vec  | C++ | One patient disease trajectory on each line |  |  |
+| MCE  | C++ | One patient disease trajectory on each line |  |  |
+| med2vec  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv |  |  |
+| RETAIN  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv |  |  |
 
 
 
