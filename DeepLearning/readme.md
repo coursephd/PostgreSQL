@@ -1,14 +1,14 @@
 
 | Method<br>name | Technology | Input<br>file(s) | Programs to<br>build model | Output<br>files | Model performance<br>statistics |
 | --- | --- | --- | --- | --- | --- |
-| word2vec  | C++ / Python | One patient disease trajectory on each line |  |  | |
+| word2vec  | C++ / Python | One patient disease trajectory on each line | word2vec (c executible) |  | |
 | GloVe  | C++ / Python |  |  |  | |
 | Fasttext  | ? / Python |  |  |  | |
-| ElMo  |  | ? |  |  | |
-| wang2vec  | C++ | One patient disease trajectory on each line |  |  | |
-| MCE  | C++ | One patient disease trajectory on each line |  |  | |
-| med2vec  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv |  |  | |
-| RETAIN  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv |  |  | |
+| ElMo  | ? | ? |  |  | |
+| wang2vec  | C++ | One patient disease trajectory on each line | word2vec (c executible) |  | |
+| MCE  | C++ | One patient disease trajectory on each line | mce (c executible) |  | |
+| med2vec  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv | R program to create input CSV files<br>01process_mimic_py3.py<br>02med2vec_py3.py |  | |
+| RETAIN  | Python | CSV files<br>patients.csv<br>admissions.csv<br>diagnosis.csv | R program to create input CSV files<br>01process_mimic_modified_py3<br>02retain_train.py<br>03retain_evaluation.py<br>04retain_interpretations.py |  | |
 
 
 
