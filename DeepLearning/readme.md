@@ -1,6 +1,6 @@
 
 | Method<br>name | Technology | Input<br>file(s) | Programs to<br>build model | Output<br>files | Model performance<br>statistics |
-| --- | --- | --- | --- | --- | |
+| --- | --- | --- | --- | --- | --- |
 | word2vec  | C++ / Python | One patient disease trajectory on each line |  |  | |
 | GloVe  | C++ / Python |  |  |  | |
 | Fasttext  | ? / Python |  |  |  | |
