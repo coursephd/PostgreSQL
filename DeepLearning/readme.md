@@ -1,8 +1,8 @@
 
-| Method name | Technology | Input file(s) | Programs to build model | Model performances |
+| Method name | Technology | Input file(s) | Programs to build model | Model performance\nstatistics |
 | --- | --- | --- | --- | --- |
 | word2vec  | C++ / Python |  |  |  |
-| GloVe  |  | C++ / Python |  |  |
+| GloVe  | C++ / Python |  |  |  |
 | Fasttext  | ? / Python |  |  |  |
 | ElMo  |  | ? |  |  |
 | wang2vec  | C++ |  |  |  |
