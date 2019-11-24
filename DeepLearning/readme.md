@@ -1,6 +1,9 @@
 
-| Program name | Description |
-| --- | --- |
+| Method name | Technology | Input file(s) | Programs to build model | Model performances |
+| --- | --- | --- | --- | --- |
+|   |  |  |  |  |
+
+
 | 100_adsl_sqlpart.sql | SQL code to download the necessary data from the server |
 
 Survey Paper:
