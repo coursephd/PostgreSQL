@@ -1,5 +1,5 @@
 
-| Method name | Technology | Input file(s) | Programs to build model | Model performance\nstatistics |
+| Method name | Technology | Input file(s) | Programs to build model | Model performance<br>statistics |
 | --- | --- | --- | --- | --- |
 | word2vec  | C++ / Python |  |  |  |
 | GloVe  | C++ / Python |  |  |  |
