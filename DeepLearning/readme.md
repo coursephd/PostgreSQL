@@ -180,6 +180,9 @@ http://www.rpubs.com/mukul13/rword2vec [works on Linux, may not on Windows -- so
 https://www.r-bloggers.com/customer-churn-modeling-using-machine-learning-with-parsnip/
 library fastrtext
 
+Clustering:  
+http://brandonrose.org/clustering  
+
 Thesis document with helpful text:
 https://scholarworks.iupui.edu/bitstream/handle/1805/17918/Thesis%20v4.4.pdf?sequence=1&isAllowed=y
 
