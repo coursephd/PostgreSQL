@@ -183,6 +183,7 @@ library fastrtext
 Clustering:  
 http://brandonrose.org/clustering  
 https://www.kaggle.com/thebrownviking20/topic-modelling-with-spacy-and-scikit-learn  
+[Prediction] https://github.com/aravindpai/How-to-build-own-text-summarizer-using-deep-learning/blob/master/How_to_build_own_text_summarizer_using_deep_learning.ipynb  
 
 
 Thesis document with helpful text:
