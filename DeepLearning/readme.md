@@ -182,6 +182,8 @@ library fastrtext
 
 Clustering:  
 http://brandonrose.org/clustering  
+https://www.kaggle.com/thebrownviking20/topic-modelling-with-spacy-and-scikit-learn  
+
 
 Thesis document with helpful text:
 https://scholarworks.iupui.edu/bitstream/handle/1805/17918/Thesis%20v4.4.pdf?sequence=1&isAllowed=y
