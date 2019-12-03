@@ -186,6 +186,9 @@ https://www.kaggle.com/thebrownviking20/topic-modelling-with-spacy-and-scikit-le
 [Prediction] https://github.com/aravindpai/How-to-build-own-text-summarizer-using-deep-learning/blob/master/How_to_build_own_text_summarizer_using_deep_learning.ipynb  
 
 
+TensorFLow  
+https://stackoverflow.com/questions/41258391/tensorboard-embedding-example/41262360#41262360  
+
 Thesis document with helpful text:
 https://scholarworks.iupui.edu/bitstream/handle/1805/17918/Thesis%20v4.4.pdf?sequence=1&isAllowed=y
 
