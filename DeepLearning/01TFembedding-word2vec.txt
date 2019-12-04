@@ -1,0 +1,77 @@
+
+https://www.dlology.com/blog/quick-guide-to-run-tensorboard-in-google-colab/
+pytorch-nightly
+https://tutorials.pytorch.kr/intermediate/tensorboard_tutorial.html -- 4th point deals with Adding a “Projector” to TensorBoard
+https://github.com/lanpa/tensorboardX -- Used for embedding
+
+##########################
+# Should be a good try to 
+# make TF embedding
+##########################
+# http://www.insightsbot.com/visualize-word-embeddings-with-tensorflow/
+
+import gensim
+from gensim.models import Word2Vec,KeyedVectors
+
+#base Folder Path
+FOLDER_PATH = "C:/GGL_W2V"
+
+# Load Google's pre-trained Word2Vec model.
+model = KeyedVectors.load_word2vec_format(FOLDER_PATH+'/GoogleNews-vectors-negative300.bin', binary=True)
+
+print("Vocabulary Size: {0}".format(len(model.vocab)))
+
+# To find the shape:
+
+model["for"].shape
+#(300,)
+
+import numpy as np
+#Important Parameters
+VOCAB_SIZE = len(model.vocab)
+EMBEDDING_DIM = model["is"].shape[0]
+w2v = np.zeros((VOCAB_SIZE, EMBEDDING_DIM))
+
+tsv_file_path = FOLDER_PATH+"/tensorboard/metadata.tsv"
+with open(tsv_file_path,'w+', encoding='utf-8') as file_metadata:
+    for i,word in enumerate(model.index2word[:VOCAB_SIZE]):
+        w2v[i] = model[word]
+        file_metadata.write(word+'n')
+
+import tensorflow as tf
+from tensorflow.contrib.tensorboard.plugins import projector
+
+TENSORBOARD_FILES_PATH = FOLDER_PATH+"/tensorboard"
+
+#Tensorflow Placeholders
+X_init = tf.placeholder(tf.float32, shape=(VOCAB_SIZE, EMBEDDING_DIM), name="embedding")
+X = tf.Variable(X_init)
+
+#Initializer
+init = tf.global_variables_initializer()
+
+#Start Tensorflow Session
+sess = tf.Session()
+sess.run(init, feed_dict={X_init: w2v})
+
+#Instance of Saver, save the graph.
+saver = tf.train.Saver()
+writer = tf.summary.FileWriter(TENSORBOARD_FILES_PATH, sess.graph)
+
+#Configure a Tensorflow Projector
+config = projector.ProjectorConfig()
+embed = config.embeddings.add()
+embed.metadata_path = tsv_file_path
+
+#Write a projector_config
+projector.visualize_embeddings(writer,config)
+
+#save a checkpoint
+saver.save(sess, TENSORBOARD_FILES_PATH+'/model.ckpt', global_step = VOCAB_SIZE)
+
+#close the session
+sess.close()
+
+python -m tensorboard.main --logdir=C:/GGL_W2V/tensorboard
+
+# Upon a successful start, you will see an URL that you then browse to access tensorboard. Navigate to the Projector by clicking on the Projector link as is shown below.
