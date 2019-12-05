@@ -1,4 +1,8 @@
 
+Working for manual extraction into a gist on github:
+https://gist.github.com/korakot/c480edd1fcf7e02c49ccddbf5ac43fb9
+
+
 https://www.dlology.com/blog/quick-guide-to-run-tensorboard-in-google-colab/
 pytorch-nightly
 https://tutorials.pytorch.kr/intermediate/tensorboard_tutorial.html -- 4th point deals with Adding a “Projector” to TensorBoard
