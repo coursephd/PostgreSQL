@@ -1,7 +1,9 @@
 
-Working for manual extraction into a gist on github:
+Working for manual extrColaboratory + Drive + Github -> the workflow made simpleraction into a gist on github:
 https://gist.github.com/korakot/c480edd1fcf7e02c49ccddbf5ac43fb9
 
+Colaboratory + Drive + Github -> the workflow made simpler
+https://zerowithdot.com/colab-github-workflow/
 
 https://www.dlology.com/blog/quick-guide-to-run-tensorboard-in-google-colab/
 pytorch-nightly
