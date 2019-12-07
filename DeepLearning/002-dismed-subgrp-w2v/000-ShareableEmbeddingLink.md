@@ -1,1 +1,1 @@
-(Link-to-Subgroup-Projector-for-Dieases And Medicine)[https://projector.tensorflow.org/?config=https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/002-dismed-subgrp-w2v/002-dismed-subgrp-w2v-config.json]
+(Link-to-Subgroup-Projector-for-Dieases-And-Medicine)[https://projector.tensorflow.org/?config=https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/002-dismed-subgrp-w2v/002-dismed-subgrp-w2v-config.json]
