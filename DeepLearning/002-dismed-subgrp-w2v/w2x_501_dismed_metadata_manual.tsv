@@ -1,4 +1,4 @@
-Disease	Gender	Agegrp
+DiseaseMedicine	Gender	Agegrp
 dis_v2	all	(0,100]
 dis_v2	f	(0,100]
 dis_v2	m	(0,100]
@@ -6,6 +6,7 @@ dis_v2	f	(50,60]
 med_1120	all	(0,100]
 dis_s14	all	(0,100]
 dis_v2	m	(50,60]
+g1	None	None
 med_1725	all	(0,100]
 dis_m2	all	(0,100]
 dis_p5	all	(0,100]
@@ -253,6 +254,7 @@ med_1285	f	(0,100]
 med_827	all	(0,100]
 med_1076	f	(40,50]
 med_1168	all	(0,100]
+m1	None	None
 med_1351	all	(0,100]
 med_185	m	(0,100]
 med_895	m	(0,100]
@@ -617,6 +619,7 @@ med_1652	f	(50,60]
 med_886	all	(0,100]
 med_1517	m	(0,100]
 med_839	all	(0,100]
+t1	None	None
 med_1606	f	(0,100]
 med_1473	f	(0,100]
 med_200	all	(0,100]
@@ -3895,7 +3898,7 @@ med_1733	f	(0,100]
 med_1781	m	(0,100]
 med_1697	f	(0,100]
 dis_k1	m	(0,100]
-dis_v2		na
+dis_v2	None	na
 med_1434	f	(40,50]
 med_1286	f	(40,50]
 med_253	m	(50,60]
@@ -7697,8 +7700,8 @@ med_1684	f	(0,100]
 med_1174	f	(0,100]
 med_366	f	(0,100]
 med_634	m	(0,100]
-dis_k4		na
-dis_n4		na
+dis_k4	None	na
+dis_n4	None	na
 med_1364	m	(0,100]
 med_446	f	(0,100]
 med_805	m	(0,100]
@@ -9114,7 +9117,7 @@ med_970	f	(0,100]
 med_1614	f	(0,100]
 med_1390	m	(0,100]
 med_1461	m	(0,100]
-med_1854		na
+med_1854	None	na
 med_567	m	(0,100]
 med_922	f	(0,100]
 med_1368	m	(0,100]
@@ -10460,8 +10463,8 @@ med_1347	m	(0,100]
 med_1827	m	(0,100]
 med_945	f	(0,100]
 dis_c1	f	(0,100]
-med_179		na
-med_1336		na
+med_179	None	na
+med_1336	None	na
 med_890	m	(0,100]
 med_734	f	(0,100]
 med_902	f	(0,100]
@@ -11411,8 +11414,8 @@ med_287	m	(0,100]
 med_700	f	(0,100]
 med_318	m	(0,100]
 med_379	m	(0,100]
-med_1046		na
-med_1857		na
+med_1046	None	na
+med_1857	None	na
 med_1345	m	(0,100]
 med_661	m	(0,100]
 med_683	m	(0,100]
@@ -12474,6 +12477,7 @@ med_1187	all	(0,100]
 med_1308	all	(0,100]
 med_1676	all	(0,100]
 med_376	all	(0,100]
+s1	None	None
 med_1042	all	(0,100]
 med_1276	all	(0,100]
 med_1829	all	(0,100]
@@ -12677,8 +12681,8 @@ med_184	m	(0,100]
 med_638	m	(0,100]
 med_1299	m	(0,100]
 med_249	f	(0,100]
-med_161		na
-med_333		na
+med_161	None	na
+med_333	None	na
 med_153	m	(0,100]
 med_348	f	(0,100]
 med_756	m	(0,100]
