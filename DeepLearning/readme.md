@@ -1,4 +1,5 @@
-https://github.com/minimaxir/textgenrnn/tree/master/docs
+https://github.com/minimaxir/textgenrnn/tree/master/docs  
+https://github.com/minimaxir/textgenrnn/blob/master/README.md
 
 | Method<br>name | Technology | Input<br>file(s) | Programs to<br>build model | Output<br>files | Model performance<br>statistics |
 | --- | --- | --- | --- | --- | --- |
