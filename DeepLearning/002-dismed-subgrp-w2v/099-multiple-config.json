@@ -17,6 +17,15 @@
       ],
       "tensorPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/002-dismed-subgrp-w2v/w2x_501_dismed_tensor.tsv",
       "metadataPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/002-dismed-subgrp-w2v/w2x_501_dismed_metadata_manual.tsv"
+    },
+    {
+      "tensorName": "003Wang2vec method cwindow disease embeddings",
+      "tensorShape": [
+        1000,
+        50
+      ],
+      "tensorPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/003-dis-wang2vec-cwindow/a2-02cwindow-output-nobinary_tensor.tsv",
+      "metadataPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/003-dis-wang2vec-cwindow/a2-02cwindow-output-nobinary_metadata.tsv"
     }
   ]
 }
