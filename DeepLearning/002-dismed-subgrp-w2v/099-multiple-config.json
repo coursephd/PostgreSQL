@@ -35,6 +35,15 @@
       ],
       "tensorPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/003-dis-wang2vec-cwindow/a2-02cwindow-output-nobinary_tensor.tsv",
       "metadataPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/003-dis-wang2vec-cwindow/a2-02cwindow-output-nobinary_metadata.tsv"
+    },
+     {
+      "tensorName": "004-MCE-subgroup disease and medicine embeddings",
+      "tensorShape": [
+        1000,
+        500
+      ],
+      "tensorPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/004-mce_501_dismed_subgrps/mce_501_deepLearn_dismed_subgrps_tensor.tsv",
+      "metadataPath": "https://raw.githubusercontent.com/coursephd/PostgreSQL/master/DeepLearning/004-mce_501_dismed_subgrps/mce_501_deepLearn_dismed_subgrps_metadata.tsv"
     }
   ]
 }
