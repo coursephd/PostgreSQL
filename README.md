@@ -72,6 +72,12 @@ The following files should be used in the following sequence:
 -- Some diseases are experienced more by males or by females.  
 -- Some diseases have many more branches than a few others.
 
+Example links for ndediagram:  
+https://coursephd.github.io/nodediagram/  
+https://coursephd.github.io/nodediagram/A2_0byperiod  
+https://coursephd.github.io/nodediagram/P5_0_Prameha  
+https://coursephd.github.io/nodediagram/P5_0_Pramehabyperiod  
+
 # Displays created in Tableau [https://public.tableau.com/profile/frlht#!/]   
 
 | Viz name | Description |
