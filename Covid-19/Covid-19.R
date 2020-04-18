@@ -66,7 +66,8 @@ cleanGoogleTable <- function(dat, table=1, skip=0, ncols=NA, nrows=-1, header=TR
   dat
 }
 
-u <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml"
+#u <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml"
+u <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vSz8Qs1gE_IYpzlkFkCXGcL_BqR8hZieWVi-rphN1gfrO3H4lDtVZs4kd0C3P8Y9lhsT1rhoB-Q_cP4/pubhtml"
 
 g <- readGoogleSheet(u)
 
@@ -82,10 +83,10 @@ g09 <- as.data.table ( cleanGoogleTable(g, table=9) )
 g10 <- as.data.table ( cleanGoogleTable(g, table=10) )
 g11 <- as.data.table ( cleanGoogleTable(g, table=11) )
 g12 <- as.data.table ( cleanGoogleTable(g, table=12) )
-g13 <- as.data.table ( cleanGoogleTable(g, table=13) )
-g14 <- as.data.table ( cleanGoogleTable(g, table=14) )
+#g13 <- as.data.table ( cleanGoogleTable(g, table=13) )
+#g14 <- as.data.table ( cleanGoogleTable(g, table=14) )
 
-g01 <- g01 [, c(1:17), ]
+g01 <- g01 [, c(1:19), ]
 setnames(x=g01, old=names(g01), new=gsub(" ","",names(g01)))
 
 g01 <- g01 [, `:=` (DateAnnounced02 = anydate( as.POSIXct( gsub("-", "/", DateAnnounced), format="%d/%m/%Y")),
@@ -153,13 +154,77 @@ state03 <- merge (x = state02,
                   by = c("DetectedState", "DateAnnounced02"),
                   all = TRUE)
 
+state03 <- state03 [! is.na(state03$DetectedState)]
 state03[is.na(state03)] <- 0
 state03 <- state03 [, cumpat03 := cumsum(cumpat), by = .(DetectedState)]
 state03 <- state03 [order(DateAnnounced02, -cumpat03, DetectedState)]
 state03 <- state03 [, `:=`(tot = .N, ord = 1:.N), by = .(DateAnnounced02)]
-state03 <- state03 [, lbl := paste(DetectedState, "(", cumpat03, ")", sep=""),]
+state03 <- state03 [, lbl := paste(DetectedState, "(Cum Cases:", cumpat03, "), (Cases on date:", cumpat, ")", sep=""),]
 
+state03 <- state03 [order(DateAnnounced02, -cumpat, DetectedState)]
+state03 <- state03 [, `:=`(tot02 = .N, orddt = 1:.N), by = .(DateAnnounced02)]
+state03 <- state03 [, orddt := ifelse(orddt ==1 , 1, 99),]
 fwrite(state03 [, -c("cumpat02"), ], "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_byCumSumState.csv")
+
+
+drive_upload("D:/Hospital_data/ProgresSQL/covid-19/analysis/covid_g01.csv",
+             path = "/Covid-19/analysis/gs_covid_g01.csv",
+             type = "spreadsheet", 
+             overwrite = TRUE)
+
+drive_upload("D:/Hospital_data/ProgresSQL/covid-19/analysis/covid_g01_byCumSumState.csv",
+             path = "/Covid-19/analysis/gs_covid_g01_byCumSumState.csv",
+             type = "spreadsheet", 
+             overwrite = TRUE)
+
+################################################################
+# Calculate the 7 day rolling change 
+# Calculate this for whole of India and individual state:
+# If the ratio = 2, then it means: the number of cases have doubled (100% increase)
+# If the ratio = 1, then it means: the number of cases have remained the same
+# If the ratio = 1.25, then 25% increase compared to 1 week ago
+################################################################
+
+state01a <- unique( g01_first03 [!is.na(DateAnnounced02), c("DetectedState", "DateAnnounced02", "PatientNumber", "patient"), ] )
+
+state00 <- copy(state01a)
+state00 <- state00 [, DetectedState := "** Overall India", ]
+state01 <- rbind(state01a, state00)
+
+state01 <- state01 [ order (DetectedState, DateAnnounced02)]
+state02 <- state01 [, .(cumpat = uniqueN(patient) ), by = .(DetectedState, DateAnnounced02)]
+state02 <- state02 [, cumpat02 := cumsum(cumpat), by = .(DetectedState)]
+
+state03 <- merge (x = state02,
+                  y = dtst,
+                  by = c("DetectedState", "DateAnnounced02"),
+                  all = TRUE)
+
+state03 <- state03 [! is.na(state03$DetectedState)]
+state03[is.na(state03)] <- 0
+state03 <- state03 [, cumpat03 := cumsum(cumpat), by = .(DetectedState)]
+state03 <- state03 [order(DateAnnounced02, -cumpat03, DetectedState)]
+state03 <- state03 [, `:=`(tot = .N, ord = 1:.N), by = .(DateAnnounced02)]
+state03 <- state03 [, lbl := paste(DetectedState, "(Cum Cases:", cumpat03, "), (Cases on date:", cumpat, ")", sep=""),]
+state03 <- state03 [order(DateAnnounced02, -cumpat, DetectedState)]
+state03 <- state03 [, `:=`(tot02 = .N, orddt = 1:.N), by = .(DateAnnounced02)]
+state03 <- state03 [, orddt := ifelse(orddt ==1 , 1, 99),]
+
+#####################################################
+# Calculate weekly rolling change:
+# Take ratio of today's cases and cases 7 days ago
+#####################################################
+state04 <- state03 [, mv7 := shift (cumpat03, n = 6, type = c("lag")), by = .(DetectedState)]
+state04 <- state04 [, ntimes := ifelse(mv7>0, round(cumpat03 / mv7, 2), ""),]
+state04 <- state04 [, disp := ifelse (ntimes >0 , paste(cumpat03, "/", mv7, ", ", ntimes, sep =""), ""),]
+
+state04_trn <- dcast(data = state04 [ntimes > 0],
+                     DateAnnounced02 ~ DetectedState,
+                     value.var = c ("disp"),
+                     fill = " ")
+
+########################################################################################
+
 
 chk59 <- g01_first02 [PatientNumber == "59"]
 chk <- g01_first02 [, .(nn = .N), by = .(crit)]
