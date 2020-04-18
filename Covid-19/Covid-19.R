@@ -181,8 +181,11 @@ drive_upload("D:/Hospital_data/ProgresSQL/covid-19/analysis/covid_g01_byCumSumSt
 # Calculate the 7 day rolling change 
 # Calculate this for whole of India and individual state:
 # If the ratio = 2, then it means: the number of cases have doubled (100% increase)
+# If the ratio = 2, then it is doubling of cases in 1 week
+#
 # If the ratio = 1, then it means: the number of cases have remained the same
 # If the ratio = 1.25, then 25% increase compared to 1 week ago
+#
 ################################################################
 
 state01a <- unique( g01_first03 [!is.na(DateAnnounced02), c("DetectedState", "DateAnnounced02", "PatientNumber", "patient"), ] )
