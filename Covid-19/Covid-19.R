@@ -219,8 +219,22 @@ state03 <- state03 [, orddt := ifelse(orddt ==1 , 1, 99),]
 #####################################################
 state04 <- state03 [, mv7 := shift (cumpat03, n = 6, type = c("lag")), by = .(DetectedState)]
 state04 <- state04 [, ntimes := ifelse(mv7>0, round(cumpat03 / mv7, 2), ""),]
+state04 <- state04 [, ntimesperc := ifelse(ntimes > 0, round( as.numeric(ntimes) / 2 * 100, 2 ), "" ),]
 state04 <- state04 [, disp := ifelse (ntimes >0 , paste(cumpat03, "/", mv7, ", ", ntimes, sep =""), ""),]
 
+#############################################
+# Check if there is any new case reported 
+#############################################
+state04 <- state04 [, prvcase := shift(cumpat03, type = c("lag")), by = .(DetectedState)]
+state04 <- state04 [, newcase := ifelse(cumpat03 == prvcase, "No", "Yes"),]
+
+fwrite(state04 [, -c("cumpat02"), ], "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_wklychg_newcase.csv")
+
+
+########################################################
+# Just to see in the R studio the transposed version,
+# Use the vertical version in Tableau
+########################################################
 state04_trn <- dcast(data = state04 [ntimes > 0],
                      DateAnnounced02 ~ DetectedState,
                      value.var = c ("disp"),
