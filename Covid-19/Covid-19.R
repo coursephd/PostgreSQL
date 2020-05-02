@@ -311,8 +311,11 @@ test04 <- test04 [, c("State", "DateAnnounced02", "TotalTested", "Positive",
                       "mean", "lower", "upper",
                       "meanpop", "lowerpop", "upperpop"), ]
 
-fwrite(test04, "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_cases_test_popn.csv")
+test04_trn <- melt(data = test04, 
+                   id.vars = c("State", "DateAnnounced02") )
 
+fwrite(test04, "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_cases_test_popn.csv")
+fwrite(test04_trn, "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_cases_test_popn_trn.csv")
 ########################################################################################
 
 
