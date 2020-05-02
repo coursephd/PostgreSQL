@@ -7,6 +7,7 @@ library(XML)
 library(anytime)
 library(tidyverse)
 library(sqldf)
+library(binom)
 
 readGoogleSheet <- function(url, na.string="", header=TRUE){
   stopifnot(require(XML))
@@ -239,6 +240,78 @@ state04_trn <- dcast(data = state04 [ntimes > 0],
                      DateAnnounced02 ~ DetectedState,
                      value.var = c ("disp"),
                      fill = " ")
+
+
+
+####################################################
+# Added on 2nd May 2020
+# 
+# based on the new data structure:
+# This part of the code will focus on 
+# +ve cases / tested cases
+# total testes cases / population (10 lacs)
+####################################################
+
+raw0102 <- fread("https://api.covid19india.org/csv/latest/raw_data.csv")
+raw03 <- fread("https://api.covid19india.org/csv/latest/raw_data3.csv")
+
+setnames(x=raw0102, old=names(raw0102), new=gsub(" ","",names(raw0102)))
+setnames(x=raw03, old=names(raw03), new=gsub(" ","",names(raw03)))
+
+raw0102 <- raw0102 [, DetectedState := ifelse(str_squish(DetectedState) == "", "** Unknown", DetectedState),]
+raw0102 <- raw0102 [, DetectedDistrict := ifelse(str_squish(DetectedDistrict) == "", "** Unknown", paste("**", DetectedState, sep =" ") ),]
+
+raw03 <- raw03 [, DetectedState := ifelse(str_squish(DetectedState) == "", "** Unknown", DetectedState),]
+raw03 <- raw03 [, DetectedDistrict := ifelse(str_squish(DetectedDistrict) == "", "** Unknown", paste("**", DetectedState, sep =" ") ),]
+
+
+chk <- raw03 [, .(cnt = sum(NumCases)), by = .(DateAnnounced, DetectedState, DetectedDistrict, CurrentStatus)]
+
+
+test01 <- fread("https://api.covid19india.org/csv/latest/statewise_tested_numbers_data.csv")
+setnames(x=test01, old=names(test01), new=gsub(" ","",names(test01)))
+setnames(test01, "Population(Source:UIDAI)", "popnUIDAI")
+test01 <- test01 [, DateAnnounced02 := anydate( as.POSIXct( gsub("-", "/", UpdatedOn), format="%d/%m/%Y")), ]
+
+test011 <- copy (test01)
+test011 <- test011 [, .(TotalTested = sum(TotalTested), Positive = sum(Positive) ), by = . (DateAnnounced02)]
+test011 <- test011 [, State := "** Overall India", ]
+test02 <- rbind(test01, test011, fill = TRUE)
+
+# Populate the population column on all rows:
+popn <- test01 [!is.na(popnUIDAI) , c("State", "popnUIDAI"),]
+
+popn2 <- popn [, .(popnUIDAI = sum(popnUIDAI)), ]
+popn2 <- popn2 [, State := "** Overall India", ]
+popn3 <- rbind(popn, popn2)
+
+test02 <- merge (x = test02 [, -c("popnUIDAI"), ],  
+                 y = popn3,
+                 by = c("State"))
+
+
+test03 <- test02 [TotalTested >= 0 & Positive >= 0]
+test03 <- test03 [, `:=` (TotalTested = as.numeric(TotalTested), Positive = as.numeric(Positive)),]
+
+CI <- binom.confint (test03$Positive, test03$TotalTested, method ="wilson")
+CIpop <-  as.data.table(binom.confint (test03$TotalTested, test03$popnUIDAI, method ="wilson") )
+setnames(CIpop, "mean", "meanpop")
+setnames(CIpop, "lower", "lowerpop")
+setnames(CIpop, "upper", "upperpop")
+
+test04 <- cbind(test03, CI, CIpop [,c("meanpop", "lowerpop", "upperpop"), ])
+test04 <- test04 [, `:=` (mean = round (mean * 100, 2),
+                          lower = round (lower * 100, 2),
+                          upper = round (upper * 100, 2),
+                          meanpop = round (meanpop * 1000000, 2),
+                          lowerpop = round (lowerpop * 1000000, 2), 
+                          upperpop = round (upperpop * 1000000, 2) ), ]
+
+test04 <- test04 [, c("State", "DateAnnounced02", "TotalTested", "Positive", 
+                      "mean", "lower", "upper",
+                      "meanpop", "lowerpop", "upperpop"), ]
+
+fwrite(test04, "D:\\Hospital_data\\ProgresSQL\\covid-19\\analysis\\covid_g01_cases_test_popn.csv")
 
 ########################################################################################
 
