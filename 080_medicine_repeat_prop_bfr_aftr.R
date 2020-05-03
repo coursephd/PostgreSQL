@@ -5,6 +5,10 @@
 # Merge that information onto the dataset to calculate
 ######################################################################
 
+library(data.table)
+library(tidyverse)
+library(sqldf)
+
 ref02 <- readRDS("D:/Hospital_data/ProgresSQL/analysis/all_met_rmsd02.rds")
 ref02 <- ref02 [, Code := ifelse (Code == " " | Code == "", "** Not yet coded", Code),]
 ref02 <- ref02 [, description:= ifelse (description == "" | description ==" ", "** Not yet coded", description),]

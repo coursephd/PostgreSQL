@@ -109,6 +109,14 @@ fwrite(chk02 [ scndprt02 != "...", c("frstprt", "scndprt03"), ],
        quote = FALSE, 
        sep = " ")
 
+chk02 <- part05 [ refcode == "M2.0"]
+
+fwrite(chk02 [ scndprt02 != "...", c("frstprt", "scndprt03"), ], 
+       "D:/Hospital_data/ProgresSQL/analysis/085d3concept_byperiod_M2_0.json", 
+       col.names = FALSE, 
+       quote = FALSE, 
+       sep = " ")
+
 ############################################################################
 # End of program
 ############################################################################
