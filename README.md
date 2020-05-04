@@ -164,7 +164,9 @@ added 142 packages in 228.729s
 
 
 Pathfinder: Harvard tool  
-http://caleydo.org/tools/
+http://caleydo.org/tools/  
+http://caleydo.org/tools/upset/ -- looks useful    
+
 
 Interactive tree of life:  
 http://itol.embl.de/  
