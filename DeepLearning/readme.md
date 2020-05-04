@@ -228,20 +228,20 @@ http://dl4health.org/
 Methods:
 
 Ebeddings:
-(1) CBOW
-(2) Skip-gram
-(3) wang2vec
-(4) doc2vec
-(5) Glove
-(6) med2vec
-(7) MCE
-(8) fastext https://fasttext.cc/docs/en/supervised-tutorial.html
+(1) CBOW  
+(2) Skip-gram  
+(3) wang2vec  
+(4) doc2vec  
+(5) Glove  
+(6) med2vec  
+(7) MCE  
+(8) fastext https://fasttext.cc/docs/en/supervised-tutorial.html  
 
-Predictions:
-(7) RETAIN [http://papers.nips.cc/paper/6321-retain-an-interpretable-predictive-model-for-healthcare-using-reverse-time-attention-mechanism.pdf]
-(8) doctorai [https://towardsdatascience.com/using-electronic-health-records-ehr-for-predicting-future-diagnosis-codes-using-gated-recurrent-bcd0de7d7436]
-(9) gram
-(10) rnn_predict
-(12) Predictions of next visit: https://github.com/kb22/Medical-Appointment-No-Show-Prediction/blob/master/Predicting%20medical%20appointments.ipynb
-(13) DeepCare [https://github.com/trangptm/DeepCare] Unable to create the source data
-(14) Patient Similarity [https://github.com/yinchangchang/patient_similarity]
+Predictions:  
+(7) RETAIN [http://papers.nips.cc/paper/6321-retain-an-interpretable-predictive-model-for-healthcare-using-reverse-time-attention-mechanism.pdf]  
+(8) doctorai [https://towardsdatascience.com/using-electronic-health-records-ehr-for-predicting-future-diagnosis-codes-using-gated-recurrent-bcd0de7d7436]  
+(9) gram  
+(10) rnn_predict  
+(12) Predictions of next visit: https://github.com/kb22/Medical-Appointment-No-Show-Prediction/blob/master/Predicting%20medical%20appointments.ipynb  
+(13) DeepCare [https://github.com/trangptm/DeepCare] Unable to create the source data  
+(14) Patient Similarity [https://github.com/yinchangchang/patient_similarity]  
