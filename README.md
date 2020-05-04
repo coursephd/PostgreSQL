@@ -233,5 +233,32 @@ Blog
 https://shiring.github.io/categories.html#machine_learning-ref
 
 Co-morbidity:  
-https://pdfs.semanticscholar.org/ada9/861da5deb32c0bb4133e3c05880af7b6c2fc.pdf
+https://pdfs.semanticscholar.org/ada9/861da5deb32c0bb4133e3c05880af7b6c2fc.pdf  
 
+Calculate DALY scores for diseases -- use as a pseudo endpoint  
+ComorBidity analysis based on the office laptop  
+
+Radar chart: already built for the diseases:  
+Percentile for each of the diseases and medicines  
+
+Disease:  
+
+Distinct number of patients  
+# Total number of patients ---> Calculated using mr_no and patient_id  
+Number for a specific disease (chronological number of disease reported by a patient)  
+Number of treatments before the specific disease  
+Number of treatments after the specific disease  
+Number of diseases before the specific disease  
+Number of diseases after the specific disease  
+Age - percentile  
+
+Medicine:  
+
+Distinct number of patients  
+Total number of patients  
+Number for a specific treatment (chronological number of treatment reported by a patient)  
+Number of diseases before the specific treatment  
+Number of diseases after the specific treatment  
+Number of diseases before the specific treatment  
+Number of diseases after the specific treatment  
+Age - percentile  
