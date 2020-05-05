@@ -78,7 +78,7 @@ dismed02 <- dismed011 [, .(n=uniqueN(mr_no),
                            min = round( min(numdays, na.rm = TRUE), digits =0),
                            max = round( max(numdays, na.rm = TRUE), digits =0),
                            sum = round( sum(numdays, na.rm = TRUE), digits =0)),
-                       by = .(Type_med, Code02, totpat, totpatmed)]
+                       by = .(Type_med, Code02, totpatdis, totpatmed)]
 
 
 dismed02_med <- dismed011 [, .(n=uniqueN(mr_no), 
@@ -88,7 +88,7 @@ dismed02_med <- dismed011 [, .(n=uniqueN(mr_no),
                                min = round( min(numdays, na.rm = TRUE), digits =0),
                                max = round( max(numdays, na.rm = TRUE), digits =0),
                                sum = round( sum(numdays, na.rm = TRUE), digits =0)),
-                           by = .(Code02, totpat, Type_med, Med02, totpatmed)]
+                           by = .(Code02, totpatdis, Type_med, Med02, totpatmed)]
 
 # n: total number of patients having the disease and medicine prescribed
 # So n and totpatmed: calculate the %
