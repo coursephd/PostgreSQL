@@ -64,6 +64,11 @@ dismed01 <- dismed01 [, numdays := case_when( duration_units == "D" ~ duration,
 
 # Create 1 record per patient per medication with sum of durations
 dismed011 <- dismed01 [, .(numdays = sum(numdays)), by =.(mr_no, Code02, Med02, Type_med, Coded_med, patient_gender)]
+
+# Create count of patients with 
+# totpatdis: total patients having the disease
+# totpatmed: total patients having the medicine prescribed
+
 dismed011 <- dismed01 [, totpatdis := uniqueN(mr_no), by =.(Code02)]
 dismed011 <- dismed01 [, totpatmed := uniqueN(mr_no), by =.(Med02)]
 dismed02 <- dismed011 [, .(n=uniqueN(mr_no), 
@@ -84,5 +89,10 @@ dismed02_med <- dismed011 [, .(n=uniqueN(mr_no),
                                max = round( max(numdays, na.rm = TRUE), digits =0),
                                sum = round( sum(numdays, na.rm = TRUE), digits =0)),
                            by = .(Code02, totpat, Type_med, Med02, totpatmed)]
+
+# n: total number of patients having the disease and medicine prescribed
+# So n and totpatmed: calculate the %
+
+dismed02_med <- dismed02_med [, perc := round ( n / totpatmed * 100, digits = 2),]
 
 ##################################################################################################
