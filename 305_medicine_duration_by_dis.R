@@ -64,6 +64,8 @@ dismed01 <- dismed01 [, numdays := case_when( duration_units == "D" ~ duration,
 
 # Create 1 record per patient per medication with sum of durations
 dismed011 <- dismed01 [, .(numdays = sum(numdays)), by =.(mr_no, Code02, Med02, Type_med, Coded_med, patient_gender)]
+dismed011 <- dismed01 [, totpatdis := uniqueN(mr_no), by =.(Code02)]
+dismed011 <- dismed01 [, totpatmed := uniqueN(mr_no), by =.(Med02)]
 dismed02 <- dismed011 [, .(n=uniqueN(mr_no), 
                            mean = round( mean(numdays, na.rm = TRUE), digits =1),
                            median= round( median(numdays, na.rm = TRUE), digits =2),
@@ -71,7 +73,7 @@ dismed02 <- dismed011 [, .(n=uniqueN(mr_no),
                            min = round( min(numdays, na.rm = TRUE), digits =0),
                            max = round( max(numdays, na.rm = TRUE), digits =0),
                            sum = round( sum(numdays, na.rm = TRUE), digits =0)),
-                       by = .(Type_med, Code02)]
+                       by = .(Type_med, Code02, totpat, totpatmed)]
 
 
 dismed02_med <- dismed011 [, .(n=uniqueN(mr_no), 
@@ -81,6 +83,6 @@ dismed02_med <- dismed011 [, .(n=uniqueN(mr_no),
                                min = round( min(numdays, na.rm = TRUE), digits =0),
                                max = round( max(numdays, na.rm = TRUE), digits =0),
                                sum = round( sum(numdays, na.rm = TRUE), digits =0)),
-                           by = .(Code02, Type_med, Med02)]
+                           by = .(Code02, totpat, Type_med, Med02, totpatmed)]
 
 ##################################################################################################
