@@ -13,6 +13,7 @@ options(scipen = 999)
 
 # from today to 2 years behind
 tday <- Sys.Date()
+#tday <- Sys.Date() #c("06JUL2020") #
 
 ########################################################################################
 # Section 1
@@ -24,7 +25,6 @@ tday <- Sys.Date()
 ########################################################################################
 
 wkcday <- c("09JUL2020")
-tday <- Sys.Date() #c("17JUL2020")
 
 contract <- as.data.table ( list ( date = anydate( seq(from = anydate(wkcday), to = anydate(wkcday) + 90, by = "day" ) ) ))
 contract <- contract [, `:=`(wkday = weekdays(date),
@@ -164,7 +164,7 @@ data03day <- unique (data02day [index == max(index), c("dayvol50", "dayvolbnk", 
 #
 ########################################################################################
 
-dates <- seq ( anydate(tday), anydate(tday) - 5, by=-1)
+dates <- seq ( anydate(tday), anydate(tday) - 180, by=-1)
 
 mon <- toupper(format(anydate(dates),"%b"))
 mon_num <- format(anydate(dates),"%m")
@@ -299,7 +299,7 @@ opt06_t <- dcast(data = opt06,
 ########################################################################################
 
 def <- defData(varname = "x", dist = "normal", formula = 0, variance = 1, id = "cid")
-dt <- genData(3000, def)
+dt <- genData(1000, def)
 
 # add new correlate fields a0 and a1 to 'dt'
 dt <- addCorData(dt, idname = "cid", 
@@ -315,17 +315,17 @@ dt02 <- merge (x = dt,
                y = fut02,
                by = c("y"))
 
-# Keep observations which are only between the 1.5 lower and upper between
+# Keep observations which are only between the 1.5 lower and upper SD
 dt02_15 <- dt02 [ (nifty_15sdlow < NIFTY50 & NIFTY50 < nifty_15sdhigh) &
                   (nsebnk_15sdlow < NIFTYBANK & NIFTYBANK < nsebnk_15sdhigh), 
                   c("y", "NIFTY50", "NIFTYBANK", "NSEI.Adjusted", "NSEBANK.Adjusted"),]
 
-# Keep observations which are only between the 2 lower and upper between
+# Keep observations which are only between the 2 lower and upper SD
 dt02_2 <- dt02 [ (nifty_2sdlow < NIFTY50 & NIFTY50 < nifty_2sdhigh) &
                  (nsebnk_2sdlow < NIFTYBANK & NIFTYBANK < nsebnk_2sdhigh), 
                  c("y", "NIFTY50", "NIFTYBANK", "NSEI.Adjusted", "NSEBANK.Adjusted"),]
 
-# Keep observations which are only between the 3 lower and upper between
+# Keep observations which are only between the 3 lower and upper SD
 dt02_3 <- dt02 [ (nifty_2sdlow < NIFTY50 & NIFTY50 < nifty_2sdhigh) &
                  (nsebnk_2sdlow < NIFTYBANK & NIFTYBANK < nsebnk_2sdhigh), 
                  c("y", "NIFTY50", "NIFTYBANK", "NSEI.Adjusted", "NSEBANK.Adjusted"),]
@@ -358,7 +358,7 @@ dt03_3 <- merge (x = dt02_3,
 dt04 <- rbind(dt03_15, dt03_2, dt03_3)
 
 dt04 <- dt04 [, `:=` (t50 = as.numeric(nexpday_NIFTY - caldate + 1),
-                            tbnk = as.numeric(nexpday_BANKNIFTY - caldate + 1)),]
+                      tbnk = as.numeric(nexpday_BANKNIFTY - caldate + 1)),]
 dt04 <- dt04 [, premium50 := round( bscall(s = NIFTY50, k = STRIKE_PR_NIFTY, v = iv_NIFTY, r = 0.05, tt = t50 /365.25, d = 0), 2), ]
 dt04 <- dt04 [, premiumbnk := round( bscall(s = NIFTYBANK, k = STRIKE_PR_BANKNIFTY, v = iv_BANKNIFTY, r = 0.05, tt = tbnk /365.25, d = 0), 2), ]
 
