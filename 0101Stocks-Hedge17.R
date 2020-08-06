@@ -8,6 +8,7 @@ library(zoo)
 library(RCurl)
 library(lubridate)
 library(curl)
+library(tidyquant) 
 
 options(scipen = 999)
 
@@ -209,13 +210,13 @@ for (i in 1:n) {
 out2 <- rbindlist(bhavcopy) [SYMBOL %in% c("NIFTY", "BANKNIFTY")]
 
 fut <- rbindlist(bhavcopy) [INSTRUMENT %in% c("FUTIDX") & SYMBOL %in% c("NIFTY", "BANKNIFTY") & OPTION_TYP == "XX"]
-opt <- rbindlist(bhavcopy) [INSTRUMENT %in% c("OPTIDX") & SYMBOL %in% c("NIFTY", "BANKNIFTY") & OPTION_TYP == "CE"]
+opt <- rbindlist(bhavcopy) [INSTRUMENT %in% c("OPTIDX") & SYMBOL %in% c("NIFTY", "BANKNIFTY") & OPTION_TYP %in% c("CE", "PE")]
 
 out2price <- rbindlist(outprice) [Symbol %in% c("NIFTY", "BANKNIFTY")]
 
 # create a numeric date variable and expiry date
 fut <- fut [, `:=` (trday = anydate(TIMESTAMP), nexpday = anydate(EXPIRY_DT)), ]
-opt <- opt [, `:=` (trday = anydate(TIMESTAMP), nexpday = anydate(EXPIRY_DT)), ]
+opt <- opt [CONTRACTS >= 500, `:=` (trday = anydate(TIMESTAMP), nexpday = anydate(EXPIRY_DT)), ]
 
 rm (bhavcopy)
 rm (outprice)
