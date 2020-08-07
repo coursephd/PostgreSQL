@@ -116,8 +116,9 @@ nifty005 <- nifty004 [ entrydt <= trday & mnthexp == nexpday ]
 
 # Calculate the number of trades by creating a group
 # SYMBOL, STRIKE_PR, mrgdt, entrydt, trday, nexpday, EXPIRY_DT
-nifty005 <- nifty005 [, tradenum := 1:.N, by = .(SYMBOL, STRIKE_PR, mrgdt, entrydt, nexpday, EXPIRY_DT)]
-nifty005 <- nifty005 [, tradetot := .N, by = .(mrgdt)]
+nifty005 <- nifty005 [, `:=`(tradenum = 1:.N), by = .(SYMBOL, STRIKE_PR, mrgdt, entrydt, nexpday, EXPIRY_DT)]
+nifty005 <- nifty005 [, `:=`(tradetot = .N, cumtrade = 1:.N), by = .(mrgdt)]
+nifty005 <- nifty005 [, tradedays := as.numeric(trday - entrydt + 1),]
 
 # 30th April 2020 example: Nifty and Bank Nifty went mad and increased over 2000 points in a week
 
