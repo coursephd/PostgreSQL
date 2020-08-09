@@ -154,6 +154,9 @@ nifty003 <- merge (x = nifty002c,
                    all.x = TRUE)
 nifty004 <- nifty003 [ mnthexp == nexpday]
 
+#######################################################
+# End of program
+#######################################################
 
 
 
@@ -164,8 +167,6 @@ bnkexp100 <- bnkexp05 [ nrow == 1]
 bnkexp100 <- bnkexp100 [, ntrades := .N,]
 bnkexp100 <- bnkexp100 [, pftloss := ifelse(LOW < 1, "Profit", "Loss"),]
 bnkexp101 <- bnkexp100 [, .(cnt = .N), by = .(pftloss, ntrades)]
-
-
 
 
 # Pick up Nifty on any of the first 5 days in the 100s range:
