@@ -43,6 +43,7 @@ opt03 <- merge(x = opt02,
                y = fut02 [, -c("EXPIRY_DT", "nexpday"),],
                by = c("SYMBOL", "trday", "mrgdt", "TIMESTAMP"),
                all = TRUE)
+# Varsha drop the data with mrgdt mot present in fut02
 
 # Calculate the date of the expiry and last 4 days to the Thursday expiry
 
@@ -64,24 +65,97 @@ bnkexp02 <- merge (x = bnkexp01 ,
 bnkexp02 <- bnkexp02 [, strk := ifelse(OPENFUT < 10000, signif(OPENFUT, 2), signif(OPENFUT, 3) ), ]
 
 # Pick up the strike on day 4 or 5 and add 1400 or 1500, 1600, 1700
-
-bnkexp03 <- unique( na.omit( bnkexp02 [ nrow %in% c(1, 2, 3, 4, 5), c("SYMBOL", "EXPIRY_DT", "strk", "nrow"), ]) )
+bnkexp03 <- unique( na.omit( bnkexp02 [ nrow %in% c(1, 2, 3, 4, 5), c("SYMBOL", "EXPIRY_DT", "strk", "nrow", "mrgdt"), ]) )
 bnkexp03 <- bnkexp03 [, `:=`(strk1300 = strk + 1300, 
                              strk1400 = strk + 1400, 
                              strk1500 = strk + 1500, 
                              strk1600 = strk + 1600, 
                              strk1700 = strk + 1700), ]
 bnkexp03_t <- melt(data = bnkexp03, 
-                   id.vars = c("SYMBOL", "EXPIRY_DT", "strk", "nrow")  )
-setnames (bnkexp03_t, "nrow", "entryday")
+                   id.vars = c("SYMBOL", "EXPIRY_DT", "strk", "nrow", "mrgdt")  )
 
-bnkexp04 <- merge(x = bnkexp03_t [, -c("strk"),],
+# Create the trade number to use afterwards
+bnkexp03_t <- bnkexp03_t [, tradenum := 1:.N, by = .(EXPIRY_DT)]
+
+bnkexp04 <- merge(x = bnkexp03_t [, -c("strk", "mrgdt", "nrow"),],
                   y = bnkexp02 [, -c("strk"),],
                   by = c("SYMBOL", "EXPIRY_DT"),
                   allow.cartesian = TRUE)
 
 # Only keep the records whre strk and STRIKE_PR match
-bnkexp05 <- bnkexp04 [ value == STRIKE_PR]
+bnkexp05 <- bnkexp04 [ value == STRIKE_PR & toupper(mrgdt) == toupper( substr(TIMESTAMP, 4, length(TIMESTAMP) ) ) ]
+bnkexp05 <- bnkexp05 [, sttdt := min(trday), by =.(EXPIRY_DT, tradenum)]
+
+# Get the entry price for each trade
+# Create combinations for entry and exit
+bnkexp06 <- bnkexp05 [ sttdt == trday]
+
+setnames (bnkexp06, "OPEN", "entryOPEN")
+setnames (bnkexp06, "CLOSE", "entryCLOSE")
+setnames (bnkexp06, "LOW", "entryLOW")
+setnames (bnkexp06, "HIGH", "entryHIGH")
+setnames (bnkexp06, "CONTRACTS", "entryCONTRACTS")
+
+bnkexp07 <- merge(x = bnkexp06 [, c("SYMBOL", "STRIKE_PR", "EXPIRY_DT",  "tradenum", "entryOPEN", "entryCLOSE", "entryLOW", "entryHIGH", "entryCONTRACTS")],
+                  y = bnkexp05,
+                  by = c("SYMBOL", "STRIKE_PR", "tradenum", "EXPIRY_DT"))
+
+##############################################################################
+#
+# Reworked NIFTY calculations
+# Need some additional checks
+#
+##############################################################################
+nifty001 <- opt03 [ SYMBOL == "NIFTY" ]
+nifty001 <- nifty001 [, `:=` (day = as.numeric(format(trday, "%d") ),
+                              mon_num = as.numeric( format(trday,"%m") ),
+                              yr = toupper(format(trday,"%Y")),
+                              mon_ser = as.numeric( format(nexpday,"%m") ),
+                              yr_ser = toupper(format(nexpday,"%Y")),
+                              minval = pmin(OPEN, CLOSE, LOW, HIGH), 
+                              maxval = pmax(OPEN, CLOSE, LOW, HIGH) ), ]
+nifty001 <- nifty001 [, mnthexp := max(nexpday), by = .(mrgdt) ]
+nifty002 <- nifty001 [ (minval >= 70 & minval <= 130) ] # & 
+# mnthexp == nexpday  ]
+
+# Keep only the contracts of the same month for day <= 15
+# Keep the contracts for the next month when day > 15
+#
+# Delete rows where the difference in mon_num and mon_ser >2 then delete such rows
+# 
+# ????????????????????????????????????????????????????????????????
+#
+# Need to add logic for the year change -Dec and Jan how to subset
+#
+# ????????????????????????????????????????????????????????????????
+
+nifty002a <- nifty002 [yr == yr_ser & mon_ser - mon_num < 2]
+nifty002b <- nifty002a [(day <= 15 & mon_ser == mon_num) | (day > 15 & mon_ser > mon_num)]
+
+# Find the unique combinations and create tradenum
+nifty002b <- nifty002b [, tradenum := 1:.N, by =.(SYMBOL, mnthexp, mrgdt) ]
+nifty002b <- nifty002b [, tradedur := as.numeric(mnthexp - trday + 1), ]
+
+#year = year
+nifty002c <- nifty002b[ , list(SYMBOL = SYMBOL, STRIKE_PR = STRIKE_PR, mrgdt = mrgdt,
+                               OPEN = OPEN, CLOSE= CLOSE, HIGH= HIGH, LOW = LOW, CONTRACTS = CONTRACTS,
+                               tradenum = tradenum, tradedur = tradedur, mnthexp = mnthexp, 
+                               trday = anydate( seq(trday, mnthexp, by = "day") )), by = 1:nrow(nifty002b)]
+
+setnames (nifty002c, "OPEN", "entryOPEN")
+setnames (nifty002c, "CLOSE", "entryCLOSE")
+setnames (nifty002c, "LOW", "entryLOW")
+setnames (nifty002c, "HIGH", "entryHIGH")
+setnames (nifty002c, "CONTRACTS", "entryCONTRACTS")
+
+nifty003 <- merge (x = nifty002c,
+                   y = nifty001 [, c("mrgdt", "trday", "STRIKE_PR", "SYMBOL", "mnthexp", "OPEN", "CLOSE", "HIGH", "LOW", "CONTRACTS", "nexpday"), ] , 
+                   by = c("mrgdt", "trday", "STRIKE_PR", "SYMBOL", "mnthexp"), 
+                   all.x = TRUE)
+nifty004 <- nifty003 [ mnthexp == nexpday]
+
+
+
 
 # Calculate the combinations of contracts and number of times success
 # These calculations are only based on the BANK NIFTY data
@@ -90,6 +164,9 @@ bnkexp100 <- bnkexp05 [ nrow == 1]
 bnkexp100 <- bnkexp100 [, ntrades := .N,]
 bnkexp100 <- bnkexp100 [, pftloss := ifelse(LOW < 1, "Profit", "Loss"),]
 bnkexp101 <- bnkexp100 [, .(cnt = .N), by = .(pftloss, ntrades)]
+
+
+
 
 # Pick up Nifty on any of the first 5 days in the 100s range:
 
@@ -101,12 +178,13 @@ nifty001 <- nifty001 [, mnthexp := max(nexpday), by = .(mrgdt) ]
 nifty002 <- nifty001 [ (minval >= 70 & minval <= 130) & 
                          mnthexp == nexpday  ]
 
-nifty003 <- nifty002 [, c("SYMBOL", "trday", "STRIKE_PR", "OPEN", "CLOSE", "LOW", "HIGH", "mrgdt")]
+nifty003 <- nifty002 [, c("SYMBOL", "trday", "STRIKE_PR", "OPEN", "CLOSE", "LOW", "HIGH", "mrgdt", "CONTRACTS")]
 nifty003 <- nifty003 [, entrydt := trday,]
 setnames (nifty003, "OPEN", "OPENentry")
 setnames (nifty003, "CLOSE", "CLOSEentry")
 setnames (nifty003, "LOW", "LOWentry")
 setnames (nifty003, "HIGH", "HIGHentry")
+setnames (nifty003, "CONTRACTS", "CONTRACTSentry")
 
 nifty004 <- merge(x = nifty003 [, -c("trday"), ],
                   y = nifty001,
