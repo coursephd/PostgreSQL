@@ -115,7 +115,7 @@ nifty001 <- nifty001 [, `:=` (day = as.numeric(format(trday, "%d") ),
                               minval = pmin(OPEN, CLOSE, LOW, HIGH), 
                               maxval = pmax(OPEN, CLOSE, LOW, HIGH) ), ]
 nifty001 <- nifty001 [, mnthexp := max(nexpday), by = .(mrgdt) ]
-nifty002 <- nifty001 [ (minval >= 70 & minval <= 130) ] # & 
+nifty002 <- nifty001 [ (minval >= 70 & minval <= 130) & nexpday == mnthexp ] # & 
 # mnthexp == nexpday  ]
 
 # Keep only the contracts of the same month for day <= 15
