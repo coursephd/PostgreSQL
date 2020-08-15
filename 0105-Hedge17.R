@@ -142,7 +142,8 @@ setnames (bnkadj01,  "CONTRACTS"     ,'b_adj_contr')
 
 bnkexp08 <- merge (x = bnkexp08,
                    y = bnkadj01,
-                   by = c("trday", "TIMESTAMP", "nexpday", "EXPIRY_DT", "STRIKE_PR"),
+                   by.x = c("trday", "TIMESTAMP", "nexpday", "EXPIRY_DT", "strk_adj"),
+                   by.y = c("trday", "TIMESTAMP", "nexpday", "EXPIRY_DT",  "STRIKE_PR"),
                    all.x = TRUE)
 
 setnames (bnkexp08,  "STRIKE_PR"     ,'b_strk')
@@ -168,7 +169,6 @@ bnkexp09 <- bnkexp08[, c("b_SYMBOL", "variable", "value", "trday", "mrgdt",  "al
 
 fwrite(bnkexp09, "D:/My-Shares/analysis/105_bnk.csv")
 saveRDS (bnkexp09, "D:/My-Shares/analysis/105_bnk.rds")
-
 
 ##############################################################################
 #
