@@ -64,6 +64,14 @@ all02 <- all02 [, `:=` (sma50 = SMA(adjusted, 50),
 all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
                         wma_rsi21_red = WMA(rsi9_white, n= 21) ), by = .(symbol)]
 
+all02 <- all02 [, pivot := (high + low + close) / 3, ]
+all02 <- all02 [, `:=`( R1 = (2 * pivot) - low, 
+                     R2 = pivot + high - low, 
+                     R3 = pivot + 2 * (high - low),
+                     S1 = (2 * pivot) - high, 
+                     S2 = pivot - (high - low), 
+                     S3 = pivot - 2 * (high - pivot) ) , ]
+
 rm ( list = ls (pattern = "*NS*"))
 
 #########################################################################
