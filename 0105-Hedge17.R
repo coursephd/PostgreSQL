@@ -54,6 +54,7 @@ opt03 <- opt03 [, week_trd := .GRP, by = .(EXPIRY_DT)]
 
 
 # Varsha drop the data with mrgdt mot present in fut02
+
 # Calculate the date of the expiry and last 4 days to the Thursday expiry
 
 exp01 <- unique( na.omit( opt03 [, c("trday", "TIMESTAMP", "nexpday", "EXPIRY_DT"), ] ) )
