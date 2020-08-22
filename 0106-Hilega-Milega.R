@@ -33,7 +33,7 @@ cntrt02 <- cntrt02 [ SYMBOL02 != "L&TFH.NS"]
 cntrt02 <- cntrt02 [, step001 := paste("pbr <- getSymbols('", SYMBOL02, "', ", 'src = "yahoo", from =  anydate(tday) - 365, to =  anydate(tday), auto.assign = TRUE) \n', sep=""), ]
 cntrt02 <- cntrt02 [, step002 := paste( SYMBOL02, " <- as.data.table(", SYMBOL02, ") \n", sep = ""), ]
 cntrt02 <- cntrt02 [, step003 := paste( SYMBOL02, " <- ", SYMBOL02, "[, nrow := .I, ] \n", sep = ""), ]
-cntrt02 <- cntrt02 [, step004 := paste( SYMBOL02, " <- melt(", SYMBOL02, ", id.vars = c('index')) \n", sep = ""), ]
+cntrt02 <- cntrt02 [, step004 := paste( SYMBOL02, " <- melt(", SYMBOL02, ", id.vars = c('index', 'nrow')) \n", sep = ""), ]
 
 
 fwrite(cntrt02 [, c("step001", "step002", "step003", "step004"), ],
@@ -53,7 +53,7 @@ all <- all [, index := anydate(index),]
 all0 <- unique( na.omit( all) )
 
 all02 <- dcast(data = all0,
-               symbol + index ~ cat,
+               symbol + index + nrow ~ cat,
                value.var = c("value"), 
                fill ="")
 
