@@ -58,13 +58,30 @@ all02 <- dcast(data = all0,
                fill ="")
 
 all02 <- all02 [ order(symbol, index)]
+
+#
+# Calculate SMA, RSI_White, Money Flow index, VWAP,
+# ema_rsi, 3_green, wma_rsi21_red
+#
+# Create flags for consecutive high and low days
+# Sign and Streak
+# Signal
+
 all02 <- all02 [, `:=` (sma50 = SMA(adjusted, 50),
                         rsi9_white = RSI(adjusted, 9),
                         mfi = MFI(close, volume, 9),
-                        vwap10 = VWAP(adjusted, volume, n= 10)), by = .(symbol)]
-all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
-                        wma_rsi21_red = WMA(rsi9_white, n= 21) ), by = .(symbol)]
+                        vwap10 = VWAP(adjusted, volume, n= 10), 
+                        Sign = ifelse(close>lag(close),"up", "down") ), by = .(symbol)]
 
+all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
+                        wma_rsi21_red = WMA(rsi9_white, n= 21), 
+                        Streak = sequence(rle(Sign)$lengths ), 
+                        Signal = case_when(lag(Sign)=="up" & lag(Streak)%%4==0~'short',
+                                           lag(Sign)=="down" & lag(Streak)%%4==0~'long',
+                                           TRUE~"") ), by = .(symbol)]
+
+
+                   
 # Create VHF - Vertical Horizontal Filter (VHF)
 all02 <- all02 [, vhf_rsi9 := VHF(rsi9_white, n = 9), by = .(symbol)]
 all02 <- all02 [, vhf_price := VHF(adjusted, n = 9), by = .(symbol)]
@@ -102,6 +119,11 @@ watch01 <- all03 [ (adjusted >= sma50) &
 
 
 watch02 <- all03 [ (ema_rsi3_green - wma_rsi21_red >= 10)]
+
+
+# Additional code
+df<-df%>%mutate(Sign = ifelse(Close>lag(Close),"up", "down"))%>%
+  mutate(Streak=sequence(rle(Sign)$lengths))
 
 #########################################################################
 # End of program
