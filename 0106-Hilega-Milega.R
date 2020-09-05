@@ -60,9 +60,14 @@ all02 <- dcast(data = all0,
 all02 <- all02 [ order(symbol, index)]
 all02 <- all02 [, `:=` (sma50 = SMA(adjusted, 50),
                         rsi9_white = RSI(adjusted, 9),
+                        mfi = MFI(close, volume, 9),
                         vwap10 = VWAP(adjusted, volume, n= 10)), by = .(symbol)]
 all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
                         wma_rsi21_red = WMA(rsi9_white, n= 21) ), by = .(symbol)]
+
+# Create VHF - Vertical Horizontal Filter (VHF)
+all02 <- all02 [, vhf_rsi9 := VHF(rsi9_white, n = 9), by = .(symbol)]
+all02 <- all02 [, vhf_price := VHF(adjusted, n = 9), by = .(symbol)]
 
 all02 <- all02 [, pivot := (high + low + close) / 3, ]
 all02 <- all02 [, `:=`( R1 = (2 * pivot) - low, 
@@ -73,6 +78,30 @@ all02 <- all02 [, `:=`( R1 = (2 * pivot) - low,
                      S3 = pivot - 2 * (high - pivot) ) , ]
 
 rm ( list = ls (pattern = "*NS*"))
+
+# Create a filtering condition to see if the companies should be picked up
+# Pick up the last day
+# May not be the best subset but will work with this set-up for the moment
+
+all03 <- all02 [ nrow == max(nrow)]
+
+# Pick up the stock when 
+# (1) the last value > sma50
+# (2) vwap > sma50
+# (3) Red >= 50
+# (4) Green >= 50
+# (5) Last close value > pivot
+# (6) Red >= Green by say 10 points?
+
+watch01 <- all03 [ (adjusted >= sma50) & 
+                   (vwap10 >= sma50) & 
+                   (ema_rsi3_green >= 50) & 
+                   (wma_rsi21_red >= 50) &
+                   (ema_rsi3_green >= wma_rsi21_red )]
+# (adjusted >= pivot) &
+
+
+watch02 <- all03 [ (ema_rsi3_green - wma_rsi21_red >= 10)]
 
 #########################################################################
 # End of program
