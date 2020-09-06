@@ -1,15 +1,17 @@
 library(TTR)
+library(tidyquant)
+library(QuantTools)
+library(derivmkts)
+library(quantmod)
+
 library(data.table)
 library(tidyverse)
 library(anytime)
-library(derivmkts)
-library(quantmod)
 library(simstudy)
 library(zoo)
 library(RCurl)
 library(lubridate)
 library(curl)
-library(tidyquant) 
 library(reshape)
 
 options(scipen = 999)
@@ -46,6 +48,9 @@ fwrite(cntrt02 [, c("step001", "step002", "step003", "step004"), ],
 source("D:\\My-Shares\\prgm\\yahoooutput.R")
 
 all <- rbindlist(mget( ls(pattern="*NS*") ), fill = TRUE )
+
+rm ( list = ls (pattern = "*NS*"))
+
 all <- all [, c("symbol", "exchange", "cat") := tstrsplit(variable, "\\."), ]
 all <- all [, cat := tolower(cat),]
 all <- all [, index := anydate(index),]
@@ -58,29 +63,54 @@ all02 <- dcast(data = all0,
                fill ="")
 
 all02 <- all02 [ order(symbol, index)]
+all02 <- all02 [, allrow := .I, ]
 
 #
 # Calculate SMA, RSI_White, Money Flow index, VWAP,
 # ema_rsi, 3_green, wma_rsi21_red
+# Bollinger Bands
 #
 # Create flags for consecutive high and low days
 # Sign and Streak
 # Signal
+#
+# Calculate the Bollinger band, the calculations are done over all the dataset
+# So the first n lines of the bollinger band calculations go wrong
+# as the data from previous company is carried forward
+#
+# Simliar calculations are done for the ADX parameter
+# Remove the calculations for first 14 * 2 rows
+
+bb_n <- 20
+adx_n <- 14
+
+bb_dn = as.data.table( bbands(all02$close, n = bb_n, k = 2) )
+bb_dn <- bb_dn [, allrow := .I, ]
+
+dmi.adx <- as.data.table( ADX(all02[, c("high","low","close") ], n = adx_n) )
+dmi.adx <- dmi.adx [, allrow := .I, ]
 
 all02 <- all02 [, `:=` (sma50 = SMA(adjusted, 50),
                         rsi9_white = RSI(adjusted, 9),
                         mfi = MFI(close, volume, 9),
                         vwap10 = VWAP(adjusted, volume, n= 10), 
-                        Sign = ifelse(close>lag(close),"up", "down") ), by = .(symbol)]
+                        Sign_prc = ifelse(close>lag(close),"up", "down") ), by = .(symbol)]
 
 all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
                         wma_rsi21_red = WMA(rsi9_white, n= 21), 
-                        Streak = sequence(rle(Sign)$lengths ), 
-                        Signal = case_when(lag(Sign)=="up" & lag(Streak)%%4==0~'short',
-                                           lag(Sign)=="down" & lag(Streak)%%4==0~'long',
-                                           TRUE~"") ), by = .(symbol)]
+                        Streak_prc = sequence(rle(Sign_prc)$lengths )  ), 
+                by = .(symbol)]
 
+all02 <- all02 [, Signal_prc := case_when(lag(Sign_prc)=="up" & lag(Streak_prc)%%4==0~'short',
+                                     lag(Sign_prc)=="down" & lag(Streak_prc)%%4==0~'long',
+                                     TRUE~""), by = .(symbol)]
 
+all02 <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
+                list( all02, bb_dn, dmi.adx) )
+
+# To avoid any incorrect calculations explained above, remove certain number of rows
+
+all02 <- all02 [ nrow > adx_n * 2]
                    
 # Create VHF - Vertical Horizontal Filter (VHF)
 all02 <- all02 [, vhf_rsi9 := VHF(rsi9_white, n = 9), by = .(symbol)]
@@ -94,7 +124,45 @@ all02 <- all02 [, `:=`( R1 = (2 * pivot) - low,
                      S2 = pivot - (high - low), 
                      S3 = pivot - 2 * (high - pivot) ) , ]
 
-rm ( list = ls (pattern = "*NS*"))
+#
+# Calculate the range for the volume to understand the 
+# contraction and expansion of volume
+# Calculate sma for the range
+#
+# Find the range of the price - if it is contracting then there is
+# a chance of expansion
+#  
+
+all02 <- all02 [, `:=`(sma_vol = SMA(volume, 50), 
+                       range_prc = as.numeric(high - close) ),]
+all02 <- all02 [, sma20_range_prc := SMA(range_prc, 20), ]
+all02 <- all02 [, sma10_range_prc := SMA(range_prc, 10), ]
+
+# Calculate up and down signals for
+# Price - already done
+# Volume
+# MFI
+# RSI
+
+all02 <- all02 [, Sign_vol := ifelse(volume > lag(volume),"up", "down"), ]
+all02 <- all02 [, Streak_vol := sequence(rle(Sign_vol)$lengths ), ]
+all02 <- all02 [, Signal_vol := case_when(lag(Sign_vol)=="up" & lag(Streak_vol)%%4==0~'short',
+                                          lag(Sign_vol)=="down" & lag(Streak_vol)%%4==0~'long',
+                                          TRUE~""), by = .(symbol)]
+
+all02 <- all02 [, Sign_range_prc := ifelse(range_prc > lag(range_prc),"up", "down"), ]
+all02 <- all02 [, Streak_range_prc := sequence(rle(Sign_range_prc)$lengths ), ]
+all02 <- all02 [, Signal_range_prc := case_when(lag(Sign_range_prc)=="up" & lag(Sign_range_prc)%%4==0~'short',
+                                          lag(Sign_range_prc)=="down" & lag(Sign_range_prc)%%4==0~'long',
+                                          TRUE~""), by = .(symbol)]
+
+
+all02 <- all02 [, Sign_mfi := ifelse(mfi > lag(mfi),"up", "down"), ]
+all02 <- all02 [, Streak_mfi := sequence(rle(Sign_mfi)$lengths ), ]
+all02 <- all02 [, Signal_mfi := case_when(lag(Sign_mfi)=="up" & lag(Sign_mfi)%%4==0~'short',
+                                                lag(Sign_mfi)=="down" & lag(Sign_mfi)%%4==0~'long',
+                                                TRUE~""), by = .(symbol)]
+
 
 # Create a filtering condition to see if the companies should be picked up
 # Pick up the last day
