@@ -152,15 +152,15 @@ all02 <- all02 [, Signal_vol := case_when(lag(Sign_vol)=="up" & lag(Streak_vol)%
 
 all02 <- all02 [, Sign_range_prc := ifelse(range_prc > lag(range_prc),"up", "down"), ]
 all02 <- all02 [, Streak_range_prc := sequence(rle(Sign_range_prc)$lengths ), ]
-all02 <- all02 [, Signal_range_prc := case_when(lag(Sign_range_prc)=="up" & lag(Sign_range_prc)%%4==0~'short',
-                                          lag(Sign_range_prc)=="down" & lag(Sign_range_prc)%%4==0~'long',
+all02 <- all02 [, Signal_range_prc := case_when(lag(Sign_range_prc)=="up" & lag(Streak_range_prc)%%4==0~'short',
+                                          lag(Sign_range_prc)=="down" & lag(Streak_range_prc)%%4==0~'long',
                                           TRUE~""), by = .(symbol)]
 
 
 all02 <- all02 [, Sign_mfi := ifelse(mfi > lag(mfi),"up", "down"), ]
 all02 <- all02 [, Streak_mfi := sequence(rle(Sign_mfi)$lengths ), ]
-all02 <- all02 [, Signal_mfi := case_when(lag(Sign_mfi)=="up" & lag(Sign_mfi)%%4==0~'short',
-                                                lag(Sign_mfi)=="down" & lag(Sign_mfi)%%4==0~'long',
+all02 <- all02 [, Signal_mfi := case_when(lag(Sign_mfi)=="up" & lag(Streak_mfi)%%4==0~'short',
+                                                lag(Sign_mfi)=="down" & lag(Streak_mfi)%%4==0~'long',
                                                 TRUE~""), by = .(symbol)]
 
 
