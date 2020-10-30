@@ -7,6 +7,7 @@
 
 library(data.table)
 library(openxlsx)
+library(tidyverse)
 
 # Read the prakriti data
 # Create the prakriti variable
@@ -57,5 +58,12 @@ prkper01 <- merge(x = prakriti03,
                   by.x = c("PatientId"),
                   by.y = c("PatientID"),
                   all = TRUE)                  
+
+prkper01 <- prkper01 [, agecat := case_when( age > 0 & age <= 18 ~ "0 - 18 years",
+                                             age > 18 & age <= 35 ~ "18 - 35 years",
+                                             age > 36 & age <= 50 ~ "36 - 50 years", 
+                                             age > 50 & age <= 70 ~ "50 - 70 years", 
+                                             age > 70 ~ "70 years and above", 
+                                             TRUE ~ "Not captured"), ]
 
 fwrite(prkper01, "D:\\Hospital_data\\WellnessScore\\analysis\\1000_Prakriti-type-cal.csv")
