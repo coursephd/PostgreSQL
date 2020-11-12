@@ -90,11 +90,34 @@ bb_dn <- bb_dn [, allrow := .I, ]
 dmi.adx <- as.data.table( ADX(all02[, c("high","low","close") ], n = adx_n) )
 dmi.adx <- dmi.adx [, allrow := .I, ]
 
-all02 <- all02 [, `:=` (sma50 = SMA(adjusted, 50),
+sar <- as.data.table( SAR(all02[, c("high","low") ] ) )
+sar <- sar [, allrow := .I, ]
+
+atr <- as.data.table( ATR(all02[, c("high","low","close") ], n = adx_n) )
+atr <- atr [, allrow := .I, ]
+
+
+all02 <- all02 [, `:=` (ema20 = EMA(adjusted, 20), ema50 = EMA(adjusted, 50), ema200 = EMA(adjusted, 200),
+                        sma50 = SMA(adjusted, 50),
                         rsi9_white = RSI(adjusted, 9),
                         mfi = MFI(close, volume, 9),
-                        vwap10 = VWAP(adjusted, volume, n= 10), 
+                        vwap10 = VWAP(adjusted, volume, n= 10),
+                        dayperc = ( (close - open) / open) * 100, # Percentage change in a day
                         Sign_prc = ifelse(close>lag(close),"up", "down") ), by = .(symbol)]
+
+# Find the maximum percentage change and rank them
+# for each day
+#
+# Find the next day's price behaviour, would stocks in top 10
+# not perform the next day?
+# Could this provide a list of shares for short sell?
+
+all02 <- all02 [ order(index, -dayperc, symbol )]
+all02 <- all02 [, rank := 1:.N, by = .(index)]
+
+
+# Fibonnaci series retracement code
+# https://gist.github.com/drewgriffith15/e34560476a022612aa60
 
 all02 <- all02 [, `:=` (ema_rsi3_green = EMA(rsi9_white, n = 3),
                         wma_rsi21_red = WMA(rsi9_white, n= 21), 
@@ -106,7 +129,7 @@ all02 <- all02 [, Signal_prc := case_when(lag(Sign_prc)=="up" & lag(Streak_prc)%
                                      TRUE~""), by = .(symbol)]
 
 all02 <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
-                list( all02, bb_dn, dmi.adx) )
+                list( all02, bb_dn, dmi.adx, sar, atr) )
 
 # To avoid any incorrect calculations explained above, remove certain number of rows
 
