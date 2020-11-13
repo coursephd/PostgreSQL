@@ -224,6 +224,37 @@ top24_1 <- dcast(data = top24,
 
 top24_1 <- top24_1 [ order(variable, maxchgcat)]
 
+# Create entry 25 samples between low and high values
+# Check if these combinations provide a lot of success cases
+
+top30 <- unique( top23[ , c("symbol", "grp", "grprank", "low", "high", "maxchg", "maxchgcat", "dayperc"), ] )
+top30_1 <- top30[ , list(symbol = symbol, grp = grp, grprank = grprank, 
+                         low = low, high = high, maxchg = maxchg, maxchgcat = maxchgcat, dayperc = dayperc, 
+                         entry = runif (25, min = low, max = high) ), by = 1:nrow(top30)]
+
+top31 <- unique( top23[ , c("symbol", "grp", "grprank", "minext", "maxext", "trday"), ] )
+top31_1 <- top31[ , list(symbol = symbol, grp = grp, grprank = grprank, 
+                         minext = minext, maxext = maxext, trday = trday,
+                         exit = runif (25, min = minext, max = maxext) ), by = 1:nrow(top31)]
+
+top32 <- merge (x = top30_1, 
+                y = top31_1, 
+                by = c("symbol", "grp", "grprank"), 
+                allow.cartesian = TRUE)
+
+top32 <- top32 [, `:=` (crit001 = ifelse(entry < exit, 1, 0), value_tot = 1),  ]
+
+# Calculate a few frequencies:
+top32_1 <- top32 [, .(total = sum(value_tot), success = sum( as.numeric(crit001)) ), by = .(trday, maxchgcat)]
+top32_1 <- top32_1 [, successperc := round( success / total * 100, 2), ]
+
+top32_2 <- dcast(data = top32_1, 
+                 maxchgcat  ~ paste("Day", trday, sep=""), 
+                 value.var = c("successperc"))
+
+top24_1 <- top24_1 [ order(variable, maxchgcat)]
+
+
 # Fibonnaci series retracement code
 # https://gist.github.com/drewgriffith15/e34560476a022612aa60
 
