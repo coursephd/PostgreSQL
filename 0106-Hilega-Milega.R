@@ -115,6 +115,55 @@ all02 <- all02 [, `:=` (ema20 = EMA(adjusted, 20), ema50 = EMA(adjusted, 50), em
 all02 <- all02 [ order(index, -dayperc, symbol )]
 all02 <- all02 [, rank := 1:.N, by = .(index)]
 
+#
+# Find the top 10 stocks on each day
+# Assumption is that the stock should fall after the rise
+# 
+# Give 5 extra days for the trade after short selling
+# Create additional rows after the identification of the stock for trade
+#
+# There is one more calculation to be taken into consideration:
+# Even if a stock is in top 10 for the day, the % increase on that should be
+# taken into account -- calculate the trades with thresholds of 2%, 3%, 4%, etc.
+#
+# If a stock is in top 10 and has increased only by 0.5% then that may not be a good 
+# pick for the next day, such stocks must be eliminated from the subset
+
+top10_1 <- all02 [ rank <= 10, c("symbol", "index", "nrow", "rank", "dayperc"), ]
+top10_1 <- top10_1 [, grp := .GRP, by = .(index)]
+top10_1 <- top10_1 [, `:=`(grprank = rank, row00 = nrow) ]
+top10_2 <- top10_1 [, `:=` (day01 = nrow + 1, day02 = nrow + 2, day03 = nrow + 3, day04 = nrow + 4, day05 = nrow + 5), ]
+
+# Transpose the data:
+top10_3 <- melt(data = top10_2,
+                id.vars = c("symbol", "grp", "grprank"), 
+                measure.vars = c("row00", "day01", "day02", "day03", "day04", "day05"))
+top10_3 <- top10_3 [, `:=`(nrow = value, trday = as.numeric( substr(variable, 4, 5)) ), ]
+
+# Merge the data with the other data:
+top20 <- merge(x = top10_3,
+               y = all02, 
+               by = c("symbol", "nrow"), 
+               all.x = TRUE)
+
+# Now find out the low and high value on day 1 of the trade:
+# As long as there is lower value than the low value of day 1 then it satisfies the
+# trade as a positive trade
+#
+# E.g. day 1= low value = 1200, if there is a value <= 1200 on next 5 days then the trade
+# will be in profit.
+#
+# Let us create a dataset with possible entry values: 
+# (1) Low of day 1, 
+# (2) High of day 1
+#
+# Identify: the lower values after day 1 to see the success rate at high and low value:
+#
+# Additionally calculations can be done by using any value between the low and high value
+# and compare that against the lower value
+
+top21 <- top20 []
+
 
 # Fibonnaci series retracement code
 # https://gist.github.com/drewgriffith15/e34560476a022612aa60
