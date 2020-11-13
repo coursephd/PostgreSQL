@@ -130,13 +130,14 @@ all02 <- all02 [, rank := 1:.N, by = .(index)]
 # pick for the next day, such stocks must be eliminated from the subset
 
 top10_1 <- all02 [ rank <= 10, c("symbol", "index", "nrow", "rank", "dayperc"), ]
+top10_1 <- top10_1 [ order(index, -dayperc, symbol) ]
 top10_1 <- top10_1 [, grp := .GRP, by = .(index)]
-top10_1 <- top10_1 [, `:=`(grprank = rank, row00 = nrow) ]
+top10_1 <- top10_1 [, `:=`(grprank = rank, row00 = nrow, maxchg = dayperc) ]
 top10_2 <- top10_1 [, `:=` (day01 = nrow + 1, day02 = nrow + 2, day03 = nrow + 3, day04 = nrow + 4, day05 = nrow + 5), ]
 
 # Transpose the data:
 top10_3 <- melt(data = top10_2,
-                id.vars = c("symbol", "grp", "grprank"), 
+                id.vars = c("symbol", "grp", "grprank", "maxchg"), 
                 measure.vars = c("row00", "day01", "day02", "day03", "day04", "day05"))
 top10_3 <- top10_3 [, `:=`(nrow = value, trday = as.numeric( substr(variable, 4, 5)) ), ]
 
@@ -145,6 +146,8 @@ top20 <- merge(x = top10_3,
                y = all02, 
                by = c("symbol", "nrow"), 
                all.x = TRUE)
+
+top20 <- na.omit(top20)
 
 # Now find out the low and high value on day 1 of the trade:
 # As long as there is lower value than the low value of day 1 then it satisfies the
@@ -162,7 +165,56 @@ top20 <- merge(x = top10_3,
 # Additionally calculations can be done by using any value between the low and high value
 # and compare that against the lower value
 
-top21 <- top20 []
+# Entry prices
+top21 <- top20 [ trday == 1, c("symbol", "index", "grp", "grprank", "maxchg", "dayperc", "high", "low"), ]
+
+# Exit prices using trday >= 2
+# Transpose the data to get the quick min and max value
+#
+# Calculate the min and max exit for any time between 2 and 5 days
+# Calculate the same for any individual day on or after day 2
+# This will provide an idea about when can the trade get over
+
+top22 <- melt(data = top20 [trday >=2], 
+              id.vars =c("symbol", "grp", "trday"), 
+              measure.vars = c("high", "low"))
+
+top22_1 <- top22 [, .(minext = min(value), maxext = max(value)), by = .(symbol, grp)]
+top22_1 <- top22_1 [, trday := -99, ]
+top22_2 <- top22 [, .(minext = min(value), maxext = max(value)), by = .(symbol, grp, trday)]
+
+top22_3 <- rbind(top22_1, top22_2)
+
+# Merge these 2 datasets:
+
+top23 <- merge (x = top21, 
+                y = top22_3, 
+                by = c("symbol", "grp"))
+
+# Calculate success:
+# (1) crit01: Low > minext
+# (2) crit02: High > minext, 
+# (3) crit03: High > maxext
+
+top23 <- top23 [, `:=`(crit01 = ifelse(low > minext, 1, 0), 
+                       crit02 = ifelse(high > minext, 1, 0),
+                       crit03 = ifelse(high > maxext, 1, 0) ), ] 
+
+# Create a category variable to identify the % change 
+top23 <- top23 [, maxchgcat := case_when( maxchg <= 0 ~ "01 Less then 0",
+                                          maxchg > 0 & maxchg <= 2 ~ "02 between 0% and 2%", 
+                                          maxchg > 2 & maxchg <= 5 ~ "03 between 1% and 5%", 
+                                          maxchg > 5 ~ "04 > 5%"), ]
+
+top23_1 <- melt (data = top23, 
+                 id.vars = c("symbol", "index", "grp", "grprank", "maxchg", "maxchgcat", "trday", "dayperc"), 
+                 measure.vars = c("crit01", "crit02", "crit03"))
+
+# Create a variable to get the N
+top23_1 <- top23_1 [, value_tot := 1, ]
+
+# Calculate a few frequencies:
+top24 <- top23_1 [, .(total = sum(value_tot), success = sum( as.numeric(value)) ), by = .(trday, maxchgcat, variable)]
 
 
 # Fibonnaci series retracement code
