@@ -32,7 +32,7 @@ cntrt02 <- cntrt02 [ SYMBOL02 != "M&MFIN.NS"]
 cntrt02 <- cntrt02 [ SYMBOL02 != "M&M.NS"]
 cntrt02 <- cntrt02 [ SYMBOL02 != "L&TFH.NS"]
 
-cntrt02 <- cntrt02 [, step001 := paste("pbr <- getSymbols('", SYMBOL02, "', ", 'src = "yahoo", from =  anydate(tday) - 365, to =  anydate(tday), auto.assign = TRUE) \n', sep=""), ]
+cntrt02 <- cntrt02 [, step001 := paste("pbr <- getSymbols('", SYMBOL02, "', ", 'src = "yahoo", from =  anydate(tday) - 365 * 2, to =  anydate(tday), auto.assign = TRUE) \n', sep=""), ]
 cntrt02 <- cntrt02 [, step002 := paste( SYMBOL02, " <- as.data.table(", SYMBOL02, ") \n", sep = ""), ]
 cntrt02 <- cntrt02 [, step003 := paste( SYMBOL02, " <- ", SYMBOL02, "[, nrow := .I, ] \n", sep = ""), ]
 cntrt02 <- cntrt02 [, step004 := paste( SYMBOL02, " <- melt(", SYMBOL02, ", id.vars = c('index', 'nrow')) \n", sep = ""), ]
@@ -180,7 +180,7 @@ top22 <- melt(data = top20 [trday >=2],
               measure.vars = c("high", "low"))
 
 top22_1 <- top22 [, .(minext = min(value), maxext = max(value)), by = .(symbol, grp)]
-top22_1 <- top22_1 [, trday := -99, ]
+top22_1 <- top22_1 [, trday := 99, ]
 top22_2 <- top22 [, .(minext = min(value), maxext = max(value)), by = .(symbol, grp, trday)]
 
 top22_3 <- rbind(top22_1, top22_2)
@@ -202,9 +202,10 @@ top23 <- top23 [, `:=`(crit01 = ifelse(low > minext, 1, 0),
 
 # Create a category variable to identify the % change 
 top23 <- top23 [, maxchgcat := case_when( maxchg <= 0 ~ "01 Less then 0",
-                                          maxchg > 0 & maxchg <= 2 ~ "02 between 0% and 2%", 
-                                          maxchg > 2 & maxchg <= 5 ~ "03 between 1% and 5%", 
-                                          maxchg > 5 ~ "04 > 5%"), ]
+                                          maxchg > 0 & maxchg <= 1 ~ "02 between 0% and 1%",
+                                          maxchg > 1 & maxchg <= 3 ~ "03 between 1% and 2%",
+                                          maxchg > 3 & maxchg <= 5 ~ "04 between 3% and 5%", 
+                                          maxchg > 5 ~ "05 > 5%"), ]
 
 top23_1 <- melt (data = top23, 
                  id.vars = c("symbol", "index", "grp", "grprank", "maxchg", "maxchgcat", "trday", "dayperc"), 
@@ -215,7 +216,13 @@ top23_1 <- top23_1 [, value_tot := 1, ]
 
 # Calculate a few frequencies:
 top24 <- top23_1 [, .(total = sum(value_tot), success = sum( as.numeric(value)) ), by = .(trday, maxchgcat, variable)]
+top24 <- top24 [, successperc := round( success / total * 100, 2), ]
 
+top24_1 <- dcast(data = top24, 
+                 maxchgcat + variable ~ paste("Day", trday, sep=""), 
+                 value.var = c("successperc"))
+
+top24_1 <- top24_1 [ order(variable, maxchgcat)]
 
 # Fibonnaci series retracement code
 # https://gist.github.com/drewgriffith15/e34560476a022612aa60
