@@ -242,7 +242,7 @@ top32 <- merge (x = top30_1,
                 by = c("symbol", "grp", "grprank"), 
                 allow.cartesian = TRUE)
 
-top32 <- top32 [, `:=` (crit001 = ifelse(entry < exit, 1, 0), value_tot = 1),  ]
+top32 <- top32 [, `:=` (crit001 = ifelse(entry > exit, 1, 0), value_tot = 1),  ]
 
 # Calculate a few frequencies:
 top32_1 <- top32 [, .(total = sum(value_tot), success = sum( as.numeric(crit001)) ), by = .(trday, maxchgcat)]
