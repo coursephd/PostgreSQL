@@ -74,6 +74,30 @@ whole_table_wk <- url_html_wk %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
+# For each of the interval calculate the CPR and camarilla equations
+# combine the data into one data
+# Price column= closing value
+
+whole_table_yr <- as.data.table(whole_table_yr)
+whole_table_mnth <- as.data.table(whole_table_mnth)
+whole_table_wk <- as.data.table(whole_table_wk)
+
+whole_table_yr <- whole_table_yr [, timefrm := "Yearly", ]
+whole_table_mnth <- whole_table_mnth [, timefrm := "Monthly", ]
+whole_table_wk <- whole_table_wk [, timefrm := "Weekly", ]
+
+whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk)
+whole <- whole [, `:=`(date02 = mdy(Date),
+                       High = as.numeric( str_remove_all(High, ",") ), 
+                       Low = as.numeric( str_remove_all(Low, ",") ) ,
+                       Price = as.numeric( str_remove_all(Price, ",") ) ,
+                       Open = as.numeric( str_remove_all(Open, ",") ) ),  ]
+
+whole <- whole [ order(timefrm, date02) ]
+whole <- whole [, `:=`(nrow =1:.N, 
+                       tot =.N,
+                       high_t = max( High ),
+                       low_t = min ( Low ) ) , by = .(timefrm)]
 
 ############################################
 # End of program
