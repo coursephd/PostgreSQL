@@ -1,3 +1,4 @@
+##########################################################################################
 #
 # Need to understand the conversion of the date
 # The date is UNIX date stamp
@@ -8,6 +9,8 @@
 #
 # R code from the following website: https://r-tastic.co.uk/post/from-messy-to-tidy/
 # 2nd table in the HTML page contains the OHLC data 
+#
+##########################################################################################
 
 library(data.table)
 library(tidyverse)
@@ -33,7 +36,7 @@ prvmnth02 <- prvmnth + as.numeric( days_in_month(prvmnth) ) - 1
 prvwk <- floor_date(dt, "week", week_start = 1) - weeks(1)
 prvwk02 <- prvwk + 5
 
-# Get the yearly, monthly, weekly values:
+# Get the yearly, monthly, weekly, daily values:
 styrdate <- as.numeric(as.POSIXct(prvyr01, format="%Y-%m-%d"))
 enyrdate <- as.numeric(as.POSIXct(prvyr02, format="%Y-%m-%d"))
 
@@ -42,6 +45,10 @@ enmthdate <- as.numeric(as.POSIXct(prvmnth02, format="%Y-%m-%d"))
 
 stwkdate <- as.numeric(as.POSIXct(prvwk, format="%Y-%m-%d"))
 enwkdate <- as.numeric(as.POSIXct(prvwk02, format="%Y-%m-%d"))
+
+stdaydate <- as.numeric(as.POSIXct(dt-6, format="%Y-%m-%d"))
+endaydate <- as.numeric(as.POSIXct(dt-1, format="%Y-%m-%d"))
+
 
 url_yr <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", enyrdate,  
                 "&st_date=", styrdate, "&interval_sec=monthly&interval_sec=daily", sep="")
@@ -52,52 +59,156 @@ url_mnth <- paste("https://in.investing.com/indices/bank-nifty-futures-historica
 url_wk <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", enwkdate,  
                 "&st_date=", stwkdate, "&interval_sec=monthly&interval_sec=daily", sep="")
 
+url_day <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", endaydate,  
+                "&st_date=", stdaydate, "&interval_sec=monthly&interval_sec=daily", sep="")
+
+
 url_html_yr <- read_html(url_yr)
 url_html_mnth <- read_html(url_mnth)
 url_html_wk <- read_html(url_wk)
+url_html_day <- read_html(url_day)
 
-# extract the HTML table
+# extract the HTML table for year
 whole_table_yr <- url_html_yr %>% 
   html_nodes('table') %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
-# extract the HTML table
+# extract the HTML table for month
 whole_table_mnth <- url_html_mnth %>% 
   html_nodes('table') %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
-# extract the HTML table
+# extract the HTML table for week
 whole_table_wk <- url_html_wk %>% 
   html_nodes('table') %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
+# extract the HTML table for day
+whole_table_day <- url_html_day %>% 
+  html_nodes('table') %>%
+  html_table(fill = TRUE) %>%
+  .[[2]]
+
+#############################################################################
+#
 # For each of the interval calculate the CPR and camarilla equations
 # combine the data into one data
 # Price column= closing value
+#
+# Calculate the closing value for each of the groups
+# Use "last" function from data.table to get this value
+#
+#############################################################################
 
 whole_table_yr <- as.data.table(whole_table_yr)
 whole_table_mnth <- as.data.table(whole_table_mnth)
 whole_table_wk <- as.data.table(whole_table_wk)
+whole_table_day <- as.data.table(whole_table_day)
 
 whole_table_yr <- whole_table_yr [, timefrm := "Yearly", ]
 whole_table_mnth <- whole_table_mnth [, timefrm := "Monthly", ]
 whole_table_wk <- whole_table_wk [, timefrm := "Weekly", ]
+whole_table_day <- whole_table_day [, timefrm := paste("Daily", .I, sep=""), ]
 
-whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk)
+whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk, whole_table_day)
 whole <- whole [, `:=`(date02 = mdy(Date),
                        High = as.numeric( str_remove_all(High, ",") ), 
                        Low = as.numeric( str_remove_all(Low, ",") ) ,
                        Price = as.numeric( str_remove_all(Price, ",") ) ,
                        Open = as.numeric( str_remove_all(Open, ",") ) ),  ]
 
+whole <- whole [, close := as.numeric( last(Price) ), by = .(timefrm)]
+
 whole <- whole [ order(timefrm, date02) ]
 whole <- whole [, `:=`(nrow =1:.N, 
                        tot =.N,
                        high_t = max( High ),
                        low_t = min ( Low ) ) , by = .(timefrm)]
+
+##########################################################################################
+#
+# Calculate the CPR related parameters:
+# (1) Create pivot point which is the average of PP = (high_t + Low_t + close) / 3
+# (2) Bottom central level: BC = (high_t + low_t) / 2
+# (3) Top central level: TC = PP - BC + PP
+#
+# (4) CPR width: cprwidth = (ABS(TC - BC)/ PP )*100
+# Below is the interpretation of the reading.
+#
+# CPR Width > 0.5 - Sideways or Trading Range Day,
+# CPR Width > 0.75 - increases the likelihood of sideways trading behavior,
+# CPR Width < 0.5 - Trending type of day,
+# CPR Width < 0.25 - increases the likelihood of a trending market.
+#
+##########################################################################################
+
+whole <- whole [, `:=`(pp = (high_t + low_t + close) / 3,
+                       bc = (high_t + low_t) / 2 ), by = .(timefrm)]
+whole <- whole [, tc := pp - bc + pp, by = .(timefrm)]
+whole <- whole [, cprwidth := (abs(tc - bc)/ pp )*100, by = .(timefrm)]
+
+
+#############################################################################
+#
+# Calculate Camarilla S1, S2, S3, S4, S5, S6 and
+#                     R1, R2, R3, R4, R5, R6 values for each time frame
+#
+# S1 = close - (high_t - low_t) * 1.1/12
+# S2 = close - (high_t - low_t) * 1.1/6
+# S3 = close - (high_t - low_t) * 1.1/4
+# S4 = close - (high_t - low_t) * 1.1/2
+# S5 = S4 - (S3 - S4) * 1.168
+# S6 = close - (R6 - close)
+#
+# R1 = close + (high_t - low_t) * 1.1/12
+# R2 = close + (high_t - low_t) * 1.1/6
+# R3 = close + (high_t - low_t) * 1.1/4
+# R4 = close + (high_t - low_t) * 1.1/2
+# R5 = R4 + (R4 - R3) * 1.168
+# R6 = (high_t/low_t) * close
+#
+#############################################################################
+
+whole <- whole [, `:=` (s1 = close - (high_t - low_t) * 1.1/12,
+                        s2 = close - (high_t - low_t) * 1.1/6, 
+                        s3 = close - (high_t - low_t) * 1.1/4, 
+                        s4 = close - (high_t - low_t) * 1.1/2,
+                        r1 = close + (high_t - low_t) * 1.1/12,
+                        r2 = close + (high_t - low_t) * 1.1/6, 
+                        r3 = close + (high_t - low_t) * 1.1/4, 
+                        r4 = close + (high_t - low_t) * 1.1/2),  by = .(timefrm)]
+
+whole <- whole [, `:=`(s5 = s4 - (s3 - s4) * 1.168,
+                       r5 = r4 + (r4 - r3) * 1.168,
+                       r6 = (high_t/low_t) * close), by =.(timefrm)]
+
+whole <- whole [, s6 := close - (r6 - close), by =.(timefrm)]
+
+
+#############################################################################
+#
+# Create a variable to identifty:
+# (1) Daily group
+# (2) Last month name
+# (3) Last year value
+# Use this to create unique records
+#
+#############################################################################
+whole <- whole [, timefrm02 := case_when( timefrm == "Monthly" ~ format(as.Date(date02), "%Y-%m"),
+                                          timefrm == "Yearly" ~  format(as.Date(date02), "%Y"),
+                                          timefrm == "Weekly" ~  format(as.Date(date02), "%Y-%W"),
+                                          TRUE ~ as.character(date02) ), ]
+
+whole02 <- unique( whole [, c("timefrm", "timefrm02", 
+                              "s1", "s2", "s3", "s4", "s5", "s6",
+                              "r1", "r2", "r3", "r4", "r5", "r6",
+                              "pp", "tc", "bc", "cprwidth"), ])
+
+# Plotting of values
+# https://timelyportfolio.github.io/rCharts_time_series/history.html
 
 ############################################
 # End of program
