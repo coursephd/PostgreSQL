@@ -18,6 +18,16 @@ library(lubridate)
 library(anytime)
 library(rvest)
 library(xml2)
+library(ggplot2)
+library(plotly)
+
+library(TTR)
+library(tidyquant)
+library(QuantTools)
+library(derivmkts)
+library(quantmod)
+
+options(scipen = 999)
 
 dt <- Sys.Date()
 
@@ -46,8 +56,8 @@ enmthdate <- as.numeric(as.POSIXct(prvmnth02, format="%Y-%m-%d"))
 stwkdate <- as.numeric(as.POSIXct(prvwk, format="%Y-%m-%d"))
 enwkdate <- as.numeric(as.POSIXct(prvwk02, format="%Y-%m-%d"))
 
-stdaydate <- as.numeric(as.POSIXct(dt-6, format="%Y-%m-%d"))
-endaydate <- as.numeric(as.POSIXct(dt-1, format="%Y-%m-%d"))
+stdaydate <- as.numeric(as.POSIXct(dt-7, format="%Y-%m-%d"))
+endaydate <- as.numeric(as.POSIXct(dt, format="%Y-%m-%d"))
 
 
 url_yr <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", enyrdate,  
@@ -206,6 +216,88 @@ whole02 <- unique( whole [, c("timefrm", "timefrm02",
                               "s1", "s2", "s3", "s4", "s5", "s6",
                               "r1", "r2", "r3", "r4", "r5", "r6",
                               "pp", "tc", "bc", "cprwidth"), ])
+
+#############################################################################
+#
+# Create a varable for plotting the graph
+# x and xend variables will be useful in expanding the column widths and 
+# would allow to understand the possible relationships
+#
+# Create a group variable for the coloring of 
+# (1) the CPR and 
+# (2) r1 to r6
+# (3) s1 to s6
+#
+#############################################################################
+
+whole02 <- whole02 [, `:=`(x = .I, xend = .I + 1), ]
+
+whole02_t <- melt(data = whole02,
+                  id.vars =c("timefrm", "timefrm02", "x", "xend") )
+
+whole02_t <- whole02_t [, grpclr := case_when( variable %in% c("tc", "bc") ~ "pink",
+                                               variable %in% c("pp") ~ "blue",
+                                               variable %in% c("s3", "r3") ~ "green",
+                                               variable %in% c("s4", "r4") ~ "red"), ]
+
+xmin <- min(summary(whole02_t[! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100]$value))
+xmax <- max(summary(whole02_t[! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100]$value))
+
+ggplot(whole02_t [! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = x, xend = xend, y = value, yend = value, color = grpclr) ) +
+  geom_label ( aes (x = x, label = variable) ) +
+  scale_colour_identity() +
+  scale_y_continuous( c(xmin, xmax, 100) )
+
+#########################################################################
+#
+# Json file:
+# (1) Go to the chart
+# (2) Go to Right click and inspect
+# (3) Go to Network and refresh the page
+# (4) Go to XHR area: and the last Name would appear
+# (5) Go to the 15Min? ..., right click Copy as cURL (bash)
+# (6) This line would generate the json file as listed below
+# 
+# (7) Run the following code to get the XML file into R dataset
+# 
+######################################################################### 
+
+library("jsonlite")
+
+curl 'https://kite.zerodha.com/oms/instruments/historical/12680706/15minute?user_id=QI9532&oi=1&from=2020-12-03&to=2021-01-02&ciqrandom=1609604737880' \
+-H 'authority: kite.zerodha.com' \
+-H 'sec-ch-ua: "Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"' \
+-H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36' \
+-H 'sec-ch-ua-mobile: ?0' \
+-H 'authorization: enctoken HcU5EXua5dtUnHZHwXcYIeXwpvZh774mrvfcGql+e5Ei6Ra4EDL3y0Ka4mVNlZSt1CEhYK9lny6FwUk+7bgY2wWUIo8KzQ==' \
+-H 'accept: */*' \
+-H 'sec-fetch-site: same-origin' \
+-H 'sec-fetch-mode: cors' \
+-H 'sec-fetch-dest: empty' \
+-H 'referer: https://kite.zerodha.com/static/build/chart.html?v=2.6.3' \
+-H 'accept-language: en-US,en;q=0.9' \
+-H 'cookie: _ga=GA1.2.1000558376.1593278039; kf_session=4pNa34VF3AjpPhtduIdwGqPCua26xZzv; user_id=QI9532; __cfduid=de78e50dea9baf3e6e3276db9e6a1ae401609603927; public_token=b7erh62oV7NL7PQlI3YTdE7iu5qOsti0; enctoken=HcU5EXua5dtUnHZHwXcYIeXwpvZh774mrvfcGql+e5Ei6Ra4EDL3y0Ka4mVNlZSt1CEhYK9lny6FwUk+7bgY2wWUIo8KzQ==' \
+--compressed > banknifty.json
+
+dd01_1 <- fromJSON ("D:\\My-Shares\\prgm/banknifty.json")
+dd01_2 <- data.table(dd01_1$data$candles)
+
+p1 <- ggplot(whole02_t [! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = x, xend = xend, y = value, yend = value, color = grpclr) ) +
+  geom_label ( aes (x = x, label = variable) )
+
+p2 <- ggplotly(p1)
+p2
+
+fig <- whole %>% plot_ly(x = ~date02, type="ohlc",
+                      open = ~Open, close = ~Price,
+                      high = ~High, low = ~Low) 
+fig <- fig %>% layout(title = "Basic OHLC Chart")
+
+fig
+
+
 
 # Plotting of values
 # https://timelyportfolio.github.io/rCharts_time_series/history.html
