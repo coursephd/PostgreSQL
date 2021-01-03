@@ -18,7 +18,9 @@ library(lubridate)
 library(anytime)
 library(rvest)
 library(xml2)
+
 library(ggplot2)
+library(ggpubr)
 library(plotly)
 
 library(TTR)
@@ -59,6 +61,13 @@ enwkdate <- as.numeric(as.POSIXct(prvwk02, format="%Y-%m-%d"))
 stdaydate <- as.numeric(as.POSIXct(dt-7, format="%Y-%m-%d"))
 endaydate <- as.numeric(as.POSIXct(dt, format="%Y-%m-%d"))
 
+################################################################################
+#
+# Get the monthly pivots for the last year to understand the overall the trend
+#
+################################################################################
+prvyrmnth <- floor_date(dt, "month") - months(12)
+prvyrmnth02 <- as.numeric(as.POSIXct(prvyrmnth, format="%Y-%m-%d"))
 
 url_yr <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", enyrdate,  
                 "&st_date=", styrdate, "&interval_sec=monthly&interval_sec=daily", sep="")
@@ -72,11 +81,14 @@ url_wk <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-
 url_day <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", endaydate,  
                 "&st_date=", stdaydate, "&interval_sec=monthly&interval_sec=daily", sep="")
 
+url_lastyr <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", endaydate,  
+                    "&st_date=", prvyrmnth02, "&interval_sec=daily&interval_sec=monthly", sep="")
 
 url_html_yr <- read_html(url_yr)
 url_html_mnth <- read_html(url_mnth)
 url_html_wk <- read_html(url_wk)
 url_html_day <- read_html(url_day)
+url_html_lastyr <- read_html(url_lastyr)
 
 # extract the HTML table for year
 whole_table_yr <- url_html_yr %>% 
@@ -102,6 +114,12 @@ whole_table_day <- url_html_day %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
+# extract the HTML table for the last year
+whole_table_lastyr <- url_html_lastyr %>% 
+  html_nodes('table') %>%
+  html_table(fill = TRUE) %>%
+  .[[2]]
+
 #############################################################################
 #
 # For each of the interval calculate the CPR and camarilla equations
@@ -117,13 +135,16 @@ whole_table_yr <- as.data.table(whole_table_yr)
 whole_table_mnth <- as.data.table(whole_table_mnth)
 whole_table_wk <- as.data.table(whole_table_wk)
 whole_table_day <- as.data.table(whole_table_day)
+whole_table_lastyr <- as.data.table(whole_table_lastyr)
 
-whole_table_yr <- whole_table_yr [, timefrm := "Yearly", ]
-whole_table_mnth <- whole_table_mnth [, timefrm := "Monthly", ]
-whole_table_wk <- whole_table_wk [, timefrm := "Weekly", ]
-whole_table_day <- whole_table_day [, timefrm := paste("Daily", .I, sep=""), ]
+whole_table_yr <- whole_table_yr [, `:=`(timefrm = "Yearly", timefrmn = 1), ]
+whole_table_mnth <- whole_table_mnth [, `:=`(timefrm = "Monthly", timefrmn = 1), ]
+whole_table_wk <- whole_table_wk [, `:=`(timefrm = "Weekly", timefrmn = 1), ]
+whole_table_day <- whole_table_day [, `:=`(timefrm = paste("Daily", .I, sep=""), timefrmn = .I * -1), ]
+whole_table_lastyr <- whole_table_lastyr [, `:=`(timefrm = paste("Lastyr", .I, sep=""), timefrmn = .I * -1), ]
 
-whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk, whole_table_day)
+
+whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk, whole_table_day, whole_table_lastyr)
 whole <- whole [, `:=`(date02 = mdy(Date),
                        High = as.numeric( str_remove_all(High, ",") ), 
                        Low = as.numeric( str_remove_all(Low, ",") ) ,
@@ -212,7 +233,7 @@ whole <- whole [, timefrm02 := case_when( timefrm == "Monthly" ~ format(as.Date(
                                           timefrm == "Weekly" ~  format(as.Date(date02), "%Y-%W"),
                                           TRUE ~ as.character(date02) ), ]
 
-whole02 <- unique( whole [, c("timefrm", "timefrm02", 
+whole02 <- unique( whole [, c("timefrm", "timefrmn",  "timefrm02", 
                               "s1", "s2", "s3", "s4", "s5", "s6",
                               "r1", "r2", "r3", "r4", "r5", "r6",
                               "pp", "tc", "bc", "cprwidth"), ])
@@ -233,13 +254,45 @@ whole02 <- unique( whole [, c("timefrm", "timefrm02",
 whole02 <- whole02 [, `:=`(x = .I, xend = .I + 1), ]
 
 whole02_t <- melt(data = whole02,
-                  id.vars =c("timefrm", "timefrm02", "x", "xend") )
+                  id.vars =c("timefrm", "timefrmn", "timefrm02", "x", "xend") )
 
 whole02_t <- whole02_t [, grpclr := case_when( variable %in% c("tc", "bc") ~ "pink",
-                                               variable %in% c("pp") ~ "blue",
+                                               variable %in% c("pp") ~ "pink",
                                                variable %in% c("s3", "r3") ~ "green",
                                                variable %in% c("s4", "r4") ~ "red"), ]
 
+# Get the cprwidth and merge it with the corresponding value
+cpr01 <- whole02_t [ variable == "cprwidth", c("timefrm", "timefrmn", "timefrm02", "value"), ]
+setnames(cpr01, "value", "cprwidth")
+
+whole02_t <- merge(x = whole02_t, 
+                   y = cpr01, 
+                   by = c("timefrm", "timefrmn", "timefrm02") )
+
+############################################################################
+#
+# Print last 1 year monthly pivots to get a sense of the overall direction
+#
+############################################################################
+
+p1 <- ggplot(whole02_t [timefrm %like% c("Last") & variable %in% c("bc", "tc", "pp")], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = timefrmn, xend = timefrmn + 1, y = value, yend = value, color = grpclr) ) +
+  scale_colour_identity() 
+
+p2 <- ggplot(cpr01 [timefrm %like% c("Last")], aes(x= timefrm02, y= cprwidth) ) +
+  geom_point() +
+  geom_text( aes ( label = round(cprwidth, 2)  ), position = position_nudge(y = 1) )
+
+ggarrange(p1, p2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v")
+
+
+
+#################################
+#
+# Print previous few days Pivots
+#
+#################################
 xmin <- min(summary(whole02_t[! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100]$value))
 xmax <- max(summary(whole02_t[! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100]$value))
 
@@ -248,6 +301,21 @@ ggplot(whole02_t [! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100]
   geom_label ( aes (x = x, label = variable) ) +
   scale_colour_identity() +
   scale_y_continuous( c(xmin, xmax, 100) )
+
+
+p1 <- ggplot(whole02_t [! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = x, xend = xend, y = value, yend = value, color = grpclr) ) +
+  geom_label ( aes (x = x, label = variable) )
+
+p2 <- ggplotly(p1)
+p2
+
+fig <- whole %>% plot_ly(x = ~date02, type="ohlc",
+                         open = ~Open, close = ~Price,
+                         high = ~High, low = ~Low) 
+fig <- fig %>% layout(title = "Basic OHLC Chart")
+
+fig
 
 #########################################################################
 #
@@ -282,21 +350,6 @@ curl 'https://kite.zerodha.com/oms/instruments/historical/12680706/15minute?user
 
 dd01_1 <- fromJSON ("D:\\My-Shares\\prgm/banknifty.json")
 dd01_2 <- data.table(dd01_1$data$candles)
-
-p1 <- ggplot(whole02_t [! timefrm %in% c("Yearly", "Weekly", "Monthly") & value > 100], aes(x= timefrm02, y= value) ) +
-  geom_segment( aes (x = x, xend = xend, y = value, yend = value, color = grpclr) ) +
-  geom_label ( aes (x = x, label = variable) )
-
-p2 <- ggplotly(p1)
-p2
-
-fig <- whole %>% plot_ly(x = ~date02, type="ohlc",
-                      open = ~Open, close = ~Price,
-                      high = ~High, low = ~Low) 
-fig <- fig %>% layout(title = "Basic OHLC Chart")
-
-fig
-
 
 
 # Plotting of values
