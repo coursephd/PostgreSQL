@@ -1,4 +1,23 @@
 
+library(data.table)
+library(tidyverse)
+library(lubridate)
+library(anytime)
+library(rvest)
+library(xml2)
+
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+
+library(TTR)
+library(tidyquant)
+library(QuantTools)
+library(derivmkts)
+library(quantmod)
+
+options(scipen = 999)
+
 dt <- Sys.Date()
 
 # Create the reference values for the previous periods:
@@ -127,10 +146,56 @@ unqprvdata <- unique ( prvdata [variable %in% c("prvyr", "prvmnth", "prvwk"),
                          "pp", "bc", "tc", "cprwidth", "r3s3width"), ] )
 
 
-unqprvdata_day <- unique ( prvdata [variable %in% c("prvday"), 
-                                c("variable", "value", "value02", "s1", "s2", "s3", "s4", "s5", "s6", 
-                                  "r1", "r2", "r3", "r4", "r5", "r6", 
-                                  "pp", "bc", "tc", "cprwidth", "r3s3width"), ] )
+#
+# Calculate the unique day values and stats as follows:
+# 5, 20, 50 SMA for price
+# 14 day SMA for cprwidth, r3s3width
+# From NKstocktalk:  SRT: if possible: 
+# SRT = close / sma(close, 124): 
+# Interpretation: > 1.35 Exit, 0.85 - 1.35 Hold, 0.55 - 0.75 Invest
+# 20 SMA Volume
+#
+
+unqprvdata_day <- unique ( prvdata [variable %in% c("prvday") ] )
+
+unqprvdata_day <- unqprvdata_day [, `:=` (ema_cls5 = EMA(close, 5), ema_cls20 = EMA(close, 20), ema_cls50 = EMA(close, 50), 
+                                          sma_cls124 = SMA(close, 124),
+                                          rsi_cls9 = RSI(close, n = 9),
+                                          ema_cprwdt5 = EMA(cprwidth, 5), ema_cprwdt20 = EMA(cprwidth, 20), ema_cprwdt50 = EMA(cprwidth, 50),
+                                          ema_r3s3wdt5 = EMA(r3s3width, 5), ema_r3s3wdt20 = EMA(r3s3width, 20), ema_r3s3wdt50 = EMA(r3s3width, 50)), ]
+                        
+unqprvdata_day <- unqprvdata_day [, srt := close / sma_cls124,]
+
+# Use the prvdata and transpose the data
+
+unqprvdata_t <- melt(data = unqprvdata, 
+                     id.vars =c("variable", "value", "value02"), 
+                     variable.name = "stat",
+                     value.name = "result")
+
+# Concatenate the time frame to the stat value
+unqprvdata_t <- unqprvdata_t [, stat := paste(variable, "_", stat, sep=""), ]
+
+# Transpose the data to horizontal format for 3 different time frames
+unqprvdata_t01yr <- dcast(data = unqprvdata_t [ variable == "prvyr"], 
+                        value + value02 ~ stat,
+                        value.var = c("result") )
+
+unqprvdata_t01mnth <- dcast(data = unqprvdata_t [ variable == "prvmnth"], 
+                          value + value02 ~ stat,
+                          value.var = c("result") )
+
+unqprvdata_t01wk <- dcast(data = unqprvdata_t [ variable == "prvwk"], 
+                            value + value02 ~ stat,
+                            value.var = c("result") )
+
+# Merge these datasets into 1 dataset with day values
+# Need 3 different merges based on 3 time frame values
+
+
+
+
+
 
 
 # do the same for current date
