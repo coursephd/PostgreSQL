@@ -3,6 +3,7 @@ library(data.table)
 library(tidyverse)
 library(lubridate)
 library(anytime)
+library(bizdays)
 library(rvest)
 library(xml2)
 
@@ -144,7 +145,7 @@ unqcurdata <- unique ( curdata [variable %in% c("curyr", "curmnth", "curwk"),
                                   "r1", "r2", "r3", "r4", "r5", "r6", 
                                   "pp", "bc", "tc", "cprwidth", "r3s3width"), ] )
 
-
+#####################################################################
 #
 # Calculate the unique day values and stats as follows:
 # 5, 20, 50 SMA for price
@@ -154,7 +155,7 @@ unqcurdata <- unique ( curdata [variable %in% c("curyr", "curmnth", "curwk"),
 # Interpretation: > 1.35 Exit, 0.85 - 1.35 Hold, 0.55 - 0.75 Invest
 # 20 SMA Volume
 #
-
+#####################################################################
 unqcurdata_day <- unique ( curdata [variable %in% c("curday") ] )
 
 unqcurdata_day <- unqcurdata_day [, `:=` (ema_cls5 = EMA(close, 5), ema_cls20 = EMA(close, 20), ema_cls50 = EMA(close, 50), 
@@ -171,7 +172,22 @@ unqcurdata_day <- unqcurdata_day [, `:=` (ema_cls5 = EMA(close, 5), ema_cls20 = 
 
 unqcurdata_day <- unqcurdata_day [, srt := close / sma_cls124,]
 
+#####################################################################
+#
+# Create new variable to get the next date
+# Use the bizdays library to get the necesary function for the next
+# business day
+#
+#####################################################################
+cal <- create.calendar("India", weekdays=c("saturday", "sunday"))
+
+unqcurdata_day <- unqcurdata_day [, `:=`(nrow = 1:.N, tot = .N), ]
+unqcurdata_day <- unqcurdata_day [, dt0 := case_when(nrow < tot ~ anydate( shift(date02, type = "lead") ),
+                                                     nrow == tot ~ anydate( add.bizdays(date02, 1, cal)) ),]
+
+
 # Use the prvdata and transpose the data
+
 
 unqcurdata_t <- melt(data = unqcurdata, 
                      id.vars =c("variable", "value", "value02"), 
@@ -236,6 +252,52 @@ unqcurdata_day03 <- merge (x = unqcurdata_day02,
                            y = unqcurdata_t01wk [, -c("value", "value02")], 
                            by.x = c("curwk"),
                            by.y = c("nxtwk"), 
+                           all = TRUE)
+
+unqcurdata_day03 <- unqcurdata_day03 [, value03 := anydate(value02), ]
+############################
+#
+# Fourth merge for the day
+#
+# Remove the calculations which are done on the same day
+# Merge the same calculations as applicable for the next day
+# Hence remove the default values - merge the same values which are moved
+# ahead by 1 day
+#
+# Remove variables from: unqcurdata_day03
+# [17] "pp"                "bc"               
+# [19] "tc"                "cprwidth"         
+# [21] "s1"                "s2"               
+# [23] "s3"                "s4"               
+# [25] "r1"                "r2"               
+# [27] "r3"                "r4"               
+# [29] "s5"                "r5"               
+# [31] "r6"                "s6"               
+# [33] "r3s3width"         "ema_cls5"         
+# [35] "ema_cls20"         "ema_cls50"        
+# [37] "sma_cls124"        "rsi_cls9"         
+# [39] "ema_cprwdt5"       "ema_cprwdt20"     
+# [41] "ema_cprwdt50"      "ema_r3s3wdt5"     
+# [43] "ema_r3s3wdt20"     "ema_r3s3wdt50"    
+# [45] "curday"            "srt"              
+# [47] "nrow"              "tot"        
+#
+# Remove variables from: unqcurdata_day
+# [1] "date02"        "Price"        
+# [3] "Open"          "High"         
+# [5] "Low"           "Volume"       
+# [7] "Chg%"          "variable"     
+# [9] "value"         "value02"      
+# [11] "close"         "high_t"       
+# [13] "low_t"         
+############################
+unqcurdata_day04 <- merge (x = unqcurdata_day03 [, -c(17:48), ], 
+                           # ??????????????????????
+                           # Need to update for the day data
+                           ########################
+                           y = unqcurdata_day [, -c(1:13, 42:45), ], 
+                           by.x = c("value03"),
+                           by.y = c("dt0"), 
                            all = TRUE)
 
 
