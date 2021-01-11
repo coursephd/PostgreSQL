@@ -300,5 +300,53 @@ unqcurdata_day04 <- merge (x = unqcurdata_day03 [, -c(17:48), ],
                            by.y = c("dt0"), 
                            all = TRUE)
 
+# Create a transpose of the data
+
+unqcurdata_day04_t <- melt(data = unqcurdata_day04, 
+                           id.vars = c(1:18, 99:100), 
+                           variable.name = "category",
+                           value.name = "result")
+
+# Create a scale for the excel printing
+# The scale will go from 30000 to 300050 - in a form 50 point gap
+
+scale01 <- unqcurdata_day04_t [! category %in% 
+                                  c("curmnth_cprwidth", "curmnth_r3s3width", "curwk_cprwidth", "curwk_r3s3width", "cprwidth", 
+                                    "r3s3width", "ema_cls5", "ema_cls20", "ema_cls50", "sma_cls124",  
+                                    "rsi_cls9", "ema_cprwdt5", "ema_cprwdt20", "ema_cprwdt50", "ema_r3s3wdt5", "ema_r3s3wdt20",
+                                    "ema_r3s3wdt50", "srt")]
+
+scale01 <- scale01 [, x:=1, ]
+#############################################################
+#
+# Keep only values beyond 5000 as it is difficult to imagine 
+# Banknifty going so much
+##############################################################
+
+min <- min(scale01$result > 0, na.rm = TRUE)
+max <- max(scale01$result, na.rm = TRUE)
+
+minmax <- seq(from = min, to = max, by = 50)
+minmax <- data.table(minmax)
+minmax02 <- minmax [minmax > 5000]
+minmax02 <- minmax02 [, `:=` (start0 = minmax, end0 = minmax + 49, x = 1), ]
+
+# https://stackoverflow.com/questions/46339638/join-tables-based-on-multiple-ranges-in-r
+scale02 <- scale01 %>%
+  inner_join(minmax02 [, -c("minmax"), ]) %>%
+  filter( result >= start0 & result <= end0)
+
+scale03 <- as.data.table( na.omit(scale02) )
+
+# Create 1 record per category per date by collapsing the different values
+
+scale04 <- scale03 [, .(result_cat = paste(category, collapse =",", sep=" ") ) , by = .(dt0, start0, end0)]
+
+
+# Transpose the dataset with 1 column per date
+scale04_t <- dcast(data = scale04 [ dt0 >= dt - 45], 
+                   start0 + end0 ~ dt0, 
+                   value.var =c("result_cat"), 
+                   fill =" ")
 
 #######################################################################################
