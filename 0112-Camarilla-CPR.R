@@ -312,6 +312,7 @@ unqcurdata_day04_t <- melt(data = unqcurdata_day04,
 
 scale01 <- unqcurdata_day04_t [! category %in% 
                                   c("curmnth_cprwidth", "curmnth_r3s3width", "curwk_cprwidth", "curwk_r3s3width", "cprwidth", 
+                                    "curyr_cprwidth", "curyr_r3s3width", 
                                     "r3s3width", "ema_cls5", "ema_cls20", "ema_cls50", "sma_cls124",  
                                     "rsi_cls9", "ema_cprwdt5", "ema_cprwdt20", "ema_cprwdt50", "ema_r3s3wdt5", "ema_r3s3wdt20",
                                     "ema_r3s3wdt50", "srt")]
@@ -348,5 +349,11 @@ scale04_t <- dcast(data = scale04 [ dt0 >= dt - 45],
                    start0 + end0 ~ dt0, 
                    value.var =c("result_cat"), 
                    fill =" ")
+
+# Merge the data with scale02 data to get all the categories
+scale04_t <- merge (x = scale04_t, 
+                    y = minmax02,
+                    by = c("start0", "end0"), 
+                    all = TRUE)
 
 #######################################################################################
