@@ -84,11 +84,17 @@ url_day <- paste("https://in.investing.com/indices/bank-nifty-futures-historical
 url_lastyr <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", endaydate,  
                     "&st_date=", prvyrmnth02, "&interval_sec=daily&interval_sec=monthly", sep="")
 
+
+url_lastyrwkly <- paste("https://in.investing.com/indices/bank-nifty-futures-historical-data?end_date=", endaydate,  
+                    "&st_date=", prvyrmnth02, "&interval_sec=daily&interval_sec=weekly", sep="")
+
+
 url_html_yr <- read_html(url_yr)
 url_html_mnth <- read_html(url_mnth)
 url_html_wk <- read_html(url_wk)
 url_html_day <- read_html(url_day)
 url_html_lastyr <- read_html(url_lastyr)
+url_html_lastyrwkly <- read_html(url_lastyrwkly)
 
 # extract the HTML table for year
 whole_table_yr <- url_html_yr %>% 
@@ -120,6 +126,12 @@ whole_table_lastyr <- url_html_lastyr %>%
   html_table(fill = TRUE) %>%
   .[[2]]
 
+# extract the HTML table for the last year weekly
+whole_table_lastyrwkly <- url_html_lastyrwkly %>% 
+  html_nodes('table') %>%
+  html_table(fill = TRUE) %>%
+  .[[2]]
+
 #############################################################################
 #
 # For each of the interval calculate the CPR and camarilla equations
@@ -136,15 +148,17 @@ whole_table_mnth <- as.data.table(whole_table_mnth)
 whole_table_wk <- as.data.table(whole_table_wk)
 whole_table_day <- as.data.table(whole_table_day)
 whole_table_lastyr <- as.data.table(whole_table_lastyr)
+whole_table_lastyrwkly <- as.data.table(whole_table_lastyrwkly)
 
 whole_table_yr <- whole_table_yr [, `:=`(timefrm = "Yearly", timefrmn = 1), ]
 whole_table_mnth <- whole_table_mnth [, `:=`(timefrm = "Monthly", timefrmn = 1), ]
 whole_table_wk <- whole_table_wk [, `:=`(timefrm = "Weekly", timefrmn = 1), ]
 whole_table_day <- whole_table_day [, `:=`(timefrm = paste("Daily", .I, sep=""), timefrmn = .I * -1), ]
 whole_table_lastyr <- whole_table_lastyr [, `:=`(timefrm = paste("Lastyr", .I, sep=""), timefrmn = .I * -1), ]
+whole_table_lastyrwkly <- whole_table_lastyrwkly [, `:=`(timefrm = paste("Lastyrwkly", .I, sep=""), timefrmn = .I * -1), ]
 
 
-whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk, whole_table_day, whole_table_lastyr)
+whole <- rbind(whole_table_yr, whole_table_mnth, whole_table_wk, whole_table_day, whole_table_lastyr, whole_table_lastyrwkly)
 whole <- whole [, `:=`(date02 = mdy(Date),
                        High = as.numeric( str_remove_all(High, ",") ), 
                        Low = as.numeric( str_remove_all(Low, ",") ) ,
@@ -286,6 +300,57 @@ p2 <- ggplot(cpr01 [timefrm %like% c("Last")], aes(x= timefrm02, y= cprwidth) ) 
 ggarrange(p1, p2, heights = c(2, 0.7),
           ncol = 1, nrow = 2, align = "v")
 
+
+wkp1 <- ggplot(whole02_t [timefrm %like% c("wkly") & variable %in% c("bc", "tc", "pp", "s3", "s4", "r3", "r4") & timefrmn > -20], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = timefrmn, xend = timefrmn + 1, y = value, yend = value, color = grpclr) ) +
+  scale_colour_identity() 
+
+wkp2 <- ggplot(cpr01 [timefrm %like% c("wkly")  & timefrmn > -20], aes(x= timefrm02, y= cprwidth) ) +
+  geom_point() +
+  geom_text( aes ( label = round(cprwidth, 2)  ), position = position_nudge(y = 1) )
+
+ggarrange(wkp1, wkp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% ggexport(filename = "D:\\My-Shares\\analysis\\cpr_wkly.pdf")
+
+ggarrange(wkp1, wkp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% 
+  ggexport(filename = "D:\\My-Shares\\analysis\\cpr_wkly.png", width = 800, height = 800)
+
+
+dlyp1 <- ggplot(whole02_t [timefrm %like% c("Daily") & variable %in% c("bc", "tc", "pp", "s3", "s4", "r3", "r4")], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = timefrmn, xend = timefrmn + 1, y = value, yend = value, color = grpclr) ) +
+  scale_colour_identity() 
+
+dlyp2 <- ggplot(cpr01 [timefrm %like% c("Daily")], aes(x= timefrm02, y= cprwidth) ) +
+  geom_point() +
+  geom_text( aes ( label = round(cprwidth, 2)  ), position = position_nudge(y = 1) )
+
+ggarrange(dlyp1, dlyp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% ggexport(filename = "D:\\My-Shares\\analysis\\cpr_dly.pdf")
+
+ggarrange(dlyp1, dlyp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% 
+  ggexport(filename = "D:\\My-Shares\\analysis\\cpr_dly.png", width = 800, height = 800)
+
+
+mnp1 <- ggplot(whole02_t [ ! is.na(str_extract(timefrm,"Lastyr[0-9]")) & variable %in% c("bc", "tc", "pp", "s3", "s4", "r3", "r4")], aes(x= timefrm02, y= value) ) +
+  geom_segment( aes (x = timefrmn, xend = timefrmn + 1, y = value, yend = value, color = grpclr) ) +
+  scale_colour_identity() 
+
+mnp2 <- ggplot(cpr01 [! is.na(str_extract(timefrm,"Lastyr[0-9]")) ], aes(x= timefrm02, y= cprwidth) ) +
+  geom_point() +
+  geom_text( aes ( label = round(cprwidth, 2)  ), position = position_nudge(y = 1) )
+
+ggarrange(mnp1, mnp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% ggexport(filename = "D:\\My-Shares\\analysis\\cpr_mnthly.pdf")
+
+ggarrange(mnp1, mnp2, heights = c(2, 0.7),
+          ncol = 1, nrow = 2, align = "v") %>% 
+  ggexport(filename = "D:\\My-Shares\\analysis\\cpr_mnthly.png", width = 800, height = 800)
+
+########################################
+# End of program
+########################################
 
 
 #################################
