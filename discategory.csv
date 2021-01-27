@@ -1,0 +1,108 @@
+Code,Description,distype,date
+A2.0,Aamavaata,RMSD,25-Dec-16
+A2.1,Aamavaata - Kaphaja,RMSD,25-Dec-16
+A2.2,Aamavaata - Pittaja,RMSD,25-Dec-16
+A2.3,Aamavaata - Vaataja,RMSD,25-Dec-16
+A3.0,Abhighataja Shoola,RMSD,25-Dec-16
+M10.0,Medoroga,Metabolic,25-Dec-16
+M10.1,Medoroga - Sthula medho roga,Metabolic,25-Dec-16
+M10.2,Medoroga - Sukshma medho roga ,Metabolic,25-Dec-16
+M2.0,Madhumeha,Metabolic,25-Dec-16
+P5.0,Prameha,Metabolic,25-Dec-16
+P5.1,Prameha - Krusha,Metabolic,25-Dec-16
+P5.2,Prameha - Pidaka,Metabolic,25-Dec-16
+P5.3,Prameha - Sthula,Metabolic,25-Dec-16
+P5.4,Prameha - Upadrava,Metabolic,25-Dec-16
+S10.0,Stambha,RMSD,25-Dec-16
+S10.1,Stambha - Baahu Stambha,RMSD,25-Dec-16
+S10.10,Stambha - Prishtha Stambha,RMSD,25-Dec-16
+S10.12,Stambha - Sandhi Stambha,RMSD,25-Dec-16
+S10.13,Stambha - Siraa Stambha,RMSD,25-Dec-16
+S10.14,Stambha - Uru Stambha,RMSD,25-Dec-16
+S10.4,Stambha - Greevaa Stambha,RMSD,25-Dec-16
+S10.5,Stambha - Hanu Stambha,RMSD,25-Dec-16
+S10.6,Stambha - Hridaya Stambha,RMSD,25-Dec-16
+S13.0,Sthaanabhedena Graha,RMSD,25-Dec-16
+S13.1,Sthaanabhedena Graha - Anga Graha,RMSD,25-Dec-16
+S13.11,Sthaanabhedena Graha - Katee Graha,RMSD,25-Dec-16
+S13.13,Sthaanabhedena Graha - Manyaa Graha,RMSD,25-Dec-16
+S13.14,Sthaanabhedena Graha - Marma Graha,RMSD,25-Dec-16
+S13.17,Sthaanabhedena Graha - Paada Graha,RMSD,25-Dec-16
+S13.18,Sthaanabhedena Graha - Paarshva Graha,RMSD,25-Dec-16
+S13.19,Sthaanabhedena Graha - Prishtha Graha,RMSD,25-Dec-16
+S13.20,Sthaanabhedena Graha - Shiro Graha,RMSD,25-Dec-16
+S13.22,Sthaanabhedena Graha - Uro Graha,RMSD,25-Dec-16
+S13.23,Sthaanabhedena Graha - Vaak Graha,RMSD,25-Dec-16
+S13.3,Sthaanabhedena Graha - Gala Graha,RMSD,25-Dec-16
+S13.5,Sthaanabhedena Graha - Hanu Graha,RMSD,25-Dec-16
+S13.6,Sthaanabhedena Graha - Hrid Graha,RMSD,25-Dec-16
+S13.7,Sthaanabhedena Graha - Jaanugraha,RMSD,25-Dec-16
+S13.8,Sthaanabhedena Graha - Janghaa Graha,RMSD,25-Dec-16
+S14.0,Sthaanabhedena Shoola,RMSD,25-Dec-16
+S14.11,Sthaanabhedena Shoola - Guda Shoola,RMSD,25-Dec-16
+S14.13,Sthaanabhedena Shoola - Gulpha Shoola,RMSD,25-Dec-16
+S14.14,Sthaanabhedena Shoola - Hanu Shoola,RMSD,25-Dec-16
+S14.15,Sthaanabhedena Shoola - Hasta Shoola,RMSD,25-Dec-16
+S14.16,Sthaanabhedena Shoola - Hrid Shoola,RMSD,25-Dec-16
+S14.17,Sthaanabhedena Shoola - Jaanu Shoola,RMSD,25-Dec-16
+S14.18,Sthaanabhedena Shoola - Janghaa Shoola,RMSD,25-Dec-16
+S14.19,Sthaanabhedena Shoola - Kantha Shoola,RMSD,25-Dec-16
+S14.21,Sthaanabhedena Shoola - Katee Shoola,RMSD,25-Dec-16
+S14.23,Sthaanabhedena Shoola - Kukshi Shoola,RMSD,25-Dec-16
+S14.24,Sthaanabhedena Shoola - Manyaa Shoola,RMSD,25-Dec-16
+S14.3,Sthaanabhedena Shoola - Amsa Shoola,RMSD,25-Dec-16
+S14.4,Sthaanabhedena Shoola - Anga Shoola,RMSD,25-Dec-16
+S14.5,Sthaanabhedena Shoola - Anguli Shoola,RMSD,25-Dec-16
+S14.6,Sthaanabhedena Shoola - Asthi Shoola,RMSD,25-Dec-16
+S14.7,Sthaanabhedena Shoola - Baahu Shoola,RMSD,25-Dec-16
+S15.28,Sthaanabhedena Shoola - Nakha Shoola,RMSD,25-Dec-16
+S15.31,Sthaanabhedena Shoola - Paada Shoola,RMSD,25-Dec-16
+S15.32,Sthaanabhedena Shoola - Paarshni Shoola,RMSD,25-Dec-16
+S15.34,Sthaanabhedena Shoola - Parva Shoola,RMSD,25-Dec-16
+S15.36,Sthaanabhedena Shoola - Prishtha Shoola,RMSD,25-Dec-16
+S15.41,Sthaanabhedena Shoola - Sakthi Shoola,RMSD,25-Dec-16
+S15.42,Sthaanabhedena Shoola - Sandhi Shoola,RMSD,25-Dec-16
+S15.43,Sthaanabhedena Shoola - Skandha Shoola,RMSD,25-Dec-16
+S15.44,Sthaanabhedena Shoola - Snaayu Shoola,RMSD,25-Dec-16
+S15.45,Sthaanabhedena Shoola - Sphik Shoola,RMSD,25-Dec-16
+S15.46,Sthaanabhedena Shoola - Stanaanta Shoola,RMSD,25-Dec-16
+S15.47,Sthaanabhedena Shoola - Trika Shoola,RMSD,25-Dec-16
+S15.48,Sthaanabhedena Shoola - Urah Shoola,RMSD,25-Dec-16
+S16.0,Sthaulya,Metabolic,25-Dec-16
+S1A.0,Shoola,RMSD,25-Dec-16
+V1.0,Vaatarakta,RMSD,25-Dec-16
+V1.1,Vaatarakta - Dvandvaja,RMSD,25-Dec-16
+V1.2,Vaatarakta - Gambheera,RMSD,25-Dec-16
+V1.3,Vaatarakta - Kapha Vaataja,RMSD,25-Dec-16
+V1.4,Vaatarakta - Kaphaadhika Vaatarakta,RMSD,25-Dec-16
+V1.5,Vaatarakta - Pittaadhika Vaatarakta,RMSD,25-Dec-16
+V1.7,Vaatarakta - Uttaana,RMSD,25-Dec-16
+V1.8,Vaatarakta - Vaata Kaphaja,RMSD,25-Dec-16
+V1.9,Vaatarakta - Vaataadhika Vaatarakta,RMSD,25-Dec-16
+V2.0,Vaatavyaadhi,RMSD,25-Dec-16
+V2.12,Vaatavyaadhi - Stabdhagaatra,RMSD,25-Dec-16
+V2.16,Vaatavyaadhi - Baahugata Vaata,RMSD,25-Dec-16
+V2.23,Vaatavyaadhi - Gridhrasee,RMSD,25-Dec-16
+V2.30,Vaatavyaadhi - Jaanugata Vaata,RMSD,25-Dec-16
+V2.31,Vaatavyaadhi - Janghaagata Vaata,RMSD,25-Dec-16
+V2.36,Vaatavyaadhi - Kateegata Vaata,RMSD,25-Dec-16
+V2.42,Vaatavyaadhi - Maamsagata Vaata,RMSD,25-Dec-16
+V2.43,Vaatavyaadhi - Maamsamedogata Vaata,RMSD,25-Dec-16
+V2.44,Vaatavyaadhi - Majjaagata Vaata,RMSD,25-Dec-16
+V2.45,Vaatavyaadhi - Majjaasthigata Vaata,RMSD,25-Dec-16
+V2.46,Vaatavyaadhi - Manyaagata Vaata,RMSD,25-Dec-16
+V2.47,Vaatavyaadhi - Manyaastambha,RMSD,25-Dec-16
+V2.48,Vaatavyaadhi - Medogata Vaata,RMSD,25-Dec-16
+V2.61,Vaatavyaadhi - Prishthagata Vaata,RMSD,25-Dec-16
+V2.63,Vaatavyaadhi - Sandhigata Vaata,RMSD,25-Dec-16
+V2.64,Vaatavyaadhi - Sarvaangagata Vaata,RMSD,25-Dec-16
+V2.65,Vaatavyaadhi - Shaakhaagata Vaata,RMSD,25-Dec-16
+V2.68,Vaatavyaadhi - Siraagata Vaata,RMSD,25-Dec-16
+V2.69,Vaatavyaadhi - Siraagraha,RMSD,25-Dec-16
+V2.70,Vaatavyaadhi - Snaayugata Vaata,RMSD,25-Dec-16
+V2.72,Vaatavyaadhi - Trikgata Vaata,RMSD,25-Dec-16
+V2.73,Vaatavyaadhi - Tvaggata Vaata,RMSD,25-Dec-16
+V2.74,Vaatavyaadhi - Urugata Vaata,RMSD,25-Dec-16
+V2.75,Vaatavyaadhi - Vaatakantaka,RMSD,25-Dec-16
+V2.77,Vaatavyaadhi - Vishvaachee,RMSD,25-Dec-16
+V2.9,Vaatavyaadhi - Asthigata Vaata,RMSD,25-Dec-16
