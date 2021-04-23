@@ -49,8 +49,9 @@ options(scipen = 999)
 #########################################################
 
 step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0500_rakeshpujara_atmlong.xlsx", 2) )
-step002 <- step001 [Date <= 40612]
-step003 <- step002 [, dwn := eval(parse(text = download)),]
+#step002 <- step001 [Date <= 40612]
+step002 <- step001 [, Date := anydate(Date), ]
+step003 <- step001 [, dwn := eval(parse(text = download)),]
 
 #########################################################
 #
@@ -103,7 +104,9 @@ step004 <- step002 [, eval(parse(text = unzip_fno_csv)),]
 f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
 #fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
 
-step005 <- step002 [, eval(parse(text = fut_data)),]
+step005 <- step002 [, eval(parse(text = fut_rdata)),]
+all01_fut <- rbindlist(mget(ls(pattern = "fo*")), fill = TRUE)
+
 step006 <- step002 [, eval(parse(text = opt_data)),]
 
 #####################################################################################
@@ -111,3 +114,78 @@ step006 <- step002 [, eval(parse(text = opt_data)),]
 # End of program
 #
 #####################################################################################
+
+#https://stackoverflow.com/questions/32870863/extract-certain-files-from-zip
+#https://stackoverflow.com/questions/31146263/sys-glob-within-unzip
+
+
+# 1st step: unzip of the big file and only unzip the zip file:
+zipped_names <- grep('\\.zip$', unzip('C:\\Users\\mahajvi1\\Downloads\\temp\\PR03022011.zip', list=TRUE)$Name,
+                     ignore.case=TRUE, value=TRUE)
+unzip('C:\\Users\\mahajvi1\\Downloads\\temp\\PR03022011.zip',
+      exdir = "C:\\Users\\mahajvi1\\Downloads\\temp",
+      files=zipped_names)
+
+# 2nd step: unzip the fno file and only extract 2 files:
+files = unzip("C:\\Users\\mahajvi1\\Downloads\\temp\\fo03022011.zip", list=TRUE)$Name
+unzip("C:\\Users\\mahajvi1\\Downloads\\temp\\fo03022011.zip",
+      exdir = "C:\\Users\\mahajvi1\\Downloads\\temp",
+      files=files[grepl("^fo[0-9]{8}\\.csv|^op[0-9]{8}\\.csv",files)])
+
+# 3rd stage: read only few lines from the CSV files into R data.table
+#https://readr.tidyverse.org/reference/read_delim_chunked.html
+
+library(readr)
+
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+fo <- data.table (read_csv_chunked("C:\\Users\\mahajvi1\\Downloads\\temp\\fo03022011.csv", DataFrameCallback$new(f), chunk_size = 5) )
+
+
+library(data.table)
+temp = data.table(readxl::read_excel('C:\\Users\\mahajvi1\\Downloads\\temp\\book1.xlsx'))
+temp0 <- temp [, c(1, 2, 3), ]
+
+for (i in unique(temp0$Day)) {
+  temp0[, (paste('base',i,sep = '')) := ifelse(Day >= i, AVAL[i], NA), by =.(Parameter) ]
+  temp0[, (paste('chg',i,sep='')) := (AVAL - get(paste('base',i,sep = '')))  , by =.(Parameter)]
+}
+
+
+
+library(data.table)
+library(anytime)
+library(tidyverse)
+
+# Replace this part by the actual dates from the bhavcopy
+# Get the expiry dates and the trade dates
+
+temp = data.table(readxl::read_excel('C:\\Users\\mahajvi1\\Downloads\\temp\\book1.xlsx', sheet=2))
+temp <- temp [, expdt := anydate(expdate), ]
+exp <- exp [exp == 1, c("expdt"),]
+
+dts <- data.table( startdt = anydate("01-Nov-2019"), enddt = anydate("22-Apr-2021") )
+dts2 <- dts [, list(trdate = anydate( seq(startdt, enddt, by = "day") )) ]
+
+dts03 <- data.table ( crossing(exp, dts2) )
+
+# Only keep the records for which trade days are before expiry date
+dts03 <- dts03 [ expdt >= trdate]
+
+# Sort the data
+dts03 <- dts03 [ order(trdate, expdt)]
+
+# Calculate the expory date number
+dts03 <- dts03 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(trdate)]
+
+# Calculate number of days between the trade date and expiry date
+dts03 <- dts03 [, numdays := as.numeric(expdt - trdate + 1),]
+
+# Only keep the trade dates which are <= 30 days
+dts04 <- dts03 [ numdays <= 30]
+
+# Create 1 record per date to understand the length of the trade
+dts05 <- dts04[, list(expdt = expdt, trdate = trdate, nexp = nexp, trdid = trdid, numdays = numdays,
+                      rundt = anydate( seq(trdate, expdt, by = "day") ) ), by = 1:nrow(dts04)]
+
+dts05 <- dts05 [, ndaysintrade := 1:.N, by = .(trdid, nexp, numdays)]
+
