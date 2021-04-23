@@ -25,6 +25,8 @@ options(scipen = 999)
 # Extract only specific files 
 #
 # https://stackoverflow.com/questions/32870863/extract-certain-files-from-zip
+# https://stackoverflow.com/questions/32870863/extract-certain-files-from-zip
+# https://stackoverflow.com/questions/31146263/sys-glob-within-unzip
 
 #########################################################
 #
@@ -83,6 +85,26 @@ step003 <- step003 [, eval(parse(text = unzip1)),]
 #########################################################
 
 step004 <- step002 [, eval(parse(text = unzip_fno_csv)),]
+
+#########################################################
+#
+# Step 4:
+#
+# Read only few lines from the CSV files into R data.table
+# https://readr.tidyverse.org/reference/read_delim_chunked.html
+#
+# The futures data should be read into fo files
+# The options data should be read into op files
+#
+# if (file.exists('D:\\My-Shares\\source-fno-csv\\fo01032011.csv')) fo01032011 = data.table (read_csv_chunked('D:\\My-Shares\\source-fno-csv\\fo01032011.csv', DataFrameCallback$new(f), chunk_size = 5))
+# if (file.exists('D:\\My-Shares\\source-fno-csv\\op01032011.csv')) op01032011 = data.table (read_csv_chunked('D:\\My-Shares\\source-fno-csv\\op01032011.csv', DataFrameCallback$new(f), chunk_size = 5))
+#
+#########################################################
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+#fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
+
+step005 <- step002 [, eval(parse(text = fut_data)),]
+step006 <- step002 [, eval(parse(text = opt_data)),]
 
 #####################################################################################
 #
