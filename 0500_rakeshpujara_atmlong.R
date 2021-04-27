@@ -104,16 +104,33 @@ step004 <- step002 [, eval(parse(text = unzip_fno_csv)),]
 f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
 #fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
 
-step005 <- step002 [, eval(parse(text = fut_rdata)),]
-all01_fut <- rbindlist(mget(ls(pattern = "fo*")), fill = TRUE)
+step002_yr <- step002 [Year4 == 2012] # [ Year4 >= 2011 & Year4 <= 2012]
 
-step006 <- step002 [, eval(parse(text = opt_data)),]
+# Do the calculations for Futures data
+
+eval(parse(text = step002_yr$fut_rdata))
+all01_fut <- rbindlist(mget(ls(pattern = "fo")), fill = TRUE, idcol = "file_fut")
+all01_fut <- all01_fut [, trdate := dmy ( substr(file_fut, 3, 20) ), ]
+
+rm(list = ls( pattern = "^fo") )
+
+# Do the calculations for Options data
+
+eval(parse(text = step002_yr$opt_data))
+all01_opt <- rbindlist(mget(ls(pattern = "op")), fill = TRUE, idcol = "file_opt")
+all01_opt <- all01_opt [, trdate := dmy ( substr(file_opt, 3, 20) ), ]
+
+rm(list = ls( pattern = "^op") )
+
 
 #####################################################################################
 #
 # End of program
 #
 #####################################################################################
+
+
+
 
 #https://stackoverflow.com/questions/32870863/extract-certain-files-from-zip
 #https://stackoverflow.com/questions/31146263/sys-glob-within-unzip
@@ -189,3 +206,13 @@ dts05 <- dts04[, list(expdt = expdt, trdate = trdate, nexp = nexp, trdid = trdid
 
 dts05 <- dts05 [, ndaysintrade := 1:.N, by = .(trdid, nexp, numdays)]
 
+
+
+# Till 21-12-2018: fo / op csv files
+# After 24-12-2018: excel file: https://www1.nseindia.com/archives/combine_report/combined_report07042021.zip
+
+new <- read_excel("D:\\My-Shares\\prgm\\combined_report07042021.xlsx")
+names(new)<- str_replace_all(names(new), c(" " = "" , "," = "" )) 
+new <- data.table(new)
+
+new0 <- new [ InstrumentType %in% c("OPTIDX", "FUTIDX") & Symbol %in% c("BANKNIFTY", "NIFTY")]
