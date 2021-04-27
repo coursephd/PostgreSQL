@@ -119,8 +119,39 @@ rm(list = ls( pattern = "^fo") )
 eval(parse(text = step002_yr$opt_data))
 all01_opt <- rbindlist(mget(ls(pattern = "op")), fill = TRUE, idcol = "file_opt")
 all01_opt <- all01_opt [, trdate := dmy ( substr(file_opt, 3, 20) ), ]
+setnames(all01_opt, paste("opt", names(all01_opt), sep = "_"))
 
 rm(list = ls( pattern = "^op") )
+
+
+all02 <- merge(x = all01_fut,
+               y = all01_opt,
+               by.x = c("SYMBOL", "EXP_DATE", "trdate"),
+               by.y = c("opt_SYMBOL", "opt_EXP_DATE", "opt_trdate"))
+
+
+# All the variables
+all02names <- names(all02)
+
+# Variables should not be converted to numeric:
+all02char <- c("SYMBOL", "EXP_DATE", "trdate", "file_fut", "INSTRUMENT", "opt_file_opt", "opt_INSTRUMENT", "opt_OPT_TYPE" )
+
+# Only variables to be converted to numeric
+all02num <- setdiff(all02names, all02char)
+
+all02 <- all02 [, (all02num) := lapply(.SD, as.numeric), .SDcols = all02num]
+setnames(all02, "OPEN_INT*", "OPEN_INT")
+
+#########################################################
+#
+# Step 5:
+#
+# Based on the future data values, calculate the ATM
+# 
+# min_nifty <- ifelse(nifty0 < 10000, signif(nifty0, 2), signif(nifty0, 3) )
+#
+#########################################################
+all02 <- all02 [, atm := ifelse(HI_PRICE < 10000, signif(HI_PRICE, 2), signif(HI_PRICE, 3) ), ]
 
 
 #####################################################################################
@@ -129,12 +160,13 @@ rm(list = ls( pattern = "^op") )
 #
 #####################################################################################
 
-
+# (1) Rakesh Pujara strategy
+# (2) Short ATM Call and Put on Tuesday and 25% is SL
+# (3) Arbitrage opportunity calculations: Long ATM call + Short ATM Put + Short Futures = 0`  `
 
 
 #https://stackoverflow.com/questions/32870863/extract-certain-files-from-zip
 #https://stackoverflow.com/questions/31146263/sys-glob-within-unzip
-
 
 # 1st step: unzip of the big file and only unzip the zip file:
 zipped_names <- grep('\\.zip$', unzip('C:\\Users\\mahajvi1\\Downloads\\temp\\PR03022011.zip', list=TRUE)$Name,
