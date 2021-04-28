@@ -157,7 +157,6 @@ all02 <- all02 [, `:=` (atm_hi = ifelse(HI_PRICE < 10000, signif(HI_PRICE, 2), s
                         atm_close = ifelse(CLOSE_PRICE < 10000, signif(CLOSE_PRICE, 2), signif(CLOSE_PRICE, 3) ) ),]
 all02 <- all02 [, expdt := dmy(EXP_DATE), ]
 
-
 # Create a combination of expiry date and trading date
 lookup001 <- unique( all02 [ , c("SYMBOL", "trdate", "expdt"), ])
 
@@ -170,19 +169,46 @@ lookup002 <- lookup001 [ numdays <= 30]
 # Sort the data
 lookup002 <- lookup002 [ order(SYMBOL, trdate, expdt)]
 
-# Calculate the expory date number
-lookup002 <- lookup002 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(SYMBOL, trdate)]
-
+# Calculate the expiry date number
+lookup002 <- lookup002 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(SYMBOL, trdate, expdt)]
 
 # Create 1 record per date to understand the length of the trade
 lookup003 <- lookup002[, list(SYMBOL = SYMBOL, expdt = expdt, trdate = trdate, nexp = nexp, trdid = trdid, numdays = numdays,
                               rundt = anydate( seq(trdate, expdt, by = "day") ) ), by = 1:nrow(lookup002)]
 
-lookup003 <- lookup003 [, ndaysintrade := 1:.N, by = .(SYMBOL, trdid, nexp, numdays)]
-
+lookup003 <- lookup003 [, ndaysintrade := 1:.N, by = .(SYMBOL, trdid, expdt, nexp, numdays)]
 
 # Get the first day of each trade and then merge it with the complete bhavcopy data
 lookup004 <- lookup003 [ ndaysintrade == 1, c("SYMBOL", "expdt", "trdate", "trdid"), ]
+
+# Merge the possible trade number data with the complete data to get the ATM values from
+# day 1
+
+all03 <- merge(x = all02,
+               y = lookup004,
+               by = c("SYMBOL", "expdt", "trdate"),
+               all.y = TRUE)
+
+all03 <- all03 [ opt_STR_PRICE == atm_open, 
+                 c("SYMBOL", "expdt", "trdate", "trdid", "atm_open", "opt_OPEN_PRICE", 
+                   "opt_OPT_TYPE"),]
+setnames(all03, "atm_open", "atm_open_d1")
+setnames(all03, "opt_OPEN_PRICE", "OPEN_PRICE_d1")
+
+all03_1 <- unique ( all03 [ , c("SYMBOL", "expdt", "trdate", "trdid", "atm_open_d1"), ] )
+
+# Merge day 1 information with rest of the data lookup004
+
+all04 <- merge (x= all03_1,
+                y = lookup003,
+                by = c("SYMBOL", "expdt", "trdate", "trdid") )
+
+all05 <- merge (x = all04,
+                y = all02,
+                by.x = c("SYMBOL", "expdt", "rundt", "atm_open_d1"),
+                by.y = c("SYMBOL", "expdt", "trdate", "opt_STR_PRICE"),
+                all.x = TRUE)
+all05 <- all05 [ OPEN_PRICE > 0]
 
 #####################################################################################
 #
