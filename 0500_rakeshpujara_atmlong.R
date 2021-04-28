@@ -104,7 +104,7 @@ step004 <- step002 [, eval(parse(text = unzip_fno_csv)),]
 f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
 #fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
 
-step002_yr <- step002 [Year4 == 2012] # [ Year4 >= 2011 & Year4 <= 2012]
+step002_yr <- step002 [ Year4 >= 2016 & Year4 <= 2019]
 
 # Do the calculations for Futures data
 
@@ -151,14 +151,45 @@ setnames(all02, "OPEN_INT*", "OPEN_INT")
 # min_nifty <- ifelse(nifty0 < 10000, signif(nifty0, 2), signif(nifty0, 3) )
 #
 #########################################################
-all02 <- all02 [, atm := ifelse(HI_PRICE < 10000, signif(HI_PRICE, 2), signif(HI_PRICE, 3) ), ]
+all02 <- all02 [, `:=` (atm_hi = ifelse(HI_PRICE < 10000, signif(HI_PRICE, 2), signif(HI_PRICE, 3) ),
+                        atm_lo = ifelse(LO_PRICE < 10000, signif(LO_PRICE, 2), signif(LO_PRICE, 3) ),
+                        atm_open = ifelse(OPEN_PRICE < 10000, signif(OPEN_PRICE, 2), signif(OPEN_PRICE, 3) ),
+                        atm_close = ifelse(CLOSE_PRICE < 10000, signif(CLOSE_PRICE, 2), signif(CLOSE_PRICE, 3) ) ),]
+all02 <- all02 [, expdt := dmy(EXP_DATE), ]
 
+
+# Create a combination of expiry date and trading date
+lookup001 <- unique( all02 [ , c("SYMBOL", "trdate", "expdt"), ])
+
+# Calculate number of days between the trade date and expiry date
+lookup001 <- lookup001 [, numdays := as.numeric(expdt - trdate + 1),]
+
+# Only keep the trade dates which are <= 30 days
+lookup002 <- lookup001 [ numdays <= 30]
+
+# Sort the data
+lookup002 <- lookup002 [ order(SYMBOL, trdate, expdt)]
+
+# Calculate the expory date number
+lookup002 <- lookup002 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(SYMBOL, trdate)]
+
+
+# Create 1 record per date to understand the length of the trade
+lookup003 <- lookup002[, list(SYMBOL = SYMBOL, expdt = expdt, trdate = trdate, nexp = nexp, trdid = trdid, numdays = numdays,
+                              rundt = anydate( seq(trdate, expdt, by = "day") ) ), by = 1:nrow(lookup002)]
+
+lookup003 <- lookup003 [, ndaysintrade := 1:.N, by = .(SYMBOL, trdid, nexp, numdays)]
+
+
+# Get the first day of each trade and then merge it with the complete bhavcopy data
+lookup004 <- lookup003 [ ndaysintrade == 1, c("SYMBOL", "expdt", "trdate", "trdid"), ]
 
 #####################################################################################
 #
 # End of program
 #
 #####################################################################################
+
 
 # (1) Rakesh Pujara strategy
 # (2) Short ATM Call and Put on Tuesday and 25% is SL
