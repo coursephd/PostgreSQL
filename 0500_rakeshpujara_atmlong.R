@@ -104,7 +104,7 @@ step004 <- step002 [, eval(parse(text = unzip_fno_csv)),]
 f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
 #fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
 
-step002_yr <- step002 [ Year4 >= 2016 & Year4 <= 2019]
+step002_yr <- step002 [ Year4 >= 2017 & Year4 <= 2019]
 
 # Do the calculations for Futures data
 
@@ -123,18 +123,24 @@ setnames(all01_opt, paste("opt", names(all01_opt), sep = "_"))
 
 rm(list = ls( pattern = "^op") )
 
+all01_fut <- all01_fut [, `:=` (exp_mon = month( dmy(EXP_DATE) ),
+                                exp_yr = year( dmy(EXP_DATE) ) ), ]
+
+all01_opt <- all01_opt [, `:=` (exp_mon = month( dmy(opt_EXP_DATE) ),
+                                exp_yr = year( dmy(opt_EXP_DATE) ) ), ]
+
 
 all02 <- merge(x = all01_fut,
                y = all01_opt,
-               by.x = c("SYMBOL", "EXP_DATE", "trdate"),
-               by.y = c("opt_SYMBOL", "opt_EXP_DATE", "opt_trdate"))
+               by.x = c("SYMBOL", "exp_mon", "exp_yr", "trdate"),
+               by.y = c("opt_SYMBOL", "exp_mon", "exp_yr", "opt_trdate"))
 
 
 # All the variables
 all02names <- names(all02)
 
 # Variables should not be converted to numeric:
-all02char <- c("SYMBOL", "EXP_DATE", "trdate", "file_fut", "INSTRUMENT", "opt_file_opt", "opt_INSTRUMENT", "opt_OPT_TYPE" )
+all02char <- c("SYMBOL", "EXP_DATE", "opt_EXP_DATE", "exp_mon", "exp_yr", "trdate", "file_fut", "INSTRUMENT", "opt_file_opt", "opt_INSTRUMENT", "opt_OPT_TYPE" )
 
 # Only variables to be converted to numeric
 all02num <- setdiff(all02names, all02char)
@@ -155,78 +161,87 @@ all02 <- all02 [, `:=` (atm_hi = ifelse(HI_PRICE < 10000, signif(HI_PRICE, 2), s
                         atm_lo = ifelse(LO_PRICE < 10000, signif(LO_PRICE, 2), signif(LO_PRICE, 3) ),
                         atm_open = ifelse(OPEN_PRICE < 10000, signif(OPEN_PRICE, 2), signif(OPEN_PRICE, 3) ),
                         atm_close = ifelse(CLOSE_PRICE < 10000, signif(CLOSE_PRICE, 2), signif(CLOSE_PRICE, 3) ) ),]
-all02 <- all02 [, expdt := dmy(EXP_DATE), ]
+all02 <- all02 [, `:=` (expdt_fut = dmy(EXP_DATE),
+                        expdt_opt = dmy(opt_EXP_DATE) ), ]
 
 # Create a combination of expiry date and trading date
-lookup001 <- unique( all02 [ , c("SYMBOL", "trdate", "expdt"), ])
+lookup001 <- unique( all02 [ , c("SYMBOL", "trdate", "expdt_fut", "expdt_opt"), ])
 
 # Calculate number of days between the trade date and expiry date
-lookup001 <- lookup001 [, numdays := as.numeric(expdt - trdate + 1),]
+lookup001 <- lookup001 [, numdays := as.numeric(expdt_opt - trdate + 1),]
 
 # Only keep the trade dates which are <= 30 days
 lookup002 <- lookup001 [ numdays <= 30]
 
 # Sort the data
-lookup002 <- lookup002 [ order(SYMBOL, trdate, expdt)]
+lookup002 <- lookup002 [ order(SYMBOL, trdate, expdt_fut, expdt_opt)]
 
 # Calculate the expiry date number
-lookup002 <- lookup002 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(SYMBOL, trdate, expdt)]
+lookup002 <- lookup002 [, `:=`(trdid = .GRP, nexp = 1:.N), by =.(SYMBOL, trdate, expdt_fut, expdt_opt)]
 
 # Create 1 record per date to understand the length of the trade
-lookup003 <- lookup002[, list(SYMBOL = SYMBOL, expdt = expdt, trdate = trdate, nexp = nexp, trdid = trdid, numdays = numdays,
-                              rundt = anydate( seq(trdate, expdt, by = "day") ) ), by = 1:nrow(lookup002)]
+lookup003 <- lookup002[, list(SYMBOL = SYMBOL, expdt_fut = expdt_fut, expdt_opt = expdt_opt,
+                              trdate = trdate, nexp = nexp, trdid = trdid, numdays = numdays,
+                              rundt = anydate( seq(trdate, expdt_opt, by = "day") ) ), by = 1:nrow(lookup002)]
 
-lookup003 <- lookup003 [, ndaysintrade := 1:.N, by = .(SYMBOL, trdid, expdt, nexp, numdays)]
+lookup003 <- lookup003 [, ndaysintrade := 1:.N, by = .(SYMBOL, trdid, expdt_fut, expdt_opt, nexp, numdays)]
 
 # Get the first day of each trade and then merge it with the complete bhavcopy data
-lookup004 <- lookup003 [ ndaysintrade == 1, c("SYMBOL", "expdt", "trdate", "trdid"), ]
+lookup004 <- lookup003 [ ndaysintrade == 1, c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "trdid"), ]
 
 # Merge the possible trade number data with the complete data to get the ATM values from
 # day 1
 
 all03 <- merge(x = all02,
                y = lookup004,
-               by = c("SYMBOL", "expdt", "trdate"),
+               by = c("SYMBOL", "expdt_fut", "expdt_opt", "trdate"),
                all.y = TRUE)
 
 all03 <- all03 [ opt_STR_PRICE == atm_open, 
-                 c("SYMBOL", "expdt", "trdate", "trdid", "atm_open", "opt_OPEN_PRICE", 
+                 c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "trdid", "atm_open", "opt_OPEN_PRICE", 
                    "opt_OPT_TYPE"),]
 setnames(all03, "atm_open", "atm_open_d1")
 setnames(all03, "opt_OPEN_PRICE", "OPEN_PRICE_d1")
 
-all03_1 <- unique ( all03 [ , c("SYMBOL", "expdt", "trdate", "trdid", "atm_open_d1"), ] )
+all03_1 <- unique ( all03 [ , c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "trdid", "atm_open_d1"), ] )
 
 all03_2  <- dcast(data = all03,
-                  SYMBOL + expdt + trdate + trdid + atm_open_d1 ~ paste("open_d1", opt_OPT_TYPE, sep="_"),
+                  SYMBOL + expdt_fut + expdt_opt + trdate + trdid + atm_open_d1 ~ paste("open_d1", opt_OPT_TYPE, sep="_"),
                   value.var = c("OPEN_PRICE_d1"))
 
 # Merge day 1 information with rest of the data lookup004
 
 all04 <- merge (x= all03_1,
                 y = lookup003,
-                by = c("SYMBOL", "expdt", "trdate", "trdid") )
+                by = c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "trdid") )
 
 all05 <- merge (x = all04,
                 y = all02,
-                by.x = c("SYMBOL", "expdt", "rundt", "atm_open_d1"),
-                by.y = c("SYMBOL", "expdt", "trdate", "opt_STR_PRICE"),
+                by.x = c("SYMBOL", "expdt_fut", "expdt_opt", "rundt", "atm_open_d1"),
+                by.y = c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "opt_STR_PRICE"),
                 all.x = TRUE)
 all05 <- all05 [ OPEN_PRICE > 0]
 
 # Transpose the data to check if the trade is successful or not
 all06 <- dcast(data = all05, 
-               SYMBOL + trdid + trdate + rundt + expdt + 
+               SYMBOL + trdid + trdate + rundt + expdt_fut + expdt_opt + 
                numdays + ndaysintrade + atm_open_d1 + atm_open ~ opt_OPT_TYPE,
                value.var = c("opt_OPEN_PRICE") )
 
 all07 <- merge(x = all06,
                y = all03_2,
-               by = c("SYMBOL", "expdt", "trdate", "trdid", "atm_open_d1") )
+               by = c("SYMBOL", "expdt_fut", "expdt_opt", "trdate", "trdid", "atm_open_d1") )
 all07 <- all07 [, `:=`(opnCEPE = open_d1_CE + open_d1_PE,
                         clsCEPE = CE + PE,
                         diffSTRK = abs(atm_open_d1 - atm_open) ),]
 all07 <- all07 [, pnl := clsCEPE - opnCEPE,]
+
+# Create flags to get the monthly and weekly expiry
+all07 <- all07 [, type := ifelse(expdt_fut == expdt_opt, "Monthly", "Weekly"), ]
+
+# If the numdays = ndaysintrade subset is done then, it shows the day of expiry
+# Check how does the data look like on that last date
+all08 <- all07 [ numdays == ndaysintrade ]
 
 #####################################################################################
 #
