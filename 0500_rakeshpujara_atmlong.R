@@ -197,6 +197,10 @@ setnames(all03, "opt_OPEN_PRICE", "OPEN_PRICE_d1")
 
 all03_1 <- unique ( all03 [ , c("SYMBOL", "expdt", "trdate", "trdid", "atm_open_d1"), ] )
 
+all03_2  <- dcast(data = all03,
+                  SYMBOL + expdt + trdate + trdid + atm_open_d1 ~ paste("open_d1", opt_OPT_TYPE, sep="_"),
+                  value.var = c("OPEN_PRICE_d1"))
+
 # Merge day 1 information with rest of the data lookup004
 
 all04 <- merge (x= all03_1,
@@ -209,6 +213,20 @@ all05 <- merge (x = all04,
                 by.y = c("SYMBOL", "expdt", "trdate", "opt_STR_PRICE"),
                 all.x = TRUE)
 all05 <- all05 [ OPEN_PRICE > 0]
+
+# Transpose the data to check if the trade is successful or not
+all06 <- dcast(data = all05, 
+               SYMBOL + trdid + trdate + rundt + expdt + 
+               numdays + ndaysintrade + atm_open_d1 + atm_open ~ opt_OPT_TYPE,
+               value.var = c("opt_OPEN_PRICE") )
+
+all07 <- merge(x = all06,
+               y = all03_2,
+               by = c("SYMBOL", "expdt", "trdate", "trdid", "atm_open_d1") )
+all07 <- all07 [, `:=`(opnCEPE = open_d1_CE + open_d1_PE,
+                        clsCEPE = CE + PE,
+                        diffSTRK = abs(atm_open_d1 - atm_open) ),]
+all07 <- all07 [, pnl := clsCEPE - opnCEPE,]
 
 #####################################################################################
 #
