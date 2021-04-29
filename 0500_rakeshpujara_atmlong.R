@@ -237,11 +237,18 @@ all07 <- all07 [, `:=`(opnCEPE = open_d1_CE + open_d1_PE,
 all07 <- all07 [, pnl := clsCEPE - opnCEPE,]
 
 # Create flags to get the monthly and weekly expiry
-all07 <- all07 [, type := ifelse(expdt_fut == expdt_opt, "Monthly", "Weekly"), ]
+all07 <- all07 [, `:=` (type = ifelse(expdt_fut == expdt_opt, "Monthly", "Weekly"), 
+                        rundt_yr = year(rundt),
+                        rundt_mon = month(rundt) ),]
 
 # If the numdays = ndaysintrade subset is done then, it shows the day of expiry
 # Check how does the data look like on that last date
 all08 <- all07 [ numdays == ndaysintrade ]
+
+
+all08_1 <- dcast(data = all08 [ type == "Monthly"],
+                 SYMBOL + type + rundt_yr + numdays ~ paste("month", rundt_mon, sep="_"),
+                 value.var = c("pnl") )
 
 #####################################################################################
 #
