@@ -377,6 +377,42 @@ https://www1.nseindia.com/content/indices/ind_niftypsubanklist.csv
 https://www1.nseindia.com/content/indices/ind_niftyrealtylist.csv
 
 
+i01_nfity50 <- fread('https://www1.nseindia.com/content/indices/ind_nifty50list.csv')
+i02_next50 <- fread('https://www1.nseindia.com/content/indices/ind_niftynext50list.csv')
+i03_nifty100 <- fread('https://www1.nseindia.com/content/indices/ind_nifty100list.csv')
+i04_nifty200 <- fread('https://www1.nseindia.com/content/indices/ind_nifty200list.csv')
+i05_nifty500 <- fread('https://www1.nseindia.com/content/indices/ind_nifty500list.csv')
+i06_mid150 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap150list.csv')
+i07_mid50 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap50list.csv')
+i08_mid100 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap100list.csv')
+i09_small250 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap250list.csv')
+i10_small50 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap50list.csv')
+i11_small100 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap100list.csv')
+i12_largemid250 <- fread('https://www1.nseindia.com/content/indices/ind_niftylargemidcap250list.csv')
+i13_missmall400 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidsmallcap400list.csv')
+i14_auto <- fread('https://www1.nseindia.com/content/indices/ind_niftyautolist.csv')
+i15_bank <- fread('https://www1.nseindia.com/content/indices/ind_niftybanklist.csv')
+i16_consumer <- fread('https://www1.nseindia.com/content/indices/ind_niftyconsumerdurableslist.csv')
+i17_finance <- fread('https://www1.nseindia.com/content/indices/ind_niftyfinancelist.csv')
+i18_finance25_50 <- fread('https://www1.nseindia.com/content/indices/ind_niftyfinancialservices25_50list.csv')
+i19_fmcg <- fread('https://www1.nseindia.com/content/indices/ind_niftyfmcglist.csv')
+i20_healthcare <- fread('https://www1.nseindia.com/content/indices/ind_niftyhealthcarelist.csv')
+i21_it <- fread('https://www1.nseindia.com/content/indices/ind_niftyitlist.csv')
+i22_media <- fread('https://www1.nseindia.com/content/indices/ind_niftymedialist.csv')
+i23_metal <- fread('https://www1.nseindia.com/content/indices/ind_niftymetallist.csv')
+i24_oilgas <- fread('https://www1.nseindia.com/content/indices/ind_niftyoilgaslist.csv')
+i25_pharma <- fread('https://www1.nseindia.com/content/indices/ind_niftypharmalist.csv')
+i26_pvtbank <- fread('https://www1.nseindia.com/content/indices/ind_nifty_privatebanklist.csv')
+i27_psubank <- fread('https://www1.nseindia.com/content/indices/ind_niftypsubanklist.csv')
+i28_realty <- fread('https://www1.nseindia.com/content/indices/ind_niftyrealtylist.csv')
+
+all01_idx <- rbindlist(mget(ls(pattern = "i")), fill = TRUE, idcol = "index")
+rm(list = ls( pattern = "^i") )
+
+# 21-Feb-2012 onwards: ma files are in csv format
+# https://www1.nseindia.com/archives/equities/mkt/MA210212.csv
+
+
 step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0500_rakeshpujara_atmlong.xlsx", 2) )
 step0010 <- step001 [, Date := anydate(Date), ]
 
