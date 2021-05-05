@@ -246,7 +246,7 @@ all07 <- all07 [, `:=` (type = ifelse(expdt_fut == expdt_opt, "Monthly", "Weekly
 all08 <- all07 [ numdays == ndaysintrade ]
 
 
-all08_1 <- dcast(data = all08 [ type == "Monthly"],
+all08_1 <- dcast(data = all08 ,#[ type == "Monthly"],
                  SYMBOL + type + rundt_yr + numdays ~ paste("month", rundt_mon, sep="_"),
                  value.var = c("pnl") )
 
@@ -345,3 +345,47 @@ names(new)<- str_replace_all(names(new), c(" " = "" , "," = "" ))
 new <- data.table(new)
 
 new0 <- new [ InstrumentType %in% c("OPTIDX", "FUTIDX") & Symbol %in% c("BANKNIFTY", "NIFTY")]
+
+https://www1.nseindia.com/content/indices/ind_nifty50list.csv
+https://www1.nseindia.com/content/indices/ind_niftynext50list.csv
+https://www1.nseindia.com/content/indices/ind_nifty100list.csv
+https://www1.nseindia.com/content/indices/ind_nifty200list.csv
+https://www1.nseindia.com/content/indices/ind_nifty500list.csv
+https://www1.nseindia.com/content/indices/ind_niftymidcap150list.csv
+https://www1.nseindia.com/content/indices/ind_niftymidcap50list.csv
+https://www1.nseindia.com/content/indices/ind_niftymidcap100list.csv
+https://www1.nseindia.com/content/indices/ind_niftysmallcap250list.csv
+https://www1.nseindia.com/content/indices/ind_niftysmallcap50list.csv
+https://www1.nseindia.com/content/indices/ind_niftysmallcap100list.csv
+https://www1.nseindia.com/content/indices/ind_niftylargemidcap250list.csv
+https://www1.nseindia.com/content/indices/ind_niftymidsmallcap400list.csv
+
+https://www1.nseindia.com/content/indices/ind_niftyautolist.csv
+https://www1.nseindia.com/content/indices/ind_niftybanklist.csv
+https://www1.nseindia.com/content/indices/ind_niftyconsumerdurableslist.csv
+https://www1.nseindia.com/content/indices/ind_niftyfinancelist.csv
+https://www1.nseindia.com/content/indices/ind_niftyfinancialservices25_50list.csv
+https://www1.nseindia.com/content/indices/ind_niftyfmcglist.csv
+https://www1.nseindia.com/content/indices/ind_niftyhealthcarelist.csv
+https://www1.nseindia.com/content/indices/ind_niftyitlist.csv
+https://www1.nseindia.com/content/indices/ind_niftymedialist.csv
+https://www1.nseindia.com/content/indices/ind_niftymetallist.csv
+https://www1.nseindia.com/content/indices/ind_niftyoilgaslist.csv
+https://www1.nseindia.com/content/indices/ind_niftypharmalist.csv
+https://www1.nseindia.com/content/indices/ind_nifty_privatebanklist.csv
+https://www1.nseindia.com/content/indices/ind_niftypsubanklist.csv
+https://www1.nseindia.com/content/indices/ind_niftyrealtylist.csv
+
+
+step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0500_rakeshpujara_atmlong.xlsx", 2) )
+step0010 <- step001 [, Date := anydate(Date), ]
+
+step0010_yr <- step0010 [ Year4 >= 2017]
+
+# Do the calculations for Futures data
+
+eval(parse(text = step0010_yr$fread_ma05))
+all01_ma <- rbindlist(mget(ls(pattern = "MA")), fill = TRUE, idcol = "index_dt")
+all01_ma <- all01_ma [, trdate := dmy ( substr(index_dt, 3, 20) ), ]
+
+rm(list = ls( pattern = "^MA") )
