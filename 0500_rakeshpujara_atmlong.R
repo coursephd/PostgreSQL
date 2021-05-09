@@ -425,3 +425,38 @@ all01_ma <- rbindlist(mget(ls(pattern = "MA")), fill = TRUE, idcol = "index_dt")
 all01_ma <- all01_ma [, trdate := dmy ( substr(index_dt, 3, 20) ), ]
 
 rm(list = ls( pattern = "^MA") )
+
+
+# Create Nifty 50 and Nifty 500 as comparison for relative strength
+nifty50 <- all01_ma [ INDEX == "Nifty 50"]
+setnames(nifty50, "OPEN", "OPEN_50") 
+setnames(nifty50, "HIGH", "HIGH_50") 
+setnames(nifty50, "CLOSE", "CLOSE_50") 
+setnames(nifty50, "LOW", "LOW_50") 
+nifty50 <- nifty50 [, c("INDEX", "trdate", "OPEN_50", "LOW_50", "CLOSE_50", "HIGH_50"), ]
+
+nifty500 <- all01_ma [ INDEX == "Nifty 500"]
+setnames(nifty500, "OPEN", "OPEN_500") 
+setnames(nifty500, "HIGH", "HIGH_500") 
+setnames(nifty500, "CLOSE", "CLOSE_500") 
+setnames(nifty500, "LOW", "LOW_500") 
+nifty500 <- nifty500 [, c("INDEX", "trdate", "OPEN_500", "LOW_500", "CLOSE_500", "HIGH_500"), ]
+
+all01_ma <- merge(x = nifty50 [ ,-c("INDEX"), ],
+                  y = all01_ma, 
+                  by = c("trdate"))
+
+all01_ma <- merge(x = nifty500 [ ,-c("INDEX"), ],
+                  y = all01_ma, 
+                  by = c("trdate"))
+
+all01_ma <- all01_ma [, `:=`(ratio50 = as.numeric(CLOSE_50) / as.numeric(CLOSE),
+                             ratio500 = as.numeric(CLOSE_500) / as.numeric(CLOSE)), ]
+
+write.xlsx(all01_ma, "D:\\My-Shares\\analysis\\055_index_relative_strength.xlsx")
+
+# Weightage of the stock based on IBD formula, to rank the stock
+# https://www.youtube.com/watch?v=CdFmuCRq2tM
+# IBD style relative strength
+# 2 * c / c63 + c / c126 + c / c189 + c / c252
+
