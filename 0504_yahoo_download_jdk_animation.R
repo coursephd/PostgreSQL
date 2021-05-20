@@ -378,3 +378,40 @@ rm(list = ls( pattern = "^i") )
 
 
 
+# Get the data for different indices from investing.com
+# Get the list of companies from NSE
+# Merge them and understand the 14 day Relative risk profile
+
+dt <- Sys.Date()
+
+# Create the reference values for the previous periods:
+
+# Find previous year start to end
+prvyr <- as.numeric(format(as.Date( floor_date(dt, "year") - years(1) ), "%Y"))
+prvyr01 <- as.Date(paste(prvyr, "01", "01", sep="-"))
+
+
+# Get the yearly, monthly, weekly, daily values:
+styrdate <- as.numeric(as.POSIXct(prvyr01, format="%Y-%m-%d"))
+endaydate <- as.numeric(as.POSIXct(dt+1, format="%Y-%m-%d")) # Vinay update 9th Jan 2021
+
+url_01 <- paste('https://in.investing.com/indices/cnx-midcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_01_html <- read_html(url_01); url_01_whole  <- url_01_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_01_whole  <- as.data.table(url_01_whole);
+url_02 <- paste('https://in.investing.com/indices/cnx-smallcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_02_html <- read_html(url_02); url_02_whole  <- url_02_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_02_whole  <- as.data.table(url_02_whole);
+url_03 <- paste('https://in.investing.com/indices/nifty-smallcap-50-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_03_html <- read_html(url_03); url_03_whole  <- url_03_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_03_whole  <- as.data.table(url_03_whole);
+url_04 <- paste('https://in.investing.com/indices/cnx-auto-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_04_html <- read_html(url_04); url_04_whole  <- url_04_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_04_whole  <- as.data.table(url_04_whole);
+url_05 <- paste('https://in.investing.com/indices/bank-nifty-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_05_html <- read_html(url_05); url_05_whole  <- url_05_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_05_whole  <- as.data.table(url_05_whole);
+url_06 <- paste('https://in.investing.com/indices/cnx-commodities-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_06_html <- read_html(url_06); url_06_whole  <- url_06_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_06_whole  <- as.data.table(url_06_whole);
+url_07 <- paste('https://in.investing.com/indices/cnx-energy-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_07_html <- read_html(url_07); url_07_whole  <- url_07_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_07_whole  <- as.data.table(url_07_whole);
+url_08 <- paste('https://in.investing.com/indices/cnx-finance-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_08_html <- read_html(url_08); url_08_whole  <- url_08_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_08_whole  <- as.data.table(url_08_whole);
+url_09 <- paste('https://in.investing.com/indices/cnx-fmcg-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_09_html <- read_html(url_09); url_09_whole  <- url_09_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_09_whole  <- as.data.table(url_09_whole);
+url_10 <- paste('https://in.investing.com/indices/cnx-consumption-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_10_html <- read_html(url_10); url_10_whole  <- url_10_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_10_whole  <- as.data.table(url_10_whole);
+url_11 <- paste('https://in.investing.com/indices/cnx-infrastructure-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_11_html <- read_html(url_11); url_11_whole  <- url_11_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_11_whole  <- as.data.table(url_11_whole);
+url_12 <- paste('https://in.investing.com/indices/cnx-it-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_12_html <- read_html(url_12); url_12_whole  <- url_12_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_12_whole  <- as.data.table(url_12_whole);
+url_13 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_13_html <- read_html(url_13); url_13_whole  <- url_13_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_13_whole  <- as.data.table(url_13_whole);
+url_14 <- paste('https://in.investing.com/indices/cnx-metal-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_14_html <- read_html(url_14); url_14_whole  <- url_14_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_14_whole  <- as.data.table(url_14_whole);
+url_15 <- paste('https://in.investing.com/indices/cnx-mnc-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_15_html <- read_html(url_15); url_15_whole  <- url_15_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_15_whole  <- as.data.table(url_15_whole);
+url_16 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_16_html <- read_html(url_16); url_16_whole  <- url_16_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_16_whole  <- as.data.table(url_16_whole);
+url_17 <- paste('https://in.investing.com/indices/cnx-pharma-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_17_html <- read_html(url_17); url_17_whole  <- url_17_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_17_whole  <- as.data.table(url_17_whole);
+url_18 <- paste('https://in.investing.com/indices/cnx-psu-bank-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_18_html <- read_html(url_18); url_18_whole  <- url_18_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_18_whole  <- as.data.table(url_18_whole);
+url_19 <- paste('https://in.investing.com/indices/cnx-service-sector-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_19_html <- read_html(url_19); url_19_whole  <- url_19_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_19_whole  <- as.data.table(url_19_whole);
+url_20 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_20_html <- read_html(url_20); url_20_whole  <- url_20_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_20_whole  <- as.data.table(url_20_whole);
