@@ -160,6 +160,7 @@ library(shiny)
 tickers <- unique(a05all$ticker)
 dates <- unique(a05all$ref.date)
 
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
@@ -171,7 +172,9 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput(inputId = "selects", choices = tickers, label = "Select stocks", multiple = TRUE),
-      selectInput(inputId = "selects2", choices = dates, label = "select dates", multiple = TRUE)
+      #selectInput(inputId = "selects2", choices = dates, label = "select dates", multiple = TRUE),
+      
+      dateRangeInput("daterange1", "Date range:", start = min(dates), end = max(dates), min = min(dates), max = max(dates) )
     ),
     
     # Show a plot of the generated distribution
@@ -188,12 +191,9 @@ server <- function(input, output) {
   
   output$Plot <- renderPlot({
 
-    data = a05all %>%
-      filter(tickers %in% input$selects) %>%
-      select(one_of(c("ref.dates", input$selects2))) %>%
-      gather(dates, -tickers)
+    data = a05all [ ticker %in% input$selects & (ref.date >= input$daterange1[1] & ref.date >= input$daterange1[2]) ] 
     
-    ggplot(
+    p <- ggplot(
       data, 
       aes(x = jdk_rs55, y=jdk_momratio55, size = price.adjusted, colour = as.factor(qudrant)) ) +
       geom_point(show.legend = FALSE, alpha = 0.7) +
@@ -201,12 +201,79 @@ server <- function(input, output) {
       geom_vline(xintercept = 100) +
       geom_hline(yintercept = 100) +
       labs(x = "JdK RS-ratio", y = "JdK RS-momentum")
+    
+    p
   })
 }
 
 # Run the application 
 shinyApp(ui = ui, server = server)
 
+p2 <- p +
+  transition_time(ref.date) +
+  labs(title = "Date: {frame_time}") +
+  shadow_wake(wake_length = 0.4, alpha = FALSE)
+
+p2
+
+%>%
+  filter(tickers %in% input$selects) %>%
+  select(one_of(c("ref.dates", input$selects2))) %>%
+  gather(dates, -tickers)
+
+
+#########################################
+#
+# 2nd example of server with plotly
+#
+#########################################
+
+library(plotly)
+
+# initiate a line shape object
+line <- list(
+  type = "line",
+  line = list(color = "black"),
+  xref = 100,
+  yref = 100
+)
+
+p <- a05all %>%
+  plot_ly(
+    x = ~jdk_rs55, 
+    y = ~jdk_momratio55, 
+    size = ~price.adjusted, 
+    color = ~as.factor(qudrant), 
+    frame = ~ref.date, 
+    text = ~ticker, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers' )
+
+p01 <- layout (p, shapes = line)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+  
+  output$Plot <- renderPlot({
+    
+    data = a05all [ ticker %in% input$selects ] 
+    
+    p <- ggplot(
+      data, 
+      aes(x = jdk_rs55, y=jdk_momratio55, size = price.adjusted, colour = as.factor(qudrant)) ) +
+      geom_point(show.legend = FALSE, alpha = 0.7) +
+      scale_color_viridis_d() +
+      geom_vline(xintercept = 100) +
+      geom_hline(yintercept = 100) +
+      labs(x = "JdK RS-ratio", y = "JdK RS-momentum")
+    
+    p
+  })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
 
 
 #
