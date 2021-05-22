@@ -191,7 +191,7 @@ server <- function(input, output) {
   
   output$Plot <- renderPlot({
 
-    data = a05all [ ticker %in% input$selects & (ref.date >= input$daterange1[1] & ref.date >= input$daterange1[2]) ] 
+    data = a05all [ ticker %in% c("TCS.NS", input$selects) & (ref.date >= input$daterange1[1] & ref.date >= input$daterange1[2]) ] 
     
     p <- ggplot(
       data, 
@@ -378,7 +378,94 @@ setDT(a03quote, keep.rownames = TRUE)[]
 getQuote("PGHL.NS", what=yahooQF())
 
 
-sbi <- fread("https://www1.nseindia.com/content/mfss/L_SCHEME_REP.csv")
+# Get the data for different indices from investing.com
+# Get the list of companies from NSE
+# Merge them and understand the 14 day Relative risk profile
+
+dt <- Sys.Date()
+
+# Create the reference values for the previous periods:
+
+# Find previous year start to end
+prvyr <- as.numeric(format(as.Date( floor_date(dt, "year") - years(1) ), "%Y"))
+prvyr01 <- as.Date(paste(prvyr, "01", "01", sep="-"))
+
+
+# Get the yearly, monthly, weekly, daily values:
+styrdate <- as.numeric(as.POSIXct(prvyr01, format="%Y-%m-%d"))
+endaydate <- as.numeric(as.POSIXct(dt+1, format="%Y-%m-%d")) # Vinay update 9th Jan 2021
+
+i01_nifty50 <- fread('https://www1.nseindia.com/content/indices/ind_nifty50list.csv')
+t01_nifty50 <- paste('https://in.investing.com/indices/s-p-cnx-nifty-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t01_nifty50_html <- read_html(t01_nifty50); t01_nifty50_whole  <- t01_nifty50_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t01_nifty50_whole  <- as.data.table(t01_nifty50_whole);
+
+i03_nifty100 <- fread('https://www1.nseindia.com/content/indices/ind_nifty100list.csv')
+t03_nifty100 <- paste('https://in.investing.com/indices/cnx-100-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t03_nifty100_html <- read_html(t03_nifty100); t03_nifty100_whole  <- t03_nifty100_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t03_nifty100_whole  <- as.data.table(t03_nifty100_whole);
+
+i04_nifty200 <- fread('https://www1.nseindia.com/content/indices/ind_nifty200list.csv')
+t04_nifty200 <- paste('https://in.investing.com/indices/cnx-200-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t04_nifty200_html <- read_html(t04_nifty200); t04_nifty200_whole  <- t04_nifty200_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t04_nifty200_whole  <- as.data.table(t04_nifty200_whole);
+
+i05_nifty500 <- fread('https://www1.nseindia.com/content/indices/ind_nifty500list.csv')
+t05_nifty500 <- paste('https://in.investing.com/indices/s-p-cnx-500-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t05_nifty500_html <- read_html(t05_nifty500); t05_nifty500_whole  <- t05_nifty500_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t05_nifty500_whole  <- as.data.table(t05_nifty500_whole);
+
+i06_mid150 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap150list.csv')
+t06_mid150 <- paste('https://in.investing.com/indices/nifty-midcap-150-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t06_mid150_html <- read_html(t06_mid150); t06_mid150_whole  <- t06_mid150_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t06_mid150_whole  <- as.data.table(t06_mid150_whole);
+
+i07_mid50 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap50list.csv')	
+t07_mid50 <- paste('https://in.investing.com/indices/nifty-midcap-50-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t07_mid50_html <- read_html(t07_mid50); t07_mid50_whole  <- t07_mid50_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t07_mid50_whole  <- as.data.table(t07_mid50_whole);
+
+i08_mid100 <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap100list.csv')	
+t08_mid100 <- paste('https://in.investing.com/indices/cnx-midcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t08_mid100_html <- read_html(t08_mid100); t08_mid100_whole  <- t08_mid100_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t08_mid100_whole  <- as.data.table(t08_mid100_whole);
+
+i09_small250 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap250list.csv')	
+t09_small250 <- paste('https://in.investing.com/indices/nifty-smallcap-250-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t09_small250_html <- read_html(t09_small250); t09_small250_whole  <- t09_small250_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t09_small250_whole  <- as.data.table(t09_small250_whole);
+
+i10_small50 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap50list.csv')	
+t10_small50 <- paste('https://in.investing.com/indices/nifty-smallcap-50-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t10_small50_html <- read_html(t10_small50); t10_small50_whole  <- t10_small50_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t10_small50_whole  <- as.data.table(t10_small50_whole);
+
+i11_small100 <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap100list.csv')	
+t11_small100 <- paste('https://in.investing.com/indices/cnx-smallcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t11_small100_html <- read_html(t11_small100); t11_small100_whole  <- t11_small100_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t11_small100_whole  <- as.data.table(t11_small100_whole);
+
+i14_auto <- fread('https://www1.nseindia.com/content/indices/ind_niftyautolist.csv')	
+t14_auto <- paste('https://in.investing.com/indices/cnx-auto-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t14_auto_html <- read_html(t14_auto); t14_auto_whole  <- t14_auto_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t14_auto_whole  <- as.data.table(t14_auto_whole);
+
+i15_bank <- fread('https://www1.nseindia.com/content/indices/ind_niftybanklist.csv')	
+t15_bank <- paste('https://in.investing.com/indices/bank-nifty-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t15_bank_html <- read_html(t15_bank); t15_bank_whole  <- t15_bank_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t15_bank_whole  <- as.data.table(t15_bank_whole);
+
+i17_finance <- fread('https://www1.nseindia.com/content/indices/ind_niftyfinancelist.csv')	
+t17_finance <- paste('https://in.investing.com/indices/cnx-finance-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t17_finance_html <- read_html(t17_finance); t17_finance_whole  <- t17_finance_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t17_finance_whole  <- as.data.table(t17_finance_whole);
+
+i19_fmcg <- fread('https://www1.nseindia.com/content/indices/ind_niftyfmcglist.csv')	
+t19_fmcg <- paste('https://in.investing.com/indices/cnx-fmcg-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t19_fmcg_html <- read_html(t19_fmcg); t19_fmcg_whole  <- t19_fmcg_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t19_fmcg_whole  <- as.data.table(t19_fmcg_whole);
+
+i21_it <- fread('https://www1.nseindia.com/content/indices/ind_niftyitlist.csv')	
+t21_it <- paste('https://in.investing.com/indices/cnx-it-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t21_it_html <- read_html(t21_it); t21_it_whole  <- t21_it_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t21_it_whole  <- as.data.table(t21_it_whole);
+
+i22_media <- fread('https://www1.nseindia.com/content/indices/ind_niftymedialist.csv')	
+t22_media <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t22_media_html <- read_html(t22_media); t22_media_whole  <- t22_media_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t22_media_whole  <- as.data.table(t22_media_whole);
+
+i23_metal <- fread('https://www1.nseindia.com/content/indices/ind_niftymetallist.csv')	
+t23_metal <- paste('https://in.investing.com/indices/cnx-metal-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t23_metal_html <- read_html(t23_metal); t23_metal_whole  <- t23_metal_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t23_metal_whole  <- as.data.table(t23_metal_whole);
+
+i25_pharma <- fread('https://www1.nseindia.com/content/indices/ind_niftypharmalist.csv')	
+t25_pharma <- paste('https://in.investing.com/indices/cnx-pharma-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t25_pharma_html <- read_html(t25_pharma); t25_pharma_whole  <- t25_pharma_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t25_pharma_whole  <- as.data.table(t25_pharma_whole);
+
+i27_psubank <- fread('https://www1.nseindia.com/content/indices/ind_niftypsubanklist.csv')	
+t27_psubank <- paste('https://in.investing.com/indices/cnx-psu-bank-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t27_psubank_html <- read_html(t27_psubank); t27_psubank_whole  <- t27_psubank_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t27_psubank_whole  <- as.data.table(t27_psubank_whole);
+
+i28_realty <- fread('https://www1.nseindia.com/content/indices/ind_niftyrealtylist.csv')	
+t28_realty <- paste('https://in.investing.com/indices/cnx-realty-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t28_realty_html <- read_html(t28_realty); t28_realty_whole  <- t28_realty_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t28_realty_whole  <- as.data.table(t28_realty_whole);
+
+all01_idx <- rbindlist(mget(ls(pattern = "^i")), fill = TRUE, idcol = "index")
+rm(list = ls( pattern = "^i") )
+
+all01_idx_val <- rbindlist(mget(ls(pattern = "whole$")), fill = TRUE, idcol = "index")
+rm(list = ls( pattern = "^t") )
+
+
+
+
+
+
 
 https://www1.nseindia.com/content/indices/ind_nifty50list.csv
 https://www1.nseindia.com/content/indices/ind_niftynext50list.csv
@@ -440,27 +527,9 @@ i26_pvtbank <- fread('https://www1.nseindia.com/content/indices/ind_nifty_privat
 i27_psubank <- fread('https://www1.nseindia.com/content/indices/ind_niftypsubanklist.csv')
 i28_realty <- fread('https://www1.nseindia.com/content/indices/ind_niftyrealtylist.csv')
 
-all01_idx <- rbindlist(mget(ls(pattern = "i")), fill = TRUE, idcol = "index")
-rm(list = ls( pattern = "^i") )
 
-
-
-# Get the data for different indices from investing.com
-# Get the list of companies from NSE
-# Merge them and understand the 14 day Relative risk profile
-
-dt <- Sys.Date()
-
-# Create the reference values for the previous periods:
-
-# Find previous year start to end
-prvyr <- as.numeric(format(as.Date( floor_date(dt, "year") - years(1) ), "%Y"))
-prvyr01 <- as.Date(paste(prvyr, "01", "01", sep="-"))
-
-
-# Get the yearly, monthly, weekly, daily values:
-styrdate <- as.numeric(as.POSIXct(prvyr01, format="%Y-%m-%d"))
-endaydate <- as.numeric(as.POSIXct(dt+1, format="%Y-%m-%d")) # Vinay update 9th Jan 2021
+i01_nfity50 <- fread('https://www1.nseindia.com/content/indices/ind_nifty50list.csv')	
+t01_nfity50 <- paste('https://in.investing.com/indices/s-p-cnx-nifty-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); t01_nfity50_html <- read_html(t01_nfity50); t01_nfity50_whole  <- t01_nfity50_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; t01_nfity50_whole  <- as.data.table(t01_nfity50_whole);
 
 url_01 <- paste('https://in.investing.com/indices/cnx-midcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_01_html <- read_html(url_01); url_01_whole  <- url_01_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_01_whole  <- as.data.table(url_01_whole);
 url_02 <- paste('https://in.investing.com/indices/cnx-smallcap-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_02_html <- read_html(url_02); url_02_whole  <- url_02_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_02_whole  <- as.data.table(url_02_whole);
@@ -481,4 +550,4 @@ url_16 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_
 url_17 <- paste('https://in.investing.com/indices/cnx-pharma-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_17_html <- read_html(url_17); url_17_whole  <- url_17_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_17_whole  <- as.data.table(url_17_whole);
 url_18 <- paste('https://in.investing.com/indices/cnx-psu-bank-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_18_html <- read_html(url_18); url_18_whole  <- url_18_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_18_whole  <- as.data.table(url_18_whole);
 url_19 <- paste('https://in.investing.com/indices/cnx-service-sector-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_19_html <- read_html(url_19); url_19_whole  <- url_19_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_19_whole  <- as.data.table(url_19_whole);
-url_20 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_20_html <- read_html(url_20); url_20_whole  <- url_20_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_20_whole  <- as.data.table(url_20_whole);
+url_20 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_20_html <- read_html(url_20); url_20_whole  <- url_20_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_20_whole  <- as.data.table(url_20_whole)
