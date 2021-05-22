@@ -522,6 +522,17 @@ p2 <- p + facet_wrap(~index) +
 
 p2
 
+
+
+  ggplot(all03_idx_val, aes(x = date02, y = Price, group = index)) +
+  geom_candlestick(aes(open = Open, high = High, low = Low, close = Price)) +
+  labs(title = "Index Candlestick Chart", 
+       subtitle = "Experimenting with Mulitple Stocks",
+       y = "Closing Price", x = "") + 
+  facet_wrap(~ index, scale = "free_y") + 
+  theme_tq()
+  # , ncol = 2,  
+
 https://www1.nseindia.com/content/indices/ind_nifty50list.csv
 https://www1.nseindia.com/content/indices/ind_niftynext50list.csv
 https://www1.nseindia.com/content/indices/ind_nifty100list.csv
