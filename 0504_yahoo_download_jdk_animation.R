@@ -358,11 +358,16 @@ a01w_con <- data.table(a01w$df.control)
 a02w <- data.table(a01w$df.tickers)
 
 
+require("quantmod")
+
 cntrt02 <- cntrt02 [, grp := round(nrow/ 100), ]
 name01 <- cntrt02 [, quote := paste(SYMBOL02, collapse = ";", sep= " "), by = .(grp)]
 name01 <- unique ( cntrt02 [, c("quote", "grp"), ])
+name01 <- name01 [, get001 := paste("yahoo", grp, " <- as.data.table (getQuote ('", quote, "', what  = yahooQF(c( 'Symbol', 'Name', 'Name (Long)', 'Quote Type', 'Quote Source Name', 'Source Interval', 'Currency', 'Financial Currency', 'Market', 'Market State', 'Exchange', 'Exchange Full Name', 'Exchange Timezone', 'Exchange TZ', 'Exchange Data Delay', 'GMT Offset Millis', 'Tradeable', 'Ask', 'Bid', 'Ask Size', 'Bid Size', 'Last Trade (Price Only)', 'Last Trade Time', 'Change', 'Open', 'Days High', 'Days Low', 'Volume', 'Change in Percent', 'Previous Close', 'Change From 52-week Low', 'Percent Change From 52-week Low', 'Change From 52-week High', 'Percent Change From 52-week High', '52-week Low', '52-week High', '50-day Moving Average', 'Change From 50-day Moving Average', 'Percent Change From 50-day Moving Average', '200-day Moving Average', 'Change From 200-day Moving Average', 'Percent Change From 200-day Moving Average', 'Market Capitalization', 'P/E Ratio', 'Price/EPS Estimate Next Year', 'Price/Book', 'Book Value', 'Average Daily Volume', 'Shares Outstanding', 'Ex-Dividend Date', 'Dividend/Share', 'Dividend Yield', 'Earnings Timestamp', 'Earnings Start Time', 'Earnings End Time', 'Earnings/Share', 'EPS Forward', 'Language', 'Message Board ID', 'Price Hint' ))) )", sep=""), ]
 
-require("quantmod")
+eval(parse(text = name01 [grp ==6]$get001))
+
+
 a03quote <- as.data.table ( getQuote("TCS.NS;INFY.NS", what = yahooQF(c("Market Capitalization", "Earnings/Share", 
                                 "P/E Ratio", "Book Value", "EBITDA", "52-week Range"))) )
 
@@ -499,6 +504,11 @@ all03_idx_val <- all03_idx_val [, qudrant := case_when(jdk_rs14 > 100 & jdk_momr
                                          jdk_rs14 < 100 & jdk_momratio14 > 100 ~ 3,
                                          jdk_rs14 < 100 & jdk_momratio14 < 100 ~ 4 ), ]
 
+
+all04_idx_val_excel <- all03_idx_val [, c("date02", "index", "qudrant", "jdk_rs14", "jdk_momratio14" ), ]
+
+library(openxlsx)
+write.xlsx(all04_idx_val_excel, "D:\\My-Shares\\analysis\\0504_jdk_index.xlsx")   
 
 theme_set(theme_bw())
 
