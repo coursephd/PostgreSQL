@@ -461,11 +461,66 @@ rm(list = ls( pattern = "^i") )
 all01_idx_val <- rbindlist(mget(ls(pattern = "whole$")), fill = TRUE, idcol = "index")
 rm(list = ls( pattern = "^t") )
 
+all01_idx_val <- all01_idx_val [, `:=`(date02 = mdy(Date),
+                       High = as.numeric( str_remove_all(High, ",") ), 
+                       Low = as.numeric( str_remove_all(Low, ",") ) ,
+                       Price = as.numeric( str_remove_all(Price, ",") ) ,
+                       Open = as.numeric( str_remove_all(Open, ",") ) ),  ]
 
 
+# Merge the data with remaining data
+
+all02_idx_val <- merge(x = all01_idx_val,
+                y = a02nfity50, 
+                by.x = c("date02"),
+                by.y = c("NF_ref.date"),
+                all.x = TRUE)
+
+#
+# Calculate Relative price strength
+# https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/relative-price-strength-rps/
+#
+all02_idx_val <- all02_idx_val [, rs := Price / NF_price.adjusted, ]
+
+all02_idx_val <- na.omit(all02_idx_val) # Step was needed to get the moving average calculation
+all02_idx_val <- all02_idx_val [, `:=` (rs_mean14 = runMean(rs, 14),
+                          rs_sd14 = runSD(rs, 14) ), by =.(index)]
+
+all02_idx_val <- all02_idx_val [, jdk_rs14 := 100 + ((rs - rs_mean14)/rs_sd14) + 1, ]
+all02_idx_val <- all02_idx_val [, jdk_roc14 := 100 * (shift(jdk_rs14, type = "lag", n=1) / jdk_rs14 - 1), by = .(index)]
+all02_idx_val <- all02_idx_val [, `:=` (jdk_roc14_mean14 = runMean(jdk_roc14, 14),
+                          jdk_roc14_sd14 = runSD(jdk_roc14, 14) ), by =.(index)]
+
+all02_idx_val <- all02_idx_val [, jdk_momratio14 := 100 + ((jdk_roc14 - jdk_roc14_mean14)/jdk_roc14_sd14) + 1, ]
+
+all03_idx_val <- na.omit(all02_idx_val)
+all03_idx_val <- all03_idx_val [, qudrant := case_when(jdk_rs14 > 100 & jdk_momratio14 > 100 ~ 1,
+                                         jdk_rs14 > 100 & jdk_momratio14 < 100 ~ 2,
+                                         jdk_rs14 < 100 & jdk_momratio14 > 100 ~ 3,
+                                         jdk_rs14 < 100 & jdk_momratio14 < 100 ~ 4 ), ]
 
 
+theme_set(theme_bw())
 
+# Static plot
+p <- ggplot(
+  all03_idx_val [date02 >= "2021-03-01"], 
+  aes(x = jdk_rs14, y=jdk_momratio14, colour = as.factor(qudrant)) ) +
+  facet_wrap(~index) +
+  geom_point(show.legend = FALSE, alpha = 0.7) +
+  scale_color_viridis_d() +
+  geom_vline(xintercept = 100) +
+  geom_hline(yintercept = 100) +
+  labs(x = "JdK RS-ratio", y = "JdK RS-momentum")
+
+p
+
+p2 <- p + facet_wrap(~index) +
+  transition_time(date02) +
+  labs(title = "Date: {frame_time}") +
+  shadow_wake(wake_length = 0.4, alpha = FALSE)
+
+p2
 
 https://www1.nseindia.com/content/indices/ind_nifty50list.csv
 https://www1.nseindia.com/content/indices/ind_niftynext50list.csv
