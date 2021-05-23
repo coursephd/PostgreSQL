@@ -111,6 +111,38 @@ a04all <- a04all [, qudrant := case_when(jdk_rs55 > 100 & jdk_momratio55 > 100 ~
                                          jdk_rs55 < 100 & jdk_momratio55 > 100 ~ 3,
                                          jdk_rs55 < 100 & jdk_momratio55 < 100 ~ 4 ), ]
 
+##########################################################################################
+#
+# Mark Minverveni template 
+# https://www.marcellagerwerf.com/how-to-scan-mark-minervinis-trend-template-using-python/
+##########################################################################################
+
+mark0001 <- a04all [ , `:=`(sma150 = sma(price.close, n = 150),
+                            sma200 = sma(price.close, n = 200),
+                            sma50 = sma(price.close, n = 50),
+                            low252 = runMin(price.low, n = 252), 
+                            high252 = runMax(price.high, n = 252),
+                            ibd_score = 1), by = .(ticker)]
+
+mark0001 <- mark0001 [,sma200_20 := runMean( sma200, n = 20), by = .(ticker)]
+
+mark0001 <- mark0001 [, `:=` (rule01 = ifelse(price.close > sma150 & price.close > sma200, 1, 0), 
+                              rule02 = ifelse(sma150 > sma200, 1, 0),
+                              rule03 = ifelse(sma200_20 > sma200, 1, 0),
+                              rule04 = ifelse(sma50 > sma150 & sma50 > sma200, 1, 0),
+                              rule05 = ifelse(price.close > 1.3 * low252, 1, 0),
+                              rule06 = ifelse(price.close > 0.75 * high252, 1, 0),
+                              rule07 = ifelse(qudrant <=2, 1, 0) ),]
+
+mark0001 <- mark0001 [, subset01 := ifelse(rule01 == 1 & rule02 == 1 & rule03 == 1 & rule04 == 1 & rule05 == 1 & rule06 == 1 & rule07 == 1, 1, 0), ]
+
+
+# Check the number of stocks meeting this on each day
+mark0002 <- mark0001 [, .(tot_stocks = uniqueN(ticker),
+                          name_stocks = paste(ticker, collapse = ",", sep="") ), by = .(ref.date, subset01)]
+
+mark0002 <- mark0002 [, name_stocks := ifelse(subset01 == 1, name_stocks, "" ), ]
+
 a05all <- a04all [ anydate(ref.date) >= Sys.Date() - 100]
 
 library(ggplot2)
