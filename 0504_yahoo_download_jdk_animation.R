@@ -659,3 +659,50 @@ url_17 <- paste('https://in.investing.com/indices/cnx-pharma-historical-data?end
 url_18 <- paste('https://in.investing.com/indices/cnx-psu-bank-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_18_html <- read_html(url_18); url_18_whole  <- url_18_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_18_whole  <- as.data.table(url_18_whole);
 url_19 <- paste('https://in.investing.com/indices/cnx-service-sector-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_19_html <- read_html(url_19); url_19_whole  <- url_19_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_19_whole  <- as.data.table(url_19_whole);
 url_20 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); url_20_html <- read_html(url_20); url_20_whole  <- url_20_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; url_20_whole  <- as.data.table(url_20_whole)
+
+
+
+
+# Money in the bank strategy:
+
+
+# banknifty
+a01bnk <-  BatchGetSymbols(
+  tickers = "^NSEBANK",
+  first.date = Sys.Date() - 3600,
+  last.date = Sys.Date(),
+  thresh.bad.data = 0.75,
+  bench.ticker = "^NSEI",
+  type.return = "arit",
+  freq.data = "daily",
+  how.to.aggregate = "last",
+  do.complete.data = FALSE,
+  do.fill.missing.prices = TRUE,
+  do.cache = TRUE,
+  cache.folder = file.path(tempdir(), "BGS_Cache"),
+  do.parallel = TRUE, # FALSE
+  be.quiet = FALSE
+)
+
+a02bnk <- data.table(a01bnk$df.tickers)
+setnames(a02bnk, paste("BNF", names(a02bnk), sep = "_"))
+
+
+bnf0001 <- a04all [ ticker %in% c('AUBANK.NS', 'AXISBANK.NS', 'BANDHANBNK.NS', 'FEDERALBNK.NS', 'HDFCBANK.NS', 'ICICIBANK.NS', 'IDFCFIRSTB.NS', 'INDUSINDBK.NS', 'KOTAKBANK.NS', 'PNB.NS', 'RBLBANK.NS', 'SBIN.NS')
+                    & ref.date >= Sys.Date() - 1200]
+
+# Merge the data with remaining data
+
+bnf0001 <- merge(x = bnf0001,
+                 y = a02bnk, 
+                 by.x = c("ref.date"),
+                 by.y = c("BNF_ref.date"),
+                 all.x = TRUE)
+
+bnf0001 <- bnf0001 [, `:=` (lowhigh = price.high - price.low,
+                            perchg = round( (price.close - price.open)/ price.open * 100, 1),
+                            bnfperchg = (BNF_price.close - BNF_price.open)/ BNF_price.open * 100 ) , ]
+
+bnf0002 <- dcast(data = bnf0001,
+                 ref.date + round(bnfperchg, 1) ~ ticker, 
+                 value.var = c("perchg") )
