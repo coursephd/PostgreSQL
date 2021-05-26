@@ -703,6 +703,81 @@ bnf0001 <- bnf0001 [, `:=` (lowhigh = price.high - price.low,
                             perchg = round( (price.close - price.open)/ price.open * 100, 1),
                             bnfperchg = (BNF_price.close - BNF_price.open)/ BNF_price.open * 100 ) , ]
 
+# Check how many times BNF was better performing
+bnf0001 <- bnf0001 [, perf := ifelse(perchg >= bnfperchg, "Better", "Worse"), ]
+
 bnf0002 <- dcast(data = bnf0001,
                  ref.date + round(bnfperchg, 1) ~ ticker, 
                  value.var = c("perchg") )
+
+bnf0003 <- dcast(data = bnf0001,
+                 ref.date + round(bnfperchg, 1) ~ ticker, 
+                 value.var = c("perf") )
+
+# Check the count of better /worse
+
+bnaf001 <- bnf001 [, ]
+
+
+#######################################################
+#
+# Only execute the process on or after 1st Jan 2016
+# Get the indices weight files
+#
+# Example calls: download the files, once downloaded, unzip
+# Bank nifty files
+# After unzipping them use tabulizer package to get the pdf
+# files into R data.tables
+# 
+# if (curl_fetch_memory('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip')$status_code == 200) download.file('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip', 'D:\\My-Shares\\source-index-wgt\\42370_indices_dataJan2016.zip')
+# if (curl_fetch_memory('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip')$status_code == 200) download.file('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip', 'D:\\My-Shares\\source-index-wgt\\42371_indices_dataJan2016.zip')
+# if (curl_fetch_memory('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip')$status_code == 200) download.file('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip', 'D:\\My-Shares\\source-index-wgt\\42372_indices_dataJan2016.zip')
+# if (curl_fetch_memory('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip')$status_code == 200) download.file('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip', 'D:\\My-Shares\\source-index-wgt\\42373_indices_dataJan2016.zip')
+#
+# if (file.exists('D:\\My-Shares\\source-index-wgt\\42370_indices_dataJan2016.zip') ) {files = unzip('D:\\My-Shares\\source-index-wgt\\42370_indices_dataJan2016.zip', list=TRUE)$Name; unzip(zipfile = 'D:\\My-Shares\\source-index-wgt\\42370_indices_dataJan2016.zip', exdir = 'D:\\My-Shares\\source-index-wgt-bnfpdf', files=files[grepl('^NIFTY_Bank*|^niftybank*',files)]);rm(files);}
+# if (file.exists('D:\\My-Shares\\source-index-wgt\\42371_indices_dataJan2016.zip') ) {files = unzip('D:\\My-Shares\\source-index-wgt\\42371_indices_dataJan2016.zip', list=TRUE)$Name; unzip(zipfile = 'D:\\My-Shares\\source-index-wgt\\42371_indices_dataJan2016.zip', exdir = 'D:\\My-Shares\\source-index-wgt-bnfpdf', files=files[grepl('^NIFTY_Bank\\.pdf|^niftybank*\\.pdf',files)]);rm(files);}
+# if (file.exists('D:\\My-Shares\\source-index-wgt\\42372_indices_dataJan2016.zip') ) {files = unzip('D:\\My-Shares\\source-index-wgt\\42372_indices_dataJan2016.zip', list=TRUE)$Name; unzip(zipfile = 'D:\\My-Shares\\source-index-wgt\\42372_indices_dataJan2016.zip', exdir = 'D:\\My-Shares\\source-index-wgt-bnfpdf', files=files[grepl('^NIFTY_Bank\\.pdf|^niftybank*\\.pdf',files)]);rm(files);}
+# if (file.exists('D:\\My-Shares\\source-index-wgt\\43311_indices_dataJul2018.zip') ) {files = unzip('D:\\My-Shares\\source-index-wgt\\43311_indices_dataJul2018.zip', list=TRUE)$Name; unzip(zipfile = 'D:\\My-Shares\\source-index-wgt\\43311_indices_dataJul2018.zip', exdir = 'D:\\My-Shares\\source-index-wgt-bnfpdf', files=files[grepl('^NIFTY_Bank*|^niftybank*',files)]);rm(files);}
+#
+# Date from excel to R creates an issue:
+# origin = "1899-12-30"
+# https://stackoverflow.com/questions/43230470/how-to-convert-excel-date-format-to-proper-date-in-r/62334132
+#######################################################
+
+step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0500_rakeshpujara_atmlong.xlsx", 2) )
+step002 <- step001 [, Date02 := mdy( paste(Month, Date, Year4) ), ]
+step002 <- step002 [ Year4 >= 2016 ]
+
+# Do the calculations for Futures data
+
+eval(parse(text = step002$bnf05download)) # Once the program stopped after downloading files till 2017
+eval(parse(text = step002 [Year4 >= 2018]$bnf05download))
+
+# Do the calculations for the pdf extraction to data.table
+
+eval(parse(text = step002$bnf06unzip))
+
+
+all01_pdf <- rbindlist(mget(ls(pattern = "pdf")), fill = TRUE, idcol = "file_indx")
+#all01_pdf <- all01_pdf [ , tmp := as.numeric(substr(file_indx, 5, 15)) , ]
+all01_pdf <- all01_pdf [, trdate := anydate( as.Date ( as.numeric(substr(file_indx, 5, 15) ), origin = "1899-12-30" ) ), ]
+all01_pdf <- all01_pdf [, monyr := substr (trdate, 1, 7),]
+all01_pdf <- all01_pdf [, nrow := .I,]
+
+setnames (all01_pdf, "V1", "Symbol")
+setnames (all01_pdf, "V2", "Security_name")
+setnames (all01_pdf, "V5", "Close_Price")
+setnames (all01_pdf, "V6", "Index_Mcap")
+setnames (all01_pdf, "V7", "Weightage")
+
+# Due to the changes in the structure do the following:
+all01_pdf <- all01_pdf [, Weightage := ifelse( trdate >= "2017-07-01", Index_Mcap, Weightage), ]
+
+all02_pdf <- all01_pdf [ !trimws(Symbol) == "" & Security_name != "Security Name"]
+all02_pdf <- all02_pdf [, Weightage := as.numeric(Weightage), ]
+all03_pdf <- all02_pdf [,  .(avgwgt = mean(Weightage)), by =.(monyr, Symbol)]
+all03_pdf <- all03_pdf [ order(monyr, -avgwgt, Symbol)]
+all03_pdf <- all03_pdf [, rank := 1:.N, by = (monyr)]
+all03_pdf <- all03_pdf [, cumperc := cumsum(avgwgt), by =.(monyr)]
+
+saveRDS(all02_pdf, "D:\\My-Shares\\source-index-wgt-bnfpdf\\0504_bnf_idx_wgt.rds")
