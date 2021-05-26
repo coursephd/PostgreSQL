@@ -781,3 +781,50 @@ all03_pdf <- all03_pdf [, rank := 1:.N, by = (monyr)]
 all03_pdf <- all03_pdf [, cumperc := cumsum(avgwgt), by =.(monyr)]
 
 saveRDS(all02_pdf, "D:\\My-Shares\\source-index-wgt-bnfpdf\\0504_bnf_idx_wgt.rds")
+
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "HDFCBANK", "ICICIBANK", "AXISBANK", "KOTAKBANK" ) )
+#fo <- data.table (read_csv_chunked("D:\\My-Shares\\source-fno-csv\\fo*.csv", DataFrameCallback$new(f), chunk_size = 5) )
+step002_yr <- step002 [ Year4 >= 2016 & Year4 <= 2019]
+
+# Do the calculations for Futures data
+
+eval(parse(text = step002_yr$fut_rdata))
+all01_fut <- rbindlist(mget(ls(pattern = "fo")), fill = TRUE, idcol = "file_fut")
+all01_fut <- all01_fut [, trdate := dmy ( substr(file_fut, 3, 20) ), ]
+
+# Do the calculations for Options data
+
+eval(parse(text = step002_yr$opt_data))
+all01_opt <- rbindlist(mget(ls(pattern = "op")), fill = TRUE, idcol = "file_opt")
+all01_opt <- all01_opt [, trdate := dmy ( substr(file_opt, 3, 20) ), ]
+setnames(all01_opt, paste("opt", names(all01_opt), sep = "_"))
+
+rm(list = ls( pattern = "^op") )
+
+all01_fut <- all01_fut [, `:=` (exp_mon = month( dmy(EXP_DATE) ),
+                                exp_yr = year( dmy(EXP_DATE) ) ), ]
+
+all01_opt <- all01_opt [, `:=` (exp_mon = month( dmy(opt_EXP_DATE) ),
+                                exp_yr = year( dmy(opt_EXP_DATE) ) ), ]
+
+
+all02 <- merge(x = all01_fut,
+               y = all01_opt,
+               by.x = c("SYMBOL", "exp_mon", "exp_yr", "trdate"),
+               by.y = c("opt_SYMBOL", "exp_mon", "exp_yr", "opt_trdate"))
+
+
+# All the variables
+all02names <- names(all02)
+
+# Variables should not be converted to numeric:
+all02char <- c("SYMBOL", "EXP_DATE", "opt_EXP_DATE", "exp_mon", "exp_yr", "trdate", "file_fut", "INSTRUMENT", "opt_file_opt", "opt_INSTRUMENT", "opt_OPT_TYPE" )
+
+# Only variables to be converted to numeric
+all02num <- setdiff(all02names, all02char)
+
+all02 <- all02 [, (all02num) := lapply(.SD, as.numeric), .SDcols = all02num]
+setnames(all02, "OPEN_INT*", "OPEN_INT")
+
+saveRDS(all02, "D:\\My-Shares\\source-index-wgt-bnfpdf\\0504_bnf_fno.rds")
+
