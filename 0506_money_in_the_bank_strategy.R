@@ -134,7 +134,7 @@ bnf0001unq02 <- bnf0001unq02 [, grpvar := case_when(bnf_chg >= 0 & pnt_open_chg_
                                                     bnf_chg >= 0 & pnt_open_chg_bnfcat_Cat_01Top3banks <  0 & pnt_open_chg_bnfcat_Cat_02Otherbanks >= 0 ~ "04 BNF/Rest +ve, Top3 -ve",
                                                     bnf_chg <  0 & pnt_open_chg_bnfcat_Cat_01Top3banks >= 0 & pnt_open_chg_bnfcat_Cat_02Otherbanks >= 0 ~ "05 Top3/Rest +ve, BNF -ve",
                                                     bnf_chg <  0 & pnt_open_chg_bnfcat_Cat_01Top3banks <  0 & pnt_open_chg_bnfcat_Cat_02Otherbanks >= 0 ~ "06 BNF/Top3 -ve, rest +ve", 
-                                                    bnf_chg <  0 & pnt_open_chg_bnfcat_Cat_01Top3banks >= 0 & pnt_open_chg_bnfcat_Cat_02Otherbanks <  0 ~ "06 BNF/Rest -ve, Top3 +ve", ), ]
+                                                    bnf_chg <  0 & pnt_open_chg_bnfcat_Cat_01Top3banks >= 0 & pnt_open_chg_bnfcat_Cat_02Otherbanks <  0 ~ "06 BNF/Rest -ve, Top3 +ve" ), ]
 
 
 write.xlsx(bnf0001unq02, "D:\\My-Shares\\analysis\\0504_bnf_points.xlsx")

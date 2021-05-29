@@ -665,11 +665,10 @@ url_20 <- paste('https://in.investing.com/indices/cnx-media-historical-data?end_
 
 # Money in the bank strategy:
 
-
 # banknifty
 a01bnk <-  BatchGetSymbols(
   tickers = "^NSEBANK",
-  first.date = Sys.Date() - 3600,
+  first.date = "2016-01-01",
   last.date = Sys.Date(),
   thresh.bad.data = 0.75,
   bench.ticker = "^NSEI",
