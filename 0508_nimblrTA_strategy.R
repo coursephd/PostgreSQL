@@ -146,6 +146,7 @@ a04all <- a04all [, bh_ch_cat := case_when (bh_ch_per >=50 ~ "Breakout",
 # CCI: Daily, weekly and monthly 8 and 34 periods
 # 
 #############################################################
+a04all <- a04all [ order(ticker, ref.date)]
 
 cci_8d <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close") ], n = 8) )
 cci_8d <- cci_8d [, allrow := .I, ]
@@ -172,11 +173,50 @@ cci_34m <- cci_34m [, allrow := .I, ]
 setnames(cci_34m, "V1", "cci_34m")
 
 
+a05all <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
+                list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
 
+a05all <- a05all [, nrow := .I, by =.(ticker)]
 
+# To avoid any incorrect calculations explained above, remove certain number of rows
 
-a04all <- a04all [, `:=`(), by = .(ticker)]
+a05all <- a05all [ nrow > 34 * 21]
 
+# Create an indicator CCI (170) > 100 and CCI (34) > 125
+
+a05all <- a05all [, `:=`(rule001 = ifelse( cci_34w > 100 & cci_34d > 125 & (cci_34d > cci_34w) & volume > 100000, 1, 0), 
+                         rule002 = ifelse( cci_34d < -100, 1, 0) ), by = .(ticker)]
+
+# As the entry and exit are done on the next day get the next date
+
+a05all <- a05all [, `:=` (entrydt = shift(ref.date, n = 1, type = c("lead") ),
+                          exitdt = shift(ref.date, n = 1, type = c("lead") ),
+                          open = shift(price.open, n = 1, type = c("lead") ),
+                          close = shift(price.close, n = 1, type = c("lead") ), 
+                          high = shift(price.high, n = 1, type = c("lead") ), 
+                          low = shift(price.low, n = 1, type = c("lead") ), 
+                          cci34w = shift(cci_34w, n = 1, type = c("lead") ),
+                          cci34d = shift(cci_34d, n = 1, type = c("lead") ),
+                          prcema21d = shift(prc_ema21d, n = 1, type = c("lead") ),
+                          prcema55d = shift(prc_ema55d, n = 1, type = c("lead") ),
+                          prcema55w = shift(prc_ema55w, n = 1, type = c("lead") ) ), by =.(ticker)]
+# get those dates = 1
+
+subs001 <- a05all [ , c("ref.date", "ticker", "rule001", "rule002", 
+                        "cci_34w", "cci_34d", "volume", 
+                        "price.high", "price.open", "price.low", "price.close"), ]
+
+subs001 <- a05all [ rule001 == 1 ]
+subs002 <- a05all [ rule002 == 1 ]
+
+subs003 <- rbind ( subs001 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d",  "prcema55d"), ],
+                   subs002 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema55d"), ])
+
+subs003 <- subs003 [ order(ticker, entrydt)]
+
+# Check how many stocks appear on each day
+subs001_chk <- subs001 [, .(n = uniqueN(ticker),
+                            stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date)]
 
 # Non-breakout candle must be followed by 2 breakout candles
 #
