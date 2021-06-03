@@ -209,8 +209,8 @@ subs001 <- a05all [ , c("ref.date", "ticker", "rule001", "rule002",
 subs001 <- a05all [ rule001 == 1 ]
 subs002 <- a05all [ rule002 == 1 ]
 
-subs003 <- rbind ( subs001 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d",  "prcema55d"), ],
-                   subs002 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema55d"), ])
+subs003 <- rbind ( subs001 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d"), ],
+                   subs002 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d"), ])
 
 subs003 <- subs003 [ order(ticker, entrydt)]
 
@@ -218,6 +218,43 @@ subs003 <- subs003 [ order(ticker, entrydt)]
 subs001_chk <- subs001 [, .(n = uniqueN(ticker),
                             stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date)]
 
+
+
 # Non-breakout candle must be followed by 2 breakout candles
 #
 
+
+
+
+# https://financetrain.com/quantstrat-example-in-r-ema-crossover-strategy/
+#
+# Check the 20, 50 and 200 day confluence
+# Check ema20 > ema50 > ema200 and
+# ema20 and ema200 should not be different by 1%, 3%, 5%
+#
+
+conf0001 <- a04all [, `:=` (ema20 = ema(price.close, 20), 
+                            ema50 = ema(price.close, 50),
+                            ema200 = ema(price.close, 200),
+                            smavol20 = sma(volume, 20)), by =.(ticker)]
+
+conf0001 <- conf0001 [ smavol20 >= 100000]
+
+conf0001 <- conf0001 [, `:=` (crule001 = ifelse( (price.close > ema20 & ema20 > ema50), 1, 0),
+                              crule002 = ifelse( (price.close > ema50 & ema50 > ema200), 1, 0),
+                              crule003 = ifelse( (price.close > ema20 & ema20 < ema200 * 1.01), 1, 0),
+                              crule004 = ifelse( (price.close > ema20 & ema20 < ema200 * 1.03), 1, 0),
+                              crule005 = ifelse( (price.close > ema20 & ema20 < ema200 * 1.05), 1, 0) ),]
+
+conf0002 <- conf0001 [, c("allrow", "ref.date", "ticker", "price.open", "price.high", "price.low", "price.close", "volume",
+                          "qudrant", "jdk_momratio55", "jdk_rs55", 
+                          "ema20", "ema50", "ema200", "crule001", "crule002", "crule003", "crule004", "crule005"), ]
+
+# Check how may rows within 1%, 3%, 5%
+conf0002_1perc <- conf0002 [ crule001 == 1 & crule002 == 1 & crule003 == 1]
+conf0002_3perc <- conf0002 [ crule001 == 1 & crule002 == 1 & crule004 == 1]
+conf0002_5perc <- conf0002 [ crule001 == 1 & crule002 == 1 & crule005 == 1]
+
+# Check how many stocks appear on each day
+conf0002_5perc02 <- conf0002_5perc [, .(n = uniqueN(ticker),
+                                        stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
