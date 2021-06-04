@@ -261,6 +261,7 @@ conf0002_5perc02 <- conf0002_5perc [, .(n = uniqueN(ticker),
 
 
 
+library(zoo)
 #
 # Create a strategy with 52 week high
 # The stock should not have a high for at least 3 months
@@ -284,3 +285,8 @@ high001 <- high001 [, t52high := as.numeric(ref.date - highdt02 + 1),]
 # Compute how far or how close the current price is to the 52 week high
 
 high001 <- high001 [, d52high := round( (high52 - price.close) / high52 * 100, 1), ]
+
+
+# Subset the stocks with 5% distance and at least 3 month distance
+
+high002 <- high001 [ d52high <= 10 & t52high >= 30 ]
