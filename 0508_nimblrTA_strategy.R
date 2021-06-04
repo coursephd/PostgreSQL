@@ -174,7 +174,7 @@ setnames(cci_34m, "V1", "cci_34m")
 
 
 a05all <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
-                list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
+                 list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
 
 a05all <- a05all [, nrow := .I, by =.(ticker)]
 
@@ -258,3 +258,26 @@ conf0002_5perc <- conf0002 [ crule001 == 1 & crule002 == 1 & crule005 == 1]
 # Check how many stocks appear on each day
 conf0002_5perc02 <- conf0002_5perc [, .(n = uniqueN(ticker),
                                         stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
+
+
+
+library(zoo)
+#
+# Create a strategy with 52 week high
+# The stock should not have a high for at least 3 months
+#
+
+high001 <- na.omit(a04all [, c("allrow", "ref.date", "ticker", "price.open", "price.high", "price.low", "price.close", "volume",
+                               "qudrant", "jdk_momratio55", "jdk_rs55"), ] )
+
+# Errors appear but the variable gets created  
+high001 <- high001 [, high52 := runMax(price.high, n = 252), by = .(ticker)]
+
+high001 <- high001 [, highdt := case_when( price.high == high52 ~ as.character(ref.date),
+                                           price.high != high52 ~ "") , by =.(ticker)]
+
+high001 <- high001 [, highdt := ifelse(highdt == "", NA, highdt), ] 
+
+high001 <- high001 [, highdt02 := na.locf(highdt, na.rm=FALSE), by = .(ticker)]
+high001 <- high001 [, highdt02 := anydate(highdt02), ]
+high001 <- high001 [, t52high := as.numeric(ref.date - highdt02 + 1),]
