@@ -261,17 +261,26 @@ conf0002_5perc02 <- conf0002_5perc [, .(n = uniqueN(ticker),
 
 
 
-library(zoo)
+#############################################################
 #
 # Create a strategy with 52 week high
 # The stock should not have a high for at least 3 months
 #
+#############################################################
 
 high001 <- na.omit(a04all [, c("allrow", "ref.date", "ticker", "price.open", "price.high", "price.low", "price.close", "volume",
                                "qudrant", "jdk_momratio55", "jdk_rs55"), ] )
 
+#######################################################
+#
 # Errors appear but the variable gets created  
-high001 <- high001 [, high52 := runMax(price.high, n = 252), by = .(ticker)]
+#
+# runMax function from TTR is not working well
+# So had to change to roll_max function from QuantTools
+#
+########################################################
+
+high001 <- high001 [, high52 := roll_max(price.high, n = 252), by = .(ticker)]
 
 high001 <- high001 [, highdt := case_when( price.high == high52 ~ as.character(ref.date),
                                            price.high != high52 ~ "") , by =.(ticker)]
@@ -289,4 +298,8 @@ high001 <- high001 [, d52high := round( (high52 - price.close) / high52 * 100, 1
 
 # Subset the stocks with 5% distance and at least 3 month distance
 
-high002 <- high001 [ d52high <= 10 & t52high >= 30 ]
+high002 <- high001 [ d52high <= 5 & t52high >= 60 ]
+
+# Check how many stocks appear on each day
+high003 <- high002 [, .(n = uniqueN(ticker),
+                        stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
