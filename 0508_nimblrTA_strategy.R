@@ -127,6 +127,8 @@ a04all <- a04all [, qudrant := case_when(jdk_rs55 > 100 & jdk_momratio55 > 100 ~
 # https://docs.google.com/document/d/15eBbWo-NhzoIGCjz29QEden_GJ9s0XXaWd7RZdNrpIg/edit
 #
 #################################################################
+a04all <- a04all [ order(ticker, ref.date)]
+
 a04all <- a04all [, `:=`(ch = price.high - price.low,
                          bh = abs(price.open - price.close),
                          allrow = .I ), ]
@@ -146,7 +148,6 @@ a04all <- a04all [, bh_ch_cat := case_when (bh_ch_per >=50 ~ "Breakout",
 # CCI: Daily, weekly and monthly 8 and 34 periods
 # 
 #############################################################
-a04all <- a04all [ order(ticker, ref.date)]
 
 cci_8d <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close") ], n = 8) )
 cci_8d <- cci_8d [, allrow := .I, ]
@@ -171,7 +172,6 @@ setnames(cci_34w, "V1", "cci_34w")
 cci_34m <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close") ], n = 34 * 21) )
 cci_34m <- cci_34m [, allrow := .I, ]
 setnames(cci_34m, "V1", "cci_34m")
-
 
 a05all <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
                  list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
@@ -303,3 +303,33 @@ high002 <- high001 [ d52high <= 5 & t52high >= 60 ]
 # Check how many stocks appear on each day
 high003 <- high002 [, .(n = uniqueN(ticker),
                         stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
+
+
+
+
+# Get a dashboard created
+# Merge the data with industry data
+
+a04all <- merge(x = a04all,
+                y = cntrt02, 
+                by.x = c("ticker"),
+                by.y = c("SYMBOL02"),
+                all.x = TRUE)
+a04all <- a04all [, adv_dec := ifelse(ret.adjusted.prices >=0, "Advance", "Decline"), ]
+a04all <- a04all [, above200ema := ifelse(price.close >= ema200, "Above_200ema", "Below_200ema"), ]
+
+setkey(a04all, Industry, ref.date)
+dash001 <- a04all [, totcom := uniqueN(ticker), by = .(Industry, ref.date)]
+
+dash001 <- dash001 [, quadcom := uniqueN(ticker), by = .(Industry, ref.date, qudrant)]
+
+setkey(dash001, Industry, ref.date, totcom, qudrant, quadcom, adv_dec)
+dash002 <- dash001 [, .(nadv_dec = uniqueN(ticker) ), by =.(Industry, ref.date, totcom, qudrant, quadcom, adv_dec)]
+
+dash003 <- dcast(data = dash002,
+                 Industry + ref.date + totcom + qudrant + quadcom ~ adv_dec, 
+                 value.var = c("nadv_dec"),
+                 fill = " ")
+dash003[is.na(dash003)] <- " "
+
+fwrite(dash003, "D:\\My-Shares\\analysis\\0508_plotly_daily_overview.csv")
