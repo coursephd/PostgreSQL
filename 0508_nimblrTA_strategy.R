@@ -333,3 +333,24 @@ dash003 <- dcast(data = dash002,
 dash003[is.na(dash003)] <- " "
 
 fwrite(dash003, "D:\\My-Shares\\analysis\\0508_plotly_daily_overview.csv")
+
+
+
+#
+# Actual Turtle strategy related calculations
+# Above max 55 day entry + above 200 ema
+# Use the subset with SuperTrend 20, 2 as the SL: Assumption is 20 day ATR * 2
+# 
+#
+a04all <- a04all [, `:=` (max20 = roll_max(price.close, 20),
+                          max55 = roll_max(price.close, 55), 
+                          min10 = roll_max(price.close, 10), 
+                          min20 = roll_max(price.close, 20)), by =.(ticker)]
+
+a04all <- a04all [, above55max := ifelse(price.close >= max55, "Above_55", ""), ]
+
+above55 <- a04all [ above55max == "Above_55" & above200ema == "Above_200ema" ]
+
+# Check how many stocks appear on each day
+above55_02 <- above55 [, .(n = uniqueN(ticker),
+                           stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
