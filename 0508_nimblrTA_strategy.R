@@ -349,7 +349,8 @@ a04all <- a04all [, `:=` (max20 = roll_max(price.close, 20),
 
 a04all <- a04all [, above55max := ifelse(price.close >= max55, "Above_55", ""), ]
 
-above55 <- a04all [ above55max == "Above_55" & above200ema == "Above_200ema" ]
+above55 <- a04all [ above55max == "Above_55" & above200ema == "Above_200ema" & 
+                      ( (price.close > ema20) & (ema20 > ema50) & (ema50 > ema200)) ]
 
 # Check how many stocks appear on each day
 above55_02 <- above55 [, .(n = uniqueN(ticker),
