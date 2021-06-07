@@ -335,6 +335,7 @@ a04all <- merge(x = a04all,
                 by.x = c("ticker"),
                 by.y = c("SYMBOL02"),
                 all.x = TRUE)
+
 a04all <- a04all [, adv_dec := ifelse(ret.adjusted.prices >=0, "Advance", "Decline"), ]
 a04all <- a04all [, above200ema := ifelse(price.close >= ema200, "Above_200ema", "Below_200ema"), ]
 
@@ -367,6 +368,13 @@ a04all <- merge(x = a04all,
                 by.x = c("ticker"),
                 by.y = c("SYMBOL02"),
                 all.x = TRUE)
+
+a04all <- a04all [, `:=` (ema20 = ema(price.close, 20), 
+                          ema50 = ema(price.close, 50),
+                          ema200 = ema(price.close, 200),
+                          smavol20 = sma(volume, 20)), by =.(ticker)]
+
+
 a04all <- a04all [, adv_dec := ifelse(ret.adjusted.prices >=0, "Advance", "Decline"), ]
 a04all <- a04all [, above200ema := ifelse(price.close >= ema200, "Above_200ema", "Below_200ema"), ]
 
@@ -375,8 +383,22 @@ a04all <- a04all [, `:=` (max20 = roll_max(price.close, 20),
                           min10 = roll_max(price.close, 10), 
                           min20 = roll_max(price.close, 20)), by =.(ticker)]
 
-a04all <- a04all [, above55max := ifelse(price.close >= max55, "Above_55", ""), ]
-a04all <- a04all [, above20max := ifelse(price.close >= max20, "Above_20", ""), ]
+#############################################################################################
+#
+# https://stackoverflow.com/questions/36190503/running-sum-in-r-data-table/36190577
+# Add an indicator to get some ideas on how many days have passed by from the first instance
+# of recent past of high of 20 or high of 55 (in last 25 days)
+#
+# If the days are more than say 5 then do not take the trade as a breakout trade
+#
+#############################################################################################
+a04all <- a04all [, `:=`(above55max = ifelse(price.close >= max55, "Above_55", ""),
+                         above20max = ifelse(price.close >= max20, "Above_20", ""),
+                         above55max02 = ifelse(price.close >= max55, 1, 0),
+                         above20max02 = ifelse(price.close >= max20, 1, 0) ), ]
+
+a04all <- a04all [, `:=` (above55max02sum = Reduce(`+`, shift(above55max02, 0:24)), 
+                          above20max02sum = Reduce(`+`, shift(above20max02, 0:24)) ), by =.(ticker)]
 
 above55 <- a04all [ above55max == "Above_55" & above200ema == "Above_200ema" & 
                       ( (price.close > ema20) & (ema20 > ema50) & (ema50 > ema200)) ]
