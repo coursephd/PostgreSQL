@@ -507,4 +507,5 @@ p <- ggplot(turtle002 [ qudrant ==1 ], aes(monthweek, weekdayf, fill = n)) +
   labs(fill = "Number of trades in quadrant 1") 
 p
 
+library(plotly)
 ggplotly(p)
