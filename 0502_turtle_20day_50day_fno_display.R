@@ -140,8 +140,8 @@ a04all <- a04all [, `:=` (ema20 = ema(price.close, 20),
                           min10 = roll_max(price.close, 10), 
                           min20 = roll_max(price.close, 20) ), by =.(ticker)]
 
-a04all <- a04all [, above200ema := ifelse(price.close >= ema200, "Above_200ema", "Below_200ema"), ]
-a04all <- a04all [, `:=`(above55max = ifelse(price.close >= max55, "Above_55", ""),
+a04all <- a04all [, `:=`(above200ema = ifelse(price.close >= ema200, "Above_200ema", "Below_200ema"),
+                         above55max = ifelse(price.close >= max55, "Above_55", ""),
                          above20max = ifelse(price.close >= max20, "Above_20", ""),
                          above55max02 = ifelse(price.close >= max55, 1, 0),
                          above20max02 = ifelse(price.close >= max20, 1, 0),
@@ -204,6 +204,20 @@ p <- ggplot(turtle002 [ qudrant ==1 ], aes(monthweek, weekdayf, fill = n)) +
 p
 
 
+# Create a dataset based on the subset of the stocks
+# +/- 15 days
+
+filter01 <- unique( turtle001_all [, c("ticker", "ref.date", "signal", "totsignal"), ] )
+filter01 <- filter01 [, `:=` (stt = ref.date - 15, end = ref.date + 15), ]
+filter02 <- filter01 [, list(ticker = ticker, stt = stt, end = end,
+                             ref.date = anydate( seq (stt, end, by = "day") ) ), by =.(1:nrow(filter01))]
+
+a05all <- merge(x = a04all,
+                y = filter02,
+                by = c("ticker", "ref.date"),
+                all.y = TRUE)
+
+a05all <- na.omit(a05all)
 
 # https://community.rstudio.com/t/what-is-the-simplest-way-to-make-an-interactive-bar-plot-with-multiple-drop-down-filters-with-shiny-and-ggplot-combo/48917/2
 library(shiny)
@@ -309,8 +323,10 @@ server <- function(input, output, session) {
   
   # dateInput widget
   output$date <- renderUI({
-    maxDate <- as.Date(max(setdiff(my_dates, dates_disabled())),
-                       origin = "1970-01-01")
+    
+    data = turtle001_all [ ticker %in% c(input$selects) ]
+    
+    maxDate <- as.Date(max(setdiff(my_dates, dates_disabled())), origin = "1970-01-01")
     dateInput(input = "date", 
               label = "Select Date",
               min = min(my_dates),
