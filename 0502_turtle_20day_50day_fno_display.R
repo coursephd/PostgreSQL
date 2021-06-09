@@ -13,6 +13,8 @@ library(RCurl)
 library(lubridate)
 library(curl)
 library(reshape)
+library(ggplot2)
+library(plotly)
 
 options(scipen = 999)
 
@@ -179,7 +181,9 @@ turtle001_all <- rbindlist( list(turtle001_20, turtle001_20), idcol ="Condition"
 turtle001_all <- turtle001_all [, `:=`(signal = 1:.N, totsignal = .N), by =.(Condition, ticker)]
 
 # Check how many stocks appear on each day
-turtle002 <- turtle001_all [ticker %in% fno$SYMBOL02, .(n = uniqueN(ticker),
+# If fno subset is needed then include the following: 
+# ticker %in% fno$SYMBOL02
+turtle002 <- turtle001_all [, .(n = uniqueN(ticker),
                                                         stocks = paste(ticker, collapse = ",", sep = "") ), by = .(Condition, ref.date, qudrant)]
 
 # Based on the following page, the heatmap of trades is generated
@@ -209,7 +213,9 @@ p
 
 filter01 <- unique( turtle001_all [, c("ticker", "ref.date", "signal", "totsignal"), ] )
 filter01 <- filter01 [, `:=` (stt = ref.date - 15, end = ref.date + 15), ]
-filter02 <- filter01 [, list(ticker = ticker, stt = stt, end = end,
+filter02 <- filter01 [, list(ticker = ticker, stt = stt, end = end, 
+                             signal = signal, totsignal = totsignal,
+                             signaldt = ref.date, 
                              ref.date = anydate( seq (stt, end, by = "day") ) ), by =.(1:nrow(filter01))]
 
 a05all <- merge(x = a04all,
@@ -218,31 +224,34 @@ a05all <- merge(x = a04all,
                 all.y = TRUE)
 
 a05all <- na.omit(a05all)
+a05all <- a05all [, ticker02 := paste(ticker, ": ", signaldt, sep= ""), ]
+
+
+# Subset the data for last 30 days to see the current recos:
+a06all <- a05all [ ref.date >= Sys.Date() - 30]
 
 # https://community.rstudio.com/t/what-is-the-simplest-way-to-make-an-interactive-bar-plot-with-multiple-drop-down-filters-with-shiny-and-ggplot-combo/48917/2
 library(shiny)
 
-tickers <- unique(turtle001_all$ticker)
-dates <- unique(a05all$ref.date)
+tickers <- unique(a06all$ticker02)
+dates <- unique(a06all$ref.date)
 
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   {
     
-    uiOutput("secondSelection")
-    
   # Application title
-  titlePanel("Sample Drop Down"),
+  titlePanel("Sample Drop Down")
   
   # Sidebar with dropdown
   
   sidebarLayout(
     sidebarPanel(
-      selectInput(inputId = "selects", choices = tickers, label = "Select stocks", multiple = TRUE),
+      selectInput(inputId = "selects", choices = tickers, label = "Select stocks", multiple = TRUE)
       #selectInput(inputId = "selects2", choices = dates, label = "select dates", multiple = TRUE),
       
-      dateRangeInput("daterange1", "Date range:", start = min(dates), end = max(dates), min = min(dates), max = max(dates) )
+      #dateRangeInput("daterange1", "Date range:", start = min(dates), end = max(dates), min = min(dates), max = max(dates) )
     ),
     
     # Show a plot of the generated distribution
@@ -253,32 +262,21 @@ ui <- fluidPage(
   }
 )
 
-observe({
-  updateSelectInput(session, "User", choices = as.character(dat5[dat5$email==input$Select, date]))
-})
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-  
-  output$secondSelection <- renderUI({
-    selectInput("User", "Date:", choices = as.character(dat5[dat5$email==input$Select,"date"]))
-  })  
-  
-  output$Plot <- renderPlot({
+
+  output$Plot <- renderPlotly({
     
-    data = a04all [ ticker %in% c(input$selects) ]
-    #data02 = data & (ref.date >= input$daterange1[1] + 15 & ref.date <= input$daterange1[2] - 15) ] 
+    data = a06all [ ticker02 %in% c(input$selects) ]
     
-    p <- ggplot(
-      data, 
-      aes(x = jdk_rs55, y=jdk_momratio55, size = price.adjusted, colour = as.factor(qudrant)) ) +
-      geom_point(show.legend = FALSE, alpha = 0.7) +
-      scale_color_viridis_d() +
-      geom_vline(xintercept = 100) +
-      geom_hline(yintercept = 100) +
-      labs(x = "JdK RS-ratio", y = "JdK RS-momentum")
+    fig <- data %>% ggplot(x = ~ref.date, type="candlestick",
+                          open = ~price.open, close = ~price.close,
+                          high = ~price.high, low = ~price.low) 
+    fig <- fig %>% layout(title = "Basic Candlestick Chart")
     
-    p
+    fig
+    
   })
 }
 
@@ -286,7 +284,11 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 
 
-
+######################################################################
+#
+# End of program
+#
+######################################################################
 
 library(shiny)
 # Reprex: The actual implementation of this uses data from a file:
