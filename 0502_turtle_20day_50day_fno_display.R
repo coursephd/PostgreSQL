@@ -175,6 +175,9 @@ turtle001_50 <- a04all [ overalltrnd == 1 & above55max02 == 1 & above55max02sum 
 
 turtle001_all <- rbindlist( list(turtle001_20, turtle001_20), idcol ="Condition")
 
+# Create a counf of number signals per stock per condition
+turtle001_all <- turtle001_all [, `:=`(signal = 1:.N, totsignal = .N), by =.(Condition, ticker)]
+
 # Check how many stocks appear on each day
 turtle002 <- turtle001_all [ticker %in% fno$SYMBOL02, .(n = uniqueN(ticker),
                                                         stocks = paste(ticker, collapse = ",", sep = "") ), by = .(Condition, ref.date, qudrant)]
@@ -205,13 +208,16 @@ p
 # https://community.rstudio.com/t/what-is-the-simplest-way-to-make-an-interactive-bar-plot-with-multiple-drop-down-filters-with-shiny-and-ggplot-combo/48917/2
 library(shiny)
 
-tickers <- unique(a04all$ticker)
+tickers <- unique(turtle001_all$ticker)
 dates <- unique(a05all$ref.date)
 
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  
+  {
+    
+    uiOutput("secondSelection")
+    
   # Application title
   titlePanel("Sample Drop Down"),
   
@@ -230,16 +236,24 @@ ui <- fluidPage(
       plotOutput("Plot")
     )
   )
+  }
 )
 
-
+observe({
+  updateSelectInput(session, "User", choices = as.character(dat5[dat5$email==input$Select, date]))
+})
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
+  output$secondSelection <- renderUI({
+    selectInput("User", "Date:", choices = as.character(dat5[dat5$email==input$Select,"date"]))
+  })  
+  
   output$Plot <- renderPlot({
     
-    data = a05all [ ticker %in% c("TCS.NS", input$selects) & (ref.date >= input$daterange1[1] & ref.date >= input$daterange1[2]) ] 
+    data = a04all [ ticker %in% c(input$selects) ]
+    #data02 = data & (ref.date >= input$daterange1[1] + 15 & ref.date <= input$daterange1[2] - 15) ] 
     
     p <- ggplot(
       data, 
@@ -256,3 +270,70 @@ server <- function(input, output) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
+
+
+
+
+library(shiny)
+# Reprex: The actual implementation of this uses data from a file:
+#    1. Reads data file before ui and server are established
+#    2. Does a bunch of calculations
+#    3. Identifies dates that exist in data file
+#    4. The data file is getting updated in the background from another application.
+#    5. Allows user to click the button to update the data file. Reprex shows code
+#       that is used to update the date selector based on new data read. Dates are 
+#       random in reprex, but would come from data file in actual code.
+
+# Sample 3 dates and disable the rest - actual code reads data file here
+#   and parses out dates that exist in records
+
+my_dates <- seq(as.Date('2021-01-01'), as.Date('2021-01-31'), by = "day")
+date_choices <- sample(my_dates, 31-3)
+
+ui <- fluidPage(
+  uiOutput("date"), textOutput("disabled"),
+  actionButton("click", "Click Me")
+)
+
+#
+# https://stackoverflow.com/questions/65943772/no-datesdisabled-in-updatedateinput-in-r-shiny
+#
+#
+server <- function(input, output, session) {
+  dates_disabled <- reactiveVal(NULL)
+  
+  # Init 'dates_disabled()' once before Shiny flushes the reactive system with callback,
+  #   using date_choices that exist in original data set
+  
+  onFlush(fun = function () {dates_disabled(date_choices)}, once = TRUE)
+  
+  # dateInput widget
+  output$date <- renderUI({
+    maxDate <- as.Date(max(setdiff(my_dates, dates_disabled())),
+                       origin = "1970-01-01")
+    dateInput(input = "date", 
+              label = "Select Date",
+              min = min(my_dates),
+              max = max(my_dates),
+              value = maxDate,
+              datesdisabled = dates_disabled())
+  })
+  
+  # This output makes it easier to test if it works by showing the enabled dates
+  output$disabled <- renderPrint({
+    req(dates_disabled()) # only run this when 'dates_disabled' is initialized properly
+    Enabled <- as.Date(setdiff(seq(as.Date('2021-01-01'), as.Date('2021-01-31'), by = "day"), 
+                               dates_disabled()), 
+                       origin = '1970-01-01')
+    paste("Enabled:", paste(Enabled[order(Enabled)], collapse = ", "))
+  })
+  
+  # Set new datesdisabled on button click
+  #    Actual code would read updated data file and parse new dates
+  observeEvent(input$click, {
+    SelectedDates <- sample(my_dates, 31-3)
+    dates_disabled( SelectedDates )
+  })
+}
+
+shinyApp(ui, server)
