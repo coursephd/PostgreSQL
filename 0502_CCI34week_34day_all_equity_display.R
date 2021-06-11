@@ -95,9 +95,9 @@ a03all <- a03all [, `:=` (rs_sma55 = SMA(rs, 55), rs_ema55 = EMA(rs, 55),
                           rs_mean55 = runMean(rs, 55),
                           rs_sd55 = runSD(rs, 55) ), by =.(ticker)]
 
+#  prc_ema5m = EMA(price.adjusted, 5 * 21 ), prc_ema21m = EMA(price.adjusted, 21 * 21), prc_ema55m = EMA(price.adjusted, 55 * 21)
 a03all <- a03all [, `:=` (prc_ema5d = EMA(price.adjusted, 5), prc_ema21d = EMA(price.adjusted, 21), prc_ema55d = EMA(price.adjusted, 55), 
-                          prc_ema5w = EMA(price.adjusted, 5 * 4), prc_ema21w = EMA(price.adjusted, 21 * 4), prc_ema55w = EMA(price.adjusted, 55 * 4),
-                          prc_ema5m = EMA(price.adjusted, 5 * 21 ), prc_ema21m = EMA(price.adjusted, 21 * 21), prc_ema55m = EMA(price.adjusted, 55 * 21) ), 
+                          prc_ema5w = EMA(price.adjusted, 5 * 4), prc_ema21w = EMA(price.adjusted, 21 * 4), prc_ema55w = EMA(price.adjusted, 55 * 4) ), 
                   by =.(ticker)]
 
 a03all <- a03all [, jdk_rs55 := 100 + ((rs - rs_mean55)/rs_sd55) + 1, ]
@@ -172,18 +172,21 @@ cci_34w <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close")
 cci_34w <- cci_34w [, allrow := .I, ]
 setnames(cci_34w, "V1", "cci_34w")
 
-cci_34m <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close") ], n = 34 * 21) )
-cci_34m <- cci_34m [, allrow := .I, ]
-setnames(cci_34m, "V1", "cci_34m")
+#cci_34m <- as.data.table( CCI(a04all[, c("price.high","price.low","price.close") ], n = 34 * 21) )
+#cci_34m <- cci_34m [, allrow := .I, ]
+#setnames(cci_34m, "V1", "cci_34m")
+
+#a05all <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
+#                 list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
 
 a05all <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
-                 list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w, cci_34m) )
+                 list( a04all, cci_8d, cci_8w, cci_8m, cci_34d, cci_34w) )
 
 a05all <- a05all [, nrow := .I, by =.(ticker)]
 
 # To avoid any incorrect calculations explained above, remove certain number of rows
 
-a05all <- a05all [ nrow > 34 * 21]
+a05all <- a05all [ nrow > 170 ]
 
 # Create an indicator CCI (170) > 100 and CCI (34) > 125
 
@@ -205,21 +208,21 @@ a05all <- a05all [, `:=` (entrydt = shift(ref.date, n = 1, type = c("lead") ),
                           prcema55w = shift(prc_ema55w, n = 1, type = c("lead") ) ), by =.(ticker)]
 # get those dates = 1
 
-subs001 <- a05all [ , c("ref.date", "ticker", "rule001", "rule002", 
+subs001 <- a05all [ , c("ref.date", "ticker", "rule001", "rule002", "qudrant",
                         "cci_34w", "cci_34d", "volume", 
                         "price.high", "price.open", "price.low", "price.close"), ]
 
 subs001 <- a05all [ rule001 == 1 ]
 subs002 <- a05all [ rule002 == 1 ]
 
-subs003 <- rbind ( subs001 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d"), ],
-                   subs002 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d"), ])
+subs003 <- rbind ( subs001 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d", "qudrant"), ],
+                   subs002 [, c("ticker", "entrydt", "exitdt", "rule001", "rule002", "open", "close", "low", "high", "cci34w", "cci34d", "prcema21d", "prcema55d", "qudrant"), ])
 
 subs003 <- subs003 [ order(ticker, entrydt)]
 
 # Check how many stocks appear on each day
 subs001_chk <- subs001 [, .(n = uniqueN(ticker),
-                            stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date)]
+                            stocks = paste(ticker, collapse = ",", sep = "") ), by = .(ref.date, qudrant)]
 
 # Based on the following page, the heatmap of trades is generated
 # https://towardsdatascience.com/time-series-calendar-heatmaps-9f576578fcfe
@@ -231,7 +234,7 @@ subs001_chk <- subs001_chk [, yearmonth := factor(as.yearmon(ref.date)), ]
 subs001_chk <- subs001_chk [, week := as.numeric(format(ref.date,"%W")), ]
 subs001_chk <- subs001_chk [, monthweek := 1+week-min(week), by =.(yearmonth) ]
 
-subs001_chk <- subs001_chk [, ntrademonth := sum(n), by = .(Condition, yearmonth)]
+subs001_chk <- subs001_chk [, ntrademonth := sum(n), by = .(yearmonth)]
 
 p <- ggplot(subs001_chk [ qudrant ==1 ], aes(monthweek, weekdayf, fill = n)) + 
   geom_tile(colour = "white") + 
