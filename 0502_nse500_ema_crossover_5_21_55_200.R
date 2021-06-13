@@ -156,6 +156,15 @@ conf0001 <- conf0001 [, `:=` (crule001 = ifelse( (price.close > ema5 & ema5 > em
                               crule005 = ifelse( (price.close > ema55 & ema55 < ema55 * 1.02), 1, 0),
                               overalltrnd = ifelse(price.close >= ema5 & ema21 >= ema55 & ema55 >= ema200, 1, 0 )),]
 
+#
+# Check without comparing the price closing above all of the moving averages
+#
+
+conf0001 <- conf0001 [, `:=` (crule001 = ifelse( (ema5 / ema21) < 1.03, 1, 0),
+                              crule002 = ifelse( (ema21 / ema55) < 1.03, 1, 0),
+                              crule003 = ifelse( (ema5 / ema55) < 1.03, 1, 0),
+                              overalltrnd = ifelse(ema5 >= ema21 & ema21 >= ema55 & ema55 >= ema200, 1, 0 )),]
+
 conf0002 <- conf0001 [, c("allrow", "ref.date", "ticker", "price.open", "price.high", "price.low", "price.close", "volume",
                           "qudrant", "jdk_momratio55", "jdk_rs55", 
                           "ema5", "ema21", "ema55", "ema200", 
