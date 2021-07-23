@@ -11,6 +11,9 @@
 # This program is currently looking at only small cap
 # But need to add other funds to get the overall inputs and exits
 #
+# A write-up about FPI:
+# https://squareoff.in/tracking-fii-investment-in-indian-stock-market/
+#
 #####################################################################
 library(TTR)
 library(tidyquant)
@@ -100,6 +103,74 @@ all01 <- all01 [, perc_inflow := round(over_mn_lstmnth / over_mn * 100, 2), ]
 all01 <- all01 [ order(-over_mn, -overall, -quantity02)]
 
 all01 <- all01 [, -c("quantity", "unit"), ]
-all02 <- unique( all01 [ overall >0 & quantity02 > 0, c("stocks", "overall", "unit02", "over_mn", "over_mn_lstmnth", "perc_inflow"), ])
+all02 <- unique( all01 [ overall >0 & quantity02 > 0, c("stocks", "Sector", "overall", "unit02", "over_mn", "over_mn_lstmnth", "perc_inflow"), ])
 
 all02 <- all02 [order (-perc_inflow, -over_mn_lstmnth)]
+
+
+
+
+
+################################################
+#
+# Based on the % delivery and deliery volume
+# Try finding BIG money
+#
+# Multiply the delivery volume % to the hlc3 value 
+# This much money is still in the company for each day as the 
+# the stock has been taken home
+#
+# if (curl_fetch_memory('https://www1.nseindia.com/archives/equities/mto/MTO_01012016.DAT')$status_code == 200) {MTO_01012016 = fread('https://www1.nseindia.com/archives/equities/mto/MTO_01012016.DAT');MTO_01012016 = MTO_01012016[, date := 42370,]};
+# if (curl_fetch_memory('https://www1.nseindia.com/archives/equities/mto/MTO_02012016.DAT')$status_code == 200) {MTO_02012016 = fread('https://www1.nseindia.com/archives/equities/mto/MTO_02012016.DAT');MTO_02012016 = MTO_02012016[, date := 42371,]};
+#
+################################################
+
+step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0500_rakeshpujara_atmlong.xlsx", 2) )
+step002 <- step001 [Year4 >= 2019]
+step002 <- step002 [, del09 := paste(del08, "print ( anydate(step002$Date0) );", sep =" "), ]
+
+eval(parse(text = step002$del08))
+
+all01_del <- rbindlist(mget(ls(pattern = "MTO")), fill = TRUE, idcol = "Delivery")
+all01_del <- all01_del [, ref.date := dmy ( substr(Delivery, 5, 20) ), ]
+all01_del <- all01_del [ `Name of Security` == "EQ"]
+
+setnames(all01_del, "Sr No", "ticker")
+setnames(all01_del, "Deliverable Quantity(gross across client level)", "del_vol")
+setnames()
+
+all01_del <- all01_del [, ticker := paste(ticker, ".NS", sep=""), ]
+
+saveRDS (all01_del, "D:\\My-Shares\\analysis\\0502_delivery_volume.rds")
+
+rm(list = ls( pattern = "^MTO") )
+
+#
+# Only execute the following line when running the program half way through with the assumption that
+# the necessary data has been created earlier
+# Otherwise comment out the following line
+#
+all01_del <- readRDS("D:\\My-Shares\\analysis\\0502_delivery_volume.rds")
+
+all02 <- fread("D:\\My-Shares\\analysis\\0504_yahoo_amibroker_all_equity.csv")
+all02 <- all02 [, ref.date02 := ymd (ref.date), ]
+
+# Merge the datasets
+
+all03 <- merge(x = all01_del,
+               y = all02, 
+               by.x = c("ticker", "ref.date"),
+               by.y = c("ticker", "ref.date02"),
+               all.x = TRUE)
+
+#
+# Calculate the hlc3 value: a replacement for possible VWAP value
+# 
+all03 <- all03 [, hlc3 := (price.high + price.low + price.close) /3, ]
+all03 <- all03 [, in_out := ifelse(price.open > price.close, -1, 1), ]
+all03 <- all03 [, price_del := del_vol * hlc3 * in_out, ]
+all03 <- all03 [, price_intra := (volume - del_vol) * hlc3 * in_out, ]
+all03 <- all03 [, nrow_tick := .N, by = .(ticker) ]
+
+all04 <- all03 [ !is.na(price_del) & nrow_tick >= 15]
+all05 <- all04 [, pric_del_cum15 := runSum(price_del, 15), by = .(ticker)]
