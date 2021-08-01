@@ -62,6 +62,7 @@ all01 <- all01 [, Value_Mn := as.numeric(Value_Mn), ]
 all01 <- all01 [, stocks := case_when( substr(Stock_Invested_in, 1, 1) == "-" ~ substr(Stock_Invested_in, 3, 200),
                                        substr(Stock_Invested_in, 1, 1) == "#" ~ substr(Stock_Invested_in, 3, 200), 
                                        TRUE ~ Stock_Invested_in), ]
+all01 <- all01 [, stocks := trimws(stocks), ]
 all01 <- all01 [, c("quantity", "unit") := tstrsplit(`1M_Change_in_Qty`, " "), ]
 all01 <- all01 [, unit := ifelse(is.na(unit), "", unit), ]
 all01 <- all01 [, quantity := ifelse(is.na(quantity), 0, quantity), ]
@@ -91,7 +92,9 @@ all01 <- all01 [, tot_perc := round( Value_Mn / tot_value * 100, 2), ]
 
 # Overall inflows in a particular stock
 all01 <- all01 [, overall := sum(quantity02), by =.(stocks)]
-all01 <- all01 [, over_mn := sum( Value_Mn * multiply), by =.(stocks)]
+#all01 <- all01 [, over_mn := sum( Value_Mn * multiply), by =.(stocks)]
+# See if the multiplication by -1 should be done or not as % are coming more than 100
+all01 <- all01 [, over_mn := sum( Value_Mn ), by =.(stocks)]
 
 # Overall inflows in a particular stock in the last month
 all01 <- all01 [, overall_lstmnth := sum(quantity02), by =.(stocks, chg_mnth)]

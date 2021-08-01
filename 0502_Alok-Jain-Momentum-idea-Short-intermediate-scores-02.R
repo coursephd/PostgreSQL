@@ -32,7 +32,7 @@ future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 # cntrt02 <- cntrt [, `:=` (nrow = .I, SYMBOL02 = paste(SYMBOL, ".NS", sep="") ), ]
 # setnames(cntrt02, "ISIN NUMBER", "ISIN")
 
-cntrt <- fread('https://www1.nseindia.com/content/indices/ind_niftysmallcap100list.csv')
+cntrt <- fread('https://www1.nseindia.com/content/indices/ind_niftymidcap50list.csv')
 cntrt02 <- cntrt [, `:=` (nrow = .I, SYMBOL02 = paste(Symbol, ".NS", sep="") ), ]
 setnames(cntrt02, "ISIN Code", "ISIN")
 
