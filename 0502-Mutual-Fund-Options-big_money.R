@@ -45,7 +45,7 @@ future::plan(future::multisession, workers = floor(parallel::detectCores()/2 ))
 step001 <- data.table ( read.xlsx("D:\\My-Shares\\prgm\\0502-Mutual-Fund-Options.xlsx", 3) )
 step002 <- step001 [, var13exec := str_replace_all(var12exec, "&gt;", ">"), ]
 step002 <- step002 [ var05 != 25 ]
-eval(parse(text = step002$var13exec))
+eval(parse(text = step002 [var00 == "Small"]$var13exec))
 
 all01 <- rbindlist(mget(ls(pattern = "url_tbl")), fill = TRUE, idcol = "url_tbl")
 setnames(x=all01, old=names(all01), new=gsub(" ","_", names(all01)))
@@ -111,8 +111,42 @@ all02 <- unique( all01 [ overall >0 & quantity02 > 0, c("stocks", "Sector", "ove
 all02 <- all02 [order (-perc_inflow, -over_mn_lstmnth)]
 
 
+# Do the same with sector
+all01sec <- unique( all01 [, c("Sector", "chg_mnth", "over_mn", "Value_Mn",  
+                                "over_mn_lstmnth", "chg_mnth", "multiply",
+                                "quantity02", "unit02"), ] )
+
+all01sec <- all01sec [, Sector := trimws(Sector), ]
+
+all01sec <- all01sec [, sec_tot_value := sum(Value_Mn), by = .(Sector)]
+
+# Overall inflows in a particular stock
+all01sec <- all01sec [, sec_overall := sum(quantity02), by =.(Sector)]
+
+# See if the multiplication by -1 should be done or not as % are coming more than 100
+all01sec <- all01sec [, sec_over_mn := sum( over_mn ), by =.(Sector)]
 
 
+# Overall inflows in a particular stock in the last month
+all01sec <- all01sec [, sec_overall_lstmnth := sum(quantity02), by =.(Sector)]
+all01sec <- all01sec [, sec_over_mn_lstmnth := sum( Value_Mn * multiply), by =.(Sector)]
+
+# Compare the overall inflows in % for the last month
+all01sec <- all01sec [, sec_perc_inflow := round(sec_over_mn_lstmnth / sec_over_mn * 100, 2), ]
+
+all01sec <- all01sec [ order(-sec_over_mn, -sec_overall, -quantity02)]
+all02sec <- unique( all01sec [ , c( "Sector",  "sec_over_mn", "sec_over_mn_lstmnth", "sec_perc_inflow"), ])
+
+all02sec <- all02sec [order (-sec_over_mn_lstmnth, -sec_perc_inflow)]
+
+all02sec <- all02sec [, grand_tot := sum(sec_over_mn_lstmnth),]
+all02sec <- all02sec [, grand_perc := round(sec_over_mn_lstmnth / grand_tot * 100, 2), ]
+
+# Merge the stocks and sectors to understand the moving sectors and stocks
+
+all03 <- merge(x = all02,
+               y = all02sec, 
+               by = c ("Sector"))
 
 ################################################
 #
