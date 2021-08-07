@@ -15,6 +15,7 @@ library(curl)
 library(reshape)
 library(ggplot2)
 library(plotly)
+library(stringi)
 
 options(scipen = 999)
 
@@ -146,13 +147,24 @@ setnames(x=all01, old=names(all01), new=gsub(" ","",names(all01)))
 all01 <- all01 [, nrow := 1:.N, by = .(AnchorText)]
 all02 <- all01 [ nrow == 1]
 all02 <- all02 [, totrow := 1:.N, ]
+all02 <- all02 [, c("c1", "c2", "c3", "c4", "c5", "c6", "c7") := tstrsplit(Link, "/", fixed = TRUE), ]#str_locate_all(Link, "/"), ]
+all02 <- all02 [, link00 := paste(c1, "//", c3, "/", c4, "/", c6, "/portfolio-overview/", c7, sep=""), ]
 all02 <- all02 [, step001 := paste("url", totrow, sep ="" ), ]
 all02 <- all02 [, step001a := paste("url_tbl", totrow, sep ="" ), ]
-all02 <- all02 [, step002 := paste(step001, " = '", Link, "';", sep ="" ), ]
+all02 <- all02 [, step002 := paste(step001, " = '", link00, "';", sep ="" ), ]
 all02 <- all02 [, step003 := paste(step001, " = read_html(", step001, ");", sep ="" ), ]
-all02 <- all02 [, step004 := paste(step001a, " = ", step001, " %>% html('table') %>% html_table (fill = TRUE) %>% .[[5]];", sep = "")]
+all02 <- all02 [, step004 := paste(step001a, " = ", step001, " %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[5]];", sep = "")]
 all02 <- all02 [, step005 := paste(step001a, " = data.table(", step001a, ");", step="" ), ]
 all02 <- all02 [, step006 := paste("print (", totrow, ");", sep= ""), ]
 all02 <- all02 [, step007 := paste(step002, step003, step004, step005, step006, sep = " "), ]
 
-eval(parse(text = all02$step007))
+eval(parse(text = all02 [! stri_detect_fixed(tolower(AnchorText), "debt")]$step007 ))
+
+all02 [totrow ==8]$step007
+all02 [! stri_detect_fixed(tolower(AnchorText), "debt")]$step007
+
+url8 = 'https://www.moneycontrol.com/mutual-funds/axis-corporate-debt-fund-direct-plan/portfolio-overview/MAA718'; 
+url8 = read_html(url8); 
+url_tbl8 = url8 %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[5]]; 
+url_tbl8  = data.table( url_tbl8 );  
+print (8);
