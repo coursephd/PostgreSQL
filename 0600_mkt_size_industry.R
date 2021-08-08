@@ -151,20 +151,39 @@ all02 <- all02 [, c("c1", "c2", "c3", "c4", "c5", "c6", "c7") := tstrsplit(Link,
 all02 <- all02 [, link00 := paste(c1, "//", c3, "/", c4, "/", c6, "/portfolio-overview/", c7, sep=""), ]
 all02 <- all02 [, step001 := paste("url", totrow, sep ="" ), ]
 all02 <- all02 [, step001a := paste("url_tbl", totrow, sep ="" ), ]
+all02 <- all02 [, step001b := paste("act_tbl", totrow, sep ="" ), ]
 all02 <- all02 [, step002 := paste(step001, " = '", link00, "';", sep ="" ), ]
+all02 <- all02 [, step002a := paste("if (curl_fetch_memory('", link00, "')$status_code == 200) {", sep=""), ]
 all02 <- all02 [, step003 := paste(step001, " = read_html(", step001, ");", sep ="" ), ]
-all02 <- all02 [, step004 := paste(step001a, " = ", step001, " %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[5]];", sep = "")]
-all02 <- all02 [, step005 := paste(step001a, " = data.table(", step001a, ");", step="" ), ]
-all02 <- all02 [, step006 := paste("print (", totrow, ");", sep= ""), ]
-all02 <- all02 [, step007 := paste(step002, step003, step004, step005, step006, sep = " "), ]
+all02 <- all02 [, step004 := paste(step001a, " = ", step001, " %>% html_nodes('table') %>% html_table (fill = TRUE);", sep = "")]
+all02 <- all02 [, step005 := paste("if (length(", step001a, ") > 5) ", step001b, " = data.table(", step001a, "[[5]] );", step="" ), ]
+all02 <- all02 [, step006 := paste("print (", totrow, ");}", sep= ""), ]
+all02 <- all02 [, step007 := paste(step002, step002a, step003, step004, step005, step006, sep = " "), ]
 
-eval(parse(text = all02 [! stri_detect_fixed(tolower(AnchorText), "debt")]$step007 ))
+eval(parse(text = all02$step007 ))
 
-all02 [totrow ==8]$step007
+rm(list = ls( pattern = "^url") )
+
+all01act <- rbindlist(mget(ls(pattern = "act")), fill = TRUE, idcol = "file_act")
+rm(list = ls( pattern = "^act") )
+
+#eval(parse(text = all02 [! stri_detect_fixed(tolower(AnchorText), "debt")]$step007 ))
+
+url <- 'https://www.moneycontrol.com/mutual-funds/axis-healthcare-etf/portfolio-overview/MAA918'
+url2 <- 'https://www.moneycontrol.com/mutual-funds/axis-gold-fund-regular-plan/portfolio-overview/MAA124'
+
+curl_fetch_memory(url)$status_code
+curl_fetch_memory(url2)$status_code
+
+if (curl_fetch_memory('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip')$status_code == 200) download.file('https://www1.nseindia.com/content/indices/indices_dataJan2016.zip', 'D:\\My-Shares\\source-index-wgt\\42370_indices_dataJan2016.zip')
+
+
+all02 [totrow ==21]$step007
+
 all02 [! stri_detect_fixed(tolower(AnchorText), "debt")]$step007
 
-url8 = 'https://www.moneycontrol.com/mutual-funds/axis-corporate-debt-fund-direct-plan/portfolio-overview/MAA718'; 
+url8 = 'https://www.moneycontrol.com/mutual-funds/axis-corporate-debt-fund-direct-plan/portfolio-overview/MAA718';
 url8 = read_html(url8); 
-url_tbl8 = url8 %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[5]]; 
-url_tbl8  = data.table( url_tbl8 );  
+url_tbl8 = url8 %>% html_nodes('table') %>% html_table (fill = TRUE);
+if (length( url_tbl8 ) > 5)  url_tbl8  = data.table( url_tbl8 [[5]] );  
 print (8);
