@@ -170,12 +170,14 @@ data04 <- data04 [, range := case_when( numdays == 1 ~ 100,
                                         numdays >= 5 ~ 300), ]
 
 # Keep only records which fall in ce_strk + range and pe_strk - range
-data05ce <- data04 [ strikes02 <= ce_strk + range & strikes02 >= ce_strk ]
-data05pe <- data04 [ strikes02 >= pe_strk - range & strikes02 <= pe_strk ]
-
+data05ce <- data04 [ strikes02 <= ce_strk + range & strikes02 >= ce_strk & callput == "CE" ]
+data05pe <- data04 [ strikes02 >= pe_strk - range & strikes02 <= pe_strk & callput == "PE" ]
 data05cepe <- rbind(data05ce, data05pe)
 
-saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins.rds")
+data05cepe <- data05cepe [, ce_distance := strikes02 - ce_strk, ]
+data05cepe <- data05cepe [, pe_distance := strikes02 - pe_strk, ]
+
+saveRDS (data05cepe, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins_7days.rds")
 rm(data_opt2019)
 
  
