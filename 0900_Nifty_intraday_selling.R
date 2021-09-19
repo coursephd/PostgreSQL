@@ -67,3 +67,132 @@ data02 <- data02 [, `:=` (trdate = anydate(V2),
 data02 <- data02 [, `:=` (hgt = high - low,
                           ce_strk = ifelse(high < 10000, signif(high, 2), signif(high, 3) ),
                           pe_strk = ifelse(low < 10000, signif(low, 2), signif(low, 3) ) ),  ]
+
+saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty15mins.rds")
+rm(data)
+
+# Get the whole data for all the options:
+# this file may becom very large, need to see how to cut it to smaller size
+
+# First get the list of all txt files (including those in sub-folders)
+list_of_files_opt2019 <- list.files(path = "D:\\My-Shares\\Intraday-data-Nifty\\2019", recursive = TRUE,
+                            pattern = "alloptions.txt", 
+                            full.names = TRUE)
+
+# Read all the files and create a FileName column to store filenames
+data_opt2019 <- rbindlist(sapply(list_of_files_opt2019, fread, simplify = FALSE, header = FALSE, fill = TRUE),
+                  idcol = "FileName")
+
+data01_2019<- data_opt2019 [ V3 != "09:08"]
+data01_2019<- data01_2019[, row := 1:.N, by = .(V2)]
+data01_2019<- data01_2019[, row02 := ifelse(row > 15, row %% 15, row), ]
+data01_2019<- data01_2019[, row02 := ifelse(row02 == 0, 15, row02), ]
+data01_2019<- data01_2019[, group := ceiling (row / 15), ]
+
+# Calculate the OHLC values for 15 min blocks
+# Open = row =1 
+# Close = row = 15
+# Min = min (across all rows)
+# Max = max (across all rows)
+
+data01_2019<- data01_2019[, `:=` (open = ifelse(row02 == 1, V4, ""),
+                                  close = ifelse(row02 == 1, V7, "") ),]
+
+data01_2019<- data01_2019[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
+
+data02 <- data01_2019[ row02 == 1, -c("V4", "V5", "V6", "V7", "V8"), ]
+data02 <- data02 [, `:=` (trdate = anydate(V2),
+                          open = as.numeric(open), 
+                          close = as.numeric(close), 
+                          low = as.numeric(low), 
+                          high = as.numeric(high) ), ]
+###############################################
+#
+# Create expiry dates
+# Merge the dates back onto the whole file
+#
+###############################################
+
+file001 <- unique( data02 [ ,c ("FileName"), ])
+file001 <- file001 [, c("tmp001", "tmp002", "tmp003", "tmp004", "tmp005", "tmp006") := tstrsplit(FileName, "/"), ]
+file001 <- file001 [, c("dt01", "dt02", "dt03") := tstrsplit(tmp005, " "), ]
+file001 <- file001 [, expdt := anydate( paste( substr(dt02, 1, 2), dt03, tmp004 ) ), ]
+
+data02 <- merge (x = data02,
+                 y = file001 [, c("FileName", "expdt"), ],
+                 by = c("FileName"))
+
+# Calculate the days between trading days and the expiry day
+data02 <- data02 [, numdays := as.numeric(expdt - trdate + 1), ]
+
+saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins.rds")
+rm(data_opt2019)
+
+####################################
+#
+# Same calculations for 2021
+#
+####################################
+list_of_files_opt2021 <- list.files(path = "D:/My-Shares/Intraday-data-Nifty/2021", recursive = TRUE,
+                                    pattern = "alloptions.txt", 
+                                    full.names = TRUE)
+
+# Read all the files and create a FileName column to store filenames
+data_opt2021 <- rbindlist(sapply(list_of_files_opt2021, fread, simplify = FALSE, header = FALSE, fill = TRUE),
+                          idcol = "FileName")
+
+data01_2021<- data_opt2021 [ V3 != "09:08"]
+data01_2021<- data01_2021[, row := 1:.N, by = .(V2)]
+data01_2021<- data01_2021[, row02 := ifelse(row > 15, row %% 15, row), ]
+data01_2021<- data01_2021[, row02 := ifelse(row02 == 0, 15, row02), ]
+data01_2021<- data01_2021[, group := ceiling (row / 15), ]
+
+# Calculate the OHLC values for 15 min blocks
+# Open = row =1 
+# Close = row = 15
+# Min = min (across all rows)
+# Max = max (across all rows)
+
+data01_2021<- data01_2021[, `:=` (open = ifelse(row02 == 1, V4, ""),
+                                  close = ifelse(row02 == 1, V7, "") ),]
+
+data01_2021<- data01_2021[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
+
+data02 <- data01_2021[ row02 == 1, -c("V4", "V5", "V6", "V7", "V8"), ]
+data02 <- data02 [, `:=` (trdate = anydate(V2),
+                          open = as.numeric(open), 
+                          close = as.numeric(close), 
+                          low = as.numeric(low), 
+                          high = as.numeric(high) ), ]
+
+###############################################
+#
+# Create expiry dates
+# Merge the dates back onto the whole file
+#
+###############################################
+
+file001 <- unique( data02 [ ,c ("FileName"), ])
+file001 <- file001 [, c("tmp001", "tmp002", "tmp003", "tmp004", "tmp005", "tmp006") := tstrsplit(FileName, "/"), ]
+file001 <- file001 [, c("dt01", "dt02", "dt03") := tstrsplit(tmp005, " "), ]
+file001 <- file001 [, expdt := anydate( paste( substr(dt02, 1, 2), dt03, tmp004 ) ), ]
+
+data02 <- merge (x = data02,
+                 y = file001 [, c("FileName", "expdt"), ],
+                 by = c("FileName"))
+
+# Calculate the days between trading days and the expiry day
+data02 <- data02 [, numdays := as.numeric(expdt - trdate + 1), ]
+
+saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2021_15mins.rds")
+rm(data_opt2021)
+
+
+# Get the yearly, monthly, weekly, daily values:
+styrdate <- as.numeric(as.POSIXct("2019-01-01", format="%Y-%m-%d"))
+endaydate <- as.numeric(as.POSIXct("2019-04-22", format="%Y-%m-%d")) # Vinay update 9th Jan 2021
+
+url_19 <- paste('https://in.investing.com/indices/india-vix-historical-data?end_date=', endaydate, '&st_date=', styrdate, '&interval_sec=monthly&interval_sec=daily', sep=''); 
+url_19_html <- read_html(url_19); 
+url_19_whole  <- url_19_html  %>% html_nodes('table') %>% html_table(fill = TRUE) %>% .[[2]]; 
+url_19_whole  <- as.data.table(url_19_whole)
