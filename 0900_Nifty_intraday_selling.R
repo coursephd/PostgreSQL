@@ -42,6 +42,7 @@ data01 <- data01 [, row := 1:.N, by = .(V2)]
 data01 <- data01 [, row02 := ifelse(row > 15, row %% 15, row), ]
 data01 <- data01 [, row02 := ifelse(row02 == 0, 15, row02), ]
 data01 <- data01 [, group := ceiling (row / 15), ]
+data01 <- data01 [, maxgroup := max(group), by = .(FileName, V1, V2)]
 
 # Calculate the OHLC values for 15 min blocks
 # Open = row =1 
@@ -71,7 +72,7 @@ data02 <- data02 [, `:=` (hgt = high - low,
 data02spot <- data02
 
 saveRDS (data02spot, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty15mins.rds")
-rm(data)
+rm(data01)
 rm(data02)
 
 # Get the whole data for all the options:
@@ -92,6 +93,7 @@ data01_2019 <- data01_2019[, row := 1:.N, by = .(FileName, V1, V2)]
 data01_2019 <- data01_2019[, row02 := ifelse(row > 15, row %% 15, row), ]
 data01_2019 <- data01_2019[, row02 := ifelse(row02 == 0, 15, row02), ]
 data01_2019 <- data01_2019[, group := ceiling (row / 15), ]
+data01_2019 <- data01_2019[, maxgroup := max(group), by = .(FileName, V1, V2)]
 
 # Calculate the OHLC values for 15 min blocks
 # Open = row =1 
@@ -143,18 +145,42 @@ data02 <- data02 [, numdays := as.numeric(expdt - trdate + 1), ]
 # Merge the Spot data based on the dates
 
 data03 <- merge (x = data02, 
-                 y = data02spot [, c("group", "trdate", "open", "high", "low", "close", "ce_strk", "pe_strk"), ], 
-                 by = c ("group", "trdate"),
+                 y = data02spot [group == 2, c("trdate", "open", "high", "low", "close", "ce_strk", "pe_strk"), ], 
+                 by = c ("trdate"),
                  all.x = TRUE)
 
-chk <- data03 [ expdt == "2019-04-25"]
+# Keep only <= 7 days to expiry in the dataset
+data04 <- data03 [ numdays <= 7]
+data04 <- data04 [, strlen := str_length(V1), ]
+data04 <- data04 [, strikes02 := ifelse(strlen == 19, substr(V1, 13, 17), ""), ]
+data04 <- data04 [, strikes02 := ifelse(strlen <= 14, parse_number(V1), strikes02), ]
+data04 <- data04 [, strikes02 := as.numeric(strikes02), ]
+data04 <- data04 [, callput := case_when ( strlen ==8 ~ substr(V1, 1, 2), 
+                                           strlen > 8 ~ substr(V1, strlen -1, strlen),
+                                           TRUE ~ "Other"), ]
+
+# Keep +/- 300 on day 7
+# Keep +/- 250 on day 6
+# Keep +/- 200 on day 5
+
+data04 <- data04 [, range := case_when( numdays == 1 ~ 100,
+                                        numdays == 2 ~ 150,
+                                        numdays == 3 ~ 200,
+                                        numdays == 4 ~ 250,
+                                        numdays >= 5 ~ 300), ]
+
+# Keep only records which fall in ce_strk + range and pe_strk - range
+data05ce <- data04 [ strikes02 <= ce_strk + range & strikes02 >= ce_strk ]
+data05pe <- data04 [ strikes02 >= pe_strk - range & strikes02 <= pe_strk ]
+
+data05cepe <- rbind(data05ce, data05pe)
 
 saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins.rds")
 rm(data_opt2019)
 
-# Keep only <= 7 days to expiry in the dataset
+ 
 
-data03 <- data02 [ numdays <= 7]
+chk <- data04 [ expdt == "2019-12-26"]
 
 ####################################
 #
