@@ -68,14 +68,17 @@ data02 <- data02 [, `:=` (hgt = high - low,
                           ce_strk = ifelse(high < 10000, signif(high, 2), signif(high, 3) ),
                           pe_strk = ifelse(low < 10000, signif(low, 2), signif(low, 3) ) ),  ]
 
-saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty15mins.rds")
+data02spot <- data02
+
+saveRDS (data02spot, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty15mins.rds")
 rm(data)
+rm(data02)
 
 # Get the whole data for all the options:
 # this file may becom very large, need to see how to cut it to smaller size
 
 # First get the list of all txt files (including those in sub-folders)
-list_of_files_opt2019 <- list.files(path = "D:\\My-Shares\\Intraday-data-Nifty\\2019", recursive = TRUE,
+list_of_files_opt2019 <- list.files(path = "D:/My-Shares/Intraday-data-Nifty/2019", recursive = TRUE,
                             pattern = "alloptions.txt", 
                             full.names = TRUE)
 
@@ -83,11 +86,12 @@ list_of_files_opt2019 <- list.files(path = "D:\\My-Shares\\Intraday-data-Nifty\\
 data_opt2019 <- rbindlist(sapply(list_of_files_opt2019, fread, simplify = FALSE, header = FALSE, fill = TRUE),
                   idcol = "FileName")
 
-data01_2019<- data_opt2019 [ V3 != "09:08"]
-data01_2019<- data01_2019[, row := 1:.N, by = .(V2)]
-data01_2019<- data01_2019[, row02 := ifelse(row > 15, row %% 15, row), ]
-data01_2019<- data01_2019[, row02 := ifelse(row02 == 0, 15, row02), ]
-data01_2019<- data01_2019[, group := ceiling (row / 15), ]
+data01_2019 <- data_opt2019 [ V3 != "09:08"]
+data01_2019 <- unique( data01_2019 ) # To remove duplicate data, need to check if this is due to my programming
+data01_2019 <- data01_2019[, row := 1:.N, by = .(FileName, V1, V2)]
+data01_2019 <- data01_2019[, row02 := ifelse(row > 15, row %% 15, row), ]
+data01_2019 <- data01_2019[, row02 := ifelse(row02 == 0, 15, row02), ]
+data01_2019 <- data01_2019[, group := ceiling (row / 15), ]
 
 # Calculate the OHLC values for 15 min blocks
 # Open = row =1 
@@ -95,10 +99,10 @@ data01_2019<- data01_2019[, group := ceiling (row / 15), ]
 # Min = min (across all rows)
 # Max = max (across all rows)
 
-data01_2019<- data01_2019[, `:=` (open = ifelse(row02 == 1, V4, ""),
+data01_2019 <- data01_2019[, `:=` (open = ifelse(row02 == 1, V4, ""),
                                   close = ifelse(row02 == 1, V7, "") ),]
 
-data01_2019<- data01_2019[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
+data01_2019 <- data01_2019[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
 
 data02 <- data01_2019[ row02 == 1, -c("V4", "V5", "V6", "V7", "V8"), ]
 data02 <- data02 [, `:=` (trdate = anydate(V2),
@@ -106,6 +110,12 @@ data02 <- data02 [, `:=` (trdate = anydate(V2),
                           close = as.numeric(close), 
                           low = as.numeric(low), 
                           high = as.numeric(high) ), ]
+
+setnames (data02, "open", "open_opt")
+setnames (data02, "close", "close_opt")
+setnames (data02, "low", "low_opt")
+setnames (data02, "high", "high_opt")
+
 ###############################################
 #
 # Create expiry dates
@@ -115,6 +125,11 @@ data02 <- data02 [, `:=` (trdate = anydate(V2),
 
 file001 <- unique( data02 [ ,c ("FileName"), ])
 file001 <- file001 [, c("tmp001", "tmp002", "tmp003", "tmp004", "tmp005", "tmp006") := tstrsplit(FileName, "/"), ]
+file001 <- file001 [, tmp005 := str_replace(tmp005, "(Starting Week)", ""), ]
+file001 <- file001 [, tmp005 := str_replace(tmp005, "-General Elections Results Week", ""), ]
+file001 <- file001 [, tmp005 := str_replace(tmp005, "\\(", ""), ]
+file001 <- file001 [, tmp005 := str_replace(tmp005, "\\)", ""), ]
+
 file001 <- file001 [, c("dt01", "dt02", "dt03") := tstrsplit(tmp005, " "), ]
 file001 <- file001 [, expdt := anydate( paste( substr(dt02, 1, 2), dt03, tmp004 ) ), ]
 
@@ -125,8 +140,21 @@ data02 <- merge (x = data02,
 # Calculate the days between trading days and the expiry day
 data02 <- data02 [, numdays := as.numeric(expdt - trdate + 1), ]
 
+# Merge the Spot data based on the dates
+
+data03 <- merge (x = data02, 
+                 y = data02spot [, c("group", "trdate", "open", "high", "low", "close", "ce_strk", "pe_strk"), ], 
+                 by = c ("group", "trdate"),
+                 all.x = TRUE)
+
+chk <- data03 [ expdt == "2019-04-25"]
+
 saveRDS (data02, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins.rds")
 rm(data_opt2019)
+
+# Keep only <= 7 days to expiry in the dataset
+
+data03 <- data02 [ numdays <= 7]
 
 ####################################
 #
