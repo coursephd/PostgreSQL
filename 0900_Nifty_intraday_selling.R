@@ -53,7 +53,7 @@ data01 <- data01 [, maxgroup := max(group), by = .(FileName, V1, V2)]
 data01 <- data01 [, `:=` (open = ifelse(row02 == 1, V4, ""),
                           close = ifelse(row02 == 1, V7, "") ),]
 
-data01 <- data01 [, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
+data01 <- data01 [, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group, FileName)]
 
 data02 <- data01 [ row02 == 1, -c("V4", "V5", "V6", "V7", "V8", "V9"), ]
 data02 <- data02 [, `:=` (trdate = anydate(V2),
@@ -104,7 +104,7 @@ data01_2019 <- data01_2019[, maxgroup := max(group), by = .(FileName, V1, V2)]
 data01_2019 <- data01_2019[, `:=` (open = ifelse(row02 == 1, V4, ""),
                                   close = ifelse(row02 == 1, V7, "") ),]
 
-data01_2019 <- data01_2019[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group)]
+data01_2019 <- data01_2019[, `:=`(low = min(V6), high = max(V5)), by = .(V1, V2, group, FileName)]
 
 data02 <- data01_2019[ row02 == 1, -c("V4", "V5", "V6", "V7", "V8"), ]
 data02 <- data02 [, `:=` (trdate = anydate(V2),
@@ -178,7 +178,10 @@ data05cepe <- data05cepe [, ce_distance := strikes02 - ce_strk, ]
 data05cepe <- data05cepe [, pe_distance := strikes02 - pe_strk, ]
 
 saveRDS (data05cepe, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins_7days.rds")
+fwrite (data05cepe, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins_7days.csv")
 rm(data_opt2019)
+
+data05cepe <- readRDS("nifty_opt2019_15mins_7days.rds")
 
  
 
