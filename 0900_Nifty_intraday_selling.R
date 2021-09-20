@@ -186,8 +186,11 @@ data05cepe <- data05cepe [, stoploss := ifelse(group ==2, high_opt + 1, ""), ]
 data05cepe$sell[data05cepe$sell==""] <- NA
 data05cepe$stoploss[data05cepe$stoploss==""] <- NA
 
-data05cepe <- data05cepe [, sell02 := na.locf(sell, na.rm = F), by =.(trdate, FileName, V1, V2)]
-data05cepe <- data05cepe [, stoploss02 := na.locf(stoploss, na.rm = F), by =.(trdate, FileName, V1, V2)]
+data05cepe <- data05cepe [, sell := na.locf(sell, na.rm = F), by =.(trdate, FileName, V1, V2)]
+data05cepe <- data05cepe [, stoploss := na.locf(stoploss, na.rm = F), by =.(trdate, FileName, V1, V2)]
+
+# Check the risk reward
+data05cepe <- data05cepe [, risk := as.numeric(stoploss) - as.numeric(sell),]
 
 saveRDS (data05cepe, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins_7days.rds")
 fwrite (data05cepe, "D:\\My-Shares\\Intraday-data-Nifty\\source-nifty\\nifty_opt2019_15mins_7days.csv")
