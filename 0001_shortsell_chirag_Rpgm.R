@@ -35,4 +35,5 @@ eval(parse(text = step002$allsteps))
 # eval(parse(text = step002$unzip_excel)) # This was needed to unzip files as the pathname was incorrect
 
 # Use the Github bash and use the xlsx2csv command:
+# Be at the folder: /d/My-Shares/source-fno-csv
 ls -lt *.xlsx|head -n 20|grep "Oct 24"|awk '{print $9}'|tr -s "\\." " "|awk '{print "xlsx2csv", $1 ".xlsx >", $1 ".csv"}'|sh
