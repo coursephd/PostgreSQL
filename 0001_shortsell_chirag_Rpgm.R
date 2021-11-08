@@ -124,8 +124,8 @@ dt04 <- merge (x = dt02,
 # diff_prm > 0 is good
 #####################################################################
 
-dt04 <- dt04 [, diff_prm := org_sell - sumprm, ]
-dt04 <- dt04 [, diff_prm_perc := round( diff_prm / org_sell * 100, 2), ]
+dt04 <- dt04 [, diff_prm := as.numeric(ifelse(nrow >2, org_sell - sumprm, "")), ]
+dt04 <- dt04 [, diff_prm_perc := ifelse(nrow >2, round( diff_prm / org_sell * 100, 2), ""), ]
 
 
 dt05 <- unique (dt04 [, c("FileName", "trdate", "expdate", "ohlc02", "sumprm", "org_sell", "diff_prm", "diff_prm_perc"), ])
@@ -140,6 +140,36 @@ dt07 <- merge(x = DT,
 
 dt07 <- dt07 [, weekdays := weekdays(trdate), ]
 
+dt08 <- dt07 [ nrow > 2 ]
+dt08 <- dt08 [, nblck := .GRP, by = .(expdate)]
+
+
+# https://www.youtube.com/watch?v=ACdCQuQJxhU
+
+wb <- createWorkbook()
+addWorksheet(wb, "Sheet 1")
+
+writeData(wb, "Sheet 1", dt08)
+
+redstyle <- createStyle(fontColour = "#9c0006", bgFill = "#FFC7CE" ) 
+greenstyle <- createStyle(fontColour = "#006100", bgFill = "#C6EFCE")
+
+conditionalFormatting(wb, "Sheet 1",
+                      cols = 24:27,
+                      rows = 1: nrow(dt08)+1,
+                      rule = ">=0",
+                      style = greenstyle)
+
+conditionalFormatting(wb, "Sheet 1",
+                      cols = 24:27,
+                      rows = 1: nrow(dt08)+1,
+                      rule = "<0",
+                      style = redstyle)
+
+
+saveWorkbook(wb, "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx", TRUE)
+
+
 #write.xlsx(dt07 [, c("expdate", "trdate", "weekdays", "strike", "callput",
 #                     "open", "high", "low", "close", 
 #                     "org_sell_close", 
@@ -149,10 +179,10 @@ dt07 <- dt07 [, weekdays := weekdays(trdate), ]
 #           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_2pm/0001_shortsell_chirag_RpgmOutput.xlsx")
 
 
-write.xlsx(dt07 [, c("expdate", "trdate", "weekdays", "strike", "callput",
-                     "open", "high", "low", "close", 
-                     "org_sell_close", 
-                     "sumprm_open", "sumprm_close", "sumprm_hl", "sumprm_lh", 
-                     "diff_prm_open", "diff_prm_close", "diff_prm_hl", "diff_prm_lh",
-                     "diff_prm_perc_open", "diff_prm_perc_close", "diff_prm_perc_hl", "diff_prm_perc_lh")], 
-           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx")
+#write.xlsx(dt07 [, c("expdate", "trdate", "weekdays", "strike", "callput",
+#                     "open", "high", "low", "close", 
+#                     "org_sell_close", 
+#                     "sumprm_open", "sumprm_close", "sumprm_hl", "sumprm_lh", 
+#                     "diff_prm_open", "diff_prm_close", "diff_prm_hl", "diff_prm_lh",
+#                     "diff_prm_perc_open", "diff_prm_perc_close", "diff_prm_perc_hl", "diff_prm_perc_lh")], 
+#           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx")
