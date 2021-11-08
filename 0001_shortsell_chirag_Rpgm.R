@@ -27,9 +27,11 @@ future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
 
 step001 <- data.table ( read.xlsx("D:\\My-Shares\\Short-Sell-Chirag-Jain-Maths-teacher\\0001_shortsell_chirag.xlsx", 1) )
+step001 <- data.table ( read.xlsx("D:\\My-Shares\\Short-Sell-Chirag-Jain-Maths-teacher\\0001_shortsell_chirag.xlsx", 1) )
+
 step001 <- step001 [, trdate := anydate ( as.Date( Date0, origin = "1899-12-30" ) ), ]
 
-step002 <- step001 [ trdate >= "2021-10-05"]
+step002 <- step001 [ trdate >= "2021-10-25"]
 
 eval(parse(text = step002$allsteps))
 # eval(parse(text = step002$unzip_excel)) # This was needed to unzip files as the pathname was incorrect
@@ -39,11 +41,25 @@ eval(parse(text = step002$allsteps))
 ls -lt *.xlsx|head -n 20|grep "Oct 24"|awk '{print $9}'|tr -s "\\." " "|awk '{print "xlsx2csv", $1 ".xlsx >", $1 ".csv"}'|sh
 
 
+
+#####################################################################################################
+#
+# The program is executed on 2 different time points
+# 2:00 PM ATM: the data for 2:00 PM, ATM strike premium is not available.
+# Closeing ATM: to understand the real nature of the data, this ATM premiums are closely represented
+#
+#####################################################################################################
+
 # Run the grep commands from the excel file to create TXT files
 # BankNifty-Expiries-2018-2019-2020-2021.xlsx
 # Combine the txt files into a dataset
 
-list_of_files <- list.files(path = "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis", recursive = TRUE,
+#list_of_files <- list.files(path = "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_2pm", recursive = TRUE,
+#                            pattern = "\\.txt", 
+#                            full.names = TRUE)
+
+
+list_of_files <- list.files(path = "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close", recursive = TRUE,
                             pattern = "\\.txt", 
                             full.names = TRUE)
 
@@ -53,6 +69,7 @@ DT <- rbindlist(sapply(list_of_files, fread, simplify = FALSE),
 
 DT <- DT [, `:=` (trdate = anydate(V2), 
                   expdate = anydate(V4)),  ]
+DT <- unique(DT)
 
 DT <- DT [, nrow := 1:.N, by =.(FileName)]
 DT <- DT [, ngrp := uniqueN(trdate), by =.(FileName)]
@@ -65,6 +82,20 @@ setnames(DT, "V8", "high")
 setnames(DT, "V9", "low")
 setnames(DT, "V10", "close")
 
+#################################################################
+#
+# Remove some unwanted strikes which come into the TXT files
+# These would typically have < 2 rows
+#
+#################################################################
+DT <- DT [, n_str_row := max(.N), by = .(FileName, trdate, strike)]
+
+DT <- DT [ n_str_row >= 2]
+
+# Check if there are duplicated values
+
+DT0 <- DT [, dup := length(unique(DT)), by = .(V2, V3, V4, strike, callput, open, high, low, close)]
+
 dt02 <- melt(data = DT, 
              measure.vars = c("open", "high", "low", "close"), 
              variable.name = "ohlc")
@@ -75,7 +106,8 @@ dt02 <- dt02 [, ohlc02 := case_when( callput == "CE" & ohlc == "high" ~ "hl",
                                      callput == "PE" & ohlc == "high" ~ "lh",
                                      TRUE ~ as.character(ohlc)) , ]
  
-dt02 <- dt02 [, sumprm := sum(value), by =.(FileName, trdate, ohlc02, ngrp)]
+
+dt02 <- dt02 [, sumprm := sum(value), by =.(FileName, trdate, strike, ohlc02, ngrp)]
 
 # Find the originally sold premium
 dt03 <- unique(dt02 [ nrow ==1 & ohlc02 == "close" , c("FileName", "sumprm"), ] )
@@ -107,3 +139,20 @@ dt07 <- merge(x = DT,
               by = c("FileName", "trdate", "expdate"))
 
 dt07 <- dt07 [, weekdays := weekdays(trdate), ]
+
+#write.xlsx(dt07 [, c("expdate", "trdate", "weekdays", "strike", "callput",
+#                     "open", "high", "low", "close", 
+#                     "org_sell_close", 
+#                     "sumprm_open", "sumprm_close", "sumprm_hl", "sumprm_lh", 
+#                     "diff_prm_open", "diff_prm_close", "diff_prm_hl", "diff_prm_lh",
+#                     "diff_prm_perc_open", "diff_prm_perc_close", "diff_prm_perc_hl", "diff_prm_perc_lh")], 
+#           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_2pm/0001_shortsell_chirag_RpgmOutput.xlsx")
+
+
+write.xlsx(dt07 [, c("expdate", "trdate", "weekdays", "strike", "callput",
+                     "open", "high", "low", "close", 
+                     "org_sell_close", 
+                     "sumprm_open", "sumprm_close", "sumprm_hl", "sumprm_lh", 
+                     "diff_prm_open", "diff_prm_close", "diff_prm_hl", "diff_prm_lh",
+                     "diff_prm_perc_open", "diff_prm_perc_close", "diff_prm_perc_hl", "diff_prm_perc_lh")], 
+           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx")
