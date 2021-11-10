@@ -144,6 +144,30 @@ dt08 <- dt07 [ nrow > 2 ]
 dt08 <- dt08 [, nblck := .GRP, by = .(expdate)]
 
 
+# Get the calculations to understand how many times, the trades can get out in profit
+
+dt04 <- dt04 [, nblck := .GRP, by = .(expdate)]
+
+# Check for the profitability on each day to get a better idea
+# if the % reduction is >= 10 then consider that day as a success
+# Count the cumulative success for each type of exit
+
+prft001 <- unique( dt04 [ nrow > 2, c("nblck", "diff_prm_perc", "ohlc02", "trdate", "expdate"), ])
+prft001 <- prft001 [, exit := ifelse(diff_prm_perc >= 10, 1, 0), ]
+prft001 <- prft001 [, exit_cum := cumsum(exit), by =.(nblck, ohlc02)]
+prft001 <- prft001 [, max_exit_cum := max(exit_cum), by = .(nblck, ohlc02)]
+prft001 <- prft001 [, tottrd := max(nblck), ]
+
+# get the counts
+
+prft001_cnt <- prft001 [, .(loss = uniqueN(nblck)), by =.(tottrd, ohlc02, max_exit_cum)]
+
+prft002_cnt <- dcast(data = prft001_cnt, 
+                     tottrd + max_exit_cum ~ ohlc02, 
+                     value.var = c("loss"))
+
+################################################################################################################
+
 # https://www.youtube.com/watch?v=ACdCQuQJxhU
 
 wb <- createWorkbook()
@@ -166,6 +190,8 @@ conditionalFormatting(wb, "Sheet 1",
                       rule = "<0",
                       style = redstyle)
 
+freezePane(wb, "Sheet 1", firstActiveRow = 2, firstActiveCol = 3)
+addFilter(wb, "Sheet 1", row = 1, cols = 1:ncol(dt08))
 
 saveWorkbook(wb, "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx", TRUE)
 
