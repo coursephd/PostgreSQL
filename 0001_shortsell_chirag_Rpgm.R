@@ -27,19 +27,22 @@ future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
 
 step001 <- data.table ( read.xlsx("D:\\My-Shares\\Short-Sell-Chirag-Jain-Maths-teacher\\0001_shortsell_chirag.xlsx", 1) )
-step001 <- data.table ( read.xlsx("D:\\My-Shares\\Short-Sell-Chirag-Jain-Maths-teacher\\0001_shortsell_chirag.xlsx", 1) )
 
 step001 <- step001 [, trdate := anydate ( as.Date( Date0, origin = "1899-12-30" ) ), ]
 
-step002 <- step001 [ trdate >= "2021-10-25"]
+step002 <- step001 [ trdate >= "2021-10-28"] #[ trdate >= "2021-10-25"]
+
+# Data downloaded till  09-Nov-2021
+# Data is available till 09-Nov-2021: after that there is missing data for 3 days
 
 eval(parse(text = step002$allsteps))
 # eval(parse(text = step002$unzip_excel)) # This was needed to unzip files as the pathname was incorrect
 
 # Use the Github bash and use the xlsx2csv command:
 # Be at the folder: /d/My-Shares/source-fno-csv
-ls -lt *.xlsx|head -n 20|grep "Oct 24"|awk '{print $9}'|tr -s "\\." " "|awk '{print "xlsx2csv", $1 ".xlsx >", $1 ".csv"}'|sh
+ls -lt *.xlsx|head -n 20|grep "Nov 13"|awk '{print $9}'|tr -s "\\." " "|awk '{print "xlsx2csv", $1 ".xlsx >", $1 ".csv"}'|sh
 
+ls -lt *.xlsx|grep "Nov 13"|head -n 20||awk '{print $9}'|tr -s "\\." " "|awk '{print "xlsx2csv", $1 ".xlsx >", $1 ".csv"}'
 
 
 #####################################################################################################
@@ -153,7 +156,7 @@ dt04 <- dt04 [, nblck := .GRP, by = .(expdate)]
 # Count the cumulative success for each type of exit
 
 prft001 <- unique( dt04 [ nrow > 2, c("nblck", "diff_prm_perc", "ohlc02", "trdate", "expdate"), ])
-prft001 <- prft001 [, exit := ifelse(diff_prm_perc >= 10, 1, 0), ]
+prft001 <- prft001 [, exit := ifelse( as.numeric(diff_prm_perc) >= 9, 1, 0), ]
 prft001 <- prft001 [, exit_cum := cumsum(exit), by =.(nblck, ohlc02)]
 prft001 <- prft001 [, max_exit_cum := max(exit_cum), by = .(nblck, ohlc02)]
 prft001 <- prft001 [, tottrd := max(nblck), ]
@@ -212,3 +215,43 @@ saveWorkbook(wb, "D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_clo
 #                     "diff_prm_open", "diff_prm_close", "diff_prm_hl", "diff_prm_lh",
 #                     "diff_prm_perc_open", "diff_prm_perc_close", "diff_prm_perc_hl", "diff_prm_perc_lh")], 
 #           file ="D:/My-Shares/Short-Sell-Chirag-Jain-Maths-teacher/analysis_close/0001_shortsell_chirag_RpgmOutput_closeATM.xlsx")
+
+list_of_files2011 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2011", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2011 <- rbindlist(sapply(list_of_files2011, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2012 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2012", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2012 <- rbindlist(sapply(list_of_files2012, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2013 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2013", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2013 <- rbindlist(sapply(list_of_files2013, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2014 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2014", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2014 <- rbindlist(sapply(list_of_files2014, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2015 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2015", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2015 <- rbindlist(sapply(list_of_files2015, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2016 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2016", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2016 <- rbindlist(sapply(list_of_files2016, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2017 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2017", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2017 <- rbindlist(sapply(list_of_files2017, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2018 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2018", recursive = TRUE, pattern = "^op", full.names = TRUE)
+f <- function(x, pos) subset(x, SYMBOL %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2018 <- rbindlist(sapply(list_of_files2018, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2019 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2019", recursive = TRUE, pattern = "\\^combined|csv$", full.names = TRUE)
+f <- function(x, pos) subset(x, Symbol %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2019 <- rbindlist(sapply(list_of_files2019, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
+
+list_of_files2020 <- list.files(path = "D:\\My-Shares\\source-fno-csv\\2020", recursive = TRUE, pattern = "\\^combined|csv$", full.names = TRUE)
+f <- function(x, pos) subset(x, Symbol %in% c("BANKNIFTY", "NIFTY") )
+dt_chunk2020 <- rbindlist(sapply(list_of_files2020, read_csv_chunked, DataFrameCallback$new(f), simplify = FALSE))
