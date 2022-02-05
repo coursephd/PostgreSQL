@@ -69,7 +69,8 @@ handle_setheaders(h,
 #####;
 
 library(tidyverse)
-library(tidyquant)  
+library(tidyquant)
+library(data.table)
 
 dd01_2 <- fread("D:\\My-Shares\\Intraday-data\\2018\\2018 APR BNF.txt")
 
@@ -85,8 +86,22 @@ setnames(dd01_2, "V8", "volume")
 dd01_2 <- dd01_2 [, nrow := .I, ]
 dd01_2 <- dd01_2 [, subrow := 1:.N, by = .(trd)]
 
-ggplot(data = dd01_2, aes(x = subrow, y = close)) +
+p1 <- ggplot(data = dd01_2, aes(x = subrow, y = close)) +
   geom_candlestick(aes(open = open, high = high, low = low, close = close)) +
   labs(title = "BNF candlestick Chart", y = "Closing Price", x = "") + 
   facet_wrap(~ trd, ncol = 3, scale = "free_y") + 
   theme_tq()
+
+
+p1 <- ggplot(data = dd01_2, aes(x = subrow, y = close)) +
+  geom_candlestick(aes(open = open, high = high, low = low, close = close)) +
+  labs(title = "BNF candlestick Chart", y = "Closing Price", x = "")  + 
+  theme_tq()
+
+
+library(gganimate)
+
+p1.anim = p1 + transition_reveal(trd)
+
+anim_p1 = animate(p1.anim, fps = 10, start_pause = 2, end_pause = 5, rewind = FALSE,
+                  width = 800, height = 1000)

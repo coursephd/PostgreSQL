@@ -88,9 +88,9 @@ allfut0002 <- allfut0002 [, `:=`(up001 = ifelse( (ema_rsi3_green_c <= rsi9_black
                                          & ema_rsi3_green_c >= 50 & wma_rsi21_red_c >= 50, 1, 0),
                                  up002 = ifelse( (ema_rsi3_green_c > rsi9_black_c | wma_rsi21_red_c > rsi9_black_c) 
                                          & ema_rsi3_green_c < 50 & wma_rsi21_red_c < 50, 1, 0),
-                                 dwn001 = ifelse( (ema_rsi3_green_c > rsi9_black_c | wma_rsi21_red_c > rsi9_black_c) 
+                                 dwn001 = ifelse( (ema_rsi3_green_c >= rsi9_black_c | wma_rsi21_red_c >= rsi9_black_c) 
                                           & ema_rsi3_green_c >= 50 & wma_rsi21_red_c >= 50, 1, 0),
-                                 dwn002 = ifelse( (ema_rsi3_green_c <= rsi9_black_c | wma_rsi21_red_c <= rsi9_black_c) 
+                                 dwn002 = ifelse( (ema_rsi3_green_c < rsi9_black_c | wma_rsi21_red_c < rsi9_black_c) 
                                           & ema_rsi3_green_c < 50 & wma_rsi21_red_c < 50, 1, 0) ),]
 allfut0002 <- allfut0002 [, `:=`(all_up = up001 + up002, 
                                  all_dwn = dwn001 + dwn002), ]
