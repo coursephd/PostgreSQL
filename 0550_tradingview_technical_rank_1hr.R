@@ -42,30 +42,33 @@ options(future.rng.onMisuse="ignore")
 
 future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
-fno <- fread("https://archives.nseindia.com/content/fo/fo_mktlots.csv")
-fno <- fno [, c("SYMBOL"), ]
-fno <- fno [, `:=` (nrow = .I, SYMBOL02 = paste(SYMBOL, ".NS", sep="") ), ]
+###############################
+#
+# Python calculations
+#
+###############################
 
-a01nfity50 <-  BatchGetSymbols(
-  tickers = fno$SYMBOL02, 
-  first.date = Sys.Date() - 1000, #"2008-01-01", #Sys.Date() - 5000,
-  last.date = Sys.Date(),
-  thresh.bad.data = 0.75,
-  bench.ticker = "^NSEI",
-  type.return = "arit",
-  freq.data = "daily",
-  how.to.aggregate = "last",
-  do.complete.data = FALSE,
-  
-  do.fill.missing.prices = TRUE,
-  do.cache = TRUE,
-  cache.folder = file.path(tempdir(), "BGS_Cache"),
-  do.parallel = TRUE, # FALSE
-  be.quiet = FALSE
-)
+library(reticulate)
 
-all02 <- data.table(a01nfity50$df.tickers)
-all02 <- all02 [, trdate := anydate(ref.date), ]
+use_python("C:/ProgramData/Anaconda3", required = T)
+py_run_file("D:/My-Shares/prgm/0550_py_from_r_ranking.py")
+
+stock_final <- py$stock_final
+stock_final <- as.data.table(stock_final)
+stock_final <- stock_final [, trdtme := anytime(Datetime, tz ="IST"), ]
+stock_final <- stock_final [, trdate := anydate(Datetime), ]
+stock_final <- stock_final [ order(Name, trdtme) ]
+stock_final <- stock_final [, nrow := 1:.N, by = .(Name)]
+stock_final <- stock_final [, subrow := 1:.N, by = .(Name, trdate)]
+
+setnames(stock_final, "Open", "price.open")
+setnames(stock_final, "High", "price.high")
+setnames(stock_final, "Low", "price.low")
+setnames(stock_final, "Close", "price.close")
+setnames(stock_final, "Volume", "volume")
+setnames(stock_final, "Name", "ticker")
+
+all02 <- stock_final
 
 all02 <- all02 [ order(ticker, trdate)]
 all02 <- all02 [, allrow := .I, ]
@@ -101,8 +104,8 @@ all03 <- all03 [, `:=`(ma200 = SMA(price.close, 200),
                        ma12 = EMA(price.close, 12),
                        ma26 = EMA(price.close, 26)), by = .(ticker)]
 
-all03 <- all03 [, `:=`(longtermma = 0.30 * 100 * (price.close - ma200) / ma200,
-                       longtermroc = 0.30 * roc125,
+all03 <- all03 [, `:=`(longtermma = 0.3 * 100 * (price.close - ma200) / ma200,
+                       longtermroc = 0.3 * roc125,
                        midtermma = 0.15 * 100 * (price.close - ma50) / ma50,
                        midtermroc = 0.15  * roc20,
                        ppo = 100 * (ma12 - ma26) / ma26), ]
@@ -111,15 +114,15 @@ all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
 all03 <- all03 [, ppoHist := ppo - sig, ]
 all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 3), by = .(ticker)]
 all03 <- all03 [, stPpo := .05 * 100 * slope, ]
-#all03 <- all03 [, stRsi := .05 * RSI(price.close, 14), by = .(ticker)]
-all03 <- all03 [, stRsi := .05 * MFI(price.close, volume, 14), by = .(ticker)]
+#all03 <- all03 [, stRsi := .05 * RSI(price.close, 9), by = .(ticker)]
+all03 <- all03 [, stRsi := .05 * MFI(price.close, volume, 9), by = .(ticker)]
 
 all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi, 2), ]
 all03 <- all03 [, trank := as.numeric(trank), ]
 
 #all03 <- na.omit(all03)
-all03 <- all03 [ order(trdate, -trank)]
-all03 <- all03 [, nrank := 1:.N, by = .(trdate)]
+all03 <- all03 [ order(trdate, subrow, -trank)]
+all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
 
 # Count number of times the stock is in top 10 on a rolling basis of 10 days
 
@@ -134,21 +137,12 @@ all03 <- all03 [, `:=`(tw = price.high - pmax(price.open, price.close),
 all03 <- all03 [, vol_up := ifelse(price.open < price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
 all03 <- all03 [, vol_dwn := ifelse(price.open >= price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
 
+all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
+                    trdate + subrow ~ nrank,
+                    value.var = c("ticker02") )
 
-_rate(cond) => 0.5 * (tw + bw + (cond ? 2 * body : 0)) / (tw + bw + body) 
+all03_t1hr <- all03_t1hr [ order(-trdate, -subrow) ]
 
-volup =  volume * _rate(open <= close) 
-voldown = volume * _rate(open >= close)
-rate = linreg(volup - voldown, prd, 0)
-
-col = rate > 0 ? (falling(rate, 5) ? green : lime) : rate < 0 ? rising(rate, 5) ? maroon : red : na
-plot(rate, color = col, style = columns)
+#############################################################################
 
 
-all03_t <- dcast(data = all03 [ nrank <= 20 ] ,
-                 trdate ~ nrank,
-                 value.var = c("ticker02") )
-
-all03_t <- all03_t [ order(-trdate) ]
-
-##########################################################################################
