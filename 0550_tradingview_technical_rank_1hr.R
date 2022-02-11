@@ -74,12 +74,14 @@ all02 <- all02 [ order(ticker, trdate)]
 all02 <- all02 [, allrow := .I, ]
 all02 <- all02 [, nrow := 1:.N, by =.(ticker)]
 
+adx_n <- 14
+adx_dn = as.data.table( ADX(all02[,c("price.high","price.low","price.close"),], n = adx_n) )
+adx_dn <- adx_dn [, allrow := .I, ]
 
 roc_n <- 20
 roc_dn = as.data.table( ROC(all02$price.close, n = roc_n) )
 roc_dn <- roc_dn [, allrow := .I, ]
 setnames(roc_dn, "V1", "roc20")
-
 
 roc_n02 <- 125
 roc_dn02 = as.data.table( ROC(all02$price.close, n = roc_n02) )
@@ -88,7 +90,7 @@ setnames(roc_dn02, "V1", "roc125")
 
 
 all02 <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
-                list( all02, roc_dn, roc_dn02) )
+                list( all02, roc_dn, roc_dn02, adx_dn) )
 
 # Calculate the Bollinger band, the calculations are done over all the dataset
 # So the first n lines of the bollinger band calculations go wrong

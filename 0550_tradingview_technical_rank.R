@@ -134,7 +134,13 @@ all03 <- all03 [, `:=`(tw = price.high - pmax(price.open, price.close),
 all03 <- all03 [, vol_up := ifelse(price.open < price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
 all03 <- all03 [, vol_dwn := ifelse(price.open >= price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
 
+all03_t <- dcast(data = all03 [ nrank <= 20 ] ,
+                 trdate ~ nrank,
+                 value.var = c("ticker02") )
 
+all03_t <- all03_t [ order(-trdate) ]
+
+##########################################################################################
 _rate(cond) => 0.5 * (tw + bw + (cond ? 2 * body : 0)) / (tw + bw + body) 
 
 volup =  volume * _rate(open <= close) 
@@ -143,12 +149,3 @@ rate = linreg(volup - voldown, prd, 0)
 
 col = rate > 0 ? (falling(rate, 5) ? green : lime) : rate < 0 ? rising(rate, 5) ? maroon : red : na
 plot(rate, color = col, style = columns)
-
-
-all03_t <- dcast(data = all03 [ nrank <= 20 ] ,
-                 trdate ~ nrank,
-                 value.var = c("ticker02") )
-
-all03_t <- all03_t [ order(-trdate) ]
-
-##########################################################################################
