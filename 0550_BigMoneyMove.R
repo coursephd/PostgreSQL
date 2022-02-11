@@ -17,7 +17,8 @@
 #
 # FPI data:
 #  
-#  https://www.fpi.nsdl.co.in/web/Reports/FPI_Fortnightly_Selection.aspx
+# NSDL: https://www.fpi.nsdl.co.in/web/Reports/FPI_Fortnightly_Selection.aspx
+# CDSL: https://www.cdslindia.com/Publications/ForeignPortInvestor.html
 #
 # BSE list of securities, the file will have to be downloaded, cannot be read from the site:
 #  
@@ -25,6 +26,7 @@
 #
 # https://www1.nseindia.com/products/content/derivatives/equities/archieve_fo.htm
 #
+# 
 ###################################################################################################
 library(data.table)
 library(tidyverse)
@@ -185,3 +187,29 @@ do.call(file.remove, list(list.files(path = csvpath0, pattern = "^*.*xml$", full
 
 #saveRDS(dt_chunk, paste(csvpath, "source/dt_chunk2022.rds", sep="") )
 #fwrite(dt_chunk, paste(csvpath, "source/dt_chunk2022.csv", sep=""))
+
+library(xml2)
+library(rvest)
+
+URL <- "https://www.cdslindia.com/Publications/ForeignPortInvestor.html"
+
+pg <- read_html(URL)
+
+links <- data.table ( html_attr(html_nodes(pg, "a"), "href") )
+links <- links [, nrow := .I, ]
+links02 <- links [ str_detect(V1, "FortnightlySecWisePages")]
+links02 <- links02 [, V10 := str_replace_all(V1, "//", "/") , ]
+links02 <- links02 [, V2 := str_replace_all(V10, " ", "%20") , ]
+links02 <- links02 [, V3 :=  str_trim ( paste("https://www.cdslindia.com/", str_sub(V2, 4, length(V2) ), sep = "") ), ]
+links02 <- links02 [, c("t01", "t02", "t03", "t04", "t05") := tstrsplit(V10, "/"), ]
+links02 <- links02 [, temp001 := paste("url_", nrow, "_html", sep=""), ]
+links02 <- links02 [, temp002 := paste("url_", nrow, "_whole", sep=""), ]
+links02 <- links02 [, step001 := paste(temp001, " = read_html('", V3, "');", sep=""), ]
+links02 <- links02 [, step002 := paste(temp002, " = ", temp001, " %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[1]];", sep =""), ]
+links02 <- links02 [, step003 := paste(temp002, " = as.data.table(", temp002, ");", sep=""), ]
+links02 <- links02 [, step033 := paste(temp002, " = ", temp002, "[, dt := '", t05, "', ];", sep=""), ]
+links02 <- links02 [, step004 := paste(step001, step002, step003, step033, sep = " "), ]
+
+eval(parse(text = links02 [ nrow <= 36]$step004))
+
+fii_data <<- rbindlist(mget(ls(pattern = "whole$")), fill = TRUE, idcol = "file_del")  
