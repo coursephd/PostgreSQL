@@ -237,3 +237,39 @@ all08_t <- all08_t [, opportunity := case_when( nshares_trade >= nshares_trade10
                                                 nshares_trade < nshares_trade10ema & delperc >= delperc10ema ~ "^", 
                                                 delperc < delperc10ema ~ "-", 
                                                 TRUE ~ ""), ]
+
+# https://in.tradingview.com/script/f32HlgbI/
+
+all2021 <- all2021 [, totrow := .N, by = .(ticker)]
+all2021 <- all2021 [ totrow >= 20 ]
+all2021 <- all2021 [, avgprice := TOTTRDVAL / TOTTRDQTY, ]
+
+# // BUYING VOLUME AND SELLING VOLUME //
+# BV = iff( (high==low), 0, volume*(close-low)/(high-low))
+# SV = iff( (high==low), 0, volume*(high-close)/(high-low))
+# vol = iff(volume > 0, volume, 1)
+# TP = BV + SV
+
+all2021 <- all2021 [, BV := ifelse(HIGH == LOW, 0, TOTTRDQTY * (CLOSE - LOW) / (HIGH - LOW) ), ]
+all2021 <- all2021 [, SV := ifelse(HIGH == LOW, 0, TOTTRDQTY * (HIGH - CLOSE) / (HIGH - LOW) ), ]
+all2021 <- all2021 [, vol := ifelse(TOTTRDQTY > 0, TOTTRDQTY, 1 ), ]
+all2021 <- all2021 [, TP := BV + SV, ]
+
+# // RAW Pressure Volume Calculations
+all2021 <- all2021 [, BPV := BV / TP * vol, ]
+all2021 <- all2021 [, SPV := SV / TP * vol, ]
+all2021 <- all2021 [, TPV := BPV + SPV, ]
+
+# // Karthik Marar's Pressure Volume Normalized Version (XeL-MOD.)
+# VN = vol / ema(vol,20)
+# BPN = BV / ema(BV,20) * VN * 100
+# SPN = SV / ema(SV,20) * VN * 100
+# TPN = BPN + SPN
+
+all2021 <- all2021 [, VN := vol / EMA(vol,20), by = .(ticker)]
+all2021 <- all2021 [, BPN := BV / EMA(BV,20) * VN * 100, by = .(ticker)]
+all2021 <- all2021 [, SPN := SV / EMA(SV,20) * VN * 100, by = .(ticker)]
+all2021 <- all2021 [, TPN := BPN + SPN, by = .(ticker)]
+
+all2021 <- all2021 [, BuyVolumePercent := 100*BV/(BV+SV), ]
+all2021 <- all2021 [, SellVolumePercent := 100*SV/(BV+SV), ]
