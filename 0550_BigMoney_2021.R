@@ -273,3 +273,55 @@ all2021 <- all2021 [, TPN := BPN + SPN, by = .(ticker)]
 
 all2021 <- all2021 [, BuyVolumePercent := 100*BV/(BV+SV), ]
 all2021 <- all2021 [, SellVolumePercent := 100*SV/(BV+SV), ]
+
+
+
+##########################################
+#
+# FII data
+#
+##########################################
+
+
+library(xml2)
+library(rvest)
+
+URL <- "https://www.cdslindia.com/Publications/ForeignPortInvestor.html"
+
+pg <- read_html(URL)
+
+links <- data.table ( html_attr(html_nodes(pg, "a"), "href") )
+links <- links [, nrow := .I, ]
+links02 <- links [ str_detect(V1, "FortnightlySecWisePages")]
+links02 <- links02 [, V10 := str_replace_all(V1, "//", "/") , ]
+links02 <- links02 [, V2 := str_replace_all(V10, " ", "%20") , ]
+links02 <- links02 [, V3 :=  str_trim ( paste("https://www.cdslindia.com/", str_sub(V2, 4, length(V2) ), sep = "") ), ]
+links02 <- links02 [, c("t01", "t02", "t03", "t04", "t05") := tstrsplit(V10, "/"), ]
+links02 <- links02 [, temp001 := paste("url_", nrow, "_html", sep=""), ]
+links02 <- links02 [, temp002 := paste("url_", nrow, "_whole", sep=""), ]
+links02 <- links02 [, step001 := paste(temp001, " = read_html('", V3, "');", sep=""), ]
+links02 <- links02 [, step002 := paste(temp002, " = ", temp001, " %>% html_nodes('table') %>% html_table (fill = TRUE) %>% .[[1]];", sep =""), ]
+links02 <- links02 [, step003 := paste(temp002, " = as.data.table(", temp002, ");", sep=""), ]
+links02 <- links02 [, step033 := paste(temp002, " = ", temp002, "[, dt := '", t05, "', ];", sep=""), ]
+links02 <- links02 [, step034 := paste(temp002, " = ", temp002, "[, nrow := .I, ];", sep=""), ]
+links02 <- links02 [, step035 := paste(temp002, " = ", temp002, "[, drow :=", nrow, ", ];", sep=""), ]
+links02 <- links02 [, step004 := paste(step001, step002, step003, step033, step034, step035, sep = " "), ]
+
+eval(parse(text = links02 [ nrow <= 60]$step004))
+
+fii_data <- rbindlist(mget(ls(pattern = "whole$")), fill = TRUE, idcol = "file_del")  
+fii_data <- fii_data [, c("dt01", "dt02") := tstrsplit(dt, "\\."), ]
+fii_data <- fii_data [, dt01 := anydate(dt01), ]
+
+fii_data02 <- fii_data [, c("X1", "X2", "X37", "nrow", "drow", "dt01"), ]
+fii_data02 <- fii_data02 [, X37num := as.numeric( str_remove_all(X37, ",") ), ]
+
+
+
+eval(parse(text = links02 [ nrow == 50]$step004)) # runs
+eval(parse(text = links02 [ nrow == 51]$step004)) # runs
+eval(parse(text = links02 [ nrow == 52]$step004)) # runs
+eval(parse(text = links02 [ nrow == 53]$step004)) # runs
+eval(parse(text = links02 [ nrow == 54]$step004)) # runs
+eval(parse(text = links02 [ nrow == 55]$step004)) # runs
+
