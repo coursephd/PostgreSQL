@@ -106,8 +106,8 @@ all03 <- all03 [, `:=`(ma200 = SMA(price.close, 200),
                        ma12 = EMA(price.close, 12),
                        ma26 = EMA(price.close, 26)), by = .(ticker)]
 
-all03 <- all03 [, `:=`(longtermma = 0.3 * 100 * (price.close - ma200) / ma200,
-                       longtermroc = 0.3 * roc125,
+all03 <- all03 [, `:=`(longtermma = 0.2 * 100 * (price.close - ma200) / ma200,
+                       longtermroc = 0.2 * roc125,
                        midtermma = 0.15 * 100 * (price.close - ma50) / ma50,
                        midtermroc = 0.15  * roc20,
                        ppo = 100 * (ma12 - ma26) / ma26), ]
@@ -115,11 +115,12 @@ all03 <- all03 [, `:=`(longtermma = 0.3 * 100 * (price.close - ma200) / ma200,
 all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
 all03 <- all03 [, ppoHist := ppo - sig, ]
 all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 3), by = .(ticker)]
-all03 <- all03 [, stPpo := .05 * 100 * slope, ]
+all03 <- all03 [, stPpo := 0.1 * 100 * slope, ]
 #all03 <- all03 [, stRsi := .05 * RSI(price.close, 9), by = .(ticker)]
-all03 <- all03 [, stRsi := .05 * MFI(price.close, volume, 9), by = .(ticker)]
+all03 <- all03 [, stRsi := 0.1 * MFI(price.close, volume, 9), by = .(ticker)]
+all03 <- all03 [, stDlp := ifelse(DIp > 25 & DIp > DIn, 0.1 * DIp, 0),]
 
-all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi, 2), ]
+all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp, 2), ]
 all03 <- all03 [, trank := as.numeric(trank), ]
 
 #all03 <- na.omit(all03)
@@ -147,4 +148,45 @@ all03_t1hr <- all03_t1hr [ order(-trdate, -subrow) ]
 
 #############################################################################
 
+
+all2021 <- stock_final
+all2021 <- all2021 [, `:=`(TOTTRDQTY = volume, CLOSE = price.close, LOW = price.low, 
+                   HIGH = price.high, OPEN = price.open), ]
+
+all2021 <- all2021 [, totrow := .N, by = .(ticker)]
+all2021 <- all2021 [ totrow >= 20 ]
+#all2021 <- all2021 [, avgprice := TOTTRDVAL / TOTTRDQTY, ]
+
+# // BUYING VOLUME AND SELLING VOLUME //
+# BV = iff( (high==low), 0, volume*(close-low)/(high-low))
+# SV = iff( (high==low), 0, volume*(high-close)/(high-low))
+# vol = iff(volume > 0, volume, 1)
+# TP = BV + SV
+
+all2021 <- all2021 [, BV := ifelse(HIGH == LOW, 0, TOTTRDQTY * (CLOSE - LOW) / (HIGH - LOW) ), ]
+all2021 <- all2021 [, SV := ifelse(HIGH == LOW, 0, TOTTRDQTY * (HIGH - CLOSE) / (HIGH - LOW) ), ]
+all2021 <- all2021 [, vol := ifelse(TOTTRDQTY > 0, TOTTRDQTY, 1 ), ]
+all2021 <- all2021 [, TP := BV + SV, ]
+
+# // RAW Pressure Volume Calculations
+all2021 <- all2021 [, BPV := BV / TP * vol, ]
+all2021 <- all2021 [, SPV := SV / TP * vol, ]
+all2021 <- all2021 [, TPV := BPV + SPV, ]
+
+# // Karthik Marar's Pressure Volume Normalized Version (XeL-MOD.)
+# VN = vol / ema(vol,20)
+# BPN = BV / ema(BV,20) * VN * 100
+# SPN = SV / ema(SV,20) * VN * 100
+# TPN = BPN + SPN
+
+all2021 <- all2021 [, VN := vol / EMA(vol,20), by = .(ticker)]
+all2021 <- all2021 [, BPN := BV / EMA(BV,20) * VN * 100, by = .(ticker)]
+all2021 <- all2021 [, SPN := SV / EMA(SV,20) * VN * 100, by = .(ticker)]
+all2021 <- all2021 [, TPN := BPN + SPN, by = .(ticker)]
+
+all2021 <- all2021 [, BuyVolumePercent := 100*BV/(BV+SV), ]
+all2021 <- all2021 [, SellVolumePercent := 100*SV/(BV+SV), ]
+
+all2021_02 <- all2021 [ BuyVolumePercent > 0]
+all2021_02 <- all2021_02 [ order (Datetime, -BuyVolumePercent)]
 
