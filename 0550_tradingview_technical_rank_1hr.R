@@ -142,6 +142,7 @@ all03 <- all03 [, `:=`(tw = price.high - pmax(price.open, price.close),
 
 all03 <- all03 [, vol_up := ifelse(price.open < price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
 all03 <- all03 [, vol_dwn := ifelse(price.open >= price.close, volume * 0.5 * (tw + bw + 2 * body) / (tw + bw + body), volume * 0.5 * (tw + bw) / (tw + bw + body) ), ]
+all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
 
 all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
                     trdate + subrow ~ nrank,
