@@ -145,6 +145,8 @@ setnames(roc_dn02, "V1", "roc125")
 all02 <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
                 list( all02, roc_dn, roc_dn02, adx_dn) )
 
+rm(roc_dn, roc_dn02, adx_dn)
+
 # Calculate the Bollinger band, the calculations are done over all the dataset
 # So the first n lines of the bollinger band calculations go wrong
 # as the data from previous company is carried forward
@@ -165,12 +167,12 @@ all03 <- all03 [, `:=`(longtermma = 0.15 * 100 * (price.close - ma200) / ma200,
                        midtermroc = 0.125  * roc20,
                        ppo = 100 * (ma12 - ma26) / ma26), ]
 
-all03 <- all03 [, `:=`(ma10 = EMA(price.close, 10),
-                       ma21 = EMA(price.close, 21),
+all03 <- all03 [, `:=`(ema13 = EMA(price.close, 13),
+                       ema21 = EMA(price.close, 21),
                        mfi09 = MFI(price.close, volume, 9)), by = .(ticker)]
 
 #all03 <- na.omit(all03)
-#all03 <- all03 [, wma21mfi09 := WMA(mfi09, 21), by = .(ticker)]
+all03 <- all03 [, wma21mfi09 := WMA(mfi09, 21), by = .(ticker)]
 all03 <- all03 [, subrow01 := 1:.N, by = .(ticker, trdate)]
 all03 <- all03 [, vwap := VWAP (price.close, volume, n = subrow01), by = .(ticker, trdate)]
 
@@ -216,3 +218,28 @@ fwrite(all03_t1hr, "D:\\My-Shares\\analysis\\rerun_5min_new.csv")
 
 end_time <- Sys.time()
 end_time - start_time
+
+
+
+all04 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
+                         up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
+                         up_adx = ifelse(DIp >= 25, 1, 0),
+                         up_ema = ifelse(ema13 >= ema21, 1, 0), 
+                         up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
+
+all04 <- all04 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+all04 <- all04 [, `:=` (grp_st = rleid(SUPERTd_20_2.7),
+                        grp_mfi = rleid(up_mfi),
+                        grp_adx = rleid(up_adx),
+                        grp_ema = rleid(up_ema),
+                        grp_vwap = rleid(up_vwap)),  by = .(ticker)]
+
+
+all04 <- all04 [, rows_st := 1:.N, by = .(ticker, grp_st)]
+all04 <- all04 [, rows_mfi := 1:.N, by = .(ticker, grp_mfi)]
+all04 <- all04 [, rows_adx := 1:.N, by = .(ticker, grp_adx)]
+all04 <- all04 [, rows_ema := 1:.N, by = .(ticker, grp_ema)]
+all04 <- all04 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
+
+chk <- all04 [trdate >= Sys.Date() - 2, .(n = uniqueN(ticker),
+                                          ncomp = paste(ticker, collapse =",", sep="") ), by =.(trdtme, subrow01, up_tot, up_st)]
