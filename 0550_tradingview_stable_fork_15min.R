@@ -52,7 +52,7 @@ library(reticulate)
 
 start_time <- Sys.time()
 
-use_python("C:/ProgramData/Anaconda3", required = T)
+use_python("C:/ProgramData/Anaconda3/python.exe", required = T)
 #py_run_file("D:/My-Shares/prgm/0550_py_from_r_ranking.py")
 
 # Get the source data from yahoo finance, 
@@ -68,12 +68,15 @@ start_time <- Sys.time()
 
 data <- fread("D:/My-Shares/analysis/0550_data.csv")
 data <- data [, nrow := 1:.N, ]
+data <- data [, x := 1, ]
 
 data02 <- data [ nrow <= 2]
 data02_t <- melt(data = data02, 
-                 measure.vars = c( names(data02)))
+                 id.vars = c("x"), 
+                 measure.vars = c( names(data02[, -c("x"), ] ) ) )
 
-data02_t <- data02_t [, .(value02 = paste(value, collapse = "_", sep="") ), by =.(variable)]
+data02_t <- as.data.table( data02_t)
+data02_t <- data02_t [, .(value02 = paste(value, collapse = "_", sep="") ), by = .(variable) ]
 data02_t <- data02_t [, c("ticker", "temp") := tstrsplit(value02, "_"), ]
 data02_t <- data02_t [, value02 := ifelse(value02 == "_", "Datetime", value02), ]
 data02_t <- data02_t [, value02 := str_replace(value02, " ", "_"), ]
@@ -87,10 +90,11 @@ data03 <- data [ nrow >= 4]
 data03_t <- melt(data = data03,
                  id.vars = c("Datetime", "nrow"),
                  measure.vars = c( names(data03 [, -c("Datetime", "nrow"), ] ) ) )
+data03_t <- as.data.table( data03_t)
 
 data03_t <- data03_t [, c("Name", "ohlcv", "tmp") := tstrsplit(variable, "_"), ]
 
-stock_final <- dcast(data = data03_t,
+stock_final <- dcast(data = data03_t [, -c("tmp"), ],
                      Datetime + nrow + Name ~ ohlcv, 
                      value.var = c("value") )
 
@@ -108,7 +112,7 @@ setnames(stock_final, "Close", "price.close")
 setnames(stock_final, "Volume", "volume")
 setnames(stock_final, "Name", "ticker")
 
-all02 <- stock_final
+all02 <- stock_final [, -c("NA"), ]
 all02 <- all02 [, `:=`(price.open = as.numeric(price.open), 
                        price.high = as.numeric(price.high), 
                        price.low = as.numeric(price.low), 
