@@ -174,7 +174,14 @@ all03 <- all03 [, `:=`(ema13 = EMA(price.close, 13),
 #all03 <- na.omit(all03)
 all03 <- all03 [, wma21mfi09 := WMA(mfi09, 21), by = .(ticker)]
 all03 <- all03 [, subrow01 := 1:.N, by = .(ticker, trdate)]
-all03 <- all03 [, vwap := VWAP (price.close, volume, n = subrow01), by = .(ticker, trdate)]
+all03 <- all03 [, hlc3 := (price.high + price.low + price.close)/3,]
+
+# Some problems with how VWAP is calculated
+#all03 <- all03 [, vwap := VWAP (hlc3, volume, n = subrow01), by = .(ticker, trdate)]
+all03 <- all03 [, stp001_c := hlc3 * volume, ]
+all03 <- all03 [, stp002_c := cumsum(stp001_c), by = .(ticker, trdate)]
+all03 <- all03 [, stp003_c := cumsum(volume), by = .(ticker, trdate)]
+all03 <- all03 [, vwap := stp002_c / stp003_c,]
 
 all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
 all03 <- all03 [, ppoHist := ppo - sig, ]
@@ -197,7 +204,6 @@ all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
 all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
 all03 <- all03 [, trank := as.numeric(trank), ]
 
-#all03 <- na.omit(all03)
 all03 <- all03 [ order(trdate, subrow, -trank)]
 all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
 
