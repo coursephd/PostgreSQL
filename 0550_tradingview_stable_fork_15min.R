@@ -390,9 +390,87 @@ trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row",
 #
 ########################################################################################################
 
+#
+#
+# Get the Fibo calculations based on the previous day
+#
+#
 
 
+fno <- fread("https://archives.nseindia.com/content/fo/fo_mktlots.csv")
+fno <- fno [, c("SYMBOL"), ]
+fno <- fno [, `:=` (nrow = .I, SYMBOL02 = paste(SYMBOL, ".NS", sep="") ), ]
 
+a01nfity50 <-  BatchGetSymbols(
+  tickers = fno$SYMBOL02, 
+  first.date = Sys.Date() - 30, #"2008-01-01", #Sys.Date() - 5000,
+  last.date = Sys.Date(),
+  thresh.bad.data = 0.75,
+  bench.ticker = "^NSEI",
+  type.return = "arit",
+  freq.data = "daily",
+  how.to.aggregate = "last",
+  do.complete.data = FALSE,
+  
+  do.fill.missing.prices = TRUE,
+  do.cache = TRUE,
+  cache.folder = file.path(tempdir(), "BGS_Cache"),
+  do.parallel = TRUE, # FALSE
+  be.quiet = FALSE
+)
+
+all02 <- data.table(a01nfity50$df.tickers)
+all02 <- all02 [, trdate := anydate(ref.date), ]
+
+all02 <- all02 [ order(ticker, trdate)]
+all02 <- all02 [, allrow := .I, ]
+all02 <- all02 [, nrow := 1:.N, by =.(ticker)]
+
+all02 <- all02 [, vPP := as.numeric(round(price.high + price.low + price.close/ 3, 2) ), ]
+all02 <- all02 [, `:=`(phigh = shift(price.high, n =1, type = c("lag")), 
+                       plow = shift(price.low, n =1, type = c("lag")) ), by =.(ticker)]
+
+all02 <- all02 [, `:=`(vR0 = vPP + (phigh - plow) * 0,
+                       vS0 = vPP - (phigh - plow) * 0,
+                       
+                       vR0236 = vPP + (phigh - plow) * 0.236,
+                       vS0236 = vPP - (phigh - plow) * 0.236,
+                       
+                       vR0382 = vPP + (phigh - plow) * 0.382,
+                       vS0382 = vPP - (phigh - plow) * 0.382,
+                       
+                       vR05 = vPP + (phigh - plow) * 0.5,
+                       vS05 = vPP - (phigh - plow) * 0.5,
+                       
+                       vR0618 = vPP + (phigh - plow) * 0.618,
+                       vS0618 = vPP - (phigh - plow) * 0.618,
+                       
+                       vR0786 = vPP + (phigh - plow) * 0.786,
+                       vS0786 = vPP - (phigh - plow) * 0.786,
+                       
+                       vR1 = vPP + (phigh - plow) * 01,
+                       vS1 = vPP - (phigh - plow) * 01,
+                       
+                       vR1272 = vPP + (phigh - plow) * 1.272,
+                       vS1272 = vPP - (phigh - plow) * 1.272,
+                       
+                       vR1414 = vPP + (phigh - plow) * 1.414,
+                       vS1414 = vPP - (phigh - plow) * 1.414,
+                       
+                       vR1618 = vPP + (phigh - plow) * 1.618,
+                       vS1618 = vPP - (phigh - plow) * 1.618,
+                       
+                       vR2618 = vPP + (phigh - plow) * 2.618,
+                       vS2618 = vPP - (phigh - plow) * 2.618), ]
+
+
+########################################################################################################
+#
+#
+# End of program
+#
+#
+########################################################################################################
 
 
 
