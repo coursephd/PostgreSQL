@@ -201,8 +201,22 @@ py_run_file("D:/My-Shares/prgm/0550_yh_stock_part02_5min_supertrend.py")
 all03 <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
 all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
 
+####################
+#
+# Added new concept
+#
+####################
+
+all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
+                         up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
+                         up_adx = ifelse(DIp >= 25, 1, 0),
+                         up_ema = ifelse(ema13 >= ema21, 1, 0), 
+                         up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
+
+all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+
 all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
-all03 <- all03 [, trank := as.numeric(trank), ]
+all03 <- all03 [, trank := as.numeric(trank) * up_tot, ]
 
 all03 <- all03 [ order(trdate, subrow, -trank)]
 all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
@@ -224,6 +238,163 @@ fwrite(all03_t1hr, "D:\\My-Shares\\analysis\\rerun_5min_new.csv")
 
 end_time <- Sys.time()
 end_time - start_time
+
+#===============================
+#
+# New concept
+#
+# Subset for ST and ADX
+#===============================
+
+all03 <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
+all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
+
+all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
+                         up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
+                         up_adx = ifelse(DIp >= 25, 1, 0),
+                         up_ema = ifelse(ema13 >= ema21, 1, 0), 
+                         up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
+
+all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+all03 <- all03 [, `:=` (grp_st = rleid(SUPERTd_20_2.7),
+                        grp_mfi = rleid(up_mfi),
+                        grp_adx = rleid(up_adx),
+                        grp_ema = rleid(up_ema),
+                        grp_vwap = rleid(up_vwap)),  by = .(ticker)]
+
+all03 <- all03 [, rows_st := 1:.N, by = .(ticker, grp_st)]
+all03 <- all03 [, rows_mfi := 1:.N, by = .(ticker, grp_mfi)]
+all03 <- all03 [, rows_adx := 1:.N, by = .(ticker, grp_adx)]
+all03 <- all03 [, rows_ema := 1:.N, by = .(ticker, grp_ema)]
+all03 <- all03 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
+
+all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+
+all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
+all03 <- all03 [, trank := as.numeric(trank) * up_tot, ]
+
+
+#################################################
+#
+# New addition for ST in uptrend and adx positive
+#
+#################################################
+all03 <- all03 [ up_st == 1 & up_adx == 1]
+
+all03 <- all03 [ order(trdate, subrow, -trank)]
+all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
+
+# Count number of times the stock is in top 10 on a rolling basis of 10 days
+
+all03 <- all03 [, top10 := ifelse(nrank <= 10, 1, 0), ]
+all03 <- all03 [, cumtop10 :=runSum(top10, n = 15 ), by =.(ticker) ]
+all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st =", rows_st, ",rows_adx =", rows_adx, sep=""), ]
+all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
+
+all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
+                    trdate + subrow + subrow02 ~ nrank,
+                    value.var = c("ticker02") )
+
+all03_t1hr <- all03_t1hr [ order(-trdate, -subrow) ]
+
+fwrite(all03_t1hr, "D:\\My-Shares\\analysis\\rerun_5min_new.csv")
+
+end_time <- Sys.time()
+end_time - start_time
+##################################################################################################
+#
+#
+# For trade management
+#
+#
+###################################################################################################
+
+all03 <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
+all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
+
+all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
+                         up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
+                         up_adx = ifelse(DIp >= 25, 1, 0),
+                         up_ema = ifelse(ema13 >= ema21, 1, 0), 
+                         up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
+
+all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+all03 <- all03 [, `:=` (grp_st = rleid(SUPERTd_20_2.7),
+                        grp_mfi = rleid(up_mfi),
+                        grp_adx = rleid(up_adx),
+                        grp_ema = rleid(up_ema),
+                        grp_vwap = rleid(up_vwap)),  by = .(ticker)]
+
+all03 <- all03 [, rows_st := 1:.N, by = .(ticker, grp_st)]
+all03 <- all03 [, rows_mfi := 1:.N, by = .(ticker, grp_mfi)]
+all03 <- all03 [, rows_adx := 1:.N, by = .(ticker, grp_adx)]
+all03 <- all03 [, rows_ema := 1:.N, by = .(ticker, grp_ema)]
+all03 <- all03 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
+
+all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+
+all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
+all03 <- all03 [, trank := as.numeric(trank) * up_tot, ]
+
+
+#################################################
+#
+# New addition for ST in uptrend and adx positive
+#
+#################################################
+#all03 <- all03 [ up_st == 1 & up_adx == 1]
+
+all03 <- all03 [ order(trdate, subrow, -trank)]
+all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
+
+# Count number of times the stock is in top 10 on a rolling basis of 10 days
+
+all03 <- all03 [, top10 := ifelse(nrank <= 10, 1, 0), ]
+all03 <- all03 [, cumtop10 :=runSum(top10, n = 15 ), by =.(ticker) ]
+all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st =", rows_st, ",rows_adx =", rows_adx, sep=""), ]
+all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
+
+trial001 <- copy(all03)
+trial001 <- trial001 [ trdate == "2022-04-01"]
+
+output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
+output <- output [, subset := 1:.N, by =.(ticker, trdate)]
+
+output02 <- output [ subset == 1]
+output02 <- output02 [, c("ticker", "trdate", "subrow", "price.open", "price.high", "price.low", "price.close"), ]
+output02 <- output02 [, signal := 1, ]
+
+setnames(output02, "price.open", "entry_o")
+setnames(output02, "price.high", "entry_h")
+setnames(output02, "price.low", "entry_l")
+setnames(output02, "price.close", "entry_c")
+setnames(output02, "subrow", "entry_row")
+
+# Merge this data with the original data
+
+trial002 <- merge (x = trial001, 
+                   y = output02, 
+                   by = c("ticker", "trdate"))
+
+trial002 <- trial002 [ subrow >= entry_row]
+trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "signal",
+                          "entry_o", "entry_h", "entry_l", "entry_c",
+                          "price.open", "price.high", "price.low", "price.close", 
+                          "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7"), ]
+
+########################################################################################################
+#
+#
+# End of program
+#
+#
+########################################################################################################
+
+
+
+
+
+
 
 
 
@@ -249,3 +420,32 @@ all04 <- all04 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
 
 chk <- all04 [trdate >= Sys.Date() - 2, .(n = uniqueN(ticker),
                                           ncomp = paste(ticker, collapse =",", sep="") ), by =.(trdtme, subrow01, up_tot, up_st)]
+
+
+#chk02 <- all03 [trdate == Sys.Date()  ]
+chk02 <- all03 [, chk := ifelse(up_st == 1 & shift(up_st, n= 1, type =c("lag") ) == 0 & up_adx == 1 & up_mfi == 1, 1, 0), by =.(ticker)  ]
+chk03 <- chk02 [ chk == 1]
+
+chk04 <- chk03 [, .(n = uniqueN(ticker),
+                    ncomp = paste(ticker, collapse =",", sep="") ), by =.(trdtme, subrow01, subrow02)]
+chk04 <- chk04 [ order(-trdtme, -subrow01, -subrow02)]
+
+
+#chk02 <- all03 [trdate == Sys.Date()  ]
+chk02 <- all03 [, chk := ifelse(up_st == 1 & shift(up_st, n= 1, type =c("lag") ) == 0, 1, 0), by =.(ticker)  ]
+chk03 <- chk02 [ chk == 1]
+
+chk04 <- chk03 [, .(n = uniqueN(ticker),
+                    ncomp = paste(ticker, collapse =",", sep="") ), by =.(trdtme, subrow01, subrow02)]
+
+chk04 <- chk04 [ order(-trdtme, -subrow01, -subrow02)]
+
+
+
+d_chk02 <- all03 [, chk := ifelse(up_st == 0 & shift(up_st, n= 1, type =c("lag") ) == 1, 1, 0), by =.(ticker)  ]
+d_chk03 <- d_chk02 [ chk == 1]
+
+d_chk04 <- d_chk03 [, .(n = uniqueN(ticker),
+                    ncomp = paste(ticker, collapse =",", sep="") ), by =.(trdtme, subrow01, subrow02)]
+
+d_chk04 <- d_chk04 [ order(-trdtme, -subrow01, -subrow02)]
