@@ -36,11 +36,25 @@ options(future.rng.onMisuse="ignore")
 
 future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
-###############################
+###########################################
+#
+# Part 1
+# Create a mapping of the company names
+# ICICI - Yahoo - NSE [FnO stocks]
+#
+###########################################
+source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R")
+
+###########################################
+#
+# Part 2
 #
 # Python calculations
+# Get the 5 mins data for calculations
+# Get 1 day data for Fibo calculations
+# Fibo values will be used for the targets
 #
-###############################
+###########################################
 
 library(reticulate)
 
@@ -140,6 +154,7 @@ all02 <- merge.data.table (x = data_05min,
 all02 <- all02 [, allrow := .I, ]
 all02 <- all02 [, nrow := 1:.N, by = .(ticker)]
 
+
 all02 <- all02 [, vPP := as.numeric(round( (shift(high, n =1, type = c("lag")) + 
                                               shift(low, n =1, type = c("lag")) + 
                                               shift(close, n =1, type = c("lag"))  )/ 3), 2 ), ]
@@ -180,22 +195,109 @@ all02 <- all02 [, `:=`(vR0 = vPP + (phigh - plow) * 0,
                        vS2618 = vPP - (phigh - plow) * 2.618), ]
 
 
-##################################################################################################
+###########################################
+#
+# Part 3:
 # TRI components:
-##################################################################################################
+# Get the ranks calculations done here
+#
+#
+###########################################
+
+all02 <- stock_final [, -c("NA"), ]
+all02 <- all02 [, `:=`(price.open = as.numeric(price.open), 
+                       price.high = as.numeric(price.high), 
+                       price.low = as.numeric(price.low), 
+                       price.close = as.numeric(price.close), 
+                       volume = as.numeric(volume)), ]
+all02 <- na.omit(all02)
+
+all02 <- all02 [ order(ticker, trdate)]
+all02 <- all02 [, allrow := .I, ]
+all02 <- all02 [, nrow := 1:.N, by =.(ticker)]
+
+adx_n <- 14
+adx_dn = as.data.table( ADX(all02[,c("price.high","price.low","price.close"),], n = adx_n) )
+adx_dn <- adx_dn [, allrow := .I, ]
+
+roc_n <- 20
+roc_dn = as.data.table( ROC(all02$price.close, n = roc_n) )
+roc_dn <- roc_dn [, allrow := .I, ]
+setnames(roc_dn, "V1", "roc20")
+
+roc_n02 <- 125
+roc_dn02 = as.data.table( ROC(all02$price.close, n = roc_n02) )
+roc_dn02 <- roc_dn02 [, allrow := .I, ]
+setnames(roc_dn02, "V1", "roc125")
+
+#sar <- as.data.table( SAR(all02[, c("price.high","price.low") ], accel = c(0.1, 0.2) ) )
+#sar <- sar [, allrow := .I, ]
 
 
+all02 <- Reduce(function(...) merge(..., by = c("allrow"), all=T),  
+                list( all02, roc_dn, roc_dn02, adx_dn) )
 
-##################################################################################################
+rm(roc_dn, roc_dn02, adx_dn)
+
+# Calculate the Bollinger band, the calculations are done over all the dataset
+# So the first n lines of the bollinger band calculations go wrong
+# as the data from previous company is carried forward
 #
-#
-# For trade management
-#
-#
-###################################################################################################
+# Remove the calculations for first 20 * 2 rows
+
+# To avoid any incorrect calculations explained above, remove certain number of rows
+
+all03 <- all02 [ nrow > roc_n02]
+all03 <- all03 [, `:=`(ma200 = SMA(price.close, 200),
+                       ma50  = SMA(price.close, 50),
+                       ma12 = EMA(price.close, 12),
+                       ma26 = EMA(price.close, 26)), by = .(ticker)]
+
+all03 <- all03 [, `:=`(longtermma = 0.15 * 100 * (price.close - ma200) / ma200,
+                       longtermroc = 0.15 * roc125,
+                       midtermma = 0.125 * 100 * (price.close - ma50) / ma50,
+                       midtermroc = 0.125  * roc20,
+                       ppo = 100 * (ma12 - ma26) / ma26), ]
+
+all03 <- all03 [, `:=`(ema13 = EMA(price.close, 13),
+                       ema21 = EMA(price.close, 21),
+                       mfi09 = MFI(price.close, volume, 9)), by = .(ticker)]
+
+#all03 <- na.omit(all03)
+all03 <- all03 [, wma21mfi09 := WMA(mfi09, 21), by = .(ticker)]
+all03 <- all03 [, subrow01 := 1:.N, by = .(ticker, trdate)]
+all03 <- all03 [, hlc3 := (price.high + price.low + price.close)/3,]
+
+# Some problems with how VWAP is calculated
+#all03 <- all03 [, vwap := VWAP (hlc3, volume, n = subrow01), by = .(ticker, trdate)]
+all03 <- all03 [, stp001_c := hlc3 * volume, ]
+all03 <- all03 [, stp002_c := cumsum(stp001_c), by = .(ticker, trdate)]
+all03 <- all03 [, stp003_c := cumsum(volume), by = .(ticker, trdate)]
+all03 <- all03 [, vwap := stp002_c / stp003_c,]
+
+all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
+all03 <- all03 [, ppoHist := ppo - sig, ]
+all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 8), by = .(ticker)]
+all03 <- all03 [, stPpo := 0.15 * 100 * slope, ]
+#all03 <- all03 [, stRsi := .05 * RSI(price.close, 9), by = .(ticker)]
+all03 <- all03 [, stRsi := 0.1 * MFI(price.close, volume, 9), by = .(ticker)]
+all03 <- all03 [, stDlp := ifelse(DIp > 20 & DIp > DIn & ADX > 15, 0.1 * DIp, 0),]
+
+fwrite(all03, "D:/My-Shares/analysis/0550_stock_final.csv")
+
+end_time <- Sys.time()
+end_time - start_time
+
+py_run_file("D:/My-Shares/prgm/0550_yh_stock_part02_5min_supertrend.py")
 
 all03 <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
 all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
+
+####################
+#
+# Added new concept
+#
+####################
 
 all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
                          up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
@@ -204,6 +306,7 @@ all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
                          up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
 
 all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
+
 all03 <- all03 [, `:=` (grp_st = rleid(SUPERTd_20_2.7),
                         grp_mfi = rleid(up_mfi),
                         grp_adx = rleid(up_adx),
@@ -216,18 +319,8 @@ all03 <- all03 [, rows_adx := 1:.N, by = .(ticker, grp_adx)]
 all03 <- all03 [, rows_ema := 1:.N, by = .(ticker, grp_ema)]
 all03 <- all03 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
 
-all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
-
 all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
 all03 <- all03 [, trank := as.numeric(trank) * up_tot, ]
-
-
-#################################################
-#
-# New addition for ST in uptrend and adx positive
-#
-#################################################
-#all03 <- all03 [ up_st == 1 & up_adx == 1]
 
 all03 <- all03 [ order(trdate, subrow, -trank)]
 all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
@@ -236,14 +329,32 @@ all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
 
 all03 <- all03 [, top10 := ifelse(nrank <= 10, 1, 0), ]
 all03 <- all03 [, cumtop10 :=runSum(top10, n = 15 ), by =.(ticker) ]
-all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st =", rows_st, ",rows_adx =", rows_adx, sep=""), ]
+all03 <- all03 [, ticker02 := paste(ticker, trank, cumtop10, sep=","), ]
 all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
 
+all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
+                    trdate + subrow + subrow02 ~ nrank,
+                    value.var = c("ticker02") )
+
+all03_t1hr <- all03_t1hr [ order(-trdate, -subrow) ]
+
+fwrite(all03_t1hr, "D:\\My-Shares\\analysis\\rerun_5min_new.csv")
+
+end_time <- Sys.time()
+end_time - start_time
+
+##################################################################################################
+#
+# Part 4
+# For trade management
+#
+#
+##################################################################################################
+
 trial001 <- copy(all03)
-#trial001 <- trial001 [ trdate == "2022-04-04"]
 
 #output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
-output <- trial001 [up_st == 1 & up_adx == 1 & up_ema == 1 ] #& nrank <= 15]
+output <- trial001 [up_st == 1 & up_adx == 1 & up_ema == 1 & nrank <= 15]
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
 output02 <- output [ subset == 1]
@@ -271,6 +382,7 @@ trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row",
 trial002 <- trial002 [, temp_prc := round( (entry_h * 1.02)/5, 2),  ]
 trial002 <- trial002 [, nshares := round( (100000 / temp_prc) * 0.8 , 0),  ]
 
+trial002 <- trial002 [ order(-trdate, -subrow) ]
 ########################################################################################################
 #
 #
