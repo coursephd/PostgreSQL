@@ -377,7 +377,9 @@ trial002 <- trial002 [ subrow >= entry_row]
 trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
                           "entry_o", "entry_h", "entry_l", "entry_c",
                           "price.open", "price.high", "price.low", "price.close", "volume",
-                          "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7"), ]
+                          "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7",
+                          "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
+                          "vR1414", "vR1618", "vR2618"), ]
 
 trial002 <- trial002 [, temp_prc := round( (entry_h * 1.02)/5, 2),  ]
 trial002 <- trial002 [, nshares := round( (100000 / temp_prc) * 0.8 , 0),  ]
