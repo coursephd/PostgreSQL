@@ -145,55 +145,63 @@ setnames(data_01day, "price.low", "low")
 setnames(data_01day, "price.close", "close")
 setnames(data_01day, "volume", "volumed")
 
+calcs(infile = "D:/My-Shares/analysis/0550_data02.csv", outdata = data_01day)
+
+setnames(data_01day, "price.open", "open",)
+setnames(data_01day, "price.high", "high")
+setnames(data_01day, "price.low", "low")
+setnames(data_01day, "price.close", "close")
+setnames(data_01day, "volume", "volumed")
+
 data_01day <- data_01day [, drow := 1:.N, by = .(ticker)]
 
+data_01day <- data_01day [, vPP := as.numeric(round( (shift(high, n =1, type = c("lag")) + 
+                                                        shift(low, n =1, type = c("lag")) + 
+                                                        shift(close, n =1, type = c("lag"))  )/ 3), 2 ), ]
+data_01day <- data_01day [, `:=`(phigh = shift(high, n =1, type = c("lag")), 
+                                 plow = shift(low, n =1, type = c("lag")) ), by =.(ticker)]
+
+data_01day <- data_01day [, `:=`(vR0 = vPP + (phigh - plow) * 0,
+                                 vS0 = vPP - (phigh - plow) * 0,
+                                 
+                                 vR0236 = vPP + (phigh - plow) * 0.236,
+                                 vS0236 = vPP - (phigh - plow) * 0.236,
+                                 
+                                 vR0382 = vPP + (phigh - plow) * 0.382,
+                                 vS0382 = vPP - (phigh - plow) * 0.382,
+                                 
+                                 vR05 = vPP + (phigh - plow) * 0.5,
+                                 vS05 = vPP - (phigh - plow) * 0.5,
+                                 
+                                 vR0618 = vPP + (phigh - plow) * 0.618,
+                                 vS0618 = vPP - (phigh - plow) * 0.618,
+                                 
+                                 vR0786 = vPP + (phigh - plow) * 0.786,
+                                 vS0786 = vPP - (phigh - plow) * 0.786,
+                                 
+                                 vR1 = vPP + (phigh - plow) * 01,
+                                 vS1 = vPP - (phigh - plow) * 01,
+                                 
+                                 vR1272 = vPP + (phigh - plow) * 1.272,
+                                 vS1272 = vPP - (phigh - plow) * 1.272,
+                                 
+                                 vR1414 = vPP + (phigh - plow) * 1.414,
+                                 vS1414 = vPP - (phigh - plow) * 1.414,
+                                 
+                                 vR1618 = vPP + (phigh - plow) * 1.618,
+                                 vS1618 = vPP - (phigh - plow) * 1.618,
+                                 
+                                 vR2618 = vPP + (phigh - plow) * 2.618,
+                                 vS2618 = vPP - (phigh - plow) * 2.618), ]
+
 all02 <- merge.data.table (x = data_05min, 
-                y = data_01day [, c("ticker", "trdate", "open", "high", "low", "close", "volumed", "drow"), ],
+                y = data_01day [, c("ticker", "trdate", "open", "high", "low", "close", "volumed", "drow",
+                                    "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
+                                    "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ],
                 by = c("ticker", "trdate"))
 
 all02 <- all02 [, allrow := .I, ]
 all02 <- all02 [, nrow := 1:.N, by = .(ticker)]
-
-
-all02 <- all02 [, vPP := as.numeric(round( (shift(high, n =1, type = c("lag")) + 
-                                              shift(low, n =1, type = c("lag")) + 
-                                              shift(close, n =1, type = c("lag"))  )/ 3), 2 ), ]
-all02 <- all02 [, `:=`(phigh = shift(high, n =1, type = c("lag")), 
-                       plow = shift(low, n =1, type = c("lag")) ), by =.(ticker)]
-
-all02 <- all02 [, `:=`(vR0 = vPP + (phigh - plow) * 0,
-                       vS0 = vPP - (phigh - plow) * 0,
-                       
-                       vR0236 = vPP + (phigh - plow) * 0.236,
-                       vS0236 = vPP - (phigh - plow) * 0.236,
-                       
-                       vR0382 = vPP + (phigh - plow) * 0.382,
-                       vS0382 = vPP - (phigh - plow) * 0.382,
-                       
-                       vR05 = vPP + (phigh - plow) * 0.5,
-                       vS05 = vPP - (phigh - plow) * 0.5,
-                       
-                       vR0618 = vPP + (phigh - plow) * 0.618,
-                       vS0618 = vPP - (phigh - plow) * 0.618,
-                       
-                       vR0786 = vPP + (phigh - plow) * 0.786,
-                       vS0786 = vPP - (phigh - plow) * 0.786,
-                       
-                       vR1 = vPP + (phigh - plow) * 01,
-                       vS1 = vPP - (phigh - plow) * 01,
-                       
-                       vR1272 = vPP + (phigh - plow) * 1.272,
-                       vS1272 = vPP - (phigh - plow) * 1.272,
-                       
-                       vR1414 = vPP + (phigh - plow) * 1.414,
-                       vS1414 = vPP - (phigh - plow) * 1.414,
-                       
-                       vR1618 = vPP + (phigh - plow) * 1.618,
-                       vS1618 = vPP - (phigh - plow) * 1.618,
-                       
-                       vR2618 = vPP + (phigh - plow) * 2.618,
-                       vS2618 = vPP - (phigh - plow) * 2.618), ]
-
 
 ###########################################
 #
@@ -204,7 +212,6 @@ all02 <- all02 [, `:=`(vR0 = vPP + (phigh - plow) * 0,
 #
 ###########################################
 
-all02 <- stock_final [, -c("NA"), ]
 all02 <- all02 [, `:=`(price.open = as.numeric(price.open), 
                        price.high = as.numeric(price.high), 
                        price.low = as.numeric(price.low), 
@@ -385,6 +392,50 @@ trial002 <- trial002 [, temp_prc := round( (entry_h * 1.02)/5, 2),  ]
 trial002 <- trial002 [, nshares := round( (100000 / temp_prc) * 0.8 , 0),  ]
 
 trial002 <- trial002 [ order(-trdate, -subrow) ]
+
+
+trial002_t <- melt.data.table(data = trial002 [ subrow == entry_row ],
+                              id.vars = c("ticker", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
+                                          "entry_o", "entry_h", "entry_l", "entry_c", "temp_prc", "nshares",
+                                          "price.open", "price.high", "price.low", "price.close", "volume",
+                                          "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7"), 
+                              measure.vars = c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
+                                               "vR1414", "vR1618", "vR2618"))
+
+trial002_t <- trial002_t [, dist := as.numeric(value) - entry_h, ]
+trial002_t <- trial002_t [ order (-trdate, ticker, dist)]
+
+#######################################################
+#
+# Fibo series gives the targets T01, T02, T03, ...
+# Supertrend values give the SL or TSL
+#
+# Use the Fib levels where the distance between the CMP and
+# Fibo is +ve
+#
+# Get the ICICI company name merged onto the dataset
+#
+#######################################################
+
+trial002_t02 <- trial002_t [dist >= 0]
+trial002_t02 <- trial002_t02 [, tgt := 1:.N, by = .(trdate, ticker)]
+
+trial002_t02 <- merge (x = trial002_t02,
+                       y = icici_fno [, c("SYMBOL02", "ShortName"), ],
+                       by.x = c("ticker"),
+                       by.y = c("SYMBOL02"),
+                       all.x = TRUE)
+
+trial003 <- dcast.data.table(data = trial002_t02,
+                             ticker + ShortName + trdate + entry_row ~ paste("t", str_pad(tgt, 2, pad="0"), sep ="_"),
+                             fill =" ")
+
+trial004 <- merge(x = trial002,
+                  y = trial003,
+                  by = c("ticker", "trdate", "entry_row"))
+
+trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
+
 ########################################################################################################
 #
 #
