@@ -285,7 +285,8 @@ all03 <- all03 [, vwap := stp002_c / stp003_c,]
 all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
 all03 <- all03 [, ppoHist := ppo - sig, ]
 all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 8), by = .(ticker)]
-all03 <- all03 [, stPpo := 0.15 * 100 * slope, ]
+#all03 <- all03 [, stPpo := 0.15 * 100 * slope, ]
+all03 <- all03 [, stPpo := ifelse(slope > 1, 0.15 * 100 * slope, 0), ]
 #all03 <- all03 [, stRsi := .05 * RSI(price.close, 9), by = .(ticker)]
 all03 <- all03 [, stRsi := 0.1 * MFI(price.close, volume, 9), by = .(ticker)]
 all03 <- all03 [, stDlp := ifelse(DIp > 20 & DIp > DIn & ADX > 15, 0.1 * DIp, 0),]
@@ -336,7 +337,7 @@ all03 <- all03 [, nrank := 1:.N, by = .(trdate, subrow)]
 
 all03 <- all03 [, top10 := ifelse(nrank <= 10, 1, 0), ]
 all03 <- all03 [, cumtop10 :=runSum(top10, n = 15 ), by =.(ticker) ]
-all03 <- all03 [, ticker02 := paste(ticker, trank, cumtop10, sep=","), ]
+all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st =", rows_st, ",rows_adx =", rows_adx, sep=""), ]
 all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
 
 all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
@@ -435,6 +436,39 @@ trial004 <- merge(x = trial002,
                   by = c("ticker", "trdate", "entry_row"))
 
 trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
+
+#######################################################
+#
+# Part 5
+#
+# Create place_order, modify_order, cancel_order, etc.
+# Based on the ST, T01, T02, T03, nshares, ShortName
+# variables
+#
+# needs some work to get this fully correct
+#
+# Output this to a python code (.py file)
+#
+# This code will have to be executed once the file is
+# created
+# 
+#######################################################
+
+trial005 <- trial004 [, -c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
+                           "vR1414", "vR1618", "vR2618"),  ]
+
+trial005 <- trial005 [, step001 := 'place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
+trial005 <- trial005 [, step001sell := 'place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
+trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
+trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
+trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
+trial005 <- trial005 [, step002t03 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_03, 2), '", user_remark="Sell order T03")', sep=""), ]
+
+trial005 <- trial005 [, step003buy := paste(step001, step002, sep=""), ]
+trial005 <- trial005 [, step003sell01 := paste(step001sell, step002t01, sep=""), ]
+trial005 <- trial005 [, step003sell02 := paste(step001sell, step002t02, sep=""), ]
+trial005 <- trial005 [, step003sell03 := paste(step001sell, step002t03, sep=""), ]
+
 
 ########################################################################################################
 #
