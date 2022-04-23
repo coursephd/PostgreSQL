@@ -339,6 +339,7 @@ all03 <- all03 [, top10 := ifelse(nrank <= 10, 1, 0), ]
 all03 <- all03 [, cumtop10 :=runSum(top10, n = 15 ), by =.(ticker) ]
 all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st =", rows_st, ",rows_adx =", rows_adx, sep=""), ]
 all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
+all03 <- all03 [, perchg := round( (price.high  - price.low) / price.low * 100, 2) , ]
 
 all03_t1hr <- dcast(data = all03 [ nrank <= 20 ] ,
                     trdate + subrow + subrow02 ~ nrank,
@@ -363,7 +364,7 @@ trial001 <- copy(all03)
 
 #output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
 #output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & up_ema == 1 & rows_ema <=5 & nrank <= 15]
-output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 15]
+output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 15 & perchg <= 0.75]
 
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
