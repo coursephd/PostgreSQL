@@ -309,7 +309,7 @@ all03 <- all03 [, ST := ifelse(SUPERTd_20_2.7 == 1, 0.15, 0), ]
 
 all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
                          up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
-                         up_adx = ifelse(DIp >= 25, 1, 0),
+                         up_adx = ifelse(DIp >= 25 & DIn < DIp, 1, 0),
                          up_ema = ifelse(ema13 >= ema21, 1, 0), 
                          up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
 
@@ -362,7 +362,9 @@ end_time - start_time
 trial001 <- copy(all03)
 
 #output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
-output <- trial001 [up_st == 1 & up_adx == 1 & up_ema == 1 & nrank <= 15]
+#output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & up_ema == 1 & rows_ema <=5 & nrank <= 15]
+output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 15]
+
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
 output02 <- output [ subset == 1]
