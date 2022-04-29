@@ -363,13 +363,13 @@ end_time - start_time
 trial001 <- copy(all03)
 
 #output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
-#output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & up_ema == 1 & rows_ema <=5 & nrank <= 15]
-output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 15 & perchg <= 0.75]
+#output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & up_ema == 1 & rows_ema <=5 & nrank <= 5 & perchg <= 0.75]
+output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 5 & perchg <= 0.75]
 
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
 output02 <- output [ subset == 1]
-output02 <- output02 [, c("ticker", "trdate", "subrow", "price.open", "price.high", "price.low", "price.close"), ]
+output02 <- output02 [, c("ticker", "drow", "trdate", "subrow", "subrow02",  "nrank", "price.open", "price.high", "price.low", "price.close"), ]
 output02 <- output02 [, signal := 1, ]
 
 setnames(output02, "price.open", "entry_o")
@@ -377,15 +377,19 @@ setnames(output02, "price.high", "entry_h")
 setnames(output02, "price.low", "entry_l")
 setnames(output02, "price.close", "entry_c")
 setnames(output02, "subrow", "entry_row")
+setnames(output02, "subrow02", "entry_time")
+setnames(output02, "nrank", "entry_nrank")
 
 # Merge this data with the original data
 
 trial002 <- merge (x = trial001, 
                    y = output02, 
-                   by = c("ticker", "trdate"))
+                   by = c("ticker", "trdate", "drow"))
+
+output02 <- output02 [ order(-trdate, -entry_row, entry_nrank)]
 
 trial002 <- trial002 [ subrow >= entry_row]
-trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
+trial002 <- trial002 [, c("ticker", "drow", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
                           "entry_o", "entry_h", "entry_l", "entry_c",
                           "price.open", "price.high", "price.low", "price.close", "volume",
                           "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7",
@@ -399,14 +403,15 @@ trial002 <- trial002 [ order(-trdate, -subrow) ]
 
 
 trial002_t <- melt.data.table(data = trial002 [ subrow == entry_row ],
-                              id.vars = c("ticker", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
+                              id.vars = c("ticker", "drow", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
                                           "entry_o", "entry_h", "entry_l", "entry_c", "temp_prc", "nshares",
                                           "price.open", "price.high", "price.low", "price.close", "volume",
                                           "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7"), 
                               measure.vars = c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
                                                "vR1414", "vR1618", "vR2618"))
 
-trial002_t <- trial002_t [, dist := as.numeric(value) - entry_h, ]
+trial002_t <- trial002_t [, value := as.numeric( round(value, 2 )), ]
+trial002_t <- trial002_t [, dist := value - entry_h, ]
 trial002_t <- trial002_t [ order (-trdate, ticker, dist)]
 
 #######################################################
@@ -421,7 +426,7 @@ trial002_t <- trial002_t [ order (-trdate, ticker, dist)]
 #
 #######################################################
 
-trial002_t02 <- trial002_t [dist >= 0]
+trial002_t02 <- trial002_t [dist > 0]
 trial002_t02 <- trial002_t02 [, tgt := 1:.N, by = .(trdate, ticker)]
 
 trial002_t02 <- merge (x = trial002_t02,
@@ -431,12 +436,12 @@ trial002_t02 <- merge (x = trial002_t02,
                        all.x = TRUE)
 
 trial003 <- dcast.data.table(data = trial002_t02,
-                             ticker + ShortName + trdate + entry_row ~ paste("t", str_pad(tgt, 2, pad="0"), sep ="_"),
+                             ticker + ShortName + drow + trdate + entry_row ~ paste("t", str_pad(tgt, 2, pad="0"), sep ="_"),
                              fill =" ")
 
 trial004 <- merge(x = trial002,
                   y = trial003,
-                  by = c("ticker", "trdate", "entry_row"))
+                  by = c("ticker", "drow", "trdate", "entry_row"))
 
 trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
 
@@ -471,6 +476,36 @@ trial005 <- trial005 [, step003buy := paste(step001, step002, sep=""), ]
 trial005 <- trial005 [, step003sell01 := paste(step001sell, step002t01, sep=""), ]
 trial005 <- trial005 [, step003sell02 := paste(step001sell, step002t02, sep=""), ]
 trial005 <- trial005 [, step003sell03 := paste(step001sell, step002t03, sep=""), ]
+
+
+#######################################################
+#
+# Part 6
+#
+# Creation of the python files
+#
+# Part 01 Login code
+# Part 02 Orders code
+# Part 03 Updates / modify / cancel orders code 
+#         if needed as a separate file
+#
+#######################################################
+
+chk <- trial005 [drow == max(drow) & entry_row == subrow ]
+chk <- chk [, comments := paste("\n# Order on date ", trdate, " at ", subrow02, " for company ", ticker, "\n\n", sep= "" ),]
+chk <- chk [, orders := paste(comments, step003buy, "\n", step003sell01, "\n", step003sell02, "\n", step003sell03, sep=""), ]
+
+fwrite(chk[, c("orders"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/0550_icici_02_orders.py")
+
+
+py_run_file("D:/My-Shares/prgm/0550_icici_01_login.py")
+
+py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
 
 
 ########################################################################################################
