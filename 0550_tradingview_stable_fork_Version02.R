@@ -465,8 +465,8 @@ trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
 trial005 <- trial004 [, -c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
                            "vR1414", "vR1618", "vR2618"),  ]
 
-trial005 <- trial005 [, step001 := 'place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
-trial005 <- trial005 [, step001sell := 'place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
+trial005 <- trial005 [, step001 := 'breeze.place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
+trial005 <- trial005 [, step001sell := 'breeze.place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
 trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
 trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
 trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
@@ -492,7 +492,7 @@ trial005 <- trial005 [, step003sell03 := paste(step001sell, step002t03, sep=""),
 #######################################################
 
 chk <- trial005 [drow == max(drow) & entry_row == subrow ]
-chk <- chk [, comments := paste("\n# Order on date ", trdate, " at ", subrow02, " for company ", ticker, "\n\n", sep= "" ),]
+chk <- chk [, comments := paste("from breeze_connect import BreezeConnect\nimport http.client\nimport json\nimport pandas as pd\n\n# Order on date ", trdate, " at ", subrow02, " for company ", ticker, "\n\n", sep= "" ),]
 chk <- chk [, orders := paste(comments, step003buy, "\n", step003sell01, "\n", step003sell02, "\n", step003sell03, sep=""), ]
 
 fwrite(chk[, c("orders"), ], 
