@@ -311,7 +311,8 @@ all03 <- all03 [, `:=` ( up_st = ifelse(SUPERTd_20_2.7 == 1, 1, 0),
                          up_mfi = ifelse(mfi09 >= wma21mfi09, 1, 0),
                          up_adx = ifelse(DIp >= 25 & DIn < DIp, 1, 0),
                          up_ema = ifelse(ema13 >= ema21, 1, 0), 
-                         up_vwap = ifelse(price.close >= vwap, 1, 0) ), ]
+                         up_vwap = ifelse(price.close >= vwap, 1, 0),
+                         dwn_adx = ifelse(DIn >= 25 & DIn > DIp, 1, 0) ), ]
 
 all03 <- all03 [, up_tot := up_st + up_mfi + up_adx + up_ema + up_vwap, ]
 
@@ -319,13 +320,15 @@ all03 <- all03 [, `:=` (grp_st = rleid(SUPERTd_20_2.7),
                         grp_mfi = rleid(up_mfi),
                         grp_adx = rleid(up_adx),
                         grp_ema = rleid(up_ema),
-                        grp_vwap = rleid(up_vwap)),  by = .(ticker)]
+                        grp_vwap = rleid(up_vwap),
+                        grp_adx_dn = rleid(dwn_adx)),  by = .(ticker)]
 
 all03 <- all03 [, rows_st := 1:.N, by = .(ticker, grp_st)]
 all03 <- all03 [, rows_mfi := 1:.N, by = .(ticker, grp_mfi)]
 all03 <- all03 [, rows_adx := 1:.N, by = .(ticker, grp_adx)]
 all03 <- all03 [, rows_ema := 1:.N, by = .(ticker, grp_ema)]
 all03 <- all03 [, rows_vwap := 1:.N, by = .(ticker, grp_vwap)]
+all03 <- all03 [, rows_adx_dn := 1:.N, by = .(ticker, grp_adx_dn)]
 
 all03 <- all03 [, trank := round(longtermma + longtermroc + midtermma + midtermroc + stPpo + stRsi + stDlp + ST, 2), ]
 all03 <- all03 [, trank := as.numeric(trank) * up_tot, ]
@@ -365,6 +368,9 @@ trial001 <- copy(all03)
 #output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
 #output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & up_ema == 1 & rows_ema <=5 & nrank <= 5 & perchg <= 0.75]
 output <- trial001 [up_st == 1 & rows_st <= 5 & up_adx == 1 & rows_adx <= 5 & nrank <= 5 & perchg <= 0.75]
+
+# See if the EMA cross over OR ST change as the primary signal
+#output <- trial001 [((up_st == 1 & rows_st <= 5) |(up_ema == 1 & rows_ema <= 5)) & up_adx == 1 & rows_adx <= 5 & nrank <= 5 & perchg <= 0.75]
 
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
@@ -505,7 +511,7 @@ fwrite(chk[, c("orders"), ],
 
 py_run_file("D:/My-Shares/prgm/0550_icici_01_login.py")
 
-py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
+#py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
 
 
 ########################################################################################################
@@ -515,3 +521,38 @@ py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
 #
 #
 ########################################################################################################
+
+py_run_file("D:/My-Shares/prgm/temp02nifty_5min.py")
+
+data_nifty <- fread("D:/My-Shares/analysis/0550_data_nifty.csv")
+data_nifty <- data_nifty [, trdtme := format(Datetime, tz="Asia/Calcutta"), ]
+data_nifty <- data_nifty [, trdate := anydate(str_sub(trdtme, 1, 10) ), ]
+data_nifty <- data_nifty [, -c("Volume"), ]
+data_nifty <- data_nifty [ order(trdtme) ]
+
+setnames(data_nifty, "Open", "nf_open",)
+setnames(data_nifty, "High", "nf_high")
+setnames(data_nifty, "Low", "nf_low")
+setnames(data_nifty, "Close", "nf_close")
+
+all02a <- merge (x = all02,
+                 y = data_nifty [, c("Datetime", "nf_close")], 
+                 by = c("Datetime"))
+
+all02 <- all02 [, rs := close / nf_close, ]
+all02 <- all02 [, `:=` (rs_sma55 = SMA(rs, 55), rs_ema55 = EMA(rs, 55),
+                        rs_mean55 = runMean(rs, 55),
+                        rs_sd55 = runSD(rs, 55) ), by =.(ticker)]
+
+all02 <- all02 [, `:=` (prc_ema55 = SMA(close, 55), 
+                        prc_ema20 = EMA(close, 20),
+                        low20 = runMin(close, 20),
+                        high55 = runMax(close, 55), 
+                        high200 = runMax(close, 200) ), by =.(ticker)]
+
+all02 <- all02 [, jdk_rs55 := 100 + ((rs - rs_mean55)/rs_sd55) + 1, ]
+all02 <- all02 [, jdk_roc55 := 100 * (shift(jdk_rs55, type = "lag", n=1) / jdk_rs55 - 1), by = .(ticker)]
+all02 <- all02 [, `:=` (jdk_roc55_mean55 = runMean(jdk_roc55, 55),
+                        jdk_roc55_sd55 = runSD(jdk_roc55, 55) ), by =.(ticker)]
+
+all02 <- all02 [, jdk_momratio55 := 100 + ((jdk_roc55 - jdk_roc55_mean55)/jdk_roc55_sd55) + 1, ]
