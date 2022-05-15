@@ -217,6 +217,37 @@ all02 <- all02 [, `:=`(price.open = as.numeric(price.open),
                        price.low = as.numeric(price.low), 
                        price.close = as.numeric(price.close), 
                        volume = as.numeric(volume)), ]
+
+data_nifty <- data_05min [ ticker == "^NSEI"]
+data_nifty <- data_nifty [, c("trdtme", "trdate", "price.close" ), ]
+setnames(data_nifty, "price.close", "nf_close")
+
+all02 <- merge (x = all02,
+                y = data_nifty, 
+                by = c("trdtme", "trdate"))
+
+all02 <- all02 [, rs := close / nf_close, ]
+all02 <- all02 [, `:=` (rs_sma55 = SMA(rs, 55), rs_ema55 = EMA(rs, 55),
+                        rs_mean55 = runMean(rs, 55),
+                        rs_sd55 = runSD(rs, 55) ), by =.(ticker)]
+
+all02 <- all02 [, `:=` (prc_ema55 = SMA(close, 55), 
+                        prc_ema20 = EMA(close, 20),
+                        low20 = runMin(close, 20),
+                        high55 = runMax(close, 55), 
+                        high200 = runMax(close, 200) ), by =.(ticker)]
+
+all02 <- all02 [, jdk_rs55 := 100 + ((rs - rs_mean55)/rs_sd55) + 1, ]
+all02 <- all02 [, jdk_roc55 := 100 * (shift(jdk_rs55, type = "lag", n=1) / jdk_rs55 - 1), by = .(ticker)]
+all02 <- all02 [, `:=` (jdk_roc55_mean55 = runMean(jdk_roc55, 55),
+                        jdk_roc55_sd55 = runSD(jdk_roc55, 55) ), by =.(ticker)]
+
+all02 <- all02 [, jdk_momratio55 := 100 + ((jdk_roc55 - jdk_roc55_mean55)/jdk_roc55_sd55) + 1, ]
+all02 <- all02 [, qudrant := case_when(jdk_rs55 > 100 & jdk_momratio55 > 100 ~ 1,
+                                       jdk_rs55 > 100 & jdk_momratio55 < 100 ~ 2,
+                                       jdk_rs55 < 100 & jdk_momratio55 > 100 ~ 3,
+                                       jdk_rs55 < 100 & jdk_momratio55 < 100 ~ 4 ), ]
+
 all02 <- na.omit(all02)
 
 all02 <- all02 [ order(ticker, trdate)]
@@ -521,38 +552,3 @@ py_run_file("D:/My-Shares/prgm/0550_icici_01_login.py")
 #
 #
 ########################################################################################################
-
-py_run_file("D:/My-Shares/prgm/temp02nifty_5min.py")
-
-data_nifty <- fread("D:/My-Shares/analysis/0550_data_nifty.csv")
-data_nifty <- data_nifty [, trdtme := format(Datetime, tz="Asia/Calcutta"), ]
-data_nifty <- data_nifty [, trdate := anydate(str_sub(trdtme, 1, 10) ), ]
-data_nifty <- data_nifty [, -c("Volume"), ]
-data_nifty <- data_nifty [ order(trdtme) ]
-
-setnames(data_nifty, "Open", "nf_open",)
-setnames(data_nifty, "High", "nf_high")
-setnames(data_nifty, "Low", "nf_low")
-setnames(data_nifty, "Close", "nf_close")
-
-all02a <- merge (x = all02,
-                 y = data_nifty [, c("Datetime", "nf_close")], 
-                 by = c("Datetime"))
-
-all02 <- all02 [, rs := close / nf_close, ]
-all02 <- all02 [, `:=` (rs_sma55 = SMA(rs, 55), rs_ema55 = EMA(rs, 55),
-                        rs_mean55 = runMean(rs, 55),
-                        rs_sd55 = runSD(rs, 55) ), by =.(ticker)]
-
-all02 <- all02 [, `:=` (prc_ema55 = SMA(close, 55), 
-                        prc_ema20 = EMA(close, 20),
-                        low20 = runMin(close, 20),
-                        high55 = runMax(close, 55), 
-                        high200 = runMax(close, 200) ), by =.(ticker)]
-
-all02 <- all02 [, jdk_rs55 := 100 + ((rs - rs_mean55)/rs_sd55) + 1, ]
-all02 <- all02 [, jdk_roc55 := 100 * (shift(jdk_rs55, type = "lag", n=1) / jdk_rs55 - 1), by = .(ticker)]
-all02 <- all02 [, `:=` (jdk_roc55_mean55 = runMean(jdk_roc55, 55),
-                        jdk_roc55_sd55 = runSD(jdk_roc55, 55) ), by =.(ticker)]
-
-all02 <- all02 [, jdk_momratio55 := 100 + ((jdk_roc55 - jdk_roc55_mean55)/jdk_roc55_sd55) + 1, ]
