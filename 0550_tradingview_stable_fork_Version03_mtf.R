@@ -36,14 +36,33 @@ options(future.rng.onMisuse="ignore")
 
 future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
-###########################################
+###########################################################
 #
 # Part 1
 # Create a mapping of the company names
 # ICICI - Yahoo - NSE [FnO stocks]
 #
-###########################################
-source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R")
+###########################################################
+#
+# Creating conditional execution of the mapping dataset
+#
+###########################################################
+
+file_crea <- file.info("D:/My-Shares/analysis/icici_fno.rds")$ctime
+compdt <- as.POSIXct( paste(Sys.Date(), "09:15:00", sep = ""), tz=Sys.timezone())
+
+if (is.na(file_crea) ) {print("File does not exist, the source code must be executed to create mapping file")
+  source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R") 
+  file_crea <- file.info("D:/My-Shares/analysis/icici_fno.rds")$ctime
+} 
+
+if (file_crea >= compdt ) {
+  print("The mapping dataset exists for the day, need not re-execute, only extracting from the earlier version to the local area") 
+  icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+} else { 
+  print("The mapping dataset needs to be created, executing the source code")
+  source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R") 
+}
 
 ###########################################
 #
@@ -203,25 +222,25 @@ all02 <- merge.data.table (x = data_05min,
 all02 <- all02 [, allrow := .I, ]
 all02 <- all02 [, nrow := 1:.N, by = .(ticker)]
 
-data_05min02 <- data_05min [, `:=` (o15 = shift(price.open, n = 2, type = c("lag") ),
+data_05min02 <- all02 [, `:=` (o15 = shift(price.open, n = 2, type = c("lag") ),
                                     h15 = pmax( shift(price.high, n = 2, type = c("lag") ), shift(price.high, n = 1, type = c("lag") ), price.high  ),
                                     l15 = pmin( shift(price.low, n = 2, type = c("lag") ), shift(price.low, n = 1, type = c("lag") ), price.low  ),
                                     c15 = price.close,
-                                    v15 = sum( shift(volume, n = 2, type = c("lag") ), shift(volume, n = 1, type = c("lag") ), volume, na.rm = TRUE  ) ), 
+                                    v15 = runSum(volume, n =3) ), 
                             by = .(ticker)]
 
 data_05min02 <- data_05min02 [, `:=` (o30 = shift(price.open, n = 5, type = c("lag") ),
                                     h30 = pmax( shift(price.high, n = 5, type = c("lag") ), shift(price.high, n = 4, type = c("lag") ), shift(price.high, n = 3, type = c("lag") ), shift(price.high, n = 2, type = c("lag") ), shift(price.high, n = 1, type = c("lag") ), price.high  ),
                                     l30 = pmin( shift(price.low, n = 5, type = c("lag") ), shift(price.low, n = 4, type = c("lag") ), shift(price.low, n = 3, type = c("lag") ), shift(price.low, n = 2, type = c("lag") ), shift(price.low, n = 1, type = c("lag") ), price.low  ),
                                     c30 = price.close,
-                                    v30 = sum( shift(volume, n = 5, type = c("lag") ), shift(volume, n = 4, type = c("lag") ), shift(volume, n = 3, type = c("lag") ), shift(volume, n = 2, type = c("lag") ), shift(volume, n = 1, type = c("lag") ), volume, na.rm = TRUE  ) ), 
+                                    v30 = runSum(volume, n =6) ), 
                             by = .(ticker)]
 
 data_05min02 <- data_05min02 [, `:=` (o60 = shift(price.open, n = 11, type = c("lag") ),
                                     h60 = pmax( shift(price.high, n = 11, type = c("lag") ), shift(price.high, n = 10, type = c("lag") ), shift(price.high, n = 9, type = c("lag") ), shift(price.high, n = 8, type = c("lag") ), shift(price.high, n = 7, type = c("lag") ), shift(price.high, n = 6, type = c("lag") ), shift(price.high, n = 5, type = c("lag") ), shift(price.high, n = 4, type = c("lag") ), shift(price.high, n = 3, type = c("lag") ), shift(price.high, n = 2, type = c("lag") ), shift(price.high, n = 1, type = c("lag") ), price.high  ),
                                     l60 = pmin( shift(price.low, n = 11, type = c("lag") ), shift(price.low, n = 10, type = c("lag") ), shift(price.low, n = 9, type = c("lag") ), shift(price.low, n = 8, type = c("lag") ), shift(price.low, n = 7, type = c("lag") ), shift(price.low, n = 6, type = c("lag") ), shift(price.low, n = 5, type = c("lag") ), shift(price.low, n = 4, type = c("lag") ), shift(price.low, n = 3, type = c("lag") ), shift(price.low, n = 2, type = c("lag") ), shift(price.low, n = 1, type = c("lag") ), price.low  ),
                                     c60 = price.close,
-                                    v60 = sum( shift(volume, n = 11, type = c("lag") ), shift(volume, n = 10, type = c("lag") ), shift(volume, n = 9, type = c("lag") ), shift(volume, n = 8, type = c("lag") ), shift(volume, n = 7, type = c("lag") ), shift(volume, n = 6, type = c("lag") ), shift(volume, n = 5, type = c("lag") ), shift(volume, n = 4, type = c("lag") ), shift(volume, n = 3, type = c("lag") ), shift(volume, n = 2, type = c("lag") ), shift(volume, n = 1, type = c("lag") ), volume, na.rm = TRUE) ), 
+                                    v60 = runSum(volume, n =12) ), 
                             by = .(ticker)]
 
 
@@ -231,6 +250,33 @@ py_run_file("D:/My-Shares/prgm/0550_yh_stock_part02_multi_tf_supertrend.py")
 all03mtf <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
 
 
+all03 <- all03mtf [, `:=` ( up_st = ifelse(SUPERTd_10_2 == 1 & SUPERTd15_10_2 == 1 & SUPERTd30_10_2 == 1 & SUPERTd60_10_2 == 1, 1, 0) ),]
+all03 <- all03 [, `:=` (grp_st05 = rleid(SUPERTd_10_2),
+                        grp_st15 = rleid(SUPERTd15_10_2),
+                        grp_st30 = rleid(SUPERTd30_10_2),
+                        grp_st60 = rleid(SUPERTd60_10_2) ),  by = .(ticker)]
+
+all03 <- all03 [, rows_st05 := 1:.N, by = .(ticker, grp_st05)]
+all03 <- all03 [, rows_st15 := 1:.N, by = .(ticker, grp_st15)]
+all03 <- all03 [, rows_st30 := 1:.N, by = .(ticker, grp_st30)]
+all03 <- all03 [, rows_st60 := 1:.N, by = .(ticker, grp_st60)]
+all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
+
+output <- all03 [up_st == 1 & rows_st05 <= 10]
+output <- output [, subset := 1:.N, by =.(ticker, trdate)]
+
+output02 <- output [ subset == 1]
+output02 <- output02 [, c("ticker", "drow", "trdate", "subrow", "subrow02", "price.open", "price.high", "price.low", "price.close"), ]
+output02 <- output02 [, signal := 1, ]
+
+setnames(output02, "price.open", "entry_o")
+setnames(output02, "price.high", "entry_h")
+setnames(output02, "price.low", "entry_l")
+setnames(output02, "price.close", "entry_c")
+setnames(output02, "subrow", "entry_row")
+setnames(output02, "subrow02", "entry_time")
+
+output02 <- output02 [ order(-trdate, -entry_row) ]
 
 # https://rdrr.io/github/rengelke/tradr/src/R/supertrend.R
 # Home / GitHub / rengelke/tradr / R/supertrend.R
@@ -254,6 +300,7 @@ all03mtf <- fread("D:/My-Shares/analysis/0550_stock_final03.csv")
 supertrend <- function(HLC, n = 10, f = 3) {
   
   atr <<- TTR::ATR(HLC, n = n)
+  atr <- as.data.table(atr)
   
   upperbasic <- (HLC[, 1] + HLC[, 2])/2 + (f * atr$atr)
   upperfinal <- upperbasic
@@ -311,3 +358,8 @@ supertrend <- function(HLC, n = 10, f = 3) {
 super05 <- as.data.table( supertrend(data_05min02[,c("price.high","price.low","price.close"),], n = 10, f = 3) )
 super05 <- super05 [, allrow := .I, ]
 
+
+
+data(ttrc)
+#atr <- ATR(ttrc[,c("High","Low","Close")], n=14)
+super <- supertrend(ttrc[,c("High","Low","Close")], n=10, f = 2)

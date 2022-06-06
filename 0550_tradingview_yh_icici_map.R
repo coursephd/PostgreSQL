@@ -39,3 +39,5 @@ icici_fno <- icici_fno [ ISINCode != ""]
 
 # Create a new variable to get the ".NS" added at the end of the company name
 icici_fno <- icici_fno [, `:=` (nrow = .I, SYMBOL02 = paste(Symbol, ".NS", sep="") ), ]
+
+saveRDS (icici_fno, "D:/My-Shares/analysis/icici_fno.rds")
