@@ -185,7 +185,7 @@ all03 <- all03 [, vwap := stp002_c / stp003_c,]
 
 all03 <- all03 [, sig := EMA(ppo, 9), by = .(ticker)]
 all03 <- all03 [, ppoHist := ppo - sig, ]
-all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 3), by = .(ticker)]
+all03 <- all03 [, slope := (ppoHist - shift(ppoHist, n = 8, type = c("lag") ) / 8), by = .(ticker)]
 all03 <- all03 [, stPpo := 0.15 * 100 * slope, ]
 #all03 <- all03 [, stRsi := .05 * RSI(price.close, 9), by = .(ticker)]
 all03 <- all03 [, stRsi := 0.1 * MFI(price.close, volume, 9), by = .(ticker)]
@@ -355,9 +355,10 @@ all03 <- all03 [, ticker02 := paste(ticker, ",", trank, ",", cumtop10, ",rows_st
 all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
 
 trial001 <- copy(all03)
-trial001 <- trial001 [ trdate == "2022-04-01"]
+#trial001 <- trial001 [ trdate == "2022-04-04"]
 
-output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
+#output <- trial001 [up_st == 1 & up_adx == 1 & up_mfi == 1 & up_ema == 1 & nrank <= 15]
+output <- trial001 [up_st == 1 & up_adx == 1 & up_ema == 1 ] #& nrank <= 15]
 output <- output [, subset := 1:.N, by =.(ticker, trdate)]
 
 output02 <- output [ subset == 1]
@@ -377,10 +378,13 @@ trial002 <- merge (x = trial001,
                    by = c("ticker", "trdate"))
 
 trial002 <- trial002 [ subrow >= entry_row]
-trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "signal",
+trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "nrank", "signal",
                           "entry_o", "entry_h", "entry_l", "entry_c",
-                          "price.open", "price.high", "price.low", "price.close", 
+                          "price.open", "price.high", "price.low", "price.close", "volume",
                           "SUPERT_20_2.7", "SUPERTd_20_2.7", "SUPERTl_20_2.7", "SUPERTs_20_2.7"), ]
+
+trial002 <- trial002 [, temp_prc := round( (entry_h * 1.02)/5, 2),  ]
+trial002 <- trial002 [, nshares := round( (100000 / temp_prc) * 0.8 , 0),  ]
 
 ########################################################################################################
 #
@@ -426,7 +430,9 @@ all02 <- all02 [ order(ticker, trdate)]
 all02 <- all02 [, allrow := .I, ]
 all02 <- all02 [, nrow := 1:.N, by =.(ticker)]
 
-all02 <- all02 [, vPP := as.numeric(round(price.high + price.low + price.close/ 3, 2) ), ]
+all02 <- all02 [, vPP := as.numeric(round( (shift(price.high, n =1, type = c("lag")) + 
+                                            shift(price.low, n =1, type = c("lag")) + 
+                                            shift(price.close, n =1, type = c("lag"))  )/ 3), 2 ), ]
 all02 <- all02 [, `:=`(phigh = shift(price.high, n =1, type = c("lag")), 
                        plow = shift(price.low, n =1, type = c("lag")) ), by =.(ticker)]
 
