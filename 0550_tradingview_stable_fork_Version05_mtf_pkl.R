@@ -93,9 +93,10 @@ use_python("C:/Program Files/Python310/python.exe", required = T)
 
 py_run_file("D:/My-Shares/prgm/0550_yh_stock_part01_5min_temp.py")
 
+pickle_data <- as.data.table (py$data)
 
 pd <- import("pandas")
-pickle_data <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0550_data.pkl") )
+#pickle_data <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0550_data.pkl") )
 pickle_data <- pickle_data [, nrow := 1:.N, ]
 
 dnames <- as.data.table ( names(pickle_data) )
@@ -123,19 +124,13 @@ stock_final <- dcast(data = data03_t [, -c("tmp"), ],
                      Datetime_ + Datetime_nrow + Name ~ ohlcv, 
                      value.var = c("value") )
 
+setnames (stock_final, "Datetime_", "Datetime")
 stock_final <- as.data.table(stock_final)
 stock_final <- stock_final [, trdtme := format(Datetime, tz="Asia/Calcutta"), ]
 stock_final <- stock_final [, trdate := anydate(str_sub(trdtme, 1, 10) ), ]
 stock_final <- stock_final [ order(Name, trdtme) ]
 stock_final <- stock_final [, nrow := 1:.N, by = .(Name)]
 stock_final <- stock_final [, subrow := 1:.N, by = .(Name, trdate)]
-
-#setnames(stock_final, "Open", "price.open")
-#setnames(stock_final, "High", "price.high")
-#setnames(stock_final, "Low", "price.low")
-#setnames(stock_final, "Close", "price.close")
-#setnames(stock_final, "Volume", "volume")
-#setnames(stock_final, "Name", "ticker")
 
 setnames(stock_final, c("Open", "High", "Low", "Close", "Volume", "Name"), 
          c("price.open", "price.high", "price.low", "price.close", "volume", "ticker") )
@@ -285,3 +280,4 @@ write_feather(a60, "D:/My-Shares/analysis/0551_60min_data_stin.feather")
 
 py_run_file("D:/My-Shares/prgm/0551_yh_stock_part02_multi_tf_supertrend_trial_feather.py")
 
+py$stock_final05

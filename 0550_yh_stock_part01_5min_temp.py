@@ -39,6 +39,6 @@ data ['Datetime'] = data.index
 #data = pd.DataFrame(data)
 #data.to_feather("D:/My-Shares/analysis/0550_data.feather")
 
-data.to_pickle("D:/My-Shares/analysis/0550_data.pkl")
+#data.to_pickle("D:/My-Shares/analysis/0550_data.pkl")
 
 print('It took', time.time()-start, 'seconds.')
