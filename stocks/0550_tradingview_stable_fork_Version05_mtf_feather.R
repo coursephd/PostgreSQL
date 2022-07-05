@@ -25,20 +25,19 @@
 
 # Highlight the 'Path' variable and click Edit. Make sure that C:\Program Files\R\R-4.1.3 is somewhere in that long list of pathways.
 
-library(TTR)
-library(openxlsx)
-library(data.table)
-library(tidyverse)
-library(anytime)
-library(zoo)
-library(RCurl)
-library(lubridate)
-library(curl)
-library(ggplot2)
-library(plotly)
-#library(feather)
-library(arrow) # read_feather function from this library works but not from feather
+if (! "ttr" %in% tolower ( (.packages() ) ) )        { library(TTR) }        else { print ("The library TTR is already loaded") }
+if (! "data.table" %in% tolower ( (.packages() ) ) ) { library(data.table) } else { print ("The library data.table is already loaded") }
+if (! "tidyverse" %in% tolower ( (.packages() ) ) )  { library(tidyverse) }  else { print ("The library tidyverse is already loaded") }
+if (! "anytime" %in% tolower ( (.packages() ) ) )    { library(anytime) }    else { print ("The library anytime is already loaded") }
+if (! "zoo" %in% tolower ( (.packages() ) ) )        { library(zoo) }        else { print ("The library zoo is already loaded") }
+if (! "lubridate" %in% tolower ( (.packages() ) ) )  { library(lubridate) }  else { print ("The library lubridate is already loaded") }
+if (! "arrow" %in% tolower ( (.packages() ) ) )      { library(arrow) }      else { print ("The library arrow is already loaded") }
+# read_feather function from this library works but not from feather
 
+#if (! "openxlsx" %in% tolower ( (.packages() ) ) )   { library(openxlsx) }   else { print ("The library openxlsx is already loaded") }
+#if (! "RCurl" %in% tolower ( (.packages() ) ) )      { library(RCurl) }      else { print ("The library RCurl is already loaded") }
+#if (! "curl" %in% tolower ( (.packages() ) ) )       { library(curl) }       else { print ("The library curl is already loaded") }
+#if (! "plotly" %in% tolower ( (.packages() ) ) )     { library(plotly) }     else { print ("The library plotly is already loaded") }
 
 options(scipen = 999)
 
