@@ -1,8 +1,13 @@
 
 library(data.table)
-library(RCurl)
-library(lubridate)
-library(curl)
+#library(RCurl)
+#library(lubridate)
+#library(curl)
+
+future.seed = TRUE
+options(future.rng.onMisuse="ignore")
+
+future::plan(future::multisession, workers = floor(parallel::detectCores() ))
 
 # Data coming from ICICI breeze documentation:
 
