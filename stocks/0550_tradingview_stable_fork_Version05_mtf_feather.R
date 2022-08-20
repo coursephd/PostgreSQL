@@ -188,7 +188,8 @@ data_01day <- data_01day [, vPP := as.numeric(round( (shift(high, n =1, type = c
                                                         shift(low, n =1, type = c("lag")) + 
                                                         shift(close, n =1, type = c("lag"))  )/ 3), 2 ), ]
 data_01day <- data_01day [, `:=`(phigh = shift(high, n =1, type = c("lag")), 
-                                 plow = shift(low, n =1, type = c("lag")) ), by =.(ticker)]
+                                 plow = shift(low, n =1, type = c("lag")),
+                                 pclose = shift(close, n =1, type =c("lag")) ), by =.(ticker)]
 
 data_01day <- data_01day [, `:=`(vR0 = vPP + (phigh - plow) * 0,
                                  vS0 = vPP - (phigh - plow) * 0,
@@ -224,7 +225,7 @@ data_01day <- data_01day [, `:=`(vR0 = vPP + (phigh - plow) * 0,
                                  vS2618 = vPP - (phigh - plow) * 2.618), ]
 
 all02 <- merge.data.table (x = data_05min, 
-                           y = data_01day [, c("ticker", "trdate", "open", "high", "low", "close", "volumed", "drow",
+                           y = data_01day [, c("ticker", "trdate", "open", "high", "low", "close", "volumed", "drow", "pclose",
                                                "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
                                                "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ],
                            by = c("ticker", "trdate"))
@@ -319,7 +320,7 @@ all03 <- merge(x = all03,
                by = c("allrow"))
 
 all03 <- merge (x = all03,
-                y = all02 [, c("ticker", "trdate", "trdtme", "allrow", "close",
+                y = all02 [, c("ticker", "trdate", "trdtme", "allrow", "pclose",
                                 "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
                                 "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ], 
                 by = c("ticker", "trdate", "trdtme", "allrow"))
@@ -329,11 +330,14 @@ setnames(all03, c("SUPERT05_10_2", "SUPERTd05_10_2"),
 
 all03 <- all03 [, `:=`(long001 = ifelse(std05 == 1 & std15 == 1 & std30 == 1, 1, 0),
                        long002 = ifelse(DIp / DIn > 3 & ADX <= 30, 1, 0),
-                       prc003 = ifelse( abs( (price.close - close)/ close) * 100 < 1, 1, 0),
+                       prc003 = ifelse( abs( (price.close - pclose)/ pclose) * 100 < 1, 1, 0),
                        
                        short001 = ifelse(std05 == -1 & std15 == -1 & std30 == -1, 1, 0),
-                       short002 = ifelse(DIn / DIp > 3 & ADX <= 30, 1, 0)  ),]
-all03 <- all03 [, subrow02 := as.ITime (as.ITime("09:15") + subrow*5*60 ), ]
+                       short002 = ifelse(DIn / DIp > 3 & ADX <= 30, 1, 0),
+                       
+                       up = ifelse(price.close - price.open >= 0, 1, 0),
+                       dn = ifelse(price.close - price.open < 0, 1, 0),
+                       subrow02 = as.ITime (as.ITime("09:15") + subrow*5*60 ) ),]
 
 end_time <- Sys.time()
 end_time - start_time
@@ -348,7 +352,8 @@ end_time - start_time
 
 trial001 <- copy(all03)
 
-output <- trial001 [long001 == 1 & long002 == 1 & prc003 == 1]
+output <- trial001 [long001 == 1 & long002 == 1 & prc003 == 1 & up == 1]
+#output <- trial001 [short001 == 1 & short002 == 1 & prc003 == 1 & dn == 1]
 
 # See if the EMA cross over OR ST change as the primary signal
 #output <- trial001 [((up_st == 1 & rows_st <= 5) |(up_ema == 1 & rows_ema <= 5)) & up_adx == 1 & rows_adx <= 5 & nrank <= 5 & perchg <= 0.75]
@@ -377,7 +382,7 @@ output02 <- output02 [ order(-trdate, -entry_row)]
 trial002 <- trial002 [ subrow >= entry_row]
 trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "signal",
                           "entry_o", "entry_h", "entry_l", "entry_c",
-                          "price.open", "price.high", "price.low", "price.close", "volume",
+                          "price.open", "price.high", "price.low", "price.close", "volume", "st05",
                           "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
                           "vR1414", "vR1618", "vR2618"), ]
 
@@ -390,7 +395,7 @@ trial002 <- trial002 [ order(-trdate, -subrow) ]
 trial002_t <- melt.data.table(data = trial002 [ subrow == entry_row ],
                               id.vars = c("ticker", "trdate", "subrow", "subrow02", "entry_row",  "signal",
                                           "entry_o", "entry_h", "entry_l", "entry_c", "temp_prc", "nshares",
-                                          "price.open", "price.high", "price.low", "price.close", "volume"), 
+                                          "price.open", "price.high", "price.low", "price.close", "volume", "st05"), 
                               measure.vars = c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
                                                "vR1414", "vR1618", "vR2618"))
 
@@ -451,10 +456,10 @@ trial005 <- trial004 [, -c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786"
 
 trial005 <- trial005 [, step001 := 'breeze.place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
 trial005 <- trial005 [, step001sell := 'breeze.place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
-trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
-trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
-trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
-trial005 <- trial005 [, step002t03 := paste('stock_code="', ShortName, '", stoploss="', round(SUPERT_20_2.7, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_03, 2), '", user_remark="Sell order T03")', sep=""), ]
+trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
+trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
+trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
+trial005 <- trial005 [, step002t03 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_03, 2), '", user_remark="Sell order T03")', sep=""), ]
 
 trial005 <- trial005 [, step003buy := paste(step001, step002, sep=""), ]
 trial005 <- trial005 [, step003sell01 := paste(step001sell, step002t01, sep=""), ]
