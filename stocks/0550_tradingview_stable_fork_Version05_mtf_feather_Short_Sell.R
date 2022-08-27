@@ -321,8 +321,8 @@ all03 <- merge(x = all03,
 
 all03 <- merge (x = all03,
                 y = all02 [, c("ticker", "trdate", "trdtme", "allrow", "pclose",
-                                "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
-                                "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ], 
+                               "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
+                               "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ], 
                 by = c("ticker", "trdate", "trdtme", "allrow"))
 
 setnames(all03, c("SUPERT05_10_2", "SUPERTd05_10_2"), 
@@ -330,7 +330,7 @@ setnames(all03, c("SUPERT05_10_2", "SUPERTd05_10_2"),
 
 all03 <- all03 [, `:=`(long001 = ifelse(std05 == 1 & std15 == 1 & std30 == 1, 1, 0),
                        long002 = ifelse(DIp / DIn > 3 & ADX <= 30, 1, 0),
-                       prc003 = ifelse((((price.close - pclose)/ pclose) * 100) < 0.95, 1, 0),
+                       prc003 = ifelse(  ((pclose - price.close)/ pclose) * 100 < 1, 1, 0),
                        
                        short001 = ifelse(std05 == -1 & std15 == -1 & std30 == -1, 1, 0),
                        short002 = ifelse(DIn / DIp > 3 & ADX <= 30, 1, 0),
@@ -350,8 +350,8 @@ all03 <- all03 [, `:=`(long001 = ifelse(std05 == 1 & std15 == 1 & std30 == 1, 1,
 
 trial001 <- copy(all03)
 
-output <- trial001 [long001 == 1 & long002 == 1 & prc003 == 1 & up == 1 & subrow >= 3  & subrow <= 65]
-#output <- trial001 [short001 == 1 & short002 == 1 & prc003 == 1 & dn == 1]
+#output <- trial001 [long001 == 1 & long002 == 1 & prc003 == 1 & up == 1 & subrow >= 3  & subrow <= 65]
+output <- trial001 [short001 == 1 & short002 == 1 & prc003 == 1 & dn == 1 & subrow >= 3  & subrow <= 65]
 
 # See if the EMA cross over OR ST change as the primary signal
 #output <- trial001 [((up_st == 1 & rows_st <= 5) |(up_ema == 1 & rows_ema <= 5)) & up_adx == 1 & rows_adx <= 5 & nrank <= 5 & perchg <= 0.75]
@@ -381,8 +381,8 @@ trial002 <- trial002 [ subrow >= entry_row]
 trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row", "signal",
                           "entry_o", "entry_h", "entry_l", "entry_c",
                           "price.open", "price.high", "price.low", "price.close", "volume", "st05",
-                          "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
-                          "vR1414", "vR1618", "vR2618"), ]
+                          "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", 
+                          "vS1414", "vS1618", "vS2618"), ]
 
 trial002 <- trial002 [, temp_prc := round( (entry_c * 1.002)/5, 2),  ]
 trial002 <- trial002 [, nshares := round( (100000 / temp_prc) * 1 , 0),  ]
@@ -394,11 +394,11 @@ trial002_t <- melt.data.table(data = trial002 [ subrow == entry_row ],
                               id.vars = c("ticker", "trdate", "subrow", "subrow02", "entry_row",  "signal",
                                           "entry_o", "entry_h", "entry_l", "entry_c", "temp_prc", "nshares",
                                           "price.open", "price.high", "price.low", "price.close", "volume", "st05"), 
-                              measure.vars = c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
-                                               "vR1414", "vR1618", "vR2618"))
+                              measure.vars = c("vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", 
+                                               "vS1414", "vS1618", "vS2618"))
 
 trial002_t <- trial002_t [, value := as.numeric( round(value, 2 )), ]
-trial002_t <- trial002_t [, dist := value - entry_c, ]
+trial002_t <- trial002_t [, dist := abs(value - entry_c), ]
 trial002_t <- trial002_t [ order (-trdate, ticker, dist)]
 
 #######################################################
@@ -422,118 +422,36 @@ trial002_t02 <- merge (x = trial002_t02,
                        by.y = c("SYMBOL02"),
                        all.x = TRUE)
 
-trial003 <- dcast.data.table(data = trial002_t02,
-                             ticker + ShortName + trdate + entry_row ~ paste("t", str_pad(tgt, 2, pad="0"), sep ="_"),
-                             fill =" ")
+trial004 <- merge(x = trial001 [, c("ticker", "trdate", "subrow", "subrow02", "price.open", "price.high", "price.low", "price.close", "st05"), ],
+                  y = trial002_t02 [, c("ticker", "trdate", "entry_row", "entry_o", "entry_h", "entry_l", "entry_c", "variable", "value", "dist", "tgt", "ShortName",  "temp_prc", "nshares"), ],
+                  by = c("ticker", "trdate"),
+                  allow.cartesian = TRUE)
 
-trial004 <- merge(x = trial002,
-                  y = trial003,
-                  by = c("ticker", "trdate", "entry_row"))
+trial004 <- trial004 [ subrow >= entry_row ]
 
-trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
-
-#######################################################
+###########################################################
 #
-# Part 5
+# When the SL is hit create an indicator of 1
+# When targets are hit create an indicator of 1
 #
-# Create place_order, modify_order, cancel_order, etc.
-# Based on the ST, T01, T02, T03, nshares, ShortName
-# variables
+# Calculate row numbers for SL and TGTs
+# If row_sl > row_tgt
 #
-# needs some work to get this fully correct
+# The SL should be hit after the target to get into profit
 #
-# Output this to a python code (.py file)
-#
-# This code will have to be executed once the file is
-# created
-# 
-#######################################################
+###########################################################
 
-trial005 <- trial004 [, -c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
-                           "vR1414", "vR1618", "vR2618"),  ]
+trial004 <- trial004 [, `:=` (dist_sl = ifelse(price.high > st05, 1, 0), 
+                              dist_tgt = ifelse(price.low < value, 1, 0) ),] 
 
-trial005 <- trial005 [, step001 := 'breeze.place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
-trial005 <- trial005 [, step001sell := 'breeze.place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
-trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
-trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
-trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
-trial005 <- trial005 [, step002t03 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_03, 2), '", user_remark="Sell order T03")', sep=""), ]
+trial004 <- trial004 [, cum_sl := cumsum(dist_sl), by =.(ticker, trdate)]
+trial004 <- trial004 [, cum_tgt := cumsum(dist_tgt), by =.(ticker, trdate, tgt)]
 
-trial005 <- trial005 [, step003buy := paste(step001, step002, sep=""), ]
-trial005 <- trial005 [, step003sell01 := paste(step001sell, step002t01, sep=""), ]
-trial005 <- trial005 [, step003sell02 := paste(step001sell, step002t02, sep=""), ]
-trial005 <- trial005 [, step003sell03 := paste(step001sell, step002t03, sep=""), ]
-
-end_time <- Sys.time()
-end_time - start_time
+trial004a <- trial004 [ cum_sl == 1 | cum_tgt == 1]
+trial004a <- trial004a [ order (-trdate, ticker, dist)]
+#fwrite(trial004a, "D:/My-Shares/analysis/trial004a.csv")
 
 
-#######################################################
-#
-# Part 6
-#
-# Creation of the python files
-#
-# Part 01 Login code
-# Part 02 Orders code
-# Part 03 Updates / modify / cancel orders code 
-#         if needed as a separate file
-#
-#######################################################
 
-chk <- trial005 [drow == max(drow) & entry_row == subrow ]
-chk <- chk [, comments := paste("from breeze_connect import BreezeConnect\nimport http.client\nimport json\nimport pandas as pd\n\n# Order on date ", trdate, " at ", subrow02, " for company ", ticker, "\n\n", sep= "" ),]
-chk <- chk [, orders := paste(comments, step003buy, "\n", step003sell01, "\n", step003sell02, "\n", step003sell03, sep=""), ]
-
-fwrite(chk[, c("orders"), ], 
-       quote = FALSE,
-       sep = " ",
-       col.names = FALSE,
-       row.names = FALSE,
-       file = "D:/My-Shares/prgm/0550_icici_02_orders.py")
-
-
-py_run_file("D:/My-Shares/prgm/0550_icici_01_login.py")
-
-#py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
-
-
-########################################################################################################
-#
-#
-# End of program
-#
-#
-########################################################################################################
-
-
-#
-# Various attempts of pkl file
-#
-
-#all03_05 <- as.data.table( py$stock_final05 )
-#all03_15 <- as.data.table( py$stock_final15 )
-#all03_30 <- as.data.table( py$stock_final30 )
-#all03_60 <- as.data.table( py$stock_final60 )
-
-#py_save_object(a05, "D:/My-Shares/analysis/0551_5min_data_stin.pkl")
-#py_save_object(a15, "D:/My-Shares/analysis/0551_15min_data_stin.pkl")
-#py_save_object(a30, "D:/My-Shares/analysis/0551_30min_data_stin.pkl")
-#py_save_object(a60, "D:/My-Shares/analysis/0551_60min_data_stin.pkl")
-
-#pd$to_pickle(a05, "D:/My-Shares/analysis/0551_5min_data_stin.pkl")
-#pd$to_pickle(a15, "D:/My-Shares/analysis/0551_15min_data_stin.pkl")
-#pd$to_pickle(a30, "D:/My-Shares/analysis/0551_30min_data_stin.pkl")
-#pd$to_pickle(a60, "D:/My-Shares/analysis/0551_60min_data_stin.pkl")
-
-#py_run_file("D:/My-Shares/prgm/0551_yh_stock_part02_multi_tf_supertrend_trial_feather.py")
-
-#all03_05 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_5min_data_stout.pkl") )
-#all03_15 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_15min_data_stout.pkl") )
-#all03_30 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_30min_data_stout.pkl") )
-#all03_60 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_60min_data_stout.pkl") )
-
-#all03_05 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_5min_data_stout.pkl") )
-#all03_15 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_15min_data_stout.pkl") )
-#all03_30 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_30min_data_stout.pkl") )
-#all03_60 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_60min_data_stout.pkl") )
+chk <- unique( trial004a [, c("trdate", "ticker"), ] )
+chk <- chk [, n := uniqueN(ticker), by = .(trdate)]
