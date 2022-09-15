@@ -1,9 +1,14 @@
 import yfinance as yf
 import pandas as pd
 import time
+
+#import feather
+
 start = time.time()
 
-fno_csv = pd.read_csv("https://archives.nseindia.com/content/fo/fo_mktlots.csv")
+#fno_csv = pd.read_csv("https://archives.nseindia.com/content/fo/fo_mktlots.csv")
+fno_csv = pd.read_csv("https://www1.nseindia.com/content/fo/fo_mktlots.csv")
+
 fno_csv ["symbol_yh"] = fno_csv["SYMBOL    "].str.strip() + ".NS"
 
 Symbols = fno_csv["symbol_yh"]
@@ -19,13 +24,13 @@ Symbols.remove('FINNIFTY.NS')
 Symbols.remove('Symbol.NS')
 
 # Add Nifty data for the RRG calculations
-Symbols.append('^NSEI')
+#Symbols.append('^NSEI')
 
 Symbols
 
 data = yf.download(
         tickers = Symbols,
-        period = "5d", interval = "5m",
+        period = "60d", interval = "5m",
         group_by = 'ticker',
         auto_adjust = False,
         prepost = False,
@@ -34,8 +39,9 @@ data = yf.download(
     )
 
 data ['Datetime'] = data.index
-#data.to_csv("D:/My-Shares/analysis/0550_data.csv")
+#feather.write_dataframe(stock_final05, "D:/My-Shares/analysis/0550_data.feather")
 
+#data.to_csv("D:/My-Shares/analysis/0550_data.csv")
 #data = pd.DataFrame(data)
 #data.to_feather("D:/My-Shares/analysis/0550_data.feather")
 

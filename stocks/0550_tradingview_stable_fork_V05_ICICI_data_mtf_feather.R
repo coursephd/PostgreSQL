@@ -1,137 +1,278 @@
-# Technical Rank ( TR ) was authored by John Murphy. 
-# Technical Rank shows how a security is performing relative to its peers . 
-# Multiple moving averages, rate of change and the Relative Strength Index ( RSI ) indicators are used to calculate the Technical Rank. 
-# These values are mathematically manipulated with percentage factors and then summed together. 
-# There are 3 parts, long term, middle term and short term. 
+
+##########
 #
-# For Long term part Moving Average with length 200 (30%) and Rate of Change with the length 125 (30%) are used, 
-# For middle term part, Moving Average with length 50 (15%) and Rate of Change with the length 20 (15%) are used and 
-# For short term part, PPO (5%) and RSI (5%) used.
-
-
-# Technical Rank is created using the following formula and weightings:
-#  Long-Term Indicators (weighting): Percent above/below the 200-day exponential moving average ( EMA ) (30% weight) and the 125-day rate-of-change ( ROC ) (30% weight).
-#  Medium-Term Indicators (weighting): Percent above/below 50-day EMA (15%) and the 20-day rate-of-change (15%).
-#  Short-Term Indicators (weighting): Three-day slope of percentage price oscillator histogram divided by three (5%) and the relative strength index (5%).
-
-# Python Modules are usually stored in /lib/site-packages in your Python folder. If you want to see 
-
-# In
-# Go to: Control Panel-->System-->Advanced-->Environment Variables.
-# Under 'System Variables' click New.
-# Variable name: R_HOME
-
-# R_HOME: C:\Program Files\R\R-4.1.3
-
-# Highlight the 'Path' variable and click Edit. Make sure that C:\Program Files\R\R-4.1.3 is somewhere in that long list of pathways.
-
-if (! "ttr"        %in% tolower ( (.packages() ) ) ) { library(TTR)        } else { print ("The library TTR is already loaded") }
-if (! "data.table" %in% tolower ( (.packages() ) ) ) { library(data.table) } else { print ("The library data.table is already loaded") }
-if (! "tidyverse"  %in% tolower ( (.packages() ) ) ) { library(tidyverse)  } else { print ("The library tidyverse is already loaded") }
-if (! "anytime"    %in% tolower ( (.packages() ) ) ) { library(anytime)    } else { print ("The library anytime is already loaded") }
-if (! "zoo"        %in% tolower ( (.packages() ) ) ) { library(zoo)        } else { print ("The library zoo is already loaded") }
-if (! "lubridate"  %in% tolower ( (.packages() ) ) ) { library(lubridate)  } else { print ("The library lubridate is already loaded") }
-if (! "arrow"      %in% tolower ( (.packages() ) ) ) { library(arrow)      } else { print ("The library arrow is already loaded") }
-if (! "reticulate" %in% tolower ( (.packages() ) ) ) { library(reticulate) } else { print ("The library reticulate is already loaded") }
-
-# read_feather function from this library works but not from feather
-
-#if (! "openxlsx" %in% tolower ( (.packages() ) ) )   { library(openxlsx) }   else { print ("The library openxlsx is already loaded") }
-#if (! "RCurl" %in% tolower ( (.packages() ) ) )      { library(RCurl) }      else { print ("The library RCurl is already loaded") }
-#if (! "curl" %in% tolower ( (.packages() ) ) )       { library(curl) }       else { print ("The library curl is already loaded") }
-#if (! "plotly" %in% tolower ( (.packages() ) ) )     { library(plotly) }     else { print ("The library plotly is already loaded") }
-
-options(scipen = 999)
-
-#library(BatchGetSymbols)
-
-#future.seed = TRUE
-#options(future.rng.onMisuse="ignore")
-
-#future::plan(future::multisession, workers = floor(parallel::detectCores() ))
-
-start_time <- Sys.time()
-
-###########################################################
+# Q1 2020
 #
-# Part 1
-# Create a mapping of the company names
-# ICICI - Yahoo - NSE [FnO stocks]
-#
-###########################################################
-#
-# Creating conditional execution of the mapping dataset
-#
-###########################################################
+##########
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q1_2020_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q1_2020_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2020-01-01T07:00:00.000Z", to_date= "2020-03-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
 
-file_crea <- file.info("D:/My-Shares/analysis/icici_fno.rds")$mtime
-compdt <- as.POSIXct( paste(Sys.Date(), "09:15:00", sep = ""), tz=Sys.timezone())
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q1_2020.py")
 
-if (is.na(file_crea) ) {print("File does not exist, the source code must be executed to create mapping file")
-  source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R") 
-  file_crea <- file.info("D:/My-Shares/analysis/icici_fno.rds")$mtime
-} 
+eval(parse(text = icici_fno$step501))
 
-if (file_crea >= compdt ) {
-  print("The mapping dataset exists for the day, need not re-execute, only extracting from the earlier version to the local area") 
-  icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
-} else { 
-  print("The mapping dataset needs to be created, executing the source code")
-  source("D:\\My-Shares\\prgm\\0550_tradingview_yh_icici_map.R") 
-}
+allD01 <- rbindlist(mget(ls(pattern = "file_Q1_2020_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q1_2020_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+                 c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
 
 ###########################################
+
+##########
 #
-# Part 2
+# Q2 2020
 #
-# Python calculations
-# Get the 5 mins data for calculations
-# Get 1 day data for Fibo calculations
-# Fibo values will be used for the targets
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q2_2020_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q2_2020_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2020-04-01T07:00:00.000Z", to_date= "2020-06-30T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q2_2020.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q2_2020_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q2_2020_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
+##########
 #
+# Q3 2020
+#
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q3_2020_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q3_2020_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2020-07-01T07:00:00.000Z", to_date= "2020-09-30T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q3_2020.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q3_2020_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q3_2020_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
+
+##########
+#
+# Q4 2020
+#
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q4_2020_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q4_2020_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2020-10-01T07:00:00.000Z", to_date= "2020-12-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q4_2020.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q4_2020_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q4_2020_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
+##########
+#
+# Q1 2021
+# 1 lac profit
+#
+##########
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q1_2021_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q1_2021_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2021-01-01T07:00:00.000Z", to_date= "2021-03-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q1_2021.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q1_2021_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q1_2021_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+
 ###########################################
 
-#use_python("C:/ProgramData/Anaconda3/python.exe", required = T)
+##########
+#
+# Q2 2021
+# 2.42 lac profit 
+##########
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q2_2021_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q2_2021_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2021-04-01T07:00:00.000Z", to_date= "2021-06-30T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
 
-use_python("C:/Program Files/Python310/python.exe", required = T)
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q2_2021.py")
 
-# Get the source data from yahoo finance, 
-# Create a csv file to be passed into supertrend formula
+eval(parse(text = icici_fno$step501))
 
-py_run_file("D:/My-Shares/prgm/0550_yh_stock_part01_5min_temp.py")
-#system(paste('"c:/Program Files/Python310/python.exe"', 'D:/My-Shares/prgm/0550_yh_stock_part01_5min_temp.py'))
+allD01 <- rbindlist(mget(ls(pattern = "file_Q2_2021_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q2_2021_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+
+###########################################
+
+##########
+#
+# Q3 2021
+# 3 lac profits
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q3_2021_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q3_2021_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2021-07-01T07:00:00.000Z", to_date= "2021-09-30T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
 
 
-pickle_data <- as.data.table (py$data)
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q3_2021.py")
 
-pd <- import("pandas")
-#pickle_data <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0550_data.pkl") )
-pickle_data <- pickle_data [, nrow := 1:.N, ]
+eval(parse(text = icici_fno$step501))
 
-dnames <- as.data.table ( names(pickle_data) )
-dnames <- dnames [, nrow := 1:.N, ]
-dnames <- dnames [, nrow02 := ceiling(nrow / 6), ]
-dnames <- dnames [, subrow := 1:.N, by = .(nrow02)]
-dnames <- dnames [, v10 := str_squish(V1), ]
-dnames <- dnames [, v10 := ifelse(v10 == "Adj Close", "Adj_Close", v10), ]
-dnames <- dnames [, v11 := ifelse(subrow > 1, paste(" ", v10, sep=""), v10), ]
-dnames <- dnames [, c("tmp01", "tmp02") := tstrsplit(v11, " ", fill =""), ]
-dnames02 <- dnames [subrow == 1, c("tmp01", "nrow02"), ]
+allD01 <- rbindlist(mget(ls(pattern = "file_Q3_2021_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q3_2021_*'))
 
-dnames03 <- merge(x = dnames [, -c("tmp01"), ],
-                  y = dnames02,
-                  by = c("nrow02"))
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
 
-dnames03 <- dnames03 [, tmp03 := paste(tmp01, tmp02, sep="_"),]
-dnames03 <- dnames03 [, chg001 := paste("setnames (pickle_data, '", V1, "', '", tmp03, "')", sep = "") , ]
+stock_final <- allD02
+#################################################
 
-eval(parse(text = dnames03$chg001))
 
-pickle_data_t <- melt(data = pickle_data, id.vars = c("Datetime_", "Datetime_nrow"))
-data03_t <- pickle_data_t [, c("Name", "ohlcv", "tmp") := tstrsplit(variable, "_"), ]
-stock_final <- dcast(data = data03_t [, -c("tmp"), ],
-                     Datetime_ + Datetime_nrow + Name ~ ohlcv, 
-                     value.var = c("value") )
+##########
+#
+# Q4 2021
+# 2.79 lacs profit
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q4_2021_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q4_2021_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2021-10-01T07:00:00.000Z", to_date= "2021-12-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q4_2021.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q4_2021_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q4_2021_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
+
+
 
 setnames (stock_final, "Datetime_", "Datetime")
 stock_final <- as.data.table(stock_final)
@@ -323,15 +464,15 @@ all03 <- merge(x = all03,
 
 all03 <- merge (x = all03,
                 y = all02 [, c("ticker", "trdate", "trdtme", "allrow", "pclose",
-                                "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
-                                "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ], 
+                               "vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", "vR1414", "vR1618", "vR2618",
+                               "vS0", "vS0236", "vS0382", "vS05", "vS0618", "vS0786", "vS1", "vS1272", "vS1414", "vS1618", "vS2618"), ], 
                 by = c("ticker", "trdate", "trdtme", "allrow"))
 
 setnames(all03, c("SUPERT05_10_2", "SUPERTd05_10_2"), 
          c("st05", "std05") )
 
 all03 <- all03 [, `:=`(long001 = ifelse(std05 == 1 & std15 == 1 & std30 == 1, 1, 0),
-                       long002 = ifelse(DIp / DIn > 2.5 & ADX <= 30, 1, 0),
+                       long002 = ifelse(DIp / DIn > 3 & ADX <= 30, 1, 0),
                        prc003 = ifelse((((price.close - pclose)/ pclose) * 100) < 0.95, 1, 0),
                        
                        short001 = ifelse(std05 == -1 & std15 == -1 & std30 == -1, 1, 0),
@@ -371,7 +512,6 @@ setnames(output02, "price.close", "entry_c")
 setnames(output02, "subrow", "entry_row")
 setnames(output02, "subrow02", "entry_time")
 
-  
 # Merge this data with the original data
 
 trial002 <- merge (x = trial001, 
@@ -406,9 +546,7 @@ trial002 <- trial002 [, c("ticker", "trdate", "subrow", "subrow02", "entry_row",
 trial002 <- trial002 [, temp_prc := round( (entry_h * 1.002)/5, 2),  ]
 trial002 <- trial002 [, nshares := round( (200000 / temp_prc) * 1 , 0),  ]
 
-
 trial002 <- trial002 [ order(-trdate, -subrow) ]
-
 
 trial002_t <- melt.data.table(data = trial002 [ subrow == exe_row ],
                               id.vars = c("ticker", "trdate", "subrow", "subrow02", "entry_row", "exe_row",  "signal",
@@ -471,7 +609,7 @@ trial004 <- trial004 [, `:=` (dist_sl = ifelse(price.low - st05 > 0, 0, 1),
 trial004 <- trial004 [, cum_sl := cumsum(dist_sl), by =.(ticker, trdate)]
 trial004 <- trial004 [, cum_tgt := cumsum(dist_tgt), by =.(ticker, trdate, tgt)]
 
-tgt001 <- trial004 [ cum_tgt == 1 & tgt <= 4, c("ticker", "trdate", "subrow", "tgt", "subrow02","entry_h", "value", "st05", "dist", "nshares", "entry_row", "exe_row", "tradeorder"), ]
+tgt001 <- trial004 [ cum_tgt == 1 & tgt <= 4, c("ticker", "trdate", "subrow", "tgt", "subrow02","entry_h", "value", "st05", "dist", "nshares", "entry_row", "tradeorder"), ]
 tgt001 <- tgt001 [, tgt_max := max(tgt), by = .(ticker, trdate)]
 tgt002 <- unique( tgt001 [ tgt == tgt_max, c("ticker", "trdate", "tgt_max", "subrow"), ] )
 tgt002 <- tgt002 [, tgt_row := min(subrow), by = .(ticker, trdate)]
@@ -491,11 +629,13 @@ trial004 <- merge(x = trial004,
                   y = sl001,
                   by = c("ticker", "trdate") )
 
+#trial004a <- trial004 [ subrow <= sl_row & cum_tgt == 1]
+
 # Get the sl_row - 1 and get the st05 so that the trailing stop can be calculated
 
 sl002 <- trial004 [ subrow == sl_row - 1 ] 
 sl002 <- sl002 [, dist := st05 - entry_c, ]
-sl002 <- unique( sl002 [, c("ticker", "trdate", "subrow", "subrow02", "st05", "entry_c", "value", "dist", "nshares", "entry_row", "tradeorder"), ] )
+sl002 <- unique( sl002 [, c("ticker", "trdate", "subrow", "subrow02", "st05", "entry_h", "value", "dist", "nshares", "entry_row", "tradeorder"), ] )
 sl002 <- sl002 [, tgt := 99, ]
 
 sl004 <- rbind(sl002, tgt003 [, -c("tgt_max", "tgt_row"), ])
@@ -562,139 +702,44 @@ sl007 <- sl007 [, pnl_day := sum(pnl_tot), by = .(trdate)]
 sl007 <- sl007 [, pnl_all := cumsum(pnl_tot), ]
 sum(sl007 [! type %in% c("99") ]$pnl_tot)
 
-
-##########################################################################################
-
-
+sl006 <- sl005a [ subrow <= subrow99] 
 sl006 <- sl006 [, type := paste(tgt, collapse = ",", sep =""), by =.(trdate, ticker)]
-comb002 <- unique(sl006 [, c("trdate", "ticker", "tradeorder", "type"), ])
-comb003 <- comb002 [tradeorder <= 5, .(ncount = length(ticker) ), by =.(type)]
-comb003 <- comb003 [, tot := sum(ncount), ]
 
+#########################################################
+#
+# If all 3 targets are not hit then there is a need to 
+# derived another target at 3:20, say tgt = 98
+#
+# When type is in (1, "1,2", "1,2,3") get the 3:20 subrow value
+# and use the st05 value as the possible exit
+#
+# Merge this data with subrow == 74
+#
+#########################################################
+sl006a <- sl006 [ type %in% c("1", "1,2", "1,2,3") ]
+sl006a <- unique(sl006a [, -c("subrow", "subrow02", "tgt", "pnl", "st05"), ])
 
-sl006 <- sl006 [, include := ifelse(type == "1,99" & tgt == 1, 0, 1), ]
-sl006 <- sl006 [, pnl := ifelse(type %in% c("1, 99", "99"), nshares * dist, pnl), ]
+sl006b <- merge (x = sl006a,
+                 y = trial001 [ subrow == 74, c("trdate", "ticker", "st05", "subrow", "subrow02"), ],
+                 by = c("trdate", "ticker"),
+                 all.x = TRUE)
+sl006b <- sl006b [, `:=` (dist = st05 - entry_h, tgt = 98, subrow99 = 98, pnl = 0), ]
 
-sl007 <- sl006 [include == 1 & tgt < 99, .(pnl_tot = sum(pnl) ), by = .(trdate, type)]
+sl006c <- rbind(sl006, sl006b)
+sl006d <- sl006c [ tgt > 1]
+sl006d <- sl006d [, shares_mult := case_when(type %in% c("1", "1,99", "99") ~ nshares,
+                                             type %in% c("1,2", "1,2,99") & tgt == 2 ~ nshares * 0.33,
+                                             type %in% c("1,2", "1,2,99") & tgt %in% c(98, 99) ~ nshares * 0.66,
+                                             type %in% c("1,2,3", "1,2,3,4", "1,2,3,99", "1,2,3,4,99") ~ nshares * 0.33,
+                                             type %in% c("1,2,3,4,99") & tgt == 99 ~ nshares * 0), ]
+
+sl006d <- sl006d [, pnl := dist * shares_mult * 0.65, ]
+sl006d <- sl006d [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
+sl006d <- sl006d [, pnl_date := sum(pnl), by = .(trdate)]
+sl006d <- sl006d [, ntrades := uniqueN(ticker), by = .(trdate)]
+
+sl007 <- sl006d [ tradeorder <= 5 ]
+sl007 <- sl007 [, .(pnl_tot = sum(pnl) ), by = .(trdate, type)]
 sl007 <- sl007 [, pnl_day := sum(pnl_tot), by = .(trdate)]
 sl007 <- sl007 [, pnl_all := cumsum(pnl_tot), ]
-sum(sl007 [! type %in% c("99") ]$pnl_tot)
 
-
-#########################################################################3
-
-trial003 <- dcast.data.table(data = trial002_t02,
-                             ticker + ShortName + trdate + entry_row ~ paste("t", str_pad(tgt, 2, pad="0"), sep ="_"),
-                             fill =" ")
-
-trial004 <- merge(x = trial002,
-                  y = trial003,
-                  by = c("ticker", "trdate", "entry_row"))
-
-trial004 <- trial004 [ order(-trdate, -subrow, ticker)]
-
-#######################################################
-#
-# Part 5
-#
-# Create place_order, modify_order, cancel_order, etc.
-# Based on the ST, T01, T02, T03, nshares, ShortName
-# variables
-#
-# needs some work to get this fully correct
-#
-# Output this to a python code (.py file)
-#
-# This code will have to be executed once the file is
-# created
-# 
-#######################################################
-
-trial005 <- trial004 [, -c("vR0", "vR0236", "vR0382", "vR05", "vR0618", "vR0786", "vR1", "vR1272", 
-                           "vR1414", "vR1618", "vR2618"),  ]
-
-trial005 <- trial005 [, step001 := 'breeze.place_order(exchange_code="NSE", product="cash", action="buy", order_type="limit", validity="day", user_remark="1st buy order",', ]
-trial005 <- trial005 [, step001sell := 'breeze.place_order(exchange_code="NSE", product="cash", action="sell", order_type="limit", validity="day", ', ]
-trial005 <- trial005 [, step002 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0) * 3, '", price="', round(entry_h, 2), '")', sep=""), ]
-trial005 <- trial005 [, step002t01 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_01, 2), '", user_remark="Sell order T01")', sep=""), ]
-trial005 <- trial005 [, step002t02 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_02, 2), '", user_remark="Sell order T02")', sep=""), ]
-trial005 <- trial005 [, step002t03 := paste('stock_code="', ShortName, '", stoploss="', round(st05, 2), '", quantity="', round(nshares/3, 0), '", price="', round(t_03, 2), '", user_remark="Sell order T03")', sep=""), ]
-
-trial005 <- trial005 [, step003buy := paste(step001, step002, sep=""), ]
-trial005 <- trial005 [, step003sell01 := paste(step001sell, step002t01, sep=""), ]
-trial005 <- trial005 [, step003sell02 := paste(step001sell, step002t02, sep=""), ]
-trial005 <- trial005 [, step003sell03 := paste(step001sell, step002t03, sep=""), ]
-
-end_time <- Sys.time()
-end_time - start_time
-
-
-#######################################################
-#
-# Part 6
-#
-# Creation of the python files
-#
-# Part 01 Login code
-# Part 02 Orders code
-# Part 03 Updates / modify / cancel orders code 
-#         if needed as a separate file
-#
-#######################################################
-
-chk <- trial005 [drow == max(drow) & entry_row == subrow ]
-chk <- chk [, comments := paste("from breeze_connect import BreezeConnect\nimport http.client\nimport json\nimport pandas as pd\n\n# Order on date ", trdate, " at ", subrow02, " for company ", ticker, "\n\n", sep= "" ),]
-chk <- chk [, orders := paste(comments, step003buy, "\n", step003sell01, "\n", step003sell02, "\n", step003sell03, sep=""), ]
-
-fwrite(chk[, c("orders"), ], 
-       quote = FALSE,
-       sep = " ",
-       col.names = FALSE,
-       row.names = FALSE,
-       file = "D:/My-Shares/prgm/0550_icici_02_orders.py")
-
-
-py_run_file("D:/My-Shares/prgm/0550_icici_01_login.py")
-
-#py_run_file("D:/My-Shares/prgm/0550_icici_02_orders.py")
-
-
-########################################################################################################
-#
-#
-# End of program
-#
-#
-########################################################################################################
-
-
-#
-# Various attempts of pkl file
-#
-
-#all03_05 <- as.data.table( py$stock_final05 )
-#all03_15 <- as.data.table( py$stock_final15 )
-#all03_30 <- as.data.table( py$stock_final30 )
-#all03_60 <- as.data.table( py$stock_final60 )
-
-#py_save_object(a05, "D:/My-Shares/analysis/0551_5min_data_stin.pkl")
-#py_save_object(a15, "D:/My-Shares/analysis/0551_15min_data_stin.pkl")
-#py_save_object(a30, "D:/My-Shares/analysis/0551_30min_data_stin.pkl")
-#py_save_object(a60, "D:/My-Shares/analysis/0551_60min_data_stin.pkl")
-
-#pd$to_pickle(a05, "D:/My-Shares/analysis/0551_5min_data_stin.pkl")
-#pd$to_pickle(a15, "D:/My-Shares/analysis/0551_15min_data_stin.pkl")
-#pd$to_pickle(a30, "D:/My-Shares/analysis/0551_30min_data_stin.pkl")
-#pd$to_pickle(a60, "D:/My-Shares/analysis/0551_60min_data_stin.pkl")
-
-#py_run_file("D:/My-Shares/prgm/0551_yh_stock_part02_multi_tf_supertrend_trial_feather.py")
-
-#all03_05 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_5min_data_stout.pkl") )
-#all03_15 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_15min_data_stout.pkl") )
-#all03_30 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_30min_data_stout.pkl") )
-#all03_60 <- as.data.table ( py_load_object("D:/My-Shares/analysis/0551_60min_data_stout.pkl") )
-
-#all03_05 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_5min_data_stout.pkl") )
-#all03_15 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_15min_data_stout.pkl") )
-#all03_30 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_30min_data_stout.pkl") )
-#all03_60 <- as.data.table ( pd$read_pickle("D:/My-Shares/analysis/0551_60min_data_stout.pkl") )
