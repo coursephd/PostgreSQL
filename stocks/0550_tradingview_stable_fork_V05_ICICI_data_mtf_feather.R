@@ -272,6 +272,75 @@ stock_final <- allD02
 #################################################
 
 
+##########
+#
+# Q1 2022
+# 2.41 lacs profit
+##########
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q1_2022_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q1_2022_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2022-01-01T07:00:00.000Z", to_date= "2022-03-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q1_2022.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q1_2022_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q1_2022_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+
+###########################################
+
+##########
+#
+# Q2 2022
+#
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q2_2022_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q2_2022_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2022-04-01T07:00:00.000Z", to_date= "2022-06-30T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q2_2022.py")
+
+eval(parse(text = icici_fno$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q2_2022_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q2_2022_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
+
+
 
 
 setnames (stock_final, "Datetime_", "Datetime")
@@ -609,7 +678,7 @@ trial004 <- trial004 [, `:=` (dist_sl = ifelse(price.low - st05 > 0, 0, 1),
 trial004 <- trial004 [, cum_sl := cumsum(dist_sl), by =.(ticker, trdate)]
 trial004 <- trial004 [, cum_tgt := cumsum(dist_tgt), by =.(ticker, trdate, tgt)]
 
-tgt001 <- trial004 [ cum_tgt == 1 & tgt <= 4, c("ticker", "trdate", "subrow", "tgt", "subrow02","entry_h", "value", "st05", "dist", "nshares", "entry_row", "tradeorder"), ]
+tgt001 <- trial004 [ cum_tgt == 1 & tgt <= 4, c("ticker", "trdate", "subrow", "tgt", "subrow02","entry_h", "value", "st05", "dist", "nshares", "entry_row", "exe_row", "tradeorder"), ]
 tgt001 <- tgt001 [, tgt_max := max(tgt), by = .(ticker, trdate)]
 tgt002 <- unique( tgt001 [ tgt == tgt_max, c("ticker", "trdate", "tgt_max", "subrow"), ] )
 tgt002 <- tgt002 [, tgt_row := min(subrow), by = .(ticker, trdate)]
@@ -635,7 +704,7 @@ trial004 <- merge(x = trial004,
 
 sl002 <- trial004 [ subrow == sl_row - 1 ] 
 sl002 <- sl002 [, dist := st05 - entry_c, ]
-sl002 <- unique( sl002 [, c("ticker", "trdate", "subrow", "subrow02", "st05", "entry_h", "value", "dist", "nshares", "entry_row", "tradeorder"), ] )
+sl002 <- unique( sl002 [, c("ticker", "trdate", "subrow", "subrow02", "st05", "entry_h", "value", "dist", "nshares", "entry_row", "exe_row", "tradeorder"), ] )
 sl002 <- sl002 [, tgt := 99, ]
 
 sl004 <- rbind(sl002, tgt003 [, -c("tgt_max", "tgt_row"), ])
@@ -658,22 +727,22 @@ sl005 <- sl005 [, pnl := dist * nshares /3 * 0.65, ]
 
 sl005 <- sl005 [ order(-trdate, tradeorder, ticker, subrow, tgt)]
 
-sl005_234 <- sl005 [ tgt %in% c(2, 3, 4) & tradeorder <= 10]
-sl005_234 <- sl005_234 [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
-sl005_234 <- sl005_234 [, pnl_date := sum(pnl), by = .(trdate)]
-sl005_234 <- sl005_234 [, ntrades := uniqueN(ticker), by = .(trdate)]
+#sl005_234 <- sl005 [ tgt %in% c(2, 3, 4) & tradeorder <= 10]
+#sl005_234 <- sl005_234 [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
+#sl005_234 <- sl005_234 [, pnl_date := sum(pnl), by = .(trdate)]
+#sl005_234 <- sl005_234 [, ntrades := uniqueN(ticker), by = .(trdate)]
 
-sum(sl005_234$pnl)
+#sum(sl005_234$pnl)
 
-fwrite(sl005_234, "D:/My-Shares/analysis/trial004_234.csv")
+#fwrite(sl005_234, "D:/My-Shares/analysis/trial004_234.csv")
 
-sl005_2399 <- sl005 [ tgt %in% c(2, 3, 99) & tradeorder <= 10]
-sl005_2399 <- sl005_2399 [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
-sl005_2399 <- sl005_2399 [, pnl_date := sum(pnl), by = .(trdate)]
-sl005_2399 <- sl005_2399 [, ntrades := uniqueN(ticker), by = .(trdate)]
-sum(sl005_2399$pnl)
+#sl005_2399 <- sl005 [ tgt %in% c(2, 3, 99) & tradeorder <= 10]
+#sl005_2399 <- sl005_2399 [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
+#sl005_2399 <- sl005_2399 [, pnl_date := sum(pnl), by = .(trdate)]
+#sl005_2399 <- sl005_2399 [, ntrades := uniqueN(ticker), by = .(trdate)]
+#sum(sl005_2399$pnl)
 
-fwrite(sl005_2399, "D:/My-Shares/analysis/trial004_2399.csv")
+#fwrite(sl005_2399, "D:/My-Shares/analysis/trial004_2399.csv")
 
 sl005 <- sl005 [, type := paste(tgt, collapse = ",", sep =""), by =.(trdate, ticker)]
 sl005_99 <- sl005 [tgt == 99, c("trdate", "ticker", "subrow"), ]
@@ -687,12 +756,10 @@ sl005a <- merge (x = sl005,
 sl005a <- sl005a [, subrow99 := ifelse( is.na(subrow99), 99, subrow99), ]
 sl006 <- sl005a [ subrow <= subrow99] 
 
-
 sl006 <- sl006 [, type := paste(tgt, collapse = ",", sep =""), by =.(trdate, ticker)]
-comb002 <- unique(sl006 [, c("trdate", "ticker", "tradeorder", "type"), ])
-comb003 <- comb002 [tradeorder <= 10, .(ncount = length(ticker) ), by =.(type)]
-comb003 <- comb003 [, tot := sum(ncount), ]
-
+#comb002 <- unique(sl006 [, c("trdate", "ticker", "tradeorder", "type"), ])
+#comb003 <- comb002 [tradeorder <= 10, .(ncount = length(ticker) ), by =.(type)]
+#comb003 <- comb003 [, tot := sum(ncount), ]
 
 sl006 <- sl006 [, include := ifelse(type == "1,99" & tgt == 1, 0, 1), ]
 sl006 <- sl006 [, pnl := ifelse(type %in% c("1, 99", "99"), nshares * dist, pnl), ]
@@ -720,9 +787,18 @@ sl006a <- sl006 [ type %in% c("1", "1,2", "1,2,3") ]
 sl006a <- unique(sl006a [, -c("subrow", "subrow02", "tgt", "pnl", "st05"), ])
 
 sl006b <- merge (x = sl006a,
-                 y = trial001 [ subrow == 74, c("trdate", "ticker", "st05", "subrow", "subrow02"), ],
+                 y = trial001 [ subrow == 74, c("trdate", "ticker", "price.close", "subrow", "subrow02"), ],
                  by = c("trdate", "ticker"),
                  all.x = TRUE)
+
+###################################################################
+#
+# Calculate the end of the 3:20 profit with price.close and ST05,
+# but for merging the data rename the variable to ST05
+#
+###################################################################
+
+setnames(sl006b, "price.close", "st05")
 sl006b <- sl006b [, `:=` (dist = st05 - entry_h, tgt = 98, subrow99 = 98, pnl = 0), ]
 
 sl006c <- rbind(sl006, sl006b)
