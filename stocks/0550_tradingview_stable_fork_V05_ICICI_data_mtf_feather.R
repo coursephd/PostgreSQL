@@ -1,8 +1,42 @@
+##########
+#
+# Q4 2019
+#  lacs profit
+##########
+
+icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
+icici_fno <- icici_fno [, file := paste("file_Q4_2019_", .I, ".feather", sep=""), ]
+icici_fno <- icici_fno [, file0 := paste("file_Q4_2019_", .I, sep=""), ]
+icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(interval="5minute", from_date= "2019-10-01T07:00:00.000Z", to_date= "2019-12-31T07:00:00.000Z", exchange_code="NSE", product_type="cash", stock_code="', ShortName, '")\nstock_data = pd.DataFrame(data2["Success"])', sep=""), ]
+icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
+icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
+icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
+
+fwrite(icici_fno[, c("step900"), ], 
+       quote = FALSE,
+       sep = " ",
+       col.names = FALSE,
+       row.names = FALSE,
+       file = "D:/My-Shares/prgm/temp_py/0550_icici_99_historicdata_Q4_2019.py")
+
+eval(parse(text = icici_fno [nrow <= 189]$step501))
+
+allD01 <- rbindlist(mget(ls(pattern = "file_Q4_2019_*")), fill = TRUE)
+rm(list = ls( pattern='^file_Q4_2019_*'))
+
+allD02 <- allD01 [, c("datetime", "stock_code", "open", "high", "low", "close", "volume"), ]
+setnames(allD02, c("datetime", "stock_code", "open", "high", "low", "close", "volume"),
+         c("Datetime_", "Name", "Open", "High", "Low", "Close", "Volume") )
+
+stock_final <- allD02
+#################################################
+
 
 ##########
 #
 # Q1 2020
-#
+# 1.75 lac profit
+# 1,99 and 99: -1.80 lacs
 ##########
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
 icici_fno <- icici_fno [, file := paste("file_Q1_2020_", .I, ".feather", sep=""), ]
@@ -35,7 +69,8 @@ stock_final <- allD02
 ##########
 #
 # Q2 2020
-#
+# 1 lac profit
+# 1,99 and 99: -2.03 lacs
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -45,7 +80,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -69,7 +103,8 @@ stock_final <- allD02
 ##########
 #
 # Q3 2020
-#
+# 0.23 lac profit
+# 1,99 and 99: -2.50 lacs
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -79,7 +114,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -104,7 +138,8 @@ stock_final <- allD02
 ##########
 #
 # Q4 2020
-#
+# 1.56 lac profit
+# 1,99 and 99: -2.89 lacs
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -114,7 +149,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -139,7 +173,7 @@ stock_final <- allD02
 #
 # Q1 2021
 # 1 lac profit
-#
+# 1,99 and 99: -2.06 lacs
 ##########
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
 icici_fno <- icici_fno [, file := paste("file_Q1_2021_", .I, ".feather", sep=""), ]
@@ -172,8 +206,10 @@ stock_final <- allD02
 ##########
 #
 # Q2 2021
-# 2.42 lac profit 
+# 1.82 lac profit 
+# 1,99 and 99: -1.89 lacs
 ##########
+
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
 icici_fno <- icici_fno [, file := paste("file_Q2_2021_", .I, ".feather", sep=""), ]
 icici_fno <- icici_fno [, file0 := paste("file_Q2_2021_", .I, sep=""), ]
@@ -205,7 +241,8 @@ stock_final <- allD02
 ##########
 #
 # Q3 2021
-# 3 lac profits
+# 2.03 lac profits
+# 1,99 and 99: -2.43 lacs
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -215,7 +252,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -240,7 +276,11 @@ stock_final <- allD02
 ##########
 #
 # Q4 2021
-# 2.79 lacs profit
+# 2.05 lacs profit
+# 1,99 and 99: -1.67 lacs
+#
+# >2.5 ratio and DIp <= 35
+# 0.75 lacs profit, # 1,99 and 99: -2.30 lacs
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -250,7 +290,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -275,8 +314,13 @@ stock_final <- allD02
 ##########
 #
 # Q1 2022
-# 2.41 lacs profit
+# 2.20 lacs profit
+# 1,99 and 99: -1.6 lacs
+#
+# >2.5 ratio and DIp <= 35
+# 1.82 lacs profit, # 1,99 and 99: -1.80 lacs
 ##########
+
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
 icici_fno <- icici_fno [, file := paste("file_Q1_2022_", .I, ".feather", sep=""), ]
 icici_fno <- icici_fno [, file0 := paste("file_Q1_2022_", .I, sep=""), ]
@@ -308,7 +352,17 @@ stock_final <- allD02
 ##########
 #
 # Q2 2022
+# >3 ratio
+# 2.29 lacs profit, # 1,99 and 99: -1.35 lacs
 #
+# >2.5 ratio and DIp <= 35
+# 2.39 lacs profit, # 1,99 and 99: -1.90 lacs
+#
+# 1 lac and 10 trades: >3 ratio
+# 
+#
+# 1 lac and 10 trades: >2.5 ratio and DIp <= 35
+# 
 ##########
 
 icici_fno <- readRDS("D:/My-Shares/analysis/icici_fno.rds")
@@ -318,7 +372,6 @@ icici_fno <- icici_fno [, step001 := paste('data2 = breeze.get_historical_data(i
 icici_fno <- icici_fno [, step002 := paste('feather.write_dataframe(stock_data, "D:/My-Shares/analysis/icici_direct/', file, '")', sep = ""), ]
 icici_fno <- icici_fno [, step900 := paste(step001, "\n", step002, sep =""),]
 icici_fno <- icici_fno [, step501 := paste(file0, ' <- as.data.table( arrow::read_feather("D:/My-Shares/analysis/icici_direct/', file, '"))\n', sep =""), ]
-
 
 fwrite(icici_fno[, c("step900"), ], 
        quote = FALSE,
@@ -540,6 +593,7 @@ all03 <- merge (x = all03,
 setnames(all03, c("SUPERT05_10_2", "SUPERTd05_10_2"), 
          c("st05", "std05") )
 
+# long002 = ifelse(DIp / DIn > 2.5 & ADX <= 30 & DIp <= 35, 1, 0)
 all03 <- all03 [, `:=`(long001 = ifelse(std05 == 1 & std15 == 1 & std30 == 1, 1, 0),
                        long002 = ifelse(DIp / DIn > 3 & ADX <= 30, 1, 0),
                        prc003 = ifelse((((price.close - pclose)/ pclose) * 100) < 0.95, 1, 0),
@@ -775,7 +829,7 @@ sl006 <- sl006 [, type := paste(tgt, collapse = ",", sep =""), by =.(trdate, tic
 #########################################################
 #
 # If all 3 targets are not hit then there is a need to 
-# derived another target at 3:20, say tgt = 98
+# derive another target at 3:20, say tgt = 98
 #
 # When type is in (1, "1,2", "1,2,3") get the 3:20 subrow value
 # and use the st05 value as the possible exit
@@ -806,8 +860,8 @@ sl006d <- sl006c [ tgt > 1]
 sl006d <- sl006d [, shares_mult := case_when(type %in% c("1", "1,99", "99") ~ nshares,
                                              type %in% c("1,2", "1,2,99") & tgt == 2 ~ nshares * 0.33,
                                              type %in% c("1,2", "1,2,99") & tgt %in% c(98, 99) ~ nshares * 0.66,
-                                             type %in% c("1,2,3", "1,2,3,4", "1,2,3,99", "1,2,3,4,99") ~ nshares * 0.33,
-                                             type %in% c("1,2,3,4,99") & tgt == 99 ~ nshares * 0), ]
+                                             type %in% c("1,2,3,4,99") & tgt == 99 ~ nshares * 0,
+                                             type %in% c("1,2,3", "1,2,3,4", "1,2,3,99", "1,2,3,4,99") ~ nshares * 0.33), ]
 
 sl006d <- sl006d [, pnl := dist * shares_mult * 0.65, ]
 sl006d <- sl006d [, pnl_tick := sum(pnl), by = .(trdate, ticker)]
@@ -819,3 +873,9 @@ sl007 <- sl007 [, .(pnl_tot = sum(pnl) ), by = .(trdate, type)]
 sl007 <- sl007 [, pnl_day := sum(pnl_tot), by = .(trdate)]
 sl007 <- sl007 [, pnl_all := cumsum(pnl_tot), ]
 
+sl008 <- sl007 [, .(cum_pnl = sum(pnl_tot)), by = .(type)]
+sl008 <- sl008 [, grp := ifelse(cum_pnl < 0, "Loss", "Profit"), ]
+sl008 <- sl008 [, tyep_pnl := sum(cum_pnl), by = .(grp)]
+                
+View(sl007)
+View(sl008)
