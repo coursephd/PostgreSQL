@@ -1,0 +1,645 @@
+Status as of 1st May 2026
+// The name of the indicatior is
+// VinAI 002CPR + Full Camarilla H1-H5 L1-L5 + GPZ + Fib Confluence Bands
+
+//@version=6
+indicator("Pivot Hub V23 - Final Master Wizard", shorttitle="Pivot Hub V23", overlay=true, max_lines_count=500, max_labels_count=500)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 1                                                                              //
+//                                                                                        //
+// Include the Hull Moving average display                                                //
+//                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// --- INPUTS ---
+src_hull = close
+showHull = input.bool(false, "[Hull] Show indicator")
+modeSwitch = input.string("Hma", "[Hull] Variation", options=["Hma", "Thma", "Ehma"])
+length = input.int(55, "[Hull] Length (180-200 for floating S/R, 55 for swing entry)")
+switchColor = input.bool(true, "[Hull] Color according to trend?")
+visualSwitch = input.bool(true, "[Hull] Show as a Band?")
+thicknessSwitch = input.int(1, "[Hull] Line Thickness")
+transpSwitch = input.int(40, "[Hull] Band Transparency", step=5)
+
+// --- FUNCTIONS ---
+// HMA: Hull Moving Average
+HMA(_src, _length) => 
+    ta.wma(2 * ta.wma(_src, _length / 2) - ta.wma(_src, _length), math.round(math.sqrt(_length)))
+
+// EHMA: Exponential Hull Moving Average
+EHMA(_src, _length) => 
+    ta.ema(2 * ta.ema(_src, _length / 2) - ta.ema(_src, _length), math.round(math.sqrt(_length)))
+
+// THMA: Triple Hull Moving Average
+THMA(_src, _length) => 
+    ta.wma(ta.wma(_src, _length / 3) * 3 - ta.wma(_src, _length / 2) - ta.wma(_src, _length), _length)
+
+// --- LOGIC ---
+Mode(mode, _src, len) =>
+    switch mode
+        "Hma"  => HMA(_src, len)
+        "Ehma" => EHMA(_src, len)
+        "Thma" => THMA(_src, len / 2)
+        => na
+
+HULL = Mode(modeSwitch, src_hull, length)
+
+// Color Logic
+hullColor = switchColor ? (HULL > HULL[2] ? color.new(#00ff00, 0) : color.new(#ff0000, 0)) : color.new(#ff9800, 0)
+bandColor = color.new(hullColor, transpSwitch)
+
+// --- PLOTTING ---
+// Main Line
+p1 = plot(showHull ? HULL : na, "Hull MA", color=hullColor, linewidth=thicknessSwitch)
+
+// Band Logic (using HULL[2] as the offset/shadow for the band)
+p2 = plot(showHull and visualSwitch ? HULL[2] : na, "Hull Shadow", color=hullColor, display=display.none)
+
+fill(p1, p2, color=showHull and visualSwitch ? bandColor : na, title="Hull Band")
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 2                                                                              //
+//                                                                                        //
+// Pick up the linear rergression candle code                                             //
+// Link to the indicatior                                                                 //
+//                                                                                        //
+// Linear Regression candle ugurvu https://www.tradingview.com/v/hMaQO1FX/                //
+//                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////
+
+src = close
+
+signal_length = input.int(title = 'Signal Smoothing', minval = 1, maxval = 200, defval = 11)
+sma_signal = input(title = 'WMA (Signal Line)', defval = true)
+
+lin_reg = input(title = 'Lin Reg', defval = true)
+linreg_length = input.int(title = 'Linear Regression Length', minval = 1, maxval = 200, defval = 11)
+
+bopen = lin_reg ? ta.linreg(open, linreg_length, 0) : open
+bhigh = lin_reg ? ta.linreg(high, linreg_length, 0) : high
+blow = lin_reg ? ta.linreg(low, linreg_length, 0) : low
+bclose = lin_reg ? ta.linreg(close, linreg_length, 0) : close
+
+r = bopen < bclose
+
+signal = sma_signal ? ta.vwma(bclose, signal_length) : ta.ema(bclose, signal_length)
+
+plotcandle(r ? bopen : na, r ? bhigh : na, r ? blow : na, r ? bclose : na, title = 'LinReg Candles', color = color.green, wickcolor = color.green, bordercolor = color.green, editable = true)
+plotcandle(r ? na : bopen, r ? na : bhigh, r ? na : blow, r ? na : bclose, title = 'LinReg Candles', color = color.red, wickcolor = color.red, bordercolor = color.red, editable = true)
+
+plot(signal, color = color.new(color.white, 0))
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 4                                                                              //
+// Volume profile which I have been using for long                                        //
+//                                                                                        //
+// ***** Important *****                                                                  //
+// The gap filling is done correctly in this code - needs to be copied into other codes   //
+//                                                                                        //
+//@version=6
+//indicator(title='[SY] POC Value Area', shorttitle='POC', overlay=true)
+
+ShowLabelBackground = input.bool(false, title='Show label background')
+ShowLabelValues = input.bool(false, title='Show label values')
+ExtendAxisLine = input.bool(false, title='Extend axis lines across chart')
+MaxLookbackDays = input.int(64, 'Maximum lookback days', minval=0, group='CCV Settings')
+VAPercent = input.float(0.75, 'Value Area (Igor 0.7 / Daniel 0.68)', minval=0.1, maxval=1, step=0.1)
+CCVResolution = input.float(1, title='Resolution (Change resolution to Symbol decimal)', tooltip='E.g. BTCUSD = 1, XRPUSD = 0.00001, QTUMUSD = 0.001')
+
+CCVDailyShowDev = input.bool(false, title='Show developing day', group='CCV Daily')
+CCVDailyShowPrev = input.bool(true, title='Show previous day', group='CCV Daily')
+CCVDailyShowArea = input.bool(true, title='Show daily areas', group='CCV Daily')
+CCVDailyColor = input.color(color.yellow, title='Daily color', group='CCV Daily', inline='Input 0')
+CCVDailyTextColor = input.color(color.black, title='Daily text color', group='CCV Daily', inline='Input 0')
+
+ExtendOption = ExtendAxisLine ? extend.both : extend.right
+ShowLabelBackgroundOption = ShowLabelBackground ? label.style_label_left : label.style_none
+LabelWhitespace = ShowLabelBackground ? '' : '                           '
+MaxLookbackMs = 1000 * 60 * 60 * 24 * MaxLookbackDays
+LookbackWindow = MaxLookbackMs == 0 or time > timenow - MaxLookbackMs
+
+is_new_bar(t) =>
+    ta.change(time(t)) != 0
+
+round_to_nearest(v, x) =>
+    math.round(v / x) * x
+
+f_poc(tf) =>
+    var float[] a = array.new_float(0)
+
+    tick_size = math.max(syminfo.mintick, CCVResolution)
+    var float a_min = round_to_nearest(low, tick_size)
+    a_min := nz(a_min[1], round_to_nearest(low, tick_size))
+    var float a_max = round_to_nearest(high, tick_size)
+    a_max := nz(a_max[1], round_to_nearest(high, tick_size))
+
+    d_switch = is_new_bar(tf)
+
+    if LookbackWindow
+        if d_switch
+            a_min := low
+            a_max := high
+            array.clear(a)
+
+        v_min = int(round_to_nearest(low - a_min, tick_size) / tick_size)
+        v_max = int(round_to_nearest(high - a_min, tick_size) / tick_size)
+
+        ticks = v_max - v_min
+        vol = volume / (ticks == 0 ? 1 : ticks)
+        for i = v_min to math.max(v_max - 1, v_min)
+            if i < 0
+                array.insert(a, i - v_min, vol)
+                continue
+            offset = v_min < 0 ? math.abs(v_min) : 0
+            index = int(i + offset)
+            if index >= array.size(a)
+                array.push(a, vol)
+            else
+                v = array.get(a, index)
+                array.set(a, index, v + vol)
+
+        a_min := math.min(a_min, round_to_nearest(low, tick_size))
+        a_max := math.max(a_max, round_to_nearest(high, tick_size))
+        a_size = array.size(a)
+
+        poc_index = -1
+        float poc_prev = -1.0
+        float sum_vol = 0.0
+
+        for i = 0 to a_size - 1
+            poc_current = array.get(a, i)
+            sum_vol += poc_current
+            if poc_current > poc_prev
+                poc_prev := poc_current
+                poc_index := i
+
+        va_high_index = poc_index
+        va_low_index = poc_index
+
+        va_vol_cap = sum_vol * VAPercent
+        sum_va_vol = array.get(a, poc_index)
+
+        for _ = 1 to a_size - 1
+            above = 0.0
+            if va_high_index + 1 < a_size - 1
+                above += nz(array.get(a, va_high_index + 1), 0.0)
+            if va_high_index + 2 < a_size - 1
+                above += nz(array.get(a, va_high_index + 2), 0.0)
+            below = 0.0
+            if va_low_index - 1 > 0
+                below += nz(array.get(a, va_low_index - 1), 0.0)
+            if va_low_index - 2 > 0
+                below += nz(array.get(a, va_low_index - 2), 0.0)
+
+            if above > below
+                va_high_index := math.min(va_high_index + 2, a_size - 1)
+                sum_va_vol += above
+            else
+                va_low_index := math.max(va_low_index - 2, 0)
+                sum_va_vol += below
+
+            if sum_va_vol >= va_vol_cap or va_low_index <= 0 and va_high_index >= a_size - 1
+                break
+
+        float poc = poc_index * tick_size + a_min
+        float va_high = va_high_index * tick_size + a_min
+        float va_low = va_low_index * tick_size + a_min
+
+        var float pd_poc = na
+        var float prev_va_high = na
+        var float prev_va_low = na
+        var float prev_pd_poc = na
+
+        if d_switch
+            pd_poc := poc[1]
+            prev_va_high := va_high[1]
+            prev_va_low := va_low[1]
+            prev_pd_poc := poc[1]
+        else
+            pd_poc := nz(pd_poc[1])
+            prev_va_high := nz(prev_va_high[1])
+            prev_va_low := nz(prev_va_low[1])
+            prev_pd_poc := nz(prev_pd_poc[1])
+
+        [poc, va_high, va_low, pd_poc, prev_va_high, prev_va_low, prev_pd_poc]
+    else
+        [na, na, na, na, na, na, na]
+
+f_poc_label(txt, val) =>
+    ShowLabelValues ? LabelWhitespace + txt + ' - ' + str.tostring(val) : LabelWhitespace + txt
+
+[d_poc, d_vah, d_val, raw_pd_poc, raw_pd_vah, raw_pd_val, dbl_poc] = f_poc("D")
+
+d_open = request.security(syminfo.tickerid, "D", open, lookahead=barmerge.lookahead_off)
+
+
+// ***** Important ***** this calculation is needed for the correct gap calculations //
+day_open = request.security(syminfo.tickerid, "D", open, lookahead=barmerge.lookahead_on)
+y_close = request.security(syminfo.tickerid, "D", close[1], lookahead=barmerge.lookahead_on)
+
+// Calculate Gap Difference
+gap_diff = day_open - y_close
+
+// Apply Gap only if it exists, otherwise use raw values
+// pd_poc = gap_diff != 0 ? raw_pd_poc + gap_diff : raw_pd_poc
+// pd_vah = gap_diff != 0 ? raw_pd_vah + gap_diff : raw_pd_vah
+// pd_val = gap_diff != 0 ? raw_pd_val + gap_diff : raw_pd_val
+
+// Apply Gap only if it exists, otherwise use raw values
+pd_poc = raw_pd_poc + gap_diff
+pd_vah = raw_pd_vah + gap_diff
+pd_val = raw_pd_val + gap_diff
+
+
+plot_colorpoc = ta.change(pd_poc) == 0 ? color.orange : na
+plot_colorgreen = ta.change(pd_vah) == 0 ? color.green : na
+plot_colorred = ta.change(pd_val) == 0 ? color.red : na
+
+plot(CCVDailyShowArea ? pd_poc : na, "pdPOC", color=plot_colorpoc, linewidth=2)
+plot(CCVDailyShowArea ? pd_vah : na, "pdVAH", color=plot_colorgreen, linewidth=2)
+plot(CCVDailyShowArea ? pd_val : na, "pdVAL", color=plot_colorred, linewidth=2)
+
+line d_open_line = line.new(CCVDailyShowDev ? bar_index[1] : na, d_open, bar_index, d_open, color=CCVDailyColor, width=1, style=line.style_solid, extend=ExtendOption)
+line d_poc_line = line.new(CCVDailyShowDev ? bar_index[1] : na, d_poc, bar_index, d_poc, color=CCVDailyColor, width=1, style=line.style_solid, extend=ExtendOption)
+line pd_poc_line = line.new(CCVDailyShowPrev ? bar_index[1] : na, pd_poc[1], bar_index, pd_poc, color=color.orange, width=2, style=line.style_solid, extend=ExtendOption)
+line pd_vah_line = line.new(CCVDailyShowPrev ? bar_index[1] : na, pd_vah[1], bar_index, pd_vah, color=color.green, width=2, style=line.style_solid, extend=ExtendOption)
+line pd_val_line = line.new(CCVDailyShowPrev ? bar_index[1] : na, pd_val[1], bar_index, pd_val, color=color.red, width=2, style=line.style_solid, extend=ExtendOption)
+
+line.delete(d_open_line[1])
+line.delete(d_poc_line[1])
+line.delete(pd_poc_line[1])
+line.delete(pd_vah_line[1])
+line.delete(pd_val_line[1])
+
+label d_open_label = label.new(CCVDailyShowDev ? timenow : na, d_open, text=f_poc_label("dOpen", d_open), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=color.blue, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+label d_poc_label = label.new(CCVDailyShowDev ? timenow : na, d_poc, text=f_poc_label("dPOC", d_poc), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=CCVDailyColor, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+label d_vah_label = label.new(CCVDailyShowDev ? timenow : na, d_vah, text=f_poc_label("dVAH", d_vah), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=CCVDailyColor, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+label d_val_label = label.new(CCVDailyShowDev ? timenow : na, d_val, text=f_poc_label("dVAL", d_val), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=CCVDailyColor, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+
+label pd_poc_label = label.new(CCVDailyShowPrev ? timenow : na, pd_poc[1], text=f_poc_label("pdPOC", pd_poc), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=color.orange, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+label pd_vah_label = label.new(CCVDailyShowPrev ? timenow : na, pd_vah[1], text=f_poc_label("pdVAH", pd_vah), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=color.green, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+label pd_val_label = label.new(CCVDailyShowPrev ? timenow : na, pd_val[1], text=f_poc_label("pdVAL", pd_val), xloc=xloc.bar_time, style=ShowLabelBackgroundOption, color=color.red, textcolor=ShowLabelBackground ? CCVDailyTextColor : CCVDailyColor, size=size.small)
+
+label.delete(d_open_label[1])
+label.delete(d_poc_label[1])
+label.delete(d_vah_label[1])
+label.delete(d_val_label[1])
+label.delete(pd_poc_label[1])
+label.delete(pd_vah_label[1])
+label.delete(pd_val_label[1])
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 5                                                                              //
+//                                                                                        //
+// VWAP for the day                                                                       //
+// VWAP for yesterday and its +1 and -1 SD                                                //
+// Same for TVWAP calculations - not using in display                                     //
+//                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////
+
+vwap = ta.vwap(close)
+plot(vwap, color = color.rgb(218, 36, 181), linewidth = 2, style = plot.style_line, title = 'Vwap')
+//vwap_p = plot(vwap, color = color.rgb(218, 36, 181), linewidth = 2, style = plot.style_line, title = 'Vwap')
+
+// Add yesterday's VWAP and TVAP
+//indicator('Yesterday\'s VWAP + 1 SD Bands', overlay = true)
+
+// ────────────────────────────────────────────────
+// Helpers
+isNewDay() =>
+    ta.change(time('D')) != 0
+
+// ────────────────────────────────────────────────
+// Persistent variables (hold yesterday's final values)
+var float yest_VWAP = na
+var float yest_StDev = na
+var float yest_Upper1SD = na
+var float yest_Lower1SD = na
+
+// ────────────────────────────────────────────────
+// Current-day accumulators (reset at new day)
+var float cumPV = 0.0 // ∑ (price × volume)
+var float cumVol = 0.0 // ∑ volume
+var float cumPV2 = 0.0 // ∑ (price² × volume)  ← for variance
+
+// Reset & store yesterday's final values when new day begins
+if isNewDay()
+    if cumVol > 0
+        float vwap_temp = cumPV / cumVol
+
+        // Volume-weighted variance = E[X²] - (E[X])²
+        float variance = cumPV2 / cumVol - math.pow(vwap_temp, 2)
+        float stdev = variance > 0 ? math.sqrt(variance) : 0.0
+
+        // Store for plotting across the whole current day
+        yest_VWAP := vwap_temp
+        yest_StDev := stdev
+        yest_Upper1SD := vwap_temp + stdev
+        yest_Lower1SD := vwap_temp - stdev
+        yest_Lower1SD
+
+    // Reset accumulators for the new day
+    cumPV := 0.0
+    cumVol := 0.0
+    cumPV2 := 0.0
+    cumPV2
+
+// ────────────────────────────────────────────────
+// Accumulate on every bar (current day)
+cumPV := cumPV + close * volume
+cumVol := cumVol + volume
+cumPV2 := cumPV2 + math.pow(close, 2) * volume // or use hlc3 if preferred: math.pow(hlc3,2)*volume
+
+// ────────────────────────────────────────────────
+// Plots ───────────────────────────────────────────
+plot(yest_VWAP, 'Yesterday VWAP', color.blue, linewidth = 2)
+
+// ±1 SD bands — dotted, lighter blue
+plot(yest_Upper1SD, 'Yesterday VWAP +1σ', color.new(color.blue, 30), style = plot.style_linebr, linewidth = 2)
+plot(yest_Lower1SD, 'Yesterday VWAP -1σ', color.new(color.blue, 30), style = plot.style_linebr, linewidth = 2)
+
+// Optional: subtle fill between bands
+// fill(yest_Upper1SD, yest_Lower1SD, color.new(color.blue, 92), title="±1σ zone")
+
+// Keep TVAP if you still want it (from your original script)
+var float tvapCumSum = 0.0
+var float tvapCumTime = 0.0
+var float yest_TVAP = na
+
+if isNewDay()
+    yest_TVAP := tvapCumTime > 0 ? tvapCumSum / tvapCumTime : na
+    tvapCumSum := 0.0
+    tvapCumTime := 0.0
+    tvapCumTime
+
+tvapCumSum := tvapCumSum + close
+tvapCumTime := tvapCumTime + 1
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 6                                                                              //
+//                                                                                        //
+// Create VIX based bands                                                                 //
+// Create a pinescript code in v6.0                                                       //
+//                                                                                        //
+// Use india vix on nse                                                                   //
+// Pick up yesterday close Divide that number by 19.1 (SQRT 365 days),                    //
+// Convert to a percent value                                                             //
+// Use yesterday’s close price for the symbol and multiply the above number               //
+// Add this number and print a dotted green line on next day’s time for whole day         //
+// Add 2 another green dotted lines at 1.25 and 0.5 times of                              //
+// the same number added to the close price                                               //
+// Do similar calculations for downside and print them red                                //
+// If the price is already crossing these boundries add 1.5 and 1.75 multipliers optionally
+// Provide an option to Delete older lines say 5 or more days older                       //
+//                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////
+// --- Inputs ---
+vix_symbol      = input.string("NSE:INDIAVIX", "VIX Symbol")
+days_to_keep    = input.int(5, "Days to Keep Lines", minval = 1)
+show_extensions = input.bool(true, "Show 1.5 & 1.75 Extensions")
+
+// --- Fetch Data ---
+vix_close  = request.security(vix_symbol, "D", close[1], lookahead = barmerge.lookahead_on)
+prev_close = request.security(syminfo.tickerid, "D", close[1], lookahead = barmerge.lookahead_on)
+
+// --- Calculations ---
+base_val     = vix_close / 19.1
+price_offset = prev_close * (base_val / 100)
+
+m_025 = 0.25 * price_offset
+m_050 = 0.50 * price_offset
+m_100 = 1.00 * price_offset
+m_125 = 1.25 * price_offset
+m_150 = 1.50 * price_offset
+m_175 = 1.75 * price_offset
+
+// --- Global Arrays ---
+var line[] all_lines  = array.new_line()
+var label[] all_lbls  = array.new_label()
+
+// --- Function to Create Lines & Labels ---
+f_draw_line(price, col, txt) =>
+    // Draw Line
+    ln = line.new(x1 = bar_index, y1 = price, 
+                  x2 = bar_index, y2 = price, 
+                  style = line.style_dotted, color = col, width = 1)
+    // Draw Label (style_none makes it just text)
+    lb = label.new(x = bar_index, y = price, text = txt, 
+                   textcolor = col, color = color.new(col, 100), 
+                   style = label.style_label_left, size = size.small)
+    
+    array.push(all_lines, ln)
+    array.push(all_lbls, lb)
+    ln 
+
+// --- New Day Logic ---
+bool is_new_day = timeframe.change("D")
+
+if is_new_day
+    // Create standard 6 lines with labels
+    f_draw_line(prev_close + m_025, color.green, "0.25")
+    f_draw_line(prev_close + m_050, color.green, "0.5")
+    f_draw_line(prev_close + m_100, color.green, "1.0")
+    f_draw_line(prev_close + m_125, color.green, "1.25")
+    f_draw_line(prev_close + m_025, color.red, "-0.25")
+    f_draw_line(prev_close - m_050, color.red, "-0.5")
+    f_draw_line(prev_close - m_100, color.red, "-1.0")
+    f_draw_line(prev_close - m_125, color.red, "-1.25")
+
+    if show_extensions
+        f_draw_line(prev_close + m_150, color.new(color.green, 50), "1.5")
+        f_draw_line(prev_close + m_175, color.new(color.green, 70), "1.75")
+        f_draw_line(prev_close - m_150, color.new(color.red, 50), "-1.5")
+        f_draw_line(prev_close - m_175, color.new(color.red, 70), "-1.75")
+
+    // Cleanup Logic
+    int lines_per_day = show_extensions ? 10 : 6
+    if array.size(all_lines) > days_to_keep * lines_per_day
+        for i = 1 to lines_per_day
+            line.delete(array.shift(all_lines))
+            label.delete(array.shift(all_lbls))
+
+// --- Continuous Update ---
+if array.size(all_lines) > 0
+    int lines_to_update = show_extensions ? 10 : 6
+    int loop_limit = math.min(lines_to_update, array.size(all_lines))
+    for i = 0 to loop_limit - 1
+        idx = array.size(all_lines) - 1 - i
+        line.set_x2(array.get(all_lines, idx), bar_index)
+        label.set_x(array.get(all_lbls, idx), bar_index)
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                        //
+// Section 7                                                                              //
+//                                                                                        //
+// Camarilla related indicator                                                            //
+//                                                                                        //
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// ── GLOBAL FUNCTIONS (Far-Left Margin) ──────────────────────────────────
+get_size(s) => s == "tiny" ? size.tiny : s == "small" ? size.small : s == "normal" ? size.normal : size.large
+
+f_lab(_x, _y, _t, _c, _tc, _sz) => 
+    label.new(_x, _y, _t + " (" + str.tostring(_y, format.mintick) + ")", color=_c, textcolor=_tc, style=label.style_label_left, size=_sz)
+
+f_next(_x1, _y, _x2, _c, _w) => 
+    line.new(_x1, _y, _x2, _y, xloc=xloc.bar_index, color=_c, width=_w, style=line.style_solid)
+
+// ── INPUTS ────────────────────────────────────────────────────────────────
+group_gen    = "Layout Settings"
+label_size   = input.string("tiny", "Label Size", options=["tiny", "small", "normal", "large"], group=group_gen)
+future_off   = input.int(45, "Next-Day Preview Offset", minval=10, group=group_gen)
+
+group_cpr    = "Daily CPR Settings"
+show_cpr     = input.bool(true, "Show Daily CPR", group=group_cpr)
+cpr_color    = input.color(color.rgb(243, 33, 215), "CPR Color", group=group_cpr)
+
+group_cam    = "Camarilla Settings (Image Colors)"
+show_cam     = input.bool(true, "Show Camarilla", group=group_cam)
+r_color      = input.color(color.new(#f78a94, 0), "Resistance Color (H)", group=group_cam)
+s_color      = input.color(color.new(#f9f38c, 0), "Support Color (L)", group=group_cam)
+
+group_htf    = "Higher Timeframe Pivots"
+show_weekly  = input.bool(true, "Show Weekly Pivot", group=group_htf)
+show_monthly = input.bool(true, "Show Monthly Pivot", group=group_htf)
+
+group_gpz    = "GPZ & Neutral Colors"
+gpz_top_col  = input.color(color.new(color.yellow, 30), "GPZ Top Half", group=group_gpz)
+gpz_bot_col  = input.color(color.new(color.red, 40), "GPZ Bottom Half", group=group_gpz)
+neutral_col  = input.color(color.new(color.red, 80), "Neutral (TC=BC)", group=group_gpz)
+
+// ── CALCULATIONS: CORE LOGIC (V6 ADAPTATION) ─────────────────────────────
+// Fetching [High, Low, Close] for Today (Prev Day Data)
+[ph, pl, pc] = request.security(syminfo.tickerid, "D", [high[1], low[1], close[1]], lookahead=barmerge.lookahead_on)
+
+// Fetching [High, Low, Close] for Tomorrow (Live Today Data)
+[th, tl, tc_live] = request.security(syminfo.tickerid, "D", [high, low, close], lookahead=barmerge.lookahead_on)
+
+// 1. TODAY'S FIXED CPR (from ph, pl, pc)
+pivot = (ph + pl + pc) / 3.0
+bc    = (ph + pl) / 2.0
+tc    = pivot - bc + pivot
+c_mid = (tc + bc) / 2.0
+
+// 2. TODAY'S FIXED CAMARILLA
+range_fixed = ph - pl
+H5 = (ph / pl) * pc
+H4 = pc + range_fixed * 1.1 / 2
+H3 = pc + range_fixed * 1.1 / 4
+L3 = pc - range_fixed * 1.1 / 4
+L4 = pc - range_fixed * 1.1 / 2
+L5 = pc - (H5 - pc)
+
+// 3. HTF PIVOTS (Weekly/Monthly)
+wp = request.security(syminfo.tickerid, "W", (high[1] + low[1] + close[1]) / 3, lookahead=barmerge.lookahead_on)
+mp = request.security(syminfo.tickerid, "M", (high[1] + low[1] + close[1]) / 3, lookahead=barmerge.lookahead_on)
+
+// 4. TOMORROW'S DEVELOPING (from th, tl, tc_live)
+n_p   = (th + tl + tc_live) / 3.0
+n_bc  = (th + tl) / 2.0
+n_tc  = n_p - n_bc + n_p
+n_h3  = tc_live + (th - tl) * 1.1 / 4
+n_h4  = tc_live + (th - tl) * 1.1 / 2
+
+n_l3  = tc_live - (th - tl) * 1.1 / 4
+n_l4  = tc_live - (th - tl) * 1.1 / 2
+
+// ── LOGIC: NEUTRAL & GPZ (CURRENT DAY) ────────────────────────────────────
+is_neutral = (tc == bc)
+is_gpz     = (L3 >= math.min(bc, tc) and L3 <= math.max(bc, tc)) or (H3 >= math.min(bc, tc) and H3 <= math.max(bc, tc))
+
+// ── PLOTS: TODAY FIXED (Global Scope) ─────────────────────────────────────
+p_tc  = plot(show_cpr ? tc : na, "CPR TC", cpr_color)
+p_mid = plot(show_cpr ? c_mid : na, "CPR Mid", color.new(color.white, 100))
+p_bc  = plot(show_cpr ? bc : na, "CPR BC", cpr_color)
+plot(show_cpr ? pivot : na, "CPR Pivot", cpr_color, 2)
+
+fill(p_tc, p_mid, is_gpz ? gpz_top_col : is_neutral ? neutral_col : color.new(cpr_color, 85))
+fill(p_mid, p_bc, is_gpz ? gpz_bot_col : is_neutral ? neutral_col : color.new(cpr_color, 85))
+
+plot(show_cam ? H5 : na, "H5", r_color, 2)
+plot(show_cam ? H4 : na, "H4", r_color, 2)
+plot(show_cam ? H3 : na, "H3", r_color, 1)
+plot(show_cam ? L3 : na, "L3", s_color, 1)
+plot(show_cam ? L4 : na, "L4", s_color, 1)
+plot(show_cam ? L5 : na, "L5", s_color, 2)
+
+plot(ph, "PDH", color.white, 1, plot.style_linebr)
+plot(pl, "PDL", color.white, 1, plot.style_linebr)
+
+// HTF Plots
+plot(show_weekly  ? wp : na, "Weekly Pivot", color.blue, 2, plot.style_stepline)
+plot(show_monthly ? mp : na, "Monthly Pivot", color.fuchsia, 2, plot.style_stepline)
+
+// ── NEXT-DAY DYNAMIC PREVIEW (CLEAN HORIZONTAL) ───────────────────────────
+// Use varip for drawing objects that update on the last bar
+var line[] previewLines = array.new_line()
+var label[] previewLabels = array.new_label()
+
+if barstate.islast
+    // Clear previous drawings to prevent overlap
+    if array.size(previewLines) > 0
+        for i = 0 to array.size(previewLines) - 1
+            line.delete(array.get(previewLines, i))
+        array.clear(previewLines)
+    if array.size(previewLabels) > 0
+        for i = 0 to array.size(previewLabels) - 1
+            label.delete(array.get(previewLabels, i))
+        array.clear(previewLabels)
+        
+    sz = get_size(label_size)
+    int start = bar_index
+    int end   = bar_index + future_off
+
+    // Draw Tomorrow's Horizontal Preview & Store in Array
+    array.push(previewLines, f_next(start, n_tc, end, color.new(cpr_color, 50), 1))
+    array.push(previewLines, f_next(start, n_p,  end, color.new(cpr_color, 50), 2))
+    array.push(previewLines, f_next(start, n_bc, end, color.new(cpr_color, 50), 1))
+    array.push(previewLines, f_next(start, n_h3, end, color.new(r_color, 50), 1))
+    array.push(previewLines, f_next(start, n_h4, end, color.new(r_color, 50), 1))
+    array.push(previewLines, f_next(start, n_l3, end, color.new(s_color, 50), 1))
+    array.push(previewLines, f_next(start, n_l4, end, color.new(s_color, 50), 1))
+    array.push(previewLines, f_next(start, th,   end, color.new(color.white, 60), 1)) // Tomorrow's PDH
+    array.push(previewLines, f_next(start, tl,   end, color.new(color.white, 60), 1)) // Tomorrow's PDL
+
+    // Current Labels
+    array.push(previewLabels, f_lab(start, tc, "TC", cpr_color, color.white, sz))
+    array.push(previewLabels, f_lab(start, pivot, "P", cpr_color, color.white, sz))
+    array.push(previewLabels, f_lab(start, bc, "BC", cpr_color, color.white, sz))
+    array.push(previewLabels, f_lab(start, ph, "PDH", color.white, color.black, sz))
+    array.push(previewLabels, f_lab(start, pl, "PDL", color.white, color.black, sz))
+    if show_weekly
+        array.push(previewLabels, f_lab(start, wp, "WP", color.blue, color.white, sz))
+    if show_monthly
+        array.push(previewLabels, f_lab(start, mp, "MP", color.fuchsia, color.white, sz))
+
+    // Tomorrow Labels
+    array.push(previewLabels, f_lab(end, n_tc, "Next TC", cpr_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_bc, "Next BC", cpr_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_p,  "Next P",  cpr_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_h3, "Next H3", r_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_h4, "Next H4", r_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_l3, "Next L3", s_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, n_l4, "Next L4", s_color, color.black, sz))
+    array.push(previewLabels, f_lab(end, th,   "Next PDH", color.white, color.black, sz))
+    array.push(previewLabels, f_lab(end, tl,   "Next PDL", color.white, color.black, sz))
+
+    // ONGOING DAY OFFSET LABELS (Placed at Current Bar)
+    if show_cam
+        array.push(previewLabels, f_lab(start, H5, "H5", r_color, color.black, sz))
+        array.push(previewLabels, f_lab(start, H4, "H4", r_color, color.black, sz))
+        array.push(previewLabels, f_lab(start, H3, "H3", r_color, color.black, sz))
+        array.push(previewLabels, f_lab(start, L3, "L3", s_color, color.black, sz))
+        array.push(previewLabels, f_lab(start, L4, "L4", s_color, color.black, sz))
+        array.push(previewLabels, f_lab(start, L5, "L5", s_color, color.black, sz))
