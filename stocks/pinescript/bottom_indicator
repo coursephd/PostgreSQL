@@ -125,7 +125,7 @@ composite_ma = ta.wma(grand_composite, 11)
 
 // Max score per param = 4. 6 params = 24. 8 TFs = 192. Max theoretical range: -192 to +192.
 // Normalize this down to a 0-100 scale for intuitive background plotting
-normalized_composite = ((composite_ma + 192) / 384) * 100
+// normalized_composite = ((composite_ma + 192) / 384) * 100
 
 // Generate an RSI from the raw grand composite
 rsi_composite = ta.rsi(composite_ma, 30)
@@ -133,11 +133,11 @@ rsi_composite_ma = ta.wma(rsi_composite, 21)
 
 // ────────────────────────────────────────────────
 // Visualization
+// Generate an RSI from the raw s7 composite - which is based on close price
+// This is the presentation on 0 - 100 scale
 // ────────────────────────────────────────────────
 
 s7_ma = ta.wma(composite_s7, 11)
-
-// Generate an RSI from the raw grand composite
 rsi_s7_ma = ta.rsi(s7_ma, 30)
 rsi_s7_ma_ma = ta.wma(rsi_s7_ma, 21)
 
@@ -158,6 +158,7 @@ h_os = hline(20, "Lower Peak", color=color.green, linestyle=hline.style_dashed)
 // ──────────────────────                                                                 //
 // NEW: 1‑hour **price RSI** (orange)                                                     //
 // ──────────────────────                                                                 //
+// This is the presentation on 0 - 100 scale                                              //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 rsi_1h = request.security(syminfo.tickerid, "60", ta.rsi(s7_ma, 11))
@@ -172,6 +173,7 @@ plot(rsi_1h,
 // Section 2                                                                              //
 //                                                                                        //
 // Stochastic using close price                                                           //
+// This is the presentation on 100 - 200 scale                                            //
 //                                                                                        //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -212,6 +214,7 @@ hline(120, "Oversold", color=color.green, linestyle=hline.style_dashed)
 //------------------------------------------------------------------------------          //
 //Settings                                                                                //
 //-----------------------------------------------------------------------------{          //
+// This is the presentation on 200 - 300 scale                                            //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 length = input.int(14, minval = 2)
@@ -289,6 +292,7 @@ hline(osValue, 'Oversold')
 ////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                        //
 // Section 4                                                                              //
+// This is the presentation on 300 - 400 scale                                            //
 //                                                                                        //
 // This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International   //
 // (CC BY-NC-SA 4.0)                                                                      //
@@ -322,7 +326,7 @@ composite_ma300 = composite_ma + 300
 
 // Inputs
 groupSrc = "Source Data"
-src300 = composite_ma300 // input.source(composite_ma300, title="Source (Select composite_ma300)", group=groupSrc)
+//src300 = composite_ma300
 
 groupMTF = "Multi-Timeframe Settings"
 rtiTimeframe = input.timeframe("", "RTI Timeframe", group=groupMTF, tooltip="Leave blank to use the chart timeframe. Select a higher timeframe to view HTF RTI on a lower timeframe chart.")
@@ -387,7 +391,7 @@ selectedTf = rtiTimeframe == "" ? timeframe.period : rtiTimeframe
 [RelativeTrendIndex, MA_RelativeTrendIndex] = request.security(
      syminfo.tickerid,
      selectedTf,
-     f_rti(src300, trend_data_count, trend_sensitivity_percentage, signal_length),
+     f_rti(composite_ma300, trend_data_count, trend_sensitivity_percentage, signal_length),
      gaps=barmerge.gaps_off,
      lookahead=barmerge.lookahead_off)
 
@@ -429,7 +433,8 @@ barcolor(colorBars ? rtiColor : na)
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                        //
-// Section 6                                                                              //
+// Section 5                                                                              //
+// This is background color section                                                       //
 //                                                                                        //
 // DONCHIAN TREND RIBBON (Top Section: 200-250)                                           //
 //indicator("Donchian Trend Ribbon - 200 to 250", overlay = false, max_lines_count = 500) //
@@ -474,3 +479,4 @@ else if maintrend == -1
 
 // Output
 bgcolor(bg_color)
+
