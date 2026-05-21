@@ -1,0 +1,442 @@
+// Bottom indicator Kalman as of 21st May 2026
+
+// VinAI MTF Grand Composite Score - Kalman Integrated
+
+//@version=6
+indicator("MTF Grand Composite: Parameter-Level Trend Score (Kalman)", shorttitle="Grand Comp A/D K", overlay=false)
+
+// ────────────────────────────────────────────────
+// Smoothing Options (Kalman vs WMA)
+// ────────────────────────────────────────────────
+grp_smooth = "Smoothing Options"
+useKalman = input.bool(false, title="Enable Kalman Filter Smoothing", group=grp_smooth, tooltip="Replaces WMA/SMA smoothing with a low-lag Kalman Filter.")
+useAdaptive = input.bool(false, title="Use Volume-Adaptive Kalman", group=grp_smooth, tooltip="Dynamically adjusts Kalman speed based on Relative Volume (faster on high volume).")
+
+// ────────────────────────────────────────────────
+// Kalman Filter Implementation
+// ────────────────────────────────────────────────
+f_kalman(src, base_length) =>
+    float gain = 2.0 / (math.max(base_length, 1.0) + 1.0)
+    if useKalman and useAdaptive
+        vol_ma = ta.sma(volume, 20)
+        rvol = vol_ma > 0 ? volume / vol_ma : 1.0
+        rvol_capped = math.max(0.5, math.min(rvol, 2.5)) // Cap RVOL between 0.5x and 2.5x
+        adaptive_length = math.max(1.0, base_length / rvol_capped)
+        gain := 2.0 / (adaptive_length + 1.0)
+        
+    // Use critically damped parameters to prevent overshoot (ringing)
+    float alpha = math.min(math.max(gain, 0.001), 0.999)
+    float beta = 2.0 - alpha - 2.0 * math.sqrt(1.0 - alpha)
+        
+    var float kf = na
+    var float velo = 0.0
+    if na(kf)
+        kf := src
+    else
+        dk = src - nz(kf[1], src)
+        smooth = nz(kf[1], src) + alpha * dk
+        velo := nz(velo[1], 0.0) + beta * dk
+        kf := smooth + velo
+    kf
+
+// ────────────────────────────────────────────────
+// Helper Function: The MTF Composite Trend Score Logic
+// Applied dynamically to any volume line (OBV, MFI, etc.)
+// ────────────────────────────────────────────────
+evaluate_line_trend(val) =>
+    // 1. Trend Direction of the Indicator Line
+    sma50 = ta.sma(val, 50)
+    trend = val > sma50 ? 1 : val < sma50 ? -1 : 0
+
+    score = 0.0
+    if trend != 0
+        // Pivots on the indicator line (5 bars left/right)
+        ph = ta.pivothigh(val, 5, 5)
+        pl = ta.pivotlow(val, 5, 5)
+
+        ph0 = ta.valuewhen(not na(ph), ph, 0)
+        ph1 = ta.valuewhen(not na(ph), ph, 1)
+        pl0 = ta.valuewhen(not na(pl), pl, 0)
+        pl1 = ta.valuewhen(not na(pl), pl, 1)
+
+        // Pillar 1: Structure (Staircase / Continuation)
+        staircase_up = not na(ph0) and not na(ph1) and not na(pl0) and not na(pl1) and ph0 > ph1 and pl0 > pl1
+        staircase_down = not na(ph0) and not na(ph1) and not na(pl0) and not na(pl1) and ph0 < ph1 and pl0 < pl1
+        if (trend == 1 and staircase_up) or (trend == -1 and staircase_down)
+            score += 1.0
+
+        no_break_up = not na(ph0) and not na(ph1) and ph0 > ph1
+        no_break_down = not na(pl0) and not na(pl1) and pl0 < pl1
+        if (trend == 1 and no_break_up) or (trend == -1 and no_break_down)
+            score += 1.0
+
+        // Pillar 2: Momentum (Rising/Falling Fast Average of the Line)
+        fast_sma = ta.sma(val, 10)
+        rising_sma = ta.rising(fast_sma, 3)
+        falling_sma = ta.falling(fast_sma, 3)
+        if (trend == 1 and rising_sma) or (trend == -1 and falling_sma)
+            score += 1.0
+
+        // Pillar 3: No Exhaustion (RSI Divergence on the indicator line itself)
+        val_rsi = ta.rsi(val, 14)
+        // Check RSI at the exact moment the pivot was formed (5 bars ago)
+        rsi_ph0 = ta.valuewhen(not na(ph), val_rsi[5], 0)
+        rsi_ph1 = ta.valuewhen(not na(ph), val_rsi[5], 1)
+        rsi_pl0 = ta.valuewhen(not na(pl), val_rsi[5], 0)
+        rsi_pl1 = ta.valuewhen(not na(pl), val_rsi[5], 1)
+
+        bear_div = not na(ph1) and ph0 > ph1 and rsi_ph0 < rsi_ph1
+        bull_div = not na(pl1) and pl0 < pl1 and rsi_pl0 > rsi_pl1
+        if (trend == 1 and not bear_div) or (trend == -1 and not bull_div)
+            score += 1.0
+
+    // Return final signed score for this specific indicator
+    score * trend
+
+// ────────────────────────────────────────────────
+// Calculate the 6 Parameters and Score them
+// ────────────────────────────────────────────────
+calc_tf_score() =>
+    // Parameter 1: OBV (On-Balance Volume)
+    s1 = evaluate_line_trend(ta.obv)
+
+    // Parameter 2: Classic A/D (Accumulation/Distribution)
+    s2 = evaluate_line_trend(ta.accdist)
+
+    // Parameter 3: Williams A/D
+    curr_ad = close > nz(close[1]) ? close - math.min(low, nz(close[1])) : close < nz(close[1]) ? close - math.max(high, nz(close[1])) : 0.0
+    wad = ta.cum(curr_ad)
+    s3 = evaluate_line_trend(wad)
+
+    // Parameter 4: Money Flow Index (MFI)
+    s4 = evaluate_line_trend(ta.mfi(close, 14))
+
+    // Parameter 5: Chaikin Money Flow (CMF logic)
+    mf_mult = (high != low) ? ((close - low) - (high - close)) / (high - low) : 0.0
+    cmf = math.sum(mf_mult * volume, 20) / math.sum(volume, 20)
+    s5 = evaluate_line_trend(cmf)
+
+    // Parameter 6: Wyckoff Effort vs Result (Synthetic Cumulative Line)
+    vol_ma = ta.sma(volume, 20)
+    body = math.abs(close - open)
+    body_ma = ta.sma(body, 20)
+    w_dir = 0.0
+    if volume > vol_ma * 1.5 and body < body_ma * 0.8
+        w_dir := close > (high + low) / 2 ? 1.0 : -1.0
+    wyckoff = ta.cum(w_dir * volume)
+    s6 = evaluate_line_trend(wyckoff)
+
+    // Parameter 7: close price
+    s7 = evaluate_line_trend(close)
+
+    // Combine the 7 individual parameter scores into 1 unified score for this timeframe
+    s1 + s2 + s3 + s4 + s5 + s6 + s7
+    s7
+
+// ────────────────────────────────────────────────
+// Multi-Timeframe Aggregation (Combine all TF scores into 1 Grand Composite)
+// ────────────────────────────────────────────────
+tfs = array.from("1", "3", "5", "15", "30", "60", "240", "D")
+
+grand_composite = 0.0
+composite_s7 = 0.0
+for i = 0 to array.size(tfs) - 1
+    tf = array.get(tfs, i)
+    // Runs the entire 7-parameter trend logic within the context of the specific timeframe
+    score_tf = request.security(syminfo.tickerid, tf, calc_tf_score())
+    grand_composite += nz(score_tf, 0)
+    composite_s7 += nz(score_tf, 0)
+
+// ────────────────────────────────────────────────
+// Smoothing & RSI Conversion
+// ────────────────────────────────────────────────
+composite_ma = useKalman ? f_kalman(grand_composite, 11) : ta.wma(grand_composite, 11)
+
+// Generate an RSI from the raw grand composite
+rsi_composite = ta.rsi(composite_ma, 30)
+rsi_composite_ma = useKalman ? f_kalman(rsi_composite, 21) : ta.wma(rsi_composite, 21)
+
+// ────────────────────────────────────────────────
+// Visualization
+// Generate an RSI from the raw s7 composite - which is based on close price
+// This is the presentation on 0 - 100 scale
+// ────────────────────────────────────────────────
+
+s7_ma = useKalman ? f_kalman(composite_s7, 11) : ta.wma(composite_s7, 11)
+rsi_s7_ma = ta.rsi(s7_ma, 30)
+rsi_s7_ma_ma = useKalman ? f_kalman(rsi_s7_ma, 21) : ta.wma(rsi_s7_ma, 21)
+
+plot(rsi_s7_ma, title="RSI of Close composite ma", color=color.yellow, linewidth=2)
+plot(rsi_s7_ma_ma, title="MA of RSI Close composite ma", color=color.blue, linewidth=2)
+
+// Reference Zones
+h_ob = hline(80, "Upper Exhaustion", color=color.red, linestyle=hline.style_dashed, linewidth=2)
+h_mid = hline(50, "Midline", color=color.gray, linestyle=hline.style_dashed)
+h_os = hline(20, "Lower Peak", color=color.green, linestyle=hline.style_dashed, linewidth=2)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Section 1a
+// ──────────────────────
+// NEW: 1‑hour **price RSI** (orange)
+// ──────────────────────
+// This is the presentation on 0 - 100 scale
+////////////////////////////////////////////////////////////////////////////////////////////
+
+rsi_1h = request.security(syminfo.tickerid, "60", ta.rsi(s7_ma, 11))
+plot(rsi_1h,
+     title = "RSI (1 h)",
+     color = color.new(color.orange, 0),
+     linewidth = 2,
+     style = plot.style_line)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Section 2
+// Stochastic using close price
+// This is the presentation on 100 - 200 scale
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// --- Inputs ---
+stochLen = input.int(30, title="%K Length")
+smoothK  = input.int(7, title="%K Smoothing")
+smoothD  = input.int(6, title="%D Smoothing")
+wmaLen   = input.int(21, title="WMA Period")
+
+// --- Stochastic Calculation (30, 7, 6) ---
+lowestLow = ta.lowest(low, stochLen)
+highestHigh = ta.highest(high, stochLen)
+kRaw = 100 * (close - lowestLow) / (highestHigh - lowestLow) + 100
+kLine = ta.sma(kRaw, smoothK)
+dLine = ta.sma(kLine, smoothD)
+
+// --- 21 Period Weighted Average of %K ---
+kWeighted = useKalman ? f_kalman(kLine, wmaLen) : ta.wma(kLine, wmaLen)
+
+// --- Plotting ---
+plot(kLine, title="%K", color=color.white, linewidth=2)
+plot(dLine, title="%D", color=color.red, linewidth=2)
+plot(kWeighted, title="Weighted K", color=color.lime, linewidth=2)    
+hline(180, "Overbought", color=color.red, linestyle=hline.style_dashed, linewidth=2)
+hline(120, "Oversold", color=color.green, linestyle=hline.style_dashed, linewidth=2)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Section 3
+// This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International
+// © LuxAlgo
+// This is the presentation on 200 - 300 scale
+////////////////////////////////////////////////////////////////////////////////////////////
+
+length = input.int(14, minval = 2)
+smoType1 = input.string('RMA', 'Method', options = ['EMA', 'SMA', 'RMA', 'TMA', 'Kalman'])
+src = composite_ma
+
+arsiCss = input(color.silver, 'Color', inline = 'rsicss')
+autoCss = input(true, 'Auto', inline = 'rsicss')
+
+//Signal Line
+smooth = input.int(14, minval = 1, group = 'Signal Line')
+smoType2 = input.string('EMA', 'Method', options = ['EMA', 'SMA', 'RMA', 'TMA', 'Kalman'], group = 'Signal Line')
+
+signalCss = input(color.blue, 'Color', group = 'Signal Line')
+
+//OB/OS Style
+obValue = input.float(280, 'Overbought', inline = 'ob', group = 'OB/OS Style')
+obCss = input(#089981, '', inline = 'ob', group = 'OB/OS Style')
+obAreaCss = input(color.new(#089981, 80), '', inline = 'ob', group = 'OB/OS Style')
+
+osValue = input.float(220, 'Oversold    ', inline = 'os', group = 'OB/OS Style')
+osCss = input(#f23645, '', inline = 'os', group = 'OB/OS Style')
+osAreaCss = input(color.new(#f23645, 80), '', inline = 'os', group = 'OB/OS Style')
+
+//Functions
+ma(x, len, maType) =>
+    switch maType
+        'EMA' => ta.ema(x, len)
+        'SMA' => ta.sma(x, len)
+        'RMA' => ta.rma(x, len)
+        'TMA' => ta.sma(ta.sma(x, len), len)
+        'Kalman' => f_kalman(x, len)
+
+//Augmented RSI
+upper = ta.highest(src, length)
+lower = ta.lowest(src, length)
+r = upper - lower
+
+d = src - src[1]
+
+diff = upper > upper[1] ? r : lower < lower[1] ? -r : d
+
+num = ma(diff, length, smoType1)
+den = ma(math.abs(diff), length, smoType1)
+
+// Bound the result strictly to the 200-300 range to prevent float-explosion if den ~ 0
+arsi_raw = den != 0 ? (num / den * 50 + 50 + 200) : 250
+arsi = math.max(200, math.min(arsi_raw, 300))
+
+signal = ma(arsi, smooth, smoType2)
+
+//Plots
+plot_rsi = plot(arsi, 'Ultimate RSI', arsi > obValue ? obCss : arsi < osValue ? osCss : autoCss ? chart.fg_color : arsiCss, linewidth=2)
+
+plot(signal, 'Signal Line', signalCss, linewidth=2)
+
+//Levels
+plot_up = plot(obValue, color = na, editable = false)
+plot_avg = plot(250, color = na, editable = false)
+plot_dn = plot(osValue, color = na, editable = false)
+
+//OB-OS
+fill(plot_rsi, plot_up, arsi > obValue ? obAreaCss : na)
+fill(plot_dn, plot_rsi, arsi < osValue ? osAreaCss : na)
+
+//Gradient
+fill(plot_rsi, plot_avg, obValue, 50, obAreaCss, color.new(chart.bg_color, 100))
+fill(plot_avg, plot_rsi, 50, osValue, color.new(chart.bg_color, 100), osAreaCss)
+
+hline(obValue, 'Overbought', color=color.red, linestyle=hline.style_dashed, linewidth=2)
+hline(250, 'Midline', color=color.gray, linestyle=hline.style_dashed)
+hline(osValue, 'Oversold', color=color.green, linestyle=hline.style_dashed, linewidth=2)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Section 4
+// This is the presentation on 300 - 400 scale
+// © Zeiierman
+// Updated by: ChaosTrader63
+////////////////////////////////////////////////////////////////////////////////////////////
+
+//──────────────────────────────────────────────────────────────
+// RTI Calculation
+// In place of close use: composite_ma
+//──────────────────────────────────────────────────────────────
+composite_ma300 = composite_ma + 300
+
+// Inputs
+groupMTF = "Multi-Timeframe Settings"
+rtiTimeframe = input.timeframe("", "RTI Timeframe", group=groupMTF, tooltip="Leave blank to use the chart timeframe.")
+
+groupRTI = "Relative Trend Index [RTI]"
+trend_data_count             = input.int(100, step=4, minval=10, title="Trend Length", inline="RT", group=groupRTI)
+trend_sensitivity_percentage = input.int(95, step=1, minval=50, maxval=98, title="Sensitivity", group=groupRTI)
+
+groupSig = "Signal Line"
+signal_length = input.int(20, step=1, minval=1, maxval=200, title="Signal Length (EMA)", group=groupSig)
+useKalmanRTI = input.bool(false, title="Use Kalman for RTI Signal", group=groupSig)
+
+groupOBOS = "Overbought/Oversold (300-400 Scale)"
+ob = input.float(380, step=1, minval=300, maxval=400, title="Overbought", inline="obos", group=groupOBOS)
+os = input.float(320, step=1, minval=300, maxval=400, title="Oversold", inline="obos", group=groupOBOS)
+
+groupColors = "Colors"
+colorMode = input.string("RTI vs MA", "RTI Color Mode", options=["RTI vs MA", "RTI vs 350"], group=groupColors)
+colBull = input.color(#00C853, "Bull Color", group=groupColors)
+colBear = input.color(#D50000, "Bear Color", group=groupColors)
+maColor = input.color(#00bcd4, "MA Color", group=groupColors)
+
+groupBars = "Price Bars"
+colorBars = input.bool(true, "Color Price Bars to Match RTI", group=groupBars)
+
+// RTI Function
+f_rti(_src, _trendLen, _sensitivity, _signalLen) =>
+    upper_trend = _src + ta.stdev(_src, 2)
+    lower_trend = _src - ta.stdev(_src, 2)
+
+    upper_array = array.new<float>(0)
+    lower_array = array.new<float>(0)
+
+    for i = 0 to _trendLen - 1
+        array.push(upper_array, upper_trend[i])
+        array.push(lower_array, lower_trend[i])
+
+    array.sort(upper_array)
+    array.sort(lower_array)
+
+    upper_index = math.round(_sensitivity / 100 * _trendLen) - 1
+    lower_index = math.round((100 - _sensitivity) / 100 * _trendLen) - 1
+
+    upper_index := math.max(0, math.min(upper_index, _trendLen - 1))
+    lower_index := math.max(0, math.min(lower_index, _trendLen - 1))
+
+    UpperTrend = array.get(upper_array, upper_index)
+    LowerTrend = array.get(lower_array, lower_index)
+
+    rangeRTI = UpperTrend - LowerTrend
+
+    // Scale mapped to 300 - 400 and strictly bounded
+    RelativeTrendIndex_raw = rangeRTI != 0 ? (((_src - LowerTrend) / rangeRTI) * 100) + 300 : 350
+    RelativeTrendIndex = math.max(300, math.min(RelativeTrendIndex_raw, 400))
+
+    MA_RelativeTrendIndex = useKalmanRTI ? f_kalman(RelativeTrendIndex, _signalLen) : ta.ema(RelativeTrendIndex, _signalLen)
+
+    [RelativeTrendIndex, MA_RelativeTrendIndex]
+
+// MTF Calculation
+selectedTf = rtiTimeframe == "" ? timeframe.period : rtiTimeframe
+
+[RelativeTrendIndex, MA_RelativeTrendIndex] = request.security(
+     syminfo.tickerid,
+     selectedTf,
+     f_rti(composite_ma300, trend_data_count, trend_sensitivity_percentage, signal_length),
+     gaps=barmerge.gaps_off,
+     lookahead=barmerge.lookahead_off)
+
+// Coloring Modes
+bool isBull = colorMode == "RTI vs MA" ? RelativeTrendIndex > MA_RelativeTrendIndex : RelativeTrendIndex >= 350
+rtiColor = isBull ? colBull : colBear
+
+// Plots
+RT = plot(RelativeTrendIndex, "MTF Relative Trend Index (RTI)", color=rtiColor, linewidth=2)
+plot(MA_RelativeTrendIndex, "MTF MA of RTI", color=color.new(maColor, 0), linewidth=2)
+
+// Lines
+mid        = hline(350, "Mid", color=#606060, linestyle=hline.style_dashed)
+overbought = hline(ob, "Overbought", color=color.red, linestyle=hline.style_dashed, linewidth=2)
+oversold   = hline(os, "Oversold", color=color.green, linestyle=hline.style_dashed, linewidth=2)
+
+// BG Fill
+fill(overbought, oversold, color=color.new(color.teal, 90), title="Background")
+
+// Overbought/Oversold Gradient Fill
+midLinePlot = plot(350, color=na, editable=false, display=display.none)
+
+fill(RT, midLinePlot, 400, ob, top_color=color.new(color.green, 0), bottom_color=color.new(color.green, 100), title="Overbought Gradient Fill")
+fill(RT, midLinePlot, os, 300, top_color=color.new(color.red, 100), bottom_color=color.new(color.red, 0), title="Oversold Gradient Fill")
+
+// Price Bar Coloring
+barcolor(colorBars ? rtiColor : na)
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Section 5
+// DONCHIAN TREND RIBBON (Top Section: 200-250)
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// Inputs
+dlen = input.int(20, "Base Donchian Period", minval = 10)
+
+// Helper function to get trend for a specific length
+get_trend(len) =>
+    var int trend = 0
+    float hh = ta.highest(high, len)[1]
+    float ll = ta.lowest(low, len)[1]
+    trend := close > hh ? 1 : close < ll ? -1 : nz(trend)
+    trend
+
+// 1. Calculate Main Trend
+maintrend = get_trend(dlen)
+
+// 2. Aggregate Trends from 10 different periods
+int agree_count = 0
+for i = 0 to 9
+    current_len = dlen - i
+    if get_trend(current_len) == maintrend
+        agree_count += 1
+
+// 3. Dynamic Color Logic
+int dynamic_transp = 100 - (agree_count * 7) // Scale from ~100 down to 30
+
+color bg_color = na
+if maintrend == 1
+    bg_color := color.new(#006aff, dynamic_transp)
+else if maintrend == -1
+    bg_color := color.new(#ffae00, dynamic_transp)
+
+// Output
+bgcolor(bg_color)
