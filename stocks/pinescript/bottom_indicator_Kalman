@@ -1,5 +1,8 @@
-// Bottom indicator Kalman as of 21st May 2026
+// Bottom indicator Kalman as of 24th May 2026
 
+// VinAI MTF Grand Composite Score - Kalman Integrated
+
+// Bottom indicator Kalman as of 21st May 2026
 // VinAI MTF Grand Composite Score - Kalman Integrated
 
 //@version=6
@@ -13,6 +16,19 @@ useKalman = input.bool(false, title="Enable Kalman Filter Smoothing", group=grp_
 useAdaptive = input.bool(false, title="Use Volume-Adaptive Kalman", group=grp_smooth, tooltip="Dynamically adjusts Kalman speed based on Relative Volume (faster on high volume).")
 
 // ────────────────────────────────────────────────
+// Velocity Settings (0-100 Scale)
+// ────────────────────────────────────────────────
+grp_vel = "Velocity Settings (0-100 Scale)"
+displayMode = input.string("RSI of Velocity", "Display Mode", options=["Raw Velocity", "RSI of Velocity"], group=grp_vel)
+showVel = input.bool(true, "Show Velocity RSI 0-100", group=grp_vel)
+rsiLenStacked = input.int(30, "RSI Length (Velocity)", minval=1, group=grp_vel)
+wmaLenStacked = input.int(21, "WMA Length (Velocity)", minval=1, group=grp_vel)
+zLen = input.int(50, "Z-Score Lookback", minval=20, group=grp_vel)
+zScale = input.float(18, "Z-Score Visual Scale", minval=5.0, maxval=30.0, group=grp_vel)
+volCap = input.float(2.5, "Max Volume Cap", step=0.1, group=grp_vel)
+kalmanLength = input.int(11, "Kalman Length (Velocity)", minval=1, group=grp_vel)
+
+// ────────────────────────────────────────────────
 // Kalman Filter Implementation
 // ────────────────────────────────────────────────
 f_kalman(src, base_length) =>
@@ -23,11 +39,11 @@ f_kalman(src, base_length) =>
         rvol_capped = math.max(0.5, math.min(rvol, 2.5)) // Cap RVOL between 0.5x and 2.5x
         adaptive_length = math.max(1.0, base_length / rvol_capped)
         gain := 2.0 / (adaptive_length + 1.0)
-        
+
     // Use critically damped parameters to prevent overshoot (ringing)
     float alpha = math.min(math.max(gain, 0.001), 0.999)
     float beta = 2.0 - alpha - 2.0 * math.sqrt(1.0 - alpha)
-        
+
     var float kf = na
     var float velo = 0.0
     if na(kf)
@@ -39,6 +55,27 @@ f_kalman(src, base_length) =>
         kf := smooth + velo
     kf
 
+f_kalman_kinematics(src, base_length) =>
+    float gain = 2.0 / (math.max(base_length, 1.0) + 1.0)
+    if useAdaptive
+        vol_ma = ta.sma(volume, 20)
+        rvol = vol_ma > 0 ? volume / vol_ma : 1.0
+        rvol_capped = math.max(0.5, math.min(rvol, volCap))
+        adaptive_length = math.max(1.0, base_length / rvol_capped)
+        gain := 2.0 / (adaptive_length + 1.0)
+    float alpha = math.min(math.max(gain, 0.001), 0.999)
+    beta = 2 - alpha - 2 * math.sqrt(1 - alpha)
+    var float kf = na
+    var float velo = 0.0
+    if na(kf)
+        kf := src
+    else
+        dk = src - nz(kf[1], src)
+        smooth = nz(kf[1], src) + alpha * dk
+        velo := nz(velo[1], 0.0) + beta * dk
+        kf := smooth + velo
+    [kf, velo]
+
 // ────────────────────────────────────────────────
 // Helper Function: The MTF Composite Trend Score Logic
 // Applied dynamically to any volume line (OBV, MFI, etc.)
@@ -49,16 +86,22 @@ evaluate_line_trend(val) =>
     trend = val > sma50 ? 1 : val < sma50 ? -1 : 0
 
     score = 0.0
+    // Evaluate stateful functions OUTSIDE the if-block to prevent buffer inconsistencies
+    ph = ta.pivothigh(val, 5, 5)
+    pl = ta.pivotlow(val, 5, 5)
+    ph0 = ta.valuewhen(not na(ph), ph, 0)
+    ph1 = ta.valuewhen(not na(ph), ph, 1)
+    pl0 = ta.valuewhen(not na(pl), pl, 0)
+    pl1 = ta.valuewhen(not na(pl), pl, 1)
+
+    // And RSI divergence
+    val_rsi = ta.rsi(val, 14)
+    rsi_ph0 = ta.valuewhen(not na(ph), val_rsi[5], 0)
+    rsi_ph1 = ta.valuewhen(not na(ph), val_rsi[5], 1)
+    rsi_pl0 = ta.valuewhen(not na(pl), val_rsi[5], 0)
+    rsi_pl1 = ta.valuewhen(not na(pl), val_rsi[5], 1)
+
     if trend != 0
-        // Pivots on the indicator line (5 bars left/right)
-        ph = ta.pivothigh(val, 5, 5)
-        pl = ta.pivotlow(val, 5, 5)
-
-        ph0 = ta.valuewhen(not na(ph), ph, 0)
-        ph1 = ta.valuewhen(not na(ph), ph, 1)
-        pl0 = ta.valuewhen(not na(pl), pl, 0)
-        pl1 = ta.valuewhen(not na(pl), pl, 1)
-
         // Pillar 1: Structure (Staircase / Continuation)
         staircase_up = not na(ph0) and not na(ph1) and not na(pl0) and not na(pl1) and ph0 > ph1 and pl0 > pl1
         staircase_down = not na(ph0) and not na(ph1) and not na(pl0) and not na(pl1) and ph0 < ph1 and pl0 < pl1
@@ -78,13 +121,6 @@ evaluate_line_trend(val) =>
             score += 1.0
 
         // Pillar 3: No Exhaustion (RSI Divergence on the indicator line itself)
-        val_rsi = ta.rsi(val, 14)
-        // Check RSI at the exact moment the pivot was formed (5 bars ago)
-        rsi_ph0 = ta.valuewhen(not na(ph), val_rsi[5], 0)
-        rsi_ph1 = ta.valuewhen(not na(ph), val_rsi[5], 1)
-        rsi_pl0 = ta.valuewhen(not na(pl), val_rsi[5], 0)
-        rsi_pl1 = ta.valuewhen(not na(pl), val_rsi[5], 1)
-
         bear_div = not na(ph1) and ph0 > ph1 and rsi_ph0 < rsi_ph1
         bull_div = not na(pl1) and pl0 < pl1 and rsi_pl0 > rsi_pl1
         if (trend == 1 and not bear_div) or (trend == -1 and not bull_div)
@@ -131,7 +167,6 @@ calc_tf_score() =>
 
     // Combine the 7 individual parameter scores into 1 unified score for this timeframe
     s1 + s2 + s3 + s4 + s5 + s6 + s7
-    s7
 
 // ────────────────────────────────────────────────
 // Multi-Timeframe Aggregation (Combine all TF scores into 1 Grand Composite)
@@ -157,37 +192,45 @@ rsi_composite = ta.rsi(composite_ma, 30)
 rsi_composite_ma = useKalman ? f_kalman(rsi_composite, 21) : ta.wma(rsi_composite, 21)
 
 // ────────────────────────────────────────────────
-// Visualization
-// Generate an RSI from the raw s7 composite - which is based on close price
-// This is the presentation on 0 - 100 scale
+// Visualization: 0 - 100 Scale (Velocity Representation)
 // ────────────────────────────────────────────────
+[kf_line, velocity] = f_kalman_kinematics(grand_composite, kalmanLength)
 
-s7_ma = useKalman ? f_kalman(composite_s7, 11) : ta.wma(composite_s7, 11)
-rsi_s7_ma = ta.rsi(s7_ma, 30)
-rsi_s7_ma_ma = useKalman ? f_kalman(rsi_s7_ma, 21) : ta.wma(rsi_s7_ma, 21)
+vel_rsi = ta.rsi(velocity, rsiLenStacked)
+vel_z = (vel_rsi - ta.sma(vel_rsi, zLen)) / math.max(ta.stdev(vel_rsi, zLen), 0.0001)
+vel_scaled = displayMode == "Raw Velocity" ? velocity : vel_rsi 
 
-plot(rsi_s7_ma, title="RSI of Close composite ma", color=color.yellow, linewidth=2)
-plot(rsi_s7_ma_ma, title="MA of RSI Close composite ma", color=color.blue, linewidth=2)
+// Reference Zones (0-100 Scale)
+hline(20, "Oversold", color=color.red, linestyle=hline.style_dashed, linewidth=1)
+hline(50, "Midline", color=color.gray, linestyle=hline.style_dashed, linewidth=1)
+hline(80, "Overbought", color=color.green, linestyle=hline.style_dashed, linewidth=1)
 
-// Reference Zones
-h_ob = hline(80, "Upper Exhaustion", color=color.red, linestyle=hline.style_dashed, linewidth=2)
-h_mid = hline(50, "Midline", color=color.gray, linestyle=hline.style_dashed)
-h_os = hline(20, "Lower Peak", color=color.green, linestyle=hline.style_dashed, linewidth=2)
+// Velocity Band (0-100)
+p_vel = plot(showVel ? vel_scaled : na, "Velocity", color=color.yellow, linewidth=2)
+vel_wma_plot = ta.wma(vel_scaled, wmaLenStacked)
+p_vel_wma = plot(showVel ? vel_wma_plot : na, "Vel WMA", color=color.blue, linewidth=2)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-// Section 1a
-// ──────────────────────
-// NEW: 1‑hour **price RSI** (orange)
-// ──────────────────────
-// This is the presentation on 0 - 100 scale
-////////////////////////////////////////////////////////////////////////////////////////////
+fill_vel_color = vel_scaled > vel_wma_plot ? color.new(color.green, 65) : color.new(color.red, 65)
+fill(p_vel, p_vel_wma, color=fill_vel_color, title="Velocity Deviation")
 
-rsi_1h = request.security(syminfo.tickerid, "60", ta.rsi(s7_ma, 11))
-plot(rsi_1h,
-     title = "RSI (1 h)",
-     color = color.new(color.orange, 0),
-     linewidth = 2,
-     style = plot.style_line)
+vel_z_scaled = 50 + (vel_z * zScale)
+plot(showVel ? vel_z_scaled : na, "Vel Z-Score", color=color.new(color.white, 35), linewidth=1, style=plot.style_circles)
+
+// ────────────────────────────────────────────────
+// Exhaustion Labels on Velocity Band
+// ────────────────────────────────────────────────
+vel_mid = 50
+bull_ex = ta.crossover(vel_scaled, ta.wma(vel_scaled, wmaLenStacked)) and vel_scaled < vel_mid   
+bear_ex = ta.crossunder(vel_scaled, ta.wma(vel_scaled, wmaLenStacked)) and vel_scaled > vel_mid
+
+plotshape(showVel and bull_ex ? vel_scaled : na, title="Bull Exhaustion", 
+     style=shape.triangleup, location=location.absolute, 
+     color=color.new(color.green, 0), size=size.tiny, text="EX", textcolor=color.white)
+
+plotshape(showVel and bear_ex ? vel_scaled : na, title="Bear Exhaustion", 
+     style=shape.triangledown, location=location.absolute, 
+     color=color.new(color.red, 0), size=size.tiny, text="EX", textcolor=color.white)
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Section 2
@@ -389,6 +432,7 @@ plot(MA_RelativeTrendIndex, "MTF MA of RTI", color=color.new(maColor, 0), linewi
 // Lines
 mid        = hline(350, "Mid", color=#606060, linestyle=hline.style_dashed)
 overbought = hline(ob, "Overbought", color=color.red, linestyle=hline.style_dashed, linewidth=2)
+
 oversold   = hline(os, "Oversold", color=color.green, linestyle=hline.style_dashed, linewidth=2)
 
 // BG Fill
